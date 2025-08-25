@@ -13853,16 +13853,17 @@ _ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i.i21: ; preds 
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i13, i64 %.sroa.2.0.copyload.i.i15
   %220 = getelementptr inbounds i8, ptr %219, i64 -8
   %.0.copyload.i.i.i22 = load i64, ptr %220, align 1
+  %.0.copyload.i.i.i22.fr = freeze i64 %.0.copyload.i.i.i22
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i13.i16, i64 %.sroa.2.0.copyload.i15.i18
   %222 = getelementptr inbounds i8, ptr %221, i64 -8
   %.0.copyload.i18.i.i23 = load i64, ptr %222, align 1
-  %223 = icmp ugt i64 %.0.copyload.i.i.i22, %.0.copyload.i18.i.i23
+  %.0.copyload.i18.i.i23.fr = freeze i64 %.0.copyload.i18.i.i23
+  %223 = icmp ugt i64 %.0.copyload.i.i.i22.fr, %.0.copyload.i18.i.i23.fr
   br i1 %223, label %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit27.thread, label %224
 
 224:                                              ; preds = %218
-  %225 = icmp ult i64 %.0.copyload.i.i.i22, %.0.copyload.i18.i.i23
-  %.fr = freeze i1 %225
-  %spec.select.i.i24 = zext i1 %.fr to i32
+  %225 = icmp ult i64 %.0.copyload.i.i.i22.fr, %.0.copyload.i18.i.i23.fr
+  %spec.select.i.i24 = zext i1 %225 to i32
   br label %_ZNK7rocksdb15MergingIterator21MinHeapItemComparatorclEPNS0_8HeapItemES3_.exit27
 
 226:                                              ; preds = %197

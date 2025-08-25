@@ -2123,222 +2123,222 @@ bio_wait.exit:                                    ; preds = %9
 define i32 @BIO_do_connect_retry(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
   %7 = tail call i64 @time(ptr noundef null) #14
   %8 = zext nneg i32 %1 to i64
-  %9 = add nsw i64 %7, %8
-  %10 = freeze i64 %9
-  br label %11
+  %.fr = freeze i64 %7
+  %9 = add i64 %.fr, %8
+  br label %10
 
-11:                                               ; preds = %3, %6
-  %.fr57 = phi i64 [ %10, %6 ], [ 0, %3 ]
-  %12 = icmp eq ptr %0, null
-  br i1 %12, label %13, label %14
+10:                                               ; preds = %3, %6
+  %.fr57 = phi i64 [ %9, %6 ], [ 0, %3 ]
+  %11 = icmp eq ptr %0, null
+  br i1 %11, label %12, label %13
 
-13:                                               ; preds = %11
+12:                                               ; preds = %10
   tail call void @ERR_new() #14
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1026, ptr noundef nonnull @__func__.BIO_do_connect_retry) #14
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 786690, ptr noundef null) #14
   br label %.thread
 
-14:                                               ; preds = %11
-  %15 = icmp slt i32 %2, 0
-  %spec.store.select = select i1 %15, i32 100, i32 %2
-  %16 = zext i1 %5 to i64
-  %17 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 102, i64 noundef %16, ptr noundef null)
-  %18 = tail call i32 @ERR_set_mark() #14
-  %19 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
-  %20 = trunc i64 %19 to i32
-  %21 = icmp slt i32 %20, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge
+13:                                               ; preds = %10
+  %14 = icmp slt i32 %2, 0
+  %spec.store.select = select i1 %14, i32 100, i32 %2
+  %15 = zext i1 %5 to i64
+  %16 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 102, i64 noundef %15, ptr noundef null)
+  %17 = tail call i32 @ERR_set_mark() #14
+  %18 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
+  %19 = trunc i64 %18 to i32
+  %20 = icmp slt i32 %19, 1
+  br i1 %20, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = icmp sgt i32 %1, -1
-  %24 = zext nneg i32 %spec.store.select to i64
+.lr.ph:                                           ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %22 = icmp sgt i32 %1, -1
+  %23 = zext nneg i32 %spec.store.select to i64
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 1000)
-  br i1 %23, label %.lr.ph.split, label %.lr.ph.split.us
+  br i1 %22, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %25 = tail call i64 @ERR_peek_last_error() #14
-  %26 = and i64 %25, 2147483648
-  %.not.i.us = icmp eq i64 %26, 0
-  %27 = trunc i64 %25 to i32
-  %.mask.us = and i32 %27, -8388608
-  %28 = icmp eq i32 %.mask.us, 268435456
-  %29 = and i1 %.not.i.us, %28
-  br i1 %29, label %30, label %.split.us
+  %24 = tail call i64 @ERR_peek_last_error() #14
+  %25 = and i64 %24, 2147483648
+  %.not.i.us = icmp eq i64 %25, 0
+  %26 = trunc i64 %24 to i32
+  %.mask.us = and i32 %26, -8388608
+  %27 = icmp eq i32 %.mask.us, 268435456
+  %28 = and i1 %.not.i.us, %27
+  br i1 %28, label %29, label %.split.us
 
-30:                                               ; preds = %.lr.ph.split.us
-  %.0.i.us = and i32 %27, 8388607
+29:                                               ; preds = %.lr.ph.split.us
+  %.0.i.us = and i32 %26, 8388607
   switch i32 %.0.i.us, label %.split.us [
-    i32 524290, label %31
-    i32 103, label %31
-    i32 110, label %31
+    i32 524290, label %30
+    i32 103, label %30
+    i32 110, label %30
   ]
 
-31:                                               ; preds = %30, %30, %30
-  %32 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
+30:                                               ; preds = %29, %29, %29
+  %31 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
   br label %.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %33 = icmp eq i64 %.fr57, 0
-  br i1 %33, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %32 = icmp eq i64 %.fr57, 0
+  br i1 %32, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %bio_wait.exit.thread.us
-  %34 = tail call i64 @ERR_peek_last_error() #14
-  %35 = and i64 %34, 2147483648
-  %.not.i.us51 = icmp eq i64 %35, 0
-  %36 = trunc i64 %34 to i32
-  %37 = load i32, ptr %22, align 8, !tbaa !27
-  %38 = and i32 %37, 8
-  %.mask.us52 = and i32 %36, -8388608
-  %39 = icmp eq i32 %.mask.us52, 268435456
-  %40 = and i1 %.not.i.us51, %39
-  br i1 %40, label %41, label %43
+  %33 = tail call i64 @ERR_peek_last_error() #14
+  %34 = and i64 %33, 2147483648
+  %.not.i.us51 = icmp eq i64 %34, 0
+  %35 = trunc i64 %33 to i32
+  %36 = load i32, ptr %21, align 8, !tbaa !27
+  %37 = and i32 %36, 8
+  %.mask.us52 = and i32 %35, -8388608
+  %38 = icmp eq i32 %.mask.us52, 268435456
+  %39 = and i1 %.not.i.us51, %38
+  br i1 %39, label %40, label %42
 
-41:                                               ; preds = %.lr.ph.split.split.us
-  %.0.i.us53 = and i32 %36, 8388607
-  switch i32 %.0.i.us53, label %43 [
+40:                                               ; preds = %.lr.ph.split.split.us
+  %.0.i.us53 = and i32 %35, 8388607
+  switch i32 %.0.i.us53, label %42 [
     i32 524290, label %.thread76
     i32 103, label %.thread76
     i32 110, label %.thread76
   ]
 
-.thread76:                                        ; preds = %41, %41, %41
-  %42 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
+.thread76:                                        ; preds = %40, %40, %40
+  %41 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
   br label %bio_wait.exit.thread.us
 
-43:                                               ; preds = %41, %.lr.ph.split.split.us
-  %.not58 = icmp eq i32 %38, 0
+42:                                               ; preds = %40, %.lr.ph.split.split.us
+  %.not58 = icmp eq i32 %37, 0
   br i1 %.not58, label %.split.us, label %bio_wait.exit.thread.us
 
-bio_wait.exit.thread.us:                          ; preds = %.thread76, %43
-  %44 = tail call i32 @ERR_pop_to_mark() #14
-  %45 = tail call i32 @ERR_set_mark() #14
-  %46 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
-  %47 = trunc i64 %46 to i32
-  %48 = icmp slt i32 %47, 1
-  br i1 %48, label %.lr.ph.split.split.us, label %._crit_edge
+bio_wait.exit.thread.us:                          ; preds = %.thread76, %42
+  %43 = tail call i32 @ERR_pop_to_mark() #14
+  %44 = tail call i32 @ERR_set_mark() #14
+  %45 = tail call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
+  %46 = trunc i64 %45 to i32
+  %47 = icmp slt i32 %46, 1
+  br i1 %47, label %.lr.ph.split.split.us, label %._crit_edge
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %88
-  %49 = call i64 @ERR_peek_last_error() #14
-  %50 = and i64 %49, 2147483648
-  %.not.i = icmp eq i64 %50, 0
-  %51 = trunc i64 %49 to i32
-  %52 = load i32, ptr %22, align 8, !tbaa !27
-  %53 = and i32 %52, 8
-  %.mask = and i32 %51, -8388608
-  %54 = icmp eq i32 %.mask, 268435456
-  %55 = and i1 %.not.i, %54
-  br i1 %55, label %56, label %58
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %87
+  %48 = call i64 @ERR_peek_last_error() #14
+  %49 = and i64 %48, 2147483648
+  %.not.i = icmp eq i64 %49, 0
+  %50 = trunc i64 %48 to i32
+  %51 = load i32, ptr %21, align 8, !tbaa !27
+  %52 = and i32 %51, 8
+  %.mask = and i32 %50, -8388608
+  %53 = icmp eq i32 %.mask, 268435456
+  %54 = and i1 %.not.i, %53
+  br i1 %54, label %55, label %57
 
-56:                                               ; preds = %.lr.ph.split.split
-  %.0.i = and i32 %51, 8388607
-  switch i32 %.0.i, label %58 [
+55:                                               ; preds = %.lr.ph.split.split
+  %.0.i = and i32 %50, 8388607
+  switch i32 %.0.i, label %57 [
     i32 524290, label %.thread79
     i32 103, label %.thread79
     i32 110, label %.thread79
   ]
 
-.thread79:                                        ; preds = %56, %56, %56
-  %57 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
-  br label %59
+.thread79:                                        ; preds = %55, %55, %55
+  %56 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 0, ptr noundef null)
+  br label %58
 
-58:                                               ; preds = %56, %.lr.ph.split.split
-  %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %.split.us, label %59
+57:                                               ; preds = %55, %.lr.ph.split.split
+  %.not = icmp eq i32 %52, 0
+  br i1 %.not, label %.split.us, label %58
 
-59:                                               ; preds = %.thread79, %58
-  %60 = call i32 @ERR_pop_to_mark() #14
+58:                                               ; preds = %.thread79, %57
+  %59 = call i32 @ERR_pop_to_mark() #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %61 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %4)
-  %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %63, label %69
+  %60 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %4)
+  %61 = icmp sgt i64 %60, 0
+  br i1 %61, label %62, label %68
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr %4, align 4, !tbaa !53
-  %65 = load i32, ptr %22, align 8, !tbaa !27
-  %66 = and i32 %65, 1
-  %67 = call i32 @BIO_socket_wait(i32 noundef %64, i32 noundef %66, i64 noundef %.fr57) #14
-  %68 = freeze i32 %67
-  %.not.i36 = icmp eq i32 %68, -1
-  br i1 %.not.i36, label %69, label %bio_wait.exit
+62:                                               ; preds = %58
+  %63 = load i32, ptr %4, align 4, !tbaa !53
+  %64 = load i32, ptr %21, align 8, !tbaa !27
+  %65 = and i32 %64, 1
+  %66 = call i32 @BIO_socket_wait(i32 noundef %63, i32 noundef %65, i64 noundef %.fr57) #14
+  %67 = freeze i32 %66
+  %.not.i36 = icmp eq i32 %67, -1
+  br i1 %.not.i36, label %68, label %bio_wait.exit
 
-69:                                               ; preds = %63, %59
-  %70 = call i64 @time(ptr noundef null) #14
-  %71 = sub nsw i64 %.fr57, %70
-  %72 = icmp slt i64 %71, 0
-  br i1 %72, label %bio_wait.exit.thread38, label %73
+68:                                               ; preds = %62, %58
+  %69 = call i64 @time(ptr noundef null) #14
+  %70 = sub nsw i64 %.fr57, %69
+  %71 = icmp slt i64 %70, 0
+  br i1 %71, label %bio_wait.exit.thread38, label %72
 
-bio_wait.exit.thread38:                           ; preds = %69
+bio_wait.exit.thread38:                           ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-73:                                               ; preds = %69
-  %74 = icmp eq i64 %.fr57, %70
-  br i1 %74, label %bio_wait.exit.thread, label %75
+72:                                               ; preds = %68
+  %73 = icmp eq i64 %.fr57, %69
+  br i1 %73, label %bio_wait.exit.thread, label %74
 
-75:                                               ; preds = %73
-  %76 = mul i64 %71, 1000
-  %77 = icmp ult i64 %76, %24
-  br i1 %77, label %78, label %bio_wait.exit.thread
+74:                                               ; preds = %72
+  %75 = mul i64 %70, 1000
+  %76 = icmp ult i64 %75, %23
+  br i1 %76, label %77, label %bio_wait.exit.thread
 
-78:                                               ; preds = %75
-  %79 = trunc i64 %71 to i32
-  %80 = mul i32 %79, 1000
+77:                                               ; preds = %74
+  %78 = trunc i64 %70 to i32
+  %79 = mul i32 %78, 1000
   br label %bio_wait.exit.thread
 
-bio_wait.exit.thread:                             ; preds = %73, %78, %75
-  %.016.i = phi i32 [ %80, %78 ], [ %spec.store.select, %75 ], [ %spec.store.select.i, %73 ]
-  %81 = zext i32 %.016.i to i64
-  call void @OSSL_sleep(i64 noundef %81) #14
+bio_wait.exit.thread:                             ; preds = %72, %77, %74
+  %.016.i = phi i32 [ %79, %77 ], [ %spec.store.select, %74 ], [ %spec.store.select.i, %72 ]
+  %80 = zext i32 %.016.i to i64
+  call void @OSSL_sleep(i64 noundef %80) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %88
+  br label %87
 
-bio_wait.exit:                                    ; preds = %63
+bio_wait.exit:                                    ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %82 = icmp sgt i32 %68, 0
-  br i1 %82, label %88, label %.loopexit
+  %81 = icmp sgt i32 %67, 0
+  br i1 %81, label %87, label %.loopexit
 
 .loopexit:                                        ; preds = %bio_wait.exit, %bio_wait.exit.thread38
-  %.0.i3540 = phi i32 [ 0, %bio_wait.exit.thread38 ], [ %68, %bio_wait.exit ]
+  %.0.i3540 = phi i32 [ 0, %bio_wait.exit.thread38 ], [ %67, %bio_wait.exit ]
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1069, ptr noundef nonnull @__func__.BIO_do_connect_retry) #14
-  %83 = icmp eq i32 %.0.i3540, 0
-  %spec.select = select i1 %83, i32 147, i32 103
+  %82 = icmp eq i32 %.0.i3540, 0
+  %spec.select = select i1 %82, i32 147, i32 103
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef %spec.select, ptr noundef null) #14
   br label %.thread
 
-.split.us:                                        ; preds = %58, %43, %31, %30, %.lr.ph.split.us
-  %.us-phi = phi i64 [ %25, %31 ], [ %25, %30 ], [ %25, %.lr.ph.split.us ], [ %34, %43 ], [ %49, %58 ]
-  %84 = call i32 @ERR_clear_last_mark() #14
-  %85 = and i64 %.us-phi, 4294967295
-  %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %.thread
+.split.us:                                        ; preds = %57, %42, %30, %29, %.lr.ph.split.us
+  %.us-phi = phi i64 [ %24, %30 ], [ %24, %29 ], [ %24, %.lr.ph.split.us ], [ %33, %42 ], [ %48, %57 ]
+  %83 = call i32 @ERR_clear_last_mark() #14
+  %84 = and i64 %.us-phi, 4294967295
+  %85 = icmp eq i64 %84, 0
+  br i1 %85, label %86, label %.thread
 
-87:                                               ; preds = %.split.us
+86:                                               ; preds = %.split.us
   call void @ERR_new() #14
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1075, ptr noundef nonnull @__func__.BIO_do_connect_retry) #14
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 103, ptr noundef null) #14
   br label %.thread
 
-88:                                               ; preds = %bio_wait.exit.thread, %bio_wait.exit
-  %89 = call i32 @ERR_set_mark() #14
-  %90 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
-  %91 = trunc i64 %90 to i32
-  %92 = icmp slt i32 %91, 1
-  br i1 %92, label %.lr.ph.split.split, label %._crit_edge
+87:                                               ; preds = %bio_wait.exit.thread, %bio_wait.exit
+  %88 = call i32 @ERR_set_mark() #14
+  %89 = call i64 @BIO_ctrl(ptr noundef nonnull %0, i32 noundef 101, i64 noundef 0, ptr noundef null)
+  %90 = trunc i64 %89 to i32
+  %91 = icmp slt i32 %90, 1
+  br i1 %91, label %.lr.ph.split.split, label %._crit_edge
 
-._crit_edge:                                      ; preds = %88, %bio_wait.exit.thread.us, %14
-  %.lcssa44 = phi i32 [ %20, %14 ], [ %47, %bio_wait.exit.thread.us ], [ %91, %88 ]
-  %93 = call i32 @ERR_clear_last_mark() #14
+._crit_edge:                                      ; preds = %87, %bio_wait.exit.thread.us, %13
+  %.lcssa44 = phi i32 [ %19, %13 ], [ %46, %bio_wait.exit.thread.us ], [ %90, %87 ]
+  %92 = call i32 @ERR_clear_last_mark() #14
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %87, %.split.us, %._crit_edge, %13
-  %.025 = phi i32 [ -1, %13 ], [ %.lcssa44, %._crit_edge ], [ -1, %.split.us ], [ -1, %87 ], [ %.0.i3540, %.loopexit ]
+.thread:                                          ; preds = %.loopexit, %86, %.split.us, %._crit_edge, %12
+  %.025 = phi i32 [ -1, %12 ], [ %.lcssa44, %._crit_edge ], [ -1, %.split.us ], [ -1, %86 ], [ %.0.i3540, %.loopexit ]
   ret i32 %.025
 }
 

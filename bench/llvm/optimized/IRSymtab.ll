@@ -1441,9 +1441,9 @@ _ZN4llvm6TripleD2Ev.exit.i.i.i:                   ; preds = %_ZNKSt7__cxx1112bas
 
 492:                                              ; preds = %_ZN4llvm6TripleD2Ev.exit.i.i.i, %479, %469
   %493 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %462) #20, !noalias !169
-  %.fr.i.i.i = freeze { ptr, i64 } %493
-  %494 = extractvalue { ptr, i64 } %.fr.i.i.i, 0
-  %495 = extractvalue { ptr, i64 } %.fr.i.i.i, 1
+  %.fr303.i.i.i = freeze { ptr, i64 } %493
+  %494 = extractvalue { ptr, i64 } %.fr303.i.i.i, 0
+  %495 = extractvalue { ptr, i64 } %.fr303.i.i.i, 1
   %496 = load ptr, ptr @_ZZN12_GLOBAL__N_17Builder9addSymbolERKN4llvm17ModuleSymbolTableERKNS1_11SmallPtrSetIPNS1_11GlobalValueELj4EEENS1_12PointerUnionIJS7_PSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEEE19PreservedSymbolsSet, align 8, !tbaa !195, !noalias !172
   %497 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_17Builder9addSymbolERKN4llvm17ModuleSymbolTableERKNS1_11SmallPtrSetIPNS1_11GlobalValueELj4EEENS1_12PointerUnionIJS7_PSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEEE19PreservedSymbolsSet, i64 16), align 8, !tbaa !198, !noalias !172
   %498 = icmp eq i32 %497, 0

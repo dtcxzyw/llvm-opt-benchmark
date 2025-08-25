@@ -6178,9 +6178,9 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @"_ZN108_$LT$core
   %13 = load i8, ptr %12, align 1, !range !246, !alias.scope !1374, !noalias !1377, !noundef !22
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %15 = load i8, ptr %14, align 8, !range !246, !alias.scope !1374, !noalias !1356
-  %.fr4.i.i.i.i.i = freeze i8 %15
-  %.fr4.masked.i.i.i.i.i = and i8 %.fr4.i.i.i.i.i, 1
-  %16 = or i8 %.fr4.masked.i.i.i.i.i, %13
+  %.fr.i.i.i.i.i = freeze i8 %15
+  %.fr.masked.i.i.i.i.i = and i8 %.fr.i.i.i.i.i, 1
+  %16 = or i8 %.fr.masked.i.i.i.i.i, %13
   %.not.i.i.i.i.i = icmp eq i8 %16, 0
   br i1 %.not.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator4find17h1e06e0ad07a6600eE.llvm.17673166239295528952.exit, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf1c70bb564d1da7E.exit.i.i.i"
 
@@ -6451,9 +6451,9 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @"_ZN108_$LT$core
   %14 = load i8, ptr %13, align 1, !range !246, !alias.scope !1471, !noalias !1474, !noundef !22
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %16 = load i8, ptr %15, align 8, !range !246, !alias.scope !1471, !noalias !1457
-  %.fr4.i.i.i = freeze i8 %16
-  %.fr4.masked.i.i.i = and i8 %.fr4.i.i.i, 1
-  %17 = or i8 %.fr4.masked.i.i.i, %14
+  %.fr.i.i.i = freeze i8 %16
+  %.fr.masked.i.i.i = and i8 %.fr.i.i.i, 1
+  %17 = or i8 %.fr.masked.i.i.i, %14
   %.not.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h07e6950373052e44E.llvm.17673166239295528952.exit, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf1c70bb564d1da7E.exit.i"
 
@@ -16199,9 +16199,9 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @_ZN4core4iter6tr
   %14 = load i8, ptr %13, align 1, !range !246, !alias.scope !4791, !noalias !4794, !noundef !22
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %16 = load i8, ptr %15, align 8, !range !246, !alias.scope !4791, !noalias !4775
-  %.fr4.i.i.i.i = freeze i8 %16
-  %.fr4.masked.i.i.i.i = and i8 %.fr4.i.i.i.i, 1
-  %17 = or i8 %.fr4.masked.i.i.i.i, %14
+  %.fr.i.i.i.i = freeze i8 %16
+  %.fr.masked.i.i.i.i = and i8 %.fr.i.i.i.i, 1
+  %17 = or i8 %.fr.masked.i.i.i.i, %14
   %.not.i.i.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hcd9aa821fa8e427dE.llvm.17673166239295528952.exit", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf1c70bb564d1da7E.exit.i.i"
 
@@ -16678,9 +16678,9 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @_ZN4core4iter6tr
   %14 = load i8, ptr %13, align 1, !range !246, !alias.scope !5007, !noalias !5010, !noundef !22
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %16 = load i8, ptr %15, align 8, !range !246, !alias.scope !5007
-  %.fr4.i.i = freeze i8 %16
-  %.fr4.masked.i.i = and i8 %.fr4.i.i, 1
-  %17 = or i8 %.fr4.masked.i.i, %14
+  %.fr.i.i = freeze i8 %16
+  %.fr.masked.i.i = and i8 %.fr.i.i, 1
+  %17 = or i8 %.fr.masked.i.i, %14
   %.not.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i, label %"_ZN21uv_distribution_types9index_url14IndexLocations16implicit_indexes28_$u7b$$u7b$closure$u7d$$u7d$17h772bc1079d76153dE.exit.thread.i._crit_edge", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf1c70bb564d1da7E.exit"
 
@@ -33264,9 +33264,9 @@ define hidden noundef align 8 dereferenceable_or_null(144) ptr @"_ZN6either8iter
   %16 = load i8, ptr %15, align 1, !range !246, !alias.scope !7645, !noalias !7648, !noundef !22
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %18 = load i8, ptr %17, align 8, !range !246, !alias.scope !7645, !noalias !7625
-  %.fr4.i.i.i.i.i.i = freeze i8 %18
-  %.fr4.masked.i.i.i.i.i.i = and i8 %.fr4.i.i.i.i.i.i, 1
-  %19 = or i8 %.fr4.masked.i.i.i.i.i.i, %16
+  %.fr.i.i.i.i.i.i = freeze i8 %18
+  %.fr.masked.i.i.i.i.i.i = and i8 %.fr.i.i.i.i.i.i, 1
+  %19 = or i8 %.fr.masked.i.i.i.i.i.i, %16
   %.not.i.i.i.i.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i.i.i.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a109d7472e1e498E.llvm.17673166239295528952.exit", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbf1c70bb564d1da7E.exit.i.i.i.i"
 

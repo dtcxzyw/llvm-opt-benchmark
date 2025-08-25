@@ -998,6 +998,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h3117e7fe5c044c4eE(
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h35de6a067718c87aE(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef range(i64 0, 2) %2, i64 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca [16 x i8], align 8
+  %.fr = freeze i64 %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
   %8 = icmp sgt i64 %7, -1
@@ -1007,11 +1008,11 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h35de6a067718c87aE(
   br i1 %trunc, label %10, label %22
 
 10:                                               ; preds = %4
-  %11 = icmp ugt i64 %3, -1025
+  %11 = icmp ugt i64 %.fr, -1025
   br i1 %11, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread", label %12, !prof !3
 
 12:                                               ; preds = %10
-  %13 = add nuw i64 %3, 1024
+  %13 = add nuw i64 %.fr, 1024
   %14 = and i64 %13, 8191
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread91", label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit"
@@ -1019,8 +1020,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h35de6a067718c87aE(
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit": ; preds = %12
   %16 = sub nuw nsw i64 8192, %14
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %16)
-  %.fr = freeze { i64, i1 } %17
-  %18 = extractvalue { i64, i1 } %.fr, 1
+  %18 = extractvalue { i64, i1 } %17, 1
   %19 = add nuw i64 %16, %13
   br i1 %18, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread", label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread91"
 
@@ -1029,7 +1029,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h35de6a067718c87aE(
 
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread91": ; preds = %12, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit", %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread"
   %20 = phi i64 [ 8192, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread" ], [ %19, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit" ], [ %13, %12 ]
-  %21 = icmp eq i64 %3, 0
+  %21 = icmp eq i64 %.fr, 0
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %4, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17hfed63a6126bc6a40E.exit.thread91"
@@ -1156,7 +1156,7 @@ _ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread.thread: ; preds = %_ZN3
   %74 = load i64, ptr %6, align 8, !noundef !13
   %75 = icmp sgt i64 %74, -1
   call void @llvm.assume(i1 %75)
-  br label %.loopexit134
+  br label %.loopexit133
 
 76:                                               ; preds = %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit
   %77 = ptrtoint ptr %72 to i64
@@ -1223,7 +1223,7 @@ _ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread: ; preds = %._crit_edge
   %100 = add i64 %98, %70
   store i64 %100, ptr %6, align 8
   %101 = icmp eq ptr %.lcssa, null
-  br i1 %101, label %.loopexit134, label %108
+  br i1 %101, label %.loopexit133, label %108
 
 102:                                              ; preds = %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.6599896593330520474.exit, %79, %81, %85
   %103 = load i64, ptr %6, align 8, !noundef !13
@@ -1231,7 +1231,7 @@ _ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread: ; preds = %._crit_edge
   call void @llvm.assume(i1 %104)
   br label %.loopexit
 
-.loopexit134:                                     ; preds = %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread.thread
+.loopexit133:                                     ; preds = %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread.thread
   %105 = phi i64 [ %74, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread.thread ], [ %100, %_ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread ]
   %106 = icmp sgt i64 %105, -1
   call void @llvm.assume(i1 %106)
@@ -1260,9 +1260,9 @@ _ZN3std2io4Read8read_buf17hb1dae27afe5553c4E.exit.thread: ; preds = %._crit_edge
   %114 = ptrtoint ptr %49 to i64
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %.loopexit.split.loop.exit108, %102, %.loopexit134, %28, %52, %33
-  %.sroa.8.1 = phi i64 [ %32, %28 ], [ 0, %33 ], [ %54, %52 ], [ %107, %.loopexit134 ], [ %77, %102 ], [ %114, %.loopexit.split.loop.exit108 ], [ 163208757251, %55 ]
-  %.sroa.0.1 = phi i64 [ %30, %28 ], [ 0, %33 ], [ 0, %52 ], [ 0, %.loopexit134 ], [ 1, %102 ], [ 1, %.loopexit.split.loop.exit108 ], [ 1, %55 ]
+.loopexit:                                        ; preds = %55, %.loopexit.split.loop.exit108, %102, %.loopexit133, %28, %52, %33
+  %.sroa.8.1 = phi i64 [ %32, %28 ], [ 0, %33 ], [ %54, %52 ], [ %107, %.loopexit133 ], [ %77, %102 ], [ %114, %.loopexit.split.loop.exit108 ], [ 163208757251, %55 ]
+  %.sroa.0.1 = phi i64 [ %30, %28 ], [ 0, %33 ], [ 0, %52 ], [ 0, %.loopexit133 ], [ 1, %102 ], [ 1, %.loopexit.split.loop.exit108 ], [ 1, %55 ]
   %115 = inttoptr i64 %.sroa.8.1 to ptr
   %116 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %117 = insertvalue { i64, ptr } %116, ptr %115, 1

@@ -2732,12 +2732,12 @@ define hidden noundef i32 @_ZNK4ncnn24Deconvolution_x86_avx5127forwardERKNS_3Mat
 
 276:                                              ; preds = %273
   %277 = atomicrmw add ptr %275, i32 1 acq_rel, align 4
-  %.pre250 = load ptr, ptr %240, align 8, !tbaa !7
-  %.not.i.i = icmp eq ptr %.pre250, null
+  %.pre251 = load ptr, ptr %240, align 8, !tbaa !7
+  %.not.i.i = icmp eq ptr %.pre251, null
   br i1 %.not.i.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %278
 
 278:                                              ; preds = %276
-  %279 = atomicrmw add ptr %.pre250, i32 -1 acq_rel, align 4
+  %279 = atomicrmw add ptr %.pre251, i32 -1 acq_rel, align 4
   %280 = icmp eq i32 %279, 1
   br i1 %280, label %281, label %_ZN4ncnn3Mat7releaseEv.exit.i
 
@@ -2794,13 +2794,13 @@ _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %273, %288, %289, %2
   %308 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %309 = load i64, ptr %308, align 8, !tbaa !17
   store i64 %309, ptr %249, align 8, !tbaa !17
-  %.pre251 = load i32, ptr %174, align 4, !tbaa !92
+  %.pre252 = load i32, ptr %174, align 4, !tbaa !92
   br label %_ZN4ncnn3MataSERKS0_.exit.invoke
 
 _ZN4ncnn3MataSERKS0_.exit.invoke:                 ; preds = %271, %_ZN4ncnn3Mat7releaseEv.exit.i, %._crit_edge, %262
-  %.sink331 = phi i64 [ 16, %262 ], [ 16, %._crit_edge ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %271 ]
-  %310 = phi i32 [ %239, %262 ], [ %239, %._crit_edge ], [ %.pre251, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %239, %271 ]
-  %311 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink331
+  %.sink332 = phi i64 [ 16, %262 ], [ 16, %._crit_edge ], [ 8, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ 8, %271 ]
+  %310 = phi i32 [ %239, %262 ], [ %239, %._crit_edge ], [ %.pre252, %_ZN4ncnn3Mat7releaseEv.exit.i ], [ %239, %271 ]
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink332
   %312 = load ptr, ptr %311, align 8, !tbaa !93
   invoke void @_ZN4ncnn3Mat6createEiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %175, i32 noundef %211, i32 noundef %219, i32 noundef %310, i64 noundef %238, i32 noundef %.0147, ptr noundef %312)
           to label %313 unwind label %269
@@ -2874,13 +2874,13 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %313
 
 356:                                              ; preds = %328
   %357 = atomicrmw add ptr %332, i32 1 acq_rel, align 4
-  %.pre252 = load i32, ptr %182, align 4, !tbaa !50
-  %.pre253 = load i32, ptr %184, align 8, !tbaa !59
+  %.pre253 = load i32, ptr %182, align 4, !tbaa !50
+  %.pre254 = load i32, ptr %184, align 8, !tbaa !59
   br label %_ZN4ncnn3Mat6addrefEv.exit
 
 _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %356, %328
-  %358 = phi i32 [ %.pre253, %356 ], [ %346, %328 ]
-  %359 = phi i32 [ %.pre252, %356 ], [ %344, %328 ]
+  %358 = phi i32 [ %.pre254, %356 ], [ %346, %328 ]
+  %359 = phi i32 [ %.pre253, %356 ], [ %344, %328 ]
   %360 = mul nsw i32 %358, %359
   store i32 %360, ptr %343, align 4, !tbaa !50
   store i32 1, ptr %345, align 8, !tbaa !59
@@ -4084,10 +4084,11 @@ _ZNK4ncnn3Mat5emptyEv.exit218:                    ; preds = %789
   %793 = load i64, ptr %792, align 8, !tbaa !17
   %794 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %795 = load i32, ptr %794, align 8, !tbaa !61
-  %796 = sext i32 %795 to i64
-  %797 = mul i64 %793, %796
-  %.fr = freeze i64 %797
-  %798 = icmp eq i64 %.fr, 0
+  %.fr250 = freeze i32 %795
+  %796 = sext i32 %.fr250 to i64
+  %.fr = freeze i64 %793
+  %797 = mul i64 %.fr, %796
+  %798 = icmp eq i64 %797, 0
   br i1 %798, label %_ZNK4ncnn3Mat5emptyEv.exit218.thread, label %831
 
 _ZNK4ncnn3Mat5emptyEv.exit218.thread:             ; preds = %789, %_ZNK4ncnn3Mat5emptyEv.exit218

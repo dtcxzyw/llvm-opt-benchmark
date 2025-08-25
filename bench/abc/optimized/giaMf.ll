@@ -4568,7 +4568,7 @@ Mf_ManPrepareCuts.exit262:                        ; preds = %._crit_edge.i239, %
   br i1 %.not.i263, label %Gia_ObjFaninC2.exit, label %333
 
 333:                                              ; preds = %Mf_ManPrepareCuts.exit262.thread, %Mf_ManPrepareCuts.exit262
-  %.1.i2421237 = phi i32 [ 1, %Mf_ManPrepareCuts.exit262.thread ], [ %.1.i242, %Mf_ManPrepareCuts.exit262 ]
+  %.1.i2421236 = phi i32 [ 1, %Mf_ManPrepareCuts.exit262.thread ], [ %.1.i242, %Mf_ManPrepareCuts.exit262 ]
   %334 = phi ptr [ %275, %Mf_ManPrepareCuts.exit262.thread ], [ %332, %Mf_ManPrepareCuts.exit262 ]
   %335 = phi ptr [ %.val169, %Mf_ManPrepareCuts.exit262.thread ], [ %331, %Mf_ManPrepareCuts.exit262 ]
   %336 = getelementptr i8, ptr %334, i64 32
@@ -4585,13 +4585,13 @@ Mf_ManPrepareCuts.exit262:                        ; preds = %._crit_edge.i239, %
   br label %Gia_ObjFaninC2.exit
 
 Gia_ObjFaninC2.exit:                              ; preds = %Mf_ManPrepareCuts.exit262, %333
-  %.1.i2421238 = phi i32 [ %.1.i242, %Mf_ManPrepareCuts.exit262 ], [ %.1.i2421237, %333 ]
+  %.1.i2421237 = phi i32 [ %.1.i242, %Mf_ManPrepareCuts.exit262 ], [ %.1.i2421236, %333 ]
   %345 = phi i32 [ 0, %Mf_ManPrepareCuts.exit262 ], [ %344, %333 ]
-  %346 = sext i32 %.1.i2421238 to i64
+  %346 = sext i32 %.1.i2421237 to i64
   %.idx936 = shl nsw i64 %346, 6
   %347 = getelementptr inbounds i8, ptr %23, i64 %.idx936
   %348 = mul nsw i32 %.1.i178, %.1.i
-  %349 = mul nsw i32 %348, %.1.i2421238
+  %349 = mul nsw i32 %348, %.1.i2421237
   %350 = sitofp i32 %349 to double
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %352 = load double, ptr %351, align 8, !tbaa !157
@@ -4618,7 +4618,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Mf_ManPrepareCuts.e
   %.phi.trans.insert.i.i = getelementptr i8, ptr %0, i64 64
   %369 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %370 = add nsw i32 %35, -1
-  %371 = icmp sgt i32 %.1.i2421238, 0
+  %371 = icmp sgt i32 %.1.i2421237, 0
   %or.cond = select i1 %355, i1 %371, i1 false
   br i1 %or.cond, label %.preheader852.us.us, label %._crit_edge915
 
@@ -6436,7 +6436,7 @@ Mf_CutComputeTruthMux6.exit.i.us.us.us:           ; preds = %Vec_IntPush.exit.i.
   %1304 = lshr i32 %1303, 27
   %1305 = icmp samesign ult i32 %1304, %1087
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.pre10831239 = load ptr, ptr %389, align 8, !tbaa !143
+  %.pre10831238 = load ptr, ptr %389, align 8, !tbaa !143
   br i1 %1305, label %1309, label %1320
 
 Mf_CutComputeTruthMux.exit.us.us.us:              ; preds = %.thread137.i.us.us.us, %999, %1002, %Vec_IntPush.exit.i.us.us.us
@@ -6451,9 +6451,9 @@ Mf_CutComputeTruthMux.exit.us.us.us:              ; preds = %.thread137.i.us.us.
   br i1 %1308, label %1309, label %1320
 
 1309:                                             ; preds = %Mf_CutComputeTruthMux6.exit.i.us.us.us, %Mf_CutComputeTruthMux.exit.us.us.us
-  %.pre10831240 = phi ptr [ %.pre10831239, %Mf_CutComputeTruthMux6.exit.i.us.us.us ], [ %.pre1083, %Mf_CutComputeTruthMux.exit.us.us.us ]
-  %1310 = getelementptr inbounds nuw i8, ptr %.pre10831240, i64 20
-  %1311 = getelementptr inbounds nuw i8, ptr %.pre10831240, i64 16
+  %.pre10831239 = phi ptr [ %.pre10831238, %Mf_CutComputeTruthMux6.exit.i.us.us.us ], [ %.pre1083, %Mf_CutComputeTruthMux.exit.us.us.us ]
+  %1310 = getelementptr inbounds nuw i8, ptr %.pre10831239, i64 20
+  %1311 = getelementptr inbounds nuw i8, ptr %.pre10831239, i64 16
   %1312 = load i32, ptr %1311, align 8
   %.not.i294.us.us.us = icmp ult i32 %1312, 134217728
   br i1 %.not.i294.us.us.us, label %Mf_CutGetSign.exit.us.us.us, label %.lr.ph.preheader.i.us.us.us
@@ -6478,11 +6478,11 @@ Mf_CutComputeTruthMux.exit.us.us.us:              ; preds = %.thread137.i.us.us.
 
 Mf_CutGetSign.exit.us.us.us:                      ; preds = %.lr.ph.i296.us.us.us, %1309
   %.06.lcssa.i.us.us.us = phi i64 [ 0, %1309 ], [ %1319, %.lr.ph.i296.us.us.us ]
-  store i64 %.06.lcssa.i.us.us.us, ptr %.pre10831240, align 8, !tbaa !140
+  store i64 %.06.lcssa.i.us.us.us, ptr %.pre10831239, align 8, !tbaa !140
   br label %1320
 
 1320:                                             ; preds = %Mf_CutComputeTruthMux6.exit.i.us.us.us, %Mf_CutGetSign.exit.us.us.us, %Mf_CutComputeTruthMux.exit.us.us.us, %Mf_SetLastCutIsContained.exit.us.us.us
-  %1321 = phi ptr [ %.pre10831240, %Mf_CutGetSign.exit.us.us.us ], [ %.pre1083, %Mf_CutComputeTruthMux.exit.us.us.us ], [ %390, %Mf_SetLastCutIsContained.exit.us.us.us ], [ %.pre10831239, %Mf_CutComputeTruthMux6.exit.i.us.us.us ]
+  %1321 = phi ptr [ %.pre10831239, %Mf_CutGetSign.exit.us.us.us ], [ %.pre1083, %Mf_CutComputeTruthMux.exit.us.us.us ], [ %390, %Mf_SetLastCutIsContained.exit.us.us.us ], [ %.pre10831238, %Mf_CutComputeTruthMux6.exit.i.us.us.us ]
   %1322 = load float, ptr %369, align 4, !tbaa !148
   %1323 = getelementptr inbounds nuw i8, ptr %1321, i64 16
   %1324 = load i32, ptr %1323, align 8
@@ -8415,12 +8415,12 @@ Mf_CutComputeTruth.exit.us:                       ; preds = %.thread.i.us, %1997
   br i1 %2260, label %2261, label %2269
 
 2261:                                             ; preds = %Mf_CutComputeTruth6.exit.i.us, %Mf_CutComputeTruth.exit.us
-  %.pre10891241 = phi i32 [ %2255, %Mf_CutComputeTruth6.exit.i.us ], [ %.pre1089.pre, %Mf_CutComputeTruth.exit.us ]
-  %.not.i437.us = icmp ult i32 %.pre10891241, 134217728
+  %.pre10891240 = phi i32 [ %2255, %Mf_CutComputeTruth6.exit.i.us ], [ %.pre1089.pre, %Mf_CutComputeTruth.exit.us ]
+  %.not.i437.us = icmp ult i32 %.pre10891240, 134217728
   br i1 %.not.i437.us, label %Mf_CutGetSign.exit447.us, label %.lr.ph.preheader.i438.us
 
 .lr.ph.preheader.i438.us:                         ; preds = %2261
-  %2262 = lshr i32 %.pre10891241, 27
+  %2262 = lshr i32 %.pre10891240, 27
   %wide.trip.count.i439.us = zext nneg i32 %2262 to i64
   br label %.lr.ph.i440.us
 
@@ -8443,7 +8443,7 @@ Mf_CutGetSign.exit447.us:                         ; preds = %.lr.ph.i440.us, %22
   br label %2269
 
 2269:                                             ; preds = %Mf_CutComputeTruth6.exit.i.us, %Mf_SetLastCutIsContained.exit367.us._crit_edge, %Mf_CutGetSign.exit447.us, %Mf_CutComputeTruth.exit.us
-  %2270 = phi i32 [ %.pre1088, %Mf_SetLastCutIsContained.exit367.us._crit_edge ], [ %.pre10891241, %Mf_CutGetSign.exit447.us ], [ %.pre1089.pre, %Mf_CutComputeTruth.exit.us ], [ %2255, %Mf_CutComputeTruth6.exit.i.us ]
+  %2270 = phi i32 [ %.pre1088, %Mf_SetLastCutIsContained.exit367.us._crit_edge ], [ %.pre10891240, %Mf_CutGetSign.exit447.us ], [ %.pre1089.pre, %Mf_CutComputeTruth.exit.us ], [ %2255, %Mf_CutComputeTruth6.exit.i.us ]
   %2271 = load float, ptr %1509, align 4, !tbaa !148
   %2272 = lshr i32 %2270, 27
   %2273 = getelementptr inbounds nuw i8, ptr %1537, i64 8

@@ -8332,10 +8332,12 @@ _ZN3std2fs12canonicalize17h2341b874b4153c0fE.exit90.i: ; preds = %93
 
 137:                                              ; preds = %.noexc94.i
   %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 1, !noalias !1355
+  %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i.i.i = freeze i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
   %.sroa.45.0.copyload.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.45.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
   %.sroa.56.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.56.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
   %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.67.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
   %.sroa.78.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.78.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1355
+  %.sroa.411.0.copyload.fr.i.i.i.i.i.i.i.i.i.i = freeze i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i
   %138 = add nsw i8 %134, -6
   %139 = icmp ult i8 %138, 4
   %140 = zext nneg i8 %134 to i64
@@ -8404,9 +8406,8 @@ default.unreachable:                              ; preds = %152
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %175, label %.thread213.i
 
 162:                                              ; preds = %152
-  %163 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
-  %cond.fr25.i.i.i.i.i.i.i.i.i.i = freeze i1 %163
-  br i1 %cond.fr25.i.i.i.i.i.i.i.i.i.i, label %187, label %.thread213.i
+  %163 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i.i.i
+  br i1 %163, label %187, label %.thread213.i
 
 164:                                              ; preds = %152
   %.not.i7.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.57.0.copyload.i.i.i.i.i.i.i.i, %.sroa.56.0.copyload.i.i.i.i.i.i.i.i.i.i
@@ -8438,9 +8439,8 @@ default.unreachable:                              ; preds = %152
   br i1 %or.cond26.i.i.i.i.i.i.i.i.i.i.i, label %179, label %.thread213.i
 
 173:                                              ; preds = %152
-  %174 = icmp eq i8 %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i.i.i.i.i.i.i
-  %cond.fr26.i.i.i.i.i.i.i.i.i.i = freeze i1 %174
-  br i1 %cond.fr26.i.i.i.i.i.i.i.i.i.i, label %187, label %.thread213.i
+  %174 = icmp eq i8 %.sroa.411.0.copyload.fr.i.i.i.i.i.i.i.i.i.i, %.sroa.2.0.copyload.fr.i.i.i.i.i.i.i.i.i.i
+  br i1 %174, label %187, label %.thread213.i
 
 175:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit6.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
   %176 = icmp ne ptr %.sroa.67.0.copyload.i.i.i.i.i.i.i.i.i.i, null

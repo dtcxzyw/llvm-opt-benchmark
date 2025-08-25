@@ -641,8 +641,8 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %118
 
 118:                                              ; preds = %155, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
-  %119 = phi i32 [ %79, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.pre35, %155 ]
-  %120 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %149, %155 ]
+  %119 = phi i32 [ %79, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr33, %155 ]
+  %120 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr, %155 ]
   %.0.i13 = phi i32 [ 200000, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %154, %155 ]
   %121 = add i32 %120, 1
   %.not.i14 = icmp ugt i32 %121, %119
@@ -727,19 +727,21 @@ _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread: ; preds = %129, %11
 _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit: ; preds = %137, %146, %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread
   %147 = load i8, ptr %77, align 8, !tbaa !72, !range !106, !noundef !107
   %148 = trunc nuw i8 %147 to i1
-  %.pre35 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
+  %.pre37 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
+  %.fr33 = freeze i32 %.pre37
   br i1 %148, label %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20cff1_extents_param_tE9interpretERS3_.exit, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit: ; preds = %_ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_path_procs_extents_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit
   %149 = load i32, ptr %75, align 4, !tbaa !69
-  %150 = icmp ugt i32 %149, %.pre35
+  %.fr = freeze i32 %149
+  %150 = icmp ugt i32 %.fr, %.fr33
   %151 = load i8, ptr %117, align 8, !range !106
-  %152 = trunc nuw i8 %151 to i1
-  %153 = select i1 %150, i1 true, i1 %152
-  %cond.fr = freeze i1 %153
+  %.fr34 = freeze i8 %151
+  %152 = trunc i8 %.fr34 to i1
+  %153 = or i1 %150, %152
   %154 = add i32 %.0.i13, -1
   %.not.i = icmp eq i32 %154, 0
-  %brmerge = select i1 %cond.fr, i1 true, i1 %.not.i
+  %brmerge = select i1 %153, i1 true, i1 %.not.i
   br i1 %brmerge, label %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20cff1_extents_param_tE9interpretERS3_.exit, label %155, !prof !111
 
 155:                                              ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit
@@ -1122,8 +1124,8 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT
   br label %115
 
 115:                                              ; preds = %152, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit
-  %116 = phi i32 [ %78, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.pre37, %152 ]
-  %117 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %146, %152 ]
+  %116 = phi i32 [ %78, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr35, %152 ]
+  %117 = phi i32 [ 0, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %.fr, %152 ]
   %.0.i14 = phi i32 [ 200000, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff113accelerator_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ %151, %152 ]
   %118 = add i32 %117, 1
   %.not.i16 = icmp ugt i32 %118, %116
@@ -1208,19 +1210,21 @@ _ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread: ; preds = %126, %11
 _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit: ; preds = %134, %143, %_ZN3CFF12interp_env_tINS_8number_tEE8fetch_opEv.exit.thread
   %144 = load i8, ptr %76, align 8, !tbaa !72, !range !106, !noundef !107
   %145 = trunc nuw i8 %144 to i1
-  %.pre37 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
+  %.pre39 = load i32, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
+  %.fr35 = freeze i32 %.pre39
   br i1 %145, label %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1_path_param_tE9interpretERS3_.exit, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit: ; preds = %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_path_t17cff1_path_param_t22cff1_path_procs_path_tE10process_opEjRNS_20cff1_cs_interp_env_tERS2_.exit
   %146 = load i32, ptr %74, align 4, !tbaa !69
-  %147 = icmp ugt i32 %146, %.pre37
+  %.fr = freeze i32 %146
+  %147 = icmp ugt i32 %.fr, %.fr35
   %148 = load i8, ptr %114, align 8, !range !106
-  %149 = trunc nuw i8 %148 to i1
-  %150 = select i1 %147, i1 true, i1 %149
-  %cond.fr = freeze i1 %150
+  %.fr36 = freeze i8 %148
+  %149 = trunc i8 %.fr36 to i1
+  %150 = or i1 %147, %149
   %151 = add i32 %.0.i14, -1
   %.not.i = icmp eq i32 %151, 0
-  %brmerge = select i1 %cond.fr, i1 true, i1 %.not.i
+  %brmerge = select i1 %150, i1 true, i1 %.not.i
   br i1 %brmerge, label %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1_path_param_tE9interpretERS3_.exit, label %152, !prof !111
 
 152:                                              ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit
@@ -1751,13 +1755,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3CFF16cs_interpreter_tINS_2
   store i8 0, ptr %4, align 8, !tbaa !103
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !69
-  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre14 = load i32, ptr %.phi.trans.insert13, align 8, !tbaa !110
+  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.pre16 = load i32, ptr %.phi.trans.insert15, align 8, !tbaa !110
   br label %5
 
 5:                                                ; preds = %62, %2
-  %6 = phi i32 [ %.pre14, %2 ], [ %52, %62 ]
-  %7 = phi i32 [ %.pre, %2 ], [ %50, %62 ]
+  %6 = phi i32 [ %.pre16, %2 ], [ %.fr11, %62 ]
+  %7 = phi i32 [ %.pre, %2 ], [ %.fr, %62 ]
   %8 = phi ptr [ %3, %2 ], [ %45, %62 ]
   %.0 = phi i32 [ 200000, %2 ], [ %58, %62 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -1859,28 +1863,30 @@ _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs
   br i1 %48, label %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit..thread_crit_edge, label %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit
 
 _ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit..thread_crit_edge: ; preds = %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit
-  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %.pre16 = load i32, ptr %.phi.trans.insert15, align 8, !tbaa !110
+  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.pre18 = load i32, ptr %.phi.trans.insert17, align 8, !tbaa !110
   br label %.thread
 
 _ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit: ; preds = %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %50 = load i32, ptr %49, align 4, !tbaa !69
+  %.fr = freeze i32 %50
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !110
-  %53 = icmp ugt i32 %50, %52
+  %.fr11 = freeze i32 %52
+  %53 = icmp ugt i32 %.fr, %.fr11
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %55 = load i8, ptr %54, align 8, !range !106
-  %56 = trunc nuw i8 %55 to i1
-  %57 = select i1 %53, i1 true, i1 %56
-  %cond.fr = freeze i1 %57
+  %.fr12 = freeze i8 %55
+  %56 = trunc i8 %.fr12 to i1
+  %57 = or i1 %53, %56
   %58 = add nsw i32 %.0, -1
   %.not = icmp eq i32 %58, 0
-  %brmerge = select i1 %cond.fr, i1 true, i1 %.not
+  %brmerge = select i1 %57, i1 true, i1 %.not
   br i1 %brmerge, label %.thread, label %62, !prof !196
 
 .thread:                                          ; preds = %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit..thread_crit_edge
-  %59 = phi i32 [ %.pre16, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit..thread_crit_edge ], [ %52, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit ]
+  %59 = phi i32 [ %.pre18, %_ZN3CFF15cff1_cs_opset_tI20cff1_cs_opset_seac_t16get_seac_param_tNS_17path_procs_null_tINS_20cff1_cs_interp_env_tES2_EEE10process_opEjRS4_RS2_.exit..thread_crit_edge ], [ %.fr11, %_ZNK3CFF15cs_interp_env_tINS_8number_tENS_5SubrsIN2OT7IntTypeItLj2EEEEEE8in_errorEv.exit ]
   %60 = add i32 %59, 1
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %60, ptr %61, align 4, !tbaa !69

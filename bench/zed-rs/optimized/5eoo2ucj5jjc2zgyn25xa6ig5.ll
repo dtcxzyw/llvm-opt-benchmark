@@ -32937,17 +32937,17 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   %28 = load ptr, ptr %10, align 8, !nonnull !9, !align !22, !noundef !9
   %29 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %28, i64 0, i64 %25, i32 1
   %30 = load i64, ptr %12, align 8
-  %31 = icmp ult i64 %26, %30
+  %.fr189 = freeze i64 %30
+  %31 = icmp ult i64 %26, %.fr189
   %32 = load ptr, ptr %13, align 8, !nonnull !9, !align !22
   %33 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %32, i64 0, i64 %26, i32 1
   %34 = load i64, ptr %14, align 8
   %35 = load i64, ptr %15, align 8
   %36 = load ptr, ptr %0, align 8, !nonnull !9, !align !22
   %37 = load ptr, ptr %16, align 8, !nonnull !9, !align !22
-  %.fr = freeze i1 %31
   %38 = load i64, ptr %29, align 8, !noundef !9
   %39 = icmp ult i64 %23, %38
-  br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split
+  br i1 %31, label %.lr.ph.split.us.split.us, label %.lr.ph.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   br i1 %39, label %.lr.ph175, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5fa44f9ec379e8a8E.exit.thread.thread"
@@ -33006,7 +33006,7 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   br i1 %57, label %59, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2eq17h5fa44f9ec379e8a8E.exit.thread.thread"
 
 58:                                               ; preds = %.lr.ph.split
-  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %26, i64 noundef %30, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4fe06c171c228b78d37e396f89a1300.36) #62
+  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %26, i64 noundef %.fr189, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4fe06c171c228b78d37e396f89a1300.36) #62
   unreachable
 
 .split.us:                                        ; preds = %44
@@ -33162,7 +33162,8 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   %26 = load ptr, ptr %0, align 8, !nonnull !9, !align !22, !noundef !9
   %27 = getelementptr inbounds [0 x { ptr, i64 }], ptr %26, i64 0, i64 %23, i32 1
   %28 = load i64, ptr %11, align 8
-  %29 = icmp ult i64 %24, %28
+  %.fr178 = freeze i64 %28
+  %29 = icmp ult i64 %24, %.fr178
   %30 = load ptr, ptr %12, align 8, !nonnull !9, !align !22
   %31 = getelementptr inbounds [0 x { ptr, i64 }], ptr %30, i64 0, i64 %24, i32 1
   %32 = load ptr, ptr %13, align 8, !nonnull !9, !align !22
@@ -33173,10 +33174,9 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   %37 = getelementptr i8, ptr %35, i64 16
   %38 = getelementptr i8, ptr %35, i64 8
   %39 = getelementptr i8, ptr %32, i64 8
-  %.fr = freeze i1 %29
   %40 = load i64, ptr %27, align 8, !noundef !9
   %41 = icmp ult i64 %21, %40
-  br i1 %.fr, label %.lr.ph.split.us.split.us, label %.lr.ph.split
+  br i1 %29, label %.lr.ph.split.us.split.us, label %.lr.ph.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph
   br i1 %41, label %.lr.ph169, label %.split.us.thread
@@ -33234,7 +33234,7 @@ define hidden void @"_ZN116_$LT$similar..algorithms..patience..Patience$LT$Old$C
   br i1 %61, label %63, label %.split.us.thread
 
 62:                                               ; preds = %.lr.ph.split
-  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %24, i64 noundef %28, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4fe06c171c228b78d37e396f89a1300.36) #62
+  call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %24, i64 noundef %.fr178, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4fe06c171c228b78d37e396f89a1300.36) #62
   unreachable
 
 .split88.us:                                      ; preds = %46

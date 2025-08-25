@@ -3654,20 +3654,20 @@ define dso_local noalias noundef ptr @_php_math_number_format_long(i64 noundef %
   %11 = sub nsw i64 0, %1
   %12 = getelementptr inbounds nuw [20 x i64], ptr @_php_math_number_format_long.powers, i64 0, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !38
-  %14 = lshr i64 %13, 1
-  %15 = urem i64 %.075, %13
-  %16 = udiv i64 %.075, %13
+  %.fr = freeze i64 %13
+  %14 = lshr i64 %.fr, 1
+  %15 = urem i64 %.075, %.fr
+  %16 = udiv i64 %.075, %.fr
   %.not = icmp uge i64 %15, %14
   %17 = zext i1 %.not to i64
   %.pn = add nuw i64 %16, %17
-  %.277 = mul i64 %.pn, %13
-  %.277.fr = freeze i64 %.277
-  %18 = icmp eq i64 %.277.fr, 0
+  %.277 = mul i64 %.pn, %.fr
+  %18 = icmp eq i64 %.277, 0
   %spec.select = select i1 %18, i32 0, i32 %.073
   br label %.thread
 
 .thread:                                          ; preds = %10, %8, %6
-  %.176 = phi i64 [ %.075, %6 ], [ 0, %8 ], [ %.277.fr, %10 ]
+  %.176 = phi i64 [ %.075, %6 ], [ 0, %8 ], [ %.277, %10 ]
   %.174 = phi i32 [ %.073, %6 ], [ 0, %8 ], [ %spec.select, %10 ]
   %19 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.10, i64 noundef %.176) #14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16

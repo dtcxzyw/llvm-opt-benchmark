@@ -15758,18 +15758,18 @@ define dso_local noundef i32 @_ZNK4llvm14DependenceInfo17exploreDirectionsEjPNS0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL20MIVMaxLevelThreshold, i64 120), align 8, !tbaa !56
   %12 = icmp ugt i32 %10, %11
   %13 = load i64, ptr %5, align 8
-  %.fr132 = freeze i64 %13
-  %14 = and i64 %.fr132, 1
+  %.fr = freeze i64 %13
+  %14 = and i64 %.fr, 1
   %.not.i = icmp eq i64 %14, 0
-  %15 = lshr i64 %.fr132, 1
-  %16 = lshr i64 %.fr132, 58
+  %15 = lshr i64 %.fr, 1
+  %16 = lshr i64 %.fr, 58
   %17 = shl nsw i64 -1, %16
   %18 = xor i64 %17, -1
   %invariant.op130 = and i64 %15, %18
   br i1 %12, label %.lr.ph129, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %19 = inttoptr i64 %.fr132 to ptr
+  %19 = inttoptr i64 %.fr to ptr
   %20 = icmp ugt i32 %1, %10
   br i1 %.not.i, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
@@ -15806,24 +15806,24 @@ tailrecurse.us:                                   ; preds = %_ZNK4llvm14SmallBit
 
 _ZNK4llvm14SmallBitVectorixEj.exit.preheader:     ; preds = %.lr.ph129
   %32 = add i32 %10, 1
-  %umax150 = tail call i32 @llvm.umax.i32(i32 %32, i32 2)
-  %wide.trip.count151 = zext i32 %umax150 to i64
+  %umax149 = tail call i32 @llvm.umax.i32(i32 %32, i32 2)
+  %wide.trip.count150 = zext i32 %umax149 to i64
   br label %_ZNK4llvm14SmallBitVectorixEj.exit
 
 .lr.ph129.split.us:                               ; preds = %.lr.ph129
-  %33 = inttoptr i64 %.fr132 to ptr
+  %33 = inttoptr i64 %.fr to ptr
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   %35 = add i32 %10, 1
-  %umax156 = tail call i32 @llvm.umax.i32(i32 %35, i32 2)
-  %wide.trip.count157 = zext i32 %umax156 to i64
+  %umax155 = tail call i32 @llvm.umax.i32(i32 %35, i32 2)
+  %wide.trip.count156 = zext i32 %umax155 to i64
   br label %_ZNK4llvm14SmallBitVectorixEj.exit.us
 
 _ZNK4llvm14SmallBitVectorixEj.exit.us:            ; preds = %45, %.lr.ph129.split.us
-  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %45 ], [ 1, %.lr.ph129.split.us ]
-  %36 = lshr i64 %indvars.iv153, 6
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %45 ], [ 1, %.lr.ph129.split.us ]
+  %36 = lshr i64 %indvars.iv152, 6
   %37 = and i64 %36, 67108863
   %38 = getelementptr inbounds nuw i64, ptr %34, i64 %37
-  %39 = and i64 %indvars.iv153, 63
+  %39 = and i64 %indvars.iv152, 63
   %40 = load i64, ptr %38, align 8, !tbaa !55
   %41 = shl nuw i64 1, %39
   %42 = and i64 %40, %41
@@ -15831,41 +15831,41 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us:            ; preds = %45, %.lr.ph129.spli
   br i1 %.0.i.not.us, label %45, label %43
 
 43:                                               ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us
-  %44 = getelementptr inbounds nuw %"struct.llvm::DependenceInfo::BoundInfo", ptr %4, i64 %indvars.iv153, i32 4
+  %44 = getelementptr inbounds nuw %"struct.llvm::DependenceInfo::BoundInfo", ptr %4, i64 %indvars.iv152, i32 4
   store i8 7, ptr %44, align 1, !tbaa !403
   br label %45
 
 45:                                               ; preds = %43, %_ZNK4llvm14SmallBitVectorixEj.exit.us
-  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %exitcond158 = icmp eq i64 %indvars.iv.next154, %wide.trip.count157
-  br i1 %exitcond158, label %.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit.us, !llvm.loop !415
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
+  %exitcond157 = icmp eq i64 %indvars.iv.next153, %wide.trip.count156
+  br i1 %exitcond157, label %.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit.us, !llvm.loop !415
 
 _ZNK4llvm14SmallBitVectorixEj.exit:               ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.preheader, %49
-  %indvars.iv147 = phi i64 [ 1, %_ZNK4llvm14SmallBitVectorixEj.exit.preheader ], [ %indvars.iv.next148, %49 ]
-  %46 = shl nuw i64 1, %indvars.iv147
+  %indvars.iv146 = phi i64 [ 1, %_ZNK4llvm14SmallBitVectorixEj.exit.preheader ], [ %indvars.iv.next147, %49 ]
+  %46 = shl nuw i64 1, %indvars.iv146
   %.reass131 = and i64 %46, %invariant.op130
   %.0.i.not = icmp eq i64 %.reass131, 0
   br i1 %.0.i.not, label %49, label %47
 
 47:                                               ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit
-  %48 = getelementptr inbounds nuw %"struct.llvm::DependenceInfo::BoundInfo", ptr %4, i64 %indvars.iv147, i32 4
+  %48 = getelementptr inbounds nuw %"struct.llvm::DependenceInfo::BoundInfo", ptr %4, i64 %indvars.iv146, i32 4
   store i8 7, ptr %48, align 1, !tbaa !403
   br label %49
 
 49:                                               ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit, %47
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %exitcond152 = icmp eq i64 %indvars.iv.next148, %wide.trip.count151
-  br i1 %exitcond152, label %.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit, !llvm.loop !415
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %exitcond151 = icmp eq i64 %indvars.iv.next147, %wide.trip.count150
+  br i1 %exitcond151, label %.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit, !llvm.loop !415
 
 .preheader97:                                     ; preds = %tailrecurse, %tailrecurse.us, %.lr.ph.split.split, %.lr.ph.split.us.split
   %.not122 = icmp eq i32 %10, 0
   br i1 %.not122, label %.loopexit, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %.preheader97
-  %50 = and i64 %.fr132, 1
+  %50 = and i64 %.fr, 1
   %.not.i82 = icmp eq i64 %50, 0
-  %51 = lshr i64 %.fr132, 1
-  %52 = lshr i64 %.fr132, 58
+  %51 = lshr i64 %.fr, 1
+  %52 = lshr i64 %.fr, 58
   %53 = shl nsw i64 -1, %52
   %54 = xor i64 %53, -1
   %invariant.op125 = and i64 %51, %54
@@ -15877,18 +15877,18 @@ _ZNK4llvm14SmallBitVectorixEj.exit85.preheader:   ; preds = %.lr.ph124
   br label %_ZNK4llvm14SmallBitVectorixEj.exit85
 
 .lr.ph124.split.us:                               ; preds = %.lr.ph124
-  %56 = inttoptr i64 %.fr132 to ptr
+  %56 = inttoptr i64 %.fr to ptr
   %57 = load ptr, ptr %56, align 8, !tbaa !25
   %58 = add nuw i32 %10, 1
-  %wide.trip.count145 = zext i32 %58 to i64
+  %wide.trip.count144 = zext i32 %58 to i64
   br label %_ZNK4llvm14SmallBitVectorixEj.exit85.us
 
 _ZNK4llvm14SmallBitVectorixEj.exit85.us:          ; preds = %73, %.lr.ph124.split.us
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %73 ], [ 1, %.lr.ph124.split.us ]
-  %59 = lshr i64 %indvars.iv141, 6
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %73 ], [ 1, %.lr.ph124.split.us ]
+  %59 = lshr i64 %indvars.iv140, 6
   %60 = and i64 %59, 67108863
   %61 = getelementptr inbounds nuw i64, ptr %57, i64 %60
-  %62 = and i64 %indvars.iv141, 63
+  %62 = and i64 %indvars.iv140, 63
   %63 = load i64, ptr %61, align 8, !tbaa !55
   %64 = shl nuw i64 1, %62
   %65 = and i64 %63, %64
@@ -15896,7 +15896,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit85.us:          ; preds = %73, %.lr.ph124.spli
   br i1 %.0.i84.not.us, label %73, label %66
 
 66:                                               ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit85.us
-  %67 = getelementptr inbounds nuw %"struct.llvm::DependenceInfo::BoundInfo", ptr %4, i64 %indvars.iv141
+  %67 = getelementptr inbounds nuw %"struct.llvm::DependenceInfo::BoundInfo", ptr %4, i64 %indvars.iv140
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %69 = load i8, ptr %68, align 8, !tbaa !402
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 137
@@ -15906,9 +15906,9 @@ _ZNK4llvm14SmallBitVectorixEj.exit85.us:          ; preds = %73, %.lr.ph124.spli
   br label %73
 
 73:                                               ; preds = %66, %_ZNK4llvm14SmallBitVectorixEj.exit85.us
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %exitcond146 = icmp eq i64 %indvars.iv.next142, %wide.trip.count145
-  br i1 %exitcond146, label %.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit85.us, !llvm.loop !416
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %exitcond145 = icmp eq i64 %indvars.iv.next141, %wide.trip.count144
+  br i1 %exitcond145, label %.loopexit, label %_ZNK4llvm14SmallBitVectorixEj.exit85.us, !llvm.loop !416
 
 _ZNK4llvm14SmallBitVectorixEj.exit85:             ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit85.preheader, %82
   %indvars.iv = phi i64 [ 1, %_ZNK4llvm14SmallBitVectorixEj.exit85.preheader ], [ %indvars.iv.next, %82 ]

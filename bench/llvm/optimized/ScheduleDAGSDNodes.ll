@@ -6863,15 +6863,16 @@ _ZNK4llvm12SelectionDAG12GetDbgValuesEPKNS_6SDNodeE.exit: ; preds = %_ZNK4llvm12
 
 .lr.ph.i:                                         ; preds = %70
   %73 = load i32, ptr %4, align 8
-  %74 = and i32 %73, 1
+  %.fr43 = freeze i32 %73
+  %74 = and i32 %.fr43, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %74, 0
   %75 = load ptr, ptr %52, align 8
   %76 = select i1 %.not.i.i.i.i.i.i.i.i, ptr %75, ptr %52
   %77 = load i32, ptr %53, align 8
-  %78 = select i1 %.not.i.i.i.i.i.i.i.i, i32 %77, i32 16
-  %.fr43 = freeze i32 %78
-  %79 = icmp eq i32 %.fr43, 0
-  %80 = add i32 %.fr43, -1
+  %.fr44 = freeze i32 %77
+  %78 = select i1 %.not.i.i.i.i.i.i.i.i, i32 %.fr44, i32 16
+  %79 = icmp eq i32 %78, 0
+  %80 = add i32 %78, -1
   br i1 %79, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %.critedge17.i.us

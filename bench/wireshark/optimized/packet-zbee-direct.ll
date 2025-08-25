@@ -1645,8 +1645,8 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
 47:                                               ; preds = %41, %39
   %48 = load ptr, ptr %0, align 8
   %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %48, i32 noundef 0)
-  %.fr = freeze i32 %49
-  %50 = trunc i32 %.fr to i16
+  %.fr3 = freeze i32 %49
+  %50 = trunc i32 %.fr3 to i16
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noalias dereferenceable_or_null(512) ptr @wmem_alloc(ptr noundef %52, i64 noundef 512) #14
@@ -1706,9 +1706,9 @@ define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) 
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 17
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  %91 = and i32 %.fr, 65535
+  %91 = and i32 %.fr3, 65535
   %92 = icmp ult i16 %50, 8
-  %93 = add i32 %.fr, 65532
+  %93 = add i32 %.fr3, 65532
   %94 = and i32 %93, 65535
   %95 = add nsw i32 %94, -4
   br i1 %92, label %decrypt_data.exit.thread.i.thread.i.us, label %.preheader41.i.preheader
@@ -1877,9 +1877,9 @@ try_decrypt.exit.i:                               ; preds = %create_auth_string.
   br i1 %158, label %.loopexit.thread.i, label %.lr.ph28.i.preheader
 
 .lr.ph28.i.preheader:                             ; preds = %.lr.ph37.i
-  %159 = and i32 %.fr, 65535
+  %159 = and i32 %.fr3, 65535
   %160 = icmp ult i16 %50, 8
-  %161 = add i32 %.fr, 65532
+  %161 = add i32 %.fr3, 65532
   %162 = and i32 %161, 65535
   %163 = add nsw i32 %162, -4
   br label %.lr.ph28.i

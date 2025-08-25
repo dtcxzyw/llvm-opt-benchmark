@@ -116087,9 +116087,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h27566972
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -116717,9 +116717,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h92bd76f8
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -117347,9 +117347,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17h9bc7edc2
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -117977,9 +117977,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58630d0
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -118607,9 +118607,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha58aee76
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -119237,9 +119237,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17ha6bb49b6
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -119867,9 +119867,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hb876f8b7
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -120497,9 +120497,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hba7de456
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -121127,9 +121127,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf2942c3e
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -121757,9 +121757,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hf82102c8
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 
@@ -122387,9 +122387,9 @@ define hidden void @_ZN10polars_ops5frame4join6iejoin14ie_join_impl_t17hfec7abcc
   br label %.thread84
 
 42:                                               ; preds = %36
-  %.fr = freeze { i64, i64 } %41
-  %43 = extractvalue { i64, i64 } %.fr, 0
-  %44 = extractvalue { i64, i64 } %.fr, 1
+  %.fr131 = freeze { i64, i64 } %41
+  %43 = extractvalue { i64, i64 } %.fr131, 0
+  %44 = extractvalue { i64, i64 } %.fr131, 1
   %45 = invoke { ptr, ptr } @"_ZN130_$LT$polars_core..series..Series$u20$as$u20$core..convert..AsRef$LT$dyn$u20$polars_core..series..series_trait..SeriesTrait$GT$$GT$6as_ref17h6a65f9a98b4c805bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27)
           to label %46 unwind label %.thread87
 

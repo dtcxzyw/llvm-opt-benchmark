@@ -29,8 +29,8 @@ define dso_local i64 @_ZN4llvm13getLLTForTypeERNS_4TypeERKNS_10DataLayoutE(ptr n
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %.fr8.i = freeze i32 %5
-  %6 = and i32 %.fr8.i, 255
+  %.fr.i = freeze i32 %5
+  %6 = and i32 %.fr.i, 255
   %7 = add nsw i32 %6, -17
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %7, 2
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %8, label %45
@@ -111,7 +111,7 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %27, %28
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %45
-  %48 = lshr i32 %.fr8.i, 8
+  %48 = lshr i32 %.fr.i, 8
   %49 = tail call noundef nonnull align 4 dereferenceable(17) ptr @_ZNK4llvm10DataLayout14getPointerSpecEj(ptr noundef nonnull align 8 dereferenceable(496) %1, i32 noundef %48) #6
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !15
@@ -124,12 +124,12 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %27, %28
   br label %.thread
 
 57:                                               ; preds = %45
-  %58 = and i32 %.fr8.i, 255
+  %58 = and i32 %.fr.i, 255
   %59 = icmp eq i32 %58, 12
   br i1 %59, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %60
 
 60:                                               ; preds = %57
-  %trunc.i.i.i = trunc i32 %.fr8.i to i8
+  %trunc.i.i.i = trunc i32 %.fr.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -139,7 +139,7 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %27, %28
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %60
-  %61 = and i32 %.fr8.i, 253
+  %61 = and i32 %.fr.i, 253
   %spec.select.i.i26 = icmp eq i32 %61, 4
   br i1 %spec.select.i.i26, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 

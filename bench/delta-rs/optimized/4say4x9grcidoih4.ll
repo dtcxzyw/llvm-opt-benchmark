@@ -44333,13 +44333,15 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h070a
   %.pre2.i.i.i.i = load i64, ptr %11, align 8, !noalias !11274
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.pre4.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i, align 8, !noalias !11274
-  %23 = icmp eq i64 %.pre.i.i.i.i, 0
-  %24 = icmp ne i64 %.pre2.i.i.i.i, %.pre4.i.i.i.i
-  %.not32.i = select i1 %23, i1 true, i1 %24
+  %.pre4.i.i.i.fr.i = freeze i64 %.pre4.i.i.i.i
+  %.pre.i.i.i.fr.i = freeze i64 %.pre.i.i.i.i
+  %23 = icmp eq i64 %.pre.i.i.i.fr.i, 0
+  %.pre2.i.i.i.fr.i = freeze i64 %.pre2.i.i.i.i
+  %24 = icmp ne i64 %.pre2.i.i.i.fr.i, %.pre4.i.i.i.fr.i
+  %.not32.i = or i1 %23, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !11274
-  %25 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i, i64 14563)
-  %cond.fr.i = freeze i1 %.not32.i
-  %spec.select.i = select i1 %cond.fr.i, i64 0, i64 %25
+  %25 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i, i64 14563)
+  %spec.select.i = select i1 %.not32.i, i64 0, i64 %25
   %26 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !599, !noalias !11280, !noundef !24
   %trunc.i.i.i.i.i = trunc nuw i64 %26 to i1
   br i1 %trunc.i.i.i.i.i, label %"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit.i", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
@@ -44721,13 +44723,15 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h1186
   %.pre2.i.i.i.i = load i64, ptr %12, align 8, !noalias !11375
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.pre4.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i, align 8, !noalias !11375
-  %24 = icmp eq i64 %.pre.i.i.i.i, 0
-  %25 = icmp ne i64 %.pre2.i.i.i.i, %.pre4.i.i.i.i
-  %.not31.i = select i1 %24, i1 true, i1 %25
+  %.pre4.i.i.i.fr.i = freeze i64 %.pre4.i.i.i.i
+  %.pre.i.i.i.fr.i = freeze i64 %.pre.i.i.i.i
+  %24 = icmp eq i64 %.pre.i.i.i.fr.i, 0
+  %.pre2.i.i.i.fr.i = freeze i64 %.pre2.i.i.i.i
+  %25 = icmp ne i64 %.pre2.i.i.i.fr.i, %.pre4.i.i.i.fr.i
+  %.not31.i = or i1 %24, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !11375
-  %26 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i, i64 21845)
-  %cond.fr.i = freeze i1 %.not31.i
-  %spec.select.i = select i1 %cond.fr.i, i64 0, i64 %26
+  %26 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i, i64 21845)
+  %spec.select.i = select i1 %.not31.i, i64 0, i64 %26
   %27 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !599, !noalias !11381, !noundef !24
   %trunc.i.i.i.i.i = trunc nuw i64 %27 to i1
   br i1 %trunc.i.i.i.i.i, label %"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit.i", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i
@@ -49000,13 +49004,15 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17ha562
   %.pre2.i.i.i.i = load i64, ptr %11, align 8, !noalias !12117
   %.phi.trans.insert3.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.pre4.i.i.i.i = load i64, ptr %.phi.trans.insert3.i.i.i.i, align 8, !noalias !12117
-  %23 = icmp eq i64 %.pre.i.i.i.i, 0
-  %24 = icmp ne i64 %.pre2.i.i.i.i, %.pre4.i.i.i.i
-  %.not33.i = select i1 %23, i1 true, i1 %24
+  %.pre4.i.i.i.fr.i = freeze i64 %.pre4.i.i.i.i
+  %.pre.i.i.i.fr.i = freeze i64 %.pre.i.i.i.i
+  %23 = icmp eq i64 %.pre.i.i.i.fr.i, 0
+  %.pre2.i.i.i.fr.i = freeze i64 %.pre2.i.i.i.i
+  %24 = icmp ne i64 %.pre2.i.i.i.fr.i, %.pre4.i.i.i.fr.i
+  %.not33.i = or i1 %23, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !12117
-  %25 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.i, i64 14563)
-  %cond.fr.i = freeze i1 %.not33.i
-  %spec.select.i = select i1 %cond.fr.i, i64 0, i64 %25
+  %25 = call i64 @llvm.umin.i64(i64 %.pre4.i.i.i.fr.i, i64 14563)
+  %spec.select.i = select i1 %.not33.i, i64 0, i64 %25
   %26 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !599, !noalias !12123, !noundef !24
   %trunc.i.i.i.i.i = trunc nuw i64 %26 to i1
   br i1 %trunc.i.i.i.i.i, label %"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17h6420f6cd5f39a78aE.exit.i", label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i.i

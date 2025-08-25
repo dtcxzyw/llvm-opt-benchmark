@@ -10192,8 +10192,8 @@ lookupCommand.exit.thread316:                     ; preds = %25, %lookupCommand.
 56:                                               ; preds = %.critedge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !87
-  %.fr338 = freeze i64 %58
-  %59 = and i64 %.fr338, 4503599627370496
+  %.fr = freeze i64 %58
+  %59 = and i64 %.fr, 4503599627370496
   %.not217 = icmp eq i64 %59, 0
   br i1 %.not217, label %60, label %mustObeyClient.exit.thread
 
@@ -10203,7 +10203,7 @@ lookupCommand.exit.thread316:                     ; preds = %25, %lookupCommand.
   br i1 %62, label %mustObeyClient.exit.thread, label %mustObeyClient.exit
 
 mustObeyClient.exit:                              ; preds = %60
-  %63 = and i64 %.fr338, 2
+  %63 = and i64 %.fr, 2
   %.not218 = icmp eq i64 %63, 0
   %spec.select = select i1 %.not218, ptr null, ptr %52
   br label %mustObeyClient.exit.thread
@@ -10321,11 +10321,11 @@ commandCheckArity.exit:                           ; preds = %._crit_edge.i
 ._crit_edge:                                      ; preds = %113
   %.pre = load ptr, ptr %13, align 8, !tbaa !481
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 96
-  %.pre345 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !490
+  %.pre344 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !490
   br label %116
 
 116:                                              ; preds = %._crit_edge, %109
-  %117 = phi ptr [ %.pre345, %._crit_edge ], [ %111, %109 ]
+  %117 = phi ptr [ %.pre344, %._crit_edge ], [ %111, %109 ]
   %118 = phi ptr [ %.pre, %._crit_edge ], [ %80, %109 ]
   %119 = icmp eq ptr %117, @moduleCommand
   br i1 %119, label %120, label %130
@@ -10334,10 +10334,10 @@ commandCheckArity.exit:                           ; preds = %._crit_edge.i
   %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2408), align 8, !tbaa !506
   %122 = call i32 @allowProtectedAction(i32 noundef %121, ptr noundef nonnull %0) #43
   %.not223 = icmp eq i32 %122, 0
-  br i1 %.not223, label %123, label %._crit_edge349
+  br i1 %.not223, label %123, label %._crit_edge348
 
-._crit_edge349:                                   ; preds = %120
-  %.pre346.pre = load ptr, ptr %13, align 8, !tbaa !481
+._crit_edge348:                                   ; preds = %120
+  %.pre345.pre = load ptr, ptr %13, align 8, !tbaa !481
   br label %130
 
 123:                                              ; preds = %120, %113
@@ -10354,13 +10354,13 @@ commandCheckArity.exit:                           ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %rejectCommand.exit
 
-130:                                              ; preds = %._crit_edge349, %116, %commandCheckArity.exit
-  %.pre346 = phi ptr [ %.pre346.pre, %._crit_edge349 ], [ %118, %116 ], [ %80, %commandCheckArity.exit ]
+130:                                              ; preds = %._crit_edge348, %116, %commandCheckArity.exit
+  %.pre345 = phi ptr [ %.pre345.pre, %._crit_edge348 ], [ %118, %116 ], [ %80, %commandCheckArity.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread314
 
 .thread314:                                       ; preds = %.thread, %130
-  %131 = phi ptr [ %14, %.thread ], [ %.pre346, %130 ]
+  %131 = phi ptr [ %14, %.thread ], [ %.pre345, %130 ]
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 112
   %133 = load i64, ptr %132, align 8, !tbaa !450
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 96
@@ -10733,8 +10733,8 @@ mustObeyClient.exit307.thread:                    ; preds = %298, %.thread327, %
   %346 = icmp eq i32 %345, 0
   %347 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 224), align 8
   %348 = icmp eq i32 %347, 0
-  %.not341 = select i1 %346, i1 %348, i1 false
-  br i1 %.not341, label %349, label %359
+  %.not340 = select i1 %346, i1 %348, i1 false
+  br i1 %.not340, label %349, label %359
 
 349:                                              ; preds = %344
   %350 = call i32 @performEvictions() #43
@@ -11040,18 +11040,18 @@ writeCommandsDeniedByDiskError.exit.thread337:    ; preds = %380, %406, %writeCo
   %481 = call i32 @isPausedActions(i32 noundef 1) #43
   %482 = icmp ne i32 %481, 0
   %or.cond27 = select i1 %482, i1 %224, i1 false
-  br i1 %or.cond27, label %483, label %._crit_edge347
+  br i1 %or.cond27, label %483, label %._crit_edge346
 
-._crit_edge347:                                   ; preds = %480
-  %.pre348 = load i64, ptr %267, align 8, !tbaa !87
+._crit_edge346:                                   ; preds = %480
+  %.pre347 = load i64, ptr %267, align 8, !tbaa !87
   br label %484
 
 483:                                              ; preds = %480, %478
   call void @blockPostponeClient(ptr noundef nonnull %0) #43
   br label %.thread331
 
-484:                                              ; preds = %._crit_edge347, %477
-  %485 = phi i64 [ %.pre348, %._crit_edge347 ], [ %474, %477 ]
+484:                                              ; preds = %._crit_edge346, %477
+  %485 = phi i64 [ %.pre347, %._crit_edge346 ], [ %474, %477 ]
   %486 = and i64 %485, 8
   %.not274 = icmp eq i64 %486, 0
   br i1 %.not274, label %493, label %487
@@ -11093,8 +11093,8 @@ writeCommandsDeniedByDiskError.exit.thread337:    ; preds = %380, %406, %writeCo
   %499 = icmp eq i32 %498, 0
   %500 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 224), align 8
   %501 = icmp eq i32 %500, 0
-  %.not344 = select i1 %499, i1 %501, i1 false
-  br i1 %.not344, label %502, label %.thread331
+  %.not343 = select i1 %499, i1 %501, i1 false
+  br i1 %.not343, label %502, label %.thread331
 
 502:                                              ; preds = %497
   call void @handleClientsBlockedOnKeys() #43

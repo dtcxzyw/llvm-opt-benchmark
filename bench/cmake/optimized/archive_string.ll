@@ -6126,21 +6126,22 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
   %.026.i = phi ptr [ %44, %utf16_to_unicode.exit.thread.thread.i ], [ %1, %11 ]
   %.024.i = phi ptr [ %.125.i, %utf16_to_unicode.exit.thread.thread.i ], [ %14, %11 ]
   %.0.i = phi i32 [ %.2.i, %utf16_to_unicode.exit.thread.thread.i ], [ 0, %11 ]
+  %.026.fr.i = freeze ptr %.026.i
   switch i64 %.028.i, label %15 [
     i64 0, label %utf16_to_unicode.exit.thread7.i
     i64 1, label %utf16_to_unicode.exit.thread.thread.i
   ]
 
 15:                                               ; preds = %.split.i
-  %.val.i.i = load i8, ptr %.026.i, align 1, !tbaa !12
-  %16 = getelementptr i8, ptr %.026.i, i64 1
+  %.val.i.i = load i8, ptr %.026.fr.i, align 1, !tbaa !12
+  %16 = getelementptr i8, ptr %.026.fr.i, i64 1
   %.val46.i.i = load i8, ptr %16, align 1, !tbaa !12
   %17 = zext i8 %.val46.i.i to i16
   %18 = zext i8 %.val.i.i to i16
   %19 = shl nuw i16 %18, 8
   %20 = or disjoint i16 %19, %17
   %.039.i.i = zext i16 %20 to i32
-  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.026.fr.i, i64 2
   %22 = and i16 %18, 252
   %or.cond.i.i = icmp eq i16 %22, 216
   br i1 %or.cond.i.i, label %23, label %utf16_to_unicode.exit.i
@@ -6158,7 +6159,7 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
 
 .thread57.i.i:                                    ; preds = %25
   %28 = shl nuw i16 %26, 8
-  %29 = getelementptr i8, ptr %.026.i, i64 3
+  %29 = getelementptr i8, ptr %.026.fr.i, i64 3
   %.val48.i.i = load i8, ptr %29, align 1, !tbaa !12
   %30 = zext i8 %.val48.i.i to i16
   %31 = or disjoint i16 %28, %30
@@ -6166,28 +6167,29 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16be(ptr nound
   %32 = shl nuw nsw i32 %.039.i.i, 10
   %33 = add nsw i32 %32, -56613888
   %34 = add nuw nsw i32 %33, %.0.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %.026.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.026.fr.i, i64 4
   br label %utf16_to_unicode.exit.i
 
 utf16_to_unicode.exit.i:                          ; preds = %.thread57.i.i, %15
   %.040.i.i = phi ptr [ %21, %15 ], [ %35, %.thread57.i.i ]
   %.1.i.i = phi i32 [ %.039.i.i, %15 ], [ %34, %.thread57.i.i ]
-  %36 = and i32 %.1.i.i, -2048
+  %.1.i.fr.i = freeze i32 %.1.i.i
+  %36 = and i32 %.1.i.fr.i, -2048
   %or.cond5.i.i = icmp eq i32 %36, 55296
-  %37 = icmp ugt i32 %.1.i.i, 1114111
+  %37 = icmp ugt i32 %.1.i.fr.i, 1114111
   %or.cond7.i.i = or i1 %37, %or.cond5.i.i
-  %38 = ptrtoint ptr %.040.i.i to i64
-  %39 = ptrtoint ptr %.026.i to i64
+  %.040.i.fr.i = freeze ptr %.040.i.i
+  %38 = ptrtoint ptr %.040.i.fr.i to i64
+  %39 = ptrtoint ptr %.026.fr.i to i64
   %.neg.i.i = sub i64 %39, %38
   %40 = sub i64 %38, %39
   %.042.i.v.i = select i1 %or.cond7.i.i, i64 %.neg.i.i, i64 %40
-  %.042.i.v.fr.i = freeze i64 %.042.i.v.i
-  %.042.i.i = trunc i64 %.042.i.v.fr.i to i32
+  %.042.i.i = trunc i64 %.042.i.v.i to i32
   %.not.i = icmp eq i32 %.042.i.i, 0
   br i1 %.not.i, label %utf16_to_unicode.exit.thread7.i, label %utf16_to_unicode.exit.thread.i
 
 utf16_to_unicode.exit.thread.i:                   ; preds = %utf16_to_unicode.exit.i
-  %.1.i = select i1 %or.cond7.i.i, i32 65533, i32 %.1.i.i
+  %.1.i = select i1 %or.cond7.i.i, i32 65533, i32 %.1.i.fr.i
   %spec.select.i = tail call i32 @llvm.abs.i32(i32 %.042.i.i, i1 true)
   %.inv.i = icmp sgt i32 %.042.i.i, -1
   %spec.select32.i = select i1 %.inv.i, i32 %.0.i, i32 -1
@@ -6199,7 +6201,7 @@ utf16_to_unicode.exit.thread.thread.i:            ; preds = %.split.i, %23, %25,
   %.1526.i = phi i32 [ %.1.i, %utf16_to_unicode.exit.thread.i ], [ 65533, %.split.i ], [ 65533, %25 ], [ 65533, %23 ]
   %42 = phi i32 [ %spec.select32.i, %utf16_to_unicode.exit.thread.i ], [ -1, %.split.i ], [ -1, %25 ], [ -1, %23 ]
   %43 = sub i64 %.028.i, %spec.select27.i
-  %44 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %spec.select27.i
+  %44 = getelementptr inbounds nuw i8, ptr %.026.fr.i, i64 %spec.select27.i
   %45 = icmp samesign ugt i32 %.1526.i, 127
   %46 = trunc nuw nsw i32 %.1526.i to i8
   %storemerge.i = select i1 %45, i8 63, i8 %46
@@ -6244,15 +6246,16 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr nound
   %.026.us.i = phi ptr [ %34, %utf16_to_unicode.exit.thread.us.thread.i ], [ %1, %11 ]
   %.024.us.i = phi ptr [ %.125.us.i, %utf16_to_unicode.exit.thread.us.thread.i ], [ %14, %11 ]
   %.0.us.i = phi i32 [ %.2.us.i, %utf16_to_unicode.exit.thread.us.thread.i ], [ 0, %11 ]
+  %.026.us.fr.i = freeze ptr %.026.us.i
   switch i64 %.028.us.i, label %15 [
     i64 0, label %utf16_to_unicode.exit.thread7.i
     i64 1, label %utf16_to_unicode.exit.thread.us.thread.i
   ]
 
 15:                                               ; preds = %.split.us.i
-  %.val49.i.us.i = load i16, ptr %.026.us.i, align 1
+  %.val49.i.us.i = load i16, ptr %.026.us.fr.i, align 1
   %.039.i.us.i = zext i16 %.val49.i.us.i to i32
-  %16 = getelementptr inbounds nuw i8, ptr %.026.us.i, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.026.us.fr.i, i64 2
   %17 = and i16 %.val49.i.us.i, -1024
   %or.cond.i.us.i = icmp eq i16 %17, -10240
   br i1 %or.cond.i.us.i, label %18, label %utf16_to_unicode.exit.us.i
@@ -6272,28 +6275,29 @@ define internal range(i32 -1, 1) i32 @best_effort_strncat_from_utf16le(ptr nound
   %22 = shl nuw nsw i32 %.039.i.us.i, 10
   %23 = add nsw i32 %22, -56613888
   %24 = add nuw nsw i32 %23, %.0.i.us.i
-  %25 = getelementptr inbounds nuw i8, ptr %.026.us.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.026.us.fr.i, i64 4
   br label %utf16_to_unicode.exit.us.i
 
 utf16_to_unicode.exit.us.i:                       ; preds = %.thread57.i.us.i, %15
   %.040.i.us.i = phi ptr [ %16, %15 ], [ %25, %.thread57.i.us.i ]
   %.1.i.us.i = phi i32 [ %.039.i.us.i, %15 ], [ %24, %.thread57.i.us.i ]
-  %26 = and i32 %.1.i.us.i, -2048
+  %.1.i.us.fr.i = freeze i32 %.1.i.us.i
+  %26 = and i32 %.1.i.us.fr.i, -2048
   %or.cond5.i.us.i = icmp eq i32 %26, 55296
-  %27 = icmp ugt i32 %.1.i.us.i, 1114111
+  %27 = icmp ugt i32 %.1.i.us.fr.i, 1114111
   %or.cond7.i.us.i = or i1 %27, %or.cond5.i.us.i
-  %28 = ptrtoint ptr %.040.i.us.i to i64
-  %29 = ptrtoint ptr %.026.us.i to i64
+  %.040.i.us.fr.i = freeze ptr %.040.i.us.i
+  %28 = ptrtoint ptr %.040.i.us.fr.i to i64
+  %29 = ptrtoint ptr %.026.us.fr.i to i64
   %.neg.i.us.i = sub i64 %29, %28
   %30 = sub i64 %28, %29
   %.042.i.v.us.i = select i1 %or.cond7.i.us.i, i64 %.neg.i.us.i, i64 %30
-  %.042.i.v.us.fr.i = freeze i64 %.042.i.v.us.i
-  %.042.i.us.i = trunc i64 %.042.i.v.us.fr.i to i32
+  %.042.i.us.i = trunc i64 %.042.i.v.us.i to i32
   %.not.us.i = icmp eq i32 %.042.i.us.i, 0
   br i1 %.not.us.i, label %utf16_to_unicode.exit.thread7.i, label %utf16_to_unicode.exit.thread.us.i
 
 utf16_to_unicode.exit.thread.us.i:                ; preds = %utf16_to_unicode.exit.us.i
-  %.1.us.i = select i1 %or.cond7.i.us.i, i32 65533, i32 %.1.i.us.i
+  %.1.us.i = select i1 %or.cond7.i.us.i, i32 65533, i32 %.1.i.us.fr.i
   %spec.select.us.i = tail call i32 @llvm.abs.i32(i32 %.042.i.us.i, i1 true)
   %.inv.us.i = icmp sgt i32 %.042.i.us.i, -1
   %spec.select31.i = select i1 %.inv.us.i, i32 %.0.us.i, i32 -1
@@ -6305,7 +6309,7 @@ utf16_to_unicode.exit.thread.us.thread.i:         ; preds = %.split.us.i, %18, %
   %.15.us18.i = phi i32 [ %.1.us.i, %utf16_to_unicode.exit.thread.us.i ], [ 65533, %.split.us.i ], [ 65533, %20 ], [ 65533, %18 ]
   %32 = phi i32 [ %spec.select31.i, %utf16_to_unicode.exit.thread.us.i ], [ -1, %.split.us.i ], [ -1, %20 ], [ -1, %18 ]
   %33 = sub i64 %.028.us.i, %spec.select.us19.i
-  %34 = getelementptr inbounds nuw i8, ptr %.026.us.i, i64 %spec.select.us19.i
+  %34 = getelementptr inbounds nuw i8, ptr %.026.us.fr.i, i64 %spec.select.us19.i
   %35 = icmp samesign ugt i32 %.15.us18.i, 127
   %36 = trunc nuw nsw i32 %.15.us18.i to i8
   %storemerge.us.i = select i1 %35, i8 63, i8 %36

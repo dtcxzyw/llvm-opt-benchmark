@@ -37,8 +37,8 @@ switch.edge.split.us:                             ; preds = %switch.edge
   br i1 %11, label %switch.edge.split.us.split, label %switch.edge.split.us.split.us
 
 switch.edge.split.us.split.us:                    ; preds = %switch.edge.split.us, %.thread58.us.us
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.thread58.us.us ], [ 0, %switch.edge.split.us ]
-  %19 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv109
+  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.thread58.us.us ], [ 0, %switch.edge.split.us ]
+  %19 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv108
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = zext i32 %21 to i64
@@ -93,17 +93,17 @@ h264_get_br_factor.exit.us.us:                    ; preds = %27, %28
   br i1 %.not.us.us, label %.thread58.us.us, label %.thread63
 
 .thread58.us.us:                                  ; preds = %44, %39, %34, %h264_get_br_factor.exit.us.us
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next110, 21
-  br i1 %exitcond112.not, label %.thread63, label %switch.edge.split.us.split.us, !llvm.loop !18
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next109, 21
+  br i1 %exitcond111.not, label %.thread63, label %switch.edge.split.us.split.us, !llvm.loop !18
 
 switch.edge.split.us.split:                       ; preds = %switch.edge.split.us, %.thread58.us
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.thread58.us ], [ 0, %switch.edge.split.us ]
-  %48 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv113
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.thread58.us ], [ 0, %switch.edge.split.us ]
+  %48 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv112
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 5
   %50 = load i8, ptr %49, align 1, !tbaa !19
-  %.not90 = icmp eq i8 %50, 0
-  br i1 %.not90, label %51, label %.thread58.us
+  %.not89 = icmp eq i8 %50, 0
+  br i1 %.not89, label %51, label %.thread58.us
 
 51:                                               ; preds = %switch.edge.split.us.split
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -160,9 +160,9 @@ h264_get_br_factor.exit.us:                       ; preds = %59, %60
   br i1 %.not.us, label %.thread58.us, label %.thread63
 
 .thread58.us:                                     ; preds = %76, %71, %66, %h264_get_br_factor.exit.us, %switch.edge.split.us.split
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next114, 21
-  br i1 %exitcond116.not, label %.thread63, label %switch.edge.split.us.split, !llvm.loop !18
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next113, 21
+  br i1 %exitcond115.not, label %.thread63, label %switch.edge.split.us.split, !llvm.loop !18
 
 switch.edge.split:                                ; preds = %switch.edge
   br i1 %11, label %switch.edge.split.split, label %switch.edge.split.split.us
@@ -214,8 +214,8 @@ h264_get_br_factor.exit.us77:                     ; preds = %88, %89
   br i1 %exitcond.not, label %.thread63, label %switch.edge.split.split.us, !llvm.loop !18
 
 switch.edge.split.split:                          ; preds = %switch.edge.split, %.thread58
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.thread58 ], [ 0, %switch.edge.split ]
-  %100 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv105
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.thread58 ], [ 0, %switch.edge.split ]
+  %100 = getelementptr inbounds nuw [21 x %struct.H264LevelDescriptor], ptr @h264_levels, i64 0, i64 %indvars.iv104
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 5
   %102 = load i8, ptr %101, align 1, !tbaa !19
   %.not = icmp eq i8 %102, 0
@@ -261,9 +261,9 @@ h264_get_br_factor.exit:                          ; preds = %107, %112
   br i1 %or.cond88, label %.thread58, label %.thread63
 
 .thread58:                                        ; preds = %118, %h264_get_br_factor.exit, %switch.edge.split.split
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 21
-  br i1 %exitcond108.not, label %.thread63, label %switch.edge.split.split, !llvm.loop !18
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next105, 21
+  br i1 %exitcond107.not, label %.thread63, label %switch.edge.split.split, !llvm.loop !18
 
 .thread63:                                        ; preds = %95, %.thread58.us80, %118, %.thread58, %.thread58.us.us, %44, %.thread58.us, %76
   %.us-phi = phi ptr [ null, %.thread58.us ], [ %48, %76 ], [ null, %.thread58.us.us ], [ %19, %44 ], [ %100, %118 ], [ null, %.thread58 ], [ %80, %95 ], [ null, %.thread58.us80 ]

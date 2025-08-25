@@ -2663,6 +2663,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
 "_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.i.i": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h65cbf4751fb6a35fE.exit.i.i"
   %.sroa.0105.0.copyload.i.i = load i64, ptr %24, align 8, !noalias !308
   %.sroa.4106.0.copyload.i.i = load i64, ptr %.sroa.4106.0..sroa_idx.i.i, align 8, !noalias !308
+  %.sroa.4106.0.copyload.i.fr.i = freeze i64 %.sroa.4106.0.copyload.i.i
   %.sroa.6108.0.copyload.i.i = load i64, ptr %.sroa.6108.0..sroa_idx.i.i, align 8, !noalias !308
   %.sroa.7109.0.copyload.i.i = load i64, ptr %.sroa.7109.0..sroa_idx.i.i, align 8, !noalias !308
   %.sroa.8110.0.copyload.i.i = load i64, ptr %.sroa.8110.0..sroa_idx.i.i, align 8, !noalias !308
@@ -2671,21 +2672,21 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   %.sroa.13115.0.copyload.i.i = load i64, ptr %.sroa.13115.0..sroa_idx.i.i, align 8, !noalias !308
   %.sroa.14.0.copyload.i.i = load ptr, ptr %.sroa.14.0..sroa_idx.i.i, align 8, !noalias !308
   %.sroa.15.0.copyload.i.i = load i64, ptr %.sroa.15.0..sroa_idx.i.i, align 8, !noalias !308
+  %.sroa.15.0.copyload.i.fr.i = freeze i64 %.sroa.15.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !308
   %trunc.i36.i.i = trunc nuw i64 %.sroa.0105.0.copyload.i.i to i1
   %151 = icmp ne ptr %.sroa.12114.0.copyload.i.i, null
   %152 = icmp ne ptr %.sroa.14.0.copyload.i.i, null
-  %153 = add i64 %.sroa.15.0.copyload.i.i, -1
+  %153 = add i64 %.sroa.15.0.copyload.i.fr.i, -1
   br i1 %trunc.i36.i.i, label %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.us.i.i", label %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.i.i"
 
 "_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.us.i.i": ; preds = %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.i.i"
   call void @llvm.assume(i1 %151)
   call void @llvm.assume(i1 %152)
-  %154 = sub i64 %.sroa.15.0.copyload.i.i, %.sroa.6108.0.copyload.i.i
-  %155 = add i64 %.sroa.4106.0.copyload.i.i, -1
-  %.first_iter.i.i = icmp ult i64 %155, %.sroa.15.0.copyload.i.i
-  %.first_iter.i.fr.i = freeze i1 %.first_iter.i.i
-  %.not132.us.i.i = icmp eq i64 %.sroa.4106.0.copyload.i.i, 0
+  %154 = sub i64 %.sroa.15.0.copyload.i.fr.i, %.sroa.6108.0.copyload.i.i
+  %155 = add i64 %.sroa.4106.0.copyload.i.fr.i, -1
+  %.first_iter.i.i = icmp ult i64 %155, %.sroa.15.0.copyload.i.fr.i
+  %.not132.us.i.i = icmp eq i64 %.sroa.4106.0.copyload.i.fr.i, 0
   br label %156
 
 156:                                              ; preds = %242, %"_ZN59_$LT$$RF$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h25a965012e3c280eE.exit.split.us.i.i"
@@ -2716,22 +2717,22 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   br i1 %170, label %200, label %171
 
 171:                                              ; preds = %.lr.ph.i55.us.i.i
-  %.sroa.0.0.sroa.speculated.i.i57.us.i.i = call i64 @llvm.umax.i64(i64 %161, i64 %.sroa.4106.0.copyload.i.i)
+  %.sroa.0.0.sroa.speculated.i.i57.us.i.i = call i64 @llvm.umax.i64(i64 %161, i64 %.sroa.4106.0.copyload.i.fr.i)
   br label %172
 
 172:                                              ; preds = %191, %171
   %.sroa.04.0.i58.us.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i57.us.i.i, %171 ], [ %192, %191 ]
-  %173 = icmp ult i64 %.sroa.04.0.i58.us.i.i, %.sroa.15.0.copyload.i.i
+  %173 = icmp ult i64 %.sroa.04.0.i58.us.i.i, %.sroa.15.0.copyload.i.fr.i
   br i1 %173, label %188, label %.preheader135.us.i.i
 
 .preheader135.us.i.i:                             ; preds = %172, %181
-  %.sroa.59.0.i59.us.i.i = phi i64 [ %176, %181 ], [ %.sroa.4106.0.copyload.i.i, %172 ]
+  %.sroa.59.0.i59.us.i.i = phi i64 [ %176, %181 ], [ %.sroa.4106.0.copyload.i.fr.i, %172 ]
   %174 = icmp ult i64 %161, %.sroa.59.0.i59.us.i.i
   br i1 %174, label %175, label %.loopexit.i.us.i.i
 
 175:                                              ; preds = %.preheader135.us.i.i
   %176 = add i64 %.sroa.59.0.i59.us.i.i, -1
-  %177 = icmp ult i64 %176, %.sroa.15.0.copyload.i.i
+  %177 = icmp ult i64 %176, %.sroa.15.0.copyload.i.fr.i
   br i1 %177, label %178, label %.split199.us.invoke.i.i
 
 178:                                              ; preds = %175
@@ -2766,13 +2767,13 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   br i1 %.not24.i62.us.i.i, label %172, label %197
 
 197:                                              ; preds = %191
-  %reass.sub = sub i64 %163, %.sroa.4106.0.copyload.i.i
+  %reass.sub = sub i64 %163, %.sroa.4106.0.copyload.i.fr.i
   %198 = add i64 %reass.sub, 1
   %199 = add i64 %198, %.sroa.04.0.i58.us.i.i
   br label %.sink.split.i.us.i.i
 
 200:                                              ; preds = %.lr.ph.i55.us.i.i
-  %201 = add i64 %163, %.sroa.15.0.copyload.i.i
+  %201 = add i64 %163, %.sroa.15.0.copyload.i.fr.i
   br label %.sink.split.i.us.i.i
 
 .sink.split.i.us.i.i:                             ; preds = %200, %197, %186
@@ -2800,15 +2801,15 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   br i1 %213, label %261, label %.preheader134.us.i.i
 
 .preheader134.us.i.i:                             ; preds = %.lr.ph.i48.us.i.i, %252
-  %.sroa.04.0.i.us.i.i = phi i64 [ %253, %252 ], [ %.sroa.4106.0.copyload.i.i, %.lr.ph.i48.us.i.i ]
-  %214 = icmp ult i64 %.sroa.04.0.i.us.i.i, %.sroa.15.0.copyload.i.i
+  %.sroa.04.0.i.us.i.i = phi i64 [ %253, %252 ], [ %.sroa.4106.0.copyload.i.fr.i, %.lr.ph.i48.us.i.i ]
+  %214 = icmp ult i64 %.sroa.04.0.i.us.i.i, %.sroa.15.0.copyload.i.fr.i
   br i1 %214, label %249, label %.preheader.us.i.preheader.i
 
 .preheader.us.i.preheader.i:                      ; preds = %.preheader134.us.i.i
-  br i1 %.first_iter.i.fr.i, label %.preheader.us.i.us.i, label %.preheader.us.i.preheader.split.i
+  br i1 %.first_iter.i.i, label %.preheader.us.i.us.i, label %.preheader.us.i.preheader.split.i
 
 .preheader.us.i.us.i:                             ; preds = %.preheader.us.i.preheader.i, %219
-  %.sroa.59.0.i.us.i.us.i = phi i64 [ %216, %219 ], [ %.sroa.4106.0.copyload.i.i, %.preheader.us.i.preheader.i ]
+  %.sroa.59.0.i.us.i.us.i = phi i64 [ %216, %219 ], [ %.sroa.4106.0.copyload.i.fr.i, %.preheader.us.i.preheader.i ]
   %.not132.us.i.us.i = icmp eq i64 %.sroa.59.0.i.us.i.us.i, 0
   br i1 %.not132.us.i.us.i, label %.loopexit.i.us.i.i, label %215
 
@@ -2836,7 +2837,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
 .loopexit.i.us.i.i:                               ; preds = %.preheader135.us.i.i, %.preheader.us.i.us.i, %.preheader.us.i.preheader.split.i
   %.sroa.3079.1.us.i.i = phi i64 [ -1, %.preheader.us.i.preheader.split.i ], [ -1, %.preheader.us.i.us.i ], [ 0, %.preheader135.us.i.i ]
   %.sroa.7117.2.us.i.i = phi i64 [ %206, %.preheader.us.i.preheader.split.i ], [ %206, %.preheader.us.i.us.i ], [ %163, %.preheader135.us.i.i ]
-  %.sroa.18.1.us.i.i = add i64 %.sroa.7117.2.us.i.i, %.sroa.15.0.copyload.i.i
+  %.sroa.18.1.us.i.i = add i64 %.sroa.7117.2.us.i.i, %.sroa.15.0.copyload.i.fr.i
   %225 = getelementptr inbounds i8, ptr %142, i64 %.sroa.07.0.us.i.i
   %gepdiff.us.i.i = sub nsw i64 %.sroa.7117.2.us.i.i, %.sroa.07.0.us.i.i
   %226 = load i64, ptr %.sroa.515.0..sroa_idx.i.i, align 8, !alias.scope !335, !noalias !308, !noundef !4
@@ -2903,13 +2904,13 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   br i1 %.not24.i.us.i.i, label %.preheader134.us.i.i, label %258
 
 258:                                              ; preds = %252
-  %reass.sub401 = sub i64 %206, %.sroa.4106.0.copyload.i.i
+  %reass.sub401 = sub i64 %206, %.sroa.4106.0.copyload.i.fr.i
   %259 = add i64 %reass.sub401, 1
   %260 = add i64 %259, %.sroa.04.0.i.us.i.i
   br label %263
 
 261:                                              ; preds = %.lr.ph.i48.us.i.i
-  %262 = add i64 %206, %.sroa.15.0.copyload.i.i
+  %262 = add i64 %206, %.sroa.15.0.copyload.i.fr.i
   br label %263
 
 263:                                              ; preds = %261, %258, %.split.us.i
@@ -2936,7 +2937,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.lr.ph.i.i
   %.sroa.07.0214.i.i = phi i64 [ 0, %.lr.ph.i.lr.ph.i.i ], [ %.sroa.473.1261.i.i, %.preheader.i.i.i ]
   %.sroa.875.sroa.0.0213.i.i = phi i1 [ %268, %.lr.ph.i.lr.ph.i.i ], [ false, %.preheader.i.i.i ]
-  %.sroa.473.0212.i.i = phi i64 [ %.sroa.4106.0.copyload.i.i, %.lr.ph.i.lr.ph.i.i ], [ %.sroa.473.1261.i.i, %.preheader.i.i.i ]
+  %.sroa.473.0212.i.i = phi i64 [ %.sroa.4106.0.copyload.i.fr.i, %.lr.ph.i.lr.ph.i.i ], [ %.sroa.473.1261.i.i, %.preheader.i.i.i ]
   br label %269
 
 269:                                              ; preds = %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h151bd38c2d968d0fE.exit.i.i.i", %.lr.ph.i.i.i
@@ -3059,7 +3060,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
 
 .split199.us.invoke.i.i:                          ; preds = %.preheader.us.i.preheader.split.i, %178, %175, %215, %.split206.us.i.i, %.split194.us.i.i
   %332 = phi i64 [ %umax.i.i.i, %.split206.us.i.i ], [ %umax.i61.i.i, %.split194.us.i.i ], [ %217, %215 ], [ %176, %175 ], [ %179, %178 ], [ %155, %.preheader.us.i.preheader.split.i ]
-  %333 = phi i64 [ %.sroa.13115.0.copyload.i.i, %.split206.us.i.i ], [ %.sroa.13115.0.copyload.i.i, %.split194.us.i.i ], [ %.sroa.13115.0.copyload.i.i, %215 ], [ %.sroa.15.0.copyload.i.i, %175 ], [ %.sroa.13115.0.copyload.i.i, %178 ], [ %.sroa.15.0.copyload.i.i, %.preheader.us.i.preheader.split.i ]
+  %333 = phi i64 [ %.sroa.13115.0.copyload.i.i, %.split206.us.i.i ], [ %.sroa.13115.0.copyload.i.i, %.split194.us.i.i ], [ %.sroa.13115.0.copyload.i.i, %215 ], [ %.sroa.15.0.copyload.i.fr.i, %175 ], [ %.sroa.13115.0.copyload.i.i, %178 ], [ %.sroa.15.0.copyload.i.fr.i, %.preheader.us.i.preheader.split.i ]
   %334 = phi ptr [ @anon.3679386ff5ff7aeb111909e346290cd2.20, %.split206.us.i.i ], [ @anon.3679386ff5ff7aeb111909e346290cd2.20, %.split194.us.i.i ], [ @anon.3679386ff5ff7aeb111909e346290cd2.18, %215 ], [ @anon.3679386ff5ff7aeb111909e346290cd2.17, %175 ], [ @anon.3679386ff5ff7aeb111909e346290cd2.18, %178 ], [ @anon.3679386ff5ff7aeb111909e346290cd2.17, %.preheader.us.i.preheader.split.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0328ca7e7f0749c4E(i64 noundef %332, i64 noundef %333, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %334) #20
           to label %.split199.us.cont.i.i unwind label %.loopexit.split-lp.i.i, !noalias !316
@@ -3068,7 +3069,7 @@ define noundef ptr @_ZN6uv_dev22generate_cli_reference4main17h5b085b46db4d01a7E(
   unreachable
 
 .split206.us.i.i:                                 ; preds = %249
-  %335 = add i64 %206, %.sroa.4106.0.copyload.i.i
+  %335 = add i64 %206, %.sroa.4106.0.copyload.i.fr.i
   %umax.i.i.i = call i64 @llvm.umax.i64(i64 %.sroa.13115.0.copyload.i.i, i64 %335)
   br label %.split199.us.invoke.i.i
 
@@ -3464,13 +3465,13 @@ _ZN3std4path4Path4join17h53ba53907a6981e7E.exit182: ; preds = %_ZN3std4path4Path
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
   %457 = load i8, ptr %0, align 1, !range !445, !noundef !4
-  switch i8 %457, label %default.unreachable533 [
+  switch i8 %457, label %default.unreachable534 [
     i8 0, label %458
     i8 1, label %459
     i8 2, label %460
   ]
 
-default.unreachable533:                           ; preds = %456
+default.unreachable534:                           ; preds = %456
   unreachable
 
 458:                                              ; preds = %456
@@ -3492,8 +3493,8 @@ default.unreachable533:                           ; preds = %456
 
 461:                                              ; preds = %458
   %462 = load i64, ptr %64, align 8, !range !5, !noundef !4
-  %.not641 = icmp eq i64 %462, -9223372036854775808
-  br i1 %.not641, label %467, label %463
+  %.not642 = icmp eq i64 %462, -9223372036854775808
+  br i1 %.not642, label %467, label %463
 
 463:                                              ; preds = %461
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
@@ -3987,8 +3988,8 @@ default.unreachable533:                           ; preds = %456
 604:                                              ; preds = %459
   call void @llvm.lifetime.end.p0(ptr nonnull %81)
   %605 = load i64, ptr %82, align 8, !range !5, !noundef !4
-  %.not640 = icmp eq i64 %605, -9223372036854775808
-  br i1 %.not640, label %609, label %606
+  %.not641 = icmp eq i64 %605, -9223372036854775808
+  br i1 %.not641, label %609, label %606
 
 606:                                              ; preds = %604
   call void @llvm.lifetime.start.p0(ptr nonnull %80)

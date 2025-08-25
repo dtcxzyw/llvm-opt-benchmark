@@ -2728,8 +2728,9 @@ define hidden noundef zeroext i1 @_ZN3sat9lookahead6selectEj(ptr noundef nonnull
   %14 = phi i32 [ %12, %8 ], [ %4, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %16 = load i32, ptr %15, align 4, !tbaa !87
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %16, i32 %14)
-  %.sroa.speculated.fr = freeze i32 %.sroa.speculated
+  %.fr = freeze i32 %16
+  %.fr77 = freeze i32 %14
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.fr, i32 %.fr77)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   br label %18
 
@@ -2747,8 +2748,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit: ; preds = %18
   br i1 %24, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread, label %.critedge38.preheader
 
 .critedge38.preheader:                            ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit
-  %.mask = and i32 %.sroa.speculated.fr, 2147483647
-  %25 = shl i32 %.sroa.speculated.fr, 1
+  %.mask = and i32 %.sroa.speculated, 2147483647
+  %25 = shl i32 %.sroa.speculated, 1
   %.not32.not = icmp eq i32 %.mask, 0
   br i1 %.not32.not, label %.critedge38.preheader.split.us, label %.critedge38.preheader.split
 
@@ -2781,8 +2782,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread.us: ; preds = 
   %37 = load i32, ptr %36, align 4, !tbaa !87
   %38 = icmp uge i32 %.070.us, %37
   %.not33.us = icmp ult i32 %37, %25
-  %or.cond96 = or i1 %38, %.not33.us
-  br i1 %or.cond96, label %.critedge3.us, label %39
+  %or.cond97 = or i1 %38, %.not33.us
+  br i1 %or.cond97, label %.critedge3.us, label %39
 
 39:                                               ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread.us
   %40 = zext i32 %.070.us to i64
@@ -2858,8 +2859,8 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread: ; preds = %_Z
   %72 = load i32, ptr %71, align 4, !tbaa !87
   %73 = icmp uge i32 %.070, %72
   %.not33 = icmp ult i32 %72, %25
-  %or.cond97 = or i1 %73, %.not33
-  br i1 %or.cond97, label %.critedge3, label %76
+  %or.cond98 = or i1 %73, %.not33
+  br i1 %or.cond98, label %.critedge3, label %76
 
 .critedge3:                                       ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread, %92
   %74 = phi ptr [ null, %92 ], [ %69, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit43.thread ]
@@ -2910,11 +2911,11 @@ _ZN6vectorIN3sat9lookahead9candidateELb0EjE4backEv.exit: ; preds = %76
 _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.lr.ph: ; preds = %.critedge
   %97 = getelementptr inbounds i8, ptr %95, i64 -4
   %.promoted = load i32, ptr %97, align 4, !tbaa !87
-  %98 = icmp ugt i32 %.promoted, %.sroa.speculated.fr
+  %98 = icmp ugt i32 %.promoted, %.sroa.speculated
   br i1 %98, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.preheader, label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.thread
 
 _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.preheader: ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.lr.ph
-  store i32 %.sroa.speculated.fr, ptr %97, align 4, !tbaa !87
+  store i32 %.sroa.speculated, ptr %97, align 4, !tbaa !87
   br label %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.thread
 
 _ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.thread: ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread, %.critedge, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.lr.ph, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE4sizeEv.exit47.preheader
@@ -12981,40 +12982,38 @@ define hidden void @_ZN3sat9lookahead25update_nary_clause_rewardERKNS_6clauseE(p
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread
-  %.044 = phi ptr [ %15, %.lr.ph ], [ %32, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread ]
+  %.044 = phi ptr [ %15, %.lr.ph ], [ %30, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread ]
   %.02643 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread ]
   %.sroa.012.0.copyload = load i32, ptr %.044, align 4, !tbaa !87
-  %21 = lshr i32 %.sroa.012.0.copyload, 1
+  %.sroa.012.0.copyload.fr = freeze i32 %.sroa.012.0.copyload
+  %21 = lshr i32 %.sroa.012.0.copyload.fr, 1
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i32, ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !87
-  %25 = icmp uge i32 %24, %17
-  %26 = and i32 %.sroa.012.0.copyload, 1
-  %27 = trunc i32 %24 to i1
+  %.fr = freeze i32 %24
+  %25 = icmp uge i32 %.fr, %17
+  %26 = and i32 %.sroa.012.0.copyload.fr, 1
+  %27 = trunc i32 %.fr to i1
   %28 = icmp eq i32 %26, 0
   %.not.i.i = xor i1 %28, %27
   %29 = and i1 %25, %.not.i.i
   br i1 %29, label %.loopexit, label %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread
 
 _ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread: ; preds = %20
-  %.not.i.i37 = icmp ult i32 %24, %17
-  %30 = icmp ne i32 %26, 0
-  %31 = xor i1 %30, %27
-  %cond.fr = freeze i1 %31
-  %not.cond.fr = xor i1 %cond.fr, true
-  %narrow = or i1 %.not.i.i37, %not.cond.fr
+  %.not.i.i37 = icmp ult i32 %.fr, %17
+  %narrow = or i1 %.not.i.i37, %.not.i.i
   %.sink = zext i1 %narrow to i32
   %spec.select = add i32 %.02643, %.sink
-  %32 = getelementptr inbounds nuw i8, ptr %.044, i64 4
-  %.not = icmp eq ptr %32, %14
+  %30 = getelementptr inbounds nuw i8, ptr %.044, i64 4
+  %.not = icmp eq ptr %30, %14
   br i1 %.not, label %._crit_edge, label %20, !llvm.loop !364
 
 ._crit_edge:                                      ; preds = %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread, %9
   %.026.lcssa = phi i32 [ 0, %9 ], [ %spec.select, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread ]
   switch i32 %4, label %.loopexit [
     i32 2, label %.preheader
-    i32 3, label %78
-    i32 4, label %82
+    i32 3, label %76
+    i32 4, label %80
     i32 0, label %.loopexit.sink.split
   ]
 
@@ -13023,100 +13022,100 @@ _ZNK3sat9lookahead8is_falseENS_7literalE.exit.thread: ; preds = %20
   br i1 %.not3245, label %._crit_edge49, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.preheader
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %34 = load i32, ptr %33, align 8, !tbaa !92
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %36 = load ptr, ptr %35, align 8, !tbaa !91
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %32 = load i32, ptr %31, align 8, !tbaa !92
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %34 = load ptr, ptr %33, align 8, !tbaa !91
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %42 = load ptr, ptr %41, align 8
-  br label %48
+  br label %46
 
-._crit_edge49:                                    ; preds = %76, %.preheader
-  %.027.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.128, %76 ]
-  %43 = uitofp i32 %.026.lcssa to double
-  %mul33 = fneg double %43
+._crit_edge49:                                    ; preds = %74, %.preheader
+  %.027.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.128, %74 ]
+  %41 = uitofp i32 %.026.lcssa to double
+  %mul33 = fneg double %41
   %exp234 = tail call double @exp2(double %mul33)
-  %44 = fmul double %.027.lcssa, %exp234
-  %45 = fdiv double %44, %43
-  %46 = load double, ptr %6, align 8, !tbaa !358
-  %47 = fadd double %46, %45
+  %42 = fmul double %.027.lcssa, %exp234
+  %43 = fdiv double %42, %41
+  %44 = load double, ptr %6, align 8, !tbaa !358
+  %45 = fadd double %44, %43
   br label %.loopexit.sink.split
 
-48:                                               ; preds = %.lr.ph48, %76
-  %.02747 = phi double [ 0.000000e+00, %.lr.ph48 ], [ %.128, %76 ]
-  %.02946 = phi ptr [ %10, %.lr.ph48 ], [ %77, %76 ]
+46:                                               ; preds = %.lr.ph48, %74
+  %.02747 = phi double [ 0.000000e+00, %.lr.ph48 ], [ %.128, %74 ]
+  %.02946 = phi ptr [ %10, %.lr.ph48 ], [ %75, %74 ]
   %.sroa.02.0.copyload = load i32, ptr %.02946, align 4, !tbaa !87
-  %49 = lshr i32 %.sroa.02.0.copyload, 1
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %36, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !87
-  %.not.i.i38 = icmp ult i32 %52, %34
+  %47 = lshr i32 %.sroa.02.0.copyload, 1
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw i32, ptr %34, i64 %48
+  %50 = load i32, ptr %49, align 4, !tbaa !87
+  %.not.i.i38 = icmp ult i32 %50, %32
   br i1 %.not.i.i38, label %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread, label %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39
 
-_ZNK3sat9lookahead8is_falseENS_7literalE.exit39:  ; preds = %48
-  %53 = and i32 %.sroa.02.0.copyload, 1
-  %54 = icmp ne i32 %53, 0
-  %55 = trunc i32 %52 to i1
-  %56 = xor i1 %54, %55
-  br i1 %56, label %76, label %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread
+_ZNK3sat9lookahead8is_falseENS_7literalE.exit39:  ; preds = %46
+  %51 = and i32 %.sroa.02.0.copyload, 1
+  %52 = icmp ne i32 %51, 0
+  %53 = trunc i32 %50 to i1
+  %54 = xor i1 %52, %53
+  br i1 %54, label %74, label %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread
 
-_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread: ; preds = %48, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39
-  %57 = zext i32 %.sroa.02.0.copyload to i64
-  %58 = getelementptr inbounds nuw %class.svector.1, ptr %38, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !86
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZN3sat9lookahead12literal_occsENS_7literalE.exit, label %61
+_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread: ; preds = %46, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39
+  %55 = zext i32 %.sroa.02.0.copyload to i64
+  %56 = getelementptr inbounds nuw %class.svector.1, ptr %36, i64 %55
+  %57 = load ptr, ptr %56, align 8, !tbaa !86
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %_ZN3sat9lookahead12literal_occsENS_7literalE.exit, label %59
 
-61:                                               ; preds = %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread
-  %62 = getelementptr inbounds i8, ptr %59, i64 -4
-  %63 = load i32, ptr %62, align 4, !tbaa !87
-  %64 = uitofp i32 %63 to double
+59:                                               ; preds = %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread
+  %60 = getelementptr inbounds i8, ptr %57, i64 -4
+  %61 = load i32, ptr %60, align 4, !tbaa !87
+  %62 = uitofp i32 %61 to double
   br label %_ZN3sat9lookahead12literal_occsENS_7literalE.exit
 
-_ZN3sat9lookahead12literal_occsENS_7literalE.exit: ; preds = %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread, %61
-  %.0.i.i = phi double [ %64, %61 ], [ 0.000000e+00, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread ]
-  %65 = xor i32 %.sroa.02.0.copyload, 1
-  %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %40, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !87
-  %69 = uitofp i32 %68 to double
-  %70 = getelementptr inbounds nuw i32, ptr %42, i64 %66
-  %71 = load i32, ptr %70, align 4, !tbaa !87
-  %72 = uitofp i32 %71 to double
-  %73 = fadd double %69, %72
-  %74 = fadd double %.0.i.i, %73
-  %75 = fadd double %.02747, %74
-  br label %76
+_ZN3sat9lookahead12literal_occsENS_7literalE.exit: ; preds = %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread, %59
+  %.0.i.i = phi double [ %62, %59 ], [ 0.000000e+00, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39.thread ]
+  %63 = xor i32 %.sroa.02.0.copyload, 1
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw i32, ptr %38, i64 %64
+  %66 = load i32, ptr %65, align 4, !tbaa !87
+  %67 = uitofp i32 %66 to double
+  %68 = getelementptr inbounds nuw i32, ptr %40, i64 %64
+  %69 = load i32, ptr %68, align 4, !tbaa !87
+  %70 = uitofp i32 %69 to double
+  %71 = fadd double %67, %70
+  %72 = fadd double %.0.i.i, %71
+  %73 = fadd double %.02747, %72
+  br label %74
 
-76:                                               ; preds = %_ZN3sat9lookahead12literal_occsENS_7literalE.exit, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39
-  %.128 = phi double [ %.02747, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39 ], [ %75, %_ZN3sat9lookahead12literal_occsENS_7literalE.exit ]
-  %77 = getelementptr inbounds nuw i8, ptr %.02946, i64 4
-  %.not32 = icmp eq ptr %77, %14
-  br i1 %.not32, label %._crit_edge49, label %48
+74:                                               ; preds = %_ZN3sat9lookahead12literal_occsENS_7literalE.exit, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39
+  %.128 = phi double [ %.02747, %_ZNK3sat9lookahead8is_falseENS_7literalE.exit39 ], [ %73, %_ZN3sat9lookahead12literal_occsENS_7literalE.exit ]
+  %75 = getelementptr inbounds nuw i8, ptr %.02946, i64 4
+  %.not32 = icmp eq ptr %75, %14
+  br i1 %.not32, label %._crit_edge49, label %46
 
-78:                                               ; preds = %._crit_edge
-  %79 = uitofp i32 %.026.lcssa to double
-  %mul30 = fneg double %79
+76:                                               ; preds = %._crit_edge
+  %77 = uitofp i32 %.026.lcssa to double
+  %mul30 = fneg double %77
   %exp231 = tail call double @exp2(double %mul30)
-  %80 = load double, ptr %6, align 8, !tbaa !358
-  %81 = fadd double %exp231, %80
+  %78 = load double, ptr %6, align 8, !tbaa !358
+  %79 = fadd double %exp231, %78
   br label %.loopexit.sink.split
 
-82:                                               ; preds = %._crit_edge
-  %83 = add i32 %.026.lcssa, -2
-  %84 = uitofp i32 %83 to double
-  %mul = fneg double %84
+80:                                               ; preds = %._crit_edge
+  %81 = add i32 %.026.lcssa, -2
+  %82 = uitofp i32 %81 to double
+  %mul = fneg double %82
   %exp2 = tail call double @exp2(double %mul)
-  %85 = load double, ptr %6, align 8, !tbaa !358
-  %86 = tail call double @llvm.fmuladd.f64(double %exp2, double 3.300000e+00, double %85)
+  %83 = load double, ptr %6, align 8, !tbaa !358
+  %84 = tail call double @llvm.fmuladd.f64(double %exp2, double 3.300000e+00, double %83)
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %._crit_edge, %._crit_edge49, %78, %82
-  %.sink54 = phi double [ %86, %82 ], [ %81, %78 ], [ %47, %._crit_edge49 ], [ 1.000000e-03, %._crit_edge ]
+.loopexit.sink.split:                             ; preds = %._crit_edge, %._crit_edge49, %76, %80
+  %.sink54 = phi double [ %84, %80 ], [ %79, %76 ], [ %45, %._crit_edge49 ], [ 1.000000e-03, %._crit_edge ]
   store double %.sink54, ptr %6, align 8, !tbaa !358
   br label %.loopexit
 

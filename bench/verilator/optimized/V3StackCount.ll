@@ -578,12 +578,13 @@ define linkonce_odr dso_local void @_ZN17StackCountVisitor5visitEP8AstCFunc(ptr 
   %.pre = load i32, ptr %16, align 4, !tbaa !27
   %.pre31 = load i32, ptr @_ZN12VNUser2InUse12s_userCntGblE, align 4, !tbaa !37
   %.pre32 = load i64, ptr %20, align 8
-  %54 = icmp eq i32 %.pre, %.pre31
+  %.pre.fr = freeze i32 %.pre
+  %.pre31.fr = freeze i32 %.pre31
+  %54 = icmp eq i32 %.pre.fr, %.pre31.fr
   %55 = shl i64 %.pre32, 32
   %56 = add i64 %55, -4294967296
   %57 = ashr exact i64 %56, 32
-  %cond.fr = freeze i1 %54
-  %spec.select = select i1 %cond.fr, i64 %57, i64 -1
+  %spec.select = select i1 %54, i64 %57, i64 -1
   br label %58
 
 58:                                               ; preds = %53, %.thread

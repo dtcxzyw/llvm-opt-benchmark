@@ -26878,11 +26878,11 @@ _ZN4fish3env16environment_impl5Query3new17heb394813a0d9aeb9E.exit:
   %14 = alloca [8 x i8], align 8
   %15 = alloca [8 x i8], align 8
   %16 = alloca [48 x i8], align 8
-  %.fr = freeze i16 %2
-  %17 = and i16 %.fr, 15
+  %.fr161 = freeze i16 %2
+  %17 = and i16 %.fr161, 15
   %.not = icmp eq i16 %17, 0
-  %18 = trunc i16 %.fr to i8
-  %19 = trunc i16 %.fr to i1
+  %18 = trunc i16 %.fr161 to i8
+  %19 = trunc i16 %.fr161 to i1
   %20 = and i8 %18, 4
   %21 = icmp ne i8 %20, 0
   %22 = and i8 %18, 8
@@ -26890,7 +26890,7 @@ _ZN4fish3env16environment_impl5Query3new17heb394813a0d9aeb9E.exit:
   %.sroa.05.0.i = or i1 %.not, %23
   %.sroa.04.0.i = or i1 %.not, %21
   %.sroa.02.0.i = or i1 %.not, %19
-  %24 = and i16 %.fr, 48
+  %24 = and i16 %.fr161, 48
   %.not196 = icmp eq i16 %24, 0
   %25 = lshr i8 %18, 4
   %26 = lshr i8 %18, 5

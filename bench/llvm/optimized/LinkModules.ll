@@ -2756,17 +2756,17 @@ _ZN12_GLOBAL__N_112ModuleLinker17getLinkedToGlobalEPKN4llvm11GlobalValueE.exit: 
   %65 = load i32, ptr %64, align 8
   %66 = and i32 %65, 15
   %67 = icmp eq i32 %66, 10
-  %.pre133 = load i32, ptr %38, align 8
-  %68 = and i32 %.pre133, 15
+  %.pre132 = load i32, ptr %38, align 8
+  %68 = and i32 %.pre132, 15
   %69 = icmp eq i32 %68, 10
-  %or.cond147 = select i1 %67, i1 %69, i1 false
-  br i1 %or.cond147, label %70, label %83
+  %or.cond146 = select i1 %67, i1 %69, i1 false
+  br i1 %or.cond146, label %70, label %83
 
 70:                                               ; preds = %63
   %71 = lshr i32 %65, 17
   %72 = and i32 %71, 63
   %.not.i.i = icmp ne i32 %72, 0
-  %73 = lshr i32 %.pre133, 17
+  %73 = lshr i32 %.pre132, 17
   %74 = and i32 %73, 63
   %.not.i.i72 = icmp ne i32 %74, 0
   %or.cond120 = select i1 %.not.i.i, i1 true, i1 %.not.i.i72
@@ -2793,7 +2793,7 @@ _ZN12_GLOBAL__N_112ModuleLinker17getLinkedToGlobalEPKN4llvm11GlobalValueE.exit: 
   br label %83
 
 83:                                               ; preds = %63, %82, %41
-  %84 = phi i32 [ %.pre133, %63 ], [ %.pre, %82 ], [ %39, %41 ]
+  %84 = phi i32 [ %.pre132, %63 ], [ %.pre, %82 ], [ %39, %41 ]
   %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %86 = load i32, ptr %85, align 8
   %87 = lshr i32 %86, 4
@@ -2880,13 +2880,13 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit84: ; preds = %_
 126:                                              ; preds = %.critedge
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %128 = load i32, ptr %127, align 8
-  %.fr126 = freeze i32 %128
-  %129 = and i32 %.fr126, 14
+  %.fr = freeze i32 %128
+  %129 = and i32 %.fr, 14
   %spec.select.i.i90 = icmp eq i32 %129, 2
   br i1 %spec.select.i.i90, label %232, label %switch.early.test
 
 switch.early.test:                                ; preds = %126
-  %130 = and i32 %.fr126, 15
+  %130 = and i32 %.fr, 15
   switch i32 %130, label %131 [
     i32 8, label %232
     i32 7, label %232
@@ -3033,11 +3033,11 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6ComdatESt4pairINS2_13SelectionKindEN12
 
 189:                                              ; preds = %187
   %190 = icmp eq i32 %.0116, 2
-  %.pre134 = load i8, ptr %7, align 1, !tbaa !266, !range !249
+  %.pre133 = load i8, ptr %7, align 1, !tbaa !266, !range !249
   br i1 %190, label %191, label %.thread117
 
 191:                                              ; preds = %189
-  %192 = trunc nuw i8 %.pre134 to i1
+  %192 = trunc nuw i8 %.pre133 to i1
   %193 = select i1 %192, ptr %.0.i, ptr %1
   %194 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %195 = load i32, ptr %194, align 8, !tbaa !19
@@ -3067,7 +3067,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit: ; 
   br label %.thread117
 
 .thread117:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11GlobalValueELb1EE9push_backES2_.exit, %189
-  %209 = trunc nuw i8 %.pre134 to i1
+  %209 = trunc nuw i8 %.pre133 to i1
   br i1 %209, label %.thread117.thread, label %231
 
 .thread117.thread:                                ; preds = %.critedge64, %.thread117

@@ -8747,18 +8747,18 @@ rb_integer_type_p.exit.i.i4:                      ; preds = %30
 rb_float_value_inline.exit.i9:                    ; preds = %rb_integer_type_p.exit.i.i4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load double, ptr %38, align 8, !tbaa !21
-  %.fr18 = freeze double %39
-  %40 = tail call double @llvm.fabs.f64(double %.fr18)
+  %.fr = freeze double %39
+  %40 = tail call double @llvm.fabs.f64(double %.fr)
   %41 = fcmp ueq double %40, 0x7FF0000000000000
   br i1 %41, label %45, label %f_finite_p.exit10.thread
 
 f_finite_p.exit10:                                ; preds = %30, %rb_integer_type_p.exit.i.i4
   %42 = load i64, ptr @id_finite_p, align 8, !tbaa !11
   %43 = tail call i64 @rb_funcallv(i64 noundef %25, i64 noundef %42, i32 noundef 0, ptr noundef null) #17
-  %.fr19 = freeze i64 %43
-  %44 = and i64 %.fr19, -5
-  %.not20 = icmp eq i64 %44, 0
-  br i1 %.not20, label %45, label %f_finite_p.exit10.thread
+  %.fr18 = freeze i64 %43
+  %44 = and i64 %.fr18, -5
+  %.not19 = icmp eq i64 %44, 0
+  br i1 %.not19, label %45, label %f_finite_p.exit10.thread
 
 f_finite_p.exit10.thread:                         ; preds = %rb_integer_type_p.exit.i.i4, %rb_integer_type_p.exit.i.i4, %f_finite_p.exit.thread, %rb_float_value_inline.exit.i9, %f_finite_p.exit10
   br label %45

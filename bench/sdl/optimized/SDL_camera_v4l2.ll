@@ -756,6 +756,7 @@ define internal range(i32 0, 3) i32 @V4L2_AcquireFrame(ptr noundef readonly capt
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
+  %.fr61 = freeze i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   switch i32 %9, label %.loopexit [
     i32 1, label %14
@@ -765,7 +766,7 @@ define internal range(i32 0, 3) i32 @V4L2_AcquireFrame(ptr noundef readonly capt
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %11, align 8
-  %16 = tail call i64 @read(i32 noundef %7, ptr noundef %15, i64 noundef %13) #11
+  %16 = tail call i64 @read(i32 noundef %7, ptr noundef %15, i64 noundef %.fr61) #11
   %17 = icmp eq i64 %16, -1
   br i1 %17, label %18, label %23
 
@@ -905,10 +906,10 @@ xioctl.exit58.preheader:                          ; preds = %84
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %96 = load i32, ptr %95, align 8
-  %97 = zext i32 %96 to i64
-  %98 = icmp eq i64 %13, %97
-  %.fr = freeze i1 %98
-  br i1 %.fr, label %.lr.ph.split.preheader, label %xioctl.exit58._crit_edge
+  %.fr62 = freeze i32 %96
+  %97 = zext i32 %.fr62 to i64
+  %98 = icmp eq i64 %.fr61, %97
+  br i1 %98, label %.lr.ph.split.preheader, label %xioctl.exit58._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %wide.trip.count = zext nneg i32 %89 to i64
@@ -953,9 +954,9 @@ xioctl.exit58._crit_edge:                         ; preds = %xioctl.exit58, %.lr
   %.not51 = icmp eq i32 %114, 0
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %116 = load i32, ptr %115, align 8
-  %.sink64 = select i1 %.not51, i32 %116, i32 %114
+  %.sink66 = select i1 %.not51, i32 %116, i32 %114
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %.sink64, ptr %117, align 8
+  store i32 %.sink66, ptr %117, align 8
   %118 = load ptr, ptr %5, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load ptr, ptr %119, align 8

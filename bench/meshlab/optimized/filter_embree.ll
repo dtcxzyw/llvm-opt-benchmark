@@ -4405,8 +4405,8 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %7
           to label %.lr.ph.i unwind label %57
 
 .lr.ph.i:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %.idx38 = mul nuw nsw i64 %6, 12
-  %12 = getelementptr i8, ptr %11, i64 %.idx38
+  %.idx37 = mul nuw nsw i64 %6, 12
+  %12 = getelementptr i8, ptr %11, i64 %.idx37
   %13 = uitofp nneg i32 %2 to float
   %14 = fpext float %13 to double
   %wide.trip.count.i = zext nneg i32 %2 to i64
@@ -4481,7 +4481,7 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc8, %.noexc8.thread
-  %.sroa.0.23036 = phi ptr [ null, %.noexc8.thread ], [ %11, %.noexc8 ]
+  %.sroa.0.22935 = phi ptr [ null, %.noexc8.thread ], [ %11, %.noexc8 ]
   %52 = phi ptr [ %40, %.noexc8.thread ], [ %44, %.noexc8 ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc8.thread ], [ %scevgep, %.noexc8 ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %52, align 8
@@ -4498,11 +4498,11 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %53, %55
-  %.not.i.i.i9 = icmp eq ptr %.sroa.0.23036, null
+  %.not.i.i.i9 = icmp eq ptr %.sroa.0.22935, null
   br i1 %.not.i.i.i9, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit10, label %56
 
 56:                                               ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.23036) #28
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.22935) #28
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit10
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit10: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %56
@@ -4526,7 +4526,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit10: ; preds = %_ZNSt6vectorIN3vcg6
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit12
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit12: ; preds = %62, %59, %57
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %57 ], [ %.sroa.0.23036, %59 ], [ %.sroa.0.23036, %62 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %57 ], [ %.sroa.0.22935, %59 ], [ %.sroa.0.22935, %62 ]
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %60, %62 ]
   %.not.i.i.i13 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit14, label %63
@@ -4898,8 +4898,8 @@ _ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %6
           to label %.lr.ph.i unwind label %56
 
 .lr.ph.i:                                         ; preds = %_ZNKSt6vectorIN3vcg6Point3IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %.idx37 = mul nuw nsw i64 %5, 12
-  %11 = getelementptr i8, ptr %10, i64 %.idx37
+  %.idx36 = mul nuw nsw i64 %5, 12
+  %11 = getelementptr i8, ptr %10, i64 %.idx36
   %12 = uitofp nneg i32 %2 to float
   %13 = fpext float %12 to double
   %wide.trip.count.i = zext nneg i32 %2 to i64
@@ -4974,7 +4974,7 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.noexc7, %.noexc7.thread
-  %.sroa.0.22935 = phi ptr [ null, %.noexc7.thread ], [ %10, %.noexc7 ]
+  %.sroa.0.22834 = phi ptr [ null, %.noexc7.thread ], [ %10, %.noexc7 ]
   %51 = phi ptr [ %39, %.noexc7.thread ], [ %43, %.noexc7 ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc7.thread ], [ %scevgep, %.noexc7 ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %51, align 8
@@ -4991,11 +4991,11 @@ _ZN3vcg9GenNormalIfE9FibonacciEiRSt6vectorINS_6Point3IfEESaIS4_EE.exit: ; preds 
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %52, %54
-  %.not.i.i.i8 = icmp eq ptr %.sroa.0.22935, null
+  %.not.i.i.i8 = icmp eq ptr %.sroa.0.22834, null
   br i1 %.not.i.i.i8, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit9, label %55
 
 55:                                               ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.22935) #28
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.22834) #28
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit9
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit9:  ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %55
@@ -5019,7 +5019,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit9:  ; preds = %_ZNSt6vectorIN3vcg6
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit11
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit11: ; preds = %61, %58, %56
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %56 ], [ %.sroa.0.22935, %58 ], [ %.sroa.0.22935, %61 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %56 ], [ %.sroa.0.22834, %58 ], [ %.sroa.0.22834, %61 ]
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %59, %61 ]
   %.not.i.i.i12 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i12, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit13, label %62

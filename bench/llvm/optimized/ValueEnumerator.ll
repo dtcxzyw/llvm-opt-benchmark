@@ -18608,19 +18608,21 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm15ValueEnumerator7MDInd
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36"
-  %.038 = phi i64 [ %1, %.lr.ph ], [ %53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36" ]
-  %11 = shl nuw nsw i64 %.038, 1
+  %.039 = phi i64 [ %1, %.lr.ph ], [ %53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36" ]
+  %11 = shl nuw nsw i64 %.039, 1
   %12 = add nuw nsw i64 %11, 2
   %13 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %12
   %14 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.val29 = load i64, ptr %13, align 4
+  %.val29.fr = freeze i64 %.val29
   %.val30 = load i64, ptr %15, align 4
+  %.val30.fr = freeze i64 %.val30
   %.val.val = load ptr, ptr %9, align 8, !tbaa !401
-  %.sroa.011.0.extract.trunc.i.i = trunc i64 %.val29 to i32
-  %.sroa.212.0.extract.shift.i.i = lshr i64 %.val29, 32
-  %.sroa.08.0.extract.trunc.i.i = trunc i64 %.val30 to i32
-  %.sroa.29.0.extract.shift.i.i = lshr i64 %.val30, 32
+  %.sroa.011.0.extract.trunc.i.i = trunc i64 %.val29.fr to i32
+  %.sroa.212.0.extract.shift.i.i = lshr i64 %.val29.fr, 32
+  %.sroa.08.0.extract.trunc.i.i = trunc i64 %.val30.fr to i32
+  %.sroa.29.0.extract.shift.i.i = lshr i64 %.val30.fr, 32
   %16 = add nuw nsw i64 %.sroa.212.0.extract.shift.i.i, 4294967295
   %17 = and i64 %16, 4294967295
   %18 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %17
@@ -18637,7 +18639,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm15ValueEnumerator7MDInd
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %26 = load i8, ptr %25, align 1
-  %27 = and i8 %26, 127
+  %.fr38 = freeze i8 %26
+  %27 = and i8 %.fr38, 127
   %28 = icmp eq i8 %27, 1
   %29 = select i1 %28, i32 2, i32 3
   br label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i
@@ -18660,7 +18663,8 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit.i.i: ; preds = %24, %22, %10
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %40 = load i8, ptr %39, align 1
-  %41 = and i8 %40, 127
+  %.fr = freeze i8 %40
+  %41 = and i8 %.fr, 127
   %42 = icmp eq i8 %41, 1
   %43 = select i1 %42, i32 2, i32 3
   br label %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i
@@ -18685,16 +18689,15 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i: ; preds = %38, %36, %_ZL2
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit": ; preds = %47
   %50 = icmp samesign uge i32 %.0.i2.i.i, %.0.i.i.i
   %51 = icmp samesign ult i64 %.sroa.212.0.extract.shift.i.i, %.sroa.29.0.extract.shift.i.i
-  %spec.select.i.i = select i1 %50, i1 %51, i1 false
+  %spec.select.i.i = and i1 %51, %50
   %52 = or disjoint i64 %11, 1
-  %cond.fr = freeze i1 %spec.select.i.i
-  %spec.select = select i1 %cond.fr, i64 %52, i64 %12
+  %spec.select = select i1 %spec.select.i.i, i64 %52, i64 %12
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit", %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread"
   %53 = phi i64 [ %49, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread" ], [ %12, %45 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit" ]
   %54 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %53
-  %55 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.038
+  %55 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.039
   %56 = load i64, ptr %54, align 4
   store i64 %56, ptr %55, align 4
   %57 = icmp slt i64 %53, %7

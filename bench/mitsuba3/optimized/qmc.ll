@@ -280,10 +280,10 @@ _ZNSt3__110unique_ptrIA_N7mitsuba14RadicalInverse9PrimeBaseENS_14default_deleteI
   %80 = shl nuw i128 %79, 64
   %81 = zext i64 %63 to i128
   %.frozen = freeze i128 %80
-  %.frozen316 = freeze i128 %81
-  %82 = udiv i128 %.frozen, %.frozen316
+  %.frozen314 = freeze i128 %81
+  %82 = udiv i128 %.frozen, %.frozen314
   %83 = trunc i128 %82 to i64
-  %84 = mul i128 %82, %.frozen316
+  %84 = mul i128 %82, %.frozen314
   %.decomposed = sub i128 %.frozen, %84
   %85 = trunc nuw i128 %.decomposed to i64
   %86 = shl i64 %83, 1
@@ -339,8 +339,8 @@ _ZN5drjit7divisorImiEC2Em.exit:                   ; preds = %75, %73
   %.0138215 = phi i64 [ 0, %.lr.ph217 ], [ %112, %107 ]
   %108 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %58, i64 %.0138215, i32 1
   %109 = load i16, ptr %108, align 1
-  %.fr303 = freeze i16 %109
-  %110 = zext i16 %.fr303 to i64
+  %.fr = freeze i16 %109
+  %110 = zext i16 %.fr to i64
   %111 = add i64 %.0137216, %110
   %112 = add nuw i64 %.0138215, 1
   %exitcond.not = icmp eq i64 %112, %57
@@ -734,8 +734,8 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
   %281 = zext i16 %277 to i64
   %.idx = shl nuw nsw i64 %281, 1
   %282 = getelementptr inbounds nuw i8, ptr %.0129223, i64 %.idx
-  %.not304 = icmp eq i16 %277, 1
-  br i1 %.not304, label %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit, label %.lr.ph.i160
+  %.not302 = icmp eq i16 %277, 1
+  br i1 %.not302, label %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit, label %.lr.ph.i160
 
 .lr.ph.i160:                                      ; preds = %._crit_edge221
   %.011.i = getelementptr inbounds i8, ptr %282, i64 -2

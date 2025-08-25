@@ -328,11 +328,11 @@ define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr nou
 .thread.us:                                       ; preds = %.preheader.us
   %43 = sub i64 %.val61.us, %.val.us
   %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %43, i1 true)
-  %45 = trunc nuw nsw i64 %44 to i32
+  %.fr.us = freeze i64 %44
+  %45 = trunc i64 %.fr.us to i32
   %46 = lshr i32 %45, 3
   %47 = add i32 %46, %.017.i87.us
-  %.fr.us = freeze i32 %47
-  %48 = tail call i32 @llvm.umin.i32(i32 %.fr.us, i32 %0)
+  %48 = tail call i32 @llvm.umin.i32(i32 %47, i32 %0)
   br label %lzma_memcmplen.exit.us
 
 lzma_memcmplen.exit.us:                           ; preds = %57, %.thread.us

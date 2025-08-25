@@ -201,9 +201,8 @@ define void @IDEA_set_decrypt_key(ptr noundef readonly captures(none) %0, ptr no
   %.02331.i = phi i64 [ %14, %.lr.ph.i ], [ %10, %.lr.ph.i.preheader ]
   %15 = sub nsw i64 %.034.i, %14
   %16 = sdiv i64 %15, %.02331.i
-  %17 = mul nsw i64 %16, %.12033.i
-  %.fr38.i = freeze i64 %17
-  %18 = sub i64 %.02132.i, %.fr38.i
+  %17 = mul i64 %16, %.12033.i
+  %18 = sub i64 %.02132.i, %17
   %19 = urem i64 %.02331.i, %14
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.thread.i, label %.lr.ph.i, !llvm.loop !10
@@ -227,24 +226,24 @@ inverse.exit:                                     ; preds = %7, %.thread.i, %4
   %32 = getelementptr inbounds nuw i8, ptr %.029, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !6
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %inverse.exit41, label %35
+  br i1 %34, label %inverse.exit40, label %35
 
 35:                                               ; preds = %inverse.exit
   %36 = urem i32 65537, %33
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %inverse.exit41, label %.lr.ph.i31.preheader
+  br i1 %37, label %inverse.exit40, label %.lr.ph.i31.preheader
 
 .lr.ph.i31.preheader:                             ; preds = %35
   %.zext.i30 = zext nneg i32 %36 to i64
   %38 = zext i32 %33 to i64
   br label %.lr.ph.i31
 
-.thread.i37:                                      ; preds = %.lr.ph.i31
+.thread.i36:                                      ; preds = %.lr.ph.i31
   %39 = icmp slt i64 %46, 0
   %40 = add nsw i64 %46, 65537
-  %spec.select.i38 = select i1 %39, i64 %40, i64 %46
-  %41 = trunc i64 %spec.select.i38 to i32
-  br label %inverse.exit41
+  %spec.select.i37 = select i1 %39, i64 %40, i64 %46
+  %41 = trunc i64 %spec.select.i37 to i32
+  br label %inverse.exit40
 
 .lr.ph.i31:                                       ; preds = %.lr.ph.i31.preheader, %.lr.ph.i31
   %42 = phi i64 [ %47, %.lr.ph.i31 ], [ %.zext.i30, %.lr.ph.i31.preheader ]
@@ -254,20 +253,19 @@ inverse.exit:                                     ; preds = %7, %.thread.i, %4
   %.02331.i35 = phi i64 [ %42, %.lr.ph.i31 ], [ %38, %.lr.ph.i31.preheader ]
   %43 = sub nsw i64 %.034.i32, %42
   %44 = sdiv i64 %43, %.02331.i35
-  %45 = mul nsw i64 %44, %.12033.i33
-  %.fr38.i36 = freeze i64 %45
-  %46 = sub i64 %.02132.i34, %.fr38.i36
+  %45 = mul i64 %44, %.12033.i33
+  %46 = sub i64 %.02132.i34, %45
   %47 = urem i64 %.02331.i35, %42
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %.thread.i37, label %.lr.ph.i31, !llvm.loop !10
+  br i1 %48, label %.thread.i36, label %.lr.ph.i31, !llvm.loop !10
 
-inverse.exit41:                                   ; preds = %35, %.thread.i37, %inverse.exit
-  %.019.i40 = phi i32 [ 0, %inverse.exit ], [ 1, %35 ], [ %41, %.thread.i37 ]
-  store i32 %.019.i40, ptr %31, align 4, !tbaa !6
+inverse.exit40:                                   ; preds = %35, %.thread.i36, %inverse.exit
+  %.019.i39 = phi i32 [ 0, %inverse.exit ], [ 1, %35 ], [ %41, %.thread.i36 ]
+  store i32 %.019.i39, ptr %31, align 4, !tbaa !6
   %49 = icmp eq i32 %.0, 8
   br i1 %49, label %60, label %50
 
-50:                                               ; preds = %inverse.exit41
+50:                                               ; preds = %inverse.exit40
   %51 = getelementptr inbounds nuw i8, ptr %.028, i64 16
   %52 = getelementptr inbounds i8, ptr %.029, i64 -24
   %53 = getelementptr inbounds i8, ptr %.029, i64 -8
@@ -281,7 +279,7 @@ inverse.exit41:                                   ; preds = %35, %.thread.i37, %
   %59 = add nuw nsw i32 %.0, 1
   br label %4, !llvm.loop !11
 
-60:                                               ; preds = %inverse.exit41
+60:                                               ; preds = %inverse.exit40
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -2004,11 +2004,12 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   %76 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %77 = getelementptr inbounds nuw i8, ptr %.014.i, i64 32
   %78 = load i32, ptr %77, align 8, !tbaa !149
-  %79 = add i32 %78, -1
+  %.fr = freeze i32 %78
+  %79 = add i32 %.fr, -1
   %80 = and i32 %79, 63
   %81 = zext nneg i32 %80 to i64
   %82 = shl nuw i64 1, %81
-  %83 = icmp ult i32 %78, 65
+  %83 = icmp ult i32 %.fr, 65
   %84 = load ptr, ptr %76, align 8
   %85 = lshr i32 %79, 6
   %86 = zext nneg i32 %85 to i64
@@ -2024,11 +2025,11 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   br i1 %83, label %92, label %101
 
 92:                                               ; preds = %91
-  %93 = icmp eq i32 %78, 0
+  %93 = icmp eq i32 %.fr, 0
   br i1 %93, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit, label %94, !prof !152
 
 94:                                               ; preds = %92
-  %95 = sub nuw nsw i32 64, %78
+  %95 = sub nuw nsw i32 64, %.fr
   %96 = zext nneg i32 %95 to i64
   %97 = shl i64 %90, %96
   %98 = xor i64 %97, -1
@@ -2044,7 +2045,7 @@ select.unfold:                                    ; preds = %_ZNK4llvm4User10get
   br i1 %83, label %104, label %108
 
 104:                                              ; preds = %103
-  %.neg.i.i.i = add nsw i32 %78, -64
+  %.neg.i.i.i = add nsw i32 %.fr, -64
   %105 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %90, i1 false)
   %106 = trunc nuw nsw i64 %105 to i32
   %107 = add nsw i32 %.neg.i.i.i, %106
@@ -2103,15 +2104,16 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %125, %128
 
 _ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit: ; preds = %108, %104, %101, %94, %92
   %137 = phi i32 [ %100, %94 ], [ %102, %101 ], [ 0, %92 ], [ %107, %104 ], [ %109, %108 ]
-  %138 = add i32 %78, 1
-  %139 = sub i32 %138, %137
+  %138 = add i32 %.fr, 1
+  %.fr28 = freeze i32 %137
+  %139 = sub i32 %138, %.fr28
   %140 = load ptr, ptr %6, align 8, !tbaa !33
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = lshr i32 %142, 8
+  %.fr29 = freeze i32 %142
+  %143 = lshr i32 %.fr29, 8
   %144 = icmp ugt i32 %139, %143
-  %cond.fr = freeze i1 %144
-  br i1 %cond.fr, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
+  br i1 %144, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22, label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread
 
 _ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread22: ; preds = %117, %54, %_ZN4llvm7PHINode15incoming_valuesEv.exit, %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit
   br label %_ZN12_GLOBAL__N_120FastDivInsertionTask15isHashLikeValueEPN4llvm5ValueERNS1_11SmallPtrSetIPNS1_11InstructionELj4EEE.exit.thread

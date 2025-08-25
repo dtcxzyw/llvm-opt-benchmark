@@ -185,7 +185,8 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 97:                                               ; preds = %84, %78
   %.2510 = phi double [ %96, %84 ], [ %.0508.lcssa, %78 ]
-  %98 = fdiv double %.0514, %.2510
+  %.2510.fr = freeze double %.2510
+  %98 = fdiv double %.0514, %.2510.fr
   %99 = fmul double %58, %98
   %100 = fcmp ult double %35, %99
   br i1 %100, label %101, label %.thread584
@@ -195,17 +196,17 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds double, ptr %10, i64 %103
   %105 = load double, ptr %104, align 8, !tbaa !7
-  store double %105, ptr %7, align 8, !tbaa !7
-  %106 = call double @llvm.fabs.f64(double %105)
-  %107 = fmul double %.2510, 0x3FE47E0F66AFED07
-  %108 = fcmp ult double %106, %107
-  %cond.fr = freeze i1 %108
-  %.565 = select i1 %cond.fr, i32 -2, i32 -1
+  %.fr = freeze double %105
+  store double %.fr, ptr %7, align 8, !tbaa !7
+  %106 = call double @llvm.fabs.f64(double %.fr)
+  %107 = fmul double %.2510.fr, 0x3FE47E0F66AFED07
+  %108 = fcmp oge double %106, %107
+  %.565 = select i1 %108, i32 -1, i32 -2
   %109 = add nsw i32 %.565, %.0534661
   %110 = add nsw i32 %109, 1
   %reass.sub = sub i32 %.0524665, %.0534661
   %111 = add i32 %reass.sub, 1
-  %spec.select = select i1 %cond.fr, i32 %111, i32 %.0524665
+  %spec.select = select i1 %108, i32 %.0524665, i32 %111
   %.not562 = icmp eq i32 %.1531, %110
   br i1 %.not562, label %140, label %112
 
@@ -251,7 +252,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %131 = load double, ptr %104, align 8, !tbaa !7
   store double %131, ptr %129, align 8, !tbaa !7
   store double %130, ptr %104, align 8, !tbaa !7
-  br i1 %cond.fr, label %132, label %.thread584
+  br i1 %108, label %.thread584, label %132
 
 132:                                              ; preds = %._crit_edge656
   %133 = getelementptr i8, ptr %30, i64 -16
@@ -266,7 +267,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %147
 
 140:                                              ; preds = %101
-  br i1 %cond.fr, label %147, label %.thread584
+  br i1 %108, label %.thread584, label %147
 
 .thread584:                                       ; preds = %._crit_edge656, %97, %57, %140
   %.1521576583587 = phi i32 [ %.1531, %140 ], [ %.0534661, %57 ], [ %.0534661, %97 ], [ %.1531, %._crit_edge656 ]

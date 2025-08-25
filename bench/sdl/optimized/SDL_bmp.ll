@@ -1106,10 +1106,11 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 5
   %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i32
-  %62 = mul nsw i32 %56, %61
-  %.fr336 = freeze i32 %62
-  %63 = sext i32 %.fr336 to i64
+  %.fr336 = freeze i8 %60
+  %61 = zext i8 %.fr336 to i32
+  %.fr = freeze i32 %56
+  %62 = mul i32 %.fr, %61
+  %63 = sext i32 %62 to i64
   %64 = tail call i64 @SDL_TellIO_REAL(ptr noundef nonnull %1) #4
   %65 = icmp slt i64 %64, 0
   br i1 %65, label %.thread310, label %66
@@ -1348,7 +1349,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
   %181 = load i32, ptr %78, align 4
   %182 = load i32, ptr %84, align 8
   %183 = mul nsw i32 %182, %181
-  %184 = and i32 %.fr336, 3
+  %184 = and i32 %62, 3
   %185 = sub nuw nsw i32 4, %184
   %186 = icmp sgt i32 %183, 0
   br i1 %186, label %.lr.ph335, label %._crit_edge

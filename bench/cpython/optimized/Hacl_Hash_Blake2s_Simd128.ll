@@ -865,20 +865,15 @@ declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #11 {
-  %.sroa.02.0.copyload = load i8, ptr %0, align 8, !tbaa !3
-  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 1, !tbaa !3
-  %.sroa.4.0.insert.ext = zext i8 %.sroa.02.0.copyload to i16
-  %.sroa.4.0.insert.shift = shl nuw i16 %.sroa.4.0.insert.ext, 8
-  %.sroa.01.0.insert.ext = zext i8 %.sroa.43.0.copyload to i16
-  %.sroa.01.0.insert.insert = or disjoint i16 %.sroa.4.0.insert.shift, %.sroa.01.0.insert.ext
+  %.sroa.02.0.copyload = load i16, ptr %0, align 8
+  %.sroa.01.0.insert.insert = tail call i16 @llvm.bswap.i16(i16 %.sroa.02.0.copyload)
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #27
   %5 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %6 = tail call noalias align 16 dereferenceable_or_null(64) ptr @aligned_alloc(i64 noundef 16, i64 noundef 64) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 32, i1 false)
   %7 = zext i1 %1 to i8
-  %.not.i = icmp eq i8 %.sroa.43.0.copyload, 0
+  %.not.i = icmp ult i16 %.sroa.02.0.copyload, 256
   %..i = select i1 %.not.i, i64 0, i64 64
   %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #28
   store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
@@ -897,65 +892,63 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_mall
   br i1 %.not.i, label %malloc_raw.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = zext i8 %.sroa.43.0.copyload to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %10, i1 false)
+  %10 = lshr i16 %.sroa.02.0.copyload, 8
+  %11 = zext nneg i16 %10 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %11, i1 false)
   br label %malloc_raw.exit
 
 malloc_raw.exit:                                  ; preds = %3, %9
+  %12 = zext i16 %.sroa.02.0.copyload to i32
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 2
-  %11 = zext i16 %.sroa.5.0.copyload.i to i32
-  %12 = shl nuw i32 %11, 16
+  %13 = zext i16 %.sroa.5.0.copyload.i to i32
+  %14 = shl nuw i32 %13, 16
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !16
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.10.0.copyload.i = load i16, ptr %.sroa.10.0..sroa_idx.i, align 8
-  %13 = zext i16 %.sroa.10.0.copyload.i to i32
-  %14 = shl nuw i32 %13, 16
+  %15 = zext i16 %.sroa.10.0.copyload.i to i32
+  %16 = shl nuw i32 %15, 16
   %.sroa.1268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.1268.0.copyload.i = load ptr, ptr %.sroa.1268.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.14.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !14
-  %15 = getelementptr i8, ptr %6, i64 16
-  %16 = getelementptr i8, ptr %6, i64 32
-  %17 = getelementptr i8, ptr %6, i64 48
-  store <2 x i64> <i64 -4942790177982912921, i64 -6534734903820487822>, ptr %16, align 16, !tbaa !3
-  store <2 x i64> <i64 -7276294671082564993, i64 6620516960021240235>, ptr %17, align 16, !tbaa !3
+  %17 = getelementptr i8, ptr %6, i64 16
+  %18 = getelementptr i8, ptr %6, i64 32
+  %19 = getelementptr i8, ptr %6, i64 48
+  store <2 x i64> <i64 -4942790177982912921, i64 -6534734903820487822>, ptr %18, align 16, !tbaa !3
+  store <2 x i64> <i64 -7276294671082564993, i64 6620516960021240235>, ptr %19, align 16, !tbaa !3
   %.sroa.1268.0.copyload.val.i = load i32, ptr %.sroa.1268.0.copyload.i, align 1
-  %18 = getelementptr i8, ptr %.sroa.1268.0.copyload.i, i64 4
-  %.val114.i = load i32, ptr %18, align 1
+  %20 = getelementptr i8, ptr %.sroa.1268.0.copyload.i, i64 4
+  %.val114.i = load i32, ptr %20, align 1
   %.sroa.14.0.copyload.val.i = load i32, ptr %.sroa.14.0.copyload.i, align 1
-  %19 = getelementptr i8, ptr %.sroa.14.0.copyload.i, i64 4
-  %.val.i = load i32, ptr %19, align 1
-  %20 = zext i8 %.sroa.02.0.copyload to i32
-  %21 = zext i8 %.sroa.43.0.copyload to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = or disjoint i32 %22, %20
-  %24 = or disjoint i32 %23, %12
-  %25 = trunc i64 %.sroa.8.0.copyload.i to i32
-  %26 = lshr i64 %.sroa.8.0.copyload.i, 32
-  %27 = trunc nuw i64 %26 to i32
-  %28 = xor i32 %24, 1779033703
-  %29 = xor i32 %.sroa.7.0.copyload.i, -1150833019
-  %30 = xor i32 %25, 1013904242
-  %31 = xor i32 %14, %27
-  %32 = xor i32 %31, -1521486534
-  %33 = xor i32 %.sroa.1268.0.copyload.val.i, 1359893119
-  %34 = xor i32 %.val114.i, -1694144372
-  %35 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
-  %36 = xor i32 %.val.i, 1541459225
-  %37 = insertelement <4 x i32> poison, i32 %28, i64 0
-  %38 = insertelement <4 x i32> %37, i32 %29, i64 1
-  %39 = insertelement <4 x i32> %38, i32 %30, i64 2
-  %40 = insertelement <4 x i32> %39, i32 %32, i64 3
-  store <4 x i32> %40, ptr %6, align 16, !tbaa !3
-  %41 = insertelement <4 x i32> poison, i32 %33, i64 0
-  %42 = insertelement <4 x i32> %41, i32 %34, i64 1
-  %43 = insertelement <4 x i32> %42, i32 %35, i64 2
-  %44 = insertelement <4 x i32> %43, i32 %36, i64 3
-  store <4 x i32> %44, ptr %15, align 16, !tbaa !3
+  %21 = getelementptr i8, ptr %.sroa.14.0.copyload.i, i64 4
+  %.val.i = load i32, ptr %21, align 1
+  %22 = or disjoint i32 %14, %12
+  %23 = trunc i64 %.sroa.8.0.copyload.i to i32
+  %24 = lshr i64 %.sroa.8.0.copyload.i, 32
+  %25 = trunc nuw i64 %24 to i32
+  %26 = xor i32 %22, 1779033703
+  %27 = xor i32 %.sroa.7.0.copyload.i, -1150833019
+  %28 = xor i32 %23, 1013904242
+  %29 = xor i32 %16, %25
+  %30 = xor i32 %29, -1521486534
+  %31 = xor i32 %.sroa.1268.0.copyload.val.i, 1359893119
+  %32 = xor i32 %.val114.i, -1694144372
+  %33 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
+  %34 = xor i32 %.val.i, 1541459225
+  %35 = insertelement <4 x i32> poison, i32 %26, i64 0
+  %36 = insertelement <4 x i32> %35, i32 %27, i64 1
+  %37 = insertelement <4 x i32> %36, i32 %28, i64 2
+  %38 = insertelement <4 x i32> %37, i32 %30, i64 3
+  store <4 x i32> %38, ptr %6, align 16, !tbaa !3
+  %39 = insertelement <4 x i32> poison, i32 %31, i64 0
+  %40 = insertelement <4 x i32> %39, i32 %32, i64 1
+  %41 = insertelement <4 x i32> %40, i32 %33, i64 2
+  %42 = insertelement <4 x i32> %41, i32 %34, i64 3
+  store <4 x i32> %42, ptr %17, align 16, !tbaa !3
   ret ptr %8
 }
 
@@ -1758,6 +1751,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <4 x i32> @llvm.fshl.v4i32(<4 x i32>, <4 x i32>, <4 x i32>) #23
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.bswap.i16(i16) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24

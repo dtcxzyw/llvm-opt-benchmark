@@ -11219,9 +11219,9 @@ define dso_local noundef i32 @ata_do_set_mode(ptr noundef %0, ptr noundef writeo
 .critedge:                                        ; preds = %.split, %.split, %.split, %.split, %.split, %.split.us, %.split.us, %.split.us, %.split.us, %.split.us
   %.us-phi = phi ptr [ %10, %.split.us ], [ %10, %.split.us ], [ %10, %.split.us ], [ %10, %.split.us ], [ %10, %.split.us ], [ %29, %.split ], [ %29, %.split ], [ %29, %.split ], [ %29, %.split ], [ %29, %.split ]
   %36 = icmp eq ptr %.us-phi, null
-  br i1 %36, label %.thread103, label %.preheader120
+  br i1 %36, label %.thread103, label %.preheader122
 
-.preheader120:                                    ; preds = %.critedge, %.critedge69
+.preheader122:                                    ; preds = %.critedge, %.critedge69
   %37 = phi i32 [ %510, %.critedge69 ], [ 0, %.critedge ]
   %38 = phi ptr [ %518, %.critedge69 ], [ %.us-phi, %.critedge ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 800
@@ -11229,7 +11229,7 @@ define dso_local noundef i32 @ata_do_set_mode(ptr noundef %0, ptr noundef writeo
   %41 = icmp eq i32 %40, 3
   br i1 %41, label %51, label %42
 
-42:                                               ; preds = %.preheader120
+42:                                               ; preds = %.preheader122
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 896
   %44 = load i16, ptr %43, align 2
   switch i16 %44, label %45 [
@@ -11245,8 +11245,8 @@ define dso_local noundef i32 @ata_do_set_mode(ptr noundef %0, ptr noundef writeo
   %50 = select i1 %49, i32 4, i32 1
   br label %51
 
-51:                                               ; preds = %42, %42, %45, %.preheader120
-  %52 = phi i32 [ 2, %.preheader120 ], [ %50, %45 ], [ 4, %42 ], [ 4, %42 ]
+51:                                               ; preds = %42, %42, %45, %.preheader122
+  %52 = phi i32 [ 2, %.preheader122 ], [ %50, %45 ], [ 4, %42 ], [ 4, %42 ]
   %53 = load ptr, ptr %38, align 64
   %54 = load ptr, ptr %53, align 64
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 14776
@@ -11496,16 +11496,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %242 = phi i32 [ %240, %239 ], [ %233, %232 ]
   %243 = and i32 %242, 1015808
   %244 = icmp eq i32 %243, 0
-  br i1 %244, label %.loopexit115, label %245
+  br i1 %244, label %.loopexit117, label %245
 
 245:                                              ; preds = %241
   %246 = getelementptr inbounds nuw i8, ptr %54, i64 300
   %247 = load i32, ptr %246, align 4
   switch i32 %247, label %248 [
     i32 1, label %.thread90
-    i32 2, label %.loopexit115
-    i32 6, label %.loopexit115
-    i32 3, label %.loopexit115
+    i32 2, label %.loopexit117
+    i32 6, label %.loopexit117
+    i32 3, label %.loopexit117
   ]
 
 248:                                              ; preds = %245
@@ -11588,7 +11588,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   br label %292
 
 292:                                              ; preds = %.preheader, %.critedge66
-  %293 = phi ptr [ %.us-phi172, %.critedge66 ], [ %281, %.preheader ]
+  %293 = phi ptr [ %.us-phi173, %.critedge66 ], [ %281, %.preheader ]
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 12
   %295 = load i32, ptr %294, align 4
   %296 = and i32 %295, 256
@@ -11600,7 +11600,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
 300:                                              ; preds = %292
   %301 = and i16 %299, 8192
   %302 = icmp eq i16 %301, 0
-  br i1 %302, label %.thread89, label %.loopexit115
+  br i1 %302, label %.thread89, label %.loopexit117
 
 303:                                              ; preds = %292
   %304 = icmp eq i16 %299, 0
@@ -11610,12 +11610,12 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %306 = getelementptr i8, ptr %293, i64 1056
   %307 = load i16, ptr %306, align 2
   %308 = icmp sgt i16 %307, 31
-  br i1 %308, label %.loopexit115, label %.thread89
+  br i1 %308, label %.loopexit117, label %.thread89
 
 309:                                              ; preds = %303
   %310 = and i16 %299, -8192
   %.not = icmp eq i16 %310, 24576
-  br i1 %.not, label %.loopexit115, label %.thread89
+  br i1 %.not, label %.loopexit117, label %.thread89
 
 .thread89:                                        ; preds = %305, %300, %309
   %311 = load ptr, ptr %264, align 64
@@ -11728,8 +11728,8 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   ]
 
 .critedge66:                                      ; preds = %351, %351, %351, %351, %351, %345, %345, %345, %345, %345, %339, %339, %339, %339, %339, %327, %327, %327, %327, %327, %321, %321, %321, %321, %321
-  %.us-phi172 = phi ptr [ %319, %321 ], [ %319, %321 ], [ %319, %321 ], [ %319, %321 ], [ %319, %321 ], [ %325, %327 ], [ %325, %327 ], [ %325, %327 ], [ %325, %327 ], [ %325, %327 ], [ %337, %339 ], [ %337, %339 ], [ %337, %339 ], [ %337, %339 ], [ %337, %339 ], [ %343, %345 ], [ %343, %345 ], [ %343, %345 ], [ %343, %345 ], [ %343, %345 ], [ %349, %351 ], [ %349, %351 ], [ %349, %351 ], [ %349, %351 ], [ %349, %351 ]
-  %354 = icmp eq ptr %.us-phi172, null
+  %.us-phi173 = phi ptr [ %319, %321 ], [ %319, %321 ], [ %319, %321 ], [ %319, %321 ], [ %319, %321 ], [ %325, %327 ], [ %325, %327 ], [ %325, %327 ], [ %325, %327 ], [ %325, %327 ], [ %337, %339 ], [ %337, %339 ], [ %337, %339 ], [ %337, %339 ], [ %337, %339 ], [ %343, %345 ], [ %343, %345 ], [ %343, %345 ], [ %343, %345 ], [ %343, %345 ], [ %349, %351 ], [ %349, %351 ], [ %349, %351 ], [ %349, %351 ], [ %349, %351 ]
+  %354 = icmp eq ptr %.us-phi173, null
   br i1 %354, label %.critedge63.thread, label %292, !llvm.loop !89
 
 .critedge63.thread:                               ; preds = %276, %.critedge66, %.thread89.split.split, %.thread89.split.split.us.split, %.thread89.split.split.us.split.us, %.thread89.split.us.split, %.thread89.split.us.split.us, %.critedge63
@@ -11761,9 +11761,9 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %372 = add i32 %371, %370
   %373 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.482, i32 noundef %368, i32 noundef %372) #34
   %374 = and i32 %242, -1015809
-  br label %.loopexit115
+  br label %.loopexit117
 
-.loopexit115:                                     ; preds = %300, %305, %309, %241, %245, %245, %245, %.thread90
+.loopexit117:                                     ; preds = %300, %305, %309, %241, %245, %245, %245, %.thread90
   %375 = phi i32 [ %374, %.thread90 ], [ %242, %241 ], [ %242, %245 ], [ %242, %245 ], [ %242, %245 ], [ %242, %309 ], [ %242, %305 ], [ %242, %300 ]
   %376 = and i32 %375, 127
   store i32 %376, ptr %69, align 4
@@ -11783,11 +11783,11 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %388 = icmp eq ptr %387, %381
   br i1 %388, label %.thread91, label %390
 
-.thread91:                                        ; preds = %.loopexit115
+.thread91:                                        ; preds = %.loopexit117
   %389 = add i32 %385, 15
   br label %395
 
-390:                                              ; preds = %.loopexit115
+390:                                              ; preds = %.loopexit117
   %391 = getelementptr inbounds nuw i8, ptr %386, i64 14720
   %392 = load ptr, ptr %391, align 64
   %.fr = freeze ptr %392
@@ -11801,7 +11801,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %397 = load i32, ptr @ata_force_tbl_size, align 4
   %398 = add i32 %397, -1
   %399 = icmp sgt i32 %398, -1
-  br i1 %399, label %400, label %.loopexit119
+  br i1 %399, label %400, label %.loopexit121
 
 400:                                              ; preds = %395
   %401 = load ptr, ptr @ata_force_tbl, align 8
@@ -11875,21 +11875,21 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %444 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.316, i32 noundef %440, i32 noundef %442, ptr noundef %443) #34
   %.pre = load i32, ptr %69, align 4
   %445 = and i32 %.pre, 127
-  br label %.loopexit119
+  br label %.loopexit121
 
 446:                                              ; preds = %420, %412, %409
   %447 = add nsw i64 %405, -1
   %448 = icmp sgt i64 %405, 0
-  br i1 %448, label %404, label %.loopexit119, !llvm.loop !91
+  br i1 %448, label %404, label %.loopexit121, !llvm.loop !91
 
-.loopexit119:                                     ; preds = %446, %437, %395
+.loopexit121:                                     ; preds = %446, %437, %395
   %449 = phi i32 [ %445, %437 ], [ %376, %395 ], [ %376, %446 ]
   %450 = load i32, ptr @libata_dma_mask, align 4
   %451 = and i32 %450, %52
   %452 = icmp eq i32 %451, 0
   br i1 %452, label %461, label %453
 
-453:                                              ; preds = %.loopexit119
+453:                                              ; preds = %.loopexit121
   %454 = load i32, ptr %71, align 8
   %455 = load i32, ptr %73, align 4
   %456 = shl i32 %454, 7
@@ -11899,8 +11899,8 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %460 = or disjoint i32 %459, %457
   br label %461
 
-461:                                              ; preds = %453, %.loopexit119
-  %462 = phi i32 [ %460, %453 ], [ 0, %.loopexit119 ]
+461:                                              ; preds = %453, %.loopexit121
+  %462 = phi i32 [ %460, %453 ], [ 0, %.loopexit121 ]
   %463 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %449, i32 -1) #33, !srcloc !65
   br label %464
 
@@ -11923,32 +11923,34 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %476 = sub nsw i32 %463, %465
   %477 = trunc i32 %476 to i8
   %478 = add i8 %475, %477
-  br label %.loopexit118
+  br label %.loopexit120
 
 479:                                              ; preds = %468, %464
   %480 = getelementptr i8, ptr %466, i64 12
   %481 = load i32, ptr %480, align 4
   %482 = icmp sgt i32 %481, -1
-  br i1 %482, label %464, label %.loopexit118, !llvm.loop !66
+  br i1 %482, label %464, label %.loopexit120, !llvm.loop !66
 
-.loopexit118:                                     ; preds = %479, %473
+.loopexit120:                                     ; preds = %479, %473
   %483 = phi i8 [ %478, %473 ], [ -1, %479 ]
   %484 = getelementptr inbounds nuw i8, ptr %38, i64 816
   store i8 %483, ptr %484, align 16
   %485 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %462, i32 -1) #33, !srcloc !65
+  %.fr105 = freeze i32 %485
   br label %486
 
-486:                                              ; preds = %495, %.loopexit118
-  %487 = phi i32 [ 0, %.loopexit118 ], [ %497, %495 ]
-  %488 = phi ptr [ @ata_xfer_tbl, %.loopexit118 ], [ %496, %495 ]
-  %489 = icmp slt i32 %485, %487
+486:                                              ; preds = %495, %.loopexit120
+  %487 = phi i32 [ 0, %.loopexit120 ], [ %497, %495 ]
+  %488 = phi ptr [ @ata_xfer_tbl, %.loopexit120 ], [ %496, %495 ]
+  %.fr106 = freeze i32 %487
+  %489 = icmp slt i32 %.fr105, %.fr106
   br i1 %489, label %495, label %490
 
 490:                                              ; preds = %486
   %491 = getelementptr inbounds nuw i8, ptr %488, i64 4
   %492 = load i32, ptr %491, align 4
-  %493 = add i32 %492, %487
-  %494 = icmp slt i32 %485, %493
+  %493 = add i32 %492, %.fr106
+  %494 = icmp slt i32 %.fr105, %493
   br i1 %494, label %500, label %495
 
 495:                                              ; preds = %490, %486
@@ -11965,13 +11967,13 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
 500:                                              ; preds = %490
   %501 = getelementptr inbounds nuw i8, ptr %488, i64 8
   %502 = load i8, ptr %501, align 4
-  %503 = sub nsw i32 %485, %487
+  %503 = sub i32 %.fr105, %.fr106
   %504 = trunc i32 %503 to i8
-  %505 = add i8 %502, %504
-  %.fr104 = freeze i8 %505
+  %.fr104 = freeze i8 %502
+  %505 = add i8 %.fr104, %504
   %506 = getelementptr inbounds nuw i8, ptr %38, i64 817
-  store i8 %.fr104, ptr %506, align 1
-  %507 = icmp eq i8 %.fr104, -1
+  store i8 %505, ptr %506, align 1
+  %507 = icmp eq i8 %505, -1
   br i1 %507, label %508, label %509
 
 508:                                              ; preds = %.thread94, %500
@@ -12024,7 +12026,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
 
 .critedge69:                                      ; preds = %531, %531, %531, %531, %531
   %534 = icmp eq ptr %518, null
-  br i1 %534, label %.critedge69.thread, label %.preheader120, !llvm.loop !92
+  br i1 %534, label %.critedge69.thread, label %.preheader122, !llvm.loop !92
 
 .critedge69.thread:                               ; preds = %.critedge69, %527
   %535 = icmp eq i32 %510, 0
@@ -12077,7 +12079,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   br label %559
 
 559:                                              ; preds = %.critedge75, %555
-  %560 = phi ptr [ %549, %555 ], [ %.us-phi178, %.critedge75 ]
+  %560 = phi ptr [ %549, %555 ], [ %.us-phi179, %.critedge75 ]
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 816
   %562 = load i8, ptr %561, align 16
   %563 = icmp eq i8 %562, -1
@@ -12094,7 +12096,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %572 = load i32, ptr %571, align 8
   %573 = add i32 %572, %570
   %574 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71, i32 noundef %568, i32 noundef %573) #34
-  br label %.loopexit108
+  br label %.loopexit110
 
 575:                                              ; preds = %559
   %576 = getelementptr inbounds nuw i8, ptr %560, i64 818
@@ -12116,24 +12118,24 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %585 = getelementptr inbounds nuw i8, ptr %584, i64 8256
   %586 = icmp eq ptr %585, %0
   %587 = getelementptr inbounds nuw i8, ptr %584, i64 24
-  br i1 %586, label %.split177.us, label %.split177
+  br i1 %586, label %.split178.us, label %.split178
 
-.split177.us:                                     ; preds = %583
+.split178.us:                                     ; preds = %583
   %588 = load i64, ptr %587, align 8
   %589 = and i64 %588, 1
   %590 = icmp eq i64 %589, 0
-  br i1 %590, label %.split177.us.split.us, label %.split177.us.split
+  br i1 %590, label %.split178.us.split.us, label %.split178.us.split
 
-.split177.us.split.us:                            ; preds = %.split177.us, %594
-  %591 = phi ptr [ %592, %594 ], [ %560, %.split177.us ]
+.split178.us.split.us:                            ; preds = %.split178.us, %594
+  %591 = phi ptr [ %592, %594 ], [ %560, %.split178.us ]
   %592 = getelementptr i8, ptr %591, i64 2624
   %593 = icmp ult ptr %592, %557
   br i1 %593, label %594, label %.critedge72.thread
 
-594:                                              ; preds = %.split177.us.split.us
+594:                                              ; preds = %.split178.us.split.us
   %595 = getelementptr i8, ptr %591, i64 3424
   %596 = load i32, ptr %595, align 32
-  switch i32 %596, label %.split177.us.split.us [
+  switch i32 %596, label %.split178.us.split.us [
     i32 7, label %.critedge75
     i32 5, label %.critedge75
     i32 3, label %.critedge75
@@ -12141,16 +12143,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge75
   ]
 
-.split177.us.split:                               ; preds = %.split177.us, %600
-  %597 = phi ptr [ %598, %600 ], [ %560, %.split177.us ]
+.split178.us.split:                               ; preds = %.split178.us, %600
+  %597 = phi ptr [ %598, %600 ], [ %560, %.split178.us ]
   %598 = getelementptr i8, ptr %597, i64 2624
   %599 = icmp ult ptr %598, %558
   br i1 %599, label %600, label %.critedge72.thread
 
-600:                                              ; preds = %.split177.us.split
+600:                                              ; preds = %.split178.us.split
   %601 = getelementptr i8, ptr %597, i64 3424
   %602 = load i32, ptr %601, align 32
-  switch i32 %602, label %.split177.us.split [
+  switch i32 %602, label %.split178.us.split [
     i32 7, label %.critedge75
     i32 5, label %.critedge75
     i32 3, label %.critedge75
@@ -12158,28 +12160,28 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge75
   ]
 
-.split177:                                        ; preds = %583
+.split178:                                        ; preds = %583
   %603 = getelementptr inbounds nuw i8, ptr %584, i64 14720
   %604 = load ptr, ptr %603, align 64
   %605 = icmp eq ptr %604, %0
-  br i1 %605, label %.split177.split.us, label %.split177.split
+  br i1 %605, label %.split178.split.us, label %.split178.split
 
-.split177.split.us:                               ; preds = %.split177
+.split178.split.us:                               ; preds = %.split178
   %606 = load i64, ptr %587, align 8
   %607 = and i64 %606, 1
   %608 = icmp eq i64 %607, 0
-  br i1 %608, label %.split177.split.us.split.us, label %.split177.split.us.split
+  br i1 %608, label %.split178.split.us.split.us, label %.split178.split.us.split
 
-.split177.split.us.split.us:                      ; preds = %.split177.split.us, %612
-  %609 = phi ptr [ %610, %612 ], [ %560, %.split177.split.us ]
+.split178.split.us.split.us:                      ; preds = %.split178.split.us, %612
+  %609 = phi ptr [ %610, %612 ], [ %560, %.split178.split.us ]
   %610 = getelementptr i8, ptr %609, i64 2624
   %611 = icmp ult ptr %610, %557
   br i1 %611, label %612, label %.critedge72.thread
 
-612:                                              ; preds = %.split177.split.us.split.us
+612:                                              ; preds = %.split178.split.us.split.us
   %613 = getelementptr i8, ptr %609, i64 3424
   %614 = load i32, ptr %613, align 32
-  switch i32 %614, label %.split177.split.us.split.us [
+  switch i32 %614, label %.split178.split.us.split.us [
     i32 7, label %.critedge75
     i32 5, label %.critedge75
     i32 3, label %.critedge75
@@ -12187,16 +12189,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge75
   ]
 
-.split177.split.us.split:                         ; preds = %.split177.split.us, %618
-  %615 = phi ptr [ %616, %618 ], [ %560, %.split177.split.us ]
+.split178.split.us.split:                         ; preds = %.split178.split.us, %618
+  %615 = phi ptr [ %616, %618 ], [ %560, %.split178.split.us ]
   %616 = getelementptr i8, ptr %615, i64 2624
   %617 = icmp ult ptr %616, %558
   br i1 %617, label %618, label %.critedge72.thread
 
-618:                                              ; preds = %.split177.split.us.split
+618:                                              ; preds = %.split178.split.us.split
   %619 = getelementptr i8, ptr %615, i64 3424
   %620 = load i32, ptr %619, align 32
-  switch i32 %620, label %.split177.split.us.split [
+  switch i32 %620, label %.split178.split.us.split [
     i32 7, label %.critedge75
     i32 5, label %.critedge75
     i32 3, label %.critedge75
@@ -12204,16 +12206,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge75
   ]
 
-.split177.split:                                  ; preds = %.split177, %624
-  %621 = phi ptr [ %622, %624 ], [ %560, %.split177 ]
+.split178.split:                                  ; preds = %.split178, %624
+  %621 = phi ptr [ %622, %624 ], [ %560, %.split178 ]
   %622 = getelementptr i8, ptr %621, i64 2624
   %623 = icmp ult ptr %622, %557
   br i1 %623, label %624, label %.critedge72.thread
 
-624:                                              ; preds = %.split177.split
+624:                                              ; preds = %.split178.split
   %625 = getelementptr i8, ptr %621, i64 3424
   %626 = load i32, ptr %625, align 32
-  switch i32 %626, label %.split177.split [
+  switch i32 %626, label %.split178.split [
     i32 7, label %.critedge75
     i32 5, label %.critedge75
     i32 3, label %.critedge75
@@ -12222,12 +12224,12 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   ]
 
 .critedge75:                                      ; preds = %624, %624, %624, %624, %624, %618, %618, %618, %618, %618, %612, %612, %612, %612, %612, %600, %600, %600, %600, %600, %594, %594, %594, %594, %594
-  %.us-phi178 = phi ptr [ %592, %594 ], [ %592, %594 ], [ %592, %594 ], [ %592, %594 ], [ %592, %594 ], [ %598, %600 ], [ %598, %600 ], [ %598, %600 ], [ %598, %600 ], [ %598, %600 ], [ %610, %612 ], [ %610, %612 ], [ %610, %612 ], [ %610, %612 ], [ %610, %612 ], [ %616, %618 ], [ %616, %618 ], [ %616, %618 ], [ %616, %618 ], [ %616, %618 ], [ %622, %624 ], [ %622, %624 ], [ %622, %624 ], [ %622, %624 ], [ %622, %624 ]
-  %627 = icmp eq ptr %.us-phi178, null
+  %.us-phi179 = phi ptr [ %592, %594 ], [ %592, %594 ], [ %592, %594 ], [ %592, %594 ], [ %592, %594 ], [ %598, %600 ], [ %598, %600 ], [ %598, %600 ], [ %598, %600 ], [ %598, %600 ], [ %610, %612 ], [ %610, %612 ], [ %610, %612 ], [ %610, %612 ], [ %610, %612 ], [ %616, %618 ], [ %616, %618 ], [ %616, %618 ], [ %616, %618 ], [ %616, %618 ], [ %622, %624 ], [ %622, %624 ], [ %622, %624 ], [ %622, %624 ], [ %622, %624 ]
+  %627 = icmp eq ptr %.us-phi179, null
   br i1 %627, label %.critedge72.thread, label %559, !llvm.loop !93
 
-.critedge72.thread:                               ; preds = %544, %.critedge75, %.split177.split, %.split177.split.us.split, %.split177.split.us.split.us, %.split177.us.split, %.split177.us.split.us, %.critedge72
-  %628 = phi ptr [ %511, %.critedge72 ], [ %584, %.split177.us.split.us ], [ %584, %.split177.us.split ], [ %584, %.split177.split.us.split.us ], [ %584, %.split177.split.us.split ], [ %584, %.split177.split ], [ %584, %.critedge75 ], [ %511, %544 ]
+.critedge72.thread:                               ; preds = %544, %.critedge75, %.split178.split, %.split178.split.us.split, %.split178.split.us.split.us, %.split178.us.split, %.split178.us.split.us, %.critedge72
+  %628 = phi ptr [ %511, %.critedge72 ], [ %584, %.split178.us.split.us ], [ %584, %.split178.us.split ], [ %584, %.split178.split.us.split.us ], [ %584, %.split178.split.us.split ], [ %584, %.split178.split ], [ %584, %.critedge75 ], [ %511, %544 ]
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 8256
   %630 = icmp eq ptr %629, %0
   %631 = getelementptr inbounds nuw i8, ptr %628, i64 14720
@@ -12281,7 +12283,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   br label %656
 
 656:                                              ; preds = %.critedge81, %652
-  %657 = phi ptr [ %646, %652 ], [ %.us-phi184, %.critedge81 ]
+  %657 = phi ptr [ %646, %652 ], [ %.us-phi185, %.critedge81 ]
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 817
   %659 = load i8, ptr %658, align 1
   %660 = icmp eq i8 %659, -1
@@ -12334,24 +12336,24 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 8256
   %691 = icmp eq ptr %690, %0
   %692 = getelementptr inbounds nuw i8, ptr %689, i64 24
-  br i1 %691, label %.split183.us, label %.split183
+  br i1 %691, label %.split184.us, label %.split184
 
-.split183.us:                                     ; preds = %688
+.split184.us:                                     ; preds = %688
   %693 = load i64, ptr %692, align 8
   %694 = and i64 %693, 1
   %695 = icmp eq i64 %694, 0
-  br i1 %695, label %.split183.us.split.us, label %.split183.us.split
+  br i1 %695, label %.split184.us.split.us, label %.split184.us.split
 
-.split183.us.split.us:                            ; preds = %.split183.us, %699
-  %696 = phi ptr [ %697, %699 ], [ %657, %.split183.us ]
+.split184.us.split.us:                            ; preds = %.split184.us, %699
+  %696 = phi ptr [ %697, %699 ], [ %657, %.split184.us ]
   %697 = getelementptr i8, ptr %696, i64 2624
   %698 = icmp ult ptr %697, %654
   br i1 %698, label %699, label %.critedge78.thread
 
-699:                                              ; preds = %.split183.us.split.us
+699:                                              ; preds = %.split184.us.split.us
   %700 = getelementptr i8, ptr %696, i64 3424
   %701 = load i32, ptr %700, align 32
-  switch i32 %701, label %.split183.us.split.us [
+  switch i32 %701, label %.split184.us.split.us [
     i32 7, label %.critedge81
     i32 5, label %.critedge81
     i32 3, label %.critedge81
@@ -12359,16 +12361,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge81
   ]
 
-.split183.us.split:                               ; preds = %.split183.us, %705
-  %702 = phi ptr [ %703, %705 ], [ %657, %.split183.us ]
+.split184.us.split:                               ; preds = %.split184.us, %705
+  %702 = phi ptr [ %703, %705 ], [ %657, %.split184.us ]
   %703 = getelementptr i8, ptr %702, i64 2624
   %704 = icmp ult ptr %703, %655
   br i1 %704, label %705, label %.critedge78.thread
 
-705:                                              ; preds = %.split183.us.split
+705:                                              ; preds = %.split184.us.split
   %706 = getelementptr i8, ptr %702, i64 3424
   %707 = load i32, ptr %706, align 32
-  switch i32 %707, label %.split183.us.split [
+  switch i32 %707, label %.split184.us.split [
     i32 7, label %.critedge81
     i32 5, label %.critedge81
     i32 3, label %.critedge81
@@ -12376,28 +12378,28 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge81
   ]
 
-.split183:                                        ; preds = %688
+.split184:                                        ; preds = %688
   %708 = getelementptr inbounds nuw i8, ptr %689, i64 14720
   %709 = load ptr, ptr %708, align 64
   %710 = icmp eq ptr %709, %0
-  br i1 %710, label %.split183.split.us, label %.split183.split
+  br i1 %710, label %.split184.split.us, label %.split184.split
 
-.split183.split.us:                               ; preds = %.split183
+.split184.split.us:                               ; preds = %.split184
   %711 = load i64, ptr %692, align 8
   %712 = and i64 %711, 1
   %713 = icmp eq i64 %712, 0
-  br i1 %713, label %.split183.split.us.split.us, label %.split183.split.us.split
+  br i1 %713, label %.split184.split.us.split.us, label %.split184.split.us.split
 
-.split183.split.us.split.us:                      ; preds = %.split183.split.us, %717
-  %714 = phi ptr [ %715, %717 ], [ %657, %.split183.split.us ]
+.split184.split.us.split.us:                      ; preds = %.split184.split.us, %717
+  %714 = phi ptr [ %715, %717 ], [ %657, %.split184.split.us ]
   %715 = getelementptr i8, ptr %714, i64 2624
   %716 = icmp ult ptr %715, %654
   br i1 %716, label %717, label %.critedge78.thread
 
-717:                                              ; preds = %.split183.split.us.split.us
+717:                                              ; preds = %.split184.split.us.split.us
   %718 = getelementptr i8, ptr %714, i64 3424
   %719 = load i32, ptr %718, align 32
-  switch i32 %719, label %.split183.split.us.split.us [
+  switch i32 %719, label %.split184.split.us.split.us [
     i32 7, label %.critedge81
     i32 5, label %.critedge81
     i32 3, label %.critedge81
@@ -12405,16 +12407,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge81
   ]
 
-.split183.split.us.split:                         ; preds = %.split183.split.us, %723
-  %720 = phi ptr [ %721, %723 ], [ %657, %.split183.split.us ]
+.split184.split.us.split:                         ; preds = %.split184.split.us, %723
+  %720 = phi ptr [ %721, %723 ], [ %657, %.split184.split.us ]
   %721 = getelementptr i8, ptr %720, i64 2624
   %722 = icmp ult ptr %721, %655
   br i1 %722, label %723, label %.critedge78.thread
 
-723:                                              ; preds = %.split183.split.us.split
+723:                                              ; preds = %.split184.split.us.split
   %724 = getelementptr i8, ptr %720, i64 3424
   %725 = load i32, ptr %724, align 32
-  switch i32 %725, label %.split183.split.us.split [
+  switch i32 %725, label %.split184.split.us.split [
     i32 7, label %.critedge81
     i32 5, label %.critedge81
     i32 3, label %.critedge81
@@ -12422,16 +12424,16 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
     i32 9, label %.critedge81
   ]
 
-.split183.split:                                  ; preds = %.split183, %729
-  %726 = phi ptr [ %727, %729 ], [ %657, %.split183 ]
+.split184.split:                                  ; preds = %.split184, %729
+  %726 = phi ptr [ %727, %729 ], [ %657, %.split184 ]
   %727 = getelementptr i8, ptr %726, i64 2624
   %728 = icmp ult ptr %727, %654
   br i1 %728, label %729, label %.critedge78.thread
 
-729:                                              ; preds = %.split183.split
+729:                                              ; preds = %.split184.split
   %730 = getelementptr i8, ptr %726, i64 3424
   %731 = load i32, ptr %730, align 32
-  switch i32 %731, label %.split183.split [
+  switch i32 %731, label %.split184.split [
     i32 7, label %.critedge81
     i32 5, label %.critedge81
     i32 3, label %.critedge81
@@ -12440,12 +12442,12 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   ]
 
 .critedge81:                                      ; preds = %729, %729, %729, %729, %729, %723, %723, %723, %723, %723, %717, %717, %717, %717, %717, %705, %705, %705, %705, %705, %699, %699, %699, %699, %699
-  %.us-phi184 = phi ptr [ %697, %699 ], [ %697, %699 ], [ %697, %699 ], [ %697, %699 ], [ %697, %699 ], [ %703, %705 ], [ %703, %705 ], [ %703, %705 ], [ %703, %705 ], [ %703, %705 ], [ %715, %717 ], [ %715, %717 ], [ %715, %717 ], [ %715, %717 ], [ %715, %717 ], [ %721, %723 ], [ %721, %723 ], [ %721, %723 ], [ %721, %723 ], [ %721, %723 ], [ %727, %729 ], [ %727, %729 ], [ %727, %729 ], [ %727, %729 ], [ %727, %729 ]
-  %732 = icmp eq ptr %.us-phi184, null
+  %.us-phi185 = phi ptr [ %697, %699 ], [ %697, %699 ], [ %697, %699 ], [ %697, %699 ], [ %697, %699 ], [ %703, %705 ], [ %703, %705 ], [ %703, %705 ], [ %703, %705 ], [ %703, %705 ], [ %715, %717 ], [ %715, %717 ], [ %715, %717 ], [ %715, %717 ], [ %715, %717 ], [ %721, %723 ], [ %721, %723 ], [ %721, %723 ], [ %721, %723 ], [ %721, %723 ], [ %727, %729 ], [ %727, %729 ], [ %727, %729 ], [ %727, %729 ], [ %727, %729 ]
+  %732 = icmp eq ptr %.us-phi185, null
   br i1 %732, label %.critedge78.thread, label %656, !llvm.loop !94
 
-.critedge78.thread:                               ; preds = %641, %.critedge81, %.split183.split, %.split183.split.us.split, %.split183.split.us.split.us, %.split183.us.split, %.split183.us.split.us, %.critedge78
-  %733 = phi ptr [ %628, %.critedge78 ], [ %689, %.split183.us.split.us ], [ %689, %.split183.us.split ], [ %689, %.split183.split.us.split.us ], [ %689, %.split183.split.us.split ], [ %689, %.split183.split ], [ %689, %.critedge81 ], [ %628, %641 ]
+.critedge78.thread:                               ; preds = %641, %.critedge81, %.split184.split, %.split184.split.us.split, %.split184.split.us.split.us, %.split184.us.split, %.split184.us.split.us, %.critedge78
+  %733 = phi ptr [ %628, %.critedge78 ], [ %689, %.split184.us.split.us ], [ %689, %.split184.us.split ], [ %689, %.split184.split.us.split.us ], [ %689, %.split184.split.us.split ], [ %689, %.split184.split ], [ %689, %.critedge81 ], [ %628, %641 ]
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 8256
   %735 = icmp eq ptr %734, %0
   %736 = getelementptr inbounds nuw i8, ptr %733, i64 14720
@@ -12504,7 +12506,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   br label %766
 
 766:                                              ; preds = %.critedge87, %757
-  %767 = phi ptr [ %751, %757 ], [ %.us-phi190, %.critedge87 ]
+  %767 = phi ptr [ %751, %757 ], [ %.us-phi191, %.critedge87 ]
   %768 = load ptr, ptr %767, align 64
   %769 = load ptr, ptr %768, align 64
   %770 = getelementptr inbounds nuw i8, ptr %767, i64 12
@@ -12606,7 +12608,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
 
 ._crit_edge:                                      ; preds = %826
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %767, i64 816
-  %.pre336 = load i8, ptr %.phi.trans.insert, align 16
+  %.pre335 = load i8, ptr %.phi.trans.insert, align 16
   br label %836
 
 831:                                              ; preds = %826, %823, %823
@@ -12617,7 +12619,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   br i1 %835, label %847, label %836
 
 836:                                              ; preds = %._crit_edge, %831
-  %837 = phi i8 [ %.pre336, %._crit_edge ], [ %833, %831 ]
+  %837 = phi i8 [ %.pre335, %._crit_edge ], [ %833, %831 ]
   %838 = icmp ugt i8 %837, 10
   br i1 %838, label %844, label %839
 
@@ -12664,7 +12666,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %862 = and i32 %861, -1048577
   store i32 %862, ptr %857, align 4
   %863 = icmp eq i32 %860, 0
-  br i1 %863, label %864, label %.loopexit108
+  br i1 %863, label %864, label %.loopexit110
 
 864:                                              ; preds = %.thread98
   %865 = load i32, ptr %777, align 4
@@ -12692,7 +12694,7 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %878 = getelementptr i8, ptr %767, i64 1056
   %879 = load i16, ptr %878, align 2
   %880 = icmp eq i16 %879, -1
-  br i1 %880, label %.loopexit107, label %881
+  br i1 %880, label %.loopexit109, label %881
 
 881:                                              ; preds = %876
   %882 = zext i16 %879 to i32
@@ -12703,37 +12705,37 @@ ata_id_xfermask.exit:                             ; preds = %133, %138
   %885 = shl nuw i32 1, %884
   %886 = and i32 %885, %882
   %887 = icmp eq i32 %886, 0
-  br i1 %887, label %888, label %.loopexit106
+  br i1 %887, label %888, label %.loopexit108
 
 888:                                              ; preds = %883
   %889 = add nsw i32 %884, -1
   %890 = icmp eq i32 %889, 0
-  br i1 %890, label %.loopexit107, label %883, !llvm.loop !76
+  br i1 %890, label %.loopexit109, label %883, !llvm.loop !76
 
-.loopexit107:                                     ; preds = %888, %876
+.loopexit109:                                     ; preds = %888, %876
   %891 = getelementptr inbounds nuw i8, ptr %767, i64 816
   %892 = load i8, ptr %891, align 16
   %893 = icmp ult i8 %892, 11
   %894 = select i1 %893, i32 1, i32 %877
-  br label %.loopexit106
+  br label %.loopexit108
 
-.loopexit106:                                     ; preds = %883, %.loopexit107
-  %895 = phi i32 [ %894, %.loopexit107 ], [ %877, %883 ]
+.loopexit108:                                     ; preds = %883, %.loopexit109
+  %895 = phi i32 [ %894, %.loopexit109 ], [ %877, %883 ]
   %896 = getelementptr i8, ptr %767, i64 994
   %897 = load i16, ptr %896, align 2
   %898 = and i16 %897, 2048
   %899 = icmp eq i16 %898, 0
   br i1 %899, label %900, label %905
 
-900:                                              ; preds = %.loopexit106
+900:                                              ; preds = %.loopexit108
   %901 = getelementptr inbounds nuw i8, ptr %767, i64 816
   %902 = load i8, ptr %901, align 16
   %903 = icmp ult i8 %902, 11
   %904 = select i1 %903, i32 1, i32 %895
   br label %905
 
-905:                                              ; preds = %900, %.loopexit106, %864
-  %906 = phi i32 [ %895, %.loopexit106 ], [ 0, %864 ], [ %904, %900 ]
+905:                                              ; preds = %900, %.loopexit108, %864
+  %906 = phi i32 [ %895, %.loopexit108 ], [ 0, %864 ], [ %904, %900 ]
   %907 = icmp eq i32 %865, 7
   br i1 %907, label %908, label %918
 
@@ -12866,27 +12868,27 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
   %1004 = sub nsw i32 %991, %993
   %1005 = trunc i32 %1004 to i8
   %1006 = add i8 %1003, %1005
-  br label %.loopexit105
+  br label %.loopexit107
 
 1007:                                             ; preds = %996, %992
   %1008 = getelementptr i8, ptr %994, i64 12
   %1009 = load i32, ptr %1008, align 4
   %1010 = icmp sgt i32 %1009, -1
-  br i1 %1010, label %992, label %.loopexit105, !llvm.loop !66
+  br i1 %1010, label %992, label %.loopexit107, !llvm.loop !66
 
-.loopexit105:                                     ; preds = %1007, %1001
+.loopexit107:                                     ; preds = %1007, %1001
   %1011 = phi i8 [ %1006, %1001 ], [ -1, %1007 ]
   %1012 = icmp eq i32 %855, 0
   br i1 %1012, label %1017, label %1013
 
-1013:                                             ; preds = %.loopexit105
+1013:                                             ; preds = %.loopexit107
   %1014 = icmp ne i8 %921, %1011
   %1015 = icmp eq i32 %919, 0
   %1016 = select i1 %1014, i1 %1015, i1 false
   br i1 %1016, label %1065, label %1017
 
-1017:                                             ; preds = %1013, %.loopexit105
-  %1018 = phi ptr [ %856, %.loopexit105 ], [ @.str.319, %1013 ]
+1017:                                             ; preds = %1013, %.loopexit107
+  %1018 = phi ptr [ %856, %.loopexit107 ], [ @.str.319, %1013 ]
   %1019 = and i32 %861, 131080
   %1020 = icmp eq i32 %1019, 8
   br i1 %1020, label %1077, label %1021
@@ -12964,31 +12966,31 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
   %1074 = load i32, ptr %1073, align 8
   %1075 = add i32 %1074, %1072
   %1076 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.321, i32 noundef %1070, i32 noundef %1075, i32 noundef %1066) #34
-  br label %.loopexit108
+  br label %.loopexit110
 
 1077:                                             ; preds = %1017, %1062
   %1078 = load ptr, ptr %0, align 64
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 8256
   %1080 = icmp eq ptr %1079, %0
   %1081 = getelementptr inbounds nuw i8, ptr %1078, i64 24
-  br i1 %1080, label %.split189.us, label %.split189
+  br i1 %1080, label %.split190.us, label %.split190
 
-.split189.us:                                     ; preds = %1077
+.split190.us:                                     ; preds = %1077
   %1082 = load i64, ptr %1081, align 8
   %1083 = and i64 %1082, 1
   %1084 = icmp eq i64 %1083, 0
-  br i1 %1084, label %.split189.us.split.us, label %.split189.us.split
+  br i1 %1084, label %.split190.us.split.us, label %.split190.us.split
 
-.split189.us.split.us:                            ; preds = %.split189.us, %1088
-  %1085 = phi ptr [ %1086, %1088 ], [ %767, %.split189.us ]
+.split190.us.split.us:                            ; preds = %.split190.us, %1088
+  %1085 = phi ptr [ %1086, %1088 ], [ %767, %.split190.us ]
   %1086 = getelementptr i8, ptr %1085, i64 2624
   %1087 = icmp ult ptr %1086, %764
   br i1 %1087, label %1088, label %.critedge84.thread
 
-1088:                                             ; preds = %.split189.us.split.us
+1088:                                             ; preds = %.split190.us.split.us
   %1089 = getelementptr i8, ptr %1085, i64 3424
   %1090 = load i32, ptr %1089, align 32
-  switch i32 %1090, label %.split189.us.split.us [
+  switch i32 %1090, label %.split190.us.split.us [
     i32 7, label %.critedge87
     i32 5, label %.critedge87
     i32 3, label %.critedge87
@@ -12996,16 +12998,16 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
     i32 9, label %.critedge87
   ]
 
-.split189.us.split:                               ; preds = %.split189.us, %1094
-  %1091 = phi ptr [ %1092, %1094 ], [ %767, %.split189.us ]
+.split190.us.split:                               ; preds = %.split190.us, %1094
+  %1091 = phi ptr [ %1092, %1094 ], [ %767, %.split190.us ]
   %1092 = getelementptr i8, ptr %1091, i64 2624
   %1093 = icmp ult ptr %1092, %765
   br i1 %1093, label %1094, label %.critedge84.thread
 
-1094:                                             ; preds = %.split189.us.split
+1094:                                             ; preds = %.split190.us.split
   %1095 = getelementptr i8, ptr %1091, i64 3424
   %1096 = load i32, ptr %1095, align 32
-  switch i32 %1096, label %.split189.us.split [
+  switch i32 %1096, label %.split190.us.split [
     i32 7, label %.critedge87
     i32 5, label %.critedge87
     i32 3, label %.critedge87
@@ -13013,28 +13015,28 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
     i32 9, label %.critedge87
   ]
 
-.split189:                                        ; preds = %1077
+.split190:                                        ; preds = %1077
   %1097 = getelementptr inbounds nuw i8, ptr %1078, i64 14720
   %1098 = load ptr, ptr %1097, align 64
   %1099 = icmp eq ptr %1098, %0
-  br i1 %1099, label %.split189.split.us, label %.split189.split
+  br i1 %1099, label %.split190.split.us, label %.split190.split
 
-.split189.split.us:                               ; preds = %.split189
+.split190.split.us:                               ; preds = %.split190
   %1100 = load i64, ptr %1081, align 8
   %1101 = and i64 %1100, 1
   %1102 = icmp eq i64 %1101, 0
-  br i1 %1102, label %.split189.split.us.split.us, label %.split189.split.us.split
+  br i1 %1102, label %.split190.split.us.split.us, label %.split190.split.us.split
 
-.split189.split.us.split.us:                      ; preds = %.split189.split.us, %1106
-  %1103 = phi ptr [ %1104, %1106 ], [ %767, %.split189.split.us ]
+.split190.split.us.split.us:                      ; preds = %.split190.split.us, %1106
+  %1103 = phi ptr [ %1104, %1106 ], [ %767, %.split190.split.us ]
   %1104 = getelementptr i8, ptr %1103, i64 2624
   %1105 = icmp ult ptr %1104, %764
   br i1 %1105, label %1106, label %.critedge84.thread
 
-1106:                                             ; preds = %.split189.split.us.split.us
+1106:                                             ; preds = %.split190.split.us.split.us
   %1107 = getelementptr i8, ptr %1103, i64 3424
   %1108 = load i32, ptr %1107, align 32
-  switch i32 %1108, label %.split189.split.us.split.us [
+  switch i32 %1108, label %.split190.split.us.split.us [
     i32 7, label %.critedge87
     i32 5, label %.critedge87
     i32 3, label %.critedge87
@@ -13042,16 +13044,16 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
     i32 9, label %.critedge87
   ]
 
-.split189.split.us.split:                         ; preds = %.split189.split.us, %1112
-  %1109 = phi ptr [ %1110, %1112 ], [ %767, %.split189.split.us ]
+.split190.split.us.split:                         ; preds = %.split190.split.us, %1112
+  %1109 = phi ptr [ %1110, %1112 ], [ %767, %.split190.split.us ]
   %1110 = getelementptr i8, ptr %1109, i64 2624
   %1111 = icmp ult ptr %1110, %765
   br i1 %1111, label %1112, label %.critedge84.thread
 
-1112:                                             ; preds = %.split189.split.us.split
+1112:                                             ; preds = %.split190.split.us.split
   %1113 = getelementptr i8, ptr %1109, i64 3424
   %1114 = load i32, ptr %1113, align 32
-  switch i32 %1114, label %.split189.split.us.split [
+  switch i32 %1114, label %.split190.split.us.split [
     i32 7, label %.critedge87
     i32 5, label %.critedge87
     i32 3, label %.critedge87
@@ -13059,16 +13061,16 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
     i32 9, label %.critedge87
   ]
 
-.split189.split:                                  ; preds = %.split189, %1118
-  %1115 = phi ptr [ %1116, %1118 ], [ %767, %.split189 ]
+.split190.split:                                  ; preds = %.split190, %1118
+  %1115 = phi ptr [ %1116, %1118 ], [ %767, %.split190 ]
   %1116 = getelementptr i8, ptr %1115, i64 2624
   %1117 = icmp ult ptr %1116, %764
   br i1 %1117, label %1118, label %.critedge84.thread
 
-1118:                                             ; preds = %.split189.split
+1118:                                             ; preds = %.split190.split
   %1119 = getelementptr i8, ptr %1115, i64 3424
   %1120 = load i32, ptr %1119, align 32
-  switch i32 %1120, label %.split189.split [
+  switch i32 %1120, label %.split190.split [
     i32 7, label %.critedge87
     i32 5, label %.critedge87
     i32 3, label %.critedge87
@@ -13077,11 +13079,11 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
   ]
 
 .critedge87:                                      ; preds = %1118, %1118, %1118, %1118, %1118, %1112, %1112, %1112, %1112, %1112, %1106, %1106, %1106, %1106, %1106, %1094, %1094, %1094, %1094, %1094, %1088, %1088, %1088, %1088, %1088
-  %.us-phi190 = phi ptr [ %1086, %1088 ], [ %1086, %1088 ], [ %1086, %1088 ], [ %1086, %1088 ], [ %1086, %1088 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1116, %1118 ], [ %1116, %1118 ], [ %1116, %1118 ], [ %1116, %1118 ], [ %1116, %1118 ]
-  %1121 = icmp eq ptr %.us-phi190, null
+  %.us-phi191 = phi ptr [ %1086, %1088 ], [ %1086, %1088 ], [ %1086, %1088 ], [ %1086, %1088 ], [ %1086, %1088 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1092, %1094 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1104, %1106 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1110, %1112 ], [ %1116, %1118 ], [ %1116, %1118 ], [ %1116, %1118 ], [ %1116, %1118 ], [ %1116, %1118 ]
+  %1121 = icmp eq ptr %.us-phi191, null
   br i1 %1121, label %.critedge84.thread, label %766, !llvm.loop !95
 
-.critedge84.thread:                               ; preds = %746, %.critedge87, %.split189.split, %.split189.split.us.split, %.split189.split.us.split.us, %.split189.us.split, %.split189.us.split.us, %.critedge84
+.critedge84.thread:                               ; preds = %746, %.critedge87, %.split190.split, %.split190.split.us.split, %.split190.split.us.split.us, %.split190.us.split, %.split190.us.split.us, %.critedge84
   br i1 %535, label %.thread103, label %1122
 
 1122:                                             ; preds = %.critedge84.thread
@@ -13098,14 +13100,14 @@ ata_id_xfermask.exit88:                           ; preds = %974, %979
   store ptr %.fr197, ptr %1130, align 8
   br label %.thread103
 
-.loopexit108:                                     ; preds = %.thread98, %564, %1065
+.loopexit110:                                     ; preds = %.thread98, %564, %1065
   %1131 = phi ptr [ %560, %564 ], [ %767, %1065 ], [ %767, %.thread98 ]
   %1132 = phi i32 [ -22, %564 ], [ -5, %1065 ], [ %860, %.thread98 ]
   store ptr %1131, ptr %1, align 8
   br label %.thread103
 
-.thread103:                                       ; preds = %25, %13, %.critedge, %.critedge84.thread, %1122, %1129, %.loopexit108
-  %1133 = phi i32 [ %1132, %.loopexit108 ], [ 0, %1129 ], [ 0, %1122 ], [ 0, %.critedge84.thread ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %25 ]
+.thread103:                                       ; preds = %25, %13, %.critedge, %.critedge84.thread, %1122, %1129, %.loopexit110
+  %1133 = phi i32 [ %1132, %.loopexit110 ], [ 0, %1129 ], [ 0, %1122 ], [ 0, %.critedge84.thread ], [ 0, %.critedge ], [ 0, %13 ], [ 0, %25 ]
   ret i32 %1133
 }
 

@@ -1231,12 +1231,12 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i9
   %457 = load ptr, ptr %267, align 8, !tbaa !338
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
   %459 = load i32, ptr %458, align 4, !tbaa !339
-  %.fr.i.i = freeze i32 %459
+  %.fr68.i.i = freeze i32 %459
   %.not2047.i.i = icmp eq ptr %454, %259
   br i1 %.not2047.i.i, label %_ZNK12_GLOBAL__N_112FixupLEAPass13optTwoAddrLEAERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockEbb.exit.thread184, label %.lr.ph51.i.i
 
 .lr.ph51.i.i:                                     ; preds = %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i92
-  %460 = add i32 %.fr.i.i, -1
+  %460 = add i32 %.fr68.i.i, -1
   %461 = icmp ult i32 %460, 1073741823
   br i1 %461, label %.lr.ph51.split.us.i.i, label %.lr.ph51.split.i.i
 
@@ -1292,7 +1292,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.us.i.i: ; preds = %.lr.ph51.
 489:                                              ; preds = %483
   %490 = getelementptr inbounds nuw i8, ptr %485, i64 4
   %491 = load i32, ptr %490, align 4, !tbaa !339
-  %492 = icmp eq i32 %491, %.fr.i.i
+  %492 = icmp eq i32 %491, %.fr68.i.i
   br i1 %492, label %.split.us.i.i, label %493
 
 493:                                              ; preds = %489
@@ -1302,7 +1302,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.us.i.i: ; preds = %.lr.ph51.
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.i.i: ; preds = %493
   %496 = load ptr, ptr %106, align 8, !tbaa !307
-  %497 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %496, i32 %.fr.i.i, i32 %491) #14
+  %497 = call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %496, i32 %.fr68.i.i, i32 %491) #14
   br i1 %497, label %_ZNK12_GLOBAL__N_112FixupLEAPass13optTwoAddrLEAERN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockEbb.exit.thread184, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us55.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us55.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.us.i.i, %493, %483
@@ -1402,7 +1402,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %.lr.ph51.spl
 540:                                              ; preds = %535
   %541 = getelementptr inbounds nuw i8, ptr %536, i64 4
   %542 = load i32, ptr %541, align 4, !tbaa !339
-  %543 = icmp eq i32 %542, %.fr.i.i
+  %543 = icmp eq i32 %542, %.fr68.i.i
   br i1 %543, label %.split.us.i.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread.us.i.i: ; preds = %540, %535

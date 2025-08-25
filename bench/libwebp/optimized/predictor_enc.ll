@@ -2303,19 +2303,19 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %71
-  %indvars.iv111 = phi i64 [ %50, %.lr.ph.split.us.preheader ], [ %indvars.iv.next112, %71 ]
-  %51 = icmp eq i64 %indvars.iv111, 0
+  %indvars.iv110 = phi i64 [ %50, %.lr.ph.split.us.preheader ], [ %indvars.iv.next111, %71 ]
+  %51 = icmp eq i64 %indvars.iv110, 0
   br i1 %51, label %.thread.us, label %52
 
 52:                                               ; preds = %.lr.ph.split.us
-  %53 = getelementptr i32, ptr %3, i64 %indvars.iv111
+  %53 = getelementptr i32, ptr %3, i64 %indvars.iv110
   %54 = getelementptr i8, ptr %53, i64 -4
   %55 = load i32, ptr %54, align 4, !tbaa !3
   br label %.thread.us
 
 .thread.us:                                       ; preds = %52, %.lr.ph.split.us
   %.06980.us = phi i32 [ -16777216, %.lr.ph.split.us ], [ %55, %52 ]
-  %56 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv111
+  %56 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv110
   %57 = load i32, ptr %56, align 4, !tbaa !3
   %58 = or i32 %57, 16711680
   %59 = and i32 %.06980.us, -16711936
@@ -2337,12 +2337,12 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 71:                                               ; preds = %68, %.thread.us
   %.1.us = phi i32 [ %69, %68 ], [ %66, %.thread.us ]
-  %72 = sub nsw i64 %indvars.iv111, %50
+  %72 = sub nsw i64 %indvars.iv110, %50
   %73 = getelementptr inbounds i32, ptr %12, i64 %72
   store i32 %.1.us, ptr %73, align 4, !tbaa !3
-  %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
-  %exitcond114.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
-  br i1 %exitcond114.not, label %PredictBatch.exit, label %.lr.ph.split.us, !llvm.loop !45
+  %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
+  %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
+  br i1 %exitcond113.not, label %PredictBatch.exit, label %.lr.ph.split.us, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %74 = icmp eq i32 %5, 0
@@ -2352,14 +2352,14 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   br i1 %or.cond, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %102
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %102 ], [ %76, %.lr.ph.split ]
-  %77 = icmp eq i64 %indvars.iv106, 0
+  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %102 ], [ %76, %.lr.ph.split ]
+  %77 = icmp eq i64 %indvars.iv105, 0
   br i1 %77, label %83, label %78
 
 78:                                               ; preds = %.lr.ph.split.split.us
-  %79 = getelementptr i32, ptr %3, i64 %indvars.iv106
+  %79 = getelementptr i32, ptr %3, i64 %indvars.iv105
   %80 = getelementptr i8, ptr %79, i64 -4
-  %81 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv106
+  %81 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv105
   %82 = tail call i32 %42(ptr noundef %80, ptr noundef nonnull %81) #11
   br label %.thread.us86
 
@@ -2369,7 +2369,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 .thread.us86:                                     ; preds = %83, %78
   %.069.us = phi i32 [ %84, %83 ], [ %82, %78 ]
-  %85 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
+  %85 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv105
   %86 = load i32, ptr %85, align 4, !tbaa !3
   %87 = or i32 %86, 16711680
   %88 = and i32 %.069.us, -16711936
@@ -2396,13 +2396,13 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 102:                                              ; preds = %100, %97, %.thread.us86
   %.1.us89 = phi i32 [ %98, %100 ], [ %98, %97 ], [ %95, %.thread.us86 ]
-  %103 = sub nsw i64 %indvars.iv106, %76
+  %103 = sub nsw i64 %indvars.iv105, %76
   %104 = getelementptr inbounds i32, ptr %12, i64 %103
   store i32 %.1.us89, ptr %104, align 4, !tbaa !3
-  %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
-  %lftr.wideiv109 = trunc i64 %indvars.iv.next107 to i32
-  %exitcond110.not = icmp eq i32 %7, %lftr.wideiv109
-  br i1 %exitcond110.not, label %PredictBatch.exit, label %.lr.ph.split.split.us, !llvm.loop !45
+  %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
+  %lftr.wideiv108 = trunc i64 %indvars.iv.next106 to i32
+  %exitcond109.not = icmp eq i32 %7, %lftr.wideiv108
+  br i1 %exitcond109.not, label %PredictBatch.exit, label %.lr.ph.split.split.us, !llvm.loop !45
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %46, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split.preheader
@@ -2412,14 +2412,14 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   br label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %130
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %130 ], [ %76, %.lr.ph.split.split ]
-  %105 = icmp eq i64 %indvars.iv101, 0
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %130 ], [ %76, %.lr.ph.split.split ]
+  %105 = icmp eq i64 %indvars.iv100, 0
   br i1 %105, label %111, label %106
 
 106:                                              ; preds = %.lr.ph.split.split.split.us
-  %107 = getelementptr i32, ptr %3, i64 %indvars.iv101
+  %107 = getelementptr i32, ptr %3, i64 %indvars.iv100
   %108 = getelementptr i8, ptr %107, i64 -4
-  %109 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv101
+  %109 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv100
   %110 = tail call i32 %42(ptr noundef %108, ptr noundef nonnull %109) #11
   br label %.thread.us92
 
@@ -2429,7 +2429,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 .thread.us92:                                     ; preds = %111, %106
   %.069.us91 = phi i32 [ %112, %111 ], [ %110, %106 ]
-  %113 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv101
+  %113 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv100
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %115 = or i32 %114, 16711680
   %116 = and i32 %.069.us91, -16711936
@@ -2456,20 +2456,20 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
 
 130:                                              ; preds = %128, %125, %.thread.us92
   %.1.us95 = phi i32 [ %126, %128 ], [ %126, %125 ], [ %123, %.thread.us92 ]
-  %131 = sub nsw i64 %indvars.iv101, %76
+  %131 = sub nsw i64 %indvars.iv100, %76
   %132 = getelementptr inbounds i32, ptr %12, i64 %131
   store i32 %.1.us95, ptr %132, align 4, !tbaa !3
-  %indvars.iv.next102 = add nsw i64 %indvars.iv101, 1
-  %lftr.wideiv104 = trunc i64 %indvars.iv.next102 to i32
-  %exitcond105.not = icmp eq i32 %7, %lftr.wideiv104
-  br i1 %exitcond105.not, label %PredictBatch.exit, label %.lr.ph.split.split.split.us, !llvm.loop !45
+  %indvars.iv.next101 = add nsw i64 %indvars.iv100, 1
+  %lftr.wideiv103 = trunc i64 %indvars.iv.next101 to i32
+  %exitcond104.not = icmp eq i32 %7, %lftr.wideiv103
+  br i1 %exitcond104.not, label %PredictBatch.exit, label %.lr.ph.split.split.split.us, !llvm.loop !45
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %292
   %indvars.iv = phi i64 [ %76, %.lr.ph.split.split.split.preheader ], [ %indvars.iv.next, %292 ]
   %133 = icmp eq i64 %indvars.iv, 0
-  br i1 %133, label %.thread122, label %135
+  br i1 %133, label %.thread121, label %135
 
-.thread122:                                       ; preds = %.lr.ph.split.split.split
+.thread121:                                       ; preds = %.lr.ph.split.split.split
   %134 = load i32, ptr %2, align 4, !tbaa !3
   br label %262
 
@@ -2500,7 +2500,7 @@ define internal fastcc void @GetResidual(i32 noundef %0, i32 noundef %1, ptr nou
   %155 = and i32 %151, -16711936
   %156 = and i32 %154, 16711935
   %157 = or disjoint i32 %155, %156
-  br label %.thread127
+  br label %.thread126
 
 .preheader.i:                                     ; preds = %141, %.preheader.i
   %.037.i = phi i32 [ %158, %.preheader.i ], [ %9, %141 ]
@@ -2678,18 +2678,18 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   %260 = and i32 %.0.in.i60.i, 255
   %261 = or disjoint i32 %260, %259
   %.pre = and i32 %139, -16711936
-  %.pre115 = and i32 %139, 16711935
-  br label %.thread127
+  %.pre114 = and i32 %139, 16711935
+  br label %.thread126
 
-262:                                              ; preds = %135, %.thread122
-  %.069125 = phi i32 [ %134, %.thread122 ], [ %139, %135 ]
+262:                                              ; preds = %135, %.thread121
+  %.069124 = phi i32 [ %134, %.thread121 ], [ %139, %135 ]
   %263 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %264 = load i32, ptr %263, align 4, !tbaa !3
   %265 = or i32 %264, 16711680
-  %266 = and i32 %.069125, -16711936
+  %266 = and i32 %.069124, -16711936
   %267 = sub i32 %265, %266
   %268 = or i32 %264, 65280
-  %269 = and i32 %.069125, 16711935
+  %269 = and i32 %.069124, 16711935
   %270 = sub i32 %268, %269
   %271 = and i32 %267, -16711936
   %272 = and i32 %270, 16711935
@@ -2697,22 +2697,22 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   %274 = icmp ult i32 %264, 16777216
   br i1 %274, label %286, label %292
 
-.thread127:                                       ; preds = %NearLosslessComponent.exit64.i, %148
-  %.pre-phi116 = phi i32 [ %153, %148 ], [ %.pre115, %NearLosslessComponent.exit64.i ]
+.thread126:                                       ; preds = %NearLosslessComponent.exit64.i, %148
+  %.pre-phi115 = phi i32 [ %153, %148 ], [ %.pre114, %NearLosslessComponent.exit64.i ]
   %.pre-phi = phi i32 [ %150, %148 ], [ %.pre, %NearLosslessComponent.exit64.i ]
   %.0.i75 = phi i32 [ %157, %148 ], [ %261, %NearLosslessComponent.exit64.i ]
   %275 = and i32 %.0.i75, -16711936
   %276 = add i32 %275, %.pre-phi
   %277 = and i32 %.0.i75, 16711935
-  %278 = add nuw nsw i32 %277, %.pre-phi116
+  %278 = add nuw nsw i32 %277, %.pre-phi115
   %279 = and i32 %276, -16711936
   %280 = and i32 %278, 16711935
   %281 = or disjoint i32 %279, %280
   store i32 %281, ptr %142, align 4, !tbaa !3
   %282 = icmp ult i32 %276, 16777216
-  br i1 %282, label %.thread132, label %292
+  br i1 %282, label %.thread131, label %292
 
-.thread132:                                       ; preds = %.thread127
+.thread131:                                       ; preds = %.thread126
   %283 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %284 = and i32 %.0.i75, -16777216
   %285 = and i32 %139, 16777215
@@ -2722,7 +2722,7 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
 286:                                              ; preds = %262
   %287 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
   %288 = and i32 %267, -16777216
-  %289 = and i32 %.069125, 16777215
+  %289 = and i32 %.069124, 16777215
   store i32 %289, ptr %287, align 4, !tbaa !3
   br i1 %133, label %290, label %292
 
@@ -2731,8 +2731,8 @@ NearLosslessComponent.exit64.i:                   ; preds = %251, %250
   store i32 %291, ptr %49, align 4, !tbaa !3
   br label %292
 
-292:                                              ; preds = %.thread132, %.thread127, %286, %290, %262
-  %.1 = phi i32 [ %288, %290 ], [ %288, %286 ], [ %273, %262 ], [ %.0.i75, %.thread127 ], [ %284, %.thread132 ]
+292:                                              ; preds = %.thread131, %.thread126, %286, %290, %262
+  %.1 = phi i32 [ %288, %290 ], [ %288, %286 ], [ %273, %262 ], [ %.0.i75, %.thread126 ], [ %284, %.thread131 ]
   %293 = sub nsw i64 %indvars.iv, %76
   %294 = getelementptr inbounds i32, ptr %12, i64 %293
   store i32 %.1, ptr %294, align 4, !tbaa !3

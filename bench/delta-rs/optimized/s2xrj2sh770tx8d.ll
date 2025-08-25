@@ -110955,8 +110955,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   %.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %14, i64 0
   %.15.vec.insert.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %18 = load i64, ptr %3, align 8, !range !17422
-  %.fr = freeze i64 %18
-  %19 = xor i64 %.fr, -9223372036854775808
+  %.fr24 = freeze i64 %18
+  %19 = xor i64 %.fr24, -9223372036854775808
   %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 13)
   %21 = icmp ugt i64 %19, 12
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -111180,8 +111180,8 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
   %.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %14, i64 0
   %.15.vec.insert.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %18 = load i64, ptr %3, align 8, !range !1133
-  %.fr = freeze i64 %18
-  %19 = xor i64 %.fr, -9223372036854775808
+  %.fr24 = freeze i64 %18
+  %19 = xor i64 %.fr24, -9223372036854775808
   %20 = tail call i64 @llvm.umin.i64(i64 %19, i64 4)
   %21 = icmp ugt i64 %19, 3
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -113365,8 +113365,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb160
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i64, ptr %2, align 8, !range !1133
-  %.fr = freeze i64 %9
-  %10 = xor i64 %.fr, -9223372036854775808
+  %.fr55 = freeze i64 %9
+  %10 = xor i64 %.fr55, -9223372036854775808
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 4)
   %12 = icmp ugt i64 %10, 3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -113860,8 +113860,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he781
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i64, ptr %2, align 8, !range !17422
-  %.fr = freeze i64 %9
-  %10 = xor i64 %.fr, -9223372036854775808
+  %.fr55 = freeze i64 %9
+  %10 = xor i64 %.fr55, -9223372036854775808
   %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 13)
   %12 = icmp ugt i64 %10, 12
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16

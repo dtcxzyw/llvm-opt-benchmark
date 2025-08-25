@@ -1643,8 +1643,8 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %10, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %14 = load i8, ptr %1, align 1, !range !280, !alias.scope !463, !noalias !464
-  %.fr.i.i = freeze i8 %14
-  %15 = add i8 %.fr.i.i, -16
+  %.fr49.i.i = freeze i8 %14
+  %15 = add i8 %.fr49.i.i, -16
   %narrow.i.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %15, i8 4)
   %16 = icmp ult i8 %15, 4
   br i1 %16, label %.split44.us.i.i, label %.split44.i.i
@@ -1727,7 +1727,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 
 52:                                               ; preds = %.lr.ph.i.i
   %53 = icmp ult i8 %50, 4
-  %54 = icmp eq i8 %.fr.i.i, %.val4.i.i.i
+  %54 = icmp eq i8 %.fr49.i.i, %.val4.i.i.i
   %spec.select.i.i.i.i.i.i = or i1 %54, %53
   br i1 %spec.select.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha9a9951e792ef5ecE.llvm.8649443668325006364.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.i.i"
 
@@ -1834,8 +1834,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h78
   %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %18, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %19 = load i8, ptr %5, align 1, !range !280, !alias.scope !491, !noalias !501
-  %.fr.i = freeze i8 %19
-  %20 = add i8 %.fr.i, -16
+  %.fr20.i = freeze i8 %19
+  %20 = add i8 %.fr20.i, -16
   %narrow.i.i.i.i.i.i = call i8 @llvm.umin.i8(i8 %20, i8 4)
   %21 = icmp ult i8 %20, 4
   br i1 %21, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab8fdcbdf762fc5dE.exit.split.us.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hab8fdcbdf762fc5dE.exit.split.i"
@@ -1939,7 +1939,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h78
 
 63:                                               ; preds = %.lr.ph.split.i.i
   %64 = icmp ult i8 %61, 4
-  %65 = icmp eq i8 %.fr.i, %.val4.i.i.i
+  %65 = icmp eq i8 %.fr20.i, %.val4.i.i.i
   %spec.select.i.i.i.i.i.i = or i1 %65, %64
   br i1 %spec.select.i.i.i.i.i.i, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17he651dd2f9ed3996bE.exit.backedge.i.i"
 
@@ -2035,7 +2035,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h78
   %107 = sub nsw i64 0, %.sroa.4.0.ph
   %108 = getelementptr inbounds { i8, [7 x i8], { { { i64, ptr, {} }, i64 } } }, ptr %.val.i, i64 %107
   %109 = getelementptr inbounds i8, ptr %108, i64 -32
-  store i8 %.fr.i, ptr %109, align 8, !noalias !523
+  store i8 %.fr20.i, ptr %109, align 8, !noalias !523
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %108, i64 -31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.49.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.49, i64 31, i1 false), !noalias !523
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.49)
@@ -2145,8 +2145,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ra
   %.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.15.vec.insert.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i8, ptr %2, align 1, !range !280, !alias.scope !531, !noalias !528
-  %.fr.i = freeze i8 %9
-  %10 = add i8 %.fr.i, -16
+  %.fr49.i = freeze i8 %9
+  %10 = add i8 %.fr49.i, -16
   %narrow.i.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %10, i8 4)
   %11 = icmp ult i8 %10, 4
   br i1 %11, label %.split44.us.i, label %.split44.i
@@ -2229,7 +2229,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ra
 
 47:                                               ; preds = %.lr.ph.i
   %48 = icmp ult i8 %45, 4
-  %49 = icmp eq i8 %.fr.i, %.val4.i.i
+  %49 = icmp eq i8 %.fr49.i, %.val4.i.i
   %spec.select.i.i.i.i.i = or i1 %49, %48
   br i1 %spec.select.i.i.i.i.i, label %.split.us.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge.i"
 
@@ -2266,8 +2266,8 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1c2a
   %.0.vec.insert.i = insertelement <16 x i8> poison, i8 %5, i64 0
   %.15.vec.insert.i = shufflevector <16 x i8> %.0.vec.insert.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %9 = load i8, ptr %2, align 1, !range !280
-  %.fr = freeze i8 %9
-  %10 = add i8 %.fr, -16
+  %.fr49 = freeze i8 %9
+  %10 = add i8 %.fr49, -16
   %narrow.i.i.i.i = tail call i8 @llvm.umin.i8(i8 %10, i8 4)
   %11 = icmp ult i8 %10, 4
   br i1 %11, label %.split44.us, label %.split44
@@ -2350,7 +2350,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h1c2a
 
 47:                                               ; preds = %.lr.ph
   %48 = icmp ult i8 %45, 4
-  %49 = icmp eq i8 %.fr, %.val4.i
+  %49 = icmp eq i8 %.fr49, %.val4.i
   %spec.select.i.i.i.i = or i1 %49, %48
   br i1 %spec.select.i.i.i.i, label %.split.us, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc0a1e1d2e0cec8eaE.exit.backedge"
 

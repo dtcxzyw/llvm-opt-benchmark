@@ -26335,11 +26335,11 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   br i1 %exitcond.not, label %.loopexit104.loopexit, label %.preheader103, !llvm.loop !235
 
 .loopexit104.loopexit:                            ; preds = %_ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdaterIPNS5_13ColladaVertexEE6UpdateERSA_.exit
-  %.pre138 = load ptr, ptr %79, align 8
+  %.pre141 = load ptr, ptr %79, align 8
   br label %.loopexit104
 
 .loopexit104:                                     ; preds = %.loopexit104.loopexit, %82
-  %112 = phi ptr [ %.pre138, %.loopexit104.loopexit ], [ %83, %82 ]
+  %112 = phi ptr [ %.pre141, %.loopexit104.loopexit ], [ %83, %82 ]
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.081.0109, i64 80
   %.not98 = icmp eq ptr %113, %112
   br i1 %.not98, label %._crit_edge111, label %82, !llvm.loop !236
@@ -26360,10 +26360,11 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %121 = load ptr, ptr %2, align 8
   %122 = ptrtoint ptr %118 to i64
   %123 = load ptr, ptr %10, align 8
+  %.fr130 = freeze ptr %123
   %124 = load ptr, ptr %12, align 8
-  %125 = icmp eq ptr %123, %124
-  %.fr117 = freeze i1 %125
-  br i1 %.fr117, label %.lr.ph115.split.us.split.us, label %.lr.ph115.split
+  %.fr131 = freeze ptr %124
+  %125 = icmp eq ptr %.fr130, %.fr131
+  br i1 %125, label %.lr.ph115.split.us.split.us, label %.lr.ph115.split
 
 .lr.ph115.split.us.split.us:                      ; preds = %.lr.ph115, %_ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdaterIPNS5_13ColladaVertexEE6UpdateERSA_.exit59.us.us
   %.sroa.075.0113.us.us = phi ptr [ %141, %_ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdaterIPNS5_13ColladaVertexEE6UpdateERSA_.exit59.us.us ], [ %115, %.lr.ph115 ]
@@ -26414,7 +26415,7 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %148 = getelementptr inbounds i8, ptr %121, i64 %147
   store ptr %148, ptr @_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEE12AsVertexTypeENS3_INS8_11ColladaFaceEE10AsFaceTypeENS_14DefaultDeriverESF_SF_SF_SF_SF_EEE1VEiE2vp, align 8
   %149 = ashr exact i64 %147, 2
-  %150 = getelementptr inbounds i8, ptr %123, i64 %149
+  %150 = getelementptr inbounds i8, ptr %.fr130, i64 %149
   %151 = load i64, ptr %150, align 8
   %152 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaVertex", ptr %121, i64 %151
   store ptr %152, ptr @_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEE12AsVertexTypeENS3_INS8_11ColladaFaceEE10AsFaceTypeENS_14DefaultDeriverESF_SF_SF_SF_SF_EEE1VEiE2vp, align 8
@@ -26433,7 +26434,7 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %159 = getelementptr inbounds i8, ptr %121, i64 %158
   store ptr %159, ptr @_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEE12AsVertexTypeENS3_INS8_11ColladaFaceEE10AsFaceTypeENS_14DefaultDeriverESF_SF_SF_SF_SF_EEE1VEiE2vp, align 8
   %160 = ashr exact i64 %158, 2
-  %161 = getelementptr inbounds i8, ptr %123, i64 %160
+  %161 = getelementptr inbounds i8, ptr %.fr130, i64 %160
   %162 = load i64, ptr %161, align 8
   %163 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaVertex", ptr %121, i64 %162
   store ptr %163, ptr @_ZZN3vcg4edge9EmptyCoreINS_9UsedTypesINS_3UseINS_3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEE12AsVertexTypeENS3_INS8_11ColladaFaceEE10AsFaceTypeENS_14DefaultDeriverESF_SF_SF_SF_SF_EEE1VEiE2vp, align 8
@@ -26463,13 +26464,14 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %174 = load ptr, ptr %2, align 8
   %175 = ptrtoint ptr %171 to i64
   %176 = load ptr, ptr %10, align 8
+  %.fr = freeze ptr %176
   br i1 %.not, label %.loopexit, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %177 = load ptr, ptr %12, align 8
-  %178 = icmp eq ptr %176, %177
-  %.fr121 = freeze i1 %178
-  br i1 %.fr121, label %.preheader.us127, label %.preheader
+  %.fr132 = freeze ptr %177
+  %178 = icmp eq ptr %.fr, %.fr132
+  br i1 %178, label %.preheader.us127, label %.preheader
 
 .preheader.us127:                                 ; preds = %.preheader.lr.ph.split, %.split.split.us.us
   %.sroa.064.0126.us128 = phi ptr [ %192, %.split.split.us.us ], [ %167, %.preheader.lr.ph.split ]
@@ -26496,8 +26498,8 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %189 = phi ptr [ %188, %185 ], [ %181, %180 ]
   %190 = phi ptr [ %188, %185 ], [ %182, %180 ]
   %191 = add nuw nsw i32 %.052118.us119.us, 1
-  %exitcond137.not = icmp eq i32 %191, 4
-  br i1 %exitcond137.not, label %.split.split.us.us, label %180, !llvm.loop !238
+  %exitcond140.not = icmp eq i32 %191, 4
+  br i1 %exitcond140.not, label %.split.split.us.us, label %180, !llvm.loop !238
 
 .split.split.us.us:                               ; preds = %_ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdaterIPNS5_13ColladaVertexEE6UpdateERSA_.exit63.us120.us
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.064.0126.us128, i64 1
@@ -26524,7 +26526,7 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %202 = getelementptr inbounds i8, ptr %174, i64 %201
   store ptr %202, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEE12AsVertexTypeENS4_INS9_11ColladaFaceEE10AsFaceTypeENS_14DefaultDeriverESG_SG_SG_SG_SG_EEEEE1VEiE2vp, align 8
   %203 = ashr exact i64 %201, 2
-  %204 = getelementptr inbounds i8, ptr %176, i64 %203
+  %204 = getelementptr inbounds i8, ptr %.fr, i64 %203
   %205 = load i64, ptr %204, align 8
   %206 = getelementptr inbounds %"class.vcg::tri::io::ImporterDAE<CMeshO>::ColladaVertex", ptr %174, i64 %205
   store ptr %206, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseINS_3tri2io11ImporterDAEI6CMeshOE13ColladaVertexEE12AsVertexTypeENS4_INS9_11ColladaFaceEE10AsFaceTypeENS_14DefaultDeriverESG_SG_SG_SG_SG_EEEEE1VEiE2vp, align 8
@@ -26534,8 +26536,8 @@ _ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdat
   %207 = phi ptr [ %206, %199 ], [ %195, %194 ]
   %208 = phi ptr [ %206, %199 ], [ %196, %194 ]
   %209 = add nuw nsw i32 %.052118, 1
-  %exitcond136.not = icmp eq i32 %209, 4
-  br i1 %exitcond136.not, label %.split.split, label %194, !llvm.loop !238
+  %exitcond139.not = icmp eq i32 %209, 4
+  br i1 %exitcond139.not, label %.split.split, label %194, !llvm.loop !238
 
 .split.split:                                     ; preds = %_ZN3vcg3tri9AllocatorINS0_2io11ImporterDAEI6CMeshOE11ColladaMeshEE14PointerUpdaterIPNS5_13ColladaVertexEE6UpdateERSA_.exit63
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.064.0126, i64 1
@@ -36358,11 +36360,11 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit: ; p
   br i1 %exitcond.not, label %.loopexit105.loopexit, label %81, !llvm.loop !348
 
 .loopexit105.loopexit:                            ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit
-  %.pre135 = load ptr, ptr %72, align 8
+  %.pre137 = load ptr, ptr %72, align 8
   br label %.loopexit105
 
 .loopexit105:                                     ; preds = %.loopexit105.loopexit, %75
-  %107 = phi ptr [ %.pre135, %.loopexit105.loopexit ], [ %76, %75 ]
+  %107 = phi ptr [ %.pre137, %.loopexit105.loopexit ], [ %76, %75 ]
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.081.0110, i64 48
   %.not98 = icmp eq ptr %108, %107
   br i1 %.not98, label %._crit_edge112, label %75, !llvm.loop !349
@@ -36478,13 +36480,14 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit59: ;
   %176 = load ptr, ptr %2, align 8
   %177 = ptrtoint ptr %173 to i64
   %178 = load ptr, ptr %10, align 8
+  %.fr129 = freeze ptr %178
   br i1 %.not, label %.loopexit, label %.preheader.lr.ph.split
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %179 = load ptr, ptr %12, align 8
-  %180 = icmp eq ptr %178, %179
-  %.fr = freeze i1 %180
-  br i1 %.fr, label %.preheader.us126, label %.preheader
+  %.fr130 = freeze ptr %179
+  %180 = icmp eq ptr %.fr129, %.fr130
+  br i1 %180, label %.preheader.us126, label %.preheader
 
 .preheader.us126:                                 ; preds = %.preheader.lr.ph.split, %.split.split.us.us
   %.sroa.064.0125.us127 = phi ptr [ %194, %.split.split.us.us ], [ %169, %.preheader.lr.ph.split ]
@@ -36511,8 +36514,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us
   %191 = phi ptr [ %190, %187 ], [ %183, %182 ]
   %192 = phi ptr [ %190, %187 ], [ %184, %182 ]
   %193 = add nuw nsw i32 %.052118.us119.us, 1
-  %exitcond134.not = icmp eq i32 %193, 4
-  br i1 %exitcond134.not, label %.split.split.us.us, label %182, !llvm.loop !351
+  %exitcond136.not = icmp eq i32 %193, 4
+  br i1 %exitcond136.not, label %.split.split.us.us, label %182, !llvm.loop !351
 
 .split.split.us.us:                               ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us120.us
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.064.0125.us127, i64 1
@@ -36539,7 +36542,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63.us
   %204 = getelementptr inbounds i8, ptr %176, i64 %203
   store ptr %204, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
   %205 = sdiv exact i64 %203, 6
-  %206 = getelementptr inbounds i8, ptr %178, i64 %205
+  %206 = getelementptr inbounds i8, ptr %.fr129, i64 %205
   %207 = load i64, ptr %206, align 8
   %208 = getelementptr inbounds %class.CVertexO, ptr %176, i64 %207
   store ptr %208, ptr @_ZZN3vcg11tetrahedron9EmptyCoreINS_15TetraTypeHolderINS_9UsedTypesINS_3UseI8CVertexOE12AsVertexTypeENS4_I6CEdgeOE10AsEdgeTypeENS4_I6CFaceOE10AsFaceTypeENS_14DefaultDeriverESE_SE_SE_SE_EEEEE1VEiE2vp, align 8
@@ -36549,8 +36552,8 @@ _ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63: ;
   %209 = phi ptr [ %208, %201 ], [ %197, %196 ]
   %210 = phi ptr [ %208, %201 ], [ %198, %196 ]
   %211 = add nuw nsw i32 %.052118, 1
-  %exitcond133.not = icmp eq i32 %211, 4
-  br i1 %exitcond133.not, label %.split.split, label %196, !llvm.loop !351
+  %exitcond135.not = icmp eq i32 %211, 4
+  br i1 %exitcond135.not, label %.split.split, label %196, !llvm.loop !351
 
 .split.split:                                     ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE14PointerUpdaterIP8CVertexOE6UpdateERS6_.exit63
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.064.0125, i64 1

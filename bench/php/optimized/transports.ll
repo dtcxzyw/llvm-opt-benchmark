@@ -159,8 +159,8 @@ define dso_local ptr @_php_stream_xport_create(ptr noundef %0, i64 noundef %1, i
   %34 = sext i8 %33 to i64
   %35 = getelementptr inbounds i16, ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !29
-  %.fr161 = freeze i16 %36
-  %37 = and i16 %.fr161, 8
+  %.fr = freeze i16 %36
+  %37 = and i16 %.fr, 8
   %.not99.not = icmp eq i16 %37, 0
   br i1 %.not99.not, label %switch.early.test, label %.critedge
 
@@ -185,8 +185,8 @@ switch.early.test:                                ; preds = %32
 sub_1:                                            ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %.082, i64 1
   %44 = load i8, ptr %43, align 1
-  %.not163 = icmp eq i8 %44, 47
-  br i1 %.not163, label %.tail, label %.thread
+  %.not162 = icmp eq i8 %44, 47
+  br i1 %.not162, label %.tail, label %.thread
 
 .tail:                                            ; preds = %sub_1
   %45 = getelementptr inbounds nuw i8, ptr %.082, i64 2

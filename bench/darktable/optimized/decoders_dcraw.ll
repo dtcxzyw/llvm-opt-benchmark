@@ -3729,15 +3729,17 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !114
-  %7 = icmp slt i32 %6, 1
+  %.fr97 = freeze i32 %6
+  %7 = icmp slt i32 %.fr97, 1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp slt i32 %9, 1
   %or.cond = select i1 %7, i1 true, i1 %10
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = icmp slt i32 %12, 1
-  %or.cond5 = select i1 %or.cond, i1 true, i1 %13
+  %.fr96 = freeze i32 %12
+  %13 = icmp slt i32 %.fr96, 1
+  %or.cond5 = or i1 %or.cond, %13
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 1
@@ -3767,11 +3769,10 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
   unreachable
 
 .lr.ph92:                                         ; preds = %19
-  %26 = mul nuw nsw i32 %12, %6
-  %.fr96 = freeze i32 %26
+  %26 = mul i32 %.fr96, %.fr97
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 381680
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %29 = icmp sgt i32 %.fr96, 0
+  %29 = icmp sgt i32 %26, 0
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -3814,7 +3815,7 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
 
 .lr.ph.us:                                        ; preds = %47, %41, %36
   %.148.us = phi i32 [ %.04789.us, %36 ], [ %46, %41 ], [ %48, %47 ]
-  %49 = mul nuw nsw i32 %.05388.us, %.fr96
+  %49 = mul nuw nsw i32 %.05388.us, %26
   %50 = load ptr, ptr %33, align 8
   br label %51
 
@@ -3907,7 +3908,7 @@ define void @_ZN6LibRaw22lossless_jpeg_load_rawEv(ptr noundef nonnull align 8 de
   %spec.select77.us = add nsw i32 %.451.us, %102
   %spec.select78.us = select i1 %.not73.us, i32 0, i32 %100
   %103 = add nuw nsw i32 %.05483.us, 1
-  %exitcond.not = icmp eq i32 %103, %.fr96
+  %exitcond.not = icmp eq i32 %103, %26
   br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !146
 
 ._crit_edge.us:                                   ; preds = %98
@@ -4098,7 +4099,7 @@ define void @_ZN6LibRaw19canon_sraw_load_rawEv(ptr noundef nonnull align 8 deref
   %.0185298 = phi i32 [ 0, %36 ], [ %196, %._crit_edge287 ]
   %.0191297 = phi i32 [ 0, %36 ], [ %.1192.lcssa, %._crit_edge287 ]
   %.0194296 = phi i32 [ 0, %36 ], [ %.1195.lcssa, %._crit_edge287 ]
-  %.0203295 = phi i32 [ 0, %36 ], [ %.1204, %._crit_edge287 ]
+  %.0203295 = phi i32 [ 0, %36 ], [ %.1204.fr, %._crit_edge287 ]
   %.not220 = icmp eq i16 %45, 0
   %.pre = load i16, ptr %40, align 2, !tbaa !98
   br i1 %.not220, label %53, label %46
@@ -4120,18 +4121,18 @@ define void @_ZN6LibRaw19canon_sraw_load_rawEv(ptr noundef nonnull align 8 deref
 
 56:                                               ; preds = %53, %46
   %.1204 = phi i32 [ %55, %53 ], [ %51, %46 ]
+  %.1204.fr = freeze i32 %.1204
   %57 = load i16, ptr %9, align 4, !tbaa !145
   %.not317 = icmp eq i16 %57, 0
   br i1 %.not317, label %._crit_edge287, label %.lr.ph286
 
 .lr.ph286:                                        ; preds = %56
-  %58 = icmp slt i32 %.0203295, %.1204
-  %.fr = freeze i1 %58
-  br i1 %.fr, label %.lr.ph286.split.us.preheader, label %.lr.ph286.split
+  %58 = icmp slt i32 %.0203295, %.1204.fr
+  br i1 %58, label %.lr.ph286.split.us.preheader, label %.lr.ph286.split
 
 .lr.ph286.split.us.preheader:                     ; preds = %.lr.ph286
   %59 = sext i32 %.0203295 to i64
-  %60 = sext i32 %.1204 to i64
+  %60 = sext i32 %.1204.fr to i64
   br label %.lr.ph286.split.us
 
 .lr.ph286.split.us:                               ; preds = %.lr.ph286.split.us.preheader, %._crit_edge278.us
@@ -11119,9 +11120,9 @@ define void @_ZN6LibRaw17samsung2_load_rawEv(ptr noundef nonnull align 8 derefer
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge, %1
-  %indvars.iv89 = phi i64 [ 0, %1 ], [ %indvars.iv.next90, %._crit_edge ]
+  %indvars.iv88 = phi i64 [ 0, %1 ], [ %indvars.iv.next89, %._crit_edge ]
   %.02463 = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %5 = getelementptr inbounds nuw [14 x i16], ptr @_ZZN6LibRaw17samsung2_load_rawEvE3tab, i64 0, i64 %indvars.iv89
+  %5 = getelementptr inbounds nuw [14 x i16], ptr @_ZZN6LibRaw17samsung2_load_rawEvE3tab, i64 0, i64 %indvars.iv88
   %6 = load i16, ptr %5, align 2, !tbaa !86
   %7 = lshr i16 %6, 8
   %8 = zext nneg i16 %7 to i32
@@ -11142,9 +11143,9 @@ define void @_ZN6LibRaw17samsung2_load_rawEv(ptr noundef nonnull align 8 derefer
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !260
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 14
-  br i1 %exitcond92.not, label %13, label %.lr.ph.preheader, !llvm.loop !261
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next89, 14
+  br i1 %exitcond91.not, label %13, label %.lr.ph.preheader, !llvm.loop !261
 
 13:                                               ; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 381408
@@ -11162,10 +11163,10 @@ define void @_ZN6LibRaw17samsung2_load_rawEv(ptr noundef nonnull align 8 derefer
 .lr.ph80:                                         ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %21 = load i16, ptr %2, align 16
-  %.fr84 = freeze i16 %21
-  %22 = zext i16 %.fr84 to i32
+  %.fr = freeze i16 %21
+  %22 = zext i16 %.fr to i32
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %24 = add i16 %.fr84, -26
+  %24 = add i16 %.fr, -26
   %or.cond = icmp ult i16 %24, -25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 381416
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 381668
@@ -11179,8 +11180,8 @@ define void @_ZN6LibRaw17samsung2_load_rawEv(ptr noundef nonnull align 8 derefer
   %.02377.us = phi i32 [ %32, %._crit_edge76.split.us.us ], [ 0, %.lr.ph80 ]
   tail call void @_ZN6LibRaw11checkCancelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %31 = load i16, ptr %20, align 2, !tbaa !98
-  %.not86 = icmp eq i16 %31, 0
-  br i1 %.not86, label %._crit_edge76.split.us.us, label %_ZN6LibRaw10getbithuffEiPt.exit.us.us
+  %.not85 = icmp eq i16 %31, 0
+  br i1 %.not85, label %._crit_edge76.split.us.us, label %_ZN6LibRaw10getbithuffEiPt.exit.us.us
 
 ._crit_edge76.split.us.us:                        ; preds = %51, %.lr.ph80.split.us
   %32 = add nuw nsw i32 %.02377.us, 1
@@ -11224,8 +11225,8 @@ _ZN6LibRaw10getbithuffEiPt.exit.us.us:            ; preds = %.lr.ph80.split.us, 
   %.02377 = phi i32 [ %211, %._crit_edge76.split ], [ 0, %.lr.ph80 ]
   tail call void @_ZN6LibRaw11checkCancelEv(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %56 = load i16, ptr %20, align 2, !tbaa !98
-  %.not85 = icmp eq i16 %56, 0
-  br i1 %.not85, label %._crit_edge76.split, label %.lr.ph75
+  %.not84 = icmp eq i16 %56, 0
+  br i1 %.not84, label %._crit_edge76.split, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %.lr.ph80.split
   %57 = and i32 %.02377, 1
@@ -11234,7 +11235,7 @@ _ZN6LibRaw10getbithuffEiPt.exit.us.us:            ; preds = %.lr.ph80.split.us, 
   br label %60
 
 60:                                               ; preds = %.lr.ph75, %207
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next94, %207 ]
+  %indvars.iv92 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next93, %207 ]
   %61 = load ptr, ptr %14, align 8, !tbaa !6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !78
@@ -11476,20 +11477,20 @@ _ZN6LibRaw10getbithuffEiPt.exit:                  ; preds = %60, %.split.i, %.sp
 
 _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %120, %_ZN6LibRaw10getbithuffEiPt.exit
   %.011.i = phi i16 [ %181, %_ZN6LibRaw10getbithuffEiPt.exit ], [ -32768, %120 ]
-  %182 = icmp samesign ult i64 %indvars.iv93, 2
+  %182 = icmp samesign ult i64 %indvars.iv92, 2
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %_ZN6LibRaw10ljpeg_diffEPt.exit
-  %184 = getelementptr inbounds nuw [2 x i16], ptr %59, i64 0, i64 %indvars.iv93
+  %184 = getelementptr inbounds nuw [2 x i16], ptr %59, i64 0, i64 %indvars.iv92
   %185 = load i16, ptr %184, align 2, !tbaa !86
   %186 = add i16 %185, %.011.i
   store i16 %186, ptr %184, align 2, !tbaa !86
-  %187 = getelementptr inbounds nuw [2 x i16], ptr %4, i64 0, i64 %indvars.iv93
+  %187 = getelementptr inbounds nuw [2 x i16], ptr %4, i64 0, i64 %indvars.iv92
   store i16 %186, ptr %187, align 2, !tbaa !86
   br label %193
 
 188:                                              ; preds = %_ZN6LibRaw10ljpeg_diffEPt.exit
-  %189 = and i64 %indvars.iv93, 1
+  %189 = and i64 %indvars.iv92, 1
   %190 = getelementptr inbounds nuw [2 x i16], ptr %4, i64 0, i64 %189
   %191 = load i16, ptr %190, align 2, !tbaa !86
   %192 = add i16 %191, %.011.i
@@ -11497,15 +11498,15 @@ _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %120, %_ZN6LibRaw10g
   br label %193
 
 193:                                              ; preds = %188, %183
-  %.pre-phi99 = phi i64 [ %189, %188 ], [ %indvars.iv93, %183 ]
-  %194 = getelementptr inbounds nuw [2 x i16], ptr %4, i64 0, i64 %.pre-phi99
+  %.pre-phi98 = phi i64 [ %189, %188 ], [ %indvars.iv92, %183 ]
+  %194 = getelementptr inbounds nuw [2 x i16], ptr %4, i64 0, i64 %.pre-phi98
   %195 = load i16, ptr %194, align 2, !tbaa !86
   %196 = load ptr, ptr %29, align 8, !tbaa !99
   %197 = load i16, ptr %20, align 2, !tbaa !98
   %198 = zext i16 %197 to i32
   %199 = mul nuw nsw i32 %.02377, %198
   %200 = zext nneg i32 %199 to i64
-  %201 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv93
+  %201 = getelementptr inbounds nuw i16, ptr %196, i64 %indvars.iv92
   %202 = getelementptr inbounds nuw i16, ptr %201, i64 %200
   store i16 %195, ptr %202, align 2, !tbaa !86
   %203 = zext i16 %195 to i32
@@ -11519,10 +11520,10 @@ _ZN6LibRaw10ljpeg_diffEPt.exit:                   ; preds = %120, %_ZN6LibRaw10g
   br label %207
 
 207:                                              ; preds = %193, %206
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %208 = load i16, ptr %20, align 2, !tbaa !98
   %209 = zext i16 %208 to i64
-  %210 = icmp samesign ult i64 %indvars.iv.next94, %209
+  %210 = icmp samesign ult i64 %indvars.iv.next93, %209
   br i1 %210, label %60, label %._crit_edge76.split, !llvm.loop !263
 
 ._crit_edge76.split:                              ; preds = %207, %.lr.ph80.split

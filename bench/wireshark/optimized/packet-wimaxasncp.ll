@@ -2598,8 +2598,8 @@ define internal fastcc void @add_tlv_reg_info(ptr noundef %0) unnamed_addr #0 {
   %46 = load ptr, ptr %42, align 8
   %47 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.266, ptr noundef %46)
   %48 = load i8, ptr %47, align 1
-  %.not33.i = icmp eq i8 %48, 0
-  br i1 %.not33.i, label %alnumerize.exit, label %.lr.ph.i
+  %.not32.i = icmp eq i8 %48, 0
+  br i1 %.not32.i, label %alnumerize.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %49 = load ptr, ptr @g_ascii_table, align 8
@@ -2607,15 +2607,15 @@ define internal fastcc void @add_tlv_reg_info(ptr noundef %0) unnamed_addr #0 {
 
 50:                                               ; preds = %63, %.lr.ph.i
   %51 = phi i8 [ %48, %.lr.ph.i ], [ %65, %63 ]
-  %.035.i = phi ptr [ %47, %.lr.ph.i ], [ %64, %63 ]
-  %.02834.i = phi ptr [ %47, %.lr.ph.i ], [ %.1.i, %63 ]
+  %.034.i = phi ptr [ %47, %.lr.ph.i ], [ %64, %63 ]
+  %.02833.i = phi ptr [ %47, %.lr.ph.i ], [ %.1.i, %63 ]
   %52 = zext i8 %51 to i64
   %53 = getelementptr i16, ptr %49, i64 %52
   %54 = load i16, ptr %53, align 2
-  %.fr31.i = freeze i16 %54
-  %55 = and i16 %.fr31.i, 1
-  %.not32.i = icmp eq i16 %55, 0
-  br i1 %.not32.i, label %switch.early.test.i, label %.sink.split.i
+  %.fr.i = freeze i16 %54
+  %55 = and i16 %.fr.i, 1
+  %.not31.i = icmp eq i16 %55, 0
+  br i1 %.not31.i, label %switch.early.test.i, label %.sink.split.i
 
 switch.early.test.i:                              ; preds = %50
   switch i8 %51, label %63 [
@@ -2627,24 +2627,24 @@ switch.early.test.i:                              ; preds = %50
   ]
 
 56:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
-  %57 = icmp eq ptr %.02834.i, %47
+  %57 = icmp eq ptr %.02833.i, %47
   br i1 %57, label %63, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr i8, ptr %.02834.i, i64 -1
+  %59 = getelementptr i8, ptr %.02833.i, i64 -1
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 95
   br i1 %61, label %63, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %58, %switch.early.test.i, %switch.early.test.i, %50
   %.sink.i = phi i8 [ %51, %switch.early.test.i ], [ %51, %switch.early.test.i ], [ %51, %50 ], [ 95, %58 ]
-  %62 = getelementptr i8, ptr %.02834.i, i64 1
-  store i8 %.sink.i, ptr %.02834.i, align 1
+  %62 = getelementptr i8, ptr %.02833.i, i64 1
+  store i8 %.sink.i, ptr %.02833.i, align 1
   br label %63
 
 63:                                               ; preds = %.sink.split.i, %58, %56, %switch.early.test.i
-  %.1.i = phi ptr [ %47, %56 ], [ %.02834.i, %58 ], [ %.02834.i, %switch.early.test.i ], [ %62, %.sink.split.i ]
-  %64 = getelementptr i8, ptr %.035.i, i64 1
+  %.1.i = phi ptr [ %47, %56 ], [ %.02833.i, %58 ], [ %.02833.i, %switch.early.test.i ], [ %62, %.sink.split.i ]
+  %64 = getelementptr i8, ptr %.034.i, i64 1
   %65 = load i8, ptr %64, align 1
   %.not.i = icmp eq i8 %65, 0
   br i1 %.not.i, label %alnumerize.exit, label %50, !llvm.loop !24
@@ -2712,8 +2712,8 @@ alnumerize.exit:                                  ; preds = %63, %1
   %91 = load ptr, ptr %42, align 8
   %92 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %90, ptr noundef nonnull @.str.272, ptr noundef %91)
   %93 = load i8, ptr %92, align 1
-  %.not33.i177 = icmp eq i8 %93, 0
-  br i1 %.not33.i177, label %alnumerize.exit189, label %.lr.ph.i178
+  %.not32.i177 = icmp eq i8 %93, 0
+  br i1 %.not32.i177, label %alnumerize.exit189, label %.lr.ph.i178
 
 .lr.ph.i178:                                      ; preds = %75
   %94 = load ptr, ptr @g_ascii_table, align 8
@@ -2721,15 +2721,15 @@ alnumerize.exit:                                  ; preds = %63, %1
 
 95:                                               ; preds = %108, %.lr.ph.i178
   %96 = phi i8 [ %93, %.lr.ph.i178 ], [ %110, %108 ]
-  %.035.i179 = phi ptr [ %92, %.lr.ph.i178 ], [ %109, %108 ]
-  %.02834.i180 = phi ptr [ %92, %.lr.ph.i178 ], [ %.1.i185, %108 ]
+  %.034.i179 = phi ptr [ %92, %.lr.ph.i178 ], [ %109, %108 ]
+  %.02833.i180 = phi ptr [ %92, %.lr.ph.i178 ], [ %.1.i185, %108 ]
   %97 = zext i8 %96 to i64
   %98 = getelementptr i16, ptr %94, i64 %97
   %99 = load i16, ptr %98, align 2
-  %.fr31.i181 = freeze i16 %99
-  %100 = and i16 %.fr31.i181, 1
-  %.not32.i182 = icmp eq i16 %100, 0
-  br i1 %.not32.i182, label %switch.early.test.i188, label %.sink.split.i183
+  %.fr.i181 = freeze i16 %99
+  %100 = and i16 %.fr.i181, 1
+  %.not31.i182 = icmp eq i16 %100, 0
+  br i1 %.not31.i182, label %switch.early.test.i188, label %.sink.split.i183
 
 switch.early.test.i188:                           ; preds = %95
   switch i8 %96, label %108 [
@@ -2741,24 +2741,24 @@ switch.early.test.i188:                           ; preds = %95
   ]
 
 101:                                              ; preds = %switch.early.test.i188, %switch.early.test.i188, %switch.early.test.i188
-  %102 = icmp eq ptr %.02834.i180, %92
+  %102 = icmp eq ptr %.02833.i180, %92
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr i8, ptr %.02834.i180, i64 -1
+  %104 = getelementptr i8, ptr %.02833.i180, i64 -1
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 95
   br i1 %106, label %108, label %.sink.split.i183
 
 .sink.split.i183:                                 ; preds = %103, %switch.early.test.i188, %switch.early.test.i188, %95
   %.sink.i184 = phi i8 [ %96, %switch.early.test.i188 ], [ %96, %switch.early.test.i188 ], [ %96, %95 ], [ 95, %103 ]
-  %107 = getelementptr i8, ptr %.02834.i180, i64 1
-  store i8 %.sink.i184, ptr %.02834.i180, align 1
+  %107 = getelementptr i8, ptr %.02833.i180, i64 1
+  store i8 %.sink.i184, ptr %.02833.i180, align 1
   br label %108
 
 108:                                              ; preds = %.sink.split.i183, %103, %101, %switch.early.test.i188
-  %.1.i185 = phi ptr [ %92, %101 ], [ %.02834.i180, %103 ], [ %.02834.i180, %switch.early.test.i188 ], [ %107, %.sink.split.i183 ]
-  %109 = getelementptr i8, ptr %.035.i179, i64 1
+  %.1.i185 = phi ptr [ %92, %101 ], [ %.02833.i180, %103 ], [ %.02833.i180, %switch.early.test.i188 ], [ %107, %.sink.split.i183 ]
+  %109 = getelementptr i8, ptr %.034.i179, i64 1
   %110 = load i8, ptr %109, align 1
   %.not.i186 = icmp eq i8 %110, 0
   br i1 %.not.i186, label %alnumerize.exit189, label %95, !llvm.loop !24
@@ -3150,8 +3150,8 @@ alnumerize.exit189:                               ; preds = %108, %75
   %273 = load ptr, ptr %42, align 8
   %274 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %272, ptr noundef nonnull @.str.275, ptr noundef %273)
   %275 = load i8, ptr %274, align 1
-  %.not33.i190 = icmp eq i8 %275, 0
-  br i1 %.not33.i190, label %alnumerize.exit202, label %.lr.ph.i191
+  %.not32.i190 = icmp eq i8 %275, 0
+  br i1 %.not32.i190, label %alnumerize.exit202, label %.lr.ph.i191
 
 .lr.ph.i191:                                      ; preds = %270
   %276 = load ptr, ptr @g_ascii_table, align 8
@@ -3159,15 +3159,15 @@ alnumerize.exit189:                               ; preds = %108, %75
 
 277:                                              ; preds = %290, %.lr.ph.i191
   %278 = phi i8 [ %275, %.lr.ph.i191 ], [ %292, %290 ]
-  %.035.i192 = phi ptr [ %274, %.lr.ph.i191 ], [ %291, %290 ]
-  %.02834.i193 = phi ptr [ %274, %.lr.ph.i191 ], [ %.1.i198, %290 ]
+  %.034.i192 = phi ptr [ %274, %.lr.ph.i191 ], [ %291, %290 ]
+  %.02833.i193 = phi ptr [ %274, %.lr.ph.i191 ], [ %.1.i198, %290 ]
   %279 = zext i8 %278 to i64
   %280 = getelementptr i16, ptr %276, i64 %279
   %281 = load i16, ptr %280, align 2
-  %.fr31.i194 = freeze i16 %281
-  %282 = and i16 %.fr31.i194, 1
-  %.not32.i195 = icmp eq i16 %282, 0
-  br i1 %.not32.i195, label %switch.early.test.i201, label %.sink.split.i196
+  %.fr.i194 = freeze i16 %281
+  %282 = and i16 %.fr.i194, 1
+  %.not31.i195 = icmp eq i16 %282, 0
+  br i1 %.not31.i195, label %switch.early.test.i201, label %.sink.split.i196
 
 switch.early.test.i201:                           ; preds = %277
   switch i8 %278, label %290 [
@@ -3179,24 +3179,24 @@ switch.early.test.i201:                           ; preds = %277
   ]
 
 283:                                              ; preds = %switch.early.test.i201, %switch.early.test.i201, %switch.early.test.i201
-  %284 = icmp eq ptr %.02834.i193, %274
+  %284 = icmp eq ptr %.02833.i193, %274
   br i1 %284, label %290, label %285
 
 285:                                              ; preds = %283
-  %286 = getelementptr i8, ptr %.02834.i193, i64 -1
+  %286 = getelementptr i8, ptr %.02833.i193, i64 -1
   %287 = load i8, ptr %286, align 1
   %288 = icmp eq i8 %287, 95
   br i1 %288, label %290, label %.sink.split.i196
 
 .sink.split.i196:                                 ; preds = %285, %switch.early.test.i201, %switch.early.test.i201, %277
   %.sink.i197 = phi i8 [ %278, %switch.early.test.i201 ], [ %278, %switch.early.test.i201 ], [ %278, %277 ], [ 95, %285 ]
-  %289 = getelementptr i8, ptr %.02834.i193, i64 1
-  store i8 %.sink.i197, ptr %.02834.i193, align 1
+  %289 = getelementptr i8, ptr %.02833.i193, i64 1
+  store i8 %.sink.i197, ptr %.02833.i193, align 1
   br label %290
 
 290:                                              ; preds = %.sink.split.i196, %285, %283, %switch.early.test.i201
-  %.1.i198 = phi ptr [ %274, %283 ], [ %.02834.i193, %285 ], [ %.02834.i193, %switch.early.test.i201 ], [ %289, %.sink.split.i196 ]
-  %291 = getelementptr i8, ptr %.035.i192, i64 1
+  %.1.i198 = phi ptr [ %274, %283 ], [ %.02833.i193, %285 ], [ %.02833.i193, %switch.early.test.i201 ], [ %289, %.sink.split.i196 ]
+  %291 = getelementptr i8, ptr %.034.i192, i64 1
   %292 = load i8, ptr %291, align 1
   %.not.i199 = icmp eq i8 %292, 0
   br i1 %.not.i199, label %alnumerize.exit202, label %277, !llvm.loop !24
@@ -3234,8 +3234,8 @@ alnumerize.exit202:                               ; preds = %290, %270
   %306 = load ptr, ptr %42, align 8
   %307 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %305, ptr noundef nonnull @.str.277, ptr noundef %306)
   %308 = load i8, ptr %307, align 1
-  %.not33.i203 = icmp eq i8 %308, 0
-  br i1 %.not33.i203, label %alnumerize.exit215, label %.lr.ph.i204
+  %.not32.i203 = icmp eq i8 %308, 0
+  br i1 %.not32.i203, label %alnumerize.exit215, label %.lr.ph.i204
 
 .lr.ph.i204:                                      ; preds = %alnumerize.exit202
   %309 = load ptr, ptr @g_ascii_table, align 8
@@ -3243,15 +3243,15 @@ alnumerize.exit202:                               ; preds = %290, %270
 
 310:                                              ; preds = %323, %.lr.ph.i204
   %311 = phi i8 [ %308, %.lr.ph.i204 ], [ %325, %323 ]
-  %.035.i205 = phi ptr [ %307, %.lr.ph.i204 ], [ %324, %323 ]
-  %.02834.i206 = phi ptr [ %307, %.lr.ph.i204 ], [ %.1.i211, %323 ]
+  %.034.i205 = phi ptr [ %307, %.lr.ph.i204 ], [ %324, %323 ]
+  %.02833.i206 = phi ptr [ %307, %.lr.ph.i204 ], [ %.1.i211, %323 ]
   %312 = zext i8 %311 to i64
   %313 = getelementptr i16, ptr %309, i64 %312
   %314 = load i16, ptr %313, align 2
-  %.fr31.i207 = freeze i16 %314
-  %315 = and i16 %.fr31.i207, 1
-  %.not32.i208 = icmp eq i16 %315, 0
-  br i1 %.not32.i208, label %switch.early.test.i214, label %.sink.split.i209
+  %.fr.i207 = freeze i16 %314
+  %315 = and i16 %.fr.i207, 1
+  %.not31.i208 = icmp eq i16 %315, 0
+  br i1 %.not31.i208, label %switch.early.test.i214, label %.sink.split.i209
 
 switch.early.test.i214:                           ; preds = %310
   switch i8 %311, label %323 [
@@ -3263,24 +3263,24 @@ switch.early.test.i214:                           ; preds = %310
   ]
 
 316:                                              ; preds = %switch.early.test.i214, %switch.early.test.i214, %switch.early.test.i214
-  %317 = icmp eq ptr %.02834.i206, %307
+  %317 = icmp eq ptr %.02833.i206, %307
   br i1 %317, label %323, label %318
 
 318:                                              ; preds = %316
-  %319 = getelementptr i8, ptr %.02834.i206, i64 -1
+  %319 = getelementptr i8, ptr %.02833.i206, i64 -1
   %320 = load i8, ptr %319, align 1
   %321 = icmp eq i8 %320, 95
   br i1 %321, label %323, label %.sink.split.i209
 
 .sink.split.i209:                                 ; preds = %318, %switch.early.test.i214, %switch.early.test.i214, %310
   %.sink.i210 = phi i8 [ %311, %switch.early.test.i214 ], [ %311, %switch.early.test.i214 ], [ %311, %310 ], [ 95, %318 ]
-  %322 = getelementptr i8, ptr %.02834.i206, i64 1
-  store i8 %.sink.i210, ptr %.02834.i206, align 1
+  %322 = getelementptr i8, ptr %.02833.i206, i64 1
+  store i8 %.sink.i210, ptr %.02833.i206, align 1
   br label %323
 
 323:                                              ; preds = %.sink.split.i209, %318, %316, %switch.early.test.i214
-  %.1.i211 = phi ptr [ %307, %316 ], [ %.02834.i206, %318 ], [ %.02834.i206, %switch.early.test.i214 ], [ %322, %.sink.split.i209 ]
-  %324 = getelementptr i8, ptr %.035.i205, i64 1
+  %.1.i211 = phi ptr [ %307, %316 ], [ %.02833.i206, %318 ], [ %.02833.i206, %switch.early.test.i214 ], [ %322, %.sink.split.i209 ]
+  %324 = getelementptr i8, ptr %.034.i205, i64 1
   %325 = load i8, ptr %324, align 1
   %.not.i212 = icmp eq i8 %325, 0
   br i1 %.not.i212, label %alnumerize.exit215, label %310, !llvm.loop !24
@@ -3318,8 +3318,8 @@ alnumerize.exit215:                               ; preds = %323, %alnumerize.ex
   %339 = load ptr, ptr %42, align 8
   %340 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %338, ptr noundef nonnull @.str.279, ptr noundef %339)
   %341 = load i8, ptr %340, align 1
-  %.not33.i216 = icmp eq i8 %341, 0
-  br i1 %.not33.i216, label %alnumerize.exit228, label %.lr.ph.i217
+  %.not32.i216 = icmp eq i8 %341, 0
+  br i1 %.not32.i216, label %alnumerize.exit228, label %.lr.ph.i217
 
 .lr.ph.i217:                                      ; preds = %alnumerize.exit215
   %342 = load ptr, ptr @g_ascii_table, align 8
@@ -3327,15 +3327,15 @@ alnumerize.exit215:                               ; preds = %323, %alnumerize.ex
 
 343:                                              ; preds = %356, %.lr.ph.i217
   %344 = phi i8 [ %341, %.lr.ph.i217 ], [ %358, %356 ]
-  %.035.i218 = phi ptr [ %340, %.lr.ph.i217 ], [ %357, %356 ]
-  %.02834.i219 = phi ptr [ %340, %.lr.ph.i217 ], [ %.1.i224, %356 ]
+  %.034.i218 = phi ptr [ %340, %.lr.ph.i217 ], [ %357, %356 ]
+  %.02833.i219 = phi ptr [ %340, %.lr.ph.i217 ], [ %.1.i224, %356 ]
   %345 = zext i8 %344 to i64
   %346 = getelementptr i16, ptr %342, i64 %345
   %347 = load i16, ptr %346, align 2
-  %.fr31.i220 = freeze i16 %347
-  %348 = and i16 %.fr31.i220, 1
-  %.not32.i221 = icmp eq i16 %348, 0
-  br i1 %.not32.i221, label %switch.early.test.i227, label %.sink.split.i222
+  %.fr.i220 = freeze i16 %347
+  %348 = and i16 %.fr.i220, 1
+  %.not31.i221 = icmp eq i16 %348, 0
+  br i1 %.not31.i221, label %switch.early.test.i227, label %.sink.split.i222
 
 switch.early.test.i227:                           ; preds = %343
   switch i8 %344, label %356 [
@@ -3347,24 +3347,24 @@ switch.early.test.i227:                           ; preds = %343
   ]
 
 349:                                              ; preds = %switch.early.test.i227, %switch.early.test.i227, %switch.early.test.i227
-  %350 = icmp eq ptr %.02834.i219, %340
+  %350 = icmp eq ptr %.02833.i219, %340
   br i1 %350, label %356, label %351
 
 351:                                              ; preds = %349
-  %352 = getelementptr i8, ptr %.02834.i219, i64 -1
+  %352 = getelementptr i8, ptr %.02833.i219, i64 -1
   %353 = load i8, ptr %352, align 1
   %354 = icmp eq i8 %353, 95
   br i1 %354, label %356, label %.sink.split.i222
 
 .sink.split.i222:                                 ; preds = %351, %switch.early.test.i227, %switch.early.test.i227, %343
   %.sink.i223 = phi i8 [ %344, %switch.early.test.i227 ], [ %344, %switch.early.test.i227 ], [ %344, %343 ], [ 95, %351 ]
-  %355 = getelementptr i8, ptr %.02834.i219, i64 1
-  store i8 %.sink.i223, ptr %.02834.i219, align 1
+  %355 = getelementptr i8, ptr %.02833.i219, i64 1
+  store i8 %.sink.i223, ptr %.02833.i219, align 1
   br label %356
 
 356:                                              ; preds = %.sink.split.i222, %351, %349, %switch.early.test.i227
-  %.1.i224 = phi ptr [ %340, %349 ], [ %.02834.i219, %351 ], [ %.02834.i219, %switch.early.test.i227 ], [ %355, %.sink.split.i222 ]
-  %357 = getelementptr i8, ptr %.035.i218, i64 1
+  %.1.i224 = phi ptr [ %340, %349 ], [ %.02833.i219, %351 ], [ %.02833.i219, %switch.early.test.i227 ], [ %355, %.sink.split.i222 ]
+  %357 = getelementptr i8, ptr %.034.i218, i64 1
   %358 = load i8, ptr %357, align 1
   %.not.i225 = icmp eq i8 %358, 0
   br i1 %.not.i225, label %alnumerize.exit228, label %343, !llvm.loop !24
@@ -3593,8 +3593,8 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
   %458 = load ptr, ptr %42, align 8
   %459 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %457, ptr noundef nonnull @.str.275, ptr noundef %458)
   %460 = load i8, ptr %459, align 1
-  %.not33.i229 = icmp eq i8 %460, 0
-  br i1 %.not33.i229, label %alnumerize.exit241, label %.lr.ph.i230
+  %.not32.i229 = icmp eq i8 %460, 0
+  br i1 %.not32.i229, label %alnumerize.exit241, label %.lr.ph.i230
 
 .lr.ph.i230:                                      ; preds = %455
   %461 = load ptr, ptr @g_ascii_table, align 8
@@ -3602,15 +3602,15 @@ alnumerize.exit228:                               ; preds = %356, %alnumerize.ex
 
 462:                                              ; preds = %475, %.lr.ph.i230
   %463 = phi i8 [ %460, %.lr.ph.i230 ], [ %477, %475 ]
-  %.035.i231 = phi ptr [ %459, %.lr.ph.i230 ], [ %476, %475 ]
-  %.02834.i232 = phi ptr [ %459, %.lr.ph.i230 ], [ %.1.i237, %475 ]
+  %.034.i231 = phi ptr [ %459, %.lr.ph.i230 ], [ %476, %475 ]
+  %.02833.i232 = phi ptr [ %459, %.lr.ph.i230 ], [ %.1.i237, %475 ]
   %464 = zext i8 %463 to i64
   %465 = getelementptr i16, ptr %461, i64 %464
   %466 = load i16, ptr %465, align 2
-  %.fr31.i233 = freeze i16 %466
-  %467 = and i16 %.fr31.i233, 1
-  %.not32.i234 = icmp eq i16 %467, 0
-  br i1 %.not32.i234, label %switch.early.test.i240, label %.sink.split.i235
+  %.fr.i233 = freeze i16 %466
+  %467 = and i16 %.fr.i233, 1
+  %.not31.i234 = icmp eq i16 %467, 0
+  br i1 %.not31.i234, label %switch.early.test.i240, label %.sink.split.i235
 
 switch.early.test.i240:                           ; preds = %462
   switch i8 %463, label %475 [
@@ -3622,24 +3622,24 @@ switch.early.test.i240:                           ; preds = %462
   ]
 
 468:                                              ; preds = %switch.early.test.i240, %switch.early.test.i240, %switch.early.test.i240
-  %469 = icmp eq ptr %.02834.i232, %459
+  %469 = icmp eq ptr %.02833.i232, %459
   br i1 %469, label %475, label %470
 
 470:                                              ; preds = %468
-  %471 = getelementptr i8, ptr %.02834.i232, i64 -1
+  %471 = getelementptr i8, ptr %.02833.i232, i64 -1
   %472 = load i8, ptr %471, align 1
   %473 = icmp eq i8 %472, 95
   br i1 %473, label %475, label %.sink.split.i235
 
 .sink.split.i235:                                 ; preds = %470, %switch.early.test.i240, %switch.early.test.i240, %462
   %.sink.i236 = phi i8 [ %463, %switch.early.test.i240 ], [ %463, %switch.early.test.i240 ], [ %463, %462 ], [ 95, %470 ]
-  %474 = getelementptr i8, ptr %.02834.i232, i64 1
-  store i8 %.sink.i236, ptr %.02834.i232, align 1
+  %474 = getelementptr i8, ptr %.02833.i232, i64 1
+  store i8 %.sink.i236, ptr %.02833.i232, align 1
   br label %475
 
 475:                                              ; preds = %.sink.split.i235, %470, %468, %switch.early.test.i240
-  %.1.i237 = phi ptr [ %459, %468 ], [ %.02834.i232, %470 ], [ %.02834.i232, %switch.early.test.i240 ], [ %474, %.sink.split.i235 ]
-  %476 = getelementptr i8, ptr %.035.i231, i64 1
+  %.1.i237 = phi ptr [ %459, %468 ], [ %.02833.i232, %470 ], [ %.02833.i232, %switch.early.test.i240 ], [ %474, %.sink.split.i235 ]
+  %476 = getelementptr i8, ptr %.034.i231, i64 1
   %477 = load i8, ptr %476, align 1
   %.not.i238 = icmp eq i8 %477, 0
   br i1 %.not.i238, label %alnumerize.exit241, label %462, !llvm.loop !24
@@ -3677,8 +3677,8 @@ alnumerize.exit241:                               ; preds = %475, %455
   %491 = load ptr, ptr %42, align 8
   %492 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %490, ptr noundef nonnull @.str.277, ptr noundef %491)
   %493 = load i8, ptr %492, align 1
-  %.not33.i242 = icmp eq i8 %493, 0
-  br i1 %.not33.i242, label %alnumerize.exit254, label %.lr.ph.i243
+  %.not32.i242 = icmp eq i8 %493, 0
+  br i1 %.not32.i242, label %alnumerize.exit254, label %.lr.ph.i243
 
 .lr.ph.i243:                                      ; preds = %alnumerize.exit241
   %494 = load ptr, ptr @g_ascii_table, align 8
@@ -3686,15 +3686,15 @@ alnumerize.exit241:                               ; preds = %475, %455
 
 495:                                              ; preds = %508, %.lr.ph.i243
   %496 = phi i8 [ %493, %.lr.ph.i243 ], [ %510, %508 ]
-  %.035.i244 = phi ptr [ %492, %.lr.ph.i243 ], [ %509, %508 ]
-  %.02834.i245 = phi ptr [ %492, %.lr.ph.i243 ], [ %.1.i250, %508 ]
+  %.034.i244 = phi ptr [ %492, %.lr.ph.i243 ], [ %509, %508 ]
+  %.02833.i245 = phi ptr [ %492, %.lr.ph.i243 ], [ %.1.i250, %508 ]
   %497 = zext i8 %496 to i64
   %498 = getelementptr i16, ptr %494, i64 %497
   %499 = load i16, ptr %498, align 2
-  %.fr31.i246 = freeze i16 %499
-  %500 = and i16 %.fr31.i246, 1
-  %.not32.i247 = icmp eq i16 %500, 0
-  br i1 %.not32.i247, label %switch.early.test.i253, label %.sink.split.i248
+  %.fr.i246 = freeze i16 %499
+  %500 = and i16 %.fr.i246, 1
+  %.not31.i247 = icmp eq i16 %500, 0
+  br i1 %.not31.i247, label %switch.early.test.i253, label %.sink.split.i248
 
 switch.early.test.i253:                           ; preds = %495
   switch i8 %496, label %508 [
@@ -3706,24 +3706,24 @@ switch.early.test.i253:                           ; preds = %495
   ]
 
 501:                                              ; preds = %switch.early.test.i253, %switch.early.test.i253, %switch.early.test.i253
-  %502 = icmp eq ptr %.02834.i245, %492
+  %502 = icmp eq ptr %.02833.i245, %492
   br i1 %502, label %508, label %503
 
 503:                                              ; preds = %501
-  %504 = getelementptr i8, ptr %.02834.i245, i64 -1
+  %504 = getelementptr i8, ptr %.02833.i245, i64 -1
   %505 = load i8, ptr %504, align 1
   %506 = icmp eq i8 %505, 95
   br i1 %506, label %508, label %.sink.split.i248
 
 .sink.split.i248:                                 ; preds = %503, %switch.early.test.i253, %switch.early.test.i253, %495
   %.sink.i249 = phi i8 [ %496, %switch.early.test.i253 ], [ %496, %switch.early.test.i253 ], [ %496, %495 ], [ 95, %503 ]
-  %507 = getelementptr i8, ptr %.02834.i245, i64 1
-  store i8 %.sink.i249, ptr %.02834.i245, align 1
+  %507 = getelementptr i8, ptr %.02833.i245, i64 1
+  store i8 %.sink.i249, ptr %.02833.i245, align 1
   br label %508
 
 508:                                              ; preds = %.sink.split.i248, %503, %501, %switch.early.test.i253
-  %.1.i250 = phi ptr [ %492, %501 ], [ %.02834.i245, %503 ], [ %.02834.i245, %switch.early.test.i253 ], [ %507, %.sink.split.i248 ]
-  %509 = getelementptr i8, ptr %.035.i244, i64 1
+  %.1.i250 = phi ptr [ %492, %501 ], [ %.02833.i245, %503 ], [ %.02833.i245, %switch.early.test.i253 ], [ %507, %.sink.split.i248 ]
+  %509 = getelementptr i8, ptr %.034.i244, i64 1
   %510 = load i8, ptr %509, align 1
   %.not.i251 = icmp eq i8 %510, 0
   br i1 %.not.i251, label %alnumerize.exit254, label %495, !llvm.loop !24
@@ -3823,8 +3823,8 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
   %554 = load ptr, ptr %42, align 8
   %555 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %553, ptr noundef nonnull @.str.282, ptr noundef %554)
   %556 = load i8, ptr %555, align 1
-  %.not33.i255 = icmp eq i8 %556, 0
-  br i1 %.not33.i255, label %alnumerize.exit267, label %.lr.ph.i256
+  %.not32.i255 = icmp eq i8 %556, 0
+  br i1 %.not32.i255, label %alnumerize.exit267, label %.lr.ph.i256
 
 .lr.ph.i256:                                      ; preds = %536
   %557 = load ptr, ptr @g_ascii_table, align 8
@@ -3832,15 +3832,15 @@ alnumerize.exit254:                               ; preds = %508, %alnumerize.ex
 
 558:                                              ; preds = %571, %.lr.ph.i256
   %559 = phi i8 [ %556, %.lr.ph.i256 ], [ %573, %571 ]
-  %.035.i257 = phi ptr [ %555, %.lr.ph.i256 ], [ %572, %571 ]
-  %.02834.i258 = phi ptr [ %555, %.lr.ph.i256 ], [ %.1.i263, %571 ]
+  %.034.i257 = phi ptr [ %555, %.lr.ph.i256 ], [ %572, %571 ]
+  %.02833.i258 = phi ptr [ %555, %.lr.ph.i256 ], [ %.1.i263, %571 ]
   %560 = zext i8 %559 to i64
   %561 = getelementptr i16, ptr %557, i64 %560
   %562 = load i16, ptr %561, align 2
-  %.fr31.i259 = freeze i16 %562
-  %563 = and i16 %.fr31.i259, 1
-  %.not32.i260 = icmp eq i16 %563, 0
-  br i1 %.not32.i260, label %switch.early.test.i266, label %.sink.split.i261
+  %.fr.i259 = freeze i16 %562
+  %563 = and i16 %.fr.i259, 1
+  %.not31.i260 = icmp eq i16 %563, 0
+  br i1 %.not31.i260, label %switch.early.test.i266, label %.sink.split.i261
 
 switch.early.test.i266:                           ; preds = %558
   switch i8 %559, label %571 [
@@ -3852,24 +3852,24 @@ switch.early.test.i266:                           ; preds = %558
   ]
 
 564:                                              ; preds = %switch.early.test.i266, %switch.early.test.i266, %switch.early.test.i266
-  %565 = icmp eq ptr %.02834.i258, %555
+  %565 = icmp eq ptr %.02833.i258, %555
   br i1 %565, label %571, label %566
 
 566:                                              ; preds = %564
-  %567 = getelementptr i8, ptr %.02834.i258, i64 -1
+  %567 = getelementptr i8, ptr %.02833.i258, i64 -1
   %568 = load i8, ptr %567, align 1
   %569 = icmp eq i8 %568, 95
   br i1 %569, label %571, label %.sink.split.i261
 
 .sink.split.i261:                                 ; preds = %566, %switch.early.test.i266, %switch.early.test.i266, %558
   %.sink.i262 = phi i8 [ %559, %switch.early.test.i266 ], [ %559, %switch.early.test.i266 ], [ %559, %558 ], [ 95, %566 ]
-  %570 = getelementptr i8, ptr %.02834.i258, i64 1
-  store i8 %.sink.i262, ptr %.02834.i258, align 1
+  %570 = getelementptr i8, ptr %.02833.i258, i64 1
+  store i8 %.sink.i262, ptr %.02833.i258, align 1
   br label %571
 
 571:                                              ; preds = %.sink.split.i261, %566, %564, %switch.early.test.i266
-  %.1.i263 = phi ptr [ %555, %564 ], [ %.02834.i258, %566 ], [ %.02834.i258, %switch.early.test.i266 ], [ %570, %.sink.split.i261 ]
-  %572 = getelementptr i8, ptr %.035.i257, i64 1
+  %.1.i263 = phi ptr [ %555, %564 ], [ %.02833.i258, %566 ], [ %.02833.i258, %switch.early.test.i266 ], [ %570, %.sink.split.i261 ]
+  %572 = getelementptr i8, ptr %.034.i257, i64 1
   %573 = load i8, ptr %572, align 1
   %.not.i264 = icmp eq i8 %573, 0
   br i1 %.not.i264, label %alnumerize.exit267, label %558, !llvm.loop !24
@@ -3942,8 +3942,8 @@ alnumerize.exit267:                               ; preds = %571, %536
   %605 = load ptr, ptr %42, align 8
   %606 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %604, ptr noundef nonnull @.str.284, ptr noundef %605)
   %607 = load i8, ptr %606, align 1
-  %.not33.i268 = icmp eq i8 %607, 0
-  br i1 %.not33.i268, label %alnumerize.exit280, label %.lr.ph.i269
+  %.not32.i268 = icmp eq i8 %607, 0
+  br i1 %.not32.i268, label %alnumerize.exit280, label %.lr.ph.i269
 
 .lr.ph.i269:                                      ; preds = %587
   %608 = load ptr, ptr @g_ascii_table, align 8
@@ -3951,15 +3951,15 @@ alnumerize.exit267:                               ; preds = %571, %536
 
 609:                                              ; preds = %622, %.lr.ph.i269
   %610 = phi i8 [ %607, %.lr.ph.i269 ], [ %624, %622 ]
-  %.035.i270 = phi ptr [ %606, %.lr.ph.i269 ], [ %623, %622 ]
-  %.02834.i271 = phi ptr [ %606, %.lr.ph.i269 ], [ %.1.i276, %622 ]
+  %.034.i270 = phi ptr [ %606, %.lr.ph.i269 ], [ %623, %622 ]
+  %.02833.i271 = phi ptr [ %606, %.lr.ph.i269 ], [ %.1.i276, %622 ]
   %611 = zext i8 %610 to i64
   %612 = getelementptr i16, ptr %608, i64 %611
   %613 = load i16, ptr %612, align 2
-  %.fr31.i272 = freeze i16 %613
-  %614 = and i16 %.fr31.i272, 1
-  %.not32.i273 = icmp eq i16 %614, 0
-  br i1 %.not32.i273, label %switch.early.test.i279, label %.sink.split.i274
+  %.fr.i272 = freeze i16 %613
+  %614 = and i16 %.fr.i272, 1
+  %.not31.i273 = icmp eq i16 %614, 0
+  br i1 %.not31.i273, label %switch.early.test.i279, label %.sink.split.i274
 
 switch.early.test.i279:                           ; preds = %609
   switch i8 %610, label %622 [
@@ -3971,24 +3971,24 @@ switch.early.test.i279:                           ; preds = %609
   ]
 
 615:                                              ; preds = %switch.early.test.i279, %switch.early.test.i279, %switch.early.test.i279
-  %616 = icmp eq ptr %.02834.i271, %606
+  %616 = icmp eq ptr %.02833.i271, %606
   br i1 %616, label %622, label %617
 
 617:                                              ; preds = %615
-  %618 = getelementptr i8, ptr %.02834.i271, i64 -1
+  %618 = getelementptr i8, ptr %.02833.i271, i64 -1
   %619 = load i8, ptr %618, align 1
   %620 = icmp eq i8 %619, 95
   br i1 %620, label %622, label %.sink.split.i274
 
 .sink.split.i274:                                 ; preds = %617, %switch.early.test.i279, %switch.early.test.i279, %609
   %.sink.i275 = phi i8 [ %610, %switch.early.test.i279 ], [ %610, %switch.early.test.i279 ], [ %610, %609 ], [ 95, %617 ]
-  %621 = getelementptr i8, ptr %.02834.i271, i64 1
-  store i8 %.sink.i275, ptr %.02834.i271, align 1
+  %621 = getelementptr i8, ptr %.02833.i271, i64 1
+  store i8 %.sink.i275, ptr %.02833.i271, align 1
   br label %622
 
 622:                                              ; preds = %.sink.split.i274, %617, %615, %switch.early.test.i279
-  %.1.i276 = phi ptr [ %606, %615 ], [ %.02834.i271, %617 ], [ %.02834.i271, %switch.early.test.i279 ], [ %621, %.sink.split.i274 ]
-  %623 = getelementptr i8, ptr %.035.i270, i64 1
+  %.1.i276 = phi ptr [ %606, %615 ], [ %.02833.i271, %617 ], [ %.02833.i271, %switch.early.test.i279 ], [ %621, %.sink.split.i274 ]
+  %623 = getelementptr i8, ptr %.034.i270, i64 1
   %624 = load i8, ptr %623, align 1
   %.not.i277 = icmp eq i8 %624, 0
   br i1 %.not.i277, label %alnumerize.exit280, label %609, !llvm.loop !24
@@ -4028,8 +4028,8 @@ alnumerize.exit280:                               ; preds = %622, %587
   %639 = load ptr, ptr %42, align 8
   %640 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %638, ptr noundef nonnull @.str.286, ptr noundef %639)
   %641 = load i8, ptr %640, align 1
-  %.not33.i281 = icmp eq i8 %641, 0
-  br i1 %.not33.i281, label %alnumerize.exit293, label %.lr.ph.i282
+  %.not32.i281 = icmp eq i8 %641, 0
+  br i1 %.not32.i281, label %alnumerize.exit293, label %.lr.ph.i282
 
 .lr.ph.i282:                                      ; preds = %alnumerize.exit280
   %642 = load ptr, ptr @g_ascii_table, align 8
@@ -4037,15 +4037,15 @@ alnumerize.exit280:                               ; preds = %622, %587
 
 643:                                              ; preds = %656, %.lr.ph.i282
   %644 = phi i8 [ %641, %.lr.ph.i282 ], [ %658, %656 ]
-  %.035.i283 = phi ptr [ %640, %.lr.ph.i282 ], [ %657, %656 ]
-  %.02834.i284 = phi ptr [ %640, %.lr.ph.i282 ], [ %.1.i289, %656 ]
+  %.034.i283 = phi ptr [ %640, %.lr.ph.i282 ], [ %657, %656 ]
+  %.02833.i284 = phi ptr [ %640, %.lr.ph.i282 ], [ %.1.i289, %656 ]
   %645 = zext i8 %644 to i64
   %646 = getelementptr i16, ptr %642, i64 %645
   %647 = load i16, ptr %646, align 2
-  %.fr31.i285 = freeze i16 %647
-  %648 = and i16 %.fr31.i285, 1
-  %.not32.i286 = icmp eq i16 %648, 0
-  br i1 %.not32.i286, label %switch.early.test.i292, label %.sink.split.i287
+  %.fr.i285 = freeze i16 %647
+  %648 = and i16 %.fr.i285, 1
+  %.not31.i286 = icmp eq i16 %648, 0
+  br i1 %.not31.i286, label %switch.early.test.i292, label %.sink.split.i287
 
 switch.early.test.i292:                           ; preds = %643
   switch i8 %644, label %656 [
@@ -4057,24 +4057,24 @@ switch.early.test.i292:                           ; preds = %643
   ]
 
 649:                                              ; preds = %switch.early.test.i292, %switch.early.test.i292, %switch.early.test.i292
-  %650 = icmp eq ptr %.02834.i284, %640
+  %650 = icmp eq ptr %.02833.i284, %640
   br i1 %650, label %656, label %651
 
 651:                                              ; preds = %649
-  %652 = getelementptr i8, ptr %.02834.i284, i64 -1
+  %652 = getelementptr i8, ptr %.02833.i284, i64 -1
   %653 = load i8, ptr %652, align 1
   %654 = icmp eq i8 %653, 95
   br i1 %654, label %656, label %.sink.split.i287
 
 .sink.split.i287:                                 ; preds = %651, %switch.early.test.i292, %switch.early.test.i292, %643
   %.sink.i288 = phi i8 [ %644, %switch.early.test.i292 ], [ %644, %switch.early.test.i292 ], [ %644, %643 ], [ 95, %651 ]
-  %655 = getelementptr i8, ptr %.02834.i284, i64 1
-  store i8 %.sink.i288, ptr %.02834.i284, align 1
+  %655 = getelementptr i8, ptr %.02833.i284, i64 1
+  store i8 %.sink.i288, ptr %.02833.i284, align 1
   br label %656
 
 656:                                              ; preds = %.sink.split.i287, %651, %649, %switch.early.test.i292
-  %.1.i289 = phi ptr [ %640, %649 ], [ %.02834.i284, %651 ], [ %.02834.i284, %switch.early.test.i292 ], [ %655, %.sink.split.i287 ]
-  %657 = getelementptr i8, ptr %.035.i283, i64 1
+  %.1.i289 = phi ptr [ %640, %649 ], [ %.02833.i284, %651 ], [ %.02833.i284, %switch.early.test.i292 ], [ %655, %.sink.split.i287 ]
+  %657 = getelementptr i8, ptr %.034.i283, i64 1
   %658 = load i8, ptr %657, align 1
   %.not.i290 = icmp eq i8 %658, 0
   br i1 %.not.i290, label %alnumerize.exit293, label %643, !llvm.loop !24
@@ -4147,8 +4147,8 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
   %690 = load ptr, ptr %42, align 8
   %691 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %689, ptr noundef nonnull @.str.288, ptr noundef %690)
   %692 = load i8, ptr %691, align 1
-  %.not33.i294 = icmp eq i8 %692, 0
-  br i1 %.not33.i294, label %alnumerize.exit306, label %.lr.ph.i295
+  %.not32.i294 = icmp eq i8 %692, 0
+  br i1 %.not32.i294, label %alnumerize.exit306, label %.lr.ph.i295
 
 .lr.ph.i295:                                      ; preds = %672
   %693 = load ptr, ptr @g_ascii_table, align 8
@@ -4156,15 +4156,15 @@ alnumerize.exit293:                               ; preds = %656, %alnumerize.ex
 
 694:                                              ; preds = %707, %.lr.ph.i295
   %695 = phi i8 [ %692, %.lr.ph.i295 ], [ %709, %707 ]
-  %.035.i296 = phi ptr [ %691, %.lr.ph.i295 ], [ %708, %707 ]
-  %.02834.i297 = phi ptr [ %691, %.lr.ph.i295 ], [ %.1.i302, %707 ]
+  %.034.i296 = phi ptr [ %691, %.lr.ph.i295 ], [ %708, %707 ]
+  %.02833.i297 = phi ptr [ %691, %.lr.ph.i295 ], [ %.1.i302, %707 ]
   %696 = zext i8 %695 to i64
   %697 = getelementptr i16, ptr %693, i64 %696
   %698 = load i16, ptr %697, align 2
-  %.fr31.i298 = freeze i16 %698
-  %699 = and i16 %.fr31.i298, 1
-  %.not32.i299 = icmp eq i16 %699, 0
-  br i1 %.not32.i299, label %switch.early.test.i305, label %.sink.split.i300
+  %.fr.i298 = freeze i16 %698
+  %699 = and i16 %.fr.i298, 1
+  %.not31.i299 = icmp eq i16 %699, 0
+  br i1 %.not31.i299, label %switch.early.test.i305, label %.sink.split.i300
 
 switch.early.test.i305:                           ; preds = %694
   switch i8 %695, label %707 [
@@ -4176,24 +4176,24 @@ switch.early.test.i305:                           ; preds = %694
   ]
 
 700:                                              ; preds = %switch.early.test.i305, %switch.early.test.i305, %switch.early.test.i305
-  %701 = icmp eq ptr %.02834.i297, %691
+  %701 = icmp eq ptr %.02833.i297, %691
   br i1 %701, label %707, label %702
 
 702:                                              ; preds = %700
-  %703 = getelementptr i8, ptr %.02834.i297, i64 -1
+  %703 = getelementptr i8, ptr %.02833.i297, i64 -1
   %704 = load i8, ptr %703, align 1
   %705 = icmp eq i8 %704, 95
   br i1 %705, label %707, label %.sink.split.i300
 
 .sink.split.i300:                                 ; preds = %702, %switch.early.test.i305, %switch.early.test.i305, %694
   %.sink.i301 = phi i8 [ %695, %switch.early.test.i305 ], [ %695, %switch.early.test.i305 ], [ %695, %694 ], [ 95, %702 ]
-  %706 = getelementptr i8, ptr %.02834.i297, i64 1
-  store i8 %.sink.i301, ptr %.02834.i297, align 1
+  %706 = getelementptr i8, ptr %.02833.i297, i64 1
+  store i8 %.sink.i301, ptr %.02833.i297, align 1
   br label %707
 
 707:                                              ; preds = %.sink.split.i300, %702, %700, %switch.early.test.i305
-  %.1.i302 = phi ptr [ %691, %700 ], [ %.02834.i297, %702 ], [ %.02834.i297, %switch.early.test.i305 ], [ %706, %.sink.split.i300 ]
-  %708 = getelementptr i8, ptr %.035.i296, i64 1
+  %.1.i302 = phi ptr [ %691, %700 ], [ %.02833.i297, %702 ], [ %.02833.i297, %switch.early.test.i305 ], [ %706, %.sink.split.i300 ]
+  %708 = getelementptr i8, ptr %.034.i296, i64 1
   %709 = load i8, ptr %708, align 1
   %.not.i303 = icmp eq i8 %709, 0
   br i1 %.not.i303, label %alnumerize.exit306, label %694, !llvm.loop !24
@@ -4231,8 +4231,8 @@ alnumerize.exit306:                               ; preds = %707, %672
   %723 = load ptr, ptr %42, align 8
   %724 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %722, ptr noundef nonnull @.str.289, ptr noundef %723)
   %725 = load i8, ptr %724, align 1
-  %.not33.i307 = icmp eq i8 %725, 0
-  br i1 %.not33.i307, label %alnumerize.exit319, label %.lr.ph.i308
+  %.not32.i307 = icmp eq i8 %725, 0
+  br i1 %.not32.i307, label %alnumerize.exit319, label %.lr.ph.i308
 
 .lr.ph.i308:                                      ; preds = %alnumerize.exit306
   %726 = load ptr, ptr @g_ascii_table, align 8
@@ -4240,15 +4240,15 @@ alnumerize.exit306:                               ; preds = %707, %672
 
 727:                                              ; preds = %740, %.lr.ph.i308
   %728 = phi i8 [ %725, %.lr.ph.i308 ], [ %742, %740 ]
-  %.035.i309 = phi ptr [ %724, %.lr.ph.i308 ], [ %741, %740 ]
-  %.02834.i310 = phi ptr [ %724, %.lr.ph.i308 ], [ %.1.i315, %740 ]
+  %.034.i309 = phi ptr [ %724, %.lr.ph.i308 ], [ %741, %740 ]
+  %.02833.i310 = phi ptr [ %724, %.lr.ph.i308 ], [ %.1.i315, %740 ]
   %729 = zext i8 %728 to i64
   %730 = getelementptr i16, ptr %726, i64 %729
   %731 = load i16, ptr %730, align 2
-  %.fr31.i311 = freeze i16 %731
-  %732 = and i16 %.fr31.i311, 1
-  %.not32.i312 = icmp eq i16 %732, 0
-  br i1 %.not32.i312, label %switch.early.test.i318, label %.sink.split.i313
+  %.fr.i311 = freeze i16 %731
+  %732 = and i16 %.fr.i311, 1
+  %.not31.i312 = icmp eq i16 %732, 0
+  br i1 %.not31.i312, label %switch.early.test.i318, label %.sink.split.i313
 
 switch.early.test.i318:                           ; preds = %727
   switch i8 %728, label %740 [
@@ -4260,24 +4260,24 @@ switch.early.test.i318:                           ; preds = %727
   ]
 
 733:                                              ; preds = %switch.early.test.i318, %switch.early.test.i318, %switch.early.test.i318
-  %734 = icmp eq ptr %.02834.i310, %724
+  %734 = icmp eq ptr %.02833.i310, %724
   br i1 %734, label %740, label %735
 
 735:                                              ; preds = %733
-  %736 = getelementptr i8, ptr %.02834.i310, i64 -1
+  %736 = getelementptr i8, ptr %.02833.i310, i64 -1
   %737 = load i8, ptr %736, align 1
   %738 = icmp eq i8 %737, 95
   br i1 %738, label %740, label %.sink.split.i313
 
 .sink.split.i313:                                 ; preds = %735, %switch.early.test.i318, %switch.early.test.i318, %727
   %.sink.i314 = phi i8 [ %728, %switch.early.test.i318 ], [ %728, %switch.early.test.i318 ], [ %728, %727 ], [ 95, %735 ]
-  %739 = getelementptr i8, ptr %.02834.i310, i64 1
-  store i8 %.sink.i314, ptr %.02834.i310, align 1
+  %739 = getelementptr i8, ptr %.02833.i310, i64 1
+  store i8 %.sink.i314, ptr %.02833.i310, align 1
   br label %740
 
 740:                                              ; preds = %.sink.split.i313, %735, %733, %switch.early.test.i318
-  %.1.i315 = phi ptr [ %724, %733 ], [ %.02834.i310, %735 ], [ %.02834.i310, %switch.early.test.i318 ], [ %739, %.sink.split.i313 ]
-  %741 = getelementptr i8, ptr %.035.i309, i64 1
+  %.1.i315 = phi ptr [ %724, %733 ], [ %.02833.i310, %735 ], [ %.02833.i310, %switch.early.test.i318 ], [ %739, %.sink.split.i313 ]
+  %741 = getelementptr i8, ptr %.034.i309, i64 1
   %742 = load i8, ptr %741, align 1
   %.not.i316 = icmp eq i8 %742, 0
   br i1 %.not.i316, label %alnumerize.exit319, label %727, !llvm.loop !24
@@ -4315,8 +4315,8 @@ alnumerize.exit319:                               ; preds = %740, %alnumerize.ex
   %756 = load ptr, ptr %42, align 8
   %757 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %755, ptr noundef nonnull @.str.291, ptr noundef %756)
   %758 = load i8, ptr %757, align 1
-  %.not33.i320 = icmp eq i8 %758, 0
-  br i1 %.not33.i320, label %alnumerize.exit332, label %.lr.ph.i321
+  %.not32.i320 = icmp eq i8 %758, 0
+  br i1 %.not32.i320, label %alnumerize.exit332, label %.lr.ph.i321
 
 .lr.ph.i321:                                      ; preds = %alnumerize.exit319
   %759 = load ptr, ptr @g_ascii_table, align 8
@@ -4324,15 +4324,15 @@ alnumerize.exit319:                               ; preds = %740, %alnumerize.ex
 
 760:                                              ; preds = %773, %.lr.ph.i321
   %761 = phi i8 [ %758, %.lr.ph.i321 ], [ %775, %773 ]
-  %.035.i322 = phi ptr [ %757, %.lr.ph.i321 ], [ %774, %773 ]
-  %.02834.i323 = phi ptr [ %757, %.lr.ph.i321 ], [ %.1.i328, %773 ]
+  %.034.i322 = phi ptr [ %757, %.lr.ph.i321 ], [ %774, %773 ]
+  %.02833.i323 = phi ptr [ %757, %.lr.ph.i321 ], [ %.1.i328, %773 ]
   %762 = zext i8 %761 to i64
   %763 = getelementptr i16, ptr %759, i64 %762
   %764 = load i16, ptr %763, align 2
-  %.fr31.i324 = freeze i16 %764
-  %765 = and i16 %.fr31.i324, 1
-  %.not32.i325 = icmp eq i16 %765, 0
-  br i1 %.not32.i325, label %switch.early.test.i331, label %.sink.split.i326
+  %.fr.i324 = freeze i16 %764
+  %765 = and i16 %.fr.i324, 1
+  %.not31.i325 = icmp eq i16 %765, 0
+  br i1 %.not31.i325, label %switch.early.test.i331, label %.sink.split.i326
 
 switch.early.test.i331:                           ; preds = %760
   switch i8 %761, label %773 [
@@ -4344,24 +4344,24 @@ switch.early.test.i331:                           ; preds = %760
   ]
 
 766:                                              ; preds = %switch.early.test.i331, %switch.early.test.i331, %switch.early.test.i331
-  %767 = icmp eq ptr %.02834.i323, %757
+  %767 = icmp eq ptr %.02833.i323, %757
   br i1 %767, label %773, label %768
 
 768:                                              ; preds = %766
-  %769 = getelementptr i8, ptr %.02834.i323, i64 -1
+  %769 = getelementptr i8, ptr %.02833.i323, i64 -1
   %770 = load i8, ptr %769, align 1
   %771 = icmp eq i8 %770, 95
   br i1 %771, label %773, label %.sink.split.i326
 
 .sink.split.i326:                                 ; preds = %768, %switch.early.test.i331, %switch.early.test.i331, %760
   %.sink.i327 = phi i8 [ %761, %switch.early.test.i331 ], [ %761, %switch.early.test.i331 ], [ %761, %760 ], [ 95, %768 ]
-  %772 = getelementptr i8, ptr %.02834.i323, i64 1
-  store i8 %.sink.i327, ptr %.02834.i323, align 1
+  %772 = getelementptr i8, ptr %.02833.i323, i64 1
+  store i8 %.sink.i327, ptr %.02833.i323, align 1
   br label %773
 
 773:                                              ; preds = %.sink.split.i326, %768, %766, %switch.early.test.i331
-  %.1.i328 = phi ptr [ %757, %766 ], [ %.02834.i323, %768 ], [ %.02834.i323, %switch.early.test.i331 ], [ %772, %.sink.split.i326 ]
-  %774 = getelementptr i8, ptr %.035.i322, i64 1
+  %.1.i328 = phi ptr [ %757, %766 ], [ %.02833.i323, %768 ], [ %.02833.i323, %switch.early.test.i331 ], [ %772, %.sink.split.i326 ]
+  %774 = getelementptr i8, ptr %.034.i322, i64 1
   %775 = load i8, ptr %774, align 1
   %.not.i329 = icmp eq i8 %775, 0
   br i1 %.not.i329, label %alnumerize.exit332, label %760, !llvm.loop !24
@@ -4399,8 +4399,8 @@ alnumerize.exit332:                               ; preds = %773, %alnumerize.ex
   %789 = load ptr, ptr %42, align 8
   %790 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %788, ptr noundef nonnull @.str.292, ptr noundef %789)
   %791 = load i8, ptr %790, align 1
-  %.not33.i333 = icmp eq i8 %791, 0
-  br i1 %.not33.i333, label %alnumerize.exit345, label %.lr.ph.i334
+  %.not32.i333 = icmp eq i8 %791, 0
+  br i1 %.not32.i333, label %alnumerize.exit345, label %.lr.ph.i334
 
 .lr.ph.i334:                                      ; preds = %alnumerize.exit332
   %792 = load ptr, ptr @g_ascii_table, align 8
@@ -4408,15 +4408,15 @@ alnumerize.exit332:                               ; preds = %773, %alnumerize.ex
 
 793:                                              ; preds = %806, %.lr.ph.i334
   %794 = phi i8 [ %791, %.lr.ph.i334 ], [ %808, %806 ]
-  %.035.i335 = phi ptr [ %790, %.lr.ph.i334 ], [ %807, %806 ]
-  %.02834.i336 = phi ptr [ %790, %.lr.ph.i334 ], [ %.1.i341, %806 ]
+  %.034.i335 = phi ptr [ %790, %.lr.ph.i334 ], [ %807, %806 ]
+  %.02833.i336 = phi ptr [ %790, %.lr.ph.i334 ], [ %.1.i341, %806 ]
   %795 = zext i8 %794 to i64
   %796 = getelementptr i16, ptr %792, i64 %795
   %797 = load i16, ptr %796, align 2
-  %.fr31.i337 = freeze i16 %797
-  %798 = and i16 %.fr31.i337, 1
-  %.not32.i338 = icmp eq i16 %798, 0
-  br i1 %.not32.i338, label %switch.early.test.i344, label %.sink.split.i339
+  %.fr.i337 = freeze i16 %797
+  %798 = and i16 %.fr.i337, 1
+  %.not31.i338 = icmp eq i16 %798, 0
+  br i1 %.not31.i338, label %switch.early.test.i344, label %.sink.split.i339
 
 switch.early.test.i344:                           ; preds = %793
   switch i8 %794, label %806 [
@@ -4428,24 +4428,24 @@ switch.early.test.i344:                           ; preds = %793
   ]
 
 799:                                              ; preds = %switch.early.test.i344, %switch.early.test.i344, %switch.early.test.i344
-  %800 = icmp eq ptr %.02834.i336, %790
+  %800 = icmp eq ptr %.02833.i336, %790
   br i1 %800, label %806, label %801
 
 801:                                              ; preds = %799
-  %802 = getelementptr i8, ptr %.02834.i336, i64 -1
+  %802 = getelementptr i8, ptr %.02833.i336, i64 -1
   %803 = load i8, ptr %802, align 1
   %804 = icmp eq i8 %803, 95
   br i1 %804, label %806, label %.sink.split.i339
 
 .sink.split.i339:                                 ; preds = %801, %switch.early.test.i344, %switch.early.test.i344, %793
   %.sink.i340 = phi i8 [ %794, %switch.early.test.i344 ], [ %794, %switch.early.test.i344 ], [ %794, %793 ], [ 95, %801 ]
-  %805 = getelementptr i8, ptr %.02834.i336, i64 1
-  store i8 %.sink.i340, ptr %.02834.i336, align 1
+  %805 = getelementptr i8, ptr %.02833.i336, i64 1
+  store i8 %.sink.i340, ptr %.02833.i336, align 1
   br label %806
 
 806:                                              ; preds = %.sink.split.i339, %801, %799, %switch.early.test.i344
-  %.1.i341 = phi ptr [ %790, %799 ], [ %.02834.i336, %801 ], [ %.02834.i336, %switch.early.test.i344 ], [ %805, %.sink.split.i339 ]
-  %807 = getelementptr i8, ptr %.035.i335, i64 1
+  %.1.i341 = phi ptr [ %790, %799 ], [ %.02833.i336, %801 ], [ %.02833.i336, %switch.early.test.i344 ], [ %805, %.sink.split.i339 ]
+  %807 = getelementptr i8, ptr %.034.i335, i64 1
   %808 = load i8, ptr %807, align 1
   %.not.i342 = icmp eq i8 %808, 0
   br i1 %.not.i342, label %alnumerize.exit345, label %793, !llvm.loop !24
@@ -4516,8 +4516,8 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
   %839 = load ptr, ptr %42, align 8
   %840 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %838, ptr noundef nonnull @.str.294, ptr noundef %839)
   %841 = load i8, ptr %840, align 1
-  %.not33.i346 = icmp eq i8 %841, 0
-  br i1 %.not33.i346, label %alnumerize.exit358, label %.lr.ph.i347
+  %.not32.i346 = icmp eq i8 %841, 0
+  br i1 %.not32.i346, label %alnumerize.exit358, label %.lr.ph.i347
 
 .lr.ph.i347:                                      ; preds = %821
   %842 = load ptr, ptr @g_ascii_table, align 8
@@ -4525,15 +4525,15 @@ alnumerize.exit345:                               ; preds = %806, %alnumerize.ex
 
 843:                                              ; preds = %856, %.lr.ph.i347
   %844 = phi i8 [ %841, %.lr.ph.i347 ], [ %858, %856 ]
-  %.035.i348 = phi ptr [ %840, %.lr.ph.i347 ], [ %857, %856 ]
-  %.02834.i349 = phi ptr [ %840, %.lr.ph.i347 ], [ %.1.i354, %856 ]
+  %.034.i348 = phi ptr [ %840, %.lr.ph.i347 ], [ %857, %856 ]
+  %.02833.i349 = phi ptr [ %840, %.lr.ph.i347 ], [ %.1.i354, %856 ]
   %845 = zext i8 %844 to i64
   %846 = getelementptr i16, ptr %842, i64 %845
   %847 = load i16, ptr %846, align 2
-  %.fr31.i350 = freeze i16 %847
-  %848 = and i16 %.fr31.i350, 1
-  %.not32.i351 = icmp eq i16 %848, 0
-  br i1 %.not32.i351, label %switch.early.test.i357, label %.sink.split.i352
+  %.fr.i350 = freeze i16 %847
+  %848 = and i16 %.fr.i350, 1
+  %.not31.i351 = icmp eq i16 %848, 0
+  br i1 %.not31.i351, label %switch.early.test.i357, label %.sink.split.i352
 
 switch.early.test.i357:                           ; preds = %843
   switch i8 %844, label %856 [
@@ -4545,24 +4545,24 @@ switch.early.test.i357:                           ; preds = %843
   ]
 
 849:                                              ; preds = %switch.early.test.i357, %switch.early.test.i357, %switch.early.test.i357
-  %850 = icmp eq ptr %.02834.i349, %840
+  %850 = icmp eq ptr %.02833.i349, %840
   br i1 %850, label %856, label %851
 
 851:                                              ; preds = %849
-  %852 = getelementptr i8, ptr %.02834.i349, i64 -1
+  %852 = getelementptr i8, ptr %.02833.i349, i64 -1
   %853 = load i8, ptr %852, align 1
   %854 = icmp eq i8 %853, 95
   br i1 %854, label %856, label %.sink.split.i352
 
 .sink.split.i352:                                 ; preds = %851, %switch.early.test.i357, %switch.early.test.i357, %843
   %.sink.i353 = phi i8 [ %844, %switch.early.test.i357 ], [ %844, %switch.early.test.i357 ], [ %844, %843 ], [ 95, %851 ]
-  %855 = getelementptr i8, ptr %.02834.i349, i64 1
-  store i8 %.sink.i353, ptr %.02834.i349, align 1
+  %855 = getelementptr i8, ptr %.02833.i349, i64 1
+  store i8 %.sink.i353, ptr %.02833.i349, align 1
   br label %856
 
 856:                                              ; preds = %.sink.split.i352, %851, %849, %switch.early.test.i357
-  %.1.i354 = phi ptr [ %840, %849 ], [ %.02834.i349, %851 ], [ %.02834.i349, %switch.early.test.i357 ], [ %855, %.sink.split.i352 ]
-  %857 = getelementptr i8, ptr %.035.i348, i64 1
+  %.1.i354 = phi ptr [ %840, %849 ], [ %.02833.i349, %851 ], [ %.02833.i349, %switch.early.test.i357 ], [ %855, %.sink.split.i352 ]
+  %857 = getelementptr i8, ptr %.034.i348, i64 1
   %858 = load i8, ptr %857, align 1
   %.not.i355 = icmp eq i8 %858, 0
   br i1 %.not.i355, label %alnumerize.exit358, label %843, !llvm.loop !24
@@ -4602,8 +4602,8 @@ alnumerize.exit358:                               ; preds = %856, %821
   %873 = load ptr, ptr %42, align 8
   %874 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %872, ptr noundef nonnull @.str.296, ptr noundef %873)
   %875 = load i8, ptr %874, align 1
-  %.not33.i359 = icmp eq i8 %875, 0
-  br i1 %.not33.i359, label %alnumerize.exit371, label %.lr.ph.i360
+  %.not32.i359 = icmp eq i8 %875, 0
+  br i1 %.not32.i359, label %alnumerize.exit371, label %.lr.ph.i360
 
 .lr.ph.i360:                                      ; preds = %alnumerize.exit358
   %876 = load ptr, ptr @g_ascii_table, align 8
@@ -4611,15 +4611,15 @@ alnumerize.exit358:                               ; preds = %856, %821
 
 877:                                              ; preds = %890, %.lr.ph.i360
   %878 = phi i8 [ %875, %.lr.ph.i360 ], [ %892, %890 ]
-  %.035.i361 = phi ptr [ %874, %.lr.ph.i360 ], [ %891, %890 ]
-  %.02834.i362 = phi ptr [ %874, %.lr.ph.i360 ], [ %.1.i367, %890 ]
+  %.034.i361 = phi ptr [ %874, %.lr.ph.i360 ], [ %891, %890 ]
+  %.02833.i362 = phi ptr [ %874, %.lr.ph.i360 ], [ %.1.i367, %890 ]
   %879 = zext i8 %878 to i64
   %880 = getelementptr i16, ptr %876, i64 %879
   %881 = load i16, ptr %880, align 2
-  %.fr31.i363 = freeze i16 %881
-  %882 = and i16 %.fr31.i363, 1
-  %.not32.i364 = icmp eq i16 %882, 0
-  br i1 %.not32.i364, label %switch.early.test.i370, label %.sink.split.i365
+  %.fr.i363 = freeze i16 %881
+  %882 = and i16 %.fr.i363, 1
+  %.not31.i364 = icmp eq i16 %882, 0
+  br i1 %.not31.i364, label %switch.early.test.i370, label %.sink.split.i365
 
 switch.early.test.i370:                           ; preds = %877
   switch i8 %878, label %890 [
@@ -4631,24 +4631,24 @@ switch.early.test.i370:                           ; preds = %877
   ]
 
 883:                                              ; preds = %switch.early.test.i370, %switch.early.test.i370, %switch.early.test.i370
-  %884 = icmp eq ptr %.02834.i362, %874
+  %884 = icmp eq ptr %.02833.i362, %874
   br i1 %884, label %890, label %885
 
 885:                                              ; preds = %883
-  %886 = getelementptr i8, ptr %.02834.i362, i64 -1
+  %886 = getelementptr i8, ptr %.02833.i362, i64 -1
   %887 = load i8, ptr %886, align 1
   %888 = icmp eq i8 %887, 95
   br i1 %888, label %890, label %.sink.split.i365
 
 .sink.split.i365:                                 ; preds = %885, %switch.early.test.i370, %switch.early.test.i370, %877
   %.sink.i366 = phi i8 [ %878, %switch.early.test.i370 ], [ %878, %switch.early.test.i370 ], [ %878, %877 ], [ 95, %885 ]
-  %889 = getelementptr i8, ptr %.02834.i362, i64 1
-  store i8 %.sink.i366, ptr %.02834.i362, align 1
+  %889 = getelementptr i8, ptr %.02833.i362, i64 1
+  store i8 %.sink.i366, ptr %.02833.i362, align 1
   br label %890
 
 890:                                              ; preds = %.sink.split.i365, %885, %883, %switch.early.test.i370
-  %.1.i367 = phi ptr [ %874, %883 ], [ %.02834.i362, %885 ], [ %.02834.i362, %switch.early.test.i370 ], [ %889, %.sink.split.i365 ]
-  %891 = getelementptr i8, ptr %.035.i361, i64 1
+  %.1.i367 = phi ptr [ %874, %883 ], [ %.02833.i362, %885 ], [ %.02833.i362, %switch.early.test.i370 ], [ %889, %.sink.split.i365 ]
+  %891 = getelementptr i8, ptr %.034.i361, i64 1
   %892 = load i8, ptr %891, align 1
   %.not.i368 = icmp eq i8 %892, 0
   br i1 %.not.i368, label %alnumerize.exit371, label %877, !llvm.loop !24

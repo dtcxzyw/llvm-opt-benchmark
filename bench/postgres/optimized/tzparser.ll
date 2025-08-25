@@ -335,8 +335,8 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %114 = zext i8 %113 to i64
   %115 = getelementptr inbounds nuw i16, ptr %112, i64 %114
   %116 = load i16, ptr %115, align 2
-  %.fr48.i = freeze i16 %116
-  %117 = and i16 %.fr48.i, 2048
+  %.fr.i = freeze i16 %116
+  %117 = and i16 %.fr.i, 2048
   %.not42.not.i = icmp eq i16 %117, 0
   br i1 %.not42.not.i, label %switch.early.test.i, label %118
 

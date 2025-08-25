@@ -7666,12 +7666,12 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   br i1 %1712, label %.lr.ph.i163.i, label %._crit_edge.loopexit.i172.i, !llvm.loop !265
 
 ._crit_edge.loopexit.i172.i:                      ; preds = %1707
-  %.pre717.i.i = load i32, ptr %81, align 4, !tbaa !105
+  %.pre718.i.i = load i32, ptr %81, align 4, !tbaa !105
   br label %._crit_edge.i173.i
 
 ._crit_edge.i173.i:                               ; preds = %._crit_edge.loopexit.i172.i, %.preheader580.i.i
   %.26.i = phi i32 [ %.19.i, %.preheader580.i.i ], [ %.25.i, %._crit_edge.loopexit.i172.i ]
-  %1713 = phi i32 [ %1370, %.preheader580.i.i ], [ %.pre717.i.i, %._crit_edge.loopexit.i172.i ]
+  %1713 = phi i32 [ %1370, %.preheader580.i.i ], [ %.pre718.i.i, %._crit_edge.loopexit.i172.i ]
   %1714 = phi i32 [ %1371, %.preheader580.i.i ], [ %1708, %._crit_edge.loopexit.i172.i ]
   %1715 = phi i32 [ 0, %.preheader580.i.i ], [ %1708, %._crit_edge.loopexit.i172.i ]
   %.1484.lcssa.i.i = phi ptr [ %.0483603.i.i, %.preheader580.i.i ], [ %1711, %._crit_edge.loopexit.i172.i ]
@@ -7680,7 +7680,7 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %.1397.lcssa.i.i = phi i32 [ %.0396606.i.i, %.preheader580.i.i ], [ %.2398.i.i, %._crit_edge.loopexit.i172.i ]
   %.1394.lcssa.i.i = phi ptr [ %.0393607.i.i, %.preheader580.i.i ], [ %.2395.i.i, %._crit_edge.loopexit.i172.i ]
   %.1392.lcssa.i.i = phi ptr [ %.0391608.i.i, %.preheader580.i.i ], [ %1710, %._crit_edge.loopexit.i172.i ]
-  %1716 = add nuw i32 %.0390609.i.i, 4
+  %1716 = add i32 %.0390609.i.i, 4
   %1717 = getelementptr inbounds nuw i8, ptr %.1392.lcssa.i.i, i64 8
   %1718 = and i32 %1713, -4
   %1719 = icmp ult i32 %1716, %1718
@@ -7697,11 +7697,12 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %.0391.lcssa.i.i = phi ptr [ %1364, %1359 ], [ %1717, %._crit_edge.i173.i ]
   %.0390.lcssa.i.i = phi i32 [ 0, %1359 ], [ %1716, %._crit_edge.i173.i ]
   %.lcssa590.i.i = phi i32 [ %318, %1359 ], [ %1713, %._crit_edge.i173.i ]
-  %1721 = icmp ult i32 %.0390.lcssa.i.i, %.lcssa590.i.i
+  %.lcssa590.fr.i.i = freeze i32 %.lcssa590.i.i
+  %1721 = icmp ult i32 %.0390.lcssa.i.i, %.lcssa590.fr.i.i
   br i1 %1721, label %1722, label %opj_t1_enc_refpass.exit.i
 
 1722:                                             ; preds = %._crit_edge610.i.i
-  %1723 = sub nuw i32 %.lcssa590.i.i, %.0390.lcssa.i.i
+  %1723 = sub nuw i32 %.lcssa590.fr.i.i, %.0390.lcssa.i.i
   %.not689.i.i = icmp eq i32 %1720, 0
   br i1 %.not689.i.i, label %opj_t1_enc_refpass.exit.i, label %.lr.ph653.split.us.i.i
 
@@ -7731,12 +7732,12 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   br label %..loopexit570_crit_edge.split.us.us.us.i.i
 
 ..loopexit570_crit_edge.split.us.us.us.loopexit.i.i: ; preds = %1807
-  %.pre719.i.i = load i32, ptr %79, align 8, !tbaa !104
+  %.pre720.i.i = load i32, ptr %79, align 8, !tbaa !104
   br label %..loopexit570_crit_edge.split.us.us.us.i.i
 
 ..loopexit570_crit_edge.split.us.us.us.i.i:       ; preds = %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i, %1729
   %.35.i = phi i32 [ %.32.i, %1729 ], [ %.34.i, %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i ]
-  %1731 = phi i32 [ %1725, %1729 ], [ %.pre719.i.i, %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i ]
+  %1731 = phi i32 [ %1725, %1729 ], [ %.pre720.i.i, %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i ]
   %.3486.us.us.i.i = phi ptr [ %1730, %1729 ], [ %1810, %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i ]
   %.29475.us.us.i.i = phi i32 [ %.28474644.us.us.i.i, %1729 ], [ %.31477.us.us.us.i.i, %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i ]
   %.29438.us.us.i.i = phi i32 [ %.28437645.us.us.i.i, %1729 ], [ %.31440.us.us.us.i.i, %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i ]
@@ -7892,8 +7893,8 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %.11.us.us.us.i.i = phi ptr [ %1760, %.loopexit.us.us.us.i.i ], [ %.10631.us.us.us.i.i, %.preheader.us.us.i.i ]
   %1809 = add nuw i32 %.0408629.us.us.us.i.i, 1
   %1810 = getelementptr inbounds nuw i8, ptr %.4487626.us.us.us.i.i, i64 4
-  %exitcond716.not.i.i = icmp eq i32 %1809, %1723
-  br i1 %exitcond716.not.i.i, label %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i, label %.preheader.us.us.i.i, !llvm.loop !270
+  %exitcond717.not.i.i = icmp eq i32 %1809, %1723
+  br i1 %exitcond717.not.i.i, label %..loopexit570_crit_edge.split.us.us.us.loopexit.i.i, label %.preheader.us.us.i.i, !llvm.loop !270
 
 .lr.ph653.split.us.split.i.i:                     ; preds = %.lr.ph653.split.us.i.i, %..loopexit570_crit_edge.split.us673.i.i
   %.28.i = phi i32 [ %.31.i, %..loopexit570_crit_edge.split.us673.i.i ], [ %.27.i, %.lr.ph653.split.us.i.i ]
@@ -8073,12 +8074,12 @@ opj_t1_enc_sigpass.exit.i:                        ; preds = %.loopexit1080.i.i, 
   %.us-phi399.i = phi i32 [ %.39.us671.i.us.i, %1851 ], [ %.39.us671.i.i, %1895 ]
   %.us-phi400.i = phi ptr [ %.11.us672.i.us.i, %1851 ], [ %.11.us672.i.i, %1895 ]
   %.us-phi401.i = phi ptr [ %1854, %1851 ], [ %1898, %1895 ]
-  %.pre718.i.i = load i32, ptr %79, align 8, !tbaa !104
+  %.pre719.i.i = load i32, ptr %79, align 8, !tbaa !104
   br label %..loopexit570_crit_edge.split.us673.i.i
 
 ..loopexit570_crit_edge.split.us673.i.i:          ; preds = %..loopexit570_crit_edge.split.us673.loopexit.i.i, %1899
   %.31.i = phi i32 [ %.28.i, %1899 ], [ %.us-phi397.i, %..loopexit570_crit_edge.split.us673.loopexit.i.i ]
-  %1901 = phi i32 [ %1811, %1899 ], [ %.pre718.i.i, %..loopexit570_crit_edge.split.us673.loopexit.i.i ]
+  %1901 = phi i32 [ %1811, %1899 ], [ %.pre719.i.i, %..loopexit570_crit_edge.split.us673.loopexit.i.i ]
   %.3486.us.i.i = phi ptr [ %1900, %1899 ], [ %.us-phi401.i, %..loopexit570_crit_edge.split.us673.loopexit.i.i ]
   %.29475.us.i.i = phi i32 [ %.28474644.us.i.i, %1899 ], [ %.us-phi398.i, %..loopexit570_crit_edge.split.us673.loopexit.i.i ]
   %.37.us.i.i = phi i32 [ %.36646.us.i.i, %1899 ], [ %.us-phi399.i, %..loopexit570_crit_edge.split.us673.loopexit.i.i ]
@@ -8916,8 +8917,8 @@ opj_t1_update_flags.exit.i206.i:                  ; preds = %2255, %2253, %.loop
   %.lcssa699.i.i = phi i32 [ %318, %1905 ], [ %2283, %._crit_edge.i212.i ]
   %2290 = icmp uge i32 %.0440.lcssa.i.i, %.lcssa699.i.i
   %.not779.i.i = icmp eq i32 %2289, 0
-  %or.cond802.i = select i1 %2290, i1 true, i1 %.not779.i.i
-  br i1 %or.cond802.i, label %opj_t1_enc_clnpass.exit.i, label %.lr.ph771.i.i
+  %or.cond804.i = select i1 %2290, i1 true, i1 %.not779.i.i
+  br i1 %or.cond804.i, label %opj_t1_enc_clnpass.exit.i, label %.lr.ph771.i.i
 
 .lr.ph771.i.i:                                    ; preds = %._crit_edge735.i.i
   %2291 = and i32 %317, 2147483584

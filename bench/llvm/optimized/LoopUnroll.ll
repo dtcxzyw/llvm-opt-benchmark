@@ -6767,11 +6767,11 @@ _ZN4llvm16DenseMapIteratorIPNS_10BasicBlockEZNS_10UnrollLoopEPNS_4LoopENS_17Unro
 
 1651:                                             ; preds = %1650
   %1652 = load i32, ptr %1628, align 8, !tbaa !325
-  %.not17.i = icmp ne i32 %1652, 0
-  %.not18.i = icmp ne i32 %1652, %1644
+  %.fr.i = freeze i32 %1652
+  %.not17.i = icmp ne i32 %.fr.i, 0
+  %.not18.i = icmp ne i32 %.fr.i, %1644
   %or.cond19.not.i = and i1 %.not17.i, %.not18.i
-  %cond.fr38.i = freeze i1 %or.cond19.not.i
-  br i1 %cond.fr38.i, label %"_ZZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEbPS1_PNS_9AAResultsEENK3$_4clERKZNS_10UnrollLoopES1_S2_S4_S6_S8_SA_SD_SF_bSG_SI_E8ExitInfojjb.exit.thread1669", label %1662
+  br i1 %or.cond19.not.i, label %"_ZZN4llvm10UnrollLoopEPNS_4LoopENS_17UnrollLoopOptionsEPNS_8LoopInfoEPNS_15ScalarEvolutionEPNS_13DominatorTreeEPNS_15AssumptionCacheEPKNS_19TargetTransformInfoEPNS_25OptimizationRemarkEmitterEbPS1_PNS_9AAResultsEENK3$_4clERKZNS_10UnrollLoopES1_S2_S4_S6_S8_SA_SD_SF_bSG_SI_E8ExitInfojjb.exit.thread1669", label %1662
 
 1653:                                             ; preds = %1642
   br i1 %1633, label %1661, label %1654

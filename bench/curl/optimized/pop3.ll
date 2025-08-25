@@ -217,10 +217,10 @@ pop3_is_multiline.exit.i.i.i:                     ; preds = %56, %pop3_is_multil
   %.sink21.i.i.i.i = phi i8 [ 2, %pop3_is_multiline.exit.i.i.i.loopexit ], [ 1, %56 ]
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 10
   %62 = load i8, ptr %61, align 2
-  %.fr31.i.i.i = freeze i8 %62
-  %63 = and i8 %.fr31.i.i.i, %.sink21.i.i.i.i
-  %.not32.i.i.i = icmp eq i8 %63, 0
-  %spec.select30.i.i.i = select i1 %.not32.i.i.i, i32 131072, i32 0
+  %.fr.i.i.i = freeze i8 %62
+  %63 = and i8 %.fr.i.i.i, %.sink21.i.i.i.i
+  %.not31.i.i.i = icmp eq i8 %63, 0
+  %spec.select30.i.i.i = select i1 %.not31.i.i.i, i32 131072, i32 0
   br label %pop3_perform_command.exit.i.i
 
 pop3_perform_command.exit.i.i:                    ; preds = %59, %pop3_is_multiline.exit.i.i.i

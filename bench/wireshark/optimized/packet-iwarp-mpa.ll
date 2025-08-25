@@ -198,17 +198,18 @@ get_mpa_state.exit.i:                             ; preds = %16
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4
+  %.fr = freeze i32 %25
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = icmp eq i32 %25, %27
+  %28 = icmp eq i32 %.fr, %27
   br i1 %28, label %is_mpa_fpdu.exit.thread, label %is_mpa_fpdu.exit
 
 is_mpa_fpdu.exit:                                 ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %30 = load i32, ptr %29, align 4
-  %31 = icmp ne i32 %25, %30
-  %cond.fr = freeze i1 %31
-  %or.cond = or i1 %.0, %cond.fr
+  %.fr21 = freeze i32 %30
+  %31 = icmp ne i32 %.fr, %.fr21
+  %or.cond = or i1 %.0, %31
   br i1 %or.cond, label %.thread, label %33
 
 is_mpa_fpdu.exit.thread:                          ; preds = %23, %20, %get_mpa_state.exit.i, %16, %13

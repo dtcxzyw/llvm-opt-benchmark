@@ -1369,7 +1369,7 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %8 = getelementptr [13 x %struct.hda_rate_tbl], ptr @rate_bits, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i64 %7, 12
-  br i1 %10, label %20, label %11, !llvm.loop !19
+  br i1 %10, label %21, label %11, !llvm.loop !19
 
 11:                                               ; preds = %.preheader
   %12 = icmp eq i32 %9, %2
@@ -1384,24 +1384,24 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %17 = phi ptr [ @rate_bits, %4 ], [ %8, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4
-  br label %22
+  %20 = freeze i32 %19
+  br label %23
 
-20:                                               ; preds = %.preheader
-  %21 = icmp eq i32 %9, 0
-  br label %22
+21:                                               ; preds = %.preheader
+  %22 = icmp eq i32 %9, 0
+  br label %23
 
-22:                                               ; preds = %20, %15
-  %23 = phi i1 [ %16, %15 ], [ %21, %20 ]
-  %24 = phi i32 [ %19, %15 ], [ 0, %20 ]
+23:                                               ; preds = %21, %15
+  %24 = phi i1 [ %16, %15 ], [ %22, %21 ]
+  %.fr = phi i32 [ %20, %15 ], [ 0, %21 ]
   %25 = add i32 %0, -9
   %26 = icmp ult i32 %25, -8
-  %27 = or i1 %26, %23
+  %27 = or i1 %26, %24
   br i1 %27, label %.thread4, label %28
 
-28:                                               ; preds = %22
+28:                                               ; preds = %23
   %29 = add nsw i32 %0, -1
-  %30 = or i32 %24, %29
-  %.fr = freeze i32 %30
+  %30 = or i32 %.fr, %29
   %31 = add i32 %1, -8
   %32 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 30)
   switch i32 %32, label %.thread4 [
@@ -1427,18 +1427,18 @@ define dso_local i32 @snd_hdac_spdif_stream_format(i32 noundef %0, i32 noundef %
   %37 = and i16 %36, -32768
   %38 = zext i16 %37 to i32
   %39 = or disjoint i32 %.sink, %38
-  %40 = or i32 %39, %.fr
+  %40 = or i32 %39, %30
   br label %47
 
 41:                                               ; preds = %28
-  %42 = icmp eq i32 %.fr, 0
+  %42 = icmp eq i32 %30, 0
   %43 = shl i16 %3, 10
   %44 = and i16 %43, -32768
   %45 = zext i16 %44 to i32
-  %46 = or i32 %.fr, %45
+  %46 = or i32 %30, %45
   br i1 %42, label %.thread4, label %47
 
-.thread4:                                         ; preds = %28, %22, %41
+.thread4:                                         ; preds = %28, %23, %41
   br label %47
 
 47:                                               ; preds = %.thread, %41, %.thread4

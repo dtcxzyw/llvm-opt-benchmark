@@ -282,8 +282,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmsof_mP11
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !149
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = shl i64 %2, 32
@@ -640,8 +640,8 @@ define noundef i64 @_Z18fast_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !158
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = add i64 %2, 4
@@ -889,8 +889,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmsof_mP
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !159
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = shl i64 %2, 32
@@ -1140,8 +1140,8 @@ define noundef i64 @_Z20logged_rv64i_vmsof_mP11processor_t6insn_tm(ptr noundef %
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !160
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = add i64 %2, 4
@@ -1389,8 +1389,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmsof_mP11
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !161
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !161
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = shl i64 %2, 32
@@ -1640,8 +1640,8 @@ define noundef i64 @_Z18fast_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %0,
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !162
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !162
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = add i64 %2, 4
@@ -1889,8 +1889,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmsof_mP
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !163
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = shl i64 %2, 32
@@ -2140,8 +2140,8 @@ define noundef i64 @_Z20logged_rv64e_vmsof_mP11processor_t6insn_tm(ptr noundef %
 116:                                              ; preds = %107, %.lr.ph.split.us
   %.1.us = phi i1 [ %spec.select70.us, %107 ], [ %.06289.us, %.lr.ph.split.us ]
   %117 = add i64 %.06190.us, 1
-  %exitcond95.not = icmp eq i64 %117, %91
-  br i1 %exitcond95.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !164
+  %exitcond94.not = icmp eq i64 %117, %91
+  br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !164
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %116, %85
   %118 = add i64 %2, 4

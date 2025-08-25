@@ -7852,15 +7852,16 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRe
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %90 = load ptr, ptr %89, align 8
+  %.fr5.i.i.i.i.i = freeze ptr %90
   %91 = load ptr, ptr %88, align 8
-  %92 = ptrtoint ptr %90 to i64
-  %93 = ptrtoint ptr %91 to i64
+  %.fr.i.i.i.i.i = freeze ptr %91
+  %92 = ptrtoint ptr %.fr5.i.i.i.i.i to i64
+  %93 = ptrtoint ptr %.fr.i.i.i.i.i to i64
   %94 = sub i64 %92, %93
-  %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %91, %90
-  %.not9.i.i.i.i.i.i.i.i.i.fr.i.i.i.i.i = freeze i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.phi.trans.insert9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 64
-  %.val.i.us.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert9.i.i.i.i.i, align 8
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.fr.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
+  %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr.i.i.i.i.i, %.fr5.i.i.i.i.i
+  %.phi.trans.insert10.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 64
+  %.val.i.us.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert10.i.i.i.i.i, align 8
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %84, %113
   %.val.i.us.i.i.i.i.i = phi i64 [ %.val18.us.i.i.i.i.i, %113 ], [ %.val.i.us.pre.i.i.i.i.i, %84 ]
@@ -7926,7 +7927,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRe
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %123, %138
   %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %140, %138 ], [ %127, %123 ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %139, %138 ], [ %91, %123 ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %139, %138 ], [ %.fr.i.i.i.i.i, %123 ]
   %132 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %133 = ptrtoint ptr %132 to i64
   %134 = load ptr, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -7938,7 +7939,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRe
 138:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %139 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %140 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %139, %90
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %139, %.fr5.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry11_PrimTypeIdESt4pairIKS3_St10shared_ptrINS0_30UsdShadeConnectableAPIBehaviorEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS3_6HasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 .loopexit.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %123, %117, %.split.i.i.i.i.i
@@ -8966,15 +8967,16 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRe
   %165 = getelementptr inbounds nuw i8, ptr %94, i64 16
   %166 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %167 = load ptr, ptr %166, align 8
+  %.fr5.i.i.i.i.i = freeze ptr %167
   %168 = load ptr, ptr %165, align 8
-  %169 = ptrtoint ptr %167 to i64
-  %170 = ptrtoint ptr %168 to i64
+  %.fr.i.i.i.i.i = freeze ptr %168
+  %169 = ptrtoint ptr %.fr5.i.i.i.i.i to i64
+  %170 = ptrtoint ptr %.fr.i.i.i.i.i to i64
   %171 = sub i64 %169, %170
-  %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %168, %167
-  %.not9.i.i.i.i.i.i.i.i.i.fr.i.i.i.i.i = freeze i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.phi.trans.insert9.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %162, i64 64
-  %.val.i.us.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert9.i.i.i.i.i, align 8
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.fr.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
+  %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr.i.i.i.i.i, %.fr5.i.i.i.i.i
+  %.phi.trans.insert10.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %162, i64 64
+  %.val.i.us.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert10.i.i.i.i.i, align 8
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %161, %190
   %.val.i.us.i.i.i.i.i = phi i64 [ %.val18.us.i.i.i.i.i, %190 ], [ %.val.i.us.pre.i.i.i.i.i, %161 ]
@@ -9040,7 +9042,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRe
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %200, %215
   %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %217, %215 ], [ %204, %200 ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %216, %215 ], [ %168, %200 ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %216, %215 ], [ %.fr.i.i.i.i.i, %200 ]
   %209 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %210 = ptrtoint ptr %209 to i64
   %211 = load ptr, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -9052,7 +9054,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRe
 215:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %216 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %216, %167
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %216, %.fr5.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry11_PrimTypeIdESt4pairIKS3_St10shared_ptrINS0_30UsdShadeConnectableAPIBehaviorEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS3_6HasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 .loopexit.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %200, %194, %.split.i.i.i.i.i
@@ -10040,13 +10042,14 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
+  %.fr30.i.i.i.i = freeze ptr %16
   %17 = load ptr, ptr %14, align 8
-  %18 = ptrtoint ptr %16 to i64
-  %19 = ptrtoint ptr %17 to i64
+  %.fr.i.i.i.i = freeze ptr %17
+  %18 = ptrtoint ptr %.fr30.i.i.i.i to i64
+  %19 = ptrtoint ptr %.fr.i.i.i.i to i64
   %20 = sub i64 %18, %19
-  %.not9.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %17, %16
-  %.not9.i.i.i.i.i.i.i.i.fr.i.i.i.i = freeze i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %.not9.i.i.i.i.i.i.i.i.fr.i.i.i.i, label %.lr.ph.split.us.i.i.i.i, label %.lr.ph.split.i.i.i.i
+  %.not9.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr.i.i.i.i, %.fr30.i.i.i.i
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.split.us.i.i.i.i, label %.lr.ph.split.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %35
   %.sroa.013.025.us.i.i.i.i = phi ptr [ %.sroa.013.0.us.i.i.i.i, %35 ], [ %.sroa.013.023.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -10095,7 +10098,7 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %41, %56
   %.011.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %58, %56 ], [ %45, %41 ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %17, %41 ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %.fr.i.i.i.i, %41 ]
   %50 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = load ptr, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -10107,7 +10110,7 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
 56:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, %16
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, %.fr30.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry11_PrimTypeIdESt10shared_ptrINS0_30UsdShadeConnectableAPIBehaviorEENS3_6HasherESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSB_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %41, %.lr.ph.split.i.i.i.i
@@ -10135,15 +10138,16 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8
+  %.fr5.i.i.i.i.i.i = freeze ptr %72
   %73 = load ptr, ptr %70, align 8
-  %74 = ptrtoint ptr %72 to i64
-  %75 = ptrtoint ptr %73 to i64
+  %.fr.i.i.i.i.i.i = freeze ptr %73
+  %74 = ptrtoint ptr %.fr5.i.i.i.i.i.i to i64
+  %75 = ptrtoint ptr %.fr.i.i.i.i.i.i to i64
   %76 = sub i64 %74, %75
-  %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, %72
-  %.not9.i.i.i.i.i.i.i.i.i.fr.i.i.i.i.i.i = freeze i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.phi.trans.insert9.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %.val.i.us.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert9.i.i.i.i.i.i, align 8
-  br i1 %.not9.i.i.i.i.i.i.i.i.i.fr.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i, label %.split.i.i.i.i.i.i
+  %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.fr.i.i.i.i.i.i, %.fr5.i.i.i.i.i.i
+  %.phi.trans.insert10.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 64
+  %.val.i.us.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert10.i.i.i.i.i.i, align 8
+  br i1 %.not9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i.i, label %.split.i.i.i.i.i.i
 
 .split.us.i.i.i.i.i.i:                            ; preds = %66, %95
   %.val.i.us.i.i.i.i.i.i = phi i64 [ %.val18.us.i.i.i.i.i.i, %95 ], [ %.val.i.us.pre.i.i.i.i.i.i, %66 ]
@@ -10209,7 +10213,7 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %105, %120
   %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %122, %120 ], [ %109, %105 ]
-  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %121, %120 ], [ %73, %105 ]
+  %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %121, %120 ], [ %.fr.i.i.i.i.i.i, %105 ]
   %114 = load ptr, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %115 = ptrtoint ptr %114 to i64
   %116 = load ptr, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
@@ -10221,7 +10225,7 @@ define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved_
 120:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %121, %72
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %121, %.fr5.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry11_PrimTypeIdESt10shared_ptrINS0_30UsdShadeConnectableAPIBehaviorEENS3_6HasherESt8equal_toIS3_ESaISt4pairIKS3_S6_EEE4findERSB_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !69
 
 .loopexit.i.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %105, %99, %.split.i.i.i.i.i.i

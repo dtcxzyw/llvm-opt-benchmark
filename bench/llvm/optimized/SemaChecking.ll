@@ -50142,9 +50142,10 @@ _ZL18referToTheSameDeclPKN5clang4ExprES2_.exit70: ; preds = %75
   %80 = load ptr, ptr %79, align 8, !tbaa !1313
   %81 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !1313
-  %83 = icmp eq ptr %80, %82
-  %cond.fr = freeze i1 %83
-  br i1 %cond.fr, label %155, label %.thread
+  %.fr = freeze ptr %80
+  %.fr196 = freeze ptr %82
+  %83 = icmp eq ptr %.fr, %.fr196
+  br i1 %83, label %155, label %.thread
 
 _ZL16getSizeOfExprArgPKN5clang4ExprE.exit.thread: ; preds = %56, %53, %_ZL16getSizeOfExprArgPKN5clang4ExprE.exit
   %84 = and i16 %54, 510
@@ -50272,9 +50273,10 @@ _ZL18referToTheSameDeclPKN5clang4ExprES2_.exit88: ; preds = %146
   %151 = load ptr, ptr %150, align 8, !tbaa !1313
   %152 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %153 = load ptr, ptr %152, align 8, !tbaa !1313
-  %154 = icmp eq ptr %151, %153
-  %cond.fr192 = freeze i1 %154
-  br i1 %cond.fr192, label %155, label %.thread
+  %.fr198 = freeze ptr %151
+  %.fr199 = freeze ptr %153
+  %154 = icmp eq ptr %.fr198, %.fr199
+  br i1 %154, label %155, label %.thread
 
 155:                                              ; preds = %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit88, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit70, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit81
   %156 = phi i1 [ true, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit ], [ true, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit81 ], [ false, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit70 ], [ false, %_ZL18referToTheSameDeclPKN5clang4ExprES2_.exit88 ]
@@ -110090,18 +110092,18 @@ define internal fastcc void @_ZN12_GLOBAL__N_118CheckPrintfHandler15checkFormatE
 
 78:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %storemerge.in663 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %storemerge664 = load i64, ptr %storemerge.in663, align 8, !tbaa !1035
-  store i64 %storemerge664, ptr %14, align 8
-  %79 = and i64 %storemerge664, -16
+  %storemerge.in662 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %storemerge663 = load i64, ptr %storemerge.in662, align 8, !tbaa !1035
+  store i64 %storemerge663, ptr %14, align 8
+  %79 = and i64 %storemerge663, -16
   %80 = inttoptr i64 %79 to ptr
   %81 = load ptr, ptr %80, align 16, !tbaa !1303
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i8, ptr %82, align 16
   %84 = icmp ne i8 %83, 50
-  %.not297653665 = icmp eq ptr %81, null
-  %.not297666 = or i1 %.not297653665, %84
-  br i1 %.not297666, label %._crit_edge, label %.lr.ph
+  %.not297653664 = icmp eq ptr %81, null
+  %.not297665 = or i1 %.not297653664, %84
+  br i1 %.not297665, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %.lr.ph
   %85 = phi ptr [ %90, %.lr.ph ], [ %81, %78 ]
@@ -110121,9 +110123,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_118CheckPrintfHandler15checkFormatE
   br i1 %.not297, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %78
-  %.pre-phi673 = phi ptr [ %80, %78 ], [ %89, %.lr.ph ]
-  %.0.copyload.i.i.i.i.i = phi i64 [ %storemerge664, %78 ], [ %storemerge, %.lr.ph ]
-  %94 = load ptr, ptr %.pre-phi673, align 8, !tbaa !1303
+  %.pre-phi672 = phi ptr [ %80, %78 ], [ %89, %.lr.ph ]
+  %.0.copyload.i.i.i.i.i = phi i64 [ %storemerge663, %78 ], [ %storemerge, %.lr.ph ]
+  %94 = load ptr, ptr %.pre-phi672, align 8, !tbaa !1303
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %95, align 8, !tbaa !1035
   %96 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
@@ -110151,7 +110153,7 @@ _ZNK5clang4Type21canDecayToPointerTypeEv.exit.thread: ; preds = %._crit_edge, %_
   br label %108
 
 108:                                              ; preds = %_ZNK5clang4Type21canDecayToPointerTypeEv.exit.thread, %_ZNK5clang4Type21canDecayToPointerTypeEv.exit
-  %.sroa.0181.0.copyload.pre672 = phi i64 [ %107, %_ZNK5clang4Type21canDecayToPointerTypeEv.exit.thread ], [ %.0.copyload.i.i.i.i.i, %_ZNK5clang4Type21canDecayToPointerTypeEv.exit ]
+  %.sroa.0181.0.copyload.pre671 = phi i64 [ %107, %_ZNK5clang4Type21canDecayToPointerTypeEv.exit.thread ], [ %.0.copyload.i.i.i.i.i, %_ZNK5clang4Type21canDecayToPointerTypeEv.exit ]
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %110 = load i32, ptr %109, align 8, !tbaa !2194
   %111 = icmp eq i32 %110, 1
@@ -110298,7 +110300,7 @@ thread-pre-split:                                 ; preds = %112
   br label %185
 
 185:                                              ; preds = %thread-pre-split, %108
-  %.sroa.0181.0.copyload.pre = phi i64 [ %.sroa.0181.0.copyload.pre.pre, %thread-pre-split ], [ %.sroa.0181.0.copyload.pre672, %108 ]
+  %.sroa.0181.0.copyload.pre = phi i64 [ %.sroa.0181.0.copyload.pre.pre, %thread-pre-split ], [ %.sroa.0181.0.copyload.pre671, %108 ]
   %186 = phi i32 [ %.pr, %thread-pre-split ], [ %110, %108 ]
   %187 = icmp eq i32 %186, 27
   br i1 %187, label %188, label %252
@@ -110428,7 +110430,7 @@ _ZL22handleFormatSignednessN5clang21analyze_format_string7ArgType9MatchKindERNS_
   %274 = load ptr, ptr %273, align 8, !tbaa !1653
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %.sroa.0.0.copyload.i.i344 = load i64, ptr %275, align 8, !tbaa !1035
-  %.sroa.0.0.copyload.i20.i = load i64, ptr %storemerge.in663, align 8, !tbaa !1035
+  %.sroa.0.0.copyload.i20.i = load i64, ptr %storemerge.in662, align 8, !tbaa !1035
   %276 = load i32, ptr %4, align 8
   %277 = and i32 %276, 66584576
   %278 = icmp eq i32 %277, 14155776
@@ -110528,7 +110530,7 @@ _ZL29isArithmeticArgumentPromotionRN5clang4SemaEPKNS_16ImplicitCastExprE.exit.th
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %.sroa.0.0.copyload.i348 = load i64, ptr %325, align 8, !tbaa !1035
   store i64 %.sroa.0.0.copyload.i348, ptr %14, align 8, !tbaa !1035
-  %.sroa.0.0.copyload.i349 = load i64, ptr %storemerge.in663, align 8, !tbaa !1035
+  %.sroa.0.0.copyload.i349 = load i64, ptr %storemerge.in662, align 8, !tbaa !1035
   %326 = load ptr, ptr %71, align 8, !tbaa !2307
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 248
   %328 = load ptr, ptr %327, align 8, !tbaa !677
@@ -110628,8 +110630,8 @@ _ZN4llvm7isUIntNEjm.exit.thread:                  ; preds = %356, %_ZN4llvm7isUI
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 232
   %380 = load ptr, ptr %379, align 8, !tbaa !676
   %381 = load i64, ptr %380, align 8
-  %.fr657 = freeze i64 %381
-  %382 = and i64 %.fr657, 262144
+  %.fr = freeze i64 %381
+  %382 = and i64 %.fr, 262144
   %383 = icmp eq i64 %382, 0
   br i1 %383, label %switch.early.test, label %.critedge5.thread
 
@@ -110660,8 +110662,8 @@ switch.early.test:                                ; preds = %377
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %394 = load i8, ptr %393, align 16
   %395 = icmp ne i8 %394, 46
-  %.not301658 = icmp eq ptr %392, null
-  %.not301 = or i1 %.not301658, %395
+  %.not301657 = icmp eq ptr %392, null
+  %.not301 = or i1 %.not301657, %395
   br i1 %.not301, label %417, label %396
 
 396:                                              ; preds = %.critedge5.thread
@@ -110750,8 +110752,8 @@ _ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %396, %401, %_ZNK5cl
   store i64 %.sroa.0.0.copyload.i371, ptr %22, align 8, !tbaa !1035
   %436 = load i16, ptr %.0639, align 8
   %437 = and i16 %436, 511
-  %.not660 = icmp eq i16 %437, 54
-  br i1 %.not660, label %438, label %.critedge314
+  %.not659 = icmp eq i16 %437, 54
+  br i1 %.not659, label %438, label %.critedge314
 
 438:                                              ; preds = %431
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -110808,11 +110810,11 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm5APInt13ge
 _ZN4llvm5APIntD2Ev.exit..critedge314_crit_edge:   ; preds = %_ZN4llvm5APIntD2Ev.exit
   %.pre = load ptr, ptr %71, align 8, !tbaa !2307
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 248
-  %.pre668 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !677
+  %.pre667 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !677
   br label %.critedge314
 
 .critedge314:                                     ; preds = %_ZN4llvm5APIntD2Ev.exit..critedge314_crit_edge, %431
-  %466 = phi ptr [ %.pre668, %_ZN4llvm5APIntD2Ev.exit..critedge314_crit_edge ], [ %434, %431 ]
+  %466 = phi ptr [ %.pre667, %_ZN4llvm5APIntD2Ev.exit..critedge314_crit_edge ], [ %434, %431 ]
   %467 = phi ptr [ %.pre, %_ZN4llvm5APIntD2Ev.exit..critedge314_crit_edge ], [ %432, %431 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %468 = getelementptr inbounds nuw i8, ptr %466, i64 17344
@@ -110846,15 +110848,15 @@ _ZN4llvm5APIntD2Ev.exit..critedge314_crit_edge:   ; preds = %_ZN4llvm5APIntD2Ev.
 
 485:                                              ; preds = %477, %477, %477, %477
   %486 = call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %481) #31
-  %.phi.trans.insert669 = getelementptr inbounds nuw i8, ptr %486, i64 28
-  %.pre670 = load i32, ptr %.phi.trans.insert669, align 4
-  %.pre674 = and i32 %.pre670, 127
+  %.phi.trans.insert668 = getelementptr inbounds nuw i8, ptr %486, i64 28
+  %.pre669 = load i32, ptr %.phi.trans.insert668, align 4
+  %.pre673 = and i32 %.pre669, 127
   br label %_ZNK5clang12LookupResult12getFoundDeclEv.exit
 
 _ZNK5clang12LookupResult12getFoundDeclEv.exit:    ; preds = %477, %485
-  %.pre-phi675 = phi i32 [ %484, %477 ], [ %.pre674, %485 ]
+  %.pre-phi674 = phi i32 [ %484, %477 ], [ %.pre673, %485 ]
   %.0.i.i374 = phi ptr [ %481, %477 ], [ %486, %485 ]
-  %487 = add nsw i32 %.pre-phi675, -65
+  %487 = add nsw i32 %.pre-phi674, -65
   %488 = icmp ult i32 %487, -3
   br i1 %488, label %500, label %489
 

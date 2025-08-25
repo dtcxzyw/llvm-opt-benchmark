@@ -24223,8 +24223,8 @@ define hidden void @_ZN4tiff7decoder5image5Image11from_reader17h81034c98dd02c189
   %124 = icmp ult i16 %.sroa.894.0.copyload, 9
   %switch.shifted = lshr i16 383, %.sroa.894.0.copyload
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond1920 = select i1 %124, i1 %switch.lobit, i1 false
-  br i1 %or.cond1920, label %switch.lookup, label %126
+  %or.cond1921 = select i1 %124, i1 %switch.lobit, i1 false
+  br i1 %or.cond1921, label %switch.lookup, label %126
 
 switch.lookup:                                    ; preds = %123
   %125 = zext nneg i16 %.sroa.894.0.copyload to i64
@@ -24838,7 +24838,7 @@ switch.lookup:                                    ; preds = %123
   store i64 2, ptr %0, align 8
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hce2ebb81b7cda237E.exit1289"
 
-276:                                              ; preds = %309, %289, %315, %296, %switch.lookup1921, %279, %268
+276:                                              ; preds = %309, %289, %315, %296, %switch.lookup1922, %279, %268
   %277 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u64$GT$$GT$17hce2ebb81b7cda237E.exit1291"
@@ -24937,9 +24937,9 @@ switch.lookup:                                    ; preds = %123
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9308.sroa.5)
   %switch.tableidx = add i16 %.sroa.8305.0.copyload, -1
   %294 = icmp ult i16 %switch.tableidx, 3
-  br i1 %294, label %switch.lookup1921, label %298
+  br i1 %294, label %switch.lookup1922, label %298
 
-switch.lookup1921:                                ; preds = %293
+switch.lookup1922:                                ; preds = %293
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i16 10, ptr %16, align 8
   %.sroa.4915.0..sroa_idx1643 = getelementptr inbounds nuw i8, ptr %16, i64 2
@@ -24947,7 +24947,7 @@ switch.lookup1921:                                ; preds = %293
   invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17h9fe9535bfe1b165fE"(ptr noalias noundef align 8 dereferenceable(40) %16)
           to label %295 unwind label %276
 
-295:                                              ; preds = %switch.lookup1921
+295:                                              ; preds = %switch.lookup1922
   %switch.idx.cast = trunc nuw i16 %switch.tableidx to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %296
@@ -25027,6 +25027,7 @@ switch.lookup1921:                                ; preds = %293
   %.sroa.0374.0.copyload = load i16, ptr %15, align 8
   %.sroa.8377.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 2
   %.sroa.8377.0.copyload = load i16, ptr %.sroa.8377.0..sroa_idx, align 2
+  %.sroa.8377.0.copyload.fr = freeze i16 %.sroa.8377.0.copyload
   %.sroa.9380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.9380.sroa.0.0.copyload = load i16, ptr %.sroa.9380.0..sroa_idx, align 4
   %.sroa.9380.sroa.5.0..sroa.9380.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 6
@@ -25048,7 +25049,7 @@ switch.lookup1921:                                ; preds = %293
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.0374.0.copyload, ptr %312, align 8
   %.sroa.2986.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %.sroa.8377.0.copyload, ptr %.sroa.2986.0..sroa_idx, align 2
+  store i16 %.sroa.8377.0.copyload.fr, ptr %.sroa.2986.0..sroa_idx, align 2
   %.sroa.3987.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 %.sroa.9380.sroa.0.0.copyload, ptr %.sroa.3987.0..sroa_idx, align 4
   store i64 2, ptr %0, align 8
@@ -25056,16 +25057,15 @@ switch.lookup1921:                                ; preds = %293
 
 313:                                              ; preds = %310
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9380.sroa.5)
-  %switch.selectcmp = icmp eq i16 %.sroa.8377.0.copyload, 2
+  %switch.selectcmp = icmp eq i16 %.sroa.8377.0.copyload.fr, 2
   %switch.select = select i1 %switch.selectcmp, i8 1, i8 2
-  %switch.selectcmp1258 = icmp eq i16 %.sroa.8377.0.copyload, 1
+  %switch.selectcmp1258 = icmp eq i16 %.sroa.8377.0.copyload.fr, 1
   %switch.select1259 = select i1 %switch.selectcmp1258, i8 0, i8 %switch.select
-  %switch.select1259.fr = freeze i8 %switch.select1259
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 11, ptr %14, align 8
   %.sroa.4977.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i16 %.sroa.8377.0.copyload, ptr %.sroa.4977.0..sroa_idx, align 2
-  %314 = icmp eq i8 %switch.select1259.fr, 2
+  store i16 %.sroa.8377.0.copyload.fr, ptr %.sroa.4977.0..sroa_idx, align 2
+  %314 = icmp eq i8 %switch.select1259, 2
   br i1 %314, label %322, label %315
 
 315:                                              ; preds = %313
@@ -25074,9 +25074,9 @@ switch.lookup1921:                                ; preds = %293
 
 316:                                              ; preds = %315
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %317 = trunc i8 %switch.select1259.fr to i1
+  %317 = trunc i8 %switch.select1259 to i1
   %spec.select = select i1 %317, i16 %.sroa.0832.0, i16 1
-  %318 = and i8 %switch.select1259.fr, 1
+  %318 = and i8 %switch.select1259, 1
   br label %319
 
 319:                                              ; preds = %316, %.thread1916
@@ -25087,7 +25087,7 @@ switch.lookup1921:                                ; preds = %293
           to label %325 unwind label %.thread1865
 
 322:                                              ; preds = %313
-  %323 = trunc i16 %.sroa.8377.0.copyload to i8
+  %323 = trunc i16 %.sroa.8377.0.copyload.fr to i8
   %.sroa.5984.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 3
   %.sroa.31003.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %.sroa.31003.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(37) %.sroa.5984.0..sroa_idx, i64 37, i1 false)

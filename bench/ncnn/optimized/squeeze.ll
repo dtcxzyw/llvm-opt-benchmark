@@ -516,8 +516,8 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.1298913.us = phi i8 [ %.4.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.1302912.us = phi i1 [ %.5.us, %.lr.ph.split.us ], [ false, %.lr.ph ]
+  %.1298914.us = phi i8 [ %.4.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.1302913.us = phi i1 [ %.5.us, %.lr.ph.split.us ], [ false, %.lr.ph ]
   %66 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
   %67 = load i32, ptr %66, align 4, !tbaa !45
   %68 = icmp slt i32 %67, 0
@@ -528,9 +528,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
   %or.cond3.us = select i1 %56, i1 %70, i1 false
   %71 = icmp eq i32 %spec.select.us, 1
   %or.cond5.us = select i1 %56, i1 %71, i1 false
-  %.4.us = select i1 %or.cond3.us, i8 %58, i8 %.1298913.us
+  %.4.us = select i1 %or.cond3.us, i8 %58, i8 %.1298914.us
   %72 = select i1 %or.cond5.us, i1 true, i1 %or.cond.us
-  %.5.us = select i1 %72, i1 %55, i1 %.1302912.us
+  %.5.us = select i1 %72, i1 %55, i1 %.1302913.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count930
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !46
@@ -561,10 +561,10 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %4, %_ZNK4ncnn3Mat5e
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv928 = phi i64 [ %indvars.iv.next929, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.1915 = phi i8 [ %spec.select924, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.1295914 = phi i1 [ %.2296, %.lr.ph.split ], [ false, %.lr.ph ]
-  %.1298913 = phi i8 [ %.4, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.1302912 = phi i1 [ %.5, %.lr.ph.split ], [ false, %.lr.ph ]
+  %.1916 = phi i8 [ %spec.select925, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.1295915 = phi i1 [ %.2296, %.lr.ph.split ], [ false, %.lr.ph ]
+  %.1298914 = phi i8 [ %.4, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.1302913 = phi i1 [ %.5, %.lr.ph.split ], [ false, %.lr.ph ]
   %90 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv928
   %91 = load i32, ptr %90, align 4, !tbaa !45
   %92 = icmp slt i32 %91, 0
@@ -575,22 +575,22 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %4, %_ZNK4ncnn3Mat5e
   %or.cond9 = select i1 %59, i1 %95, i1 false
   %96 = icmp eq i32 %spec.select, 2
   %or.cond11 = select i1 %59, i1 %96, i1 false
-  %spec.select924 = select i1 %94, i8 %61, i8 %.1915
+  %spec.select925 = select i1 %94, i8 %61, i8 %.1916
   %or.cond15 = select i1 %62, i1 %95, i1 false
-  %.2296 = select i1 %or.cond15, i1 %65, i1 %.1295914
+  %.2296 = select i1 %or.cond15, i1 %65, i1 %.1295915
   %or.cond17 = select i1 %62, i1 %96, i1 false
   %97 = select i1 %or.cond17, i1 true, i1 %or.cond9
-  %.4 = select i1 %97, i8 %58, i8 %.1298913
+  %.4 = select i1 %97, i8 %58, i8 %.1298914
   %98 = icmp eq i32 %spec.select, 3
   %or.cond19 = select i1 %62, i1 %98, i1 false
   %99 = select i1 %or.cond19, i1 true, i1 %or.cond11
-  %.5 = select i1 %99, i1 %55, i1 %.1302912
+  %.5 = select i1 %99, i1 %55, i1 %.1302913
   %indvars.iv.next929 = add nuw nsw i64 %indvars.iv928, 1
   %exitcond931.not = icmp eq i64 %indvars.iv.next929, %wide.trip.count930
   br i1 %exitcond931.not, label %.loopexit.loopexit, label %.lr.ph.split, !llvm.loop !46
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.split
-  %100 = trunc nuw i8 %spec.select924 to i1
+  %100 = trunc nuw i8 %spec.select925 to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.loopexit.loopexit, %.preheader, %_ZNK4ncnn3Mat5emptyEv.exit.thread
@@ -5533,10 +5533,11 @@ _ZNK4ncnn3Mat5emptyEv.exit907:                    ; preds = %2465
   %2469 = load i64, ptr %2468, align 8, !tbaa !17
   %2470 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %2471 = load i32, ptr %2470, align 8, !tbaa !43
-  %2472 = sext i32 %2471 to i64
-  %2473 = mul i64 %2469, %2472
-  %.fr = freeze i64 %2473
-  %2474 = icmp eq i64 %.fr, 0
+  %.fr912 = freeze i32 %2471
+  %2472 = sext i32 %.fr912 to i64
+  %.fr = freeze i64 %2469
+  %2473 = mul i64 %.fr, %2472
+  %2474 = icmp eq i64 %2473, 0
   br i1 %2474, label %_ZNK4ncnn3Mat5emptyEv.exit907.thread, label %2475
 
 _ZNK4ncnn3Mat5emptyEv.exit907.thread:             ; preds = %2465, %_ZNK4ncnn3Mat5emptyEv.exit907

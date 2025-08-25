@@ -846,92 +846,92 @@ BufferGetPage.exit:                               ; preds = %7, %13
 define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
   %5 = getelementptr i8, ptr %1, i64 12
   %.val43 = load i16, ptr %5, align 4
-  %6 = icmp ult i16 %.val43, 25
-  %7 = zext i16 %.val43 to i32
+  %.val43.fr = freeze i16 %.val43
+  %6 = icmp ult i16 %.val43.fr, 25
+  %7 = zext i16 %.val43.fr to i32
   %8 = add nuw nsw i32 %7, 262120
   %9 = lshr i32 %8, 2
   %10 = trunc i32 %9 to i16
   %.0.i = select i1 %6, i16 0, i16 %10
-  %11 = freeze i16 %.0.i
-  %12 = add i16 %3, -1
-  %or.cond.not = icmp ult i16 %12, %11
-  br i1 %or.cond.not, label %13, label %.loopexit59
+  %11 = add i16 %3, -1
+  %or.cond.not = icmp ult i16 %11, %.0.i
+  br i1 %or.cond.not, label %12, label %.loopexit59
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = zext i16 %3 to i64
-  %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %16
-  %.val44 = load i32, ptr %17, align 4
-  %18 = and i32 %.val44, 32767
-  %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  %.val41 = load i16, ptr %20, align 2
-  %21 = getelementptr i8, ptr %20, i64 2
-  %.val42 = load i16, ptr %21, align 2
-  %22 = zext i16 %.val41 to i32
-  %23 = shl nuw i32 %22, 16
-  %24 = zext i16 %.val42 to i32
-  %25 = or disjoint i32 %23, %24
-  %26 = icmp eq i32 %25, %2
-  br i1 %26, label %.loopexit, label %.preheader
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = zext i16 %3 to i64
+  %15 = add nsw i64 %14, -1
+  %16 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %13, i64 0, i64 %15
+  %.val44 = load i32, ptr %16, align 4
+  %17 = and i32 %.val44, 32767
+  %18 = zext nneg i32 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
+  %.val41 = load i16, ptr %19, align 2
+  %20 = getelementptr i8, ptr %19, i64 2
+  %.val42 = load i16, ptr %20, align 2
+  %21 = zext i16 %.val41 to i32
+  %22 = shl nuw i32 %21, 16
+  %23 = zext i16 %.val42 to i32
+  %24 = or disjoint i32 %22, %23
+  %25 = icmp eq i32 %24, %2
+  br i1 %25, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %13, %27
-  %.030.in = phi i16 [ %.030, %27 ], [ %3, %13 ]
+.preheader:                                       ; preds = %12, %26
+  %.030.in = phi i16 [ %.030, %26 ], [ %3, %12 ]
   %.030 = add i16 %.030.in, 1
-  %.not36 = icmp ugt i16 %.030, %11
-  br i1 %.not36, label %.loopexit59, label %27
+  %.not36 = icmp ugt i16 %.030, %.0.i
+  br i1 %.not36, label %.loopexit59, label %26
 
-27:                                               ; preds = %.preheader
-  %28 = zext i16 %.030 to i64
-  %29 = add nsw i64 %28, -1
-  %30 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %14, i64 0, i64 %29
-  %.val45 = load i32, ptr %30, align 4
-  %31 = and i32 %.val45, 32767
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %32
-  %.val39 = load i16, ptr %33, align 2
-  %34 = getelementptr i8, ptr %33, i64 2
-  %.val40 = load i16, ptr %34, align 2
-  %35 = zext i16 %.val39 to i32
-  %36 = shl nuw i32 %35, 16
-  %37 = zext i16 %.val40 to i32
-  %38 = or disjoint i32 %36, %37
-  %39 = icmp eq i32 %38, %2
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !8
+26:                                               ; preds = %.preheader
+  %27 = zext i16 %.030 to i64
+  %28 = add nsw i64 %27, -1
+  %29 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %13, i64 0, i64 %28
+  %.val45 = load i32, ptr %29, align 4
+  %30 = and i32 %.val45, 32767
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
+  %.val39 = load i16, ptr %32, align 2
+  %33 = getelementptr i8, ptr %32, i64 2
+  %.val40 = load i16, ptr %33, align 2
+  %34 = zext i16 %.val39 to i32
+  %35 = shl nuw i32 %34, 16
+  %36 = zext i16 %.val40 to i32
+  %37 = or disjoint i32 %35, %36
+  %38 = icmp eq i32 %37, %2
+  br i1 %38, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit59:                                      ; preds = %.preheader, %4
-  %.0 = phi i16 [ %11, %4 ], [ %12, %.preheader ]
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.not3749 = icmp eq i16 %.0, 0
-  br i1 %.not3749, label %.loopexit, label %.lr.ph
+  %.0 = phi i16 [ %.0.i, %4 ], [ %11, %.preheader ]
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.not3750 = icmp eq i16 %.0, 0
+  br i1 %.not3750, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit59, %53
-  %.150 = phi i16 [ %54, %53 ], [ 1, %.loopexit59 ]
-  %41 = zext i16 %.150 to i64
-  %42 = add nsw i64 %41, -1
-  %43 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %40, i64 0, i64 %42
-  %.val46 = load i32, ptr %43, align 4
-  %44 = and i32 %.val46, 32767
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
-  %.val = load i16, ptr %46, align 2
-  %47 = getelementptr i8, ptr %46, i64 2
-  %.val38 = load i16, ptr %47, align 2
-  %48 = zext i16 %.val to i32
-  %49 = shl nuw i32 %48, 16
-  %50 = zext i16 %.val38 to i32
-  %51 = or disjoint i32 %49, %50
-  %52 = icmp eq i32 %51, %2
-  br i1 %52, label %.loopexit, label %53
+.lr.ph:                                           ; preds = %.loopexit59, %52
+  %.151 = phi i16 [ %53, %52 ], [ 1, %.loopexit59 ]
+  %40 = zext i16 %.151 to i64
+  %41 = add nsw i64 %40, -1
+  %42 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %39, i64 0, i64 %41
+  %.val46 = load i32, ptr %42, align 4
+  %43 = and i32 %.val46, 32767
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %44
+  %.val = load i16, ptr %45, align 2
+  %46 = getelementptr i8, ptr %45, i64 2
+  %.val38 = load i16, ptr %46, align 2
+  %47 = zext i16 %.val to i32
+  %48 = shl nuw i32 %47, 16
+  %49 = zext i16 %.val38 to i32
+  %50 = or disjoint i32 %48, %49
+  %51 = icmp eq i32 %50, %2
+  br i1 %51, label %.loopexit, label %52
 
-53:                                               ; preds = %.lr.ph
-  %54 = add i16 %.150, 1
-  %.not37 = icmp ugt i16 %54, %.0
+52:                                               ; preds = %.lr.ph
+  %53 = add i16 %.151, 1
+  %.not37 = icmp ugt i16 %53, %.0
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
-.loopexit:                                        ; preds = %27, %.lr.ph, %53, %.loopexit59, %13
-  %.031 = phi i16 [ %3, %13 ], [ 0, %.loopexit59 ], [ %.150, %.lr.ph ], [ 0, %53 ], [ %.030, %27 ]
+.loopexit:                                        ; preds = %26, %.lr.ph, %52, %.loopexit59, %12
+  %.031 = phi i16 [ %3, %12 ], [ 0, %.loopexit59 ], [ %.151, %.lr.ph ], [ 0, %52 ], [ %.030, %26 ]
   ret i16 %.031
 }
 

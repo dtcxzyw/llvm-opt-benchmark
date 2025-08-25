@@ -1858,147 +1858,144 @@ define hidden void @_ZN11opencv_test20Size_MatType_Mat_Eye12PerfTestBodyEv(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sroa.07.0.copyload = load i32, ptr %9, align 4, !tbaa !77
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !77
-  %10 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %11 = load i32, ptr %10, align 4, !tbaa !78
+  %.sroa.07.0.copyload = load i64, ptr %9, align 4
+  %10 = trunc i64 %.sroa.07.0.copyload to i32
+  %11 = lshr i64 %.sroa.07.0.copyload, 32
+  %12 = trunc nuw i64 %11 to i32
+  %13 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %14 = load i32, ptr %13, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %.sroa.7.0.copyload, i32 noundef %.sroa.07.0.copyload, i32 noundef %11)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %12, i32 noundef %10, i32 noundef %14)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %14, align 8
-  store i32 50397184, ptr %3, align 8, !tbaa !80
-  store ptr %2, ptr %13, align 8, !tbaa !83
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1)
-          to label %16 unwind label %30
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %17, align 8
+  store i32 50397184, ptr %3, align 8, !tbaa !79
+  store ptr %2, ptr %16, align 8, !tbaa !82
+  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1)
+          to label %19 unwind label %33
 
-16:                                               ; preds = %1
+19:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = icmp slt i32 %.sroa.07.0.copyload, 641
-  %18 = select i1 %17, i32 15, i32 5
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper4runsEj(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %18)
+  %20 = icmp slt i32 %10, 641
+  %21 = select i1 %20, i32 15, i32 5
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper4runsEj(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %21)
           to label %.preheader28 unwind label %.loopexit.split-lp
 
-.preheader28:                                     ; preds = %16
-  %.sroa.7.0.insert.ext = zext i32 %.sroa.7.0.copyload to i64
-  %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
-  %.sroa.07.0.insert.ext = zext i32 %.sroa.07.0.copyload to i64
-  %.sroa.07.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.07.0.insert.ext
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %23
+.preheader28:                                     ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %26
 
-23:                                               ; preds = %.preheader28, %29
-  %24 = invoke noundef zeroext i1 @_ZN4perf8TestBase4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %25 unwind label %.loopexit
-
-25:                                               ; preds = %23
-  br i1 %24, label %26, label %.critedge
-
-26:                                               ; preds = %25
-  %27 = invoke noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+26:                                               ; preds = %.preheader28, %32
+  %27 = invoke noundef zeroext i1 @_ZN4perf8TestBase4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %28 unwind label %.loopexit
 
 28:                                               ; preds = %26
-  br i1 %27, label %.preheader, label %.critedge
+  br i1 %27, label %29, label %.critedge
 
-29:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
+29:                                               ; preds = %28
+  %30 = invoke noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+          to label %31 unwind label %.loopexit
+
+31:                                               ; preds = %29
+  br i1 %30, label %.preheader, label %.critedge
+
+32:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
   invoke void @_ZN4perf8TestBase9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %23 unwind label %.loopexit, !llvm.loop !84
+          to label %26 unwind label %.loopexit, !llvm.loop !83
 
-30:                                               ; preds = %1
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %1
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %61
+  br label %64
 
-.loopexit:                                        ; preds = %23, %26, %29
+.loopexit:                                        ; preds = %26, %29, %32
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %64
 
-.loopexit.split-lp:                               ; preds = %16
+.loopexit.split-lp:                               ; preds = %19
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %64
 
-.preheader:                                       ; preds = %28, %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %.01029 = phi i32 [ %37, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 0, %28 ]
+.preheader:                                       ; preds = %31, %_ZN2cv3MataSERKNS_7MatExprE.exit
+  %.01029 = phi i32 [ %40, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 0, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN2cv3Mat3eyeENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %4, i64 %.sroa.07.0.insert.insert, i32 noundef %11)
-          to label %32 unwind label %38
+  invoke void @_ZN2cv3Mat3eyeENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %4, i64 %.sroa.07.0.copyload, i32 noundef %14)
+          to label %35 unwind label %41
 
-32:                                               ; preds = %.preheader
-  %33 = load ptr, ptr %4, align 8, !tbaa !85
-  %34 = load ptr, ptr %33, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef -1)
-          to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %40
+35:                                               ; preds = %.preheader
+  %36 = load ptr, ptr %4, align 8, !tbaa !84
+  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef -1)
+          to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %43
 
-_ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %32
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #31
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #31
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #31
+_ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %35
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #31
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #31
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %37 = add nuw nsw i32 %.01029, 1
-  %exitcond.not = icmp eq i32 %37, %18
-  br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !97
+  %40 = add nuw nsw i32 %.01029, 1
+  %exitcond.not = icmp eq i32 %40, %21
+  br i1 %exitcond.not, label %32, label %.preheader, !llvm.loop !96
 
-38:                                               ; preds = %.preheader
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %.preheader
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %45
 
-40:                                               ; preds = %32
-  %41 = landingpad { ptr, i32 }
+43:                                               ; preds = %35
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %4) #31
-  br label %42
+  br label %45
 
-42:                                               ; preds = %40, %38
-  %.pn21 = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
+45:                                               ; preds = %43, %41
+  %.pn21 = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %61
+  br label %64
 
-.critedge:                                        ; preds = %25, %28
+.critedge:                                        ; preds = %28, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %43, ptr %5, align 8, !tbaa !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %43, ptr noundef nonnull align 1 dereferenceable(14) @.str.27, i64 14, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 14, ptr %44, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  store i8 0, ptr %45, align 2, !tbaa !14
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %46, ptr %5, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %46, ptr noundef nonnull align 1 dereferenceable(14) @.str.27, i64 14, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 14, ptr %47, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  store i8 0, ptr %48, align 2, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %46, align 8, !tbaa !98
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %47, align 4, !tbaa !99
-  store i32 16842752, ptr %6, align 8, !tbaa !80
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %48, align 8, !tbaa !83
-  %49 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef 1.000000e+00, i32 noundef 0)
-          to label %50 unwind label %55
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %49, align 8, !tbaa !97
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 0, ptr %50, align 4, !tbaa !98
+  store i32 16842752, ptr %6, align 8, !tbaa !79
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %2, ptr %51, align 8, !tbaa !82
+  %52 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef 1.000000e+00, i32 noundef 0)
+          to label %53 unwind label %58
 
-50:                                               ; preds = %.critedge
+53:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %51 = load ptr, ptr %5, align 8, !tbaa !12
-  %52 = icmp eq ptr %51, %43
-  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %54 = load ptr, ptr %5, align 8, !tbaa !12
+  %55 = icmp eq ptr %54, %46
+  br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %50
-  %53 = load i64, ptr %44, align 8, !tbaa !15
-  %54 = icmp ult i64 %53, 16
-  call void @llvm.assume(i1 %54)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %53
+  %56 = load i64, ptr %47, align 8, !tbaa !15
+  %57 = icmp ult i64 %56, 16
+  call void @llvm.assume(i1 %57)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %50
-  call void @_ZdlPv(ptr noundef %51) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %53
+  call void @_ZdlPv(ptr noundef %54) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -2007,30 +2004,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-55:                                               ; preds = %.critedge
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %.critedge
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %57 = load ptr, ptr %5, align 8, !tbaa !12
-  %58 = icmp eq ptr %57, %43
-  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
+  %60 = load ptr, ptr %5, align 8, !tbaa !12
+  %61 = icmp eq ptr %60, %46
+  br i1 %61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %55
-  %59 = load i64, ptr %44, align 8, !tbaa !15
-  %60 = icmp ult i64 %59, 16
-  call void @llvm.assume(i1 %60)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %58
+  %62 = load i64, ptr %47, align 8, !tbaa !15
+  %63 = icmp ult i64 %62, 16
+  call void @llvm.assume(i1 %63)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %55
-  call void @_ZdlPv(ptr noundef %57) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %58
+  call void @_ZdlPv(ptr noundef %60) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %61
+  br label %64
 
-61:                                               ; preds = %.loopexit, %.loopexit.split-lp, %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, %30
-  %.pn21.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn21, %42 ], [ %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+64:                                               ; preds = %.loopexit, %.loopexit.split-lp, %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, %33
+  %.pn21.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn21, %45 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn21.pn.pn
@@ -2039,7 +2036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::internal::GTestLog", align 4
-  %3 = load ptr, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  %3 = load ptr, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %4 = icmp ne ptr %3, null
   %5 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext %4)
   br i1 %5, label %12, label %6
@@ -2071,7 +2068,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit2: ; preds = %_ZStls
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit2
-  %13 = load ptr, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  %13 = load ptr, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   ret ptr %13
 }
 
@@ -2344,7 +2341,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 0, ptr %2, align 8, !tbaa !102
+  store i8 0, ptr %2, align 8, !tbaa !101
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
 
@@ -2359,7 +2356,7 @@ define hidden void @_ZN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_Test5SetU
 8:                                                ; preds = %3
   %9 = extractvalue { ptr, i32 } %4, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #31
-  store i8 1, ptr %2, align 8, !tbaa !102
+  store i8 1, ptr %2, align 8, !tbaa !101
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2501,7 +2498,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.028.038, i64 8
   %56 = load ptr, ptr %9, align 8, !tbaa !50
   %.not34 = icmp eq ptr %55, %56
-  br i1 %.not34, label %.thread, label %.lr.ph, !llvm.loop !105
+  br i1 %.not34, label %.thread, label %.lr.ph, !llvm.loop !104
 
 57:                                               ; preds = %18
   %58 = load ptr, ptr %.sroa.028.038, align 8, !tbaa !53
@@ -2722,17 +2719,17 @@ _ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat
   store i8 0, ptr %24, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %2, ptr %25, align 8, !tbaa !106
+  store ptr %2, ptr %25, align 8, !tbaa !105
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %3, ptr %26, align 8, !tbaa !108
+  store ptr %3, ptr %26, align 8, !tbaa !107
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %4, ptr %27, align 8, !tbaa !109
+  store ptr %4, ptr %27, align 8, !tbaa !108
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %5, ptr %28, align 8, !tbaa !110
+  store i32 %5, ptr %28, align 8, !tbaa !109
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %30 = load ptr, ptr %29, align 8, !tbaa !111
+  %30 = load ptr, ptr %29, align 8, !tbaa !110
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %32 = load ptr, ptr %31, align 8, !tbaa !114
+  %32 = load ptr, ptr %31, align 8, !tbaa !113
   %.not.i.i = icmp eq ptr %30, %32
   br i1 %.not.i.i, label %47, label %33
 
@@ -2765,9 +2762,9 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_
   store i64 0, ptr %22, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %44, ptr noundef nonnull align 8 dereferenceable(28) %25, i64 28, i1 false)
-  %45 = load ptr, ptr %29, align 8, !tbaa !111
+  %45 = load ptr, ptr %29, align 8, !tbaa !110
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  store ptr %46, ptr %29, align 8, !tbaa !111
+  store ptr %46, ptr %29, align 8, !tbaa !110
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
 47:                                               ; preds = %_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEEEvEPFSB_RKNS_13TestParamInfoISL_EEEPKci.exit
@@ -2823,21 +2820,21 @@ define internal void @_ZN11opencv_testL43gtest_Size_MatType_Mat_Zeros_EvalGenera
   %.sroa.02.0.copyload = load i64, ptr @_ZN4perfL6sz720pE, align 8
   %.sroa.01.0.copyload = load i64, ptr @_ZN4perfL7sz1080pE, align 8
   %.sroa.0.0.copyload = load i64, ptr @_ZN4perfL5szODDE, align 8
-  store i64 %.sroa.03.0.copyload, ptr %2, align 8, !alias.scope !115
+  store i64 %.sroa.03.0.copyload, ptr %2, align 8, !alias.scope !114
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.02.0.copyload, ptr %3, align 8, !alias.scope !115
+  store i64 %.sroa.02.0.copyload, ptr %3, align 8, !alias.scope !114
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %.sroa.01.0.copyload, ptr %4, align 8, !alias.scope !115
+  store i64 %.sroa.01.0.copyload, ptr %4, align 8, !alias.scope !114
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %.sroa.0.0.copyload, ptr %5, align 8, !alias.scope !115
+  store i64 %.sroa.0.0.copyload, ptr %5, align 8, !alias.scope !114
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %6, align 8, !tbaa !118, !alias.scope !115
+  store i32 0, ptr %6, align 8, !tbaa !117, !alias.scope !114
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 24, ptr %7, align 4, !tbaa !120, !alias.scope !115
+  store i32 24, ptr %7, align 4, !tbaa !119, !alias.scope !114
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 5, ptr %8, align 8, !tbaa !121, !alias.scope !115
+  store i32 5, ptr %8, align 8, !tbaa !120, !alias.scope !114
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store i32 21, ptr %9, align 4, !tbaa !122, !alias.scope !115
+  store i32 21, ptr %9, align 4, !tbaa !121, !alias.scope !114
   call void @_ZNK7testing8internal23CartesianProductHolder2INS0_11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS2_IiiiiEEEcvNS0_14ParamGeneratorISt5tupleIJT_T0_EEEEIS5_N4perf7MatTypeEEEv(ptr dead_on_unwind writable sret(%"class.testing::internal::ParamGenerator") align 8 %0, ptr noundef nonnull align 4 dereferenceable(48) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -2859,147 +2856,144 @@ define hidden void @_ZN11opencv_test22Size_MatType_Mat_Zeros12PerfTestBodyEv(ptr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.sroa.07.0.copyload = load i32, ptr %9, align 4, !tbaa !77
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !77
-  %10 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %11 = load i32, ptr %10, align 4, !tbaa !78
+  %.sroa.07.0.copyload = load i64, ptr %9, align 4
+  %10 = trunc i64 %.sroa.07.0.copyload to i32
+  %11 = lshr i64 %.sroa.07.0.copyload, 32
+  %12 = trunc nuw i64 %11 to i32
+  %13 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %14 = load i32, ptr %13, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %.sroa.7.0.copyload, i32 noundef %.sroa.07.0.copyload, i32 noundef %11)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %12, i32 noundef %10, i32 noundef %14)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %14, align 8
-  store i32 50397184, ptr %3, align 8, !tbaa !80
-  store ptr %2, ptr %13, align 8, !tbaa !83
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1)
-          to label %16 unwind label %30
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %17, align 8
+  store i32 50397184, ptr %3, align 8, !tbaa !79
+  store ptr %2, ptr %16, align 8, !tbaa !82
+  %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef 1)
+          to label %19 unwind label %33
 
-16:                                               ; preds = %1
+19:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = icmp slt i32 %.sroa.07.0.copyload, 641
-  %18 = select i1 %17, i32 15, i32 5
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper4runsEj(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 noundef %18)
+  %20 = icmp slt i32 %10, 641
+  %21 = select i1 %20, i32 15, i32 5
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper4runsEj(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %21)
           to label %.preheader28 unwind label %.loopexit.split-lp
 
-.preheader28:                                     ; preds = %16
-  %.sroa.7.0.insert.ext = zext i32 %.sroa.7.0.copyload to i64
-  %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
-  %.sroa.07.0.insert.ext = zext i32 %.sroa.07.0.copyload to i64
-  %.sroa.07.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.07.0.insert.ext
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 208
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %23
+.preheader28:                                     ; preds = %19
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 208
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %26
 
-23:                                               ; preds = %.preheader28, %29
-  %24 = invoke noundef zeroext i1 @_ZN4perf8TestBase4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %25 unwind label %.loopexit
-
-25:                                               ; preds = %23
-  br i1 %24, label %26, label %.critedge
-
-26:                                               ; preds = %25
-  %27 = invoke noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+26:                                               ; preds = %.preheader28, %32
+  %27 = invoke noundef zeroext i1 @_ZN4perf8TestBase4nextEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %28 unwind label %.loopexit
 
 28:                                               ; preds = %26
-  br i1 %27, label %.preheader, label %.critedge
+  br i1 %27, label %29, label %.critedge
 
-29:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
+29:                                               ; preds = %28
+  %30 = invoke noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
+          to label %31 unwind label %.loopexit
+
+31:                                               ; preds = %29
+  br i1 %30, label %.preheader, label %.critedge
+
+32:                                               ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit
   invoke void @_ZN4perf8TestBase9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %23 unwind label %.loopexit, !llvm.loop !123
+          to label %26 unwind label %.loopexit, !llvm.loop !122
 
-30:                                               ; preds = %1
-  %31 = landingpad { ptr, i32 }
+33:                                               ; preds = %1
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %61
+  br label %64
 
-.loopexit:                                        ; preds = %23, %26, %29
+.loopexit:                                        ; preds = %26, %29, %32
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %64
 
-.loopexit.split-lp:                               ; preds = %16
+.loopexit.split-lp:                               ; preds = %19
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %64
 
-.preheader:                                       ; preds = %28, %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %.01029 = phi i32 [ %37, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 0, %28 ]
+.preheader:                                       ; preds = %31, %_ZN2cv3MataSERKNS_7MatExprE.exit
+  %.01029 = phi i32 [ %40, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 0, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %4, i64 %.sroa.07.0.insert.insert, i32 noundef %11)
-          to label %32 unwind label %38
+  invoke void @_ZN2cv3Mat5zerosENS_5Size_IiEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %4, i64 %.sroa.07.0.copyload, i32 noundef %14)
+          to label %35 unwind label %41
 
-32:                                               ; preds = %.preheader
-  %33 = load ptr, ptr %4, align 8, !tbaa !85
-  %34 = load ptr, ptr %33, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = load ptr, ptr %35, align 8
-  invoke void %36(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef -1)
-          to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %40
+35:                                               ; preds = %.preheader
+  %36 = load ptr, ptr %4, align 8, !tbaa !84
+  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  invoke void %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef -1)
+          to label %_ZN2cv3MataSERKNS_7MatExprE.exit unwind label %43
 
-_ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %32
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #31
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %21) #31
-  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #31
+_ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %35
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #31
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #31
+  call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %37 = add nuw nsw i32 %.01029, 1
-  %exitcond.not = icmp eq i32 %37, %18
-  br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !124
+  %40 = add nuw nsw i32 %.01029, 1
+  %exitcond.not = icmp eq i32 %40, %21
+  br i1 %exitcond.not, label %32, label %.preheader, !llvm.loop !123
 
-38:                                               ; preds = %.preheader
-  %39 = landingpad { ptr, i32 }
+41:                                               ; preds = %.preheader
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %45
 
-40:                                               ; preds = %32
-  %41 = landingpad { ptr, i32 }
+43:                                               ; preds = %35
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %4) #31
-  br label %42
+  br label %45
 
-42:                                               ; preds = %40, %38
-  %.pn21 = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
+45:                                               ; preds = %43, %41
+  %.pn21 = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %61
+  br label %64
 
-.critedge:                                        ; preds = %25, %28
+.critedge:                                        ; preds = %28, %31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %43, ptr %5, align 8, !tbaa !4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %43, ptr noundef nonnull align 1 dereferenceable(10) @.str.32, i64 10, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 10, ptr %44, align 8, !tbaa !15
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 26
-  store i8 0, ptr %45, align 2, !tbaa !14
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %46, ptr %5, align 8, !tbaa !4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %46, ptr noundef nonnull align 1 dereferenceable(10) @.str.32, i64 10, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 10, ptr %47, align 8, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 26
+  store i8 0, ptr %48, align 2, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %46, align 8, !tbaa !98
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 0, ptr %47, align 4, !tbaa !99
-  store i32 16842752, ptr %6, align 8, !tbaa !80
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %48, align 8, !tbaa !83
-  %49 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef 1.000000e+00, i32 noundef 0)
-          to label %50 unwind label %55
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %49, align 8, !tbaa !97
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 0, ptr %50, align 4, !tbaa !98
+  store i32 16842752, ptr %6, align 8, !tbaa !79
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %2, ptr %51, align 8, !tbaa !82
+  %52 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, double noundef 1.000000e+00, i32 noundef 0)
+          to label %53 unwind label %58
 
-50:                                               ; preds = %.critedge
+53:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %51 = load ptr, ptr %5, align 8, !tbaa !12
-  %52 = icmp eq ptr %51, %43
-  br i1 %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %54 = load ptr, ptr %5, align 8, !tbaa !12
+  %55 = icmp eq ptr %54, %46
+  br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %50
-  %53 = load i64, ptr %44, align 8, !tbaa !15
-  %54 = icmp ult i64 %53, 16
-  call void @llvm.assume(i1 %54)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %53
+  %56 = load i64, ptr %47, align 8, !tbaa !15
+  %57 = icmp ult i64 %56, 16
+  call void @llvm.assume(i1 %57)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %50
-  call void @_ZdlPv(ptr noundef %51) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %53
+  call void @_ZdlPv(ptr noundef %54) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -3008,30 +3002,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-55:                                               ; preds = %.critedge
-  %56 = landingpad { ptr, i32 }
+58:                                               ; preds = %.critedge
+  %59 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %57 = load ptr, ptr %5, align 8, !tbaa !12
-  %58 = icmp eq ptr %57, %43
-  br i1 %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
+  %60 = load ptr, ptr %5, align 8, !tbaa !12
+  %61 = icmp eq ptr %60, %46
+  br i1 %61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %55
-  %59 = load i64, ptr %44, align 8, !tbaa !15
-  %60 = icmp ult i64 %59, 16
-  call void @llvm.assume(i1 %60)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26: ; preds = %58
+  %62 = load i64, ptr %47, align 8, !tbaa !15
+  %63 = icmp ult i64 %62, 16
+  call void @llvm.assume(i1 %63)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %55
-  call void @_ZdlPv(ptr noundef %57) #30
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25: ; preds = %58
+  call void @_ZdlPv(ptr noundef %60) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %61
+  br label %64
 
-61:                                               ; preds = %.loopexit, %.loopexit.split-lp, %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, %30
-  %.pn21.pn.pn = phi { ptr, i32 } [ %31, %30 ], [ %.pn21, %42 ], [ %56, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+64:                                               ; preds = %.loopexit, %.loopexit.split-lp, %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27, %33
+  %.pn21.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn21, %45 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn21.pn.pn
@@ -3275,7 +3269,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 0, ptr %2, align 8, !tbaa !125
+  store i8 0, ptr %2, align 8, !tbaa !124
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
 
@@ -3290,7 +3284,7 @@ define hidden void @_ZN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_Test5SetU
 8:                                                ; preds = %3
   %9 = extractvalue { ptr, i32 } %4, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #31
-  store i8 1, ptr %2, align 8, !tbaa !125
+  store i8 1, ptr %2, align 8, !tbaa !124
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -3432,7 +3426,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.028.038, i64 8
   %56 = load ptr, ptr %9, align 8, !tbaa !50
   %.not34 = icmp eq ptr %55, %56
-  br i1 %.not34, label %.thread, label %.lr.ph, !llvm.loop !128
+  br i1 %.not34, label %.thread, label %.lr.ph, !llvm.loop !127
 
 57:                                               ; preds = %18
   %58 = load ptr, ptr %.sroa.028.038, align 8, !tbaa !53
@@ -3653,17 +3647,17 @@ _ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat
   store i8 0, ptr %24, align 1, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %2, ptr %25, align 8, !tbaa !129
+  store ptr %2, ptr %25, align 8, !tbaa !128
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %3, ptr %26, align 8, !tbaa !131
+  store ptr %3, ptr %26, align 8, !tbaa !130
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %4, ptr %27, align 8, !tbaa !132
+  store ptr %4, ptr %27, align 8, !tbaa !131
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i32 %5, ptr %28, align 8, !tbaa !133
+  store i32 %5, ptr %28, align 8, !tbaa !132
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %30 = load ptr, ptr %29, align 8, !tbaa !134
+  %30 = load ptr, ptr %29, align 8, !tbaa !133
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %32 = load ptr, ptr %31, align 8, !tbaa !137
+  %32 = load ptr, ptr %31, align 8, !tbaa !136
   %.not.i.i = icmp eq ptr %30, %32
   br i1 %.not.i.i, label %47, label %33
 
@@ -3696,9 +3690,9 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_
   store i64 0, ptr %22, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %44, ptr noundef nonnull align 8 dereferenceable(28) %25, i64 28, i1 false)
-  %45 = load ptr, ptr %29, align 8, !tbaa !134
+  %45 = load ptr, ptr %29, align 8, !tbaa !133
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  store ptr %46, ptr %29, align 8, !tbaa !134
+  store ptr %46, ptr %29, align 8, !tbaa !133
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
 
 47:                                               ; preds = %_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEEEvEPFSB_RKNS_13TestParamInfoISL_EEEPKci.exit
@@ -3754,19 +3748,19 @@ define internal void @_ZN11opencv_testL43gtest_Size_MatType_Mat_Clone_EvalGenera
   %.sroa.02.0.copyload = load i64, ptr @_ZN4perfL6sz720pE, align 8
   %.sroa.01.0.copyload = load i64, ptr @_ZN4perfL7sz1080pE, align 8
   %.sroa.0.0.copyload = load i64, ptr @_ZN4perfL5szODDE, align 8
-  store i64 %.sroa.03.0.copyload, ptr %2, align 8, !alias.scope !138
+  store i64 %.sroa.03.0.copyload, ptr %2, align 8, !alias.scope !137
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.02.0.copyload, ptr %3, align 8, !alias.scope !138
+  store i64 %.sroa.02.0.copyload, ptr %3, align 8, !alias.scope !137
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %.sroa.01.0.copyload, ptr %4, align 8, !alias.scope !138
+  store i64 %.sroa.01.0.copyload, ptr %4, align 8, !alias.scope !137
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %.sroa.0.0.copyload, ptr %5, align 8, !alias.scope !138
+  store i64 %.sroa.0.0.copyload, ptr %5, align 8, !alias.scope !137
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 0, ptr %6, align 8, !tbaa !73, !alias.scope !138
+  store i32 0, ptr %6, align 8, !tbaa !73, !alias.scope !137
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 24, ptr %7, align 4, !tbaa !75, !alias.scope !138
+  store i32 24, ptr %7, align 4, !tbaa !75, !alias.scope !137
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 5, ptr %8, align 8, !tbaa !76, !alias.scope !138
+  store i32 5, ptr %8, align 8, !tbaa !76, !alias.scope !137
   call void @_ZNK7testing8internal23CartesianProductHolder2INS0_11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS0_11ValueArray3IiiiEEEcvNS0_14ParamGeneratorISt5tupleIJT_T0_EEEEIS5_N4perf7MatTypeEEEv(ptr dead_on_unwind writable sret(%"class.testing::internal::ParamGenerator") align 8 %0, ptr noundef nonnull align 4 dereferenceable(44) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
@@ -3791,11 +3785,11 @@ define hidden void @_ZN11opencv_test22Size_MatType_Mat_Clone12PerfTestBodyEv(ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %11 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %.sroa.0.0.copyload = load i32, ptr %12, align 4, !tbaa !77
+  %.sroa.0.0.copyload = load i32, ptr %12, align 4, !tbaa !140
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !77
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !140
   %13 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %14 = load i32, ptr %13, align 4, !tbaa !78
+  %14 = load i32, ptr %13, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3807,8 +3801,8 @@ define hidden void @_ZN11opencv_test22Size_MatType_Mat_Clone12PerfTestBodyEv(ptr
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %17, align 8
-  store i32 50397184, ptr %4, align 8, !tbaa !80
-  store ptr %2, ptr %16, align 8, !tbaa !83
+  store i32 50397184, ptr %4, align 8, !tbaa !79
+  store ptr %2, ptr %16, align 8, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 2)
           to label %20 unwind label %35
@@ -3818,8 +3812,8 @@ define hidden void @_ZN11opencv_test22Size_MatType_Mat_Clone12PerfTestBodyEv(ptr
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %22, align 8
-  store i32 50397184, ptr %5, align 8, !tbaa !80
-  store ptr %3, ptr %21, align 8, !tbaa !83
+  store i32 50397184, ptr %5, align 8, !tbaa !79
+  store ptr %3, ptr %21, align 8, !tbaa !82
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
           to label %24 unwind label %37
 
@@ -3907,12 +3901,12 @@ define hidden void @_ZN11opencv_test22Size_MatType_Mat_Clone12PerfTestBodyEv(ptr
   store i8 0, ptr %48, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %49, align 8, !tbaa !98
+  store i32 0, ptr %49, align 8, !tbaa !97
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 0, ptr %50, align 4, !tbaa !99
-  store i32 16842752, ptr %9, align 8, !tbaa !80
+  store i32 0, ptr %50, align 4, !tbaa !98
+  store i32 16842752, ptr %9, align 8, !tbaa !79
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %3, ptr %51, align 8, !tbaa !83
+  store ptr %3, ptr %51, align 8, !tbaa !82
   %52 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, double noundef 1.000000e+00, i32 noundef 0)
           to label %53 unwind label %63
 
@@ -4751,11 +4745,11 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Clone_Roi12PerfTestBodyEv
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %13 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %.sroa.0.0.copyload = load i32, ptr %14, align 4, !tbaa !77
+  %.sroa.0.0.copyload = load i32, ptr %14, align 4, !tbaa !140
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !77
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !140
   %15 = tail call noundef nonnull align 4 dereferenceable(12) ptr @_ZNK7testing18WithParamInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEE8GetParamEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %16 = load i32, ptr %15, align 4, !tbaa !78
+  %16 = load i32, ptr %15, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %.sroa.6.0.copyload, i32 noundef %.sroa.0.0.copyload, i32 noundef %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4769,8 +4763,8 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Clone_Roi12PerfTestBodyEv
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %21, align 8
-  store i32 50397184, ptr %4, align 8, !tbaa !80
-  store ptr %2, ptr %20, align 8, !tbaa !83
+  store i32 50397184, ptr %4, align 8, !tbaa !79
+  store ptr %2, ptr %20, align 8, !tbaa !82
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 2)
           to label %24 unwind label %49
@@ -4780,8 +4774,8 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Clone_Roi12PerfTestBodyEv
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %26, align 8
-  store i32 50397184, ptr %5, align 8, !tbaa !80
-  store ptr %3, ptr %25, align 8, !tbaa !83
+  store i32 50397184, ptr %5, align 8, !tbaa !79
+  store ptr %3, ptr %25, align 8, !tbaa !82
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 1)
           to label %28 unwind label %51
 
@@ -4895,12 +4889,12 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Clone_Roi12PerfTestBodyEv
   store i8 0, ptr %64, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %65, align 8, !tbaa !98
+  store i32 0, ptr %65, align 8, !tbaa !97
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 0, ptr %66, align 4, !tbaa !99
-  store i32 16842752, ptr %11, align 8, !tbaa !80
+  store i32 0, ptr %66, align 4, !tbaa !98
+  store i32 16842752, ptr %11, align 8, !tbaa !79
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %3, ptr %67, align 8, !tbaa !83
+  store ptr %3, ptr %67, align 8, !tbaa !82
   %68 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, double noundef 1.000000e+00, i32 noundef 0)
           to label %69 unwind label %79
 
@@ -5766,14 +5760,14 @@ define hidden void @_ZN11opencv_test31Size_MatType_Mat_CopyToWithMask12PerfTestB
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %18, align 8
-  store i32 50397184, ptr %5, align 8, !tbaa !80
-  store ptr %2, ptr %17, align 8, !tbaa !83
+  store i32 50397184, ptr %5, align 8, !tbaa !79
+  store ptr %2, ptr %17, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %20, align 8
-  store i32 50397184, ptr %6, align 8, !tbaa !80
-  store ptr %4, ptr %19, align 8, !tbaa !83
+  store i32 50397184, ptr %6, align 8, !tbaa !79
+  store ptr %4, ptr %19, align 8, !tbaa !82
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayES5_NS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 2)
           to label %22 unwind label %44
 
@@ -5782,8 +5776,8 @@ define hidden void @_ZN11opencv_test31Size_MatType_Mat_CopyToWithMask12PerfTestB
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %24, align 8
-  store i32 50397184, ptr %7, align 8, !tbaa !80
-  store ptr %3, ptr %23, align 8, !tbaa !83
+  store i32 50397184, ptr %7, align 8, !tbaa !79
+  store ptr %3, ptr %23, align 8, !tbaa !82
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 1)
           to label %26 unwind label %46
 
@@ -5815,13 +5809,13 @@ define hidden void @_ZN11opencv_test31Size_MatType_Mat_CopyToWithMask12PerfTestB
 38:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %28, align 8
-  store i32 33619968, ptr %8, align 8, !tbaa !80
-  store ptr %3, ptr %27, align 8, !tbaa !83
+  store i32 33619968, ptr %8, align 8, !tbaa !79
+  store ptr %3, ptr %27, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 0, ptr %29, align 8, !tbaa !98
-  store i32 0, ptr %30, align 4, !tbaa !99
-  store i32 16842752, ptr %9, align 8, !tbaa !80
-  store ptr %4, ptr %31, align 8, !tbaa !83
+  store i32 0, ptr %29, align 8, !tbaa !97
+  store i32 0, ptr %30, align 4, !tbaa !98
+  store i32 16842752, ptr %9, align 8, !tbaa !79
+  store ptr %4, ptr %31, align 8, !tbaa !82
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %39 unwind label %51
 
@@ -5881,12 +5875,12 @@ define hidden void @_ZN11opencv_test31Size_MatType_Mat_CopyToWithMask12PerfTestB
   store i8 0, ptr %55, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %56, align 8, !tbaa !98
+  store i32 0, ptr %56, align 8, !tbaa !97
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 0, ptr %57, align 4, !tbaa !99
-  store i32 16842752, ptr %11, align 8, !tbaa !80
+  store i32 0, ptr %57, align 4, !tbaa !98
+  store i32 16842752, ptr %11, align 8, !tbaa !79
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %3, ptr %58, align 8, !tbaa !83
+  store ptr %3, ptr %58, align 8, !tbaa !82
   %59 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, double noundef 0x3CB0000000000000, i32 noundef 0)
           to label %60 unwind label %65
 
@@ -6737,14 +6731,14 @@ define hidden void @_ZN11opencv_test30Size_MatType_Mat_SetToWithMask12PerfTestBo
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %20, align 8
-  store i32 50397184, ptr %5, align 8, !tbaa !80
-  store ptr %3, ptr %19, align 8, !tbaa !83
+  store i32 50397184, ptr %5, align 8, !tbaa !79
+  store ptr %3, ptr %19, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %22, align 8
-  store i32 50397184, ptr %6, align 8, !tbaa !80
-  store ptr %4, ptr %21, align 8, !tbaa !83
+  store i32 50397184, ptr %6, align 8, !tbaa !79
+  store ptr %4, ptr %21, align 8, !tbaa !82
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayES5_NS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 2)
           to label %24 unwind label %45
 
@@ -6753,8 +6747,8 @@ define hidden void @_ZN11opencv_test30Size_MatType_Mat_SetToWithMask12PerfTestBo
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %26, align 8
-  store i32 50397184, ptr %7, align 8, !tbaa !80
-  store ptr %3, ptr %25, align 8, !tbaa !83
+  store i32 50397184, ptr %7, align 8, !tbaa !79
+  store ptr %3, ptr %25, align 8, !tbaa !82
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 1)
           to label %28 unwind label %47
 
@@ -6785,14 +6779,14 @@ define hidden void @_ZN11opencv_test30Size_MatType_Mat_SetToWithMask12PerfTestBo
 
 40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store i32 -1056833530, ptr %8, align 8, !tbaa !80
-  store ptr %2, ptr %30, align 8, !tbaa !83
+  store i32 -1056833530, ptr %8, align 8, !tbaa !79
+  store ptr %2, ptr %30, align 8, !tbaa !82
   store i64 17179869185, ptr %29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 0, ptr %31, align 8, !tbaa !98
-  store i32 0, ptr %32, align 4, !tbaa !99
-  store i32 16842752, ptr %9, align 8, !tbaa !80
-  store ptr %4, ptr %33, align 8, !tbaa !83
+  store i32 0, ptr %31, align 8, !tbaa !97
+  store i32 0, ptr %32, align 4, !tbaa !98
+  store i32 16842752, ptr %9, align 8, !tbaa !79
+  store ptr %4, ptr %33, align 8, !tbaa !82
   %41 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3Mat5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %42 unwind label %52
 
@@ -6847,12 +6841,12 @@ define hidden void @_ZN11opencv_test30Size_MatType_Mat_SetToWithMask12PerfTestBo
   store i8 0, ptr %56, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %57, align 8, !tbaa !98
+  store i32 0, ptr %57, align 8, !tbaa !97
   %58 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 0, ptr %58, align 4, !tbaa !99
-  store i32 16842752, ptr %11, align 8, !tbaa !80
+  store i32 0, ptr %58, align 4, !tbaa !98
+  store i32 16842752, ptr %11, align 8, !tbaa !79
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %3, ptr %59, align 8, !tbaa !83
+  store ptr %3, ptr %59, align 8, !tbaa !82
   %60 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, double noundef 0x3CB0000000000000, i32 noundef 0)
           to label %61 unwind label %66
 
@@ -7713,23 +7707,23 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Transform12PerfTestBodyEv
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %24, align 8
-  store i32 50397184, ptr %6, align 8, !tbaa !80
-  store ptr %4, ptr %23, align 8, !tbaa !83
+  store i32 50397184, ptr %6, align 8, !tbaa !79
+  store ptr %4, ptr %23, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store double 0.000000e+00, ptr %8, align 8, !tbaa !207
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 -1056833530, ptr %7, align 8, !tbaa !80
+  store i32 -1056833530, ptr %7, align 8, !tbaa !79
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %8, ptr %26, align 8, !tbaa !83
+  store ptr %8, ptr %26, align 8, !tbaa !82
   store i64 4294967297, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store double 3.000000e+01, ptr %10, align 8, !tbaa !207
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 -1056833530, ptr %9, align 8, !tbaa !80
+  store i32 -1056833530, ptr %9, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %10, ptr %28, align 8, !tbaa !83
+  store ptr %10, ptr %28, align 8, !tbaa !82
   store i64 4294967297, ptr %27, align 8
   invoke void @_ZN2cv5randuERKNS_17_InputOutputArrayERKNS_11_InputArrayES5_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %29 unwind label %59
@@ -7744,8 +7738,8 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Transform12PerfTestBodyEv
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %31, align 8
-  store i32 50397184, ptr %11, align 8, !tbaa !80
-  store ptr %4, ptr %30, align 8, !tbaa !83
+  store i32 50397184, ptr %11, align 8, !tbaa !79
+  store ptr %4, ptr %30, align 8, !tbaa !82
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper2inERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef 0)
           to label %34 unwind label %61
@@ -7755,8 +7749,8 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Transform12PerfTestBodyEv
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %36, align 8
-  store i32 50397184, ptr %12, align 8, !tbaa !80
-  store ptr %5, ptr %35, align 8, !tbaa !83
+  store i32 50397184, ptr %12, align 8, !tbaa !79
+  store ptr %5, ptr %35, align 8, !tbaa !82
   %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper3outERKN2cv17_InputOutputArrayENS0_10WarmUpTypeE(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef 1)
           to label %38 unwind label %63
 
@@ -7789,19 +7783,19 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Transform12PerfTestBodyEv
 
 53:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  store i32 0, ptr %39, align 8, !tbaa !98
-  store i32 0, ptr %40, align 4, !tbaa !99
-  store i32 16842752, ptr %13, align 8, !tbaa !80
-  store ptr %4, ptr %41, align 8, !tbaa !83
+  store i32 0, ptr %39, align 8, !tbaa !97
+  store i32 0, ptr %40, align 4, !tbaa !98
+  store i32 16842752, ptr %13, align 8, !tbaa !79
+  store ptr %4, ptr %41, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 0, ptr %43, align 8
-  store i32 33619968, ptr %14, align 8, !tbaa !80
-  store ptr %5, ptr %42, align 8, !tbaa !83
+  store i32 33619968, ptr %14, align 8, !tbaa !79
+  store ptr %5, ptr %42, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  store i32 0, ptr %44, align 8, !tbaa !98
-  store i32 0, ptr %45, align 4, !tbaa !99
-  store i32 16842752, ptr %15, align 8, !tbaa !80
-  store ptr %3, ptr %46, align 8, !tbaa !83
+  store i32 0, ptr %44, align 8, !tbaa !97
+  store i32 0, ptr %45, align 4, !tbaa !98
+  store i32 16842752, ptr %15, align 8, !tbaa !79
+  store ptr %3, ptr %46, align 8, !tbaa !82
   invoke void @_ZN2cv9transformERKNS_11_InputArrayERKNS_12_OutputArrayES2_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %54 unwind label %68
 
@@ -7872,12 +7866,12 @@ define hidden void @_ZN11opencv_test26Size_MatType_Mat_Transform12PerfTestBodyEv
   store i8 0, ptr %72, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 0, ptr %73, align 8, !tbaa !98
+  store i32 0, ptr %73, align 8, !tbaa !97
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  store i32 0, ptr %74, align 4, !tbaa !99
-  store i32 16842752, ptr %17, align 8, !tbaa !80
+  store i32 0, ptr %74, align 4, !tbaa !98
+  store i32 16842752, ptr %17, align 8, !tbaa !79
   %75 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %5, ptr %75, align 8, !tbaa !83
+  store ptr %5, ptr %75, align 8, !tbaa !82
   %76 = invoke noundef nonnull align 8 dereferenceable(288) ptr @_ZN4perf10Regression3addEPNS_8TestBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN2cv11_InputArrayEdNS_10ERROR_TYPEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, double noundef 0x3EB0C6F7A0B5ED8D, i32 noundef 1)
           to label %77 unwind label %82
 
@@ -9938,7 +9932,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test33Size_MatType_Mat_Eye_Mat_Eye_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -10047,11 +10041,11 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder2I
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %33, ptr %34, align 8, !tbaa !291, !noalias !287
-  store i32 %23, ptr %30, align 4, !tbaa !77, !noalias !287
+  store i32 %23, ptr %30, align 4, !tbaa !140, !noalias !287
   %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 %25, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !77, !noalias !287
+  store i32 %25, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !140, !noalias !287
   %.sroa.5.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 %27, ptr %.sroa.5.0..sroa_idx.i11, align 4, !tbaa !77, !noalias !287
+  store i32 %27, ptr %.sroa.5.0..sroa_idx.i11, align 4, !tbaa !140, !noalias !287
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %33, ptr %35, align 8, !tbaa !292, !noalias !287
   store ptr %28, ptr %4, align 8, !tbaa !293, !alias.scope !287
@@ -11012,8 +11006,8 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal30ValuesInIteratorR
   %6 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !336
-  %9 = load i32, ptr %8, align 4, !tbaa !77
-  store i32 %9, ptr %6, align 4, !tbaa !77
+  %9 = load i32, ptr %8, align 4, !tbaa !140
+  store i32 %9, ptr %6, align 4, !tbaa !140
   %10 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
   br i1 %10, label %11, label %15
 
@@ -11832,8 +11826,8 @@ _ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit: ; preds = %21
           to label %_ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEdeEv.exit unwind label %50
 
 _ZNK7testing8internal13ParamIteratorIN4perf7MatTypeEEdeEv.exit: ; preds = %_ZNK7testing8internal13ParamIteratorIN2cv5Size_IiEEEdeEv.exit
-  %34 = load i32, ptr %33, align 4, !tbaa !77
-  store i32 %34, ptr %23, align 4, !tbaa !77
+  %34 = load i32, ptr %33, align 4, !tbaa !140
+  store i32 %34, ptr %23, align 4, !tbaa !140
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %36 = load i64, ptr %28, align 4
   store i64 %36, ptr %35, align 4
@@ -13467,7 +13461,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -13477,7 +13471,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_TestE, i64 16), ptr %3, align 8, !tbaa !19
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_TestE, i64 96), ptr %5, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  store i8 0, ptr %6, align 8, !tbaa !102
+  store i8 0, ptr %6, align 8, !tbaa !101
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -13539,13 +13533,13 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder2I
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !397)
-  %23 = load i32, ptr %22, align 4, !tbaa !118, !noalias !397
+  %23 = load i32, ptr %22, align 4, !tbaa !117, !noalias !397
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %25 = load i32, ptr %24, align 4, !tbaa !120, !noalias !397
+  %25 = load i32, ptr %24, align 4, !tbaa !119, !noalias !397
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load i32, ptr %26, align 4, !tbaa !121, !noalias !397
+  %27 = load i32, ptr %26, align 4, !tbaa !120, !noalias !397
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %29 = load i32, ptr %28, align 4, !tbaa !122, !noalias !397
+  %29 = load i32, ptr %28, align 4, !tbaa !121, !noalias !397
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   call void @llvm.experimental.noalias.scope.decl(metadata !403)
   %30 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
@@ -13569,13 +13563,13 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder2I
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %35, ptr %36, align 8, !tbaa !291, !noalias !406
-  store i32 %23, ptr %32, align 4, !tbaa !77, !noalias !406
+  store i32 %23, ptr %32, align 4, !tbaa !140, !noalias !406
   %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %25, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !77, !noalias !406
+  store i32 %25, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !140, !noalias !406
   %.sroa.5.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %27, ptr %.sroa.5.0..sroa_idx.i11, align 4, !tbaa !77, !noalias !406
+  store i32 %27, ptr %.sroa.5.0..sroa_idx.i11, align 4, !tbaa !140, !noalias !406
   %.sroa.6.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 %29, ptr %.sroa.6.0..sroa_idx.i12, align 4, !tbaa !77, !noalias !406
+  store i32 %29, ptr %.sroa.6.0..sroa_idx.i12, align 4, !tbaa !140, !noalias !406
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %35, ptr %37, align 8, !tbaa !292, !noalias !406
   store ptr %30, ptr %4, align 8, !tbaa !293, !alias.scope !406
@@ -14386,7 +14380,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -14396,7 +14390,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_TestE, i64 16), ptr %3, align 8, !tbaa !19
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_TestE, i64 96), ptr %5, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 256
-  store i8 0, ptr %6, align 8, !tbaa !125
+  store i8 0, ptr %6, align 8, !tbaa !124
   ret ptr %3
 
 7:                                                ; preds = %1
@@ -15067,7 +15061,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test45Size_MatType_Mat_Clone_Roi_Mat_Clone_Roi_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -15748,7 +15742,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test55Size_MatType_Mat_CopyToWithMask_Mat_CopyToWithMask_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -15846,17 +15840,17 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder2I
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %35, ptr %36, align 8, !tbaa !291, !noalias !456
-  store i32 %19, ptr %32, align 4, !tbaa !77, !noalias !456
+  store i32 %19, ptr %32, align 4, !tbaa !140, !noalias !456
   %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %21, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !77, !noalias !456
+  store i32 %21, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !140, !noalias !456
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %23, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !77, !noalias !456
+  store i32 %23, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !140, !noalias !456
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 %25, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !77, !noalias !456
+  store i32 %25, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !140, !noalias !456
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i32 %27, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !77, !noalias !456
+  store i32 %27, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !140, !noalias !456
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 20
-  store i32 %29, ptr %.sroa.8.0..sroa_idx.i, align 4, !tbaa !77, !noalias !456
+  store i32 %29, ptr %.sroa.8.0..sroa_idx.i, align 4, !tbaa !140, !noalias !456
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %35, ptr %37, align 8, !tbaa !292, !noalias !456
   store ptr %30, ptr %4, align 8, !tbaa !293, !alias.scope !456
@@ -16667,7 +16661,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test53Size_MatType_Mat_SetToWithMask_Mat_SetToWithMask_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -16763,7 +16757,7 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder2I
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr %29, ptr %30, align 8, !tbaa !291, !noalias !486
-  store i64 %23, ptr %26, align 4, !tbaa !77, !noalias !486
+  store i64 %23, ptr %26, align 4, !tbaa !140, !noalias !486
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %29, ptr %31, align 8, !tbaa !292, !noalias !486
   store ptr %24, ptr %4, align 8, !tbaa !293, !alias.scope !486
@@ -17584,7 +17578,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test45Size_MatType_Mat_Transform_Mat_Transform_TestEE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !100
+  store ptr %2, ptr @_ZN7testing8internal12g_parameter_E, align 8, !tbaa !99
   %3 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #29
   invoke void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3)
           to label %4 unwind label %7
@@ -17692,19 +17686,19 @@ define linkonce_odr hidden void @_ZNK7testing8internal23CartesianProductHolder2I
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %41, ptr %42, align 8, !tbaa !291, !noalias !516
-  store i32 %23, ptr %38, align 4, !tbaa !77, !noalias !516
+  store i32 %23, ptr %38, align 4, !tbaa !140, !noalias !516
   %.sroa.4.0..sroa_idx.i10 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 %25, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !77, !noalias !516
+  store i32 %25, ptr %.sroa.4.0..sroa_idx.i10, align 4, !tbaa !140, !noalias !516
   %.sroa.5.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i32 %27, ptr %.sroa.5.0..sroa_idx.i11, align 4, !tbaa !77, !noalias !516
+  store i32 %27, ptr %.sroa.5.0..sroa_idx.i11, align 4, !tbaa !140, !noalias !516
   %.sroa.6.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  store i32 %29, ptr %.sroa.6.0..sroa_idx.i12, align 4, !tbaa !77, !noalias !516
+  store i32 %29, ptr %.sroa.6.0..sroa_idx.i12, align 4, !tbaa !140, !noalias !516
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 %31, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !77, !noalias !516
+  store i32 %31, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !140, !noalias !516
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 %33, ptr %.sroa.8.0..sroa_idx.i, align 4, !tbaa !77, !noalias !516
+  store i32 %33, ptr %.sroa.8.0..sroa_idx.i, align 4, !tbaa !140, !noalias !516
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store i32 %35, ptr %.sroa.9.0..sroa_idx.i, align 4, !tbaa !77, !noalias !516
+  store i32 %35, ptr %.sroa.9.0..sroa_idx.i, align 4, !tbaa !140, !noalias !516
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %41, ptr %43, align 8, !tbaa !292, !noalias !516
   store ptr %36, ptr %4, align 8, !tbaa !293, !alias.scope !516
@@ -20590,7 +20584,7 @@ define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !585
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -20850,17 +20844,17 @@ _ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN11opencv_test2
   %.sroa.0205.0381 = phi ptr [ %227, %_ZN7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEED2Ev.exit ], [ %62, %_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE8TestInfoEEC2ERKS7_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !106
+  %70 = load ptr, ptr %69, align 8, !tbaa !105
   invoke void %70(ptr dead_on_unwind nonnull writable sret(%"class.testing::internal::ParamGenerator") align 8 %7)
           to label %71 unwind label %133
 
 71:                                               ; preds = %.lr.ph
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 40
-  %73 = load ptr, ptr %72, align 8, !tbaa !108
+  %73 = load ptr, ptr %72, align 8, !tbaa !107
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !109
+  %75 = load ptr, ptr %74, align 8, !tbaa !108
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 56
-  %77 = load i32, ptr %76, align 8, !tbaa !110
+  %77 = load i32, ptr %76, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %28, ptr %8, align 8, !tbaa !4
   store i64 0, ptr %29, align 8, !tbaa !15
@@ -22410,7 +22404,7 @@ _ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN11opencv_test2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(60) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
   %6 = load ptr, ptr %0, align 8, !tbaa !585
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -22588,9 +22582,9 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_
 _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26, %74
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !585
-  store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !111
+  store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !110
   %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_Mat_Zeros>::InstantiationInfo", ptr %22, i64 %16
-  store ptr %76, ptr %75, align 8, !tbaa !114
+  store ptr %76, ptr %75, align 8, !tbaa !113
   ret void
 }
 
@@ -22784,7 +22778,7 @@ define linkonce_odr hidden void @_ZN7testing8internal25ParameterizedTestCaseInfo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !615
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !134
+  %5 = load ptr, ptr %4, align 8, !tbaa !133
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoES6_EvT_S8_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -23044,17 +23038,17 @@ _ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN11opencv_test2
   %.sroa.0205.0381 = phi ptr [ %227, %_ZN7testing8internal14ParamGeneratorISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEED2Ev.exit ], [ %62, %_ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE8TestInfoEEC2ERKS7_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !129
+  %70 = load ptr, ptr %69, align 8, !tbaa !128
   invoke void %70(ptr dead_on_unwind nonnull writable sret(%"class.testing::internal::ParamGenerator") align 8 %7)
           to label %71 unwind label %133
 
 71:                                               ; preds = %.lr.ph
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 40
-  %73 = load ptr, ptr %72, align 8, !tbaa !131
+  %73 = load ptr, ptr %72, align 8, !tbaa !130
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 48
-  %75 = load ptr, ptr %74, align 8, !tbaa !132
+  %75 = load ptr, ptr %74, align 8, !tbaa !131
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.0205.0381, i64 56
-  %77 = load i32, ptr %76, align 8, !tbaa !133
+  %77 = load i32, ptr %76, align 8, !tbaa !132
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %28, ptr %8, align 8, !tbaa !4
   store i64 0, ptr %29, align 8, !tbaa !15
@@ -24604,7 +24598,7 @@ _ZN7testing8internal10linked_ptrINS0_25ParameterizedTestCaseInfoIN11opencv_test2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(60) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !134
+  %5 = load ptr, ptr %4, align 8, !tbaa !133
   %6 = load ptr, ptr %0, align 8, !tbaa !615
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -24782,9 +24776,9 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_
 _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit26, %74
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !615
-  store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !134
+  store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !133
   %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::Size_MatType_Mat_Clone>::InstantiationInfo", ptr %22, i64 %16
-  store ptr %76, ptr %75, align 8, !tbaa !137
+  store ptr %76, ptr %75, align 8, !tbaa !136
   ret void
 }
 
@@ -33603,68 +33597,68 @@ define internal void @_GLOBAL__sub_I_perf_mat.cpp() #25 section ".text.startup" 
   %35 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %36 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #31
-  store i32 320, ptr @_ZN4perfL6szQVGAE, align 4, !tbaa !98
-  store i32 240, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szQVGAE, i64 4), align 4, !tbaa !99
+  store i32 320, ptr @_ZN4perfL6szQVGAE, align 4, !tbaa !97
+  store i32 240, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szQVGAE, i64 4), align 4, !tbaa !98
   %37 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL6szQVGAE)
-  store i32 640, ptr @_ZN4perfL5szVGAE, align 8, !tbaa !98
-  store i32 480, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szVGAE, i64 4), align 4, !tbaa !99
+  store i32 640, ptr @_ZN4perfL5szVGAE, align 8, !tbaa !97
+  store i32 480, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szVGAE, i64 4), align 4, !tbaa !98
   %38 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5szVGAE)
-  store i32 800, ptr @_ZN4perfL6szSVGAE, align 4, !tbaa !98
-  store i32 600, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szSVGAE, i64 4), align 4, !tbaa !99
+  store i32 800, ptr @_ZN4perfL6szSVGAE, align 4, !tbaa !97
+  store i32 600, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szSVGAE, i64 4), align 4, !tbaa !98
   %39 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL6szSVGAE)
-  store i32 1024, ptr @_ZN4perfL5szXGAE, align 4, !tbaa !98
-  store i32 768, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szXGAE, i64 4), align 4, !tbaa !99
+  store i32 1024, ptr @_ZN4perfL5szXGAE, align 4, !tbaa !97
+  store i32 768, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szXGAE, i64 4), align 4, !tbaa !98
   %40 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5szXGAE)
-  store i32 1280, ptr @_ZN4perfL6szSXGAE, align 4, !tbaa !98
-  store i32 1024, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szSXGAE, i64 4), align 4, !tbaa !99
+  store i32 1280, ptr @_ZN4perfL6szSXGAE, align 4, !tbaa !97
+  store i32 1024, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szSXGAE, i64 4), align 4, !tbaa !98
   %41 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL6szSXGAE)
-  store i32 2560, ptr @_ZN4perfL6szWQHDE, align 4, !tbaa !98
-  store i32 1440, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szWQHDE, i64 4), align 4, !tbaa !99
+  store i32 2560, ptr @_ZN4perfL6szWQHDE, align 4, !tbaa !97
+  store i32 1440, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6szWQHDE, i64 4), align 4, !tbaa !98
   %42 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL6szWQHDE)
-  store i32 640, ptr @_ZN4perfL5sznHDE, align 4, !tbaa !98
-  store i32 360, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5sznHDE, i64 4), align 4, !tbaa !99
+  store i32 640, ptr @_ZN4perfL5sznHDE, align 4, !tbaa !97
+  store i32 360, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5sznHDE, i64 4), align 4, !tbaa !98
   %43 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5sznHDE)
-  store i32 960, ptr @_ZN4perfL5szqHDE, align 4, !tbaa !98
-  store i32 540, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szqHDE, i64 4), align 4, !tbaa !99
+  store i32 960, ptr @_ZN4perfL5szqHDE, align 4, !tbaa !97
+  store i32 540, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szqHDE, i64 4), align 4, !tbaa !98
   %44 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5szqHDE)
-  store i32 1280, ptr @_ZN4perfL6sz720pE, align 8, !tbaa !98
-  store i32 720, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6sz720pE, i64 4), align 4, !tbaa !99
+  store i32 1280, ptr @_ZN4perfL6sz720pE, align 8, !tbaa !97
+  store i32 720, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL6sz720pE, i64 4), align 4, !tbaa !98
   %45 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL6sz720pE)
-  store i32 1920, ptr @_ZN4perfL7sz1080pE, align 8, !tbaa !98
-  store i32 1080, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL7sz1080pE, i64 4), align 4, !tbaa !99
+  store i32 1920, ptr @_ZN4perfL7sz1080pE, align 8, !tbaa !97
+  store i32 1080, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL7sz1080pE, i64 4), align 4, !tbaa !98
   %46 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL7sz1080pE)
-  store i32 3840, ptr @_ZN4perfL7sz2160pE, align 4, !tbaa !98
-  store i32 2160, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL7sz2160pE, i64 4), align 4, !tbaa !99
+  store i32 3840, ptr @_ZN4perfL7sz2160pE, align 4, !tbaa !97
+  store i32 2160, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL7sz2160pE, i64 4), align 4, !tbaa !98
   %47 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL7sz2160pE)
-  store i32 7680, ptr @_ZN4perfL7sz4320pE, align 4, !tbaa !98
-  store i32 4320, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL7sz4320pE, i64 4), align 4, !tbaa !99
+  store i32 7680, ptr @_ZN4perfL7sz4320pE, align 4, !tbaa !97
+  store i32 4320, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL7sz4320pE, i64 4), align 4, !tbaa !98
   %48 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL7sz4320pE)
-  store i32 2048, ptr @_ZN4perfL5sz3MPE, align 4, !tbaa !98
-  store i32 1536, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5sz3MPE, i64 4), align 4, !tbaa !99
+  store i32 2048, ptr @_ZN4perfL5sz3MPE, align 4, !tbaa !97
+  store i32 1536, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5sz3MPE, i64 4), align 4, !tbaa !98
   %49 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5sz3MPE)
-  store i32 2592, ptr @_ZN4perfL5sz5MPE, align 4, !tbaa !98
-  store i32 1944, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5sz5MPE, i64 4), align 4, !tbaa !99
+  store i32 2592, ptr @_ZN4perfL5sz5MPE, align 4, !tbaa !97
+  store i32 1944, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5sz5MPE, i64 4), align 4, !tbaa !98
   %50 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5sz5MPE)
-  store i32 2048, ptr @_ZN4perfL4sz2KE, align 4, !tbaa !98
-  store i32 2048, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL4sz2KE, i64 4), align 4, !tbaa !99
+  store i32 2048, ptr @_ZN4perfL4sz2KE, align 4, !tbaa !97
+  store i32 2048, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL4sz2KE, i64 4), align 4, !tbaa !98
   %51 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL4sz2KE)
-  store i32 127, ptr @_ZN4perfL5szODDE, align 8, !tbaa !98
-  store i32 61, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szODDE, i64 4), align 4, !tbaa !99
+  store i32 127, ptr @_ZN4perfL5szODDE, align 8, !tbaa !97
+  store i32 61, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL5szODDE, i64 4), align 4, !tbaa !98
   %52 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL5szODDE)
-  store i32 24, ptr @_ZN4perfL9szSmall24E, align 4, !tbaa !98
-  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL9szSmall24E, i64 4), align 4, !tbaa !99
+  store i32 24, ptr @_ZN4perfL9szSmall24E, align 4, !tbaa !97
+  store i32 24, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL9szSmall24E, i64 4), align 4, !tbaa !98
   %53 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL9szSmall24E)
-  store i32 32, ptr @_ZN4perfL9szSmall32E, align 4, !tbaa !98
-  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL9szSmall32E, i64 4), align 4, !tbaa !99
+  store i32 32, ptr @_ZN4perfL9szSmall32E, align 4, !tbaa !97
+  store i32 32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL9szSmall32E, i64 4), align 4, !tbaa !98
   %54 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL9szSmall32E)
-  store i32 64, ptr @_ZN4perfL9szSmall64E, align 4, !tbaa !98
-  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL9szSmall64E, i64 4), align 4, !tbaa !99
+  store i32 64, ptr @_ZN4perfL9szSmall64E, align 4, !tbaa !97
+  store i32 64, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL9szSmall64E, i64 4), align 4, !tbaa !98
   %55 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL9szSmall64E)
-  store i32 128, ptr @_ZN4perfL10szSmall128E, align 4, !tbaa !98
-  store i32 128, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL10szSmall128E, i64 4), align 4, !tbaa !99
+  store i32 128, ptr @_ZN4perfL10szSmall128E, align 4, !tbaa !97
+  store i32 128, ptr getelementptr inbounds nuw (i8, ptr @_ZN4perfL10szSmall128E, i64 4), align 4, !tbaa !98
   %56 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN4perfL10szSmall128E)
   %57 = tail call noundef i32 @_ZN11opencv_test33Size_MatType_Mat_Eye_Mat_Eye_Test13AddToRegistryEv()
-  store i32 %57, ptr @_ZN11opencv_test33Size_MatType_Mat_Eye_Mat_Eye_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %57, ptr @_ZN11opencv_test33Size_MatType_Mat_Eye_Mat_Eye_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %58 = tail call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %59 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %58)
@@ -33862,7 +33856,7 @@ __cxx_global_var_init.24.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %117 = call noundef i32 @_ZN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_Test13AddToRegistryEv()
-  store i32 %117, ptr @_ZN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %117, ptr @_ZN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %118 = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %119 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %118)
@@ -34056,7 +34050,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %177 = call noundef i32 @_ZN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_Test13AddToRegistryEv()
-  store i32 %177, ptr @_ZN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %177, ptr @_ZN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %178 = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %179 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %178)
@@ -34250,7 +34244,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %237 = call noundef i32 @_ZN11opencv_test45Size_MatType_Mat_Clone_Roi_Mat_Clone_Roi_Test13AddToRegistryEv()
-  store i32 %237, ptr @_ZN11opencv_test45Size_MatType_Mat_Clone_Roi_Mat_Clone_Roi_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %237, ptr @_ZN11opencv_test45Size_MatType_Mat_Clone_Roi_Mat_Clone_Roi_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %238 = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %239 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %238)
@@ -34444,7 +34438,7 @@ __cxx_global_var_init.40.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %297 = call noundef i32 @_ZN11opencv_test55Size_MatType_Mat_CopyToWithMask_Mat_CopyToWithMask_Test13AddToRegistryEv()
-  store i32 %297, ptr @_ZN11opencv_test55Size_MatType_Mat_CopyToWithMask_Mat_CopyToWithMask_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %297, ptr @_ZN11opencv_test55Size_MatType_Mat_CopyToWithMask_Mat_CopyToWithMask_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %298 = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %299 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %298)
@@ -34638,7 +34632,7 @@ __cxx_global_var_init.44.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %357 = call noundef i32 @_ZN11opencv_test53Size_MatType_Mat_SetToWithMask_Mat_SetToWithMask_Test13AddToRegistryEv()
-  store i32 %357, ptr @_ZN11opencv_test53Size_MatType_Mat_SetToWithMask_Mat_SetToWithMask_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %357, ptr @_ZN11opencv_test53Size_MatType_Mat_SetToWithMask_Mat_SetToWithMask_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %358 = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %359 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %358)
@@ -34832,7 +34826,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %417 = call noundef i32 @_ZN11opencv_test45Size_MatType_Mat_Transform_Mat_Transform_Test13AddToRegistryEv()
-  store i32 %417, ptr @_ZN11opencv_test45Size_MatType_Mat_Transform_Mat_Transform_Test24gtest_registering_dummy_E, align 4, !tbaa !77
+  store i32 %417, ptr @_ZN11opencv_test45Size_MatType_Mat_Transform_Mat_Transform_Test24gtest_registering_dummy_E, align 4, !tbaa !140
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %418 = call noundef ptr @_ZN7testing8UnitTest11GetInstanceEv()
   %419 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(72) %418)
@@ -35168,70 +35162,70 @@ attributes #35 = { nounwind willreturn memory(read) }
 !74 = !{!"_ZTSN7testing8internal11ValueArray3IiiiEE", !18, i64 0, !18, i64 4, !18, i64 8}
 !75 = !{!74, !18, i64 4}
 !76 = !{!74, !18, i64 8}
-!77 = !{!18, !18, i64 0}
-!78 = !{!79, !18, i64 0}
-!79 = !{!"_ZTSN4perf7MatTypeE", !18, i64 0}
-!80 = !{!81, !18, i64 0}
-!81 = !{!"_ZTSN2cv11_InputArrayE", !18, i64 0, !7, i64 8, !82, i64 16}
-!82 = !{!"_ZTSN2cv5Size_IiEE", !18, i64 0, !18, i64 4}
-!83 = !{!81, !7, i64 8}
-!84 = distinct !{!84, !56}
-!85 = !{!86, !87, i64 0}
-!86 = !{!"_ZTSN2cv7MatExprE", !87, i64 0, !18, i64 8, !88, i64 16, !88, i64 112, !88, i64 208, !46, i64 304, !46, i64 312, !94, i64 320}
-!87 = !{!"p1 _ZTSN2cv5MatOpE", !7, i64 0}
-!88 = !{!"_ZTSN2cv3MatE", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !89, i64 48, !90, i64 56, !91, i64 64, !93, i64 72}
-!89 = !{!"p1 _ZTSN2cv12MatAllocatorE", !7, i64 0}
-!90 = !{!"p1 _ZTSN2cv8UMatDataE", !7, i64 0}
-!91 = !{!"_ZTSN2cv7MatSizeE", !92, i64 0}
-!92 = !{!"p1 int", !7, i64 0}
-!93 = !{!"_ZTSN2cv7MatStepE", !44, i64 0, !8, i64 8}
-!94 = !{!"_ZTSN2cv7Scalar_IdEE", !95, i64 0}
-!95 = !{!"_ZTSN2cv3VecIdLi4EEE", !96, i64 0}
-!96 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !8, i64 0}
-!97 = distinct !{!97, !56}
-!98 = !{!82, !18, i64 0}
-!99 = !{!82, !18, i64 4}
-!100 = !{!101, !101, i64 0}
-!101 = !{!"p1 _ZTSSt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEE", !7, i64 0}
-!102 = !{!103, !22, i64 256}
-!103 = !{!"_ZTSN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_TestE", !104, i64 0, !22, i64 256}
-!104 = !{!"_ZTSN11opencv_test22Size_MatType_Mat_ZerosE", !29, i64 0}
-!105 = distinct !{!105, !56}
-!106 = !{!107, !7, i64 32}
-!107 = !{!"_ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoE", !13, i64 0, !7, i64 32, !7, i64 40, !6, i64 48, !18, i64 56}
-!108 = !{!107, !7, i64 40}
-!109 = !{!107, !6, i64 48}
-!110 = !{!107, !18, i64 56}
-!111 = !{!112, !113, i64 8}
-!112 = !{!"_ZTSNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoESaIS6_EE17_Vector_impl_dataE", !113, i64 0, !113, i64 8, !113, i64 16}
-!113 = !{!"p1 _ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoE", !7, i64 0}
-!114 = !{!112, !113, i64 16}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS2_IiiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKS9_RKSA_: argument 0"}
-!117 = distinct !{!117, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS2_IiiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKS9_RKSA_"}
-!118 = !{!119, !18, i64 0}
-!119 = !{!"_ZTSN7testing8internal11ValueArray4IiiiiEE", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12}
-!120 = !{!119, !18, i64 4}
-!121 = !{!119, !18, i64 8}
-!122 = !{!119, !18, i64 12}
+!77 = !{!78, !18, i64 0}
+!78 = !{!"_ZTSN4perf7MatTypeE", !18, i64 0}
+!79 = !{!80, !18, i64 0}
+!80 = !{!"_ZTSN2cv11_InputArrayE", !18, i64 0, !7, i64 8, !81, i64 16}
+!81 = !{!"_ZTSN2cv5Size_IiEE", !18, i64 0, !18, i64 4}
+!82 = !{!80, !7, i64 8}
+!83 = distinct !{!83, !56}
+!84 = !{!85, !86, i64 0}
+!85 = !{!"_ZTSN2cv7MatExprE", !86, i64 0, !18, i64 8, !87, i64 16, !87, i64 112, !87, i64 208, !46, i64 304, !46, i64 312, !93, i64 320}
+!86 = !{!"p1 _ZTSN2cv5MatOpE", !7, i64 0}
+!87 = !{!"_ZTSN2cv3MatE", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !88, i64 48, !89, i64 56, !90, i64 64, !92, i64 72}
+!88 = !{!"p1 _ZTSN2cv12MatAllocatorE", !7, i64 0}
+!89 = !{!"p1 _ZTSN2cv8UMatDataE", !7, i64 0}
+!90 = !{!"_ZTSN2cv7MatSizeE", !91, i64 0}
+!91 = !{!"p1 int", !7, i64 0}
+!92 = !{!"_ZTSN2cv7MatStepE", !44, i64 0, !8, i64 8}
+!93 = !{!"_ZTSN2cv7Scalar_IdEE", !94, i64 0}
+!94 = !{!"_ZTSN2cv3VecIdLi4EEE", !95, i64 0}
+!95 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !8, i64 0}
+!96 = distinct !{!96, !56}
+!97 = !{!81, !18, i64 0}
+!98 = !{!81, !18, i64 4}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTSSt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEE", !7, i64 0}
+!101 = !{!102, !22, i64 256}
+!102 = !{!"_ZTSN11opencv_test37Size_MatType_Mat_Zeros_Mat_Zeros_TestE", !103, i64 0, !22, i64 256}
+!103 = !{!"_ZTSN11opencv_test22Size_MatType_Mat_ZerosE", !29, i64 0}
+!104 = distinct !{!104, !56}
+!105 = !{!106, !7, i64 32}
+!106 = !{!"_ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoE", !13, i64 0, !7, i64 32, !7, i64 40, !6, i64 48, !18, i64 56}
+!107 = !{!106, !7, i64 40}
+!108 = !{!106, !6, i64 48}
+!109 = !{!106, !18, i64 56}
+!110 = !{!111, !112, i64 8}
+!111 = !{!"_ZTSNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoESaIS6_EE17_Vector_impl_dataE", !112, i64 0, !112, i64 8, !112, i64 16}
+!112 = !{!"p1 _ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoE", !7, i64 0}
+!113 = !{!111, !112, i64 16}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS2_IiiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKS9_RKSA_: argument 0"}
+!116 = distinct !{!116, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS2_IiiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKS9_RKSA_"}
+!117 = !{!118, !18, i64 0}
+!118 = !{!"_ZTSN7testing8internal11ValueArray4IiiiiEE", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12}
+!119 = !{!118, !18, i64 4}
+!120 = !{!118, !18, i64 8}
+!121 = !{!118, !18, i64 12}
+!122 = distinct !{!122, !56}
 !123 = distinct !{!123, !56}
-!124 = distinct !{!124, !56}
-!125 = !{!126, !22, i64 256}
-!126 = !{!"_ZTSN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_TestE", !127, i64 0, !22, i64 256}
-!127 = !{!"_ZTSN11opencv_test22Size_MatType_Mat_CloneE", !29, i64 0}
-!128 = distinct !{!128, !56}
-!129 = !{!130, !7, i64 32}
-!130 = !{!"_ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoE", !13, i64 0, !7, i64 32, !7, i64 40, !6, i64 48, !18, i64 56}
-!131 = !{!130, !7, i64 40}
-!132 = !{!130, !6, i64 48}
-!133 = !{!130, !18, i64 56}
-!134 = !{!135, !136, i64 8}
-!135 = !{!"_ZTSNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoESaIS6_EE17_Vector_impl_dataE", !136, i64 0, !136, i64 8, !136, i64 16}
-!136 = !{!"p1 _ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoE", !7, i64 0}
-!137 = !{!135, !136, i64 16}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS1_11ValueArray3IiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKSA_RKSB_: argument 0"}
-!140 = distinct !{!140, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS1_11ValueArray3IiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKSA_RKSB_"}
+!124 = !{!125, !22, i64 256}
+!125 = !{!"_ZTSN11opencv_test37Size_MatType_Mat_Clone_Mat_Clone_TestE", !126, i64 0, !22, i64 256}
+!126 = !{!"_ZTSN11opencv_test22Size_MatType_Mat_CloneE", !29, i64 0}
+!127 = distinct !{!127, !56}
+!128 = !{!129, !7, i64 32}
+!129 = !{!"_ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoE", !13, i64 0, !7, i64 32, !7, i64 40, !6, i64 48, !18, i64 56}
+!130 = !{!129, !7, i64 40}
+!131 = !{!129, !6, i64 48}
+!132 = !{!129, !18, i64 56}
+!133 = !{!134, !135, i64 8}
+!134 = !{!"_ZTSNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoESaIS6_EE17_Vector_impl_dataE", !135, i64 0, !135, i64 8, !135, i64 16}
+!135 = !{!"p1 _ZTSN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_CloneEE17InstantiationInfoE", !7, i64 0}
+!136 = !{!134, !135, i64 16}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS1_11ValueArray3IiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKSA_RKSB_: argument 0"}
+!139 = distinct !{!139, !"_ZN7testing7CombineINS_8internal11ValueArray4IN2cv5Size_IiEES5_S5_S5_EENS1_11ValueArray3IiiiEEEENS1_23CartesianProductHolder2IT_T0_EERKSA_RKSB_"}
+!140 = !{!18, !18, i64 0}
 !141 = distinct !{!141, !56}
 !142 = !{!143, !22, i64 256}
 !143 = !{!"_ZTSN11opencv_test45Size_MatType_Mat_Clone_Roi_Mat_Clone_Roi_TestE", !144, i64 0, !22, i64 256}
@@ -35414,7 +35408,7 @@ attributes #35 = { nounwind willreturn memory(read) }
 !320 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !7, i64 0}
 !321 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !7, i64 0}
 !322 = !{!323, !8, i64 56}
-!323 = !{!"_ZTSSt5ctypeIcE", !324, i64 0, !325, i64 16, !22, i64 24, !92, i64 32, !92, i64 40, !326, i64 48, !8, i64 56, !8, i64 57, !8, i64 313, !8, i64 569}
+!323 = !{!"_ZTSSt5ctypeIcE", !324, i64 0, !325, i64 16, !22, i64 24, !91, i64 32, !91, i64 40, !326, i64 48, !8, i64 56, !8, i64 57, !8, i64 313, !8, i64 569}
 !324 = !{!"_ZTSNSt6locale5facetE", !18, i64 8}
 !325 = !{!"p1 _ZTS15__locale_struct", !7, i64 0}
 !326 = !{!"p1 short", !7, i64 0}
@@ -35451,7 +35445,7 @@ attributes #35 = { nounwind willreturn memory(read) }
 !357 = !{!"_ZTSN7testing8internal22ParamIteratorInterfaceISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEEE"}
 !358 = !{!"_ZTSN7testing8internal13ParamIteratorIN2cv5Size_IiEEEE", !341, i64 0}
 !359 = !{!"_ZTSN7testing8internal13ParamIteratorIN4perf7MatTypeEEE", !347, i64 0}
-!360 = !{!"_ZTSN7testing8internal10linked_ptrISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEEE", !101, i64 0, !242, i64 8}
+!360 = !{!"_ZTSN7testing8internal10linked_ptrISt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEEEE", !100, i64 0, !242, i64 8}
 !361 = !{!362}
 !362 = distinct !{!362, !363, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE5beginEv: argument 0"}
 !363 = distinct !{!363, !"_ZNK7testing8internal14ParamGeneratorIN2cv5Size_IiEEE5beginEv"}
@@ -35464,7 +35458,7 @@ attributes #35 = { nounwind willreturn memory(read) }
 !370 = !{!371}
 !371 = distinct !{!371, !372, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE3endEv: argument 0"}
 !372 = distinct !{!372, !"_ZNK7testing8internal14ParamGeneratorIN4perf7MatTypeEE3endEv"}
-!373 = !{!360, !101, i64 0}
+!373 = !{!360, !100, i64 0}
 !374 = !{!375, !376, i64 0}
 !375 = !{!"_ZTSN7testing8internal10scoped_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEE", !376, i64 0}
 !376 = !{!"p1 _ZTSNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE", !7, i64 0}
@@ -35640,8 +35634,8 @@ attributes #35 = { nounwind willreturn memory(read) }
 !546 = !{!"_ZTSSt5tupleIJN2cv5Size_IiEEN4perf7MatTypeEEE", !547, i64 0}
 !547 = !{!"_ZTSSt11_Tuple_implILm0EJN2cv5Size_IiEEN4perf7MatTypeEEE", !548, i64 0, !550, i64 4}
 !548 = !{!"_ZTSSt11_Tuple_implILm1EJN4perf7MatTypeEEE", !549, i64 0}
-!549 = !{!"_ZTSSt10_Head_baseILm1EN4perf7MatTypeELb0EE", !79, i64 0}
-!550 = !{!"_ZTSSt10_Head_baseILm0EN2cv5Size_IiEELb0EE", !82, i64 0}
+!549 = !{!"_ZTSSt10_Head_baseILm1EN4perf7MatTypeELb0EE", !78, i64 0}
+!550 = !{!"_ZTSSt10_Head_baseILm0EN2cv5Size_IiEELb0EE", !81, i64 0}
 !551 = distinct !{!551, !56}
 !552 = !{!309, !311, i64 32}
 !553 = !{!529, !529, i64 0}
@@ -35676,10 +35670,10 @@ attributes #35 = { nounwind willreturn memory(read) }
 !582 = !{!583}
 !583 = distinct !{!583, !581, !"_ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test20Size_MatType_Mat_EyeEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !584 = !{!580, !583}
-!585 = !{!112, !113, i64 0}
+!585 = !{!111, !112, i64 0}
 !586 = distinct !{!586, !56}
 !587 = !{!382, !382, i64 0}
-!588 = !{!113, !113, i64 0}
+!588 = !{!112, !112, i64 0}
 !589 = distinct !{!589, !56}
 !590 = !{!591}
 !591 = distinct !{!591, !592, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_: argument 0"}
@@ -35706,10 +35700,10 @@ attributes #35 = { nounwind willreturn memory(read) }
 !612 = !{!613}
 !613 = distinct !{!613, !611, !"_ZSt19__relocate_object_aIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test22Size_MatType_Mat_ZerosEE17InstantiationInfoES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
 !614 = !{!610, !613}
-!615 = !{!135, !136, i64 0}
+!615 = !{!134, !135, i64 0}
 !616 = distinct !{!616, !56}
 !617 = !{!412, !412, i64 0}
-!618 = !{!136, !136, i64 0}
+!618 = !{!135, !135, i64 0}
 !619 = distinct !{!619, !56}
 !620 = !{!621}
 !621 = distinct !{!621, !622, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_: argument 0"}

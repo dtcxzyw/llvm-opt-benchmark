@@ -15360,6 +15360,7 @@ while.end:                                        ; preds = %while.cond, %if.end
   %optKind.sroa.0.1 = phi i32 [ %optKind.sroa.0.0, %if.then ], [ %optKind.sroa.0.2, %if.end52 ], [ %optKind.sroa.0.0, %while.cond ]
   %optKind.sroa.7.1 = phi i8 [ %optKind.sroa.7.0, %if.then ], [ %optKind.sroa.7.2, %if.end52 ], [ %optKind.sroa.7.0, %while.cond ]
   %hasUnknownMembers.0 = phi i8 [ 1, %if.then ], [ 0, %if.end52 ], [ 0, %while.cond ]
+  %optKind.sroa.7.1.fr = freeze i8 %optKind.sroa.7.1
   %19 = load ptr, ptr %members, align 8
   %cmp.i.i = icmp eq ptr %members, %19
   br i1 %cmp.i.i, label %if.end97, label %if.then57
@@ -15368,7 +15369,8 @@ if.then57:                                        ; preds = %while.end
   %20 = load ptr, ptr %Next2.i.i.i.i.i, align 8
   %kind_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %21 = load i32, ptr %kind_.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i = icmp eq i32 %21, 191
+  %.fr = freeze i32 %21
+  %cmp.i.i.i.i.i = icmp eq i32 %.fr, 191
   %cmp.i148.not363 = icmp eq ptr %20, %members
   br i1 %cmp.i148.not363, label %for.end, label %for.body
 
@@ -15414,10 +15416,9 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp.i148.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.then57
-  %tobool.i171 = trunc i8 %optKind.sroa.7.1 to i1
-  %or.cond335 = select i1 %cmp.i.i.i.i.i, i1 %tobool.i171, i1 false
-  %or.cond335.fr = freeze i1 %or.cond335
-  br i1 %or.cond335.fr, label %switch.early.test, label %if.end97
+  %tobool.i171 = trunc i8 %optKind.sroa.7.1.fr to i1
+  %or.cond335 = and i1 %cmp.i.i.i.i.i, %tobool.i171
+  br i1 %or.cond335, label %switch.early.test, label %if.end97
 
 switch.early.test:                                ; preds = %for.end
   switch i32 %optKind.sroa.0.1, label %if.then91 [
@@ -15447,7 +15448,7 @@ if.end104:                                        ; preds = %if.end97
   %tobool.i179 = trunc i8 %explicitTypeStart.coerce1 to i1
   %30 = inttoptr i64 %explicitTypeStart.coerce0 to ptr
   %spec.select = select i1 %tobool.i179, ptr %30, ptr %retval.sroa.0.0.copyload.i.i
-  %tobool.i181 = trunc i8 %optKind.sroa.7.1 to i1
+  %tobool.i181 = trunc i8 %optKind.sroa.7.1.fr to i1
   %31 = load ptr, ptr %this, align 8
   %state_.i.i.i183 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %32 = load ptr, ptr %state_.i.i.i183, align 8

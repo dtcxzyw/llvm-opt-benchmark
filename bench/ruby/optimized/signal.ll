@@ -202,18 +202,18 @@ rb_check_arity.exit:                              ; preds = %2
 
 16:                                               ; preds = %11, %14
   %.039 = phi i32 [ %13, %11 ], [ %15, %14 ]
-  %.039.fr = freeze i32 %.039
-  %17 = icmp slt i32 %.039.fr, 0
+  %.039.fr87 = freeze i32 %.039
+  %17 = icmp slt i32 %.039.fr87, 0
   br i1 %17, label %.lr.ph85.preheader, label %33
 
 .lr.ph85.preheader:                               ; preds = %16
-  %18 = sub i32 0, %.039.fr
-  %wide.trip.count111 = zext nneg i32 %0 to i64
+  %18 = sub i32 0, %.039.fr87
+  %wide.trip.count112 = zext nneg i32 %0 to i64
   br label %.lr.ph85
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %32
-  %indvars.iv107 = phi i64 [ 1, %.lr.ph85.preheader ], [ %indvars.iv.next108, %32 ]
-  %19 = getelementptr i64, ptr %1, i64 %indvars.iv107
+  %indvars.iv108 = phi i64 [ 1, %.lr.ph85.preheader ], [ %indvars.iv.next109, %32 ]
+  %19 = getelementptr i64, ptr %1, i64 %indvars.iv108
   %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = and i64 %20, 1
   %.not.i = icmp eq i64 %21, 0
@@ -241,9 +241,9 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   unreachable
 
 32:                                               ; preds = %rb_num2int_inline.exit
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
-  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph85, !llvm.loop !22
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond113.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count112
+  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph85, !llvm.loop !22
 
 33:                                               ; preds = %16
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
@@ -259,7 +259,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 .lr.ph:                                           ; preds = %33
   %41 = tail call i32 @getpid() #16
   %42 = freeze i32 %41
-  %43 = icmp ne i32 %.039.fr, 0
+  %43 = icmp ne i32 %.039.fr87, 0
   %44 = icmp ne i32 %42, -1
   %or.cond = and i1 %43, %44
   %45 = ptrtoint ptr %3 to i64
@@ -268,7 +268,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %51 = zext nneg i32 %.039.fr to i64
+  %51 = zext nneg i32 %.039.fr87 to i64
   %52 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %51
   br i1 %or.cond, label %.lr.ph.split, label %.lr.ph.split.us.preheader
 
@@ -295,7 +295,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 rb_num2int_inline.exit53.us:                      ; preds = %58, %56
   %.0.i52.us = phi i64 [ %57, %56 ], [ %59, %58 ]
   %60 = trunc i64 %.0.i52.us to i32
-  %61 = call i32 @kill(i32 noundef %60, i32 noundef %.039.fr) #16
+  %61 = call i32 @kill(i32 noundef %60, i32 noundef %.039.fr87) #16
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.split.us, label %63
 
@@ -305,7 +305,7 @@ rb_num2int_inline.exit53.us:                      ; preds = %58, %56
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  switch i32 %.039.fr, label %.lr.ph.split.split.preheader [
+  switch i32 %.039.fr87, label %.lr.ph.split.split.preheader [
     i32 11, label %.lr.ph.split.split.us
     i32 7, label %.lr.ph.split.split.us
     i32 9, label %.lr.ph.split.split.us
@@ -315,21 +315,21 @@ rb_num2int_inline.exit53.us:                      ; preds = %58, %56
   ]
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  %wide.trip.count105 = zext nneg i32 %0 to i64
+  %wide.trip.count106 = zext nneg i32 %0 to i64
   br label %.lr.ph.split.split.outer
 
-.lr.ph.split.split.outer:                         ; preds = %.thread124, %.lr.ph.split.split.preheader
-  %indvars.iv101.ph = phi i64 [ %indvars.iv.next102126, %.thread124 ], [ 1, %.lr.ph.split.split.preheader ]
-  %64 = phi i1 [ false, %.thread124 ], [ true, %.lr.ph.split.split.preheader ]
+.lr.ph.split.split.outer:                         ; preds = %.thread122, %.lr.ph.split.split.preheader
+  %indvars.iv102.ph = phi i64 [ %indvars.iv.next103124, %.thread122 ], [ 1, %.lr.ph.split.split.preheader ]
+  %64 = phi i1 [ false, %.thread122 ], [ true, %.lr.ph.split.split.preheader ]
   br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %.lr.ph.split
-  %wide.trip.count99 = zext nneg i32 %0 to i64
+  %wide.trip.count100 = zext nneg i32 %0 to i64
   br label %65
 
 65:                                               ; preds = %80, %.lr.ph.split.split.us
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %80 ], [ 1, %.lr.ph.split.split.us ]
-  %66 = getelementptr i64, ptr %1, i64 %indvars.iv95
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %80 ], [ 1, %.lr.ph.split.split.us ]
+  %66 = getelementptr i64, ptr %1, i64 %indvars.iv96
   %67 = load i64, ptr %66, align 8, !tbaa !20
   %68 = and i64 %67, 1
   %.not.i51.us75 = icmp eq i64 %68, 0
@@ -350,22 +350,22 @@ rb_num2int_inline.exit53.us76:                    ; preds = %71, %69
   br i1 %74, label %78, label %75
 
 75:                                               ; preds = %rb_num2int_inline.exit53.us76
-  %76 = call i32 @kill(i32 noundef %73, i32 noundef %.039.fr) #16
+  %76 = call i32 @kill(i32 noundef %73, i32 noundef %.039.fr87) #16
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.split.us, label %80
 
 78:                                               ; preds = %rb_num2int_inline.exit53.us76
-  %79 = call i32 @kill(i32 noundef %42, i32 noundef %.039.fr) #16
+  %79 = call i32 @kill(i32 noundef %42, i32 noundef %.039.fr87) #16
   br label %80
 
 80:                                               ; preds = %78, %75
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %65, !llvm.loop !56
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count100
+  br i1 %exitcond101.not, label %.loopexit, label %65, !llvm.loop !56
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.outer, %107
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %107 ], [ %indvars.iv101.ph, %.lr.ph.split.split.outer ]
-  %81 = getelementptr i64, ptr %1, i64 %indvars.iv101
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %107 ], [ %indvars.iv102.ph, %.lr.ph.split.split.outer ]
+  %81 = getelementptr i64, ptr %1, i64 %indvars.iv102
   %82 = load i64, ptr %81, align 8, !tbaa !20
   %83 = and i64 %82, 1
   %.not.i51 = icmp eq i64 %83, 0
@@ -400,13 +400,13 @@ rb_num2int_inline.exit53:                         ; preds = %84, %86
   %.0..0..0..0..0..0..i = load volatile i64, ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %92 = call i32 @sigaction(i32 noundef range(i32 1, -2147483648) %.039.fr, ptr noundef null, ptr noundef nonnull %3) #16
+  %92 = call i32 @sigaction(i32 noundef range(i32 1, -2147483648) %.039.fr87, ptr noundef null, ptr noundef nonnull %3) #16
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %signal_ignored.exit.thread, label %94
 
 signal_ignored.exit.thread:                       ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread124
+  br label %.thread122
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %3, align 8, !tbaa !58
@@ -420,10 +420,10 @@ signal_ignored.exit.thread:                       ; preds = %90
 signal_ignored.exit:                              ; preds = %94
   %.not63 = icmp eq ptr %95, @sighandler
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not63, label %.thread124, label %97
+  br i1 %.not63, label %.thread122, label %97
 
 97:                                               ; preds = %signal_ignored.exit
-  %98 = call i32 @kill(i32 noundef %42, i32 noundef %.039.fr) #16
+  %98 = call i32 @kill(i32 noundef %42, i32 noundef %.039.fr87) #16
   %.not49 = icmp eq i32 %98, 0
   br i1 %.not49, label %107, label %99
 
@@ -434,7 +434,7 @@ signal_ignored.exit:                              ; preds = %94
   unreachable
 
 102:                                              ; preds = %rb_num2int_inline.exit53
-  %103 = call i32 @kill(i32 noundef %88, i32 noundef %.039.fr) #16
+  %103 = call i32 @kill(i32 noundef %88, i32 noundef %.039.fr87) #16
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %.split.us, label %107
 
@@ -445,28 +445,28 @@ signal_ignored.exit:                              ; preds = %94
   unreachable
 
 107:                                              ; preds = %.thread, %97, %102
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !56
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count106
+  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !56
 
-.thread124:                                       ; preds = %signal_ignored.exit, %signal_ignored.exit.thread
+.thread122:                                       ; preds = %signal_ignored.exit, %signal_ignored.exit.thread
   %108 = atomicrmw volatile add ptr %52, i32 1 seq_cst, align 4
   %109 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
-  %indvars.iv.next102126 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond106.not127 = icmp eq i64 %indvars.iv.next102126, %wide.trip.count105
-  br i1 %exitcond106.not127, label %._crit_edge.thread129, label %.lr.ph.split.split.outer, !llvm.loop !56
+  %indvars.iv.next103124 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond107.not125 = icmp eq i64 %indvars.iv.next103124, %wide.trip.count106
+  br i1 %exitcond107.not125, label %._crit_edge.thread127, label %.lr.ph.split.split.outer, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %107
-  br i1 %64, label %.loopexit, label %._crit_edge.thread129
+  br i1 %64, label %.loopexit, label %._crit_edge.thread127
 
-._crit_edge.thread129:                            ; preds = %.thread124, %._crit_edge
+._crit_edge.thread127:                            ; preds = %.thread122, %._crit_edge
   %110 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8, !tbaa !35
   call void @rb_threadptr_check_signal(ptr noundef %112) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %63, %80, %32, %._crit_edge.thread129, %._crit_edge
+.loopexit:                                        ; preds = %63, %80, %32, %._crit_edge.thread127, %._crit_edge
   %113 = call i64 @rb_thread_current() #16
   call void @rb_thread_execute_interrupts(i64 noundef %113) #16
   %114 = add nsw i32 %0, -1

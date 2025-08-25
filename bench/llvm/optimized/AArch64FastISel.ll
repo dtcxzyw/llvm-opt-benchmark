@@ -411,8 +411,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel21fastSele
 52:                                               ; preds = %36
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %54 = load i32, ptr %53, align 8
-  %.fr36.i = freeze i32 %54
-  %55 = and i32 %.fr36.i, 255
+  %.fr.i = freeze i32 %54
+  %55 = and i32 %.fr.i, 255
   %56 = icmp eq i32 %55, 14
   br i1 %56, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i
 
@@ -498,9 +498,9 @@ _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exi
   br label %_ZNK4llvm4User10getOperandEj.exit15.i
 
 _ZNK4llvm4User10getOperandEj.exit15.i:            ; preds = %86, %83, %77, %74
-  %.in.sink43.i = phi ptr [ %76, %74 ], [ %81, %77 ], [ %85, %83 ], [ %90, %86 ]
-  %91 = load ptr, ptr %.in.sink43.i, align 8, !tbaa !236
-  %92 = getelementptr inbounds nuw i8, ptr %.in.sink43.i, i64 32
+  %.in.sink42.i = phi ptr [ %76, %74 ], [ %81, %77 ], [ %85, %83 ], [ %90, %86 ]
+  %91 = load ptr, ptr %.in.sink42.i, align 8, !tbaa !236
+  %92 = getelementptr inbounds nuw i8, ptr %.in.sink42.i, i64 32
   %93 = load ptr, ptr %92, align 8, !tbaa !236
   %94 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitAddSubEbN4llvm3MVTEPKNS1_5ValueES5_bbb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %switch.i, i16 %43, ptr noundef %91, ptr noundef %93, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not.not.i = icmp eq i32 %94, 0
@@ -555,12 +555,12 @@ _ZNK4llvm4User10getOperandEj.exit15.i:            ; preds = %86, %83, %77, %74
 124:                                              ; preds = %108
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %126 = load i32, ptr %125, align 8
-  %.fr178.i = freeze i32 %126
-  %127 = and i32 %.fr178.i, 255
+  %.fr.i46 = freeze i32 %126
+  %127 = and i32 %.fr.i46, 255
   %128 = icmp eq i32 %127, 14
-  br i1 %128, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i46
+  br i1 %128, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i47
 
-switch.early.test.i46:                            ; preds = %124
+switch.early.test.i47:                            ; preds = %124
   switch i16 %115, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i39 [
     i16 15, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 1, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
@@ -574,7 +574,7 @@ switch.early.test.i46:                            ; preds = %124
     i16 0, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
   ]
 
-_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i39: ; preds = %129, %switch.early.test.i46
+_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i39: ; preds = %129, %switch.early.test.i47
   %130 = load ptr, ptr %28, align 8, !tbaa !225
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
   %132 = zext i16 %115 to i64
@@ -626,8 +626,8 @@ _ZNK4llvm4User10getOperandEj.exit.thread.i:       ; preds = %_ZN12_GLOBAL__N_115
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load ptr, ptr %153, align 8, !tbaa !236
   %155 = load i8, ptr %154, align 8, !tbaa !226
-  %.not195.i = icmp eq i8 %155, 17
-  br i1 %.not195.i, label %156, label %_ZNK4llvm4User10getOperandEj.exit113.i
+  %.not194.i = icmp eq i8 %155, 17
+  br i1 %.not194.i, label %156, label %_ZNK4llvm4User10getOperandEj.exit113.i
 
 156:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.thread.i, %_ZNK4llvm4User10getOperandEj.exit.i
   %157 = phi ptr [ %154, %_ZNK4llvm4User10getOperandEj.exit.thread.i ], [ %149, %_ZNK4llvm4User10getOperandEj.exit.i ]
@@ -777,8 +777,8 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.threa
 
 246:                                              ; preds = %234
   %247 = load i32, ptr %230, align 8
-  %.fr179.i = freeze i32 %247
-  %248 = and i32 %.fr179.i, 255
+  %.fr178.i = freeze i32 %247
+  %248 = and i32 %.fr178.i, 255
   %249 = icmp eq i32 %248, 14
   br i1 %249, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i, label %switch.early.test177.i
 
@@ -879,9 +879,9 @@ _ZNK4llvm4User10getOperandEj.exit18.i98.i:        ; preds = %283, %280
   %289 = load ptr, ptr %288, align 8, !tbaa !236
   %290 = load i8, ptr %289, align 8, !tbaa !226
   %.not25.i99.i = icmp eq i8 %290, 22
-  br i1 %.not25.i99.i, label %.critedge15.i101.i, label %.thread194.i
+  br i1 %.not25.i99.i, label %.critedge15.i101.i, label %.thread193.i
 
-.thread194.i:                                     ; preds = %_ZNK4llvm4User10getOperandEj.exit18.i98.i
+.thread193.i:                                     ; preds = %_ZNK4llvm4User10getOperandEj.exit18.i98.i
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i16 0, ptr %27, align 2, !tbaa !264
   br label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit107.i
@@ -891,13 +891,13 @@ _ZNK4llvm4User10getOperandEj.exit18.i98.i:        ; preds = %283, %280
   br i1 %291, label %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i, label %292
 
 292:                                              ; preds = %.critedge15.i101.i
-  %.pre181.i = load i8, ptr %174, align 8, !tbaa !226
-  %293 = icmp ugt i8 %.pre181.i, 28
+  %.pre180.i = load i8, ptr %174, align 8, !tbaa !226
+  %293 = icmp ugt i8 %.pre180.i, 28
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i16 0, ptr %27, align 2, !tbaa !264
   br i1 %293, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit107.i, label %_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit107.thread.i
 
-_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit107.i: ; preds = %292, %.thread194.i
+_ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit107.i: ; preds = %292, %.thread193.i
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val74.i = load ptr, ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %174, i64 40
@@ -1245,70 +1245,70 @@ _ZNK4llvm4User10getOperandEj.exit115.i:           ; preds = %425, %422
 461:                                              ; preds = %445
   %462 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %463 = load i32, ptr %462, align 8
-  %.fr45.i = freeze i32 %463
-  %464 = and i32 %.fr45.i, 255
+  %.fr.i57 = freeze i32 %463
+  %464 = and i32 %.fr.i57, 255
   %465 = icmp eq i32 %464, 14
-  br i1 %465, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i56
+  br i1 %465, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i58
 
-switch.early.test.i56:                            ; preds = %461
-  switch i16 %452, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i48 [
+switch.early.test.i58:                            ; preds = %461
+  switch i16 %452, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i49 [
     i16 15, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 1, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 0, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
   ]
 
 466:                                              ; preds = %445
-  switch i16 %452, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i48 [
+  switch i16 %452, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i49 [
     i16 15, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 1, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 0, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
   ]
 
-_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i48: ; preds = %466, %switch.early.test.i56
+_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i49: ; preds = %466, %switch.early.test.i58
   %467 = load ptr, ptr %28, align 8, !tbaa !225
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 104
   %469 = zext i16 %452 to i64
   %470 = getelementptr inbounds nuw [234 x ptr], ptr %468, i64 0, i64 %469
   %471 = load ptr, ptr %470, align 8, !tbaa !233
-  %.not.i.i49 = icmp eq ptr %471, null
-  br i1 %.not.i.i49, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i50
+  %.not.i.i50 = icmp eq ptr %471, null
+  br i1 %.not.i.i50, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i51
 
-_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i48
+_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i49
   switch i16 %452, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit [
-    i16 2, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
-    i16 5, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
-    i16 6, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
+    i16 2, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
+    i16 5, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
+    i16 6, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
   ]
 
-_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i50: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i48
+_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i51: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i49
   %472 = add i16 %452, -17
-  %spec.select.i.i51 = icmp ult i16 %472, 174
-  br i1 %spec.select.i.i51, label %473, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
+  %spec.select.i.i52 = icmp ult i16 %472, 174
+  br i1 %spec.select.i.i52, label %473, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
 
-473:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i50
+473:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i51
   %474 = load i8, ptr %1, align 8, !tbaa !226
   %475 = zext i8 %474 to i32
   %476 = add nsw i32 %475, -29
   %477 = tail call noundef zeroext i1 @_ZN4llvm8FastISel14selectOperatorEPKNS_4UserEj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, i32 noundef %476) #22
   br label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
 
-_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i50, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55
+_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i51, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56
   %478 = load i8, ptr %1, align 8, !tbaa !226
   %479 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %480 = load i32, ptr %479, align 4
   %481 = and i32 %480, 1073741824
-  %.not.i.i.i53 = icmp eq i32 %481, 0
+  %.not.i.i.i54 = icmp eq i32 %481, 0
   switch i8 %478, label %482 [
     i8 57, label %483
     i8 58, label %492
     i8 59, label %501
   ]
 
-482:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
+482:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
   unreachable
 
-483:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
-  br i1 %.not.i.i.i53, label %487, label %484
+483:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
+  br i1 %.not.i.i.i54, label %487, label %484
 
 484:                                              ; preds = %483
   %485 = getelementptr inbounds i8, ptr %1, i64 -8
@@ -1322,8 +1322,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exi
   %491 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %490
   br label %_ZNK4llvm4User10getOperandEj.exit18.i
 
-492:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
-  br i1 %.not.i.i.i53, label %496, label %493
+492:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
+  br i1 %.not.i.i.i54, label %496, label %493
 
 493:                                              ; preds = %492
   %494 = getelementptr inbounds i8, ptr %1, i64 -8
@@ -1337,8 +1337,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exi
   %500 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %499
   br label %_ZNK4llvm4User10getOperandEj.exit18.i
 
-501:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i52
-  br i1 %.not.i.i.i53, label %505, label %502
+501:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread.i53
+  br i1 %.not.i.i.i54, label %505, label %502
 
 502:                                              ; preds = %501
   %503 = getelementptr inbounds i8, ptr %1, i64 -8
@@ -1353,14 +1353,14 @@ _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exi
   br label %_ZNK4llvm4User10getOperandEj.exit18.i
 
 _ZNK4llvm4User10getOperandEj.exit18.i:            ; preds = %505, %502, %496, %493, %487, %484
-  %.in.sink52.i = phi ptr [ %486, %484 ], [ %491, %487 ], [ %495, %493 ], [ %500, %496 ], [ %504, %502 ], [ %509, %505 ]
+  %.in.sink51.i = phi ptr [ %486, %484 ], [ %491, %487 ], [ %495, %493 ], [ %500, %496 ], [ %504, %502 ], [ %509, %505 ]
   %.sink.i = phi i32 [ 186, %484 ], [ 186, %487 ], [ 187, %493 ], [ 187, %496 ], [ 188, %502 ], [ 188, %505 ]
-  %510 = load ptr, ptr %.in.sink52.i, align 8, !tbaa !236
-  %511 = getelementptr inbounds nuw i8, ptr %.in.sink52.i, i64 32
+  %510 = load ptr, ptr %.in.sink51.i, align 8, !tbaa !236
+  %511 = getelementptr inbounds nuw i8, ptr %.in.sink51.i, i64 32
   %512 = load ptr, ptr %511, align 8, !tbaa !236
   %513 = tail call fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel13emitLogicalOpEjN4llvm3MVTEPKNS1_5ValueES5_(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %.sink.i, i16 %452, ptr noundef %510, ptr noundef %512)
-  %.not.not.i54 = icmp eq i32 %513, 0
-  br i1 %.not.not.i54, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %514
+  %.not.not.i55 = icmp eq i32 %513, 0
+  br i1 %.not.not.i55, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %514
 
 514:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit18.i
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, i32 %513, i32 noundef 1) #22
@@ -1422,61 +1422,61 @@ _ZNK4llvm4User10getOperandEj.exit18.i:            ; preds = %505, %502, %496, %4
 
 550:                                              ; preds = %536
   %551 = load i32, ptr %532, align 8
-  %.fr106.i = freeze i32 %551
-  %552 = and i32 %.fr106.i, 255
+  %.fr.i72 = freeze i32 %551
+  %552 = and i32 %.fr.i72, 255
   %553 = icmp eq i32 %552, 14
-  br i1 %553, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i70
+  br i1 %553, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test.i73
 
-switch.early.test.i70:                            ; preds = %550
-  switch i16 %541, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i58 [
+switch.early.test.i73:                            ; preds = %550
+  switch i16 %541, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i60 [
     i16 15, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 1, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 0, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
   ]
 
 554:                                              ; preds = %536
-  switch i16 %541, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i58 [
+  switch i16 %541, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i60 [
     i16 15, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 1, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
     i16 0, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
   ]
 
-_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i58: ; preds = %554, %switch.early.test.i70
+_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i60: ; preds = %554, %switch.early.test.i73
   %555 = load ptr, ptr %28, align 8, !tbaa !225
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 104
   %557 = zext i16 %541 to i64
   %558 = getelementptr inbounds nuw [234 x ptr], ptr %556, i64 0, i64 %557
   %559 = load ptr, ptr %558, align 8, !tbaa !233
-  %.not.i.i59 = icmp eq ptr %559, null
-  br i1 %.not.i.i59, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60
+  %.not.i.i61 = icmp eq ptr %559, null
+  br i1 %.not.i.i61, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62
 
-_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i58
+_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i60
   switch i16 %541, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit [
-    i16 2, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60
-    i16 5, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60
-    i16 6, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60
+    i16 2, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62
+    i16 5, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62
+    i16 6, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62
   ]
 
-_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i58
+_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i.i60
   %560 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %561 = load i32, ptr %560, align 4
   %562 = and i32 %561, 1073741824
-  %.not.i.i.i61 = icmp eq i32 %562, 0
-  br i1 %.not.i.i.i61, label %566, label %563
+  %.not.i.i.i63 = icmp eq i32 %562, 0
+  br i1 %.not.i.i.i63, label %566, label %563
 
-563:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60
+563:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62
   %564 = getelementptr inbounds i8, ptr %1, i64 -8
   %565 = load ptr, ptr %564, align 8, !tbaa !235
-  br label %_ZNK4llvm4User10getOperandEj.exit.i62
+  br label %_ZNK4llvm4User10getOperandEj.exit.i64
 
-566:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i60
+566:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.i62
   %567 = and i32 %561, 134217727
   %568 = zext nneg i32 %567 to i64
   %569 = sub nsw i64 0, %568
   %570 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %569
-  br label %_ZNK4llvm4User10getOperandEj.exit.i62
+  br label %_ZNK4llvm4User10getOperandEj.exit.i64
 
-_ZNK4llvm4User10getOperandEj.exit.i62:            ; preds = %566, %563
+_ZNK4llvm4User10getOperandEj.exit.i64:            ; preds = %566, %563
   %571 = phi ptr [ %565, %563 ], [ %570, %566 ]
   %572 = load ptr, ptr %571, align 8, !tbaa !236
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 8
@@ -1488,7 +1488,7 @@ _ZNK4llvm4User10getOperandEj.exit.i62:            ; preds = %566, %563
   %spec.select.i.i27.i = icmp ult i32 %578, -2
   br i1 %spec.select.i.i27.i, label %579, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
 
-579:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.i62
+579:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.i64
   %580 = load ptr, ptr %538, align 8, !tbaa !232
   %581 = tail call { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValueTypeERKNS_10DataLayoutEPNS_4TypeEb(ptr noundef nonnull align 8 dereferenceable(412423) %555, ptr noundef nonnull align 8 dereferenceable(496) %580, ptr noundef nonnull %574, i1 noundef zeroext true)
   %582 = extractvalue { i16, ptr } %581, 0
@@ -1503,8 +1503,8 @@ _ZNK4llvm4User10getOperandEj.exit.i62:            ; preds = %566, %563
 
 590:                                              ; preds = %579
   %591 = load i32, ptr %575, align 8
-  %.fr107.i = freeze i32 %591
-  %592 = and i32 %.fr107.i, 255
+  %.fr106.i = freeze i32 %591
+  %592 = and i32 %.fr106.i, 255
   %593 = icmp eq i32 %592, 14
   br i1 %593, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %switch.early.test105.i
 
@@ -1541,41 +1541,41 @@ _ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thr
 _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit36.thread.i: ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i30.i
   %600 = load i32, ptr %560, align 4
   %601 = and i32 %600, 1073741824
-  %.not.i.i.i.i63 = icmp eq i32 %601, 0
-  br i1 %.not.i.i.i.i63, label %605, label %602
+  %.not.i.i.i.i65 = icmp eq i32 %601, 0
+  br i1 %.not.i.i.i.i65, label %605, label %602
 
 602:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit36.thread.i
   %603 = getelementptr inbounds i8, ptr %1, i64 -8
   %604 = load ptr, ptr %603, align 8, !tbaa !235
-  br label %_ZNK4llvm4User10getOperandEj.exit.i.i64
+  br label %_ZNK4llvm4User10getOperandEj.exit.i.i66
 
 605:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit36.thread.i
   %606 = and i32 %600, 134217727
   %607 = zext nneg i32 %606 to i64
   %608 = sub nsw i64 0, %607
   %609 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %608
-  br label %_ZNK4llvm4User10getOperandEj.exit.i.i64
+  br label %_ZNK4llvm4User10getOperandEj.exit.i.i66
 
-_ZNK4llvm4User10getOperandEj.exit.i.i64:          ; preds = %605, %602
+_ZNK4llvm4User10getOperandEj.exit.i.i66:          ; preds = %605, %602
   %610 = phi ptr [ %604, %602 ], [ %609, %605 ]
   %611 = load ptr, ptr %610, align 8, !tbaa !236
   %612 = load i8, ptr %611, align 8, !tbaa !226
   %.not.i37.i = icmp eq i8 %612, 61
   br i1 %.not.i37.i, label %613, label %677
 
-613:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i64
+613:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit.i.i66
   %614 = getelementptr inbounds nuw i8, ptr %611, i64 16
   %615 = load ptr, ptr %614, align 8, !tbaa !243
   %.not.i.i36.i.i = icmp eq ptr %615, null
-  br i1 %.not.i.i36.i.i, label %677, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i66
+  br i1 %.not.i.i36.i.i, label %677, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i68
 
-_ZNK4llvm5Value9hasOneUseEv.exit.i.i66:           ; preds = %613
+_ZNK4llvm5Value9hasOneUseEv.exit.i.i68:           ; preds = %613
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 8
   %617 = load ptr, ptr %616, align 8, !tbaa !244
   %618 = icmp eq ptr %617, null
   br i1 %618, label %619, label %677
 
-619:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i.i66
+619:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit.i.i68
   %620 = tail call i32 @_ZN4llvm8FastISel17lookUpRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %611) #22
   %.not31.i.i = icmp eq i32 %620, 0
   br i1 %.not31.i.i, label %677, label %621
@@ -1660,10 +1660,10 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i66:           ; preds = %613
 _ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i: ; preds = %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %.critedge34.i.i, %644, %644, %644, %644, %644, %644, %644, %644, %644, %644, %644, %644
   %645 = icmp ne i16 %541, 8
   %646 = icmp ugt i16 %582, 7
-  %or.cond.i.i67 = select i1 %645, i1 true, i1 %646
-  br i1 %or.cond.i.i67, label %.critedge.i.i68, label %647
+  %or.cond.i.i69 = select i1 %645, i1 true, i1 %646
+  br i1 %or.cond.i.i69, label %.critedge.i.i70, label %647
 
-.critedge.i.i68:                                  ; preds = %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
+.critedge.i.i70:                                  ; preds = %_ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i
   tail call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, i32 %620, i32 noundef 1) #22
   br label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
 
@@ -1727,7 +1727,7 @@ _ZL10isZExtLoadPKN4llvm12MachineInstrE.exit.thread.i.i: ; preds = %.critedge34.i
   call void @_ZN4llvm8FastISel14updateValueMapEPKNS_5ValueENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1, i32 %.sroa.045.0.i.i, i32 noundef 1) #22
   br label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
 
-677:                                              ; preds = %.critedge34.i.i, %644, %621, %619, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i66, %613, %_ZNK4llvm4User10getOperandEj.exit.i.i64
+677:                                              ; preds = %.critedge34.i.i, %644, %621, %619, %_ZNK4llvm5Value9hasOneUseEv.exit.i.i68, %613, %_ZNK4llvm4User10getOperandEj.exit.i.i66
   %678 = load i32, ptr %560, align 4
   %679 = and i32 %678, 1073741824
   %.not.i.i39.i = icmp eq i32 %679, 0
@@ -1749,8 +1749,8 @@ _ZNK4llvm4User10getOperandEj.exit40.i:            ; preds = %683, %680
   %688 = phi ptr [ %682, %680 ], [ %687, %683 ]
   %689 = load ptr, ptr %688, align 8, !tbaa !236
   %690 = tail call i32 @_ZN4llvm8FastISel14getRegForValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %689) #22
-  %.not.i65 = icmp eq i32 %690, 0
-  br i1 %.not.i65, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %691
+  %.not.i67 = icmp eq i32 %690, 0
+  br i1 %.not.i67, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %691
 
 691:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit40.i
   %692 = load i8, ptr %1, align 8, !tbaa !226
@@ -1896,8 +1896,8 @@ _ZNK4llvm4User10getOperandEj.exit42.i:            ; preds = %699, %696
   %761 = load i32, ptr %760, align 8
   %762 = and i32 %761, 255
   %763 = add nsw i32 %762, -17
-  %spec.select.i.i71 = icmp ult i32 %763, 2
-  br i1 %spec.select.i.i71, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %764
+  %spec.select.i.i74 = icmp ult i32 %763, 2
+  br i1 %spec.select.i.i74, label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit, label %764
 
 764:                                              ; preds = %757
   %765 = tail call noundef i32 @_ZNK4llvm8FastISel20optimizeCmpPredicateEPKNS_7CmpInstE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %1) #22
@@ -1941,8 +1941,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit.i: ; preds 
 
 786:                                              ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit.i, %766
   %.032.i = phi i32 [ %767, %766 ], [ %785, %_ZN12_GLOBAL__N_115AArch64FastISel10fastEmit_iEN4llvm3MVTES2_jm.exit.i ]
-  %.not.i72 = icmp eq i32 %.032.i, 0
-  br i1 %.not.i72, label %.thread.i, label %.sink.split.i
+  %.not.i75 = icmp eq i32 %.032.i, 0
+  br i1 %.not.i75, label %.thread.i, label %.sink.split.i
 
 .thread.i:                                        ; preds = %786, %764
   %787 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -2202,8 +2202,8 @@ _ZL12getCompareCCN4llvm7CmpInst9PredicateE.exit.i: ; preds = %861, %860, %859, %
   %897 = tail call noundef zeroext i1 @_ZN4llvm8FastISel14selectOperatorEPKNS_4UserEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1, i32 noundef %896) #22
   br label %_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit
 
-_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit: ; preds = %.sink.split.i, %.thread.i, %757, %738, %736, %.critedge26.i, %_ZNK4llvm4User10getOperandEj.exit40.i, %676, %.critedge.i.i68, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i, %594, %594, %594, %switch.early.test105.i, %switch.early.test105.i, %switch.early.test105.i, %590, %_ZNK4llvm4User10getOperandEj.exit.i62, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69, %554, %554, %554, %switch.early.test.i70, %switch.early.test.i70, %switch.early.test.i70, %550, %529, %514, %_ZNK4llvm4User10getOperandEj.exit18.i, %473, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55, %466, %466, %466, %switch.early.test.i56, %switch.early.test.i56, %switch.early.test.i56, %461, %444, %443, %_ZNK4llvm4User10getOperandEj.exit115.i, %_ZNK4llvm4User10getOperandEj.exit113.i, %415, %_ZN12_GLOBAL__N_115AArch64FastISel10emitLSR_riEN4llvm3MVTES2_jmb.exit.i, %377, %359, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i, %136, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i45, %129, %129, %129, %switch.early.test.i46, %switch.early.test.i46, %switch.early.test.i46, %124, %95, %_ZNK4llvm4User10getOperandEj.exit15.i, %64, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i, %57, %57, %57, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %52, %747, %739, %523, %519, %104, %100, %2, %894, %892, %890, %888, %886, %884, %755, %753, %751, %749, %745, %743, %741, %527, %525, %521, %517, %515, %106, %102, %98, %96
-  %.0 = phi i1 [ %897, %894 ], [ %97, %96 ], [ %99, %98 ], [ %103, %102 ], [ %107, %106 ], [ %516, %515 ], [ %518, %517 ], [ %522, %521 ], [ %526, %525 ], [ %528, %527 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %756, %755 ], [ %885, %884 ], [ %887, %886 ], [ %889, %888 ], [ %891, %890 ], [ %893, %892 ], [ false, %2 ], [ true, %100 ], [ true, %104 ], [ true, %519 ], [ true, %523 ], [ true, %739 ], [ true, %747 ], [ %68, %64 ], [ false, %_ZNK4llvm4User10getOperandEj.exit15.i ], [ true, %95 ], [ false, %switch.early.test.i ], [ false, %57 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i ], [ false, %57 ], [ false, %57 ], [ false, %52 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ %140, %136 ], [ false, %_ZNK4llvm4User10getOperandEj.exit113.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit115.i ], [ false, %443 ], [ true, %444 ], [ false, %switch.early.test.i46 ], [ false, %129 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel10emitLSR_riEN4llvm3MVTES2_jmb.exit.i ], [ false, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i ], [ true, %415 ], [ false, %359 ], [ false, %377 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i45 ], [ false, %129 ], [ false, %129 ], [ false, %124 ], [ false, %switch.early.test.i46 ], [ false, %switch.early.test.i46 ], [ %477, %473 ], [ false, %_ZNK4llvm4User10getOperandEj.exit18.i ], [ true, %514 ], [ false, %switch.early.test.i56 ], [ false, %466 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i55 ], [ false, %466 ], [ false, %466 ], [ false, %461 ], [ false, %switch.early.test.i56 ], [ false, %switch.early.test.i56 ], [ true, %.critedge.i.i68 ], [ true, %676 ], [ false, %_ZNK4llvm4User10getOperandEj.exit40.i ], [ true, %.critedge26.i ], [ false, %736 ], [ true, %738 ], [ false, %529 ], [ false, %switch.early.test.i70 ], [ false, %554 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i62 ], [ false, %switch.early.test105.i ], [ false, %594 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i69 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i ], [ false, %554 ], [ false, %554 ], [ false, %594 ], [ false, %594 ], [ false, %550 ], [ false, %switch.early.test.i70 ], [ false, %switch.early.test.i70 ], [ false, %590 ], [ false, %switch.early.test105.i ], [ false, %switch.early.test105.i ], [ false, %757 ], [ false, %.thread.i ], [ true, %.sink.split.i ]
+_ZN12_GLOBAL__N_115AArch64FastISel12selectAddSubEPKN4llvm11InstructionE.exit: ; preds = %.sink.split.i, %.thread.i, %757, %738, %736, %.critedge26.i, %_ZNK4llvm4User10getOperandEj.exit40.i, %676, %.critedge.i.i70, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i, %594, %594, %594, %switch.early.test105.i, %switch.early.test105.i, %switch.early.test105.i, %590, %_ZNK4llvm4User10getOperandEj.exit.i64, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71, %554, %554, %554, %switch.early.test.i73, %switch.early.test.i73, %switch.early.test.i73, %550, %529, %514, %_ZNK4llvm4User10getOperandEj.exit18.i, %473, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56, %466, %466, %466, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %461, %444, %443, %_ZNK4llvm4User10getOperandEj.exit115.i, %_ZNK4llvm4User10getOperandEj.exit113.i, %415, %_ZN12_GLOBAL__N_115AArch64FastISel10emitLSR_riEN4llvm3MVTES2_jmb.exit.i, %377, %359, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i, %136, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i45, %129, %129, %129, %switch.early.test.i47, %switch.early.test.i47, %switch.early.test.i47, %124, %95, %_ZNK4llvm4User10getOperandEj.exit15.i, %64, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i, %57, %57, %57, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %52, %747, %739, %523, %519, %104, %100, %2, %894, %892, %890, %888, %886, %884, %755, %753, %751, %749, %745, %743, %741, %527, %525, %521, %517, %515, %106, %102, %98, %96
+  %.0 = phi i1 [ %897, %894 ], [ %97, %96 ], [ %99, %98 ], [ %103, %102 ], [ %107, %106 ], [ %516, %515 ], [ %518, %517 ], [ %522, %521 ], [ %526, %525 ], [ %528, %527 ], [ %742, %741 ], [ %744, %743 ], [ %746, %745 ], [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %756, %755 ], [ %885, %884 ], [ %887, %886 ], [ %889, %888 ], [ %891, %890 ], [ %893, %892 ], [ false, %2 ], [ true, %100 ], [ true, %104 ], [ true, %519 ], [ true, %523 ], [ true, %739 ], [ true, %747 ], [ %68, %64 ], [ false, %_ZNK4llvm4User10getOperandEj.exit15.i ], [ true, %95 ], [ false, %switch.early.test.i ], [ false, %57 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i ], [ false, %57 ], [ false, %57 ], [ false, %52 ], [ false, %switch.early.test.i ], [ false, %switch.early.test.i ], [ %140, %136 ], [ false, %_ZNK4llvm4User10getOperandEj.exit113.i ], [ false, %_ZNK4llvm4User10getOperandEj.exit115.i ], [ false, %443 ], [ true, %444 ], [ false, %switch.early.test.i47 ], [ false, %129 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel10emitLSR_riEN4llvm3MVTES2_jmb.exit.i ], [ false, %_ZL12isIntExtFreePKN4llvm11InstructionE.exit.i ], [ true, %415 ], [ false, %359 ], [ false, %377 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i45 ], [ false, %129 ], [ false, %129 ], [ false, %124 ], [ false, %switch.early.test.i47 ], [ false, %switch.early.test.i47 ], [ %477, %473 ], [ false, %_ZNK4llvm4User10getOperandEj.exit18.i ], [ true, %514 ], [ false, %switch.early.test.i58 ], [ false, %466 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i56 ], [ false, %466 ], [ false, %466 ], [ false, %461 ], [ false, %switch.early.test.i58 ], [ false, %switch.early.test.i58 ], [ true, %.critedge.i.i70 ], [ true, %676 ], [ false, %_ZNK4llvm4User10getOperandEj.exit40.i ], [ true, %.critedge26.i ], [ false, %736 ], [ true, %738 ], [ false, %529 ], [ false, %switch.early.test.i73 ], [ false, %554 ], [ false, %_ZNK4llvm4User10getOperandEj.exit.i64 ], [ false, %switch.early.test105.i ], [ false, %594 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i.i71 ], [ false, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i32.i ], [ false, %554 ], [ false, %554 ], [ false, %594 ], [ false, %594 ], [ false, %550 ], [ false, %switch.early.test.i73 ], [ false, %switch.early.test.i73 ], [ false, %590 ], [ false, %switch.early.test105.i ], [ false, %switch.early.test105.i ], [ false, %757 ], [ false, %.thread.i ], [ true, %.sink.split.i ]
   ret i1 %.0
 }
 
@@ -2930,8 +2930,8 @@ _ZN4llvm15SmallVectorImplINS_3MVTEE7reserveEm.exit: ; preds = %.critedge123, %13
 161:                                              ; preds = %146
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %163 = load i32, ptr %162, align 8
-  %.fr241 = freeze i32 %163
-  %164 = and i32 %.fr241, 255
+  %.fr = freeze i32 %163
+  %164 = and i32 %.fr, 255
   %165 = icmp eq i32 %164, 14
   br i1 %165, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.thread.thread.thread, label %switch.early.test
 
@@ -3297,8 +3297,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3MVTELb1EE9push_backES1_.exit: ; preds = %.
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %334 = load i32, ptr %333, align 8, !tbaa !360
   %335 = zext i32 %334 to i64
-  %.idx242 = shl nuw nsw i64 %335, 2
-  %336 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx242
+  %.idx241 = shl nuw nsw i64 %335, 2
+  %336 = getelementptr inbounds nuw i8, ptr %332, i64 %.idx241
   %.not119237 = icmp eq i32 %334, 0
   br i1 %.not119237, label %._crit_edge, label %.lr.ph239
 
@@ -3839,8 +3839,8 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit171:    ; preds = %229
 296:                                              ; preds = %279
   %297 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %298 = load i32, ptr %297, align 8
-  %.fr496 = freeze i32 %298
-  %299 = and i32 %.fr496, 255
+  %.fr495 = freeze i32 %298
+  %299 = and i32 %.fr495, 255
   %300 = icmp eq i32 %299, 14
   br i1 %300, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test
 
@@ -3917,8 +3917,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit: ; 
   %332 = lshr exact i64 %331, 5
   %333 = and i64 %332, 4294967295
   %334 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.not527 = icmp eq i64 %333, 0
-  br i1 %.not527, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i
+  %.not526 = icmp eq i64 %333, 0
+  br i1 %.not526, label %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i
 
 _ZNSt12_Vector_baseIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %320
   %335 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4232,8 +4232,8 @@ _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EED2Ev.exit: ; preds
 470:                                              ; preds = %453
   %471 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %472 = load i32, ptr %471, align 8
-  %.fr495 = freeze i32 %472
-  %473 = and i32 %.fr495, 255
+  %.fr494 = freeze i32 %472
+  %473 = and i32 %.fr494, 255
   %474 = icmp eq i32 %473, 14
   br i1 %474, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test482
 
@@ -4394,8 +4394,8 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %2
 569:                                              ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit
   %570 = getelementptr inbounds nuw i8, ptr %554, i64 8
   %571 = load i32, ptr %570, align 8
-  %.fr494 = freeze i32 %571
-  %572 = and i32 %.fr494, 255
+  %.fr493 = freeze i32 %571
+  %572 = and i32 %.fr493, 255
   %573 = icmp eq i32 %572, 14
   br i1 %573, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test483
 
@@ -4471,8 +4471,8 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit192:  ; preds = %2, %2, %2, %2, %2, 
 614:                                              ; preds = %_ZNK4llvm8CallBase17getCalledFunctionEv.exit192
   %615 = getelementptr inbounds nuw i8, ptr %599, i64 8
   %616 = load i32, ptr %615, align 8
-  %.fr493 = freeze i32 %616
-  %617 = and i32 %.fr493, 255
+  %.fr = freeze i32 %616
+  %617 = and i32 %.fr, 255
   %618 = icmp eq i32 %617, 14
   br i1 %618, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test484
 
@@ -6827,8 +6827,8 @@ define internal noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel24fastMaterialize
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
-  %.fr18 = freeze i32 %21
-  %22 = and i32 %.fr18, 255
+  %.fr = freeze i32 %21
+  %22 = and i32 %.fr, 255
   %23 = icmp eq i32 %22, 14
   br i1 %23, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test
 
@@ -6906,8 +6906,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel9se
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
-  %.fr134 = freeze i32 %23
-  %24 = and i32 %.fr134, 255
+  %.fr = freeze i32 %23
+  %24 = and i32 %.fr, 255
   %25 = icmp eq i32 %24, 14
   br i1 %25, label %.critedge60, label %switch.early.test
 
@@ -7225,7 +7225,7 @@ _ZL12isIntExtFreePKN4llvm11InstructionE.exit:     ; preds = %117, %_ZNK4llvm5Val
   br i1 %.not55, label %._ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread_crit_edge, label %173
 
 ._ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread_crit_edge: ; preds = %171
-  %.pre135 = load i32, ptr %35, align 4
+  %.pre134 = load i32, ptr %35, align 4
   br label %_ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread
 
 173:                                              ; preds = %171
@@ -7233,7 +7233,7 @@ _ZL12isIntExtFreePKN4llvm11InstructionE.exit:     ; preds = %117, %_ZNK4llvm5Val
   br label %.critedge60
 
 _ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread:      ; preds = %._ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread_crit_edge, %68, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread, %71
-  %174 = phi i32 [ %.pre135, %._ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread_crit_edge ], [ %36, %68 ], [ %36, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread ], [ %36, %71 ]
+  %174 = phi i32 [ %.pre134, %._ZNK4llvm5APInt10isPowerOf2Ev.exit69.thread_crit_edge ], [ %36, %68 ], [ %36, %_ZNK4llvm5APInt10isPowerOf2Ev.exit.thread ], [ %36, %71 ]
   %175 = and i32 %174, 1073741824
   %.not.i.i78 = icmp eq i32 %175, 0
   br i1 %.not.i.i78, label %179, label %176
@@ -7293,12 +7293,12 @@ switch.lookup:                                    ; preds = %202
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel10emitMul_rrEN4llvm3MVTEjj, i64 0, i64 %204
   %switch.load = load i32, ptr %switch.gep, align 4
   %205 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep146 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel10emitMul_rrEN4llvm3MVTEjj.19, i64 0, i64 %205
-  %switch.load147 = load i32, ptr %switch.gep146, align 4
+  %switch.gep145 = getelementptr inbounds nuw [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel10emitMul_rrEN4llvm3MVTEjj.19, i64 0, i64 %205
+  %switch.load146 = load i32, ptr %switch.gep145, align 4
   %206 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep148 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel10emitMul_rrEN4llvm3MVTEjj.20, i64 0, i64 %206
-  %switch.load149 = load ptr, ptr %switch.gep148, align 8
-  %207 = tail call i32 @_ZN4llvm8FastISel16fastEmitInst_rrrEjPKNS_19TargetRegisterClassEjjj(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %switch.load147, ptr noundef nonnull %switch.load149, i32 noundef %186, i32 noundef %201, i32 noundef %switch.load) #22
+  %switch.gep147 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel10emitMul_rrEN4llvm3MVTEjj.20, i64 0, i64 %206
+  %switch.load148 = load ptr, ptr %switch.gep147, align 8
+  %207 = tail call i32 @_ZN4llvm8FastISel16fastEmitInst_rrrEjPKNS_19TargetRegisterClassEjjj(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %switch.load146, ptr noundef nonnull %switch.load148, i32 noundef %186, i32 noundef %201, i32 noundef %switch.load) #22
   %.not58.not = icmp eq i32 %207, 0
   br i1 %.not58.not, label %.critedge60, label %208
 
@@ -7334,8 +7334,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel10s
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load i32, ptr %20, align 8
-  %.fr98 = freeze i32 %21
-  %22 = and i32 %.fr98, 255
+  %.fr = freeze i32 %21
+  %22 = and i32 %.fr, 255
   %23 = icmp eq i32 %22, 14
   br i1 %23, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test
 
@@ -7820,8 +7820,8 @@ _ZNK12_GLOBAL__N_115AArch64FastISel16isValueAvailableEPKN4llvm5ValueE.exit.threa
 
 104:                                              ; preds = %89
   %105 = load i32, ptr %85, align 8
-  %.fr147.i = freeze i32 %105
-  %106 = and i32 %.fr147.i, 255
+  %.fr.i = freeze i32 %105
+  %106 = and i32 %.fr.i, 255
   %107 = icmp eq i32 %106, 14
   br i1 %107, label %268, label %switch.early.test.i
 
@@ -8597,8 +8597,8 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %6, %9
 32:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %34 = load i32, ptr %33, align 8
-  %.fr68 = freeze i32 %34
-  %35 = and i32 %.fr68, 255
+  %.fr = freeze i32 %34
+  %35 = and i32 %.fr, 255
   %36 = icmp eq i32 %35, 14
   br i1 %36, label %.critedge6, label %switch.early.test
 
@@ -8643,8 +8643,8 @@ _ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit: ; 
 56:                                               ; preds = %43
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %58 = load i32, ptr %57, align 8
-  %.fr69 = freeze i32 %58
-  %59 = and i32 %.fr69, 255
+  %.fr68 = freeze i32 %58
+  %59 = and i32 %.fr68, 255
   %60 = icmp eq i32 %59, 14
   br i1 %60, label %.critedge6, label %switch.early.test67
 
@@ -8762,8 +8762,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel13s
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
-  %.fr68 = freeze i32 %23
-  %24 = and i32 %.fr68, 255
+  %.fr = freeze i32 %23
+  %24 = and i32 %.fr, 255
   %25 = icmp eq i32 %24, 14
   br i1 %25, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test
 
@@ -9219,8 +9219,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel13s
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = load i32, ptr %21, align 8
-  %.fr84 = freeze i32 %22
-  %23 = and i32 %.fr84, 255
+  %.fr = freeze i32 %22
+  %23 = and i32 %.fr, 255
   %24 = icmp eq i32 %23, 14
   br i1 %24, label %.critedge, label %switch.early.test
 
@@ -9387,8 +9387,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel10s
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load i32, ptr %23, align 8
-  %.fr167 = freeze i32 %24
-  %25 = and i32 %.fr167, 255
+  %.fr = freeze i32 %24
+  %25 = and i32 %.fr, 255
   %26 = icmp eq i32 %25, 14
   br i1 %26, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread142, label %switch.early.test
 
@@ -9605,12 +9605,12 @@ _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exi
   %125 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %124, ptr noundef nonnull align 2 dereferenceable(2) %4, i1 noundef zeroext false)
   %.sroa.025.0.copyload.pr.pre = load i16, ptr %4, align 2
   %spec.select = select i1 %125, i16 %.sroa.025.0.copyload.pr.pre, i16 %13
-  %spec.select183 = select i1 %125, ptr %88, ptr null
+  %spec.select182 = select i1 %125, ptr %88, ptr null
   br label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110, %122, %_ZNK4llvm5Value9hasOneUseEv.exit, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i108, %86, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110, %80, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit114.thread145
   %.sroa.025.0.copyload = phi i16 [ %13, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit114.thread145 ], [ %13, %80 ], [ %.pr.i111, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ %13, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %101, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i108 ], [ %13, %86 ], [ %spec.select, %122 ], [ %.pr.i111, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ %.pr.i111, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ]
-  %.070 = phi ptr [ null, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit114.thread145 ], [ null, %80 ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i108 ], [ null, %86 ], [ %spec.select183, %122 ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ]
+  %.070 = phi ptr [ null, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit114.thread145 ], [ null, %80 ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ null, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i108 ], [ null, %86 ], [ %spec.select182, %122 ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ %88, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ]
   %.067 = phi i1 [ true, %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit114.thread145 ], [ true, %80 ], [ true, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ true, %_ZNK4llvm5Value9hasOneUseEv.exit ], [ true, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.i108 ], [ true, %86 ], [ false, %122 ], [ true, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ], [ true, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i110 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !972
   %126 = call noundef ptr @_ZNK4llvm8FastISel26createMachineMemOperandForEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull %1) #22
@@ -9804,8 +9804,8 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %11, %14
 37:                                               ; preds = %_ZNK4llvm4User10getOperandEj.exit
   %38 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %39 = load i32, ptr %38, align 8
-  %.fr111 = freeze i32 %39
-  %40 = and i32 %.fr111, 255
+  %.fr = freeze i32 %39
+  %40 = and i32 %.fr, 255
   %41 = icmp eq i32 %40, 14
   br i1 %41, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread78, label %switch.early.test
 
@@ -10128,8 +10128,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel12s
 
 27:                                               ; preds = %12
   %28 = load i32, ptr %8, align 8
-  %.fr105 = freeze i32 %28
-  %29 = and i32 %.fr105, 255
+  %.fr = freeze i32 %28
+  %29 = and i32 %.fr, 255
   %30 = icmp eq i32 %29, 14
   br i1 %30, label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread87, label %switch.early.test
 
@@ -10176,13 +10176,13 @@ switch.lookup:                                    ; preds = %_ZN12_GLOBAL__N_115
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel12selectSelectEPKN4llvm11InstructionE, i64 0, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep116 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel12selectSelectEPKN4llvm11InstructionE.18, i64 0, i64 %39
-  %switch.load117 = load i32, ptr %switch.gep116, align 4
+  %switch.gep115 = getelementptr inbounds nuw [12 x i32], ptr @switch.table._ZN12_GLOBAL__N_115AArch64FastISel12selectSelectEPKN4llvm11InstructionE.18, i64 0, i64 %39
+  %switch.load116 = load i32, ptr %switch.gep115, align 4
   br label %_ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread
 
 _ZN12_GLOBAL__N_115AArch64FastISel15isTypeSupportedEPN4llvm4TypeERNS1_3MVTEb.exit.thread.thread: ; preds = %switch.lookup, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i
   %.046 = phi ptr [ @_ZN4llvm7AArch6413GPR32RegClassE, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ @_ZN4llvm7AArch6413GPR32RegClassE, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ @_ZN4llvm7AArch6413GPR32RegClassE, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ %switch.load, %switch.lookup ]
-  %.045 = phi i32 [ 2376, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ 2376, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ 2376, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ %switch.load117, %switch.lookup ]
+  %.045 = phi i32 [ 2376, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ 2376, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ 2376, %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread.i ], [ %switch.load116, %switch.lookup ]
   %40 = getelementptr inbounds i8, ptr %1, i64 -96
   %41 = load ptr, ptr %40, align 8, !tbaa !236
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -11072,8 +11072,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel10s
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load i32, ptr %23, align 8
-  %.fr53 = freeze i32 %24
-  %25 = and i32 %.fr53, 255
+  %.fr = freeze i32 %24
+  %25 = and i32 %.fr, 255
   %26 = icmp eq i32 %25, 14
   br i1 %26, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test
 
@@ -11161,13 +11161,13 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %47, %50
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
-  %.pre54 = load ptr, ptr %8, align 8, !tbaa !225
+  %.pre53 = load ptr, ptr %8, align 8, !tbaa !225
   %56 = and i8 %.pre, -128
   %57 = or disjoint i8 %56, 32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4llvm4User8operandsEv.exit
-  %58 = phi ptr [ %.pre54, %._crit_edge.loopexit ], [ %28, %_ZNK4llvm4User8operandsEv.exit ]
+  %58 = phi ptr [ %.pre53, %._crit_edge.loopexit ], [ %28, %_ZNK4llvm4User8operandsEv.exit ]
   %59 = phi i8 [ %57, %._crit_edge.loopexit ], [ 32, %_ZNK4llvm4User8operandsEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !781
@@ -12065,8 +12065,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel19s
 35:                                               ; preds = %2
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %37 = load i32, ptr %36, align 8
-  %.fr81 = freeze i32 %37
-  %38 = and i32 %.fr81, 255
+  %.fr = freeze i32 %37
+  %38 = and i32 %.fr, 255
   %39 = icmp eq i32 %38, 14
   br i1 %39, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %switch.early.test
 
@@ -16553,8 +16553,8 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i: ; preds = %_Z
 46:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %48 = load i32, ptr %47, align 8
-  %.fr88 = freeze i32 %48
-  %49 = and i32 %.fr88, 255
+  %.fr = freeze i32 %48
+  %49 = and i32 %.fr, 255
   %50 = icmp eq i32 %49, 14
   br i1 %50, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.thread, label %switch.early.test
 
@@ -18528,21 +18528,21 @@ declare noundef zeroext i1 @_ZN4llvm8FastISel17canFoldAddIntoGEPEPKNS_4UserEPKNS
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %.fr8 = freeze i32 %4
-  %5 = and i32 %.fr8, 255
+  %.fr = freeze i32 %4
+  %5 = and i32 %.fr, 255
   %6 = icmp eq i32 %5, 12
   br i1 %6, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %trunc.i.i = trunc i32 %.fr8 to i8
+  %trunc.i.i = trunc i32 %.fr to i8
   %8 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %8, i1 %switch.lobit, i1 false
-  %9 = and i32 %.fr8, 253
+  %9 = and i32 %.fr, 253
   %spec.select.i = icmp eq i32 %9, 4
-  %or.cond9 = or i1 %or.cond, %spec.select.i
-  br i1 %or.cond9, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %switch.early.test
+  %or.cond8 = or i1 %or.cond, %spec.select.i
+  br i1 %or.cond8, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %7
   switch i8 %trunc.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.thread.fold.split [

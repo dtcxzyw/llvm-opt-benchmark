@@ -1395,9 +1395,10 @@ define dso_local ptr @dbRandomKey(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %12 = icmp eq i64 %3, %6
-  %.fr = freeze i1 %12
-  br i1 %.fr, label %.lr.ph.split, label %.lr.ph.split.us
+  %.fr34 = freeze i64 %3
+  %.fr35 = freeze i64 %6
+  %12 = icmp eq i64 %.fr34, %.fr35
+  br i1 %12, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %39
   %13 = phi ptr [ %43, %39 ], [ %10, %.lr.ph ]
@@ -1506,8 +1507,8 @@ sdslen.exit:                                      ; preds = %.lr.ph.split, %51, 
   %.0.i = phi i64 [ %53, %51 ], [ %57, %54 ], [ %61, %58 ], [ %65, %62 ], [ %68, %66 ], [ 0, %.lr.ph.split ]
   %69 = tail call ptr @createStringObject(ptr noundef nonnull %46, i64 noundef %.0.i) #20
   %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7264), align 8
-  %.not34 = icmp eq ptr %70, null
-  br i1 %.not34, label %74, label %71
+  %.not36 = icmp eq ptr %70, null
+  br i1 %.not36, label %74, label %71
 
 71:                                               ; preds = %sdslen.exit
   %72 = add nsw i32 %.01928, -1
@@ -3686,8 +3687,8 @@ sdslen.exit:                                      ; preds = %60, %63, %67, %71, 
 
 80:                                               ; preds = %sdslen.exit
   %81 = load i8, ptr %55, align 1, !tbaa !76
-  %.fr514 = freeze i8 %81
-  %82 = icmp ne i8 %.fr514, 42
+  %.fr = freeze i8 %81
+  %82 = icmp ne i8 %.fr, 42
   %83 = zext i1 %82 to i32
   br label %sdslen.exit.thread
 
@@ -3866,8 +3867,8 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 0, ptr %152, align 4
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %spec.select553 = select i1 %.not285323335, ptr @sdslen, ptr @hfieldlen
-  store ptr %spec.select553, ptr %153, align 8, !tbaa !133
+  %spec.select552 = select i1 %.not285323335, ptr @sdslen, ptr @hfieldlen
+  store ptr %spec.select552, ptr %153, align 8, !tbaa !133
   %or.cond11 = and i1 %17, %148
   %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7888), align 8
   %155 = icmp ne i32 %154, 0
@@ -3885,7 +3886,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
 
 .split435.us.preheader:                           ; preds = %.thread, %158
   %160 = phi ptr [ %157, %.thread ], [ %159, %158 ]
-  %.0257516 = phi i32 [ %156, %.thread ], [ -1, %158 ]
+  %.0257515 = phi i32 [ %156, %.thread ], [ -1, %158 ]
   br label %.split435.us
 
 .split435.us:                                     ; preds = %.split435.us.preheader, %164
@@ -3893,7 +3894,7 @@ sdslen.exit.thread:                               ; preds = %95, %108, %101, %99
   %.0.us = phi i64 [ %163, %164 ], [ %2, %.split435.us.preheader ]
   %161 = load ptr, ptr %160, align 8, !tbaa !74
   %162 = load ptr, ptr %161, align 8, !tbaa !6
-  %163 = call i64 @kvstoreScan(ptr noundef %162, i64 noundef %.0.us, i32 noundef %.0257516, ptr noundef nonnull @scanCallback, ptr noundef null, ptr noundef nonnull %5) #20
+  %163 = call i64 @kvstoreScan(ptr noundef %162, i64 noundef %.0.us, i32 noundef %.0257515, ptr noundef nonnull @scanCallback, ptr noundef null, ptr noundef nonnull %5) #20
   %.not286.us = icmp eq i64 %163, 0
   %.not287.us = icmp eq i64 %.0258.us, 0
   %or.cond308.us = select i1 %.not286.us, i1 true, i1 %.not287.us
@@ -7672,17 +7673,17 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   br i1 %.not34.us, label %.split40.us, label %.lr.ph50.split
 
 43:                                               ; preds = %.lr.ph50.split
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %44 = getelementptr inbounds nuw [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next73
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %44 = getelementptr inbounds nuw [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next72
   %45 = load ptr, ptr %44, align 16, !tbaa !205
   %46 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef nonnull %45) #24
   %.not33.us = icmp eq i32 %46, 0
   br i1 %.not33.us, label %.split.us, label %.lr.ph50.split, !llvm.loop !207
 
 .lr.ph50.split:                                   ; preds = %.lr.ph50, %43
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %43 ], [ 0, %.lr.ph50 ]
-  %exitcond75 = icmp eq i64 %indvars.iv72, 2
-  br i1 %exitcond75, label %.loopexit, label %43, !llvm.loop !207
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %43 ], [ 0, %.lr.ph50 ]
+  %exitcond74 = icmp eq i64 %indvars.iv71, 2
+  br i1 %exitcond74, label %.loopexit, label %43, !llvm.loop !207
 
 .split40.us:                                      ; preds = %.lr.ph50
   store i32 %39, ptr %32, align 4, !tbaa !188
@@ -7698,13 +7699,13 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   br i1 %.not34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %48
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %48 ], [ 0, %.lr.ph ]
-  %exitcond71 = icmp eq i64 %indvars.iv68, 2
-  br i1 %exitcond71, label %.loopexit, label %48, !llvm.loop !207
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %48 ], [ 0, %.lr.ph ]
+  %exitcond70 = icmp eq i64 %indvars.iv67, 2
+  br i1 %exitcond70, label %.loopexit, label %48, !llvm.loop !207
 
 48:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %49 = getelementptr inbounds nuw [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next69
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %49 = getelementptr inbounds nuw [4 x %struct.anon.5], ptr @__const.sortGetKeys.skiplist, i64 0, i64 %indvars.iv.next68
   %50 = load ptr, ptr %49, align 16, !tbaa !205
   %51 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef nonnull %50) #24
   %.not33.us45 = icmp eq i32 %51, 0

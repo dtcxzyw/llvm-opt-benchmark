@@ -859,8 +859,8 @@ time_new_timew.exit:                              ; preds = %RTYPEDDATA_GET_DATA
 rb_integer_type_p.exit.i:                         ; preds = %52
   %57 = inttoptr i64 %1 to ptr
   %58 = load i64, ptr %57, align 8, !tbaa !15
-  %.fr10.i = freeze i64 %58
-  %59 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %58
+  %59 = and i64 %.fr.i, 31
   switch i64 %59, label %maybe_tzobj_p.exit.thread34 [
     i64 10, label %maybe_tzobj_p.exit.thread
     i64 5, label %maybe_tzobj_p.exit.thread
@@ -3344,8 +3344,8 @@ rb_check_arity.exit:                              ; preds = %3
 rb_integer_type_p.exit.i:                         ; preds = %11
   %16 = inttoptr i64 %7 to ptr
   %17 = load i64, ptr %16, align 8, !tbaa !15
-  %.fr10.i = freeze i64 %17
-  %18 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %17
+  %18 = and i64 %.fr.i, 31
   switch i64 %18, label %maybe_tzobj_p.exit.thread44 [
     i64 10, label %maybe_tzobj_p.exit.thread
     i64 5, label %maybe_tzobj_p.exit.thread
@@ -7027,8 +7027,8 @@ rb_integer_type_p.exit.thread:                    ; preds = %mulv.exit, %rb_inte
 
 rb_num2long_inline.exit149:                       ; preds = %193, %195
   %.0.i148 = phi i64 [ %194, %193 ], [ %196, %195 ]
-  %.not183 = icmp eq i32 %.0132, 0
-  br i1 %.not183, label %ruby_nonempty_memcpy.exit.loopexit, label %197
+  %.not182 = icmp eq i32 %.0132, 0
+  br i1 %.not182, label %ruby_nonempty_memcpy.exit.loopexit, label %197
 
 197:                                              ; preds = %rb_num2long_inline.exit149
   %198 = uitofp nneg i32 %.0132 to double
@@ -7544,8 +7544,8 @@ divmodv.exit97.i:                                 ; preds = %187, %177
 rb_integer_type_p.exit.i.i:                       ; preds = %201
   %206 = inttoptr i64 %198 to ptr
   %207 = load i64, ptr %206, align 8, !tbaa !15
-  %.fr10.i.i = freeze i64 %207
-  %208 = and i64 %.fr10.i.i, 31
+  %.fr.i.i = freeze i64 %207
+  %208 = and i64 %.fr.i.i, 31
   switch i64 %208, label %maybe_tzobj_p.exit.thread109.i [
     i64 10, label %time_mdump.exit
     i64 5, label %time_mdump.exit
@@ -11497,9 +11497,9 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   br i1 %27, label %.sink.split, label %30
 
 .sink.split:                                      ; preds = %26, %20
-  %.sink169 = phi i32 [ 60, %20 ], [ -60, %26 ]
+  %.sink167 = phi i32 [ 60, %20 ], [ -60, %26 ]
   %.sink = phi i32 [ -1, %20 ], [ 1, %26 ]
-  %28 = add nsw i32 %24, %.sink169
+  %28 = add nsw i32 %24, %.sink167
   store i32 %28, ptr %1, align 8, !tbaa !111
   %29 = add nsw i32 %18, %.sink
   br label %30
@@ -11515,22 +11515,22 @@ rb_localtime_r.exit:                              ; preds = %2, %5
   %34 = add i32 %33, %.087
   store i32 %34, ptr %32, align 4, !tbaa !110
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %.sink.split170, label %36
+  br i1 %35, label %.sink.split168, label %36
 
 36:                                               ; preds = %31
   %37 = icmp samesign ugt i32 %34, 59
-  br i1 %37, label %.sink.split170, label %40
+  br i1 %37, label %.sink.split168, label %40
 
-.sink.split170:                                   ; preds = %36, %31
-  %.sink173 = phi i32 [ 60, %31 ], [ -60, %36 ]
-  %.sink171 = phi i32 [ -1, %31 ], [ 1, %36 ]
-  %38 = add nsw i32 %34, %.sink173
+.sink.split168:                                   ; preds = %36, %31
+  %.sink171 = phi i32 [ 60, %31 ], [ -60, %36 ]
+  %.sink169 = phi i32 [ -1, %31 ], [ 1, %36 ]
+  %38 = add nsw i32 %34, %.sink171
   store i32 %38, ptr %32, align 4, !tbaa !110
-  %39 = add i32 %19, %.sink171
+  %39 = add i32 %19, %.sink169
   br label %40
 
-40:                                               ; preds = %.sink.split170, %36, %30
-  %.085 = phi i32 [ %19, %36 ], [ %19, %30 ], [ %39, %.sink.split170 ]
+40:                                               ; preds = %.sink.split168, %36, %30
+  %.085 = phi i32 [ %19, %36 ], [ %19, %30 ], [ %39, %.sink.split168 ]
   %.not102 = icmp eq i32 %.085, 0
   br i1 %.not102, label %.thread119, label %41
 
@@ -11575,23 +11575,23 @@ rb_localtime_r.exit:                              ; preds = %2, %5
 
 64:                                               ; preds = %62, %54
   %65 = phi i64 [ %63, %62 ], [ %60, %54 ]
-  %.fr150 = freeze i64 %65
-  %66 = and i64 %.fr150, 3
+  %.fr148 = freeze i64 %65
+  %66 = and i64 %.fr148, 3
   %.not.i = icmp eq i64 %66, 0
   br i1 %.not.i, label %67, label %leap_year_p.exit.thread, !prof !14
 
 67:                                               ; preds = %64
-  %.lhs.trunc143 = trunc i64 %.fr150 to i32
+  %.lhs.trunc143 = trunc i64 %.fr148 to i32
   %68 = udiv i32 %.lhs.trunc143, 100
   %.zext144 = zext nneg i32 %68 to i64
   %69 = mul nuw nsw i64 %.zext144, 100
-  %.not11.i = icmp eq i64 %.fr150, %69
+  %.not11.i = icmp eq i64 %.fr148, %69
   br i1 %.not11.i, label %leap_year_p.exit, label %leap_year_p.exit.thread131, !prof !14
 
 leap_year_p.exit:                                 ; preds = %67
   %70 = and i64 %.zext144, 3
-  %.not151 = icmp eq i64 %70, 0
-  br i1 %.not151, label %leap_year_p.exit.thread131, label %leap_year_p.exit.thread
+  %.not149 = icmp eq i64 %70, 0
+  br i1 %.not149, label %leap_year_p.exit.thread131, label %leap_year_p.exit.thread
 
 leap_year_p.exit.thread:                          ; preds = %64, %leap_year_p.exit
   br label %leap_year_p.exit.thread131
@@ -11657,8 +11657,8 @@ leap_year_p.exit111.thread139:                    ; preds = %85, %leap_year_p.ex
   br label %leap_year_p.exit.thread131
 
 leap_year_p.exit.thread131:                       ; preds = %leap_year_p.exit.thread, %leap_year_p.exit, %67, %leap_year_p.exit111.thread139, %98
-  %.sink174 = phi i32 [ %97, %leap_year_p.exit111.thread139 ], [ %100, %98 ], [ 364, %leap_year_p.exit.thread ], [ 365, %leap_year_p.exit ], [ 365, %67 ]
-  store i32 %.sink174, ptr %50, align 4, !tbaa !113
+  %.sink172 = phi i32 [ %97, %leap_year_p.exit111.thread139 ], [ %100, %98 ], [ 364, %leap_year_p.exit.thread ], [ 365, %leap_year_p.exit ], [ 365, %67 ]
+  store i32 %.sink172, ptr %50, align 4, !tbaa !113
   br label %.thread119.sink.split
 
 101:                                              ; preds = %41
@@ -11677,35 +11677,35 @@ leap_year_p.exit.thread131:                       ; preds = %leap_year_p.exit.th
 
 110:                                              ; preds = %108, %101
   %111 = phi i64 [ %109, %108 ], [ %106, %101 ]
-  %.fr189 = freeze i64 %111
-  %112 = and i64 %.fr189, 3
+  %.fr185 = freeze i64 %111
+  %112 = and i64 %.fr185, 3
   %.not.i112.not = icmp eq i64 %112, 0
-  br i1 %.not.i112.not, label %113, label %.sink.split176, !prof !14
+  br i1 %.not.i112.not, label %113, label %.sink.split174, !prof !14
 
 113:                                              ; preds = %110
-  %.lhs.trunc = trunc i64 %.fr189 to i32
+  %.lhs.trunc = trunc i64 %.fr185 to i32
   %114 = udiv i32 %.lhs.trunc, 100
   %.zext = zext nneg i32 %114 to i64
   %115 = mul nuw nsw i64 %.zext, 100
-  %.not11.i114 = icmp eq i64 %.fr189, %115
-  br i1 %.not11.i114, label %leap_year_p.exit115, label %.sink.split176, !prof !14
+  %.not11.i114 = icmp eq i64 %.fr185, %115
+  br i1 %.not11.i114, label %leap_year_p.exit115, label %.sink.split174, !prof !14
 
 leap_year_p.exit115:                              ; preds = %113
   %116 = and i64 %.zext, 3
-  %.not190 = icmp eq i64 %116, 0
-  %spec.select175 = select i1 %.not190, i32 365, i32 364
-  %117 = select i1 %.not190, ptr @leap_year_days_in_month, ptr @common_year_days_in_month
-  br label %.sink.split176
+  %.not186 = icmp eq i64 %116, 0
+  %spec.select173 = select i1 %.not186, i32 365, i32 364
+  %117 = select i1 %.not186, ptr @leap_year_days_in_month, ptr @common_year_days_in_month
+  br label %.sink.split174
 
-.sink.split176:                                   ; preds = %110, %113, %leap_year_p.exit115
-  %.0.i113163 = phi ptr [ %117, %leap_year_p.exit115 ], [ @leap_year_days_in_month, %113 ], [ @common_year_days_in_month, %110 ]
-  %118 = phi i32 [ %spec.select175, %leap_year_p.exit115 ], [ 365, %113 ], [ 364, %110 ]
+.sink.split174:                                   ; preds = %110, %113, %leap_year_p.exit115
+  %.0.i113161 = phi ptr [ %117, %leap_year_p.exit115 ], [ @leap_year_days_in_month, %113 ], [ @common_year_days_in_month, %110 ]
+  %118 = phi i32 [ %spec.select173, %leap_year_p.exit115 ], [ 365, %113 ], [ 364, %110 ]
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %120 = load i32, ptr %119, align 4, !tbaa !113
   %121 = icmp eq i32 %120, %118
   br i1 %121, label %122, label %126
 
-122:                                              ; preds = %.sink.split176
+122:                                              ; preds = %.sink.split174
   %123 = add i32 %104, 1
   store i32 %123, ptr %103, align 4, !tbaa !105
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11714,13 +11714,13 @@ leap_year_p.exit115:                              ; preds = %113
   store i32 1, ptr %125, align 4, !tbaa !108
   br label %142
 
-126:                                              ; preds = %.sink.split176
+126:                                              ; preds = %.sink.split174
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %128 = load i32, ptr %127, align 4, !tbaa !108
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %130 = load i32, ptr %129, align 8, !tbaa !107
   %131 = sext i32 %130 to i64
-  %132 = getelementptr i8, ptr %.0.i113163, i64 %131
+  %132 = getelementptr i8, ptr %.0.i113161, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !54
   %134 = sext i8 %133 to i32
   %135 = icmp eq i32 %128, %134
@@ -11740,15 +11740,15 @@ leap_year_p.exit115:                              ; preds = %113
   br label %142
 
 142:                                              ; preds = %136, %139, %122
-  %.sink180 = phi i32 [ %138, %136 ], [ %141, %139 ], [ 0, %122 ]
-  store i32 %.sink180, ptr %119, align 4, !tbaa !113
+  %.sink178 = phi i32 [ %138, %136 ], [ %141, %139 ], [ 0, %122 ]
+  store i32 %.sink178, ptr %119, align 4, !tbaa !113
   br label %.thread119.sink.split
 
 .thread119.sink.split:                            ; preds = %142, %leap_year_p.exit.thread131
-  %.sink185 = phi i32 [ 6, %leap_year_p.exit.thread131 ], [ 1, %142 ]
+  %.sink183 = phi i32 [ 6, %leap_year_p.exit.thread131 ], [ 1, %142 ]
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %144 = load i32, ptr %143, align 8, !tbaa !112
-  %145 = add i32 %144, %.sink185
+  %145 = add i32 %144, %.sink183
   %146 = srem i32 %145, 7
   store i32 %146, ptr %143, align 8, !tbaa !112
   br label %.thread119
@@ -12507,8 +12507,8 @@ time_modify.exit:                                 ; preds = %24, %rbimpl_RB_TYPE
 rb_integer_type_p.exit.i:                         ; preds = %29
   %34 = inttoptr i64 %26 to ptr
   %35 = load i64, ptr %34, align 8, !tbaa !15
-  %.fr10.i = freeze i64 %35
-  %36 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %35
+  %36 = and i64 %.fr.i, 31
   switch i64 %36, label %maybe_tzobj_p.exit.thread22 [
     i64 10, label %maybe_tzobj_p.exit.thread
     i64 5, label %maybe_tzobj_p.exit.thread
@@ -13265,21 +13265,21 @@ rb_num2long_inline.exit:                          ; preds = %59, %61
 
 66:                                               ; preds = %64, %rb_num2long_inline.exit
   %67 = phi i64 [ %65, %64 ], [ %.0.i69, %rb_num2long_inline.exit ]
-  %.fr130 = freeze i64 %67
-  %68 = and i64 %.fr130, 3
+  %.fr126 = freeze i64 %67
+  %68 = and i64 %.fr126, 3
   %.not.i70 = icmp eq i64 %68, 0
   br i1 %.not.i70, label %69, label %leap_year_p.exit.thread, !prof !14
 
 69:                                               ; preds = %66
-  %70 = udiv i64 %.fr130, 100
+  %70 = udiv i64 %.fr126, 100
   %71 = mul nuw nsw i64 %70, 100
-  %.not11.i = icmp eq i64 %.fr130, %71
+  %.not11.i = icmp eq i64 %.fr126, %71
   br i1 %.not11.i, label %leap_year_p.exit, label %leap_year_p.exit.thread106, !prof !14
 
 leap_year_p.exit:                                 ; preds = %69
   %72 = and i64 %70, 3
-  %.not131 = icmp eq i64 %72, 0
-  br i1 %.not131, label %leap_year_p.exit.thread106, label %leap_year_p.exit.thread
+  %.not127 = icmp eq i64 %72, 0
+  br i1 %.not127, label %leap_year_p.exit.thread106, label %leap_year_p.exit.thread
 
 leap_year_p.exit.thread:                          ; preds = %66, %leap_year_p.exit
   br label %leap_year_p.exit.thread106
@@ -13360,21 +13360,21 @@ rb_num2long_inline.exit80:                        ; preds = %105, %107
 
 112:                                              ; preds = %110, %rb_num2long_inline.exit80
   %113 = phi i64 [ %111, %110 ], [ %.0.i79, %rb_num2long_inline.exit80 ]
-  %.fr = freeze i64 %113
-  %114 = and i64 %.fr, 3
+  %.fr124 = freeze i64 %113
+  %114 = and i64 %.fr124, 3
   %.not.i81 = icmp eq i64 %114, 0
   br i1 %.not.i81, label %115, label %leap_year_p.exit84.thread, !prof !14
 
 115:                                              ; preds = %112
-  %116 = udiv i64 %.fr, 100
+  %116 = udiv i64 %.fr124, 100
   %117 = mul nuw nsw i64 %116, 100
-  %.not11.i83 = icmp eq i64 %.fr, %117
+  %.not11.i83 = icmp eq i64 %.fr124, %117
   br i1 %.not11.i83, label %leap_year_p.exit84, label %leap_year_p.exit84.thread114, !prof !14
 
 leap_year_p.exit84:                               ; preds = %115
   %118 = and i64 %116, 3
-  %.not127 = icmp eq i64 %118, 0
-  br i1 %.not127, label %leap_year_p.exit84.thread114, label %leap_year_p.exit84.thread
+  %.not125 = icmp eq i64 %118, 0
+  br i1 %.not125, label %leap_year_p.exit84.thread114, label %leap_year_p.exit84.thread
 
 leap_year_p.exit84.thread:                        ; preds = %112, %leap_year_p.exit84
   br label %leap_year_p.exit84.thread114
@@ -13429,8 +13429,8 @@ leap_year_p.exit84.thread114:                     ; preds = %115, %leap_year_p.e
 
 151:                                              ; preds = %.sink.split, %140, %subv.exit
   %152 = phi i64 [ %144, %140 ], [ %34, %subv.exit ], [ %storemerge.sink, %.sink.split ]
-  %.fr135 = freeze i64 %152
-  %153 = lshr i64 %.fr135, 38
+  %.fr128 = freeze i64 %152
+  %153 = lshr i64 %.fr128, 38
   %154 = trunc nuw nsw i64 %153 to i32
   %155 = and i32 %154, 7
   %.not62 = icmp eq i32 %155, 7
@@ -13442,7 +13442,7 @@ leap_year_p.exit84.thread114:                     ; preds = %115, %leap_year_p.e
   %157 = select i1 %.cmp, i32 6, i32 %.urem
   %158 = zext nneg i32 %157 to i64
   %159 = shl nuw nsw i64 %158, 38
-  %160 = and i64 %.fr135, -1924145348609
+  %160 = and i64 %.fr128, -1924145348609
   %161 = add nuw nsw i64 %159, %160
   store i64 %161, ptr %6, align 8
   br label %277
@@ -13584,7 +13584,7 @@ addv.exit:                                        ; preds = %212, %215, %226, %r
   %229 = load i64, ptr %202, align 8
   %230 = and i64 %229, -262144
   %231 = or disjoint i64 %230, 8705
-  br label %.sink.split143
+  br label %.sink.split136
 
 232:                                              ; preds = %leap_year_p.exit97
   %233 = trunc i64 %203 to i32
@@ -13615,7 +13615,7 @@ addv.exit:                                        ; preds = %212, %215, %226, %r
   %252 = and i64 %251, 511
   %253 = and i64 %248, -246272
   %254 = or disjoint i64 %253, %252
-  br label %.sink.split143
+  br label %.sink.split136
 
 255:                                              ; preds = %232
   %256 = add i64 %203, 8192
@@ -13632,17 +13632,17 @@ addv.exit:                                        ; preds = %212, %215, %226, %r
   %263 = and i64 %262, 511
   %264 = and i64 %259, -512
   %265 = or disjoint i64 %264, %263
-  br label %.sink.split143
+  br label %.sink.split136
 
-.sink.split143:                                   ; preds = %addv.exit, %261, %250
+.sink.split136:                                   ; preds = %addv.exit, %261, %250
   %.sink = phi i64 [ %254, %250 ], [ %265, %261 ], [ %231, %addv.exit ]
   store i64 %.sink, ptr %202, align 8
   br label %266
 
-266:                                              ; preds = %.sink.split143, %243, %255
-  %267 = phi i64 [ %248, %243 ], [ %259, %255 ], [ %.sink, %.sink.split143 ]
-  %.fr125 = freeze i64 %267
-  %268 = lshr i64 %.fr125, 38
+266:                                              ; preds = %.sink.split136, %243, %255
+  %267 = phi i64 [ %248, %243 ], [ %259, %255 ], [ %.sink, %.sink.split136 ]
+  %.fr = freeze i64 %267
+  %268 = lshr i64 %.fr, 38
   %269 = trunc nuw nsw i64 %268 to i32
   %270 = and i32 %269, 7
   %.not56 = icmp eq i32 %270, 7
@@ -13654,7 +13654,7 @@ addv.exit:                                        ; preds = %212, %215, %226, %r
   %272 = add nsw i32 %.v, %270
   %273 = zext nneg i32 %272 to i64
   %274 = shl nuw nsw i64 %273, 38
-  %275 = and i64 %.fr125, -1924145348609
+  %275 = and i64 %.fr, -1924145348609
   %276 = add nuw nsw i64 %274, %275
   store i64 %276, ptr %202, align 8
   br label %277
@@ -17583,11 +17583,11 @@ define internal fastcc void @time_arg(i32 noundef %0, ptr noundef readonly captu
 
 56:                                               ; preds = %.preheader, %69
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %69 ]
-  %.185.i105 = phi i32 [ 1, %.preheader ], [ %.286.i, %69 ]
+  %.185.i104 = phi i32 [ 1, %.preheader ], [ %.286.i, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = getelementptr ptr, ptr %6, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !40
-  %59 = icmp slt i32 %.185.i105, %0
+  %59 = icmp slt i32 %.185.i104, %0
   %.not103.i = icmp eq ptr %58, null
   br i1 %59, label %60, label %67
 
@@ -17595,14 +17595,14 @@ define internal fastcc void @time_arg(i32 noundef %0, ptr noundef readonly captu
   br i1 %.not103.i, label %65, label %61
 
 61:                                               ; preds = %60
-  %62 = sext i32 %.185.i105 to i64
+  %62 = sext i32 %.185.i104 to i64
   %63 = getelementptr i64, ptr %1, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !11
   store i64 %64, ptr %58, align 8, !tbaa !11
   br label %65
 
 65:                                               ; preds = %61, %60
-  %66 = add nsw i32 %.185.i105, 1
+  %66 = add nsw i32 %.185.i104, 1
   br label %69
 
 67:                                               ; preds = %56
@@ -17613,7 +17613,7 @@ define internal fastcc void @time_arg(i32 noundef %0, ptr noundef readonly captu
   br label %69
 
 69:                                               ; preds = %68, %67, %65
-  %.286.i = phi i32 [ %66, %65 ], [ %.185.i105, %68 ], [ %.185.i105, %67 ]
+  %.286.i = phi i32 [ %66, %65 ], [ %.185.i104, %68 ], [ %.185.i104, %67 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %70, label %56, !llvm.loop !131
 
@@ -17672,10 +17672,10 @@ obj2vint.exit:                                    ; preds = %85, %rbimpl_RB_TYPE
   br label %96
 
 96:                                               ; preds = %obj2vint.exit, %91
-  %.sink126 = phi i64 [ %95, %91 ], [ 512, %obj2vint.exit ]
-  %.sink127 = load i64, ptr %8, align 8
-  %97 = and i64 %.sink127, -7681
-  %98 = or disjoint i64 %97, %.sink126
+  %.sink125 = phi i64 [ %95, %91 ], [ 512, %obj2vint.exit ]
+  %.sink126 = load i64, ptr %8, align 8
+  %97 = and i64 %.sink126, -7681
+  %98 = or disjoint i64 %97, %.sink125
   store i64 %98, ptr %8, align 8
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %100 = load i64, ptr %99, align 16, !tbaa !11
@@ -17732,12 +17732,12 @@ obj2ubits.exit:                                   ; preds = %obj2int.exit.i
   br label %124
 
 124:                                              ; preds = %96, %obj2ubits.exit
-  %.sink129 = phi i64 [ %121, %obj2ubits.exit ], [ %98, %96 ]
-  %.sink128 = phi i64 [ %123, %obj2ubits.exit ], [ 8192, %96 ]
-  %125 = and i64 %.sink129, -253953
-  %126 = or disjoint i64 %125, %.sink128
+  %.sink128 = phi i64 [ %121, %obj2ubits.exit ], [ %98, %96 ]
+  %.sink127 = phi i64 [ %123, %obj2ubits.exit ], [ 8192, %96 ]
+  %125 = and i64 %.sink128, -253953
+  %126 = or disjoint i64 %125, %.sink127
   store i64 %126, ptr %8, align 8
-  %127 = trunc i64 %.sink129 to i32
+  %127 = trunc i64 %.sink128 to i32
   %128 = lshr i32 %127, 9
   %129 = and i32 %128, 15
   switch i32 %129, label %191 [
@@ -17824,8 +17824,8 @@ rb_num2long_inline.exit:                          ; preds = %154, %156
 
 leap_year_p.exit:                                 ; preds = %164
   %167 = and i64 %165, 3
-  %.not100 = icmp eq i64 %167, 0
-  br i1 %.not100, label %leap_year_p.exit.thread95, label %leap_year_p.exit.thread
+  %.not99 = icmp eq i64 %167, 0
+  br i1 %.not99, label %leap_year_p.exit.thread95, label %leap_year_p.exit.thread
 
 leap_year_p.exit.thread:                          ; preds = %161, %leap_year_p.exit
   br label %leap_year_p.exit.thread95
@@ -17852,11 +17852,11 @@ leap_year_p.exit.thread95:                        ; preds = %164, %leap_year_p.e
   br label %.sink.split
 
 184:                                              ; preds = %124, %124, %124, %124
-  %185 = icmp eq i64 %.sink128, 253952
+  %185 = icmp eq i64 %.sink127, 253952
   br i1 %185, label %186, label %191
 
 186:                                              ; preds = %184
-  %187 = add i64 %.sink129, 512
+  %187 = add i64 %.sink128, 512
   %188 = and i64 %187, 7680
   %189 = and i64 %126, -253441
   %190 = or disjoint i64 %189, %188
@@ -17920,11 +17920,11 @@ obj2int.exit.i67:                                 ; preds = %210, %208
 obj2ubits.exit70:                                 ; preds = %obj2int.exit.i67
   %215 = shl i64 %.0.i3.i.i68, 18
   %216 = and i64 %215, 8126464
-  %.pre108 = load i64, ptr %8, align 8
+  %.pre107 = load i64, ptr %8, align 8
   br label %217
 
 217:                                              ; preds = %191, %obj2ubits.exit70
-  %218 = phi i64 [ %.pre108, %obj2ubits.exit70 ], [ %192, %191 ]
+  %218 = phi i64 [ %.pre107, %obj2ubits.exit70 ], [ %192, %191 ]
   %219 = phi i64 [ %216, %obj2ubits.exit70 ], [ 0, %191 ]
   %220 = and i64 %218, -8126465
   %221 = or disjoint i64 %220, %219
@@ -17980,11 +17980,11 @@ obj2int.exit.i75:                                 ; preds = %239, %237
 obj2ubits.exit78:                                 ; preds = %obj2int.exit.i75
   %244 = shl i64 %.0.i3.i.i76, 23
   %245 = and i64 %244, 528482304
-  %.pre109 = load i64, ptr %8, align 8
+  %.pre108 = load i64, ptr %8, align 8
   br label %246
 
 246:                                              ; preds = %217, %obj2ubits.exit78
-  %247 = phi i64 [ %.pre109, %obj2ubits.exit78 ], [ %221, %217 ]
+  %247 = phi i64 [ %.pre108, %obj2ubits.exit78 ], [ %221, %217 ]
   %248 = phi i64 [ %245, %obj2ubits.exit78 ], [ 0, %217 ]
   %249 = and i64 %247, -528482305
   %250 = or disjoint i64 %249, %248
@@ -18047,13 +18047,13 @@ obj2int.exit.i83:                                 ; preds = %273, %271
 
 obj2ubits.exit86:                                 ; preds = %obj2int.exit.i83
   %278 = shl i64 %.0.i3.i.i84, 32
-  %.pre110 = load i64, ptr %8, align 8
-  %.pre111 = load i64, ptr %251, align 16, !tbaa !11
+  %.pre109 = load i64, ptr %8, align 8
+  %.pre110 = load i64, ptr %251, align 16, !tbaa !11
   br label %279
 
 279:                                              ; preds = %258, %obj2ubits.exit86
-  %280 = phi i64 [ %.pre111, %obj2ubits.exit86 ], [ %252, %258 ]
-  %281 = phi i64 [ %.pre110, %obj2ubits.exit86 ], [ %250, %258 ]
+  %280 = phi i64 [ %.pre110, %obj2ubits.exit86 ], [ %252, %258 ]
+  %281 = phi i64 [ %.pre109, %obj2ubits.exit86 ], [ %250, %258 ]
   %282 = phi i64 [ %278, %obj2ubits.exit86 ], [ 0, %258 ]
   %283 = and i64 %281, -270582939649
   %284 = or i64 %283, %282
@@ -18193,11 +18193,11 @@ usec2subsecx.exit:                                ; preds = %quor.exit.i.i, %rbi
   %354 = and i64 %352, -270582939649
   %355 = or disjoint i64 %354, %353
   store i64 %355, ptr %8, align 8
-  %.pre112 = load i64, ptr %5, align 8, !tbaa !11
+  %.pre111 = load i64, ptr %5, align 8, !tbaa !11
   br label %356
 
 356:                                              ; preds = %347, %349, %usec2subsecx.exit
-  %357 = phi i64 [ 1, %347 ], [ %.pre112, %349 ], [ %.0.i7.i, %usec2subsecx.exit ]
+  %357 = phi i64 [ 1, %347 ], [ %.pre111, %349 ], [ %.0.i7.i, %usec2subsecx.exit ]
   store i64 %357, ptr %10, align 8, !tbaa !59
   call fastcc void @validate_vtm(ptr noundef nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -20034,8 +20034,8 @@ rbimpl_intern_const.exit60:                       ; preds = %.lr.ph.i58, %18
 rb_integer_type_p.exit.i:                         ; preds = %26
   %31 = inttoptr i64 %2 to ptr
   %32 = load i64, ptr %31, align 8, !tbaa !15
-  %.fr10.i = freeze i64 %32
-  %33 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %32
+  %33 = and i64 %.fr.i, 31
   switch i64 %33, label %maybe_tzobj_p.exit.thread88 [
     i64 10, label %maybe_tzobj_p.exit.thread
     i64 5, label %maybe_tzobj_p.exit.thread

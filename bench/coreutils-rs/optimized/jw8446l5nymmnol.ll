@@ -444,10 +444,10 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %169 = load i64, ptr %168, align 8, !alias.scope !74, !noalias !81, !noundef !21
   %170 = load i64, ptr %29, align 8, !alias.scope !74, !noalias !81
-  %.fr153 = freeze i64 %170
+  %.fr = freeze i64 %170
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %172 = load i64, ptr %171, align 8, !alias.scope !74, !noalias !81
-  %173 = add i64 %.fr153, -1
+  %173 = add i64 %.fr, -1
   %.first_iter.i = icmp ult i64 %173, %110
   br label %174
 
@@ -474,7 +474,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br i1 %.not37.i.i, label %174, label %.thread
 
 .preheader3.i:                                    ; preds = %174, %203
-  %.sroa.04.0.i.i = phi i64 [ %204, %203 ], [ %.fr153, %174 ]
+  %.sroa.04.0.i.i = phi i64 [ %204, %203 ], [ %.fr, %174 ]
   %189 = icmp ult i64 %.sroa.04.0.i.i, %110
   br i1 %189, label %200, label %.preheader.i.preheader
 
@@ -482,7 +482,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br i1 %.first_iter.i, label %.preheader.i.us, label %.preheader.i, !prof !72
 
 .preheader.i.us:                                  ; preds = %.preheader.i.preheader, %194
-  %.sroa.5.0.i.i.us = phi i64 [ %191, %194 ], [ %.fr153, %.preheader.i.preheader ]
+  %.sroa.5.0.i.i.us = phi i64 [ %191, %194 ], [ %.fr, %.preheader.i.preheader ]
   %.not.i48.us = icmp eq i64 %.sroa.5.0.i.i.us, 0
   br i1 %.not.i48.us, label %.loopexit, label %190
 
@@ -505,7 +505,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br label %186
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader
-  %.not.i48 = icmp eq i64 %.fr153, 0
+  %.not.i48 = icmp eq i64 %.fr, 0
   br i1 %.not.i48, label %.loopexit, label %.invoke
 
 200:                                              ; preds = %.preheader3.i
@@ -523,7 +523,7 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   br i1 %.not.i.i, label %.preheader3.i, label %214
 
 209:                                              ; preds = %200
-  %210 = add i64 %175, %.fr153
+  %210 = add i64 %175, %.fr
   %umax.i.i = call i64 @llvm.umax.i64(i64 %106, i64 %210)
   br label %.invoke
 
@@ -538,8 +538,8 @@ _ZN4core3str11validations15next_code_point17h310ea74bb047660dE.exit.thread.i.i.i
   unreachable
 
 214:                                              ; preds = %203
-  %reass.sub154 = sub i64 %175, %.fr153
-  %215 = add i64 %reass.sub154, 1
+  %reass.sub153 = sub i64 %175, %.fr
+  %215 = add i64 %reass.sub153, 1
   %216 = add i64 %215, %.sroa.04.0.i.i
   br label %186
 

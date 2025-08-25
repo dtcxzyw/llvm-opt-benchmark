@@ -629,11 +629,13 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 
 16:                                               ; preds = %12
   %17 = load i64, ptr %3, align 8
+  %.fr35 = freeze i64 %17
   tail call void @console_lock() #9
   %18 = load i32, ptr %8, align 4
-  %19 = and i32 %18, 128
+  %.fr = freeze i32 %18
+  %19 = and i32 %.fr, 128
   %20 = icmp eq i32 %19, 0
-  %21 = and i32 %18, 63
+  %21 = and i32 %.fr, 63
   %22 = load volatile i32, ptr @ignore_console_lock_warning, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %31
@@ -661,7 +663,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %37 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread38, label %40
+  br i1 %39, label %.thread43, label %40
 
 40:                                               ; preds = %31
   %41 = load volatile i32, ptr @ignore_console_lock_warning, align 4
@@ -696,27 +698,27 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 
 60:                                               ; preds = %50
   %61 = sext i32 %58 to i64
-  br label %.thread38
+  br label %.thread43
 
 62:                                               ; preds = %50
-  %63 = icmp slt i64 %17, 0
-  br i1 %63, label %.thread38, label %64
+  %63 = icmp slt i64 %.fr35, 0
+  br i1 %63, label %.thread43, label %64
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %58 to i64
-  %66 = icmp samesign ugt i64 %17, %65
-  br i1 %66, label %.thread38, label %67
+  %66 = icmp samesign ugt i64 %.fr35, %65
+  br i1 %66, label %.thread43, label %67
 
 67:                                               ; preds = %64
-  %68 = sub nuw nsw i64 %65, %17
+  %68 = sub nuw nsw i64 %65, %.fr35
   %69 = tail call i64 @llvm.umin.i64(i64 %68, i64 %2)
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %71 = getelementptr i8, ptr %14, i64 1
   %72 = icmp eq i64 %69, 0
-  br i1 %72, label %.thread38, label %.lr.ph
+  br i1 %72, label %.thread43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67, %.thread
-  %73 = phi i64 [ %288, %.thread ], [ %17, %67 ]
+  %73 = phi i64 [ %288, %.thread ], [ %.fr35, %67 ]
   %74 = phi i32 [ %289, %.thread ], [ 0, %67 ]
   %75 = phi ptr [ %116, %.thread ], [ %38, %67 ]
   %76 = phi i64 [ %290, %.thread ], [ %69, %67 ]
@@ -754,7 +756,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 
 94:                                               ; preds = %90
   %95 = icmp eq i32 %74, 0
-  br i1 %95, label %.thread38, label %.thread33.thread
+  br i1 %95, label %.thread43, label %.thread38.thread
 
 96:                                               ; preds = %90, %87
   %97 = phi i32 [ %92, %90 ], [ %81, %87 ]
@@ -791,7 +793,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 
 118:                                              ; preds = %109
   %119 = icmp eq i32 %74, 0
-  br i1 %119, label %.thread38, label %.thread33.thread
+  br i1 %119, label %.thread43, label %.thread38.thread
 
 120:                                              ; preds = %109
   %121 = load volatile i32, ptr @ignore_console_lock_warning, align 4
@@ -817,7 +819,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %132 = load i32, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %116, i64 420
   %134 = load i32, ptr %133, align 4
-  %135 = mul i32 %134, %132
+  %.fr31 = freeze i32 %134
+  %.fr32 = freeze i32 %132
+  %135 = mul i32 %.fr31, %.fr32
   %136 = shl i32 %135, 1
   %137 = add i32 %136, 4
   %138 = select i1 %20, i32 %135, i32 %137
@@ -826,23 +830,23 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 
 140:                                              ; preds = %130
   %141 = icmp eq i32 %74, 0
-  br i1 %141, label %142, label %.thread33.thread
+  br i1 %141, label %142, label %.thread38.thread
 
 142:                                              ; preds = %140
   %143 = sext i32 %138 to i64
-  br label %.thread38
+  br label %.thread43
 
 144:                                              ; preds = %130
   %145 = zext nneg i32 %138 to i64
   %146 = icmp slt i64 %73, %145
-  br i1 %146, label %147, label %.thread33
+  br i1 %146, label %147, label %.thread38
 
 147:                                              ; preds = %144
-  %148 = zext i32 %97 to i64
+  %.fr34 = freeze i32 %97
+  %148 = zext i32 %.fr34 to i64
   %149 = sub nsw i64 %145, %73
   %150 = call i64 @llvm.smin.i64(i64 %149, i64 %148)
-  %.fr = freeze i64 %150
-  %151 = trunc i64 %.fr to i32
+  %151 = trunc nuw nsw i64 %150 to i32
   %152 = trunc nuw nsw i64 %73 to i32
   br i1 %20, label %248, label %153
 
@@ -854,12 +858,12 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !22
   call void @getconsxy(ptr noundef nonnull %116, ptr noundef nonnull %70) #9
-  %156 = icmp eq i32 %151, 0
+  %156 = icmp eq i64 %150, 0
   br i1 %156, label %173, label %157
 
 157:                                              ; preds = %155
   %158 = getelementptr i8, ptr %5, i64 %73
-  %159 = add i32 %151, -1
+  %159 = add nsw i32 %151, -1
   %160 = xor i32 %152, 3
   %161 = call i32 @llvm.umin.i32(i32 %159, i32 %160)
   %162 = add nuw nsw i32 %161, 1
@@ -900,7 +904,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 184:                                              ; preds = %179
   %185 = add nsw i32 %181, -4
   %186 = lshr i32 %185, 1
-  %187 = urem i32 %186, %134
+  %187 = urem i32 %186, %.fr31
   %188 = call ptr @screen_pos(ptr noundef nonnull %116, i32 noundef %186, i1 noundef zeroext %110) #9
   %189 = and i32 %181, 1
   %190 = icmp eq i32 %189, 0
@@ -919,7 +923,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %200 = getelementptr i8, ptr %188, i64 2
   %201 = add nsw i32 %181, -3
   %202 = add nuw i32 %187, 1
-  %203 = icmp eq i32 %202, %134
+  %203 = icmp eq i32 %202, %.fr31
   br i1 %203, label %204, label %207
 
 204:                                              ; preds = %191
@@ -934,10 +938,10 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %211 = phi i32 [ %201, %204 ], [ %201, %191 ], [ %185, %184 ]
   %212 = phi ptr [ %193, %204 ], [ %193, %191 ], [ %182, %184 ]
   %213 = icmp ugt i32 %208, 1
-  br i1 %213, label %214, label %.loopexit42
+  br i1 %213, label %214, label %.loopexit47
 
 214:                                              ; preds = %207
-  %215 = sub i32 %134, %210
+  %215 = sub i32 %.fr31, %210
   %216 = lshr i32 %211, 1
   %217 = add i32 %215, %216
   br label %218
@@ -954,12 +958,12 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %226 = getelementptr i8, ptr %219, i64 2
   %227 = add i32 %223, -2
   %228 = add i32 %221, 1
-  %229 = icmp eq i32 %228, %134
+  %229 = icmp eq i32 %228, %.fr31
   br i1 %229, label %230, label %233
 
 230:                                              ; preds = %218
   %231 = call ptr @screen_pos(ptr noundef nonnull %116, i32 noundef %220, i1 noundef zeroext %110) #9
-  %232 = add i32 %220, %134
+  %232 = add i32 %220, %.fr31
   br label %233
 
 233:                                              ; preds = %230, %218
@@ -967,16 +971,16 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %235 = phi i32 [ 0, %230 ], [ %228, %218 ]
   %236 = phi i32 [ %232, %230 ], [ %220, %218 ]
   %237 = icmp ugt i32 %227, 1
-  br i1 %237, label %218, label %.loopexit42, !llvm.loop !23
+  br i1 %237, label %218, label %.loopexit47, !llvm.loop !23
 
-.loopexit42:                                      ; preds = %233, %207
+.loopexit47:                                      ; preds = %233, %207
   %238 = phi i32 [ %208, %207 ], [ %227, %233 ]
   %239 = phi ptr [ %209, %207 ], [ %234, %233 ]
   %240 = phi ptr [ %212, %207 ], [ %226, %233 ]
   %241 = icmp eq i32 %238, 0
   br i1 %241, label %.loopexit, label %242
 
-242:                                              ; preds = %.loopexit42
+242:                                              ; preds = %.loopexit47
   %243 = load i8, ptr %240, align 1
   %244 = call zeroext i16 @vcs_scr_readw(ptr noundef nonnull %116, ptr noundef %239) #9
   %245 = and i16 %244, -256
@@ -987,12 +991,12 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
 
 248:                                              ; preds = %147
   %249 = call ptr @screen_pos(ptr noundef nonnull %116, i32 noundef %152, i1 noundef zeroext %110) #9
-  %250 = icmp eq i32 %151, 0
+  %250 = icmp eq i64 %150, 0
   br i1 %250, label %.loopexit, label %251
 
 251:                                              ; preds = %248
-  %252 = add i32 %134, %152
-  %253 = urem i32 %152, %134
+  %252 = add i32 %.fr31, %152
+  %253 = urem i32 %152, %.fr31
   %254 = sub i32 %252, %253
   br label %255
 
@@ -1012,12 +1016,12 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   call void @vcs_scr_writew(ptr noundef nonnull %116, i16 noundef zeroext %267, ptr noundef %258) #9
   %268 = getelementptr i8, ptr %258, i64 2
   %269 = add i32 %257, 1
-  %270 = icmp eq i32 %269, %134
+  %270 = icmp eq i32 %269, %.fr31
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %255
   %272 = call ptr @screen_pos(ptr noundef nonnull %116, i32 noundef %259, i1 noundef zeroext %110) #9
-  %273 = add i32 %259, %134
+  %273 = add i32 %259, %.fr31
   br label %274
 
 274:                                              ; preds = %271, %255
@@ -1027,9 +1031,9 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %278 = icmp eq i32 %263, 0
   br i1 %278, label %.loopexit, label %255, !llvm.loop !24
 
-.loopexit:                                        ; preds = %274, %248, %242, %.loopexit42
-  %279 = phi ptr [ %188, %.loopexit42 ], [ %188, %242 ], [ %249, %248 ], [ %249, %274 ]
-  %280 = phi ptr [ %239, %.loopexit42 ], [ %239, %242 ], [ %249, %248 ], [ %276, %274 ]
+.loopexit:                                        ; preds = %274, %248, %242, %.loopexit47
+  %279 = phi ptr [ %188, %.loopexit47 ], [ %188, %242 ], [ %249, %248 ], [ %249, %274 ]
+  %280 = phi ptr [ %239, %.loopexit47 ], [ %239, %242 ], [ %249, %248 ], [ %276, %274 ]
   %281 = icmp eq ptr %280, null
   br i1 %281, label %.thread, label %282
 
@@ -1043,15 +1047,15 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   br label %.thread
 
 .thread:                                          ; preds = %179, %282, %.loopexit
-  %.pn = and i64 %.fr, 4294967295
+  %.pn = and i64 %150, 4294967295
   %288 = add nuw nsw i64 %.pn, %73
   %289 = add i32 %74, %151
   %290 = sub i64 %76, %.pn
   %291 = getelementptr i8, ptr %77, i64 %.pn
   %292 = icmp eq i64 %290, 0
-  br i1 %292, label %.thread33, label %.lr.ph
+  br i1 %292, label %.thread38, label %.lr.ph
 
-.thread33.thread:                                 ; preds = %94, %140, %118
+.thread38.thread:                                 ; preds = %94, %140, %118
   %.ph = phi ptr [ null, %118 ], [ %116, %140 ], [ %75, %94 ]
   %293 = zext i32 %74 to i64
   %294 = load i64, ptr %3, align 8
@@ -1059,29 +1063,29 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   store i64 %295, ptr %3, align 8
   br label %300
 
-.thread33:                                        ; preds = %.thread, %144
-  %.lcssa49 = phi i32 [ %289, %.thread ], [ %74, %144 ]
-  %296 = zext i32 %.lcssa49 to i64
+.thread38:                                        ; preds = %.thread, %144
+  %.lcssa54 = phi i32 [ %289, %.thread ], [ %74, %144 ]
+  %296 = zext i32 %.lcssa54 to i64
   %297 = load i64, ptr %3, align 8
   %298 = add i64 %297, %296
   store i64 %298, ptr %3, align 8
-  %299 = icmp eq i32 %.lcssa49, 0
-  br i1 %299, label %.thread38, label %300
+  %299 = icmp eq i32 %.lcssa54, 0
+  br i1 %299, label %.thread43, label %300
 
-300:                                              ; preds = %.thread33.thread, %.thread33
-  %301 = phi i64 [ %293, %.thread33.thread ], [ %296, %.thread33 ]
-  %302 = phi ptr [ %.ph, %.thread33.thread ], [ %116, %.thread33 ]
+300:                                              ; preds = %.thread38.thread, %.thread38
+  %301 = phi i64 [ %293, %.thread38.thread ], [ %296, %.thread38 ]
+  %302 = phi ptr [ %.ph, %.thread38.thread ], [ %116, %.thread38 ]
   call void @vcs_scr_updated(ptr noundef %302) #9
-  br label %.thread38
+  br label %.thread43
 
-.thread38:                                        ; preds = %67, %94, %118, %142, %300, %.thread33, %64, %62, %60, %31
-  %303 = phi i64 [ %61, %60 ], [ -22, %62 ], [ -22, %64 ], [ %301, %300 ], [ 0, %.thread33 ], [ -6, %31 ], [ %143, %142 ], [ -6, %118 ], [ -14, %94 ], [ 0, %67 ]
+.thread43:                                        ; preds = %67, %94, %118, %142, %300, %.thread38, %64, %62, %60, %31
+  %303 = phi i64 [ %61, %60 ], [ -22, %62 ], [ -22, %64 ], [ %301, %300 ], [ 0, %.thread38 ], [ -6, %31 ], [ %143, %142 ], [ -6, %118 ], [ -14, %94 ], [ 0, %67 ]
   call void @console_unlock() #9
   call void @free_pages(i64 noundef %13, i32 noundef 0) #9
   br label %304
 
-304:                                              ; preds = %.thread38, %12, %4
-  %305 = phi i64 [ %303, %.thread38 ], [ -95, %4 ], [ -12, %12 ]
+304:                                              ; preds = %.thread43, %12, %4
+  %305 = phi i64 [ %303, %.thread43 ], [ -95, %4 ], [ -12, %12 ]
   ret i64 %305
 }
 

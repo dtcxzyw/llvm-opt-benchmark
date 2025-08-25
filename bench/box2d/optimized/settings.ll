@@ -259,17 +259,17 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit.thread151: ; preds = %80
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 %94
   %98 = load i8, ptr %97, align 1, !tbaa !10
-  %.fr88.i = freeze i8 %98
-  %.not71.i = icmp eq i8 %.fr88.i, 0
+  %.fr.i = freeze i8 %98
+  %.not71.i = icmp eq i8 %.fr.i, 0
   br i1 %.not71.i, label %.critedge3.i, label %99
 
 99:                                               ; preds = %96
-  %100 = add i8 %.fr88.i, -48
+  %100 = add i8 %.fr.i, -48
   %or.cond.i = icmp ult i8 %100, 10
   br i1 %or.cond.i, label %101, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %99
-  switch i8 %.fr88.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split [
+  switch i8 %.fr.i, label %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit.thread.sink.split [
     i8 102, label %101
     i8 101, label %101
     i8 100, label %101

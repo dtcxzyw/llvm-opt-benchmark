@@ -3234,6 +3234,7 @@ _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE11colsOfBl
 
 .lr.ph.us.us.preheader.i:                         ; preds = %.lr.ph73.us.i
   %wide.trip.count.i4 = zext nneg i32 %111 to i64
+  %.fr20 = freeze i32 %110
   br label %.lr.ph.us.us.i
 
 .lr.ph73.split.us.us.i:                           ; preds = %.lr.ph73.us.i, %.lr.ph73.split.us.us.i
@@ -3246,13 +3247,13 @@ _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE11colsOfBl
   br i1 %exitcond148.not.i, label %._crit_edge74.us.i, label %.lr.ph73.split.us.us.i, !llvm.loop !223
 
 .lr.ph.us.us.i:                                   ; preds = %._crit_edge.split.us102.us.i, %.lr.ph.us.us.preheader.i
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %._crit_edge.split.us102.us.i ], [ 1, %.lr.ph.us.us.preheader.i ]
+  %indvars.iv30 = phi i64 [ %indvars.iv.next31, %._crit_edge.split.us102.us.i ], [ 1, %.lr.ph.us.us.preheader.i ]
   %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %._crit_edge.split.us102.us.i ], [ 0, %.lr.ph.us.us.preheader.i ]
   %.172.us83.us.i = phi ptr [ %144, %._crit_edge.split.us102.us.i ], [ %.033120.us.i, %.lr.ph.us.us.preheader.i ]
   %.13670.us85.us.i = phi ptr [ %.us-phi17, %._crit_edge.split.us102.us.i ], [ %.035119.us.i, %.lr.ph.us.us.preheader.i ]
   %.13869.us86.us.i = phi ptr [ %.us-phi, %._crit_edge.split.us102.us.i ], [ %.037118.us.i, %.lr.ph.us.us.preheader.i ]
   %.14368.us87.us.i = phi i32 [ %137, %._crit_edge.split.us102.us.i ], [ %.042115.us.i, %.lr.ph.us.us.preheader.i ]
-  %indvars30 = trunc i64 %indvars.iv28 to i32
+  %indvars32 = trunc i64 %indvars.iv30 to i32
   store i32 %.14368.us87.us.i, ptr %.172.us83.us.i, align 4, !tbaa !28
   %120 = load ptr, ptr %80, align 8
   br label %121
@@ -3266,7 +3267,7 @@ _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE11colsOfBl
   %123 = load ptr, ptr %122, align 8, !tbaa !216
   %124 = load i32, ptr %.sroa.047.060.us91.us.i, align 8, !tbaa !218
   %.not46.us92.us.i = icmp eq i32 %124, 0
-  br i1 %.not46.us92.us.i, label %131, label %125
+  br i1 %.not46.us92.us.i, label %132, label %125
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %120, align 8, !tbaa !106
@@ -3274,36 +3275,36 @@ _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE11colsOfBl
   %128 = getelementptr i32, ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 -4
   %130 = load i32, ptr %129, align 4, !tbaa !28
-  br label %131
+  %131 = freeze i32 %130
+  br label %132
 
-131:                                              ; preds = %125, %121
-  %132 = phi i32 [ %130, %125 ], [ 0, %121 ]
-  %133 = icmp eq i32 %132, %110
-  %.fr = freeze i1 %133
-  br i1 %.fr, label %.split, label %.split.us
+132:                                              ; preds = %125, %121
+  %.fr19 = phi i32 [ %131, %125 ], [ 0, %121 ]
+  %133 = icmp eq i32 %.fr19, %.fr20
+  br i1 %133, label %.split, label %.split.us
 
-.split.us:                                        ; preds = %131
+.split.us:                                        ; preds = %132
   %134 = load double, ptr %123, align 8, !tbaa !56
   %135 = getelementptr inbounds nuw i8, ptr %.23962.us89.us.i, i64 8
   store double %134, ptr %.23962.us89.us.i, align 8, !tbaa !56
   %136 = getelementptr inbounds nuw i8, ptr %.263.us88.us.i, i64 4
-  store i32 %132, ptr %.263.us88.us.i, align 4, !tbaa !28
+  store i32 %.fr19, ptr %.263.us88.us.i, align 4, !tbaa !28
   br label %.split16
 
 .split16:                                         ; preds = %.split, %.split.us
-  %indvars30.sink = phi i32 [ 1, %.split.us ], [ %indvars30, %.split ]
+  %indvars32.sink = phi i32 [ 1, %.split.us ], [ %indvars32, %.split ]
   %.us-phi = phi ptr [ %135, %.split.us ], [ %141, %.split ]
   %.us-phi17 = phi ptr [ %136, %.split.us ], [ %143, %.split ]
-  %137 = add i32 %.24461.us90.us.i, %indvars30.sink
+  %137 = add i32 %.24461.us90.us.i, %indvars32.sink
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.047.060.us91.us.i, i64 16
   %.not53.us96.us.i = icmp eq ptr %138, %117
   br i1 %.not53.us96.us.i, label %._crit_edge.split.us102.us.i, label %121, !llvm.loop !224
 
-.split:                                           ; preds = %131, %.split
-  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %.split ], [ 0, %131 ]
-  %.03257.us98.us.i = phi i32 [ %142, %.split ], [ %132, %131 ]
-  %.356.us99.us.i = phi ptr [ %143, %.split ], [ %.263.us88.us.i, %131 ]
-  %.34055.us100.us.i = phi ptr [ %141, %.split ], [ %.23962.us89.us.i, %131 ]
+.split:                                           ; preds = %132, %.split
+  %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i, %.split ], [ 0, %132 ]
+  %.03257.us98.us.i = phi i32 [ %142, %.split ], [ %.fr19, %132 ]
+  %.356.us99.us.i = phi ptr [ %143, %.split ], [ %.263.us88.us.i, %132 ]
+  %.34055.us100.us.i = phi ptr [ %141, %.split ], [ %.23962.us89.us.i, %132 ]
   %139 = getelementptr double, ptr %123, i64 %indvars.iv.i5
   %140 = load double, ptr %139, align 8, !tbaa !56
   %141 = getelementptr inbounds nuw i8, ptr %.34055.us100.us.i, i64 8
@@ -3312,14 +3313,14 @@ _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE11colsOfBl
   %143 = getelementptr inbounds nuw i8, ptr %.356.us99.us.i, i64 4
   store i32 %.03257.us98.us.i, ptr %.356.us99.us.i, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i5, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %indvars.iv28
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i, %indvars.iv30
   br i1 %exitcond.not, label %.split16, label %.split, !llvm.loop !225
 
 ._crit_edge.split.us102.us.i:                     ; preds = %.split16
   %144 = getelementptr inbounds nuw i8, ptr %.172.us83.us.i, i64 4
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next145.i, %wide.trip.count.i4
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   br i1 %exitcond147.not.i, label %._crit_edge74.us.i, label %.lr.ph.us.us.i, !llvm.loop !223
 
 _ZNK3g2o20SparseBlockMatrixCCSIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE7fillCCSEPiS5_Pdb.exit: ; preds = %._crit_edge74.us.i, %_ZNK3g2o17SparseBlockMatrixIN5Eigen6MatrixIdLi1ELi1ELi0ELi1ELi1EEEE8nonZerosEv.exit
@@ -11666,8 +11667,8 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i
-  %.040.i.i = phi i64 [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i ], [ 0, %.lr.ph ]
-  %15 = shl i64 %.040.i.i, 1
+  %.041.i.i = phi i64 [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i ], [ 0, %.lr.ph ]
+  %15 = shl i64 %.041.i.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %16
   %18 = or disjoint i64 %15, 1
@@ -11686,9 +11687,10 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i: ; preds = %25
   %27 = load i32, ptr %17, align 8, !tbaa !273
   %28 = load i32, ptr %19, align 8, !tbaa !273
-  %29 = icmp slt i32 %27, %28
-  %cond.fr.i.i = freeze i1 %29
-  br i1 %cond.fr.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i
+  %.fr.i.i = freeze i32 %27
+  %.fr40.i.i = freeze i32 %28
+  %29 = icmp slt i32 %.fr.i.i, %.fr40.i.i
+  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i, %.lr.ph.i.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i
@@ -11696,7 +11698,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_ite
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i, %25
   %30 = phi i64 [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i.i ], [ %16, %25 ]
   %31 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %30
-  %32 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %.040.i.i
+  %32 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %.041.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !238
   %33 = icmp slt i64 %30, %13
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !390
@@ -11799,8 +11801,8 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i
-  %.040.i = phi i64 [ %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i ], [ %.010, %20 ]
-  %23 = shl i64 %.040.i, 1
+  %.041.i = phi i64 [ %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i ], [ %.010, %20 ]
+  %23 = shl i64 %.041.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
@@ -11819,9 +11821,10 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3g2
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i: ; preds = %33
   %35 = load i32, ptr %25, align 8, !tbaa !273
   %36 = load i32, ptr %27, align 8, !tbaa !273
-  %37 = icmp slt i32 %35, %36
-  %cond.fr.i = freeze i1 %37
-  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i
+  %.fr.i = freeze i32 %35
+  %.fr40.i = freeze i32 %36
+  %37 = icmp slt i32 %.fr.i, %.fr40.i
+  br i1 %37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i, %.lr.ph.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i
@@ -11829,7 +11832,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_ite
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread38.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i, %33
   %38 = phi i64 [ %26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread.i ], [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3g2o14TripletColSortEEclINS_17__normal_iteratorIPNS2_12TripletEntryESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.i ], [ %24, %33 ]
   %39 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %.040.i
+  %40 = getelementptr inbounds %"struct.g2o::TripletEntry", ptr %0, i64 %.041.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !238
   %41 = icmp slt i64 %38, %13
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !390

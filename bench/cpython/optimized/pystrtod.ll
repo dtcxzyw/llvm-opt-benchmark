@@ -482,8 +482,8 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
 29:                                               ; preds = %27, %.thread.i
   %30 = phi ptr [ %26, %.thread.i ], [ %28, %27 ]
   %31 = load i32, ptr %7, align 4, !tbaa !12
-  %.fr263.i = freeze i32 %31
-  %32 = sext i32 %.fr263.i to i64
+  %.fr.i = freeze i32 %31
+  %32 = sext i32 %.fr.i to i64
   %33 = icmp eq ptr %30, null
   br i1 %33, label %169, label %34
 
@@ -627,14 +627,14 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %98
 
 86:                                               ; preds = %82
-  %87 = icmp slt i32 %.fr263.i, -3
+  %87 = icmp slt i32 %.fr.i, -3
   br i1 %87, label %93, label %88
 
 88:                                               ; preds = %86
   %89 = shl nuw i32 %20, 30
   %sext = ashr exact i32 %89, 31
   %90 = add i32 %.020, %sext
-  %91 = icmp sgt i32 %.fr263.i, %90
+  %91 = icmp sgt i32 %.fr.i, %90
   br i1 %91, label %93, label %.thread253.i
 
 .thread253.i:                                     ; preds = %88
@@ -654,7 +654,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %171
 
 96:                                               ; preds = %82
-  %97 = add i32 %.fr263.i, 3
+  %97 = add i32 %.fr.i, 3
   %or.cond3.i = icmp ult i32 %97, 20
   %spec.select256.i = select i1 %or.cond3.i, i64 %32, i64 1
   br label %98
@@ -693,7 +693,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   %112 = phi i64 [ 1, %.thread40 ], [ %101, %.thread ], [ %101, %107 ]
   %113 = phi i64 [ 0, %.thread40 ], [ %102, %.thread ], [ %102, %107 ]
   %114 = phi i64 [ 8, %.thread40 ], [ 3, %.thread ], [ %spec.select43, %107 ]
-  %115 = add i32 %.fr263.i, -1
+  %115 = add i32 %.fr.i, -1
   %reass.sub = sub nsw i64 %114, %112
   %116 = add nuw nsw i64 %reass.sub, 1
   %117 = add i64 %116, %.1161.i38

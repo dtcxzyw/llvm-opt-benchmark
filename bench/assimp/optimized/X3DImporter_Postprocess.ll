@@ -5719,9 +5719,9 @@ define hidden void @_ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNode
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.016.025 = load ptr, ptr %9, align 8
-  %.not2326 = icmp eq ptr %.sroa.016.025, %9
-  br i1 %.not2326, label %._crit_edge.thread, label %.lr.ph
+  %.sroa.016.024 = load ptr, ptr %9, align 8
+  %.not2325 = icmp eq ptr %.sroa.016.024, %9
+  br i1 %.not2325, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5738,20 +5738,20 @@ define hidden void @_ZNK6Assimp11X3DImporter22Postprocess_BuildShapeERK19X3DNode
 15:                                               ; preds = %.lr.ph, %49
   %16 = phi ptr [ null, %.lr.ph ], [ %50, %49 ]
   %17 = phi ptr [ null, %.lr.ph ], [ %51, %49 ]
-  %.sroa.016.029 = phi ptr [ %.sroa.016.025, %.lr.ph ], [ %.sroa.016.0, %49 ]
-  %.028 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
-  %.01027 = phi i32 [ 44, %.lr.ph ], [ %.111, %49 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.016.029, i64 16
+  %.sroa.016.028 = phi ptr [ %.sroa.016.024, %.lr.ph ], [ %.sroa.016.0, %49 ]
+  %.027 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
+  %.01026 = phi i32 [ 44, %.lr.ph ], [ %.111, %49 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.016.028, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load i32, ptr %20, align 8
-  %.fr24 = freeze i32 %21
-  %22 = and i32 %.fr24, -4
+  %.fr = freeze i32 %21
+  %22 = and i32 %.fr, -4
   %23 = icmp eq i32 %22, 24
   br i1 %23, label %24, label %switch.early.test
 
 switch.early.test:                                ; preds = %15
-  switch i32 %.fr24, label %49 [
+  switch i32 %.fr, label %49 [
     i32 33, label %24
     i32 32, label %24
     i32 31, label %24
@@ -5824,9 +5824,9 @@ switch.early.test:                                ; preds = %15
 49:                                               ; preds = %switch.early.test, %26, %24, %40, %42
   %50 = phi ptr [ %16, %26 ], [ %16, %24 ], [ %41, %42 ], [ null, %40 ], [ %16, %switch.early.test ]
   %51 = phi ptr [ %25, %26 ], [ null, %24 ], [ %17, %42 ], [ %17, %40 ], [ %17, %switch.early.test ]
-  %.111 = phi i32 [ %39, %26 ], [ %.01027, %24 ], [ %.01027, %42 ], [ %.01027, %40 ], [ %.01027, %switch.early.test ]
-  %.1 = phi i32 [ %.028, %26 ], [ %.028, %24 ], [ %44, %42 ], [ %.028, %40 ], [ %.028, %switch.early.test ]
-  %.sroa.016.0 = load ptr, ptr %.sroa.016.029, align 8
+  %.111 = phi i32 [ %39, %26 ], [ %.01026, %24 ], [ %.01026, %42 ], [ %.01026, %40 ], [ %.01026, %switch.early.test ]
+  %.1 = phi i32 [ %.027, %26 ], [ %.027, %24 ], [ %44, %42 ], [ %.027, %40 ], [ %.027, %switch.early.test ]
+  %.sroa.016.0 = load ptr, ptr %.sroa.016.028, align 8
   %.not23 = icmp eq ptr %.sroa.016.0, %9
   br i1 %.not23, label %._crit_edge, label %15, !llvm.loop !70
 

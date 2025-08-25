@@ -1914,8 +1914,8 @@ define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not42.i, label %pinyin_search_matching.exit.thread, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %6
-  %.fr52.i = freeze i64 %8
-  %22 = trunc i64 %.fr52.i to i32
+  %.fr51.i = freeze i64 %8
+  %22 = trunc i64 %.fr51.i to i32
   %23 = and i32 %22, 255
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %pinyin_search_matching.exit, label %.preheader.lr.ph.split.us.i
@@ -1926,8 +1926,8 @@ define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   br i1 %24, label %pinyin_search_matching.exit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.split.us.i
-  %26 = trunc i64 %.fr52.i to i8
-  %wide.trip.count = and i64 %.fr52.i, 255
+  %26 = trunc i64 %.fr51.i to i8
+  %wide.trip.count = and i64 %.fr51.i, 255
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.thread.i, %.preheader.us.preheader.i
@@ -2107,8 +2107,8 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   br i1 %.not37.i, label %pinyin_k9_is_valid_py.exit, label %.preheader.lr.ph.i
 
 .preheader.lr.ph.i:                               ; preds = %22
-  %.fr47.i = freeze i64 %24
-  %35 = trunc i64 %.fr47.i to i32
+  %.fr46.i = freeze i64 %24
+  %35 = trunc i64 %.fr46.i to i32
   %36 = and i32 %35, 255
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %.loopexit, label %.preheader.lr.ph.split.us.i
@@ -2119,8 +2119,8 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   br i1 %37, label %.loopexit, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.split.us.i
-  %39 = trunc i64 %.fr47.i to i8
-  %wide.trip.count = and i64 %.fr47.i, 255
+  %39 = trunc i64 %.fr46.i to i8
+  %wide.trip.count = and i64 %.fr46.i, 255
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.thread.i, %.preheader.us.preheader.i

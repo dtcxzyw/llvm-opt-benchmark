@@ -1436,10 +1436,11 @@ define internal fastcc noundef range(i32 0, 4) i32 @_ZL20shouldWarnOnMacroDefRN5
   %6 = load ptr, ptr %5, align 8, !tbaa !318
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %6, align 8, !tbaa !321
-  %9 = and i64 %8, 4294967295
+  %.fr = freeze i64 %8
+  %9 = and i64 %.fr, 4294967295
   %10 = tail call noundef i32 @_ZNK5clang14IdentifierInfo10isReservedERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(849) %4) #18
   %spec.select.i = icmp ugt i32 %10, 2
-  br i1 %spec.select.i, label %_ZSt7advanceIPKN4llvm9StringRefElEvRT_T0_.exit.i.i.i, label %29
+  br i1 %spec.select.i, label %_ZSt7advanceIPKN4llvm9StringRefElEvRT_T0_.exit.i.i.i, label %28
 
 _ZSt7advanceIPKN4llvm9StringRefElEvRT_T0_.exit.i.i.i: ; preds = %2, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm9StringRefES5_EEbT_RT0_.exit.i.i.i ], [ @_ZZL18isFeatureTestMacroN4llvm9StringRefEE13ReservedMacro, %2 ]
@@ -1488,7 +1489,8 @@ _ZSt13__lower_boundIPKN4llvm9StringRefES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S
 24:                                               ; preds = %_ZSt13__lower_boundIPKN4llvm9StringRefES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.i.i
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !306
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i, i64 %9)
+  %.sroa.2.0.copyload.i.i.fr = freeze i64 %.sroa.2.0.copyload.i.i
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.fr, i64 %9)
   %25 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %25, label %.thread.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
 
@@ -1500,77 +1502,76 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %24
   br i1 %.not.not.i.i.i.i, label %.thread.i.i.i.i, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit
 
 .thread.i.i.i.i:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %24
-  %27 = icmp uge i64 %9, %.sroa.2.0.copyload.i.i
-  %cond.fr24 = freeze i1 %27
-  br i1 %cond.fr24, label %28, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
+  %.not34 = icmp ult i64 %9, %.sroa.2.0.copyload.i.i.fr
+  br i1 %.not34, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %27
 
 _ZL18isFeatureTestMacroN4llvm9StringRefE.exit:    ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %.inv.i.i.i.i = icmp sgt i32 %.fr.i.i.i.i, -1
-  br i1 %.inv.i.i.i.i, label %28, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
+  br i1 %.inv.i.i.i.i, label %27, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
 
-28:                                               ; preds = %.thread.i.i.i.i, %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit
+27:                                               ; preds = %.thread.i.i.i.i, %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit
   br label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
 
-29:                                               ; preds = %2
-  %30 = tail call noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(849) %4) #18
-  br i1 %30, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %31
+28:                                               ; preds = %2
+  %29 = tail call noundef zeroext i1 @_ZNK5clang14IdentifierInfo9isKeywordERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(849) %4) #18
+  br i1 %29, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %30
 
-31:                                               ; preds = %29
-  %32 = load i64, ptr %4, align 8
-  %33 = and i64 %32, 4096
-  %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29, label %34
+30:                                               ; preds = %28
+  %31 = load i64, ptr %4, align 8
+  %32 = and i64 %31, 4096
+  %.not = icmp eq i64 %32, 0
+  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29, label %33
 
-34:                                               ; preds = %31
-  %trunc = trunc i64 %8 to i32
+33:                                               ; preds = %30
+  %trunc = trunc i64 %.fr to i32
   switch i32 %trunc, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29 [
     i32 8, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i32 5, label %_ZN4llvmeqENS_9StringRefES0_.exit19
   ]
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %34
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %33
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %7, ptr nonnull @.str.37, i64 %9)
-  %35 = icmp eq i32 %bcmp.i, 0
+  %34 = icmp eq i32 %bcmp.i, 0
+  br i1 %34, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29
+
+_ZN4llvmeqENS_9StringRefES0_.exit19:              ; preds = %33
+  %bcmp.i18 = tail call i32 @bcmp(ptr nonnull %7, ptr nonnull @.str.38, i64 %9)
+  %35 = icmp eq i32 %bcmp.i18, 0
   br i1 %35, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29
 
-_ZN4llvmeqENS_9StringRefES0_.exit19:              ; preds = %34
-  %bcmp.i18 = tail call i32 @bcmp(ptr nonnull %7, ptr nonnull @.str.38, i64 %9)
-  %36 = icmp eq i32 %bcmp.i18, 0
-  br i1 %36, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29
+_ZN4llvmeqENS_9StringRefES0_.exit19.thread29:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %33, %_ZN4llvmeqENS_9StringRefES0_.exit19, %30
+  %36 = load ptr, ptr %3, align 8, !tbaa !282
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %37, 2048
+  %.not.i20 = icmp eq i64 %38, 0
+  br i1 %.not.i20, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %39
 
-_ZN4llvmeqENS_9StringRefES0_.exit19.thread29:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %34, %_ZN4llvmeqENS_9StringRefES0_.exit19, %31
-  %37 = load ptr, ptr %3, align 8, !tbaa !282
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 2048
-  %.not.i20 = icmp eq i64 %39, 0
-  br i1 %.not.i20, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %40
+39:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %41 = load ptr, ptr %40, align 8, !tbaa !325
+  %42 = tail call noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsEb(i32 noundef 2, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(489) %41, ptr noundef nonnull align 8 dereferenceable(849) %36, i1 noundef zeroext false) #18
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %44, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
 
-40:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %42 = load ptr, ptr %41, align 8, !tbaa !325
-  %43 = tail call noundef i32 @_ZN5clang12hasAttributeENS_19AttributeCommonInfo6SyntaxEPKNS_14IdentifierInfoES4_RKNS_10TargetInfoERKNS_11LangOptionsEb(i32 noundef 2, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(489) %42, ptr noundef nonnull align 8 dereferenceable(849) %37, i1 noundef zeroext false) #18
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
+44:                                               ; preds = %39
+  %45 = tail call noundef i32 @_ZN5clang19AttributeCommonInfo20getCXX11AttrArgsInfoEPKNS_14IdentifierInfoE(ptr noundef nonnull %1) #18
+  %46 = icmp eq i32 %45, 2
+  %47 = tail call noundef zeroext i1 @_ZN5clang12Preprocessor19isNextPPTokenLParenEv(ptr noundef nonnull align 8 dereferenceable(3288) %0) #18
+  br i1 %46, label %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit, label %48
 
-45:                                               ; preds = %40
-  %46 = tail call noundef i32 @_ZN5clang19AttributeCommonInfo20getCXX11AttrArgsInfoEPKNS_14IdentifierInfoE(ptr noundef nonnull %1) #18
-  %47 = icmp eq i32 %46, 2
-  %48 = tail call noundef zeroext i1 @_ZN5clang12Preprocessor19isNextPPTokenLParenEv(ptr noundef nonnull align 8 dereferenceable(3288) %0) #18
-  br i1 %47, label %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit, label %49
+48:                                               ; preds = %44
+  %49 = icmp ne i32 %45, 1
+  %.not33 = and i1 %49, %47
+  br i1 %.not33, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %50
 
-49:                                               ; preds = %45
-  %50 = icmp ne i32 %46, 1
-  %.not33 = and i1 %50, %48
-  br i1 %.not33, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread, label %51
+_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit: ; preds = %44
+  br i1 %47, label %50, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
 
-_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit: ; preds = %45
-  br i1 %48, label %51, label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
-
-51:                                               ; preds = %49, %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit
+50:                                               ; preds = %48, %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit
   br label %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread
 
-_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29, %40, %_ZSt13__lower_boundIPKN4llvm9StringRefES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.i.i, %51, %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit, %49, %28, %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit, %.thread.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit19, %29
-  %.0 = phi i32 [ 1, %29 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit19 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %28 ], [ 2, %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit ], [ 2, %.thread.i.i.i.i ], [ 3, %51 ], [ 0, %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit ], [ 0, %49 ], [ 2, %_ZSt13__lower_boundIPKN4llvm9StringRefES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.i.i ], [ 0, %40 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29 ]
+_ZL18isFeatureTestMacroN4llvm9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29, %39, %_ZSt13__lower_boundIPKN4llvm9StringRefES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.i.i, %50, %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit, %48, %27, %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit, %.thread.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit19, %28
+  %.0 = phi i32 [ 1, %28 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit19 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %27 ], [ 2, %_ZL18isFeatureTestMacroN4llvm9StringRefE.exit ], [ 2, %.thread.i.i.i.i ], [ 3, %50 ], [ 0, %_ZL26isReservedCXXAttributeNameRN5clang12PreprocessorEPNS_14IdentifierInfoE.exit ], [ 0, %48 ], [ 2, %_ZSt13__lower_boundIPKN4llvm9StringRefES1_N9__gnu_cxx5__ops14_Iter_less_valEET_S7_S7_RKT0_T1_.exit.i.i ], [ 0, %39 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit19.thread29 ]
   ret i32 %.0
 }
 

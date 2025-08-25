@@ -23578,13 +23578,14 @@ return:                                           ; preds = %if.end3, %entry, %_
 define linkonce_odr dso_local noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorI9zc_personSaIS1_EELb1EE8_S_do_itERS3_(ptr noundef nonnull align 8 dereferenceable(24) %__c) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %0 = load ptr, ptr %__c, align 8
+  %__first.coerce.fr.i.i = freeze ptr %0
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
+  %__last.coerce.fr.i.i = freeze ptr %1
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__last.coerce.fr.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first.coerce.fr.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %reass.sub.fr.i = freeze i64 %sub.ptr.sub.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %reass.sub.fr.i, 40
+  %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 40
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 230584300921369395
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
 
@@ -23596,24 +23597,24 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   unreachable
 
 _ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = %invoke.cont11
-  %cmp.not.i.i.i = icmp eq ptr %1, %0
+  %cmp.not.i.i.i = icmp eq ptr %__last.coerce.fr.i.i, %__first.coerce.fr.i.i
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseI9zc_personSaIS0_EE11_M_allocateEm.exit.thread.i.i, label %for.body.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseI9zc_personSaIS0_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
-  %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %reass.sub.fr.i
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
   br label %invoke.cont21
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
-  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #27
+  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #27
           to label %call5.i.i.i.i.noexc.i unwind label %_ZNSt12_Vector_baseI9zc_personSaIS0_EED2Ev.exit.i
 
 call5.i.i.i.i.noexc.i:                            ; preds = %for.body.i.i.i.i.preheader.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %reass.sub.fr.i
-  %2 = add i64 %reass.sub.fr.i, -40
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %2 = add i64 %sub.ptr.sub.i.i.i.i.i.i, -40
   %3 = urem i64 %2, 40
   %4 = sub nuw i64 %2, %3
   %5 = add i64 %4, 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %0, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %__first.coerce.fr.i.i, i64 %5, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %5
   br label %invoke.cont21
 
@@ -23633,11 +23634,11 @@ invoke.cont21:                                    ; preds = %call5.i.i.i.i.noexc
   store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i, align 8
   store ptr %ref.tmp.sroa.9.0, ptr %_M_end_of_storage.i4.i.i, align 8
-  %tobool.not.i.i.i4 = icmp eq ptr %0, null
+  %tobool.not.i.i.i4 = icmp eq ptr %__first.coerce.fr.i.i, null
   br i1 %tobool.not.i.i.i4, label %return, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %invoke.cont21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %__first.coerce.fr.i.i) #25
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i5, %invoke.cont21, %_ZNSt12_Vector_baseI9zc_personSaIS0_EED2Ev.exit.i
@@ -29079,13 +29080,14 @@ _ZN11struct_pack6detail8unpackerINS0_13memory_readerELm0EE16deserialize_manyILm1
 define linkonce_odr dso_local noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorI9zc_WeaponSaIS1_EELb1EE8_S_do_itERS3_(ptr noundef nonnull align 8 dereferenceable(24) %__c) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %0 = load ptr, ptr %__c, align 8
+  %__first.coerce.fr.i.i = freeze ptr %0
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %__c, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %0 to i64
+  %__last.coerce.fr.i.i = freeze ptr %1
+  %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__last.coerce.fr.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %__first.coerce.fr.i.i to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
-  %reass.sub.fr.i = freeze i64 %sub.ptr.sub.i.i.i.i.i.i
-  %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %reass.sub.fr.i, 24
+  %sub.ptr.div.i.i.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i.i.i, 24
   %cmp.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i.i.i, 384307168202282325
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
 
@@ -29097,24 +29099,24 @@ if.then.i.i.i:                                    ; preds = %invoke.cont11
   unreachable
 
 _ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i: ; preds = %invoke.cont11
-  %cmp.not.i.i.i = icmp eq ptr %1, %0
+  %cmp.not.i.i.i = icmp eq ptr %__last.coerce.fr.i.i, %__first.coerce.fr.i.i
   br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE11_M_allocateEm.exit.thread.i.i, label %for.body.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseI9zc_WeaponSaIS0_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
-  %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %reass.sub.fr.i
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i.i.i.i
   br label %invoke.cont21
 
 for.body.i.i.i.i.preheader.i.i:                   ; preds = %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
-  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #27
+  %call5.i.i.i.i1.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i.i.i.i) #27
           to label %call5.i.i.i.i.noexc.i unwind label %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EED2Ev.exit.i
 
 call5.i.i.i.i.noexc.i:                            ; preds = %for.body.i.i.i.i.preheader.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %reass.sub.fr.i
-  %2 = add i64 %reass.sub.fr.i, -24
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i, i64 %sub.ptr.sub.i.i.i.i.i.i
+  %2 = add i64 %sub.ptr.sub.i.i.i.i.i.i, -24
   %3 = urem i64 %2, 24
   %4 = sub nuw i64 %2, %3
   %5 = add i64 %4, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %0, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i1.i, ptr align 8 %__first.coerce.fr.i.i, i64 %5, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %call5.i.i.i.i1.i, i64 %5
   br label %invoke.cont21
 
@@ -29134,11 +29136,11 @@ invoke.cont21:                                    ; preds = %call5.i.i.i.i.noexc
   store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i.i, ptr %_M_finish.i, align 8
   store ptr %ref.tmp.sroa.9.0, ptr %_M_end_of_storage.i4.i.i, align 8
-  %tobool.not.i.i.i4 = icmp eq ptr %0, null
+  %tobool.not.i.i.i4 = icmp eq ptr %__first.coerce.fr.i.i, null
   br i1 %tobool.not.i.i.i4, label %return, label %if.then.i.i.i5
 
 if.then.i.i.i5:                                   ; preds = %invoke.cont21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %__first.coerce.fr.i.i) #25
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i5, %invoke.cont21, %_ZNSt12_Vector_baseI9zc_WeaponSaIS0_EED2Ev.exit.i

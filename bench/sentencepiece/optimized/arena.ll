@@ -887,8 +887,8 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
 
 10:                                               ; preds = %tailrecurse
   %11 = load i64, ptr %9, align 8, !tbaa !62
-  %.fr14 = freeze i64 %11
-  %12 = shl i64 %.fr14, 1
+  %.fr = freeze i64 %11
+  %12 = shl i64 %.fr, 1
   %spec.select = tail call i64 @llvm.umin.i64(i64 %12, i64 64)
   br label %.thread
 
@@ -907,7 +907,7 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
 
 22:                                               ; preds = %.thread
   %23 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %16)
-  %.pre18 = load ptr, ptr %4, align 8, !tbaa !53
+  %.pre17 = load ptr, ptr %4, align 8, !tbaa !53
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 24:                                               ; preds = %.thread
@@ -916,7 +916,7 @@ tailrecurse:                                      ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit
 
 _ZN6google8protobuf8internal11SerialArena15AllocateAlignedEm.exit: ; preds = %22, %24
-  %26 = phi ptr [ %.pre18, %22 ], [ %9, %24 ]
+  %26 = phi ptr [ %.pre17, %22 ], [ %9, %24 ]
   %.0.i = phi ptr [ %23, %22 ], [ %18, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %26, ptr %27, align 8, !tbaa !55

@@ -3332,17 +3332,18 @@ _ZNK5clang10MemberExpr12getQualifierEv.exit.i.i:  ; preds = %48, %45
 58:                                               ; preds = %53
   %59 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %54) #24
   %60 = load ptr, ptr %59, align 8, !tbaa !493
+  %.fr.i.i = freeze ptr %60
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !498
-  %63 = zext i32 %62 to i64
+  %.fr58.i.i = freeze i32 %62
+  %63 = zext i32 %.fr58.i.i to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %63, 3
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i.i
-  %.fr.i.i = freeze ptr %64
-  %.not.i.i22.i.i = icmp eq i32 %62, 0
+  %64 = getelementptr i8, ptr %.fr.i.i, i64 %.idx.i.i.i.i
+  %.not.i.i22.i.i = icmp eq i32 %.fr58.i.i, 0
   br i1 %.not.i.i22.i.i, label %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread43.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %58, %69
-  %.sroa.07.1.i.i.i.i.i.i = phi ptr [ %70, %69 ], [ %60, %58 ]
+  %.sroa.07.1.i.i.i.i.i.i = phi ptr [ %70, %69 ], [ %.fr.i.i, %58 ]
   %65 = load ptr, ptr %.sroa.07.1.i.i.i.i.i.i, align 8, !tbaa !555
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i16, ptr %66, align 8
@@ -3351,12 +3352,12 @@ _ZNK5clang10MemberExpr12getQualifierEv.exit.i.i:  ; preds = %48, %45
 
 69:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %70, %.fr.i.i
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %70, %64
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread43.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !557
 
 _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %.not58.i.i = icmp ne ptr %.sroa.07.1.i.i.i.i.i.i, %.fr.i.i
-  %spec.select55.i.i = select i1 %.not58.i.i, i1 true, i1 %.sroa.0.0.i.i.i.i
+  %.not59.i.i = icmp ne ptr %.sroa.07.1.i.i.i.i.i.i, %64
+  %spec.select55.i.i = select i1 %.not59.i.i, i1 true, i1 %.sroa.0.0.i.i.i.i
   br label %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread43.i.i
 
 _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.thread43.i.i: ; preds = %69, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit.i.i, %58, %53, %_ZNK5clang10MemberExpr12getQualifierEv.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
@@ -3487,8 +3488,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i:   ; preds = %120, %_ZNK5clang4De
   br i1 %.not.i.i.i.i.i38.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i36.i.i, !llvm.loop !557
 
 _ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit41.i.i: ; preds = %.lr.ph.i.i.i.i.i36.i.i
-  %.not59.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i37.i.i, %132
-  br i1 %.not59.i.i, label %.loopexit.i, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i
+  %.not60.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i37.i.i, %132
+  br i1 %.not60.i.i, label %.loopexit.i, label %_ZL13isVirtualCallPKN5clang8CallExprE.exit.i
 
 .loopexit.i:                                      ; preds = %137, %_ZNK5clang4Decl7hasAttrINS_9FinalAttrEEEbv.exit41.i.i, %125, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

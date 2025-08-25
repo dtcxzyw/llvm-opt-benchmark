@@ -7675,18 +7675,20 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   %106 = load i64, ptr %105, align 8, !alias.scope !1504, !noalias !1511
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %108 = load i64, ptr %107, align 8, !alias.scope !1504, !noalias !1511
+  %.fr = freeze i64 %108
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %111 = load i64, ptr %110, align 8, !alias.scope !1504, !noalias !1511
   %.promoted54.i = load i64, ptr %109, align 8, !alias.scope !1504, !noalias !1511
   %112 = sub i64 %10, %111
-  %.neg.i = sub i64 %10, %108
+  %.neg.i = sub i64 %10, %.fr
   br label %113
 
 113:                                              ; preds = %138, %.lr.ph.i
   %114 = phi i64 [ %.promoted54.i, %.lr.ph.i ], [ %139, %138 ]
   %115 = phi i64 [ %103, %.lr.ph.i ], [ %141, %138 ]
   %116 = phi i64 [ %10, %.lr.ph.i ], [ %140, %138 ]
+  %.fr58 = freeze i64 %114
   %.not.i = icmp eq i64 %10, %116
   br i1 %.not.i, label %117, label %.loopexit
 
@@ -7705,15 +7707,14 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %94, label %138, label %.sink.split.i
 
 126:                                              ; preds = %117
-  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %108, i64 %114)
-  %.sroa.03.0.i = select i1 %94, i64 %108, i64 %.sroa.0.0.sroa.speculated.i.i
-  %.sroa.03.0.i.fr = freeze i64 %.sroa.03.0.i
-  %127 = add i64 %.sroa.03.0.i.fr, -1
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %.fr58)
+  %.sroa.03.0.i = select i1 %94, i64 %.fr, i64 %.sroa.0.0.sroa.speculated.i.i
+  %127 = add i64 %.sroa.03.0.i, -1
   %.first_iter.i = icmp ult i64 %127, %102
   br i1 %.first_iter.i, label %.split44.us, label %.split44
 
 .split44.us:                                      ; preds = %126, %132
-  %.sroa.5.0.i.us = phi i64 [ %129, %132 ], [ %.sroa.03.0.i.fr, %126 ]
+  %.sroa.5.0.i.us = phi i64 [ %129, %132 ], [ %.sroa.03.0.i, %126 ]
   %.not24.i.us = icmp eq i64 %.sroa.5.0.i.us, 0
   br i1 %.not24.i.us, label %.split46.us, label %128
 
@@ -7737,7 +7738,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %94, label %138, label %.sink.split.i
 
 .split44:                                         ; preds = %126
-  %.not24.i = icmp eq i64 %.sroa.03.0.i.fr, 0
+  %.not24.i = icmp eq i64 %.sroa.03.0.i, 0
   br i1 %.not24.i, label %.split46.us, label %143
 
 .sink.split.i:                                    ; preds = %.split50.us, %162, %125
@@ -7747,14 +7748,14 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br label %138
 
 138:                                              ; preds = %.split50.us, %162, %.sink.split.i, %125
-  %139 = phi i64 [ %114, %.split50.us ], [ %114, %162 ], [ %114, %125 ], [ %.sink109.i, %.sink.split.i ]
+  %139 = phi i64 [ %.fr58, %.split50.us ], [ %.fr58, %162 ], [ %.fr58, %125 ], [ %.sink109.i, %.sink.split.i ]
   %140 = phi i64 [ %137, %.split50.us ], [ %112, %162 ], [ %115, %125 ], [ %.ph108.i, %.sink.split.i ]
   %141 = sub i64 %140, %102
   %142 = icmp ult i64 %141, %98
   br i1 %142, label %113, label %.split11
 
 .split46.us:                                      ; preds = %.split44.us, %.split44
-  %.sroa.09.0.i = select i1 %94, i64 %102, i64 %114
+  %.sroa.09.0.i = select i1 %94, i64 %102, i64 %.fr58
   br label %144
 
 143:                                              ; preds = %.split44
@@ -7762,7 +7763,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   unreachable
 
 144:                                              ; preds = %155, %.split46.us
-  %.sroa.010.0.i = phi i64 [ %108, %.split46.us ], [ %148, %155 ]
+  %.sroa.010.0.i = phi i64 [ %.fr, %.split46.us ], [ %148, %155 ]
   %145 = icmp ult i64 %.sroa.010.0.i, %.sroa.09.0.i
   br i1 %145, label %147, label %146
 
@@ -7785,7 +7786,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %153, label %155, label %160
 
 154:                                              ; preds = %147
-  %umax.i = tail call i64 @llvm.umax.i64(i64 %108, i64 %102)
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %102)
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax.i, i64 noundef %102, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.40b6f3edfed83685ab875cf64663a9ee.10) #32, !noalias !1515
   unreachable
 
@@ -7798,7 +7799,7 @@ define hidden void @"_ZN87_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..
   br i1 %.not25.i, label %144, label %162
 
 160:                                              ; preds = %151
-  %161 = add i64 %115, %108
+  %161 = add i64 %115, %.fr
   %umax78.i = tail call i64 @llvm.umax.i64(i64 %98, i64 %161)
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax78.i, i64 noundef %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.40b6f3edfed83685ab875cf64663a9ee.11) #32, !noalias !1515
   unreachable

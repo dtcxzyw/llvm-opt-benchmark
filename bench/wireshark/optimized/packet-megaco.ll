@@ -4620,8 +4620,8 @@ megaco_tvb_skip_wsp.exit125:                      ; preds = %.lr.ph.i121, %95, %
   %105 = zext i8 %104 to i64
   %106 = getelementptr i16, ptr %17, i64 %105
   %107 = load i16, ptr %106, align 2
-  %.fr486.i = freeze i16 %107
-  %108 = and i16 %.fr486.i, 1
+  %.fr.i = freeze i16 %107
+  %108 = and i16 %.fr.i, 1
   %.not.not.i = icmp eq i16 %108, 0
   br i1 %.not.not.i, label %switch.early.test.i, label %109
 

@@ -1591,7 +1591,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113FlattenCFGOpt20Com
 10:                                               ; preds = %4
   %11 = getelementptr inbounds i8, ptr %8, i64 -24
   %12 = load i8, ptr %11, align 8, !tbaa !48
-  %13 = add i8 %12, -30
+  %.fr82 = freeze i8 %12
+  %13 = add i8 %.fr82, -30
   %14 = icmp ult i8 %13, 11
   %spec.select.i.i = select i1 %14, ptr %11, ptr null
   br label %_ZN4llvm10BasicBlock13getTerminatorEv.exit
@@ -1600,6 +1601,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %4, %10
   %.0.i.i = phi ptr [ null, %4 ], [ %spec.select.i.i, %10 ]
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !45
+  %.fr = freeze ptr %16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1641,15 +1643,14 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit42:     ; preds = %_ZN4llvm10BasicBloc
 
 .lr.ph80:                                         ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit42
   %40 = icmp eq ptr %.0.i.i, null
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %41 = getelementptr i8, ptr %.0.i.i, i64 24
   %spec.select.i.i.i = select i1 %40, ptr null, ptr %41
-  %.not7176 = icmp eq ptr %16, %spec.select.i.i.i
+  %.not7176 = icmp eq ptr %.fr, %spec.select.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.not7176.fr = freeze i1 %.not7176
-  br i1 %.not7176.fr, label %.lr.ph80.split.us, label %.lr.ph80.split
+  br i1 %.not7176, label %.lr.ph80.split.us, label %.lr.ph80.split
 
 .lr.ph80.split.us:                                ; preds = %.lr.ph80, %.critedge33.us
   %.sroa.061.079.us = phi ptr [ %59, %.critedge33.us ], [ %18, %.lr.ph80 ]
@@ -1725,7 +1726,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit42:     ; preds = %_ZN4llvm10BasicBloc
   br i1 %76, label %.lr.ph, label %.critedge33
 
 .lr.ph:                                           ; preds = %75, %87
-  %.sroa.046.077 = phi ptr [ %89, %87 ], [ %16, %75 ]
+  %.sroa.046.077 = phi ptr [ %89, %87 ], [ %.fr, %75 ]
   %77 = getelementptr inbounds i8, ptr %.sroa.046.077, i64 -24
   %78 = call noundef zeroext i1 @_ZNK4llvm11Instruction17mayReadFromMemoryEv(ptr noundef nonnull align 8 dereferenceable(72) %77) #9
   br i1 %78, label %81, label %79

@@ -7583,7 +7583,8 @@ define internal fastcc void @apply_loop_filter(ptr noundef %0, i32 noundef range
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %29 = add nsw i32 %24, -1
+  %.fr = freeze i32 %24
+  %29 = add i32 %.fr, -1
   %30 = shl nsw i64 %spec.select, 3
   br i1 %25, label %.preheader.us.preheader, label %._crit_edge76
 
@@ -7618,9 +7619,8 @@ define internal fastcc void @apply_loop_filter(ptr noundef %0, i32 noundef range
   %50 = icmp sgt i32 %.06375.us, 0
   %51 = icmp slt i32 %.06375.us, %29
   %invariant.gep.us = getelementptr i8, ptr %.06473.us, i64 %30
-  %.fr.us = freeze i1 %51
   %52 = sext i32 %.06672.us to i64
-  br i1 %.fr.us, label %.lr.ph.split.us.us, label %.lr.ph.split.us83
+  br i1 %51, label %.lr.ph.split.us.us, label %.lr.ph.split.us83
 
 .lr.ph.split.us83:                                ; preds = %.preheader.us, %79
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %79 ], [ %52, %.preheader.us ]
@@ -7680,7 +7680,7 @@ define internal fastcc void @apply_loop_filter(ptr noundef %0, i32 noundef range
 
 ._crit_edge.us:                                   ; preds = %79, %115
   %.us-phi.us = add i32 %10, %.06672.us
-  %80 = add i32 %.06375.us, 1
+  %80 = add nsw i32 %.06375.us, 1
   %exitcond101.not = icmp eq i32 %80, %3
   br i1 %exitcond101.not, label %._crit_edge76, label %.preheader.us, !llvm.loop !257
 

@@ -6109,17 +6109,17 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EE
 
 72:                                               ; preds = %_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EEDiSaIDiESaIcEE8to_bytesERKNS_12basic_stringIDiSt11char_traitsIDiES4_EE.exit
   %73 = icmp eq i64 %69, 0
-  %.pre103 = load ptr, ptr %5, align 8, !tbaa !25
+  %.pre102 = load ptr, ptr %5, align 8, !tbaa !25
   br i1 %73, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, label %74
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %0, align 8, !tbaa !25
-  %bcmp.i.i = call i32 @bcmp(ptr %.pre103, ptr %75, i64 %69)
+  %bcmp.i.i = call i32 @bcmp(ptr %.pre102, ptr %75, i64 %69)
   %76 = icmp ne i32 %bcmp.i.i, 0
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EEDiSaIDiESaIcEE8to_bytesERKNS_12basic_stringIDiSt11char_traitsIDiES4_EE.exit._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge, %72, %74
-  %77 = phi ptr [ %.pre, %_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EEDiSaIDiESaIcEE8to_bytesERKNS_12basic_stringIDiSt11char_traitsIDiES4_EE.exit._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %.pre103, %74 ], [ %.pre103, %72 ]
+  %77 = phi ptr [ %.pre, %_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EEDiSaIDiESaIcEE8to_bytesERKNS_12basic_stringIDiSt11char_traitsIDiES4_EE.exit._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %.pre102, %74 ], [ %.pre102, %72 ]
   %78 = phi i1 [ true, %_ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EEDiSaIDiESaIcEE8to_bytesERKNS_12basic_stringIDiSt11char_traitsIDiES4_EE.exit._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %76, %74 ], [ false, %72 ]
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %80 = icmp eq ptr %77, %79
@@ -6237,33 +6237,33 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EE
   %119 = load i64, ptr %11, align 8, !tbaa !273
   %.idx = shl nuw nsw i64 %119, 2
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx
-  %.not101 = icmp eq i64 %119, 0
-  br i1 %.not101, label %.critedge88, label %.lr.ph
+  %.not100 = icmp eq i64 %119, 0
+  br i1 %.not100, label %.critedge88, label %.lr.ph
 
 .lr.ph:                                           ; preds = %117, %.critedge
-  %.sroa.095.0102 = phi ptr [ %127, %.critedge ], [ %118, %117 ]
-  %121 = load i32, ptr %.sroa.095.0102, align 4, !tbaa !275
-  %.fr99 = freeze i32 %121
-  %122 = icmp ult i32 %.fr99, 32
-  %123 = add i32 %.fr99, -127
+  %.sroa.095.0101 = phi ptr [ %127, %.critedge ], [ %118, %117 ]
+  %121 = load i32, ptr %.sroa.095.0101, align 4, !tbaa !275
+  %.fr = freeze i32 %121
+  %122 = icmp ult i32 %.fr, 32
+  %123 = add i32 %.fr, -127
   %124 = icmp ult i32 %123, 33
-  %or.cond100 = or i1 %122, %124
-  br i1 %or.cond100, label %.loopexit, label %switch.early.test
+  %or.cond99 = or i1 %122, %124
+  br i1 %or.cond99, label %.loopexit, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i32 %.fr99, label %125 [
+  switch i32 %.fr, label %125 [
     i32 65294, label %.loopexit
     i32 8726, label %.loopexit
     i32 8725, label %.loopexit
   ]
 
 125:                                              ; preds = %switch.early.test
-  %126 = and i32 %.fr99, -2048
+  %126 = and i32 %.fr, -2048
   %or.cond13 = icmp eq i32 %126, 55296
   br i1 %or.cond13, label %.loopexit, label %switch.early.test86
 
 switch.early.test86:                              ; preds = %125
-  switch i32 %.fr99, label %.critedge [
+  switch i32 %.fr, label %.critedge [
     i32 65533, label %.loopexit
     i32 65279, label %.loopexit
     i32 124, label %.loopexit
@@ -6278,7 +6278,7 @@ switch.early.test86:                              ; preds = %125
   ]
 
 .critedge:                                        ; preds = %switch.early.test86
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.095.0102, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.095.0101, i64 4
   %.not = icmp eq ptr %127, %120
   br i1 %.not, label %.critedge88, label %.lr.ph
 

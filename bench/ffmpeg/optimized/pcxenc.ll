@@ -54,7 +54,7 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
 19:                                               ; preds = %16, %16, %16, %16, %16
   %20 = call i32 @avpriv_set_systematic_pal2(ptr noundef nonnull %7, i32 noundef %18) #4
   %.pre = load i32, ptr %8, align 8, !tbaa !4
-  %.pre140 = load i32, ptr %12, align 4, !tbaa !27
+  %.pre139 = load i32, ptr %12, align 4, !tbaa !27
   br label %26
 
 21:                                               ; preds = %16
@@ -70,15 +70,15 @@ define internal range(i32 -2147483648, 1) i32 @pcx_encode_frame(ptr noundef %0, 
   br label %181
 
 26:                                               ; preds = %16, %24, %21, %19
-  %27 = phi i32 [ %.pre140, %19 ], [ %13, %21 ], [ %13, %24 ], [ %13, %16 ]
+  %27 = phi i32 [ %.pre139, %19 ], [ %13, %21 ], [ %13, %24 ], [ %13, %16 ]
   %28 = phi i32 [ %.pre, %19 ], [ %9, %21 ], [ %9, %24 ], [ %9, %16 ]
   %29 = phi i1 [ true, %19 ], [ true, %21 ], [ true, %24 ], [ false, %16 ]
   %.063 = phi i32 [ 1, %19 ], [ 1, %21 ], [ 1, %24 ], [ 3, %16 ]
   %30 = phi i1 [ true, %19 ], [ true, %21 ], [ false, %24 ], [ true, %16 ]
   %.062 = phi i32 [ 8, %19 ], [ 8, %21 ], [ 1, %24 ], [ 8, %16 ]
   %.060 = phi ptr [ %7, %19 ], [ %23, %21 ], [ @monoblack_pal, %24 ], [ null, %16 ]
-  %.fr = freeze i32 %28
-  %31 = mul i32 %.fr, %.062
+  %.fr127 = freeze i32 %28
+  %31 = mul i32 %.fr127, %.062
   %32 = add i32 %31, 7
   %33 = ashr i32 %32, 3
   %34 = add nsw i32 %33, 1
@@ -337,9 +337,9 @@ pcx_rle_encode.exit.thread.split:                 ; preds = %pcx_rle_encode.exit
   br label %165
 
 165:                                              ; preds = %163, %165
-  %indvars.iv136 = phi i64 [ 0, %163 ], [ %indvars.iv.next137, %165 ]
+  %indvars.iv135 = phi i64 [ 0, %163 ], [ %indvars.iv.next136, %165 ]
   %.4125 = phi ptr [ %164, %163 ], [ %175, %165 ]
-  %166 = getelementptr inbounds nuw i32, ptr %.060, i64 %indvars.iv136
+  %166 = getelementptr inbounds nuw i32, ptr %.060, i64 %indvars.iv135
   %167 = load i32, ptr %166, align 4, !tbaa !34
   %168 = trunc i32 %167 to i8
   %169 = getelementptr inbounds nuw i8, ptr %.4125, i64 2
@@ -352,9 +352,9 @@ pcx_rle_encode.exit.thread.split:                 ; preds = %pcx_rle_encode.exit
   %174 = trunc i32 %173 to i8
   store i8 %174, ptr %.4125, align 1, !tbaa !36
   %175 = getelementptr inbounds nuw i8, ptr %.4125, i64 3
-  %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %exitcond139.not = icmp eq i64 %indvars.iv.next137, 256
-  br i1 %exitcond139.not, label %.loopexit, label %165, !llvm.loop !42
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond138.not = icmp eq i64 %indvars.iv.next136, 256
+  br i1 %exitcond138.not, label %.loopexit, label %165, !llvm.loop !42
 
 .loopexit:                                        ; preds = %165, %._crit_edge123
   %.3 = phi ptr [ %.2.lcssa, %._crit_edge123 ], [ %175, %165 ]

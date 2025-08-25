@@ -7055,7 +7055,7 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$12as_slice_mut17h649
   call void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, i32 noundef %9, i32 noundef %11), !noalias !833
   %12 = load i32, ptr %4, align 8, !range !360, !noalias !833, !noundef !5
   %13 = icmp eq i32 %12, 11
-  br i1 %13, label %14, label %31
+  br i1 %13, label %14, label %34
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7063,14 +7063,8 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$12as_slice_mut17h649
   %.sroa.422.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.422.0.copyload.i = load i64, ptr %.sroa.422.0..sroa_idx.i, align 8, !noalias !833
   %.sroa.523.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.523.0.copyload.i = load i32, ptr %.sroa.523.0..sroa_idx.i, align 8, !noalias !833
-  %.sroa.624.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %.sroa.624.0.copyload.i = load i32, ptr %.sroa.624.0..sroa_idx.i, align 4, !noalias !833
+  %.sroa.523.0.copyload.i = load i64, ptr %.sroa.523.0..sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !833
-  %.sroa.1030.32.insert.ext = zext i32 %.sroa.523.0.copyload.i to i64
-  %.sroa.1030.36.insert.ext = zext i32 %.sroa.624.0.copyload.i to i64
-  %.sroa.1030.36.insert.shift = shl nuw i64 %.sroa.1030.36.insert.ext, 32
-  %.sroa.1030.36.insert.insert = or disjoint i64 %.sroa.1030.36.insert.shift, %.sroa.1030.32.insert.ext
   tail call void @llvm.experimental.noalias.scope.decl(metadata !836)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.sroa.5.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !839
@@ -7080,14 +7074,17 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$12as_slice_mut17h649
   br i1 %18, label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i", label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %21 = load ptr, ptr %20, align 8, !invariant.load !5, !noalias !841, !nonnull !5
-  call void %21(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %5, i32 noundef %.sroa.523.0.copyload.i, i32 noundef %.sroa.624.0.copyload.i), !noalias !841
-  %22 = load i32, ptr %3, align 8, !range !360, !noalias !841, !noundef !5
-  %23 = icmp eq i32 %22, 11
-  br i1 %23, label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i", label %24
+  %20 = lshr i64 %.sroa.523.0.copyload.i, 32
+  %21 = trunc nuw i64 %20 to i32
+  %22 = trunc i64 %.sroa.523.0.copyload.i to i32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %24 = load ptr, ptr %23, align 8, !invariant.load !5, !noalias !841, !nonnull !5
+  call void %24(ptr noalias noundef nonnull sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %3, ptr noundef nonnull align 1 %5, i32 noundef %22, i32 noundef %21), !noalias !841
+  %25 = load i32, ptr %3, align 8, !range !360, !noalias !841, !noundef !5
+  %26 = icmp eq i32 %25, 11
+  br i1 %26, label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i", label %27
 
-24:                                               ; preds = %19
+27:                                               ; preds = %19
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.7.0.copyload3.i = load i32, ptr %.sroa.7.0..sroa_idx2.i, align 4, !noalias !845
   %.sroa.74.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7104,29 +7101,29 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$12as_slice_mut17h649
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5.0..sroa.13.0..sroa_idx20.sroa_idx.i, i64 16, i1 false), !noalias !839
   br label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
 
-"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i": ; preds = %19, %14, %24
-  %.sroa.13.sroa.0.0.i = phi i64 [ %.sroa.13.sroa.0.0.copyload.i, %24 ], [ %.sroa.1030.36.insert.insert, %14 ], [ undef, %19 ]
-  %.sroa.12.0.i = phi ptr [ %.sroa.12.0.copyload17.i, %24 ], [ %7, %14 ], [ %7, %19 ]
-  %.sroa.11.0.i = phi ptr [ %.sroa.11.0.copyload13.i, %24 ], [ %5, %14 ], [ %5, %19 ]
-  %.sroa.10.0.i = phi i64 [ %.sroa.10.0.copyload9.i, %24 ], [ %.sroa.422.0.copyload.i, %14 ], [ %.sroa.422.0.copyload.i, %19 ]
-  %.sroa.74.0.i = phi ptr [ %.sroa.74.0.copyload6.i, %24 ], [ %.sroa.021.0.copyload.i, %14 ], [ %.sroa.021.0.copyload.i, %19 ]
-  %.sroa.7.0.i = phi i32 [ %.sroa.7.0.copyload3.i, %24 ], [ undef, %14 ], [ undef, %19 ]
-  %.sroa.0.0.i = phi i32 [ %22, %24 ], [ 12, %14 ], [ 11, %19 ]
+"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i": ; preds = %19, %14, %27
+  %.sroa.13.sroa.0.0.i = phi i64 [ %.sroa.13.sroa.0.0.copyload.i, %27 ], [ %.sroa.523.0.copyload.i, %14 ], [ undef, %19 ]
+  %.sroa.12.0.i = phi ptr [ %.sroa.12.0.copyload17.i, %27 ], [ %7, %14 ], [ %7, %19 ]
+  %.sroa.11.0.i = phi ptr [ %.sroa.11.0.copyload13.i, %27 ], [ %5, %14 ], [ %5, %19 ]
+  %.sroa.10.0.i = phi i64 [ %.sroa.10.0.copyload9.i, %27 ], [ %.sroa.422.0.copyload.i, %14 ], [ %.sroa.422.0.copyload.i, %19 ]
+  %.sroa.74.0.i = phi ptr [ %.sroa.74.0.copyload6.i, %27 ], [ %.sroa.021.0.copyload.i, %14 ], [ %.sroa.021.0.copyload.i, %19 ]
+  %.sroa.7.0.i = phi i32 [ %.sroa.7.0.copyload3.i, %27 ], [ undef, %14 ], [ undef, %19 ]
+  %.sroa.0.0.i = phi i32 [ %25, %27 ], [ 12, %14 ], [ 11, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !839
-  %25 = add nsw i32 %.sroa.0.0.i, -11
-  %narrow.i = tail call i32 @llvm.umin.i32(i32 %25, i32 2)
+  %28 = add nsw i32 %.sroa.0.0.i, -11
+  %narrow.i = tail call i32 @llvm.umin.i32(i32 %28, i32 2)
   switch i32 %narrow.i, label %default.unreachable [
-    i32 0, label %26
-    i32 1, label %28
-    i32 2, label %30
+    i32 0, label %29
+    i32 1, label %31
+    i32 2, label %33
   ]
 
 default.unreachable:                              ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
   unreachable
 
-26:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.74.0.i, ptr %27, align 8, !alias.scope !836, !noalias !846
+29:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.74.0.i, ptr %30, align 8, !alias.scope !836, !noalias !846
   %.sroa.423.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.10.0.i, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !836, !noalias !846
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7136,13 +7133,13 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
   store i32 11, ptr %0, align 8, !alias.scope !836, !noalias !846
   br label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit"
 
-28:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %29, align 8, !alias.scope !836, !noalias !846
+31:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %32, align 8, !alias.scope !836, !noalias !846
   store i32 11, ptr %0, align 8, !alias.scope !836, !noalias !846
   br label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit"
 
-30:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
+33:                                               ; preds = %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17he2ffe395542c39ecE.llvm.10298849200982743166.exit.i"
   store i32 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !836, !noalias !846
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.7.0.i, ptr %.sroa.225.0..sroa_idx.i, align 4, !alias.scope !836, !noalias !846
@@ -7160,11 +7157,11 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.730.sroa.2.0..sroa.730.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.sroa.5.i, i64 16, i1 false), !noalias !846
   br label %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit"
 
-"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit": ; preds = %26, %28, %30
+"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit": ; preds = %29, %31, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13.sroa.5.i)
-  br label %33
+  br label %36
 
-31:                                               ; preds = %2
+34:                                               ; preds = %2
   %.sroa.433.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.433.0.copyload.i = load i32, ptr %.sroa.433.0..sroa_idx.i, align 4, !noalias !833
   %.sroa.534.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7180,7 +7177,7 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
   %.sroa.745.i.sroa.6.0..sroa.938.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.312, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.745.i.sroa.6.0..sroa.938.0..sroa_idx.i.sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !833
-  %32 = inttoptr i64 %.sroa.736.0.copyload.i to ptr
+  %35 = inttoptr i64 %.sroa.736.0.copyload.i to ptr
   store i32 %12, ptr %0, align 8
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.433.0.copyload.i, ptr %.sroa.211.0..sroa_idx, align 4
@@ -7189,16 +7186,16 @@ default.unreachable:                              ; preds = %"_ZN6wiggle25Unsafe
   %.sroa.211.sroa.3.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.635.0.copyload.i, ptr %.sroa.211.sroa.3.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.4.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %32, ptr %.sroa.211.sroa.4.0..sroa.211.0..sroa_idx.sroa_idx, align 8
+  store ptr %35, ptr %.sroa.211.sroa.4.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.5.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.745.i.sroa.0.0.copyload, ptr %.sroa.211.sroa.5.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.6.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.745.i.sroa.4.0.copyload, ptr %.sroa.211.sroa.6.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.312.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.312, i64 16, i1 false)
-  br label %33
+  br label %36
 
-33:                                               ; preds = %31, %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit"
+36:                                               ; preds = %34, %"_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$12as_slice_mut17haa285cbdda299bd3E.llvm.10298849200982743166.exit"
   ret void
 }
 

@@ -3510,11 +3510,12 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %86, align 8
-  %90 = ptrtoint ptr %88 to i64
-  %91 = ptrtoint ptr %89 to i64
+  %.fr = freeze ptr %88
+  %90 = ptrtoint ptr %.fr to i64
+  %.fr374 = freeze ptr %89
+  %91 = ptrtoint ptr %.fr374 to i64
   %92 = sub i64 %90, %91
-  %.fr375 = freeze i64 %92
-  %93 = ashr i64 %.fr375, 3
+  %93 = ashr i64 %92, 3
   %94 = add i64 %93, %.0160301
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0250.0298, i64 8
   %96 = icmp eq ptr %95, %.sroa.10254.0299

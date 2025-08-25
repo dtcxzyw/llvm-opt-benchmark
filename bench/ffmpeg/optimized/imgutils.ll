@@ -200,8 +200,8 @@ define range(i32 -2147483648, 1) i32 @av_image_fill_linesizes(ptr noundef writeo
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !13
-  %.fr24 = freeze i64 %9
-  %10 = and i64 %.fr24, 8
+  %.fr = freeze i64 %9
+  %10 = and i64 %.fr, 8
   %.not19 = icmp eq i64 %10, 0
   br i1 %.not19, label %11, label %image_get_linesize.exit.thread
 
@@ -242,15 +242,15 @@ av_image_fill_max_pixsteps.exit.preheader:        ; preds = %24
   br i1 %25, label %image_get_linesize.exit.thread, label %av_image_fill_max_pixsteps.exit.preheader.split
 
 av_image_fill_max_pixsteps.exit.preheader.split:  ; preds = %av_image_fill_max_pixsteps.exit.preheader
-  %28 = and i64 %.fr24, 4
+  %28 = and i64 %.fr, 4
   %.not21.i = icmp eq i64 %28, 0
   br i1 %.not21.i, label %av_image_fill_max_pixsteps.exit.preheader.split.split.us, label %av_image_fill_max_pixsteps.exit.preheader.split.split
 
 av_image_fill_max_pixsteps.exit.preheader.split.split.us: ; preds = %av_image_fill_max_pixsteps.exit.preheader.split, %av_image_fill_max_pixsteps.exit.us
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %av_image_fill_max_pixsteps.exit.us ], [ 0, %av_image_fill_max_pixsteps.exit.preheader.split ]
-  %29 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv28
+  %indvars.iv27 = phi i64 [ %indvars.iv.next28, %av_image_fill_max_pixsteps.exit.us ], [ 0, %av_image_fill_max_pixsteps.exit.preheader.split ]
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv27
   %30 = load i32, ptr %29, align 4, !tbaa !10
-  %31 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv28
+  %31 = getelementptr inbounds nuw [4 x i32], ptr %5, i64 0, i64 %indvars.iv27
   %32 = load i32, ptr %31, align 4, !tbaa !10
   %33 = add i32 %32, -1
   %or.cond.i.us = icmp ult i32 %33, 2
@@ -280,11 +280,11 @@ image_get_linesize.exit.us:                       ; preds = %42, %37
   br i1 %46, label %image_get_linesize.exit.thread, label %av_image_fill_max_pixsteps.exit.us
 
 av_image_fill_max_pixsteps.exit.us:               ; preds = %image_get_linesize.exit.us
-  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv28
+  %47 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv27
   store i32 %45, ptr %47, align 4, !tbaa !10
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
-  %exitcond31.not = icmp eq i64 %indvars.iv.next29, 4
-  br i1 %exitcond31.not, label %image_get_linesize.exit.thread, label %av_image_fill_max_pixsteps.exit.preheader.split.split.us, !llvm.loop !19
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
+  br i1 %exitcond30.not, label %image_get_linesize.exit.thread, label %av_image_fill_max_pixsteps.exit.preheader.split.split.us, !llvm.loop !19
 
 av_image_fill_max_pixsteps.exit.preheader.split.split: ; preds = %av_image_fill_max_pixsteps.exit.preheader.split, %av_image_fill_max_pixsteps.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_image_fill_max_pixsteps.exit ], [ 0, %av_image_fill_max_pixsteps.exit.preheader.split ]
@@ -969,7 +969,8 @@ define range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %0, i32 noundef %
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 8, !tbaa !13
-  %17 = and i64 %16, 8
+  %.fr = freeze i64 %16
+  %17 = and i64 %.fr, 8
   %.not10.i = icmp eq i64 %17, 0
   br i1 %.not10.i, label %18, label %av_image_get_linesize.exit.thread
 
@@ -1005,6 +1006,7 @@ define range(i32 -22, 1) i32 @av_image_check_size2(i32 noundef %0, i32 noundef %
 
 av_image_fill_max_pixsteps.exit.i:                ; preds = %31
   %32 = load i32, ptr %7, align 16, !tbaa !10
+  %.fr40 = freeze i32 %32
   %33 = icmp slt i32 %0, 0
   br i1 %33, label %av_image_get_linesize.exit.thread, label %34
 
@@ -1026,12 +1028,13 @@ av_image_fill_max_pixsteps.exit.i:                ; preds = %31
   %44 = add nsw i32 %0, -1
   %45 = add i32 %44, %43
   %46 = ashr i32 %45, %42
-  %.not.i.i = icmp eq i32 %46, 0
+  %.fr39 = freeze i32 %46
+  %.not.i.i = icmp eq i32 %.fr39, 0
   br i1 %.not.i.i, label %av_image_get_linesize.exit, label %47
 
 47:                                               ; preds = %41
-  %48 = sdiv i32 2147483647, %46
-  %49 = icmp sgt i32 %32, %48
+  %48 = sdiv i32 2147483647, %.fr39
+  %49 = icmp sgt i32 %.fr40, %48
   br i1 %49, label %av_image_get_linesize.exit.thread, label %av_image_get_linesize.exit
 
 av_image_get_linesize.exit.thread:                ; preds = %14, %6, %av_image_fill_max_pixsteps.exit.i, %47
@@ -1042,17 +1045,16 @@ av_image_get_linesize.exit.thread:                ; preds = %14, %6, %av_image_f
   br label %60
 
 av_image_get_linesize.exit:                       ; preds = %41, %47
-  %52 = mul nsw i32 %46, %32
-  %53 = and i64 %16, 4
+  %52 = mul i32 %.fr39, %.fr40
+  %53 = and i64 %.fr, 4
   %.not21.i.i = icmp eq i64 %53, 0
-  %54 = add nsw i32 %52, 7
+  %54 = add i32 %52, 7
   %55 = ashr i32 %54, 3
   %.0.i.i = select i1 %.not21.i.i, i32 %52, i32 %55
-  %.0.i.i.fr = freeze i32 %.0.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %56 = zext nneg i32 %.0.i.i.fr to i64
-  %57 = icmp slt i32 %.0.i.i.fr, 1
+  %56 = zext nneg i32 %.0.i.i to i64
+  %57 = icmp slt i32 %.0.i.i, 1
   %58 = zext nneg i32 %0 to i64
   %59 = shl nuw nsw i64 %58, 3
   %spec.select = select i1 %57, i64 %59, i64 %56
@@ -2296,62 +2298,62 @@ define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !13
-  %.fr107 = freeze i64 %15
-  %16 = and i64 %.fr107, 8
+  %.fr = freeze i64 %15
+  %16 = and i64 %.fr, 8
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %17, label %.loopexit
 
 17:                                               ; preds = %13
-  %18 = and i64 %.fr107, 1058
+  %18 = and i64 %.fr, 1058
   %or.cond8.not = icmp eq i64 %18, 0
   %19 = icmp ne i32 %3, 2
   %spec.select = and i1 %19, %or.cond8.not
-  %20 = and i64 %.fr107, 130
+  %20 = and i64 %.fr, 130
   %21 = icmp eq i64 %20, 128
-  %22 = and i64 %.fr107, 512
-  %.not108 = icmp eq i64 %22, 0
+  %22 = and i64 %.fr, 512
+  %.not107 = icmp eq i64 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %24 = load i8, ptr %23, align 8, !tbaa !38
-  %.not103113.not = icmp eq i8 %24, 0
-  br i1 %.not103113.not, label %.critedge106, label %.lr.ph
+  %.not103112.not = icmp eq i8 %24, 0
+  br i1 %.not103112.not, label %.critedge106, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %26 = icmp eq i32 %2, 9
-  %27 = and i64 %.fr107, 1056
+  %27 = and i64 %.fr, 1056
   %28 = icmp ne i64 %27, 0
-  %wide.trip.count155 = zext i8 %24 to i64
+  %wide.trip.count154 = zext i8 %24 to i64
   br i1 %26, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge.us ], [ 0, %.lr.ph ]
-  %.sroa.3.0..sroa_idx.idx.us = mul nuw nsw i64 %indvars.iv152, 20
+  %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.critedge.us ], [ 0, %.lr.ph ]
+  %.sroa.3.0..sroa_idx.idx.us = mul nuw nsw i64 %indvars.iv151, 20
   %.sroa.3.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us
   %.sroa.3.0.copyload.us = load i32, ptr %.sroa.3.0..sroa_idx.us, align 4, !tbaa !10
   %29 = icmp sgt i32 %.sroa.3.0.copyload.us, 32
   br i1 %29, label %.loopexit, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us
-  %30 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv152
+  %30 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv151
   store i32 1, ptr %30, align 4, !tbaa !10
-  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
-  br i1 %exitcond156.not, label %.critedge106, label %.lr.ph.split.us, !llvm.loop !58
+  %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
+  %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
+  br i1 %exitcond155.not, label %.critedge106, label %.lr.ph.split.us, !llvm.loop !58
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %21, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us119
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us119 ], [ 0, %.lr.ph.split ]
-  %.sroa.3.0..sroa_idx.idx.us116 = mul nuw nsw i64 %indvars.iv, 20
-  %.sroa.3.0..sroa_idx.us117 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us116
-  %.sroa.3.0.copyload.us118 = load i32, ptr %.sroa.3.0..sroa_idx.us117, align 4, !tbaa !10
-  %31 = icmp sgt i32 %.sroa.3.0.copyload.us118, 32
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.critedge.us118
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge.us118 ], [ 0, %.lr.ph.split ]
+  %.sroa.3.0..sroa_idx.idx.us115 = mul nuw nsw i64 %indvars.iv, 20
+  %.sroa.3.0..sroa_idx.us116 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us115
+  %.sroa.3.0.copyload.us117 = load i32, ptr %.sroa.3.0..sroa_idx.us116, align 4, !tbaa !10
+  %31 = icmp sgt i32 %.sroa.3.0.copyload.us117, 32
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %.lr.ph.split.split.us
   %33 = icmp eq i64 %indvars.iv, 0
-  %34 = icmp sgt i32 %.sroa.3.0.copyload.us118, 1
+  %34 = icmp sgt i32 %.sroa.3.0.copyload.us117, 1
   %35 = and i1 %33, %34
   %or.cond18.us = and i1 %35, %spec.select
   br i1 %or.cond18.us, label %47, label %36
@@ -2361,151 +2363,151 @@ define range(i32 -22, 1) i32 @av_image_fill_black(ptr noundef readonly captures(
   %38 = add i32 %37, -3
   %or.cond26.us = icmp ult i32 %38, -2
   %or.cond30.us = or i1 %28, %or.cond26.us
-  br i1 %or.cond30.us, label %.critedge.us119, label %39
+  br i1 %or.cond30.us, label %.critedge.us118, label %39
 
 39:                                               ; preds = %36
-  %40 = icmp slt i32 %.sroa.3.0.copyload.us118, 8
+  %40 = icmp slt i32 %.sroa.3.0.copyload.us117, 8
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %39
-  br i1 %.not108, label %.critedge112.us, label %switch.early.test104.us
+  br i1 %.not107, label %.critedge111.us, label %switch.early.test104.us
 
 switch.early.test104.us:                          ; preds = %41
-  switch i32 %.sroa.3.0.copyload.us118, label %.loopexit [
+  switch i32 %.sroa.3.0.copyload.us117, label %.loopexit [
     i32 32, label %42
     i32 16, label %42
   ]
 
 42:                                               ; preds = %switch.early.test104.us, %switch.early.test104.us
-  %43 = icmp eq i32 %.sroa.3.0.copyload.us118, 16
+  %43 = icmp eq i32 %.sroa.3.0.copyload.us117, 16
   %44 = select i1 %43, i32 14336, i32 1056964608
-  br label %.critedge.us119
+  br label %.critedge.us118
 
-.critedge112.us:                                  ; preds = %41
-  %45 = add nsw i32 %.sroa.3.0.copyload.us118, -8
+.critedge111.us:                                  ; preds = %41
+  %45 = add nsw i32 %.sroa.3.0.copyload.us117, -8
   %46 = shl nuw i32 128, %45
-  br label %.critedge.us119
+  br label %.critedge.us118
 
 47:                                               ; preds = %32
-  %48 = icmp samesign ult i32 %.sroa.3.0.copyload.us118, 8
+  %48 = icmp samesign ult i32 %.sroa.3.0.copyload.us117, 8
   br i1 %48, label %.loopexit, label %49
 
 49:                                               ; preds = %47
-  br i1 %.not108, label %.critedge110.us, label %switch.early.test.us
+  br i1 %.not107, label %.critedge109.us, label %switch.early.test.us
 
 switch.early.test.us:                             ; preds = %49
-  switch i32 %.sroa.3.0.copyload.us118, label %.loopexit [
+  switch i32 %.sroa.3.0.copyload.us117, label %.loopexit [
     i32 32, label %50
     i32 16, label %50
   ]
 
 50:                                               ; preds = %switch.early.test.us, %switch.early.test.us
-  %51 = icmp eq i32 %.sroa.3.0.copyload.us118, 16
+  %51 = icmp eq i32 %.sroa.3.0.copyload.us117, 16
   %52 = select i1 %51, i32 11264, i32 1031798784
-  br label %.critedge.us119
+  br label %.critedge.us118
 
-.critedge110.us:                                  ; preds = %49
-  %53 = add nsw i32 %.sroa.3.0.copyload.us118, -8
+.critedge109.us:                                  ; preds = %49
+  %53 = add nsw i32 %.sroa.3.0.copyload.us117, -8
   %54 = shl nuw nsw i32 16, %53
-  br label %.critedge.us119
+  br label %.critedge.us118
 
-.critedge.us119:                                  ; preds = %.critedge110.us, %50, %.critedge112.us, %42, %36
-  %.0.us120 = phi i32 [ %52, %50 ], [ %54, %.critedge110.us ], [ 0, %36 ], [ %44, %42 ], [ %46, %.critedge112.us ]
+.critedge.us118:                                  ; preds = %.critedge109.us, %50, %.critedge111.us, %42, %36
+  %.0.us119 = phi i32 [ %52, %50 ], [ %54, %.critedge109.us ], [ 0, %36 ], [ %44, %42 ], [ %46, %.critedge111.us ]
   %55 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
-  store i32 %.0.us120, ptr %55, align 4, !tbaa !10
+  store i32 %.0.us119, ptr %55, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count155
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count154
   br i1 %exitcond.not, label %.critedge106, label %.lr.ph.split.split.us, !llvm.loop !58
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %spec.select, label %.lr.ph.split.split.split, label %.lr.ph.split.split.split.us
 
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.critedge.us132
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.critedge.us132 ], [ 0, %.lr.ph.split.split ]
-  %.sroa.3.0..sroa_idx.idx.us123 = mul nuw nsw i64 %indvars.iv142, 20
-  %.sroa.3.0..sroa_idx.us124 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us123
-  %.sroa.3.0.copyload.us125 = load i32, ptr %.sroa.3.0..sroa_idx.us124, align 4, !tbaa !10
-  %56 = icmp sgt i32 %.sroa.3.0.copyload.us125, 32
+.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.critedge.us131
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.critedge.us131 ], [ 0, %.lr.ph.split.split ]
+  %.sroa.3.0..sroa_idx.idx.us122 = mul nuw nsw i64 %indvars.iv141, 20
+  %.sroa.3.0..sroa_idx.us123 = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx.us122
+  %.sroa.3.0.copyload.us124 = load i32, ptr %.sroa.3.0..sroa_idx.us123, align 4, !tbaa !10
+  %56 = icmp sgt i32 %.sroa.3.0.copyload.us124, 32
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %.lr.ph.split.split.split.us
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %58 = icmp eq i64 %indvars.iv.next143, %wide.trip.count155
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %58 = icmp eq i64 %indvars.iv.next142, %wide.trip.count154
   br i1 %58, label %70, label %59
 
 59:                                               ; preds = %57
-  %60 = trunc i64 %indvars.iv142 to i32
+  %60 = trunc i64 %indvars.iv141 to i32
   %61 = add i32 %60, -3
-  %or.cond26.us128 = icmp ult i32 %61, -2
-  %or.cond30.us129 = or i1 %28, %or.cond26.us128
-  br i1 %or.cond30.us129, label %.critedge.us132, label %62
+  %or.cond26.us127 = icmp ult i32 %61, -2
+  %or.cond30.us128 = or i1 %28, %or.cond26.us127
+  br i1 %or.cond30.us128, label %.critedge.us131, label %62
 
 62:                                               ; preds = %59
-  %63 = icmp slt i32 %.sroa.3.0.copyload.us125, 8
+  %63 = icmp slt i32 %.sroa.3.0.copyload.us124, 8
   br i1 %63, label %.loopexit, label %64
 
 64:                                               ; preds = %62
-  br i1 %.not108, label %.critedge112.us131, label %switch.early.test104.us130
+  br i1 %.not107, label %.critedge111.us130, label %switch.early.test104.us129
 
-switch.early.test104.us130:                       ; preds = %64
-  switch i32 %.sroa.3.0.copyload.us125, label %.loopexit [
+switch.early.test104.us129:                       ; preds = %64
+  switch i32 %.sroa.3.0.copyload.us124, label %.loopexit [
     i32 32, label %65
     i32 16, label %65
   ]
 
-65:                                               ; preds = %switch.early.test104.us130, %switch.early.test104.us130
-  %66 = icmp eq i32 %.sroa.3.0.copyload.us125, 16
+65:                                               ; preds = %switch.early.test104.us129, %switch.early.test104.us129
+  %66 = icmp eq i32 %.sroa.3.0.copyload.us124, 16
   %67 = select i1 %66, i32 14336, i32 1056964608
-  br label %.critedge.us132
+  br label %.critedge.us131
 
-.critedge112.us131:                               ; preds = %64
-  %68 = add nsw i32 %.sroa.3.0.copyload.us125, -8
+.critedge111.us130:                               ; preds = %64
+  %68 = add nsw i32 %.sroa.3.0.copyload.us124, -8
   %69 = shl nuw i32 128, %68
-  br label %.critedge.us132
+  br label %.critedge.us131
 
 70:                                               ; preds = %57
-  br i1 %.not108, label %75, label %71
+  br i1 %.not107, label %75, label %71
 
 71:                                               ; preds = %70
-  switch i32 %.sroa.3.0.copyload.us125, label %.loopexit [
+  switch i32 %.sroa.3.0.copyload.us124, label %.loopexit [
     i32 32, label %72
     i32 16, label %72
   ]
 
 72:                                               ; preds = %71, %71
-  %73 = icmp eq i32 %.sroa.3.0.copyload.us125, 16
+  %73 = icmp eq i32 %.sroa.3.0.copyload.us124, 16
   %74 = select i1 %73, i32 15360, i32 1065353216
-  br label %.critedge.us132
+  br label %.critedge.us131
 
 75:                                               ; preds = %70
-  %76 = icmp eq i32 %.sroa.3.0.copyload.us125, 32
-  %notmask.us = shl nsw i32 -1, %.sroa.3.0.copyload.us125
+  %76 = icmp eq i32 %.sroa.3.0.copyload.us124, 32
+  %notmask.us = shl nsw i32 -1, %.sroa.3.0.copyload.us124
   %77 = xor i32 %notmask.us, -1
   %78 = select i1 %76, i32 -1, i32 %77
-  br label %.critedge.us132
+  br label %.critedge.us131
 
-.critedge.us132:                                  ; preds = %75, %72, %.critedge112.us131, %65, %59
-  %.0.us133 = phi i32 [ %74, %72 ], [ %78, %75 ], [ 0, %59 ], [ %67, %65 ], [ %69, %.critedge112.us131 ]
-  %79 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv142
-  store i32 %.0.us133, ptr %79, align 4, !tbaa !10
-  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count155
-  br i1 %exitcond146.not, label %.critedge106, label %.lr.ph.split.split.split.us, !llvm.loop !58
+.critedge.us131:                                  ; preds = %75, %72, %.critedge111.us130, %65, %59
+  %.0.us132 = phi i32 [ %74, %72 ], [ %78, %75 ], [ 0, %59 ], [ %67, %65 ], [ %69, %.critedge111.us130 ]
+  %79 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv141
+  store i32 %.0.us132, ptr %79, align 4, !tbaa !10
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count154
+  br i1 %exitcond145.not, label %.critedge106, label %.lr.ph.split.split.split.us, !llvm.loop !58
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.critedge
-  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.critedge ], [ 0, %.lr.ph.split.split ]
-  %.sroa.3.0..sroa_idx.idx = mul nuw nsw i64 %indvars.iv147, 20
+  %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.critedge ], [ 0, %.lr.ph.split.split ]
+  %.sroa.3.0..sroa_idx.idx = mul nuw nsw i64 %indvars.iv146, 20
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.idx
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !10
   %80 = icmp sgt i32 %.sroa.3.0.copyload, 32
   br i1 %80, label %.loopexit, label %81
 
 81:                                               ; preds = %.lr.ph.split.split.split
-  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %82 = icmp eq i64 %indvars.iv.next148, %wide.trip.count155
+  %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
+  %82 = icmp eq i64 %indvars.iv.next147, %wide.trip.count154
   br i1 %82, label %83, label %92
 
 83:                                               ; preds = %81
-  br i1 %.not108, label %88, label %84
+  br i1 %.not107, label %88, label %84
 
 84:                                               ; preds = %83
   switch i32 %.sroa.3.0.copyload, label %.loopexit [
@@ -2526,7 +2528,7 @@ switch.early.test104.us130:                       ; preds = %64
   br label %.critedge
 
 92:                                               ; preds = %81
-  %93 = icmp eq i64 %indvars.iv147, 0
+  %93 = icmp eq i64 %indvars.iv146, 0
   %94 = icmp sgt i32 %.sroa.3.0.copyload, 1
   %or.cond18 = and i1 %93, %94
   br i1 %or.cond18, label %95, label %103
@@ -2536,7 +2538,7 @@ switch.early.test104.us130:                       ; preds = %64
   br i1 %96, label %.loopexit, label %97
 
 97:                                               ; preds = %95
-  br i1 %.not108, label %.critedge110, label %switch.early.test
+  br i1 %.not107, label %.critedge109, label %switch.early.test
 
 switch.early.test:                                ; preds = %97
   switch i32 %.sroa.3.0.copyload, label %.loopexit [
@@ -2549,13 +2551,13 @@ switch.early.test:                                ; preds = %97
   %100 = select i1 %99, i32 11264, i32 1031798784
   br label %.critedge
 
-.critedge110:                                     ; preds = %97
+.critedge109:                                     ; preds = %97
   %101 = add nsw i32 %.sroa.3.0.copyload, -8
   %102 = shl nuw nsw i32 16, %101
   br label %.critedge
 
 103:                                              ; preds = %92
-  %104 = trunc i64 %indvars.iv147 to i32
+  %104 = trunc i64 %indvars.iv146 to i32
   %105 = add i32 %104, -3
   %or.cond26 = icmp ult i32 %105, -2
   %or.cond30 = or i1 %28, %or.cond26
@@ -2566,7 +2568,7 @@ switch.early.test:                                ; preds = %97
   br i1 %107, label %.loopexit, label %108
 
 108:                                              ; preds = %106
-  br i1 %.not108, label %.critedge112, label %switch.early.test104
+  br i1 %.not107, label %.critedge111, label %switch.early.test104
 
 switch.early.test104:                             ; preds = %108
   switch i32 %.sroa.3.0.copyload, label %.loopexit [
@@ -2579,24 +2581,24 @@ switch.early.test104:                             ; preds = %108
   %111 = select i1 %110, i32 14336, i32 1056964608
   br label %.critedge
 
-.critedge112:                                     ; preds = %108
+.critedge111:                                     ; preds = %108
   %112 = add nsw i32 %.sroa.3.0.copyload, -8
   %113 = shl nuw i32 128, %112
   br label %.critedge
 
-.critedge:                                        ; preds = %88, %85, %103, %.critedge112, %109, %98, %.critedge110
-  %.0 = phi i32 [ %87, %85 ], [ %91, %88 ], [ %100, %98 ], [ %102, %.critedge110 ], [ 0, %103 ], [ %111, %109 ], [ %113, %.critedge112 ]
-  %114 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv147
+.critedge:                                        ; preds = %88, %85, %103, %.critedge111, %109, %98, %.critedge109
+  %.0 = phi i32 [ %87, %85 ], [ %91, %88 ], [ %100, %98 ], [ %102, %.critedge109 ], [ 0, %103 ], [ %111, %109 ], [ %113, %.critedge111 ]
+  %114 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv146
   store i32 %.0, ptr %114, align 4, !tbaa !10
-  %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count155
-  br i1 %exitcond151.not, label %.critedge106, label %.lr.ph.split.split.split, !llvm.loop !58
+  %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count154
+  br i1 %exitcond150.not, label %.critedge106, label %.lr.ph.split.split.split, !llvm.loop !58
 
-.critedge106:                                     ; preds = %.critedge.us119, %.critedge.us132, %.critedge, %.critedge.us, %17
+.critedge106:                                     ; preds = %.critedge.us118, %.critedge.us131, %.critedge, %.critedge.us, %17
   %115 = call i32 @av_image_fill_color(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7, i32 noundef %4, i32 noundef %5, i32 poison)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.us, %39, %switch.early.test104.us, %47, %switch.early.test.us, %71, %switch.early.test104.us130, %62, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %84, %switch.early.test, %95, %switch.early.test104, %106, %.lr.ph.split.us, %6, %13, %.critedge106
-  %.097 = phi i32 [ %115, %.critedge106 ], [ -22, %13 ], [ -22, %6 ], [ -22, %.lr.ph.split.us ], [ -22, %106 ], [ -22, %switch.early.test104 ], [ -22, %95 ], [ -22, %switch.early.test ], [ -22, %84 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %62 ], [ -22, %switch.early.test104.us130 ], [ -22, %71 ], [ -22, %switch.early.test.us ], [ -22, %47 ], [ -22, %switch.early.test104.us ], [ -22, %39 ], [ -22, %.lr.ph.split.split.us ]
+.loopexit:                                        ; preds = %.lr.ph.split.split.us, %39, %switch.early.test104.us, %47, %switch.early.test.us, %71, %switch.early.test104.us129, %62, %.lr.ph.split.split.split.us, %.lr.ph.split.split.split, %84, %switch.early.test, %95, %switch.early.test104, %106, %.lr.ph.split.us, %6, %13, %.critedge106
+  %.097 = phi i32 [ %115, %.critedge106 ], [ -22, %13 ], [ -22, %6 ], [ -22, %.lr.ph.split.us ], [ -22, %106 ], [ -22, %switch.early.test104 ], [ -22, %95 ], [ -22, %switch.early.test ], [ -22, %84 ], [ -22, %.lr.ph.split.split.split ], [ -22, %.lr.ph.split.split.split.us ], [ -22, %62 ], [ -22, %switch.early.test104.us129 ], [ -22, %71 ], [ -22, %switch.early.test.us ], [ -22, %47 ], [ -22, %switch.early.test104.us ], [ -22, %39 ], [ -22, %.lr.ph.split.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.097
 }

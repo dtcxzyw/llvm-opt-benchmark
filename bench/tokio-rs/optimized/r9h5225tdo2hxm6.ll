@@ -5397,20 +5397,21 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h1
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
+  %.fr75 = freeze i64 %15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = icmp ugt i64 %17, %15
+  %.fr74 = freeze i64 %17
+  %18 = icmp ugt i64 %.fr74, %.fr75
   %19 = load ptr, ptr %4, align 8, !nonnull !10, !align !299
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 %17
-  %22 = sub nuw i64 %15, %17
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.fr74
+  %22 = sub nuw i64 %.fr75, %.fr74
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8, !nonnull !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.fr = freeze i1 %18
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.sroa.08.0.copyload.us = load ptr, ptr %10, align 8
@@ -5420,13 +5421,13 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17h1
 .split64.us:                                      ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %17, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !781
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %.fr74, i64 noundef %.fr75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !781
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %20, align 8
-  %.fr74 = freeze i32 %29
-  %30 = icmp eq i32 %.fr74, -1
+  %.fr = freeze i32 %29
+  %30 = icmp eq i32 %.fr, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -6384,20 +6385,21 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17ha
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
+  %.fr75 = freeze i64 %15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = icmp ugt i64 %17, %15
+  %.fr74 = freeze i64 %17
+  %18 = icmp ugt i64 %.fr74, %.fr75
   %19 = load ptr, ptr %4, align 8, !nonnull !10, !align !299
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 %17
-  %22 = sub nuw i64 %15, %17
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.fr74
+  %22 = sub nuw i64 %.fr75, %.fr74
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8, !nonnull !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.fr = freeze i1 %18
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.sroa.08.0.copyload.us = load ptr, ptr %10, align 8
@@ -6407,13 +6409,13 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17ha
 .split64.us:                                      ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %17, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !923
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %.fr74, i64 noundef %.fr75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !923
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %20, align 8
-  %.fr74 = freeze i32 %29
-  %30 = icmp eq i32 %.fr74, -1
+  %.fr = freeze i32 %29
+  %30 = icmp eq i32 %.fr, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -6763,20 +6765,21 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17ha
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
+  %.fr75 = freeze i64 %15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = icmp ugt i64 %17, %15
+  %.fr74 = freeze i64 %17
+  %18 = icmp ugt i64 %.fr74, %.fr75
   %19 = load ptr, ptr %4, align 8, !nonnull !10, !align !299
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 %17
-  %22 = sub nuw i64 %15, %17
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.fr74
+  %22 = sub nuw i64 %.fr75, %.fr74
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8, !nonnull !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.fr = freeze i1 %18
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.sroa.08.0.copyload.us = load ptr, ptr %10, align 8
@@ -6786,13 +6789,13 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17ha
 .split64.us:                                      ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %17, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !978
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %.fr74, i64 noundef %.fr75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !978
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %20, align 8
-  %.fr74 = freeze i32 %29
-  %30 = icmp eq i32 %.fr74, -1
+  %.fr = freeze i32 %29
+  %30 = icmp eq i32 %.fr, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -6964,20 +6967,21 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17hc
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
+  %.fr76 = freeze i64 %15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = icmp ugt i64 %17, %15
+  %.fr75 = freeze i64 %17
+  %18 = icmp ugt i64 %.fr75, %.fr76
   %19 = load ptr, ptr %4, align 8, !nonnull !10, !align !299
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 %17
-  %22 = sub nuw i64 %15, %17
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.fr75
+  %22 = sub nuw i64 %.fr76, %.fr75
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8, !nonnull !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.fr = freeze i1 %18
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.sroa.08.0.copyload.us = load ptr, ptr %10, align 8
@@ -6987,13 +6991,13 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17hc
 .split65.us:                                      ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %17, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !1005
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %.fr75, i64 noundef %.fr76, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !1005
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %20, align 8
-  %.fr75 = freeze i32 %29
-  %30 = icmp eq i32 %.fr75, -1
+  %.fr = freeze i32 %29
+  %30 = icmp eq i32 %.fr, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -7526,20 +7530,21 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17hf
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
+  %.fr75 = freeze i64 %15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = icmp ugt i64 %17, %15
+  %.fr74 = freeze i64 %17
+  %18 = icmp ugt i64 %.fr74, %.fr75
   %19 = load ptr, ptr %4, align 8, !nonnull !10, !align !299
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds i8, ptr %19, i64 %17
-  %22 = sub nuw i64 %15, %17
+  %21 = getelementptr inbounds i8, ptr %19, i64 %.fr74
+  %22 = sub nuw i64 %.fr75, %.fr74
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8, !nonnull !10
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.fr = freeze i1 %18
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.sroa.08.0.copyload.us = load ptr, ptr %10, align 8
@@ -7549,13 +7554,13 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration7poll_io17hf
 .split64.us:                                      ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %17, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !1085
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %.fr74, i64 noundef %.fr75, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b9c08160b8d52b2f9d67197464302e31.45) #27, !noalias !1085
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %29 = load i32, ptr %20, align 8
-  %.fr74 = freeze i32 %29
-  %30 = icmp eq i32 %.fr74, -1
+  %.fr = freeze i32 %29
+  %30 = icmp eq i32 %.fr, -1
   br i1 %30, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split

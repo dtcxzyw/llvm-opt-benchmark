@@ -182,8 +182,8 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %26 = fdiv contract float -1.000000e+00, %25
   %bc = bitcast <4 x i32> %20 to <4 x float>
   %27 = extractelement <4 x float> %bc, i64 0
-  %bc221 = bitcast <4 x i32> %20 to <4 x float>
-  %28 = extractelement <4 x float> %bc221, i64 1
+  %bc225 = bitcast <4 x i32> %20 to <4 x float>
+  %28 = extractelement <4 x float> %bc225, i64 1
   %29 = fmul contract float %27, %28
   %30 = fmul contract float %29, %26
   %foldExtExtBinop = fmul contract <4 x float> %bc, %bc
@@ -222,8 +222,9 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
   %58 = load ptr, ptr %57, align 8
   %59 = tail call { i64, float } %58(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 16 dereferenceable(64) %2)
-  %.fca.0.extract = extractvalue { i64, float } %59, 0
-  %.fca.1.extract = extractvalue { i64, float } %59, 1
+  %.fr = freeze { i64, float } %59
+  %.fca.0.extract = extractvalue { i64, float } %.fr, 0
+  %.fca.1.extract = extractvalue { i64, float } %.fr, 1
   %.sroa.3210.0.extract.shift = lshr i64 %.fca.0.extract, 32
   %.sroa.3210.0.extract.trunc = trunc nuw i64 %.sroa.3210.0.extract.shift to i32
   %60 = bitcast i32 %.sroa.3210.0.extract.trunc to float
@@ -231,22 +232,24 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %62 = fcmp contract one float %61, 0x7FF0000000000000
   %63 = tail call contract float @llvm.fabs.f32(float %.fca.1.extract)
   %64 = fcmp contract one float %63, 0x7FF0000000000000
-  %narrow = select i1 %62, i1 true, i1 %64
+  %narrow = or i1 %64, %62
   %65 = and i64 %.fca.0.extract, 1
   %66 = icmp ne i64 %65, 0
-  %67 = select i1 %narrow, i1 %66, i1 false
+  %67 = and i1 %66, %narrow
   %.sroa.3210.0217 = select i1 %67, float %60, float 0.000000e+00
   %.sroa.9.0 = select i1 %67, float %.fca.1.extract, float 0x7FF0000000000000
   %68 = fcmp contract ogt float %.sroa.3210.0217, 0.000000e+00
   %..i = select contract i1 %68, float %.sroa.3210.0217, float 0.000000e+00
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %70 = load float, ptr %69, align 16
-  %71 = fcmp contract olt float %.sroa.9.0, %70
-  %..i184 = select contract i1 %71, float %.sroa.9.0, float %70
+  %.fr223 = freeze float %70
+  %71 = fcmp contract olt float %.sroa.9.0, %.fr223
+  %..i184 = select contract i1 %71, float %.sroa.9.0, float %.fr223
   %72 = load ptr, ptr %1, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 80
   %74 = load ptr, ptr %73, align 8
   %75 = tail call <4 x float> %74(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 16 dereferenceable(212) %0, i1 noundef zeroext %67)
+  %.fr221 = freeze <4 x float> %75
   %76 = fsub contract float 1.000000e+00, %3
   %.0.copyload.i.cast.i = bitcast float %76 to i32
   %77 = and i32 %.0.copyload.i.cast.i, 2139095040
@@ -296,12 +299,11 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %.1.i = select i1 %110, float 0xFFF0000000000000, float %spec.select.i
   %111 = fcmp contract ult float %76, 0.000000e+00
   %112 = select i1 %111, float 0xFFFFFFFFE0000000, float %.1.i
-  %.sroa.0181.0.vec.extract = extractelement <4 x float> %75, i64 0
+  %.sroa.0181.0.vec.extract = extractelement <4 x float> %.fr221, i64 0
   %113 = fdiv contract float %112, %.sroa.0181.0.vec.extract
   %114 = fsub contract float %..i, %113
   %115 = fcmp contract ole float %114, %..i184
-  %cond.fr = freeze i1 %115
-  %116 = and i1 %67, %cond.fr
+  %116 = select i1 %67, i1 %115, i1 false
   %117 = select i1 %116, float %114, float 0x7FF0000000000000
   store float %117, ptr %0, align 16
   %118 = insertelement <4 x float> poison, float %114, i64 0
@@ -322,7 +324,7 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   store <2 x double> %.sroa.0185.16.vec.extract, ptr %13, align 16
   %.sroa.0185.32.vec.extract = shufflevector <6 x double> %126, <6 x double> poison, <2 x i32> <i32 4, i32 5>
   store <2 x double> %.sroa.0185.32.vec.extract, ptr %14, align 16
-  store <4 x float> %75, ptr %15, align 16
+  store <4 x float> %.fr221, ptr %15, align 16
   ret void
 }
 

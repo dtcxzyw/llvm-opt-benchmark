@@ -1284,10 +1284,11 @@ _ZN13HasherVisitorD2Ev.exit:                      ; preds = %_ZN13HasherVisitorC
   %.pre = load i32, ptr %4, align 4, !tbaa !4
   %.pre5 = load i32, ptr @_ZN12VNUser4InUse12s_userCntGblE, align 4, !tbaa !20
   %.pre6 = load i64, ptr %8, align 8
-  %31 = icmp eq i32 %.pre, %.pre5
+  %.pre.fr = freeze i32 %.pre
+  %.pre5.fr = freeze i32 %.pre5
+  %31 = icmp eq i32 %.pre.fr, %.pre5.fr
   %32 = trunc i64 %.pre6 to i32
-  %cond.fr = freeze i1 %31
-  %spec.select = select i1 %cond.fr, i32 %32, i32 0
+  %spec.select = select i1 %31, i32 %32, i32 0
   br label %33
 
 33:                                               ; preds = %_ZN13HasherVisitorD2Ev.exit, %_ZN13HasherVisitorD2Ev.exit.thread

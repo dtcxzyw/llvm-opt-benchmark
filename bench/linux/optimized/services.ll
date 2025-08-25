@@ -1336,7 +1336,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
   tail call fastcc void @context_struct_compute_av(ptr noundef nonnull %20, ptr noundef nonnull %24, ptr noundef nonnull %40, i16 noundef zeroext %54, ptr noundef %3, ptr noundef %4)
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 588
   %65 = load i8, ptr %64, align 4
-  %.fr21 = freeze i8 %65
+  %.fr20 = freeze i8 %65
   %66 = load i16, ptr %45, align 8
   %67 = icmp ugt i16 %66, %2
   br i1 %67, label %68, label %156
@@ -1354,7 +1354,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
 76:                                               ; preds = %68
   %77 = load i32, ptr %3, align 4
   %78 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %79 = and i8 %.fr21, 2
+  %79 = and i8 %.fr20, 2
   %.not = icmp eq i8 %79, 0
   %80 = zext i16 %73 to i64
   br i1 %.not, label %.split.us, label %.split

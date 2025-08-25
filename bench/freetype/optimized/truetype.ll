@@ -5426,16 +5426,17 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
 .lr.ph.i542:                                      ; preds = %1657
   %1658 = load ptr, ptr %235, align 8, !tbaa !199
   %1659 = load ptr, ptr %186, align 8, !tbaa !329
-  %.not22.i = icmp eq ptr %1658, %1659
+  %.fr18.i = freeze ptr %1659
+  %.fr.i = freeze ptr %1658
+  %.not22.i = icmp eq ptr %.fr.i, %.fr18.i
   %1660 = load i64, ptr %7, align 8
   %1661 = load i64, ptr %8, align 8
-  %.not22.fr.i = freeze i1 %.not22.i
-  br i1 %.not22.fr.i, label %.lr.ph.split.preheader.i, label %.lr.ph.split.us.i
+  br i1 %.not22.i, label %.lr.ph.split.preheader.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i542
   %1662 = load i16, ptr %6, align 2
   %1663 = zext i16 %1662 to i64
-  %wide.trip.count73.i = zext i16 %.016.i to i64
+  %wide.trip.count74.i = zext i16 %.016.i to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i542
@@ -5455,11 +5456,11 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
   %1669 = getelementptr inbounds nuw i8, ptr %1668, i64 120
   %1670 = load i32, ptr %1669, align 8, !tbaa !3
   %1671 = icmp eq i32 %1670, 40
-  %wide.trip.count68.i = zext i16 %.016.i to i64
+  %wide.trip.count69.i = zext i16 %.016.i to i64
   br label %1672
 
 1672:                                             ; preds = %Move_Zp2_Point.exit.us.us.i, %.lr.ph.split.us.split.us.split.i
-  %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %Move_Zp2_Point.exit.us.us.i ], [ 0, %.lr.ph.split.us.split.us.split.i ]
+  %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %Move_Zp2_Point.exit.us.us.i ], [ 0, %.lr.ph.split.us.split.us.split.i ]
   br i1 %1671, label %1673, label %1675
 
 1673:                                             ; preds = %1672
@@ -5468,16 +5469,16 @@ Ins_SHC.exit:                                     ; preds = %Move_Zp2_Point.exit
   br i1 %.not23.i.us.us.i, label %1675, label %Move_Zp2_Point.exit.us.us.i
 
 1675:                                             ; preds = %1673, %1672
-  %1676 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv65.i
+  %1676 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv66.i
   %1677 = load i64, ptr %1676, align 8, !tbaa !263
   %1678 = add i64 %1677, %1660
   store i64 %1678, ptr %1676, align 8, !tbaa !263
   br label %Move_Zp2_Point.exit.us.us.i
 
 Move_Zp2_Point.exit.us.us.i:                      ; preds = %1675, %1673
-  %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
-  br i1 %exitcond69.not.i, label %Ins_SHZ.exit, label %1672, !llvm.loop !400
+  %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
+  %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count69.i
+  br i1 %exitcond70.not.i, label %Ins_SHZ.exit, label %1672, !llvm.loop !400
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i
   %1679 = load ptr, ptr %0, align 8, !tbaa !282
@@ -5492,7 +5493,7 @@ Move_Zp2_Point.exit.us.us.i:                      ; preds = %1675, %1673
   br i1 %1684, label %.lr.ph.split.us.split.split.us.split.us.i, label %Move_Zp2_Point.exit.us.us3.preheader.i
 
 Move_Zp2_Point.exit.us.us3.preheader.i:           ; preds = %.lr.ph.split.us.split.split.us.i
-  %wide.trip.count48.i = zext i16 %.016.i to i64
+  %wide.trip.count49.i = zext i16 %.016.i to i64
   br label %Move_Zp2_Point.exit.us.us3.i
 
 .lr.ph.split.us.split.split.us.split.us.i:        ; preds = %.lr.ph.split.us.split.split.us.i
@@ -5501,18 +5502,18 @@ Move_Zp2_Point.exit.us.us3.preheader.i:           ; preds = %.lr.ph.split.us.spl
   br i1 %.not26.i.us.us.us.i, label %Move_Zp2_Point.exit.us.us3.us.us.preheader.i, label %.lr.ph.split.us.split.split.us.split.us.split.i
 
 Move_Zp2_Point.exit.us.us3.us.us.preheader.i:     ; preds = %.lr.ph.split.us.split.split.us.split.us.i
-  %wide.trip.count63.i = zext i16 %.016.i to i64
+  %wide.trip.count64.i = zext i16 %.016.i to i64
   br label %Move_Zp2_Point.exit.us.us3.us.us.i
 
 Move_Zp2_Point.exit.us.us3.us.us.i:               ; preds = %Move_Zp2_Point.exit.us.us3.us.us.i, %Move_Zp2_Point.exit.us.us3.us.us.preheader.i
-  %indvars.iv60.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.us.us.preheader.i ], [ %indvars.iv.next61.i, %Move_Zp2_Point.exit.us.us3.us.us.i ]
-  %1686 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv60.i, i32 1
+  %indvars.iv61.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.us.us.preheader.i ], [ %indvars.iv.next62.i, %Move_Zp2_Point.exit.us.us3.us.us.i ]
+  %1686 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv61.i, i32 1
   %1687 = load i64, ptr %1686, align 8, !tbaa !330
   %1688 = add i64 %1687, %1661
   store i64 %1688, ptr %1686, align 8, !tbaa !330
-  %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count63.i
-  br i1 %exitcond64.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.us.us.i, !llvm.loop !400
+  %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
+  %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count64.i
+  br i1 %exitcond65.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.us.us.i, !llvm.loop !400
 
 .lr.ph.split.us.split.split.us.split.us.split.i:  ; preds = %.lr.ph.split.us.split.split.us.split.us.i
   %1689 = load i8, ptr %147, align 4, !tbaa !307
@@ -5520,18 +5521,18 @@ Move_Zp2_Point.exit.us.us3.us.us.i:               ; preds = %Move_Zp2_Point.exit
   br i1 %.not27.i.us.us.us.i, label %Move_Zp2_Point.exit.us.us3.us.us14.preheader.i, label %.lr.ph.split.us.split.split.us.split.us.split.split.i
 
 Move_Zp2_Point.exit.us.us3.us.us14.preheader.i:   ; preds = %.lr.ph.split.us.split.split.us.split.us.split.i
-  %wide.trip.count58.i = zext i16 %.016.i to i64
+  %wide.trip.count59.i = zext i16 %.016.i to i64
   br label %Move_Zp2_Point.exit.us.us3.us.us14.i
 
 Move_Zp2_Point.exit.us.us3.us.us14.i:             ; preds = %Move_Zp2_Point.exit.us.us3.us.us14.i, %Move_Zp2_Point.exit.us.us3.us.us14.preheader.i
-  %indvars.iv55.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.us.us14.preheader.i ], [ %indvars.iv.next56.i, %Move_Zp2_Point.exit.us.us3.us.us14.i ]
-  %1690 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv55.i, i32 1
+  %indvars.iv56.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.us.us14.preheader.i ], [ %indvars.iv.next57.i, %Move_Zp2_Point.exit.us.us3.us.us14.i ]
+  %1690 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv56.i, i32 1
   %1691 = load i64, ptr %1690, align 8, !tbaa !330
   %1692 = add i64 %1691, %1661
   store i64 %1692, ptr %1690, align 8, !tbaa !330
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.us.us14.i, !llvm.loop !400
+  %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
+  %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
+  br i1 %exitcond60.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.us.us14.i, !llvm.loop !400
 
 .lr.ph.split.us.split.split.us.split.us.split.split.i: ; preds = %.lr.ph.split.us.split.split.us.split.us.split.i
   %1693 = load i8, ptr %148, align 1, !tbaa !308
@@ -5539,28 +5540,28 @@ Move_Zp2_Point.exit.us.us3.us.us14.i:             ; preds = %Move_Zp2_Point.exit
   br i1 %.not28.i.us.us.us.i, label %Move_Zp2_Point.exit.us.us3.us.us16.preheader.i, label %Ins_SHZ.exit
 
 Move_Zp2_Point.exit.us.us3.us.us16.preheader.i:   ; preds = %.lr.ph.split.us.split.split.us.split.us.split.split.i
-  %wide.trip.count53.i = zext i16 %.016.i to i64
+  %wide.trip.count54.i = zext i16 %.016.i to i64
   br label %Move_Zp2_Point.exit.us.us3.us.us16.i
 
 Move_Zp2_Point.exit.us.us3.us.us16.i:             ; preds = %Move_Zp2_Point.exit.us.us3.us.us16.i, %Move_Zp2_Point.exit.us.us3.us.us16.preheader.i
-  %indvars.iv50.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.us.us16.preheader.i ], [ %indvars.iv.next51.i, %Move_Zp2_Point.exit.us.us3.us.us16.i ]
-  %1694 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv50.i, i32 1
+  %indvars.iv51.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.us.us16.preheader.i ], [ %indvars.iv.next52.i, %Move_Zp2_Point.exit.us.us3.us.us16.i ]
+  %1694 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv51.i, i32 1
   %1695 = load i64, ptr %1694, align 8, !tbaa !330
   %1696 = add i64 %1695, %1661
   store i64 %1696, ptr %1694, align 8, !tbaa !330
-  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
-  br i1 %exitcond54.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.us.us16.i, !llvm.loop !400
+  %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
+  %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
+  br i1 %exitcond55.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.us.us16.i, !llvm.loop !400
 
 Move_Zp2_Point.exit.us.us3.i:                     ; preds = %Move_Zp2_Point.exit.us.us3.i, %Move_Zp2_Point.exit.us.us3.preheader.i
-  %indvars.iv45.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.preheader.i ], [ %indvars.iv.next46.i, %Move_Zp2_Point.exit.us.us3.i ]
-  %1697 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv45.i, i32 1
+  %indvars.iv46.i = phi i64 [ 0, %Move_Zp2_Point.exit.us.us3.preheader.i ], [ %indvars.iv.next47.i, %Move_Zp2_Point.exit.us.us3.i ]
+  %1697 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv46.i, i32 1
   %1698 = load i64, ptr %1697, align 8, !tbaa !330
   %1699 = add i64 %1698, %1661
   store i64 %1699, ptr %1697, align 8, !tbaa !330
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %wide.trip.count48.i
-  br i1 %exitcond49.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.i, !llvm.loop !400
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
+  br i1 %exitcond50.not.i, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.us3.i, !llvm.loop !400
 
 .lr.ph.split.us.split.split.i:                    ; preds = %.lr.ph.split.us.split.i
   br i1 %1684, label %.lr.ph.split.us.split.split.split.us.i, label %Move_Zp2_Point.exit.us.preheader.i
@@ -5568,15 +5569,15 @@ Move_Zp2_Point.exit.us.us3.i:                     ; preds = %Move_Zp2_Point.exit
 .lr.ph.split.us.split.split.split.us.i:           ; preds = %.lr.ph.split.us.split.split.i
   %1700 = load i8, ptr %168, align 1, !tbaa !236
   %.not26.i.us.us6.i = icmp eq i8 %1700, 0
-  %wide.trip.count43.i = zext i16 %.016.i to i64
+  %wide.trip.count44.i = zext i16 %.016.i to i64
   br label %1701
 
 1701:                                             ; preds = %Move_Zp2_Point.exit.us.us9.i, %.lr.ph.split.us.split.split.split.us.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %Move_Zp2_Point.exit.us.us9.i ], [ 0, %.lr.ph.split.us.split.split.split.us.i ]
-  br i1 %.not26.i.us.us6.i, label %.thread77.i, label %1705
+  %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %Move_Zp2_Point.exit.us.us9.i ], [ 0, %.lr.ph.split.us.split.split.split.us.i ]
+  br i1 %.not26.i.us.us6.i, label %.thread78.i, label %1705
 
-.thread77.i:                                      ; preds = %1701
-  %1702 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv40.i
+.thread78.i:                                      ; preds = %1701
+  %1702 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv41.i
   %1703 = load i64, ptr %1702, align 8, !tbaa !263
   %1704 = add i64 %1703, %1660
   store i64 %1704, ptr %1702, align 8, !tbaa !263
@@ -5592,17 +5593,17 @@ Move_Zp2_Point.exit.us.us3.i:                     ; preds = %Move_Zp2_Point.exit
   %.not28.i.us.us8.i = icmp eq i8 %1708, 0
   br i1 %.not28.i.us.us8.i, label %1709, label %Move_Zp2_Point.exit.us.us9.i
 
-1709:                                             ; preds = %1707, %1705, %.thread77.i
-  %1710 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv40.i, i32 1
+1709:                                             ; preds = %1707, %1705, %.thread78.i
+  %1710 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv41.i, i32 1
   %1711 = load i64, ptr %1710, align 8, !tbaa !330
   %1712 = add i64 %1711, %1661
   store i64 %1712, ptr %1710, align 8, !tbaa !330
   br label %Move_Zp2_Point.exit.us.us9.i
 
 Move_Zp2_Point.exit.us.us9.i:                     ; preds = %1709, %1707
-  %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
-  br i1 %exitcond44.not.i, label %Ins_SHZ.exit, label %1701, !llvm.loop !400
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
+  br i1 %exitcond45.not.i, label %Ins_SHZ.exit, label %1701, !llvm.loop !400
 
 Move_Zp2_Point.exit.us.preheader.i:               ; preds = %.lr.ph.split.us.split.split.i
   %wide.trip.count.i543 = zext i16 %.016.i to i64
@@ -5610,11 +5611,11 @@ Move_Zp2_Point.exit.us.preheader.i:               ; preds = %.lr.ph.split.us.spl
 
 Move_Zp2_Point.exit.us.i:                         ; preds = %Move_Zp2_Point.exit.us.i, %Move_Zp2_Point.exit.us.preheader.i
   %indvars.iv.i544 = phi i64 [ 0, %Move_Zp2_Point.exit.us.preheader.i ], [ %indvars.iv.next.i545, %Move_Zp2_Point.exit.us.i ]
-  %1713 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv.i544
+  %1713 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv.i544
   %1714 = load i64, ptr %1713, align 8, !tbaa !263
   %1715 = add i64 %1714, %1660
   store i64 %1715, ptr %1713, align 8, !tbaa !263
-  %1716 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv.i544, i32 1
+  %1716 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv.i544, i32 1
   %1717 = load i64, ptr %1716, align 8, !tbaa !330
   %1718 = add i64 %1717, %1661
   store i64 %1718, ptr %1716, align 8, !tbaa !330
@@ -5623,8 +5624,8 @@ Move_Zp2_Point.exit.us.i:                         ; preds = %Move_Zp2_Point.exit
   br i1 %exitcond.not.i546, label %Ins_SHZ.exit, label %Move_Zp2_Point.exit.us.i, !llvm.loop !400
 
 .lr.ph.split.i:                                   ; preds = %Move_Zp2_Point.exit.i549, %.lr.ph.split.preheader.i
-  %indvars.iv70.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next71.i, %Move_Zp2_Point.exit.i549 ]
-  %.not23.i = icmp eq i64 %indvars.iv70.i, %1663
+  %indvars.iv71.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next72.i, %Move_Zp2_Point.exit.i549 ]
+  %.not23.i = icmp eq i64 %indvars.iv71.i, %1663
   br i1 %.not23.i, label %Move_Zp2_Point.exit.i549, label %1719
 
 1719:                                             ; preds = %.lr.ph.split.i
@@ -5647,7 +5648,7 @@ Move_Zp2_Point.exit.us.i:                         ; preds = %Move_Zp2_Point.exit
   br i1 %.not23.i.i553, label %1730, label %1734
 
 1730:                                             ; preds = %1728, %1721
-  %1731 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv70.i
+  %1731 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv71.i
   %1732 = load i64, ptr %1731, align 8, !tbaa !263
   %1733 = add i64 %1732, %1660
   store i64 %1733, ptr %1731, align 8, !tbaa !263
@@ -5683,16 +5684,16 @@ Move_Zp2_Point.exit.us.i:                         ; preds = %Move_Zp2_Point.exit
   br i1 %.not28.i.i552, label %1749, label %Move_Zp2_Point.exit.i549
 
 1749:                                             ; preds = %1747, %1745, %1743, %1736
-  %1750 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1659, i64 %indvars.iv70.i, i32 1
+  %1750 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %.fr18.i, i64 %indvars.iv71.i, i32 1
   %1751 = load i64, ptr %1750, align 8, !tbaa !330
   %1752 = add i64 %1751, %1661
   store i64 %1752, ptr %1750, align 8, !tbaa !330
   br label %Move_Zp2_Point.exit.i549
 
 Move_Zp2_Point.exit.i549:                         ; preds = %1749, %1747, %1734, %.lr.ph.split.i
-  %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
-  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count73.i
-  br i1 %exitcond74.not.i, label %Ins_SHZ.exit, label %.lr.ph.split.i, !llvm.loop !400
+  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
+  %exitcond75.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count74.i
+  br i1 %exitcond75.not.i, label %Ins_SHZ.exit, label %.lr.ph.split.i, !llvm.loop !400
 
 Ins_SHZ.exit:                                     ; preds = %Move_Zp2_Point.exit.us.i, %Move_Zp2_Point.exit.us.us9.i, %Move_Zp2_Point.exit.us.us3.i, %Move_Zp2_Point.exit.us.us3.us.us16.i, %Move_Zp2_Point.exit.us.us3.us.us14.i, %Move_Zp2_Point.exit.us.us3.us.us.i, %Move_Zp2_Point.exit.us.us.i, %Move_Zp2_Point.exit.i549, %1638, %1640, %1641, %1643, %1647, %1657, %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.split.us.split.us.split.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -21167,42 +21168,45 @@ define internal i64 @Round_Super_45(ptr noundef readonly captures(none) %0, i64 
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !223
+  %.fr27 = freeze i64 %7
   %8 = icmp sgt i64 %1, -1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %10 = load i64, ptr %9, align 8, !tbaa !427
+  %.fr26 = freeze i64 %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %12 = load i64, ptr %11, align 8, !tbaa !426
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %14 = load i64, ptr %13, align 8, !tbaa !425
-  br i1 %8, label %15, label %23
+  %.fr30 = freeze i64 %12
+  br i1 %8, label %13, label %23
 
-15:                                               ; preds = %3
-  %16 = add i64 %10, %7
-  %17 = sub i64 %16, %12
-  %.fr27 = freeze i64 %17
-  %18 = add i64 %.fr27, %1
-  %19 = srem i64 %18, %14
-  %20 = sub nsw i64 %18, %19
-  %21 = add i64 %20, %12
+13:                                               ; preds = %3
+  %14 = add i64 %.fr27, %1
+  %15 = add i64 %14, %.fr26
+  %16 = sub i64 %15, %.fr30
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %18 = load i64, ptr %17, align 8, !tbaa !425
+  %19 = srem i64 %16, %18
+  %20 = sub nsw i64 %16, %19
+  %21 = add i64 %20, %.fr30
   %22 = icmp slt i64 %21, 0
-  %spec.select = select i1 %22, i64 %12, i64 %21
-  br label %32
+  %spec.select = select i1 %22, i64 %.fr30, i64 %21
+  br label %34
 
 23:                                               ; preds = %3
-  %24 = sub i64 0, %12
-  %25 = add i64 %7, %10
-  %26 = add i64 %1, %12
+  %24 = sub i64 0, %.fr30
+  %25 = add i64 %.fr27, %.fr26
+  %26 = add i64 %1, %.fr30
   %27 = sub i64 %25, %26
-  %.fr = freeze i64 %27
-  %28 = srem i64 %.fr, %14
-  %29 = add i64 %.fr, %12
-  %30 = sub i64 %28, %29
-  %31 = icmp sgt i64 %30, 0
-  %spec.select28 = select i1 %31, i64 %24, i64 %30
-  br label %32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %29 = load i64, ptr %28, align 8, !tbaa !425
+  %30 = srem i64 %27, %29
+  %31 = add i64 %27, %.fr30
+  %32 = sub i64 %30, %31
+  %33 = icmp sgt i64 %32, 0
+  %spec.select31 = select i1 %33, i64 %24, i64 %32
+  br label %34
 
-32:                                               ; preds = %23, %15
-  %.0 = phi i64 [ %spec.select, %15 ], [ %spec.select28, %23 ]
+34:                                               ; preds = %23, %13
+  %.0 = phi i64 [ %spec.select, %13 ], [ %spec.select31, %23 ]
   ret i64 %.0
 }
 

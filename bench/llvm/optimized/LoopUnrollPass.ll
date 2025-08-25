@@ -2819,17 +2819,17 @@ _ZL21hasUnrollEnablePragmaPKN4llvm4LoopE.exit:    ; preds = %_ZL22unrollCountPra
 
 98:                                               ; preds = %96
   %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL29PragmaUnrollFullMaxIterations, i64 120), align 8, !tbaa !56
-  %.fr.i = freeze i32 %99
-  %.not20.i = icmp ugt i32 %8, %.fr.i
-  br i1 %.not20.i, label %.critedge297, label %.thread6.thread.i
+  %.fr18.i = freeze i32 %99
+  %.not.i229 = icmp ugt i32 %8, %.fr18.i
+  br i1 %.not.i229, label %.critedge297, label %.thread6.thread.i
 
 .thread6.i:                                       ; preds = %96
   %.not19.i = xor i1 %97, true
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %101 = load i32, ptr %100, align 4
-  %.fr = freeze i32 %101
+  %.fr.i = freeze i32 %101
   %102 = add i32 %9, -1
-  %103 = icmp ult i32 %102, %.fr
+  %103 = icmp ult i32 %102, %.fr.i
   %104 = and i1 %103, %.not19.i
   %or.cond24.not.i = and i1 %spec.select.i.i228, %104
   br i1 %or.cond24.not.i, label %.thread6.thread.i, label %.critedge297
@@ -3173,10 +3173,10 @@ _ZL29hasRuntimeUnrollDisablePragmaPKN4llvm4LoopE.exit.thread: ; preds = %203, %_
   br i1 %.not186300, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %235, %238
-  %.pr330 = phi i32 [ %240, %238 ], [ %236, %235 ]
+  %.pr329 = phi i32 [ %240, %238 ], [ %236, %235 ]
   %241 = load i32, ptr %21, align 8, !tbaa !120
-  %.fr306 = freeze i32 %241
-  %242 = icmp eq i32 %.fr306, 0
+  %.fr305 = freeze i32 %241
+  %242 = icmp eq i32 %.fr305, 0
   %243 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %244 = load i32, ptr %243, align 4, !tbaa !81
   %245 = zext i32 %244 to i64
@@ -3186,7 +3186,7 @@ _ZL29hasRuntimeUnrollDisablePragmaPKN4llvm4LoopE.exit.thread: ; preds = %203, %_
   br i1 %242, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %258
-  %249 = phi i32 [ %259, %258 ], [ %.pr330, %.lr.ph ]
+  %249 = phi i32 [ %259, %258 ], [ %.pr329, %.lr.ph ]
   %250 = load i64, ptr %12, align 8
   %251 = trunc i64 %250 to i32
   %252 = sub i32 %251, %244
@@ -3208,17 +3208,17 @@ _ZL29hasRuntimeUnrollDisablePragmaPKN4llvm4LoopE.exit.thread: ; preds = %203, %_
   br i1 %260, label %.lr.ph.split.split.us, label %.critedge.thread
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
-  %261 = phi i32 [ %262, %.lr.ph.split.split.us ], [ %.pr330, %.lr.ph.split ]
+  %261 = phi i32 [ %262, %.lr.ph.split.split.us ], [ %.pr329, %.lr.ph.split ]
   %262 = lshr i32 %261, 1
-  %.not186.us302 = icmp ult i32 %261, 2
-  br i1 %.not186.us302, label %..critedge.loopexit_crit_edge.split.split.us, label %.lr.ph.split.split.us, !llvm.loop !167
+  %.not186.us301 = icmp ult i32 %261, 2
+  br i1 %.not186.us301, label %..critedge.loopexit_crit_edge.split.split.us, label %.lr.ph.split.split.us, !llvm.loop !167
 
 ..critedge.loopexit_crit_edge.split.split.us:     ; preds = %.lr.ph.split.split.us
   store i32 %262, ptr %127, align 4, !tbaa !76
   br label %.critedge
 
 .critedge.thread:                                 ; preds = %.lr.ph.split.us, %.lr.ph.split
-  %.pr289 = phi i32 [ %.pr330, %.lr.ph.split ], [ %249, %.lr.ph.split.us ]
+  %.pr289 = phi i32 [ %.pr329, %.lr.ph.split ], [ %249, %.lr.ph.split.us ]
   %263 = load i8, ptr %70, align 2, !tbaa !84, !range !48, !noundef !49
   %264 = trunc nuw i8 %263 to i1
   br i1 %264, label %.critedge, label %265
@@ -3227,21 +3227,21 @@ _ZL29hasRuntimeUnrollDisablePragmaPKN4llvm4LoopE.exit.thread: ; preds = %203, %_
   %266 = load i32, ptr %19, align 4, !tbaa !66
   %267 = urem i32 %266, %.pr289
   %.not188 = icmp eq i32 %267, 0
-  br i1 %.not188, label %.critedge, label %.lr.ph304
+  br i1 %.not188, label %.critedge, label %.lr.ph303
 
-.lr.ph304:                                        ; preds = %265, %270
+.lr.ph303:                                        ; preds = %265, %270
   %268 = phi i32 [ %271, %270 ], [ %.pr289, %265 ]
   %269 = urem i32 %266, %268
   %.not190 = icmp eq i32 %269, 0
   br i1 %.not190, label %.critedge23, label %270
 
-270:                                              ; preds = %.lr.ph304
+270:                                              ; preds = %.lr.ph303
   %271 = lshr i32 %268, 1
   store i32 %271, ptr %127, align 4, !tbaa !76
   %.not189 = icmp ult i32 %268, 2
-  br i1 %.not189, label %.critedge23, label %.lr.ph304, !llvm.loop !168
+  br i1 %.not189, label %.critedge23, label %.lr.ph303, !llvm.loop !168
 
-.critedge23:                                      ; preds = %270, %.lr.ph304
+.critedge23:                                      ; preds = %270, %.lr.ph303
   %272 = call fastcc noundef i32 @_ZL22unrollCountPragmaValuePKN4llvm4LoopE(ptr noundef %0)
   %.not191 = icmp eq i32 %272, 0
   %273 = load i8, ptr %70, align 2, !range !48

@@ -1176,8 +1176,8 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool4.not, label %if.then5, label %cleanup.cont312
 
 if.then5:                                         ; preds = %if.then3
-  %.not29 = icmp eq ptr @_ZTH13warningstream, null
-  br i1 %.not29, label %_ZTW13warningstream.exit, label %4
+  %.not30 = icmp eq ptr @_ZTH13warningstream, null
+  br i1 %.not30, label %_ZTW13warningstream.exit, label %4
 
 4:                                                ; preds = %if.then5
   tail call void @_ZTH13warningstream()
@@ -1595,7 +1595,8 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %64 = phi i32 [ %53, %for.body.lr.ph ], [ %182, %for.inc ]
   %i.0747 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %65 = load i32, ptr %m_start_item_i, align 8, !tbaa !52
-  %add = add nsw i32 %65, %i.0747
+  %.fr29 = freeze i32 %65
+  %add = add i32 %.fr29, %i.0747
   %cmp53.not = icmp slt i32 %add, %conv.i
   br i1 %cmp53.not, label %if.end55, label %cleanup300
 
@@ -1800,17 +1801,17 @@ land.end.thread:                                  ; preds = %_ZSteqIcEN9__gnu_cx
 
 land.end:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %land.rhs.i
   %99 = load i32, ptr %i85, align 8, !tbaa !217
-  %cmp86 = icmp eq i32 %99, %add
-  %cond.fr = freeze i1 %cmp86
+  %.fr = freeze i32 %99
+  %cmp86 = icmp eq i32 %.fr, %add
   %100 = load i32, ptr %m_hovered_i, align 8, !tbaa !59
   %cmp87 = icmp eq i32 %100, %add
   %cond = select i1 %cmp87, i32 1, i32 4
-  %.cond = select i1 %cond.fr, i32 0, i32 %cond
+  %.cond = select i1 %cmp86, i32 0, i32 %cond
   br i1 %cmp87, label %if.then93, label %if.else
 
 if.then93:                                        ; preds = %land.end, %land.end.thread
   %101 = phi i32 [ 1, %land.end.thread ], [ %.cond, %land.end ]
-  %102 = phi i1 [ false, %land.end.thread ], [ %cond.fr, %land.end ]
+  %102 = phi i1 [ false, %land.end.thread ], [ %cmp86, %land.end ]
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %slotbg_h, align 4, !tbaa !51
   %vtable94 = load ptr, ptr %call44, align 8, !tbaa !12
   %vfn95 = getelementptr inbounds nuw i8, ptr %vtable94, i64 408
@@ -1835,7 +1836,7 @@ lpad96:                                           ; preds = %if.then225, %if.the
 
 if.else:                                          ; preds = %land.end, %land.end.thread
   %107 = phi i32 [ 4, %land.end.thread ], [ %.cond, %land.end ]
-  %108 = phi i1 [ false, %land.end.thread ], [ %cond.fr, %land.end ]
+  %108 = phi i1 [ false, %land.end.thread ], [ %cmp86, %land.end ]
   %agg.tmp98.sroa.0.0.copyload = load i32, ptr %slotbg_n, align 8, !tbaa !51
   %vtable102 = load ptr, ptr %call44, align 8, !tbaa !12
   %vfn103 = getelementptr inbounds nuw i8, ptr %vtable102, i64 408

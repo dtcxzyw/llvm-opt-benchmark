@@ -6556,10 +6556,10 @@ _ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph:         ; preds = %4
   br label %_ZSt7advanceIPP4exprlEvRT_T0_.exit
 
 _ZSt7advanceIPP4exprlEvRT_T0_.exit:               ; preds = %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph, %.thread
-  %.028 = phi ptr [ %0, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %80, %.thread ]
-  %.01127 = phi i64 [ %8, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %79, %.thread ]
-  %16 = lshr i64 %.01127, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %.028, i64 %16
+  %.031 = phi ptr [ %0, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %80, %.thread ]
+  %.01130 = phi i64 [ %8, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %79, %.thread ]
+  %16 = lshr i64 %.01130, 1
+  %17 = getelementptr inbounds nuw ptr, ptr %.031, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = icmp eq ptr %18, %10
   br i1 %19, label %.thread, label %20
@@ -6645,9 +6645,10 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit18.i.i: ; preds = %59
 65:                                               ; preds = %64
   %66 = load i32, ptr %.025.i.i, align 4, !tbaa !218
   %67 = load i32, ptr %.022.i.i, align 4, !tbaa !218
-  %68 = icmp ult i32 %66, %67
-  %cond.fr20 = freeze i1 %68
-  br i1 %cond.fr20, label %76, label %.thread
+  %.fr = freeze i32 %66
+  %.fr27 = freeze i32 %67
+  %68 = icmp ult i32 %.fr, %.fr27
+  br i1 %68, label %76, label %.thread
 
 69:                                               ; preds = %64
   %70 = icmp ne ptr %.02732.i.i, null
@@ -6658,9 +6659,10 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit18.i.i: ; preds = %59
 72:                                               ; preds = %69
   %73 = load i32, ptr %.02732.i.i, align 4, !tbaa !218
   %74 = load i32, ptr %.02437.i.i, align 4, !tbaa !218
-  %75 = icmp ult i32 %73, %74
-  %cond.fr22 = freeze i1 %75
-  br i1 %cond.fr22, label %76, label %.thread
+  %.fr28 = freeze i32 %73
+  %.fr29 = freeze i32 %74
+  %75 = icmp ult i32 %.fr28, %.fr29
+  br i1 %75, label %76, label %.thread
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7_EEbT_RT0_.exit: ; preds = %69
   br i1 %70, label %.thread, label %76
@@ -6668,12 +6670,12 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7
 76:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7_EEbT_RT0_.exit, %65, %72
   %77 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pn = xor i64 %16, -1
-  %78 = add nsw i64 %.01127, %.pn
+  %78 = add nsw i64 %.01130, %.pn
   br label %.thread
 
 .thread:                                          ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7_EEbT_RT0_.exit, %65, %72, %_ZSt7advanceIPP4exprlEvRT_T0_.exit, %76
   %79 = phi i64 [ %78, %76 ], [ %16, %_ZSt7advanceIPP4exprlEvRT_T0_.exit ], [ %16, %72 ], [ %16, %65 ], [ %16, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7_EEbT_RT0_.exit ]
-  %80 = phi ptr [ %77, %76 ], [ %.028, %_ZSt7advanceIPP4exprlEvRT_T0_.exit ], [ %.028, %72 ], [ %.028, %65 ], [ %.028, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7_EEbT_RT0_.exit ]
+  %80 = phi ptr [ %77, %76 ], [ %.031, %_ZSt7advanceIPP4exprlEvRT_T0_.exit ], [ %.031, %72 ], [ %.031, %65 ], [ %.031, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6spacer19arith_add_less_procEEclIPP4exprKS7_EEbT_RT0_.exit ]
   %81 = icmp sgt i64 %79, 0
   br i1 %81, label %_ZSt7advanceIPP4exprlEvRT_T0_.exit, label %._crit_edge, !llvm.loop !221
 
@@ -6701,10 +6703,10 @@ _ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph:         ; preds = %4
   br label %_ZSt7advanceIPP4exprlEvRT_T0_.exit
 
 _ZSt7advanceIPP4exprlEvRT_T0_.exit:               ; preds = %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph, %82
-  %.028 = phi ptr [ %0, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %84, %82 ]
-  %.01127 = phi i64 [ %8, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %83, %82 ]
-  %16 = lshr i64 %.01127, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %.028, i64 %16
+  %.031 = phi ptr [ %0, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %84, %82 ]
+  %.01130 = phi i64 [ %8, %_ZSt7advanceIPP4exprlEvRT_T0_.exit.lr.ph ], [ %83, %82 ]
+  %16 = lshr i64 %.01130, 1
+  %17 = getelementptr inbounds nuw ptr, ptr %.031, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = icmp eq ptr %10, %18
   br i1 %19, label %.thread, label %23
@@ -6712,7 +6714,7 @@ _ZSt7advanceIPP4exprlEvRT_T0_.exit:               ; preds = %_ZSt7advanceIPP4exp
 .thread:                                          ; preds = %_ZSt7advanceIPP4exprlEvRT_T0_.exit
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = xor i64 %16, -1
-  %22 = add nsw i64 %.01127, %21
+  %22 = add nsw i64 %.01130, %21
   br label %82
 
 23:                                               ; preds = %_ZSt7advanceIPP4exprlEvRT_T0_.exit
@@ -6796,9 +6798,10 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit18.i.i: ; preds = %59
 68:                                               ; preds = %67
   %69 = load i32, ptr %.025.i.i, align 4, !tbaa !218
   %70 = load i32, ptr %.022.i.i, align 4, !tbaa !218
-  %71 = icmp ult i32 %69, %70
-  %cond.fr20 = freeze i1 %71
-  br i1 %cond.fr20, label %82, label %79
+  %.fr = freeze i32 %69
+  %.fr27 = freeze i32 %70
+  %71 = icmp ult i32 %.fr, %.fr27
+  br i1 %71, label %82, label %79
 
 72:                                               ; preds = %67
   %73 = icmp ne ptr %.02732.i.i, null
@@ -6809,9 +6812,10 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit18.i.i: ; preds = %59
 75:                                               ; preds = %72
   %76 = load i32, ptr %.02732.i.i, align 4, !tbaa !218
   %77 = load i32, ptr %.02437.i.i, align 4, !tbaa !218
-  %78 = icmp ult i32 %76, %77
-  %cond.fr22 = freeze i1 %78
-  br i1 %cond.fr22, label %82, label %79
+  %.fr28 = freeze i32 %76
+  %.fr29 = freeze i32 %77
+  %78 = icmp ult i32 %.fr28, %.fr29
+  br i1 %78, label %82, label %79
 
 _ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7_EEbRT_T0_.exit: ; preds = %72
   br i1 %73, label %79, label %82
@@ -6819,12 +6823,12 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7
 79:                                               ; preds = %75, %68, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7_EEbRT_T0_.exit
   %80 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.pn = xor i64 %16, -1
-  %81 = add nsw i64 %.01127, %.pn
+  %81 = add nsw i64 %.01130, %.pn
   br label %82
 
 82:                                               ; preds = %75, %68, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7_EEbRT_T0_.exit, %79, %.thread
   %83 = phi i64 [ %81, %79 ], [ %22, %.thread ], [ %16, %75 ], [ %16, %68 ], [ %16, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7_EEbRT_T0_.exit ]
-  %84 = phi ptr [ %80, %79 ], [ %20, %.thread ], [ %.028, %75 ], [ %.028, %68 ], [ %.028, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7_EEbRT_T0_.exit ]
+  %84 = phi ptr [ %80, %79 ], [ %20, %.thread ], [ %.031, %75 ], [ %.031, %68 ], [ %.031, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN6spacer19arith_add_less_procEEclIKP4exprPS7_EEbRT_T0_.exit ]
   %85 = icmp sgt i64 %83, 0
   br i1 %85, label %_ZSt7advanceIPP4exprlEvRT_T0_.exit, label %._crit_edge, !llvm.loop !222
 

@@ -5293,8 +5293,9 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread.i.i: ; preds = %518, %516, %_Z
   %572 = sub i64 %569, %.sroa.speculated4.i148.i.i
   %.sroa.speculated.i149.i.i = call i64 @llvm.umin.i64(i64 %572, i64 %568)
   %573 = call i64 @_ZN4llvm14CGIOperandList16ParseOperandNameENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(67) %86, ptr %571, i64 %.sroa.speculated.i149.i.i, i1 noundef zeroext false)
-  %.sroa.0218.0.extract.trunc.i.i = trunc i64 %573 to i32
-  %.sroa.6219.0.extract.shift.i.i = lshr i64 %573, 32
+  %.fr.i.i = freeze i64 %573
+  %.sroa.0218.0.extract.trunc.i.i = trunc i64 %.fr.i.i to i32
+  %.sroa.6219.0.extract.shift.i.i = lshr i64 %.fr.i.i, 32
   %574 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.107, i64 2, i64 noundef %515) #18
   %575 = icmp eq i64 %574, -1
   br i1 %575, label %576, label %590
@@ -5336,32 +5337,30 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.thread.i.i: ; preds = %518, %516, %_Z
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 %.sroa.speculated4.i154.i.i
   %594 = sub i64 %591, %.sroa.speculated4.i154.i.i
   %595 = call i64 @_ZN4llvm14CGIOperandList16ParseOperandNameENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(67) %86, ptr %593, i64 %594, i1 noundef zeroext false)
-  %.sroa.0205.0.extract.trunc.i.i = trunc i64 %595 to i32
-  %.sroa.6.0.extract.shift.i.i = lshr i64 %595, 32
+  %.fr300.i.i = freeze i64 %595
+  %.sroa.0205.0.extract.trunc.i.i = trunc i64 %.fr300.i.i to i32
+  %.sroa.6.0.extract.shift.i.i = lshr i64 %.fr300.i.i, 32
   %596 = icmp ult i32 %.sroa.0218.0.extract.trunc.i.i, %.sroa.0205.0.extract.trunc.i.i
   br i1 %596, label %.thread297.i.i, label %597
 
 597:                                              ; preds = %590
-  %598 = icmp ult i32 %.sroa.0205.0.extract.trunc.i.i, %.sroa.0218.0.extract.trunc.i.i
-  br i1 %598, label %.thread284.i.i, label %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i
-
-_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i:          ; preds = %597
+  %598 = icmp uge i32 %.sroa.0205.0.extract.trunc.i.i, %.sroa.0218.0.extract.trunc.i.i
   %599 = icmp samesign ult i64 %.sroa.6219.0.extract.shift.i.i, %.sroa.6.0.extract.shift.i.i
-  %cond.fr255.i.i = freeze i1 %599
-  br i1 %cond.fr255.i.i, label %.thread297.i.i, label %.thread284.i.i
+  %or.cond302.i.i = select i1 %598, i1 %599, i1 false
+  br i1 %or.cond302.i.i, label %.thread297.i.i, label %.thread284.i.i
 
-.thread297.i.i:                                   ; preds = %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i, %590
+.thread297.i.i:                                   ; preds = %597, %590
   br label %.thread284.i.i
 
-.thread284.i.i:                                   ; preds = %.thread297.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i, %597
-  %600 = phi ptr [ %593, %.thread297.i.i ], [ %571, %597 ], [ %571, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %601 = phi i32 [ %.sroa.0205.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0218.0.extract.trunc.i.i, %597 ], [ %.sroa.0218.0.extract.trunc.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %602 = phi ptr [ %571, %.thread297.i.i ], [ %593, %597 ], [ %593, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %603 = phi i32 [ %.sroa.0218.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0205.0.extract.trunc.i.i, %597 ], [ %.sroa.0205.0.extract.trunc.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %.in.i.i = phi i64 [ %.sroa.6219.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6.0.extract.shift.i.i, %597 ], [ %.sroa.6.0.extract.shift.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %604 = phi i64 [ %.sroa.speculated.i149.i.i, %.thread297.i.i ], [ %594, %597 ], [ %594, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %605 = phi i64 [ %.sroa.6.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6219.0.extract.shift.i.i, %597 ], [ %.sroa.6219.0.extract.shift.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
-  %606 = phi i64 [ %594, %.thread297.i.i ], [ %.sroa.speculated.i149.i.i, %597 ], [ %.sroa.speculated.i149.i.i, %_ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i ]
+.thread284.i.i:                                   ; preds = %.thread297.i.i, %597
+  %600 = phi ptr [ %593, %.thread297.i.i ], [ %571, %597 ]
+  %601 = phi i32 [ %.sroa.0205.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0218.0.extract.trunc.i.i, %597 ]
+  %602 = phi ptr [ %571, %.thread297.i.i ], [ %593, %597 ]
+  %603 = phi i32 [ %.sroa.0218.0.extract.trunc.i.i, %.thread297.i.i ], [ %.sroa.0205.0.extract.trunc.i.i, %597 ]
+  %.in.i.i = phi i64 [ %.sroa.6219.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6.0.extract.shift.i.i, %597 ]
+  %604 = phi i64 [ %.sroa.speculated.i149.i.i, %.thread297.i.i ], [ %594, %597 ]
+  %605 = phi i64 [ %.sroa.6.0.extract.shift.i.i, %.thread297.i.i ], [ %.sroa.6219.0.extract.shift.i.i, %597 ]
+  %606 = phi i64 [ %594, %.thread297.i.i ], [ %.sroa.speculated.i149.i.i, %597 ]
   %607 = trunc nuw i64 %.in.i.i to i32
   %608 = load i32, ptr %430, align 8, !tbaa !89
   %.not115.i.i = icmp ult i32 %603, %608
@@ -5575,31 +5574,31 @@ _ZStltIjjEbRKSt4pairIT_T0_ES5_.exit.i.i:          ; preds = %597
   %.sroa.3.0.insert.ext.i.i.i = zext i32 %689 to i64
   %.sroa.3.0.insert.shift.i.i.i = shl nuw i64 %.sroa.3.0.insert.ext.i.i.i, 32
   %690 = load ptr, ptr %432, align 8, !tbaa !139
-  %.not300302.i.i = icmp eq ptr %661, %690
-  br i1 %.not300302.i.i, label %._crit_edge304.i.i, label %.preheader.i.i
+  %.not301304.i.i = icmp eq ptr %661, %690
+  br i1 %.not301304.i.i, label %._crit_edge306.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %686, %._crit_edge.i.i
-  %.sroa.0189.0303.i.i = phi ptr [ %695, %._crit_edge.i.i ], [ %661, %686 ]
-  %691 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0303.i.i, i64 156
+  %.sroa.0189.0305.i.i = phi ptr [ %695, %._crit_edge.i.i ], [ %661, %686 ]
+  %691 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0305.i.i, i64 156
   %692 = load i32, ptr %691, align 4, !tbaa !206
-  %.not305.i.i = icmp eq i32 %692, 0
-  br i1 %.not305.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not307.i.i = icmp eq i32 %692, 0
+  br i1 %.not307.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %693 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0303.i.i, i64 240
+  %693 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0305.i.i, i64 240
   %694 = load ptr, ptr %693, align 8, !tbaa !250
   %wide.trip.count.i.i = zext i32 %692 to i64
   br label %696
 
-._crit_edge304.i.i:                               ; preds = %._crit_edge.i.i, %686
+._crit_edge306.i.i:                               ; preds = %._crit_edge.i.i, %686
   %.sroa.0192.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i.i.i, 2
   store i64 %.sroa.0192.0.insert.insert.i.i, ptr %664, align 4
   br label %_ZL15ParseConstraintN4llvm9StringRefERNS_14CGIOperandListEPKNS_6RecordE.exit.i
 
 ._crit_edge.i.i:                                  ; preds = %720, %.preheader.i.i
-  %695 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0303.i.i, i64 264
-  %.not300.i.i = icmp eq ptr %695, %690
-  br i1 %.not300.i.i, label %._crit_edge304.i.i, label %.preheader.i.i
+  %695 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0305.i.i, i64 264
+  %.not301.i.i = icmp eq ptr %695, %690
+  br i1 %.not301.i.i, label %._crit_edge306.i.i, label %.preheader.i.i
 
 696:                                              ; preds = %720, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %720 ]
@@ -5669,7 +5668,7 @@ _ZNK4llvm14CGIOperandList14ConstraintInfoeqERKS1_.exit.i.i: ; preds = %699
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %696, !llvm.loop !280
 
-_ZL15ParseConstraintN4llvm9StringRefERNS_14CGIOperandListEPKNS_6RecordE.exit.i: ; preds = %._crit_edge304.i.i, %510
+_ZL15ParseConstraintN4llvm9StringRefERNS_14CGIOperandListEPKNS_6RecordE.exit.i: ; preds = %._crit_edge306.i.i, %510
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %721 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr nonnull @.str.106, i64 1, i64 noundef %spec.select.i) #18
   %.not.i69 = icmp eq i64 %721, -1

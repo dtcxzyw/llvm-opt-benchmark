@@ -540,12 +540,12 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %5 = alloca %struct.FileTag, align 8
   %6 = alloca %struct.FileTag, align 8
   %7 = alloca %struct.FileTag, align 8
-  %.fr = freeze i64 %1
+  %.fr94 = freeze i64 %1
   %.sroa.0.0.extract.trunc = trunc i64 %0 to i32
   %.sroa.5.0.extract.shift = lshr i64 %0, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %.sroa.6.8.extract.trunc = trunc i64 %.fr to i32
-  %.sroa.11.8.extract.shift = lshr i64 %.fr, 32
+  %.sroa.6.8.extract.trunc = trunc i64 %.fr94 to i32
+  %.sroa.11.8.extract.shift = lshr i64 %.fr94, 32
   %.sroa.11.8.extract.trunc = trunc nuw i64 %.sroa.11.8.extract.shift to i32
   %8 = tail call ptr @GetRelationPath(i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.8.extract.trunc, i32 noundef %.sroa.11.8.extract.trunc, i32 noundef %2) #15
   %9 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4
@@ -565,11 +565,11 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   %16 = icmp slt i32 %15, 0
   %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
-  br i1 %16, label %19, label %._crit_edge95
+  br i1 %16, label %19, label %._crit_edge96
 
 19:                                               ; preds = %14
   %.not.i = icmp eq i32 %18, 2
-  br i1 %.not.i, label %._crit_edge95, label %20
+  br i1 %.not.i, label %._crit_edge96, label %20
 
 20:                                               ; preds = %19
   %21 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
@@ -583,9 +583,9 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
 
 25:                                               ; preds = %22, %20
   store i32 %18, ptr %17, align 4
-  br label %._crit_edge95
+  br label %._crit_edge96
 
-._crit_edge95:                                    ; preds = %14, %25, %19
+._crit_edge96:                                    ; preds = %14, %25, %19
   %26 = phi i32 [ %18, %25 ], [ 2, %19 ], [ %18, %14 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -603,10 +603,10 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   store i32 %26, ptr %17, align 4
   %32 = icmp slt i32 %15, 0
   %.not = icmp eq i32 %26, 2
-  %or.cond110 = select i1 %32, i1 %.not, i1 false
-  br i1 %or.cond110, label %.thread90.thread, label %.thread
+  %or.cond111 = select i1 %32, i1 %.not, i1 false
+  br i1 %or.cond111, label %.thread90.thread, label %.thread
 
-.thread:                                          ; preds = %13, %._crit_edge95
+.thread:                                          ; preds = %13, %._crit_edge96
   %33 = call i32 @unlink(ptr noundef %8) #15
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %.thread92
@@ -619,15 +619,15 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
 
 38:                                               ; preds = %35
   %39 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
-  br i1 %39, label %40, label %.thread90.thread105
+  br i1 %39, label %40, label %.thread90.thread106
 
 40:                                               ; preds = %38
   %41 = call i32 @errcode_for_file_access() #15
   %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %8) #15
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 373, ptr noundef nonnull @__func__.mdunlinkfork) #15
-  br label %.thread90.thread105
+  br label %.thread90.thread106
 
-.thread90.thread105:                              ; preds = %38, %40
+.thread90.thread106:                              ; preds = %38, %40
   store i32 %37, ptr %36, align 4
   br label %.thread92
 
@@ -671,10 +671,10 @@ define internal fastcc void @mdunlinkfork(i64 %0, i64 %1, i32 noundef %2, i1 nou
   store i32 %55, ptr %46, align 4
   %59 = icmp slt i32 %44, 0
   %.not79 = icmp eq i32 %55, 2
-  %or.cond111 = select i1 %59, i1 %.not79, i1 false
-  br i1 %or.cond111, label %.thread90.thread, label %.thread92
+  %or.cond112 = select i1 %59, i1 %.not79, i1 false
+  br i1 %or.cond112, label %.thread90.thread, label %.thread92
 
-.thread92:                                        ; preds = %.thread90.thread105, %.thread, %._crit_edge
+.thread92:                                        ; preds = %.thread90.thread106, %.thread, %._crit_edge
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
   %61 = add i64 %60, 12
   %62 = call ptr @palloc(i64 noundef %61) #15
@@ -755,7 +755,7 @@ do_truncate.exit86:                               ; preds = %82, %.thread92.spli
   call void @pfree(ptr noundef %62) #15
   br label %.thread90.thread
 
-.thread90.thread:                                 ; preds = %._crit_edge, %._crit_edge95, %35, %.loopexit
+.thread90.thread:                                 ; preds = %._crit_edge, %._crit_edge96, %35, %.loopexit
   call void @pfree(ptr noundef %8) #15
   ret void
 }

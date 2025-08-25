@@ -6839,9 +6839,11 @@ define linkonce_odr hidden void @_ZNK2cv2ml19DTreesImplForRTrees8getVotesERKNS_1
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK2cv2ml19DTreesImplForRTrees8getVotesERKNS_11_InputArrayERKNS_12_OutputArrayEiE25__cv_trace_location_fn372)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = load ptr, ptr %20, align 8, !tbaa !104
+  %.fr161 = freeze ptr %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %23 = load ptr, ptr %22, align 8, !tbaa !104
-  %24 = icmp eq ptr %21, %23
+  %.fr160 = freeze ptr %23
+  %24 = icmp eq ptr %.fr161, %.fr160
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %4
@@ -6897,11 +6899,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %45 = sub i64 %43, %44
   %46 = lshr i64 %45, 2
   %47 = trunc i64 %46 to i32
-  %48 = ptrtoint ptr %23 to i64
-  %49 = ptrtoint ptr %21 to i64
+  %48 = ptrtoint ptr %.fr160 to i64
+  %49 = ptrtoint ptr %.fr161 to i64
   %50 = sub i64 %48, %49
-  %.fr161 = freeze i64 %50
-  %51 = lshr i64 %.fr161, 2
+  %51 = lshr i64 %50, 2
   %52 = trunc i64 %51 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %53 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1)

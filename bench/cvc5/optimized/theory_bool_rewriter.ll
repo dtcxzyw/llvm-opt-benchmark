@@ -12814,9 +12814,10 @@ define linkonce_odr hidden noundef i32 @_ZN4cvc58internal6theory8booleans14equal
   %28 = getelementptr inbounds nuw [0 x ptr], ptr %26, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !27, !noalias !685
   %30 = load ptr, ptr %0, align 8, !tbaa !53
-  %31 = icmp eq ptr %29, %30
-  %cond.fr = freeze i1 %31
-  %spec.select = select i1 %cond.fr, i32 3, i32 0
+  %.fr = freeze ptr %29
+  %.fr13 = freeze ptr %30
+  %31 = icmp eq ptr %.fr, %.fr13
+  %spec.select = select i1 %31, i32 3, i32 0
   br label %.critedge9.thread
 
 .critedge9.thread:                                ; preds = %.critedge9, %.critedge.thread, %.critedge, %2

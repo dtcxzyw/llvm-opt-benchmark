@@ -540,14 +540,15 @@ highres_nanos.exit9.thread:                       ; preds = %26
 
 highres_nanos.exit9:                              ; preds = %26
   %35 = load i64, ptr %1, align 8, !tbaa !29
-  %36 = mul i64 %35, 1000000000
+  %.fr = freeze i64 %35
+  %36 = mul i64 %.fr, 1000000000
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !31
-  %39 = add i64 %36, %38
-  %.fr = freeze i64 %39
+  %.fr13 = freeze i64 %38
+  %39 = add i64 %36, %.fr13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.not = icmp eq i64 %.fr, 0
-  %40 = sub i64 %33, %.fr
+  %.not = icmp eq i64 %39, 0
+  %40 = sub i64 %33, %39
   br i1 %.not, label %41, label %42
 
 41:                                               ; preds = %highres_nanos.exit9.thread, %highres_nanos.exit9

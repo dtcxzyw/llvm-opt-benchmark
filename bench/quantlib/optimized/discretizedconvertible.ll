@@ -3334,8 +3334,8 @@ sw.bb15:                                          ; preds = %_ZNK5boost10shared_
   %18 = load ptr, ptr %stoppingTimes_16, align 8, !tbaa !69
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %19 = load ptr, ptr %_M_finish.i, align 8, !tbaa !69
-  %cmp.i.not141 = icmp eq ptr %18, %19
-  br i1 %cmp.i.not141, label %sw.epilog, label %for.body.lr.ph
+  %cmp.i.not144 = icmp eq ptr %18, %19
+  br i1 %cmp.i.not144, label %sw.epilog, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %sw.bb15
   %method_.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3343,9 +3343,9 @@ for.body.lr.ph:                                   ; preds = %sw.bb15
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %convertible.1143 = phi i1 [ false, %for.body.lr.ph ], [ %30, %for.cond ]
-  %__begin2.sroa.0.0142 = phi ptr [ %18, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
-  %20 = load double, ptr %__begin2.sroa.0.0142, align 8, !tbaa !73
+  %convertible.1146 = phi i1 [ false, %for.body.lr.ph ], [ %30, %for.cond ]
+  %__begin2.sroa.0.0145 = phi ptr [ %18, %for.body.lr.ph ], [ %incdec.ptr.i, %for.cond ]
+  %20 = load double, ptr %__begin2.sroa.0.0145, align 8, !tbaa !73
   %21 = load ptr, ptr %method_.i.i17, align 8, !tbaa !119
   %cmp.not.i.i18 = icmp eq ptr %21, null
   br i1 %cmp.not.i.i18, label %cond.false.i.i38, label %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i19, !prof !76
@@ -3362,16 +3362,17 @@ _ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i19: ; preds = %cond.false.
   %23 = load ptr, ptr %t_.i.i20, align 8, !tbaa !59
   %add.ptr.i.i.i22 = getelementptr inbounds nuw double, ptr %23, i64 %call4.i21
   %24 = load double, ptr %add.ptr.i.i.i22, align 8, !tbaa !73
+  %.fr = freeze double %24
   %25 = load double, ptr %time_.i.i23, align 8, !tbaa !120
-  %cmp.i.i24 = fcmp oeq double %24, %25
+  %.fr141 = freeze double %25
+  %cmp.i.i24 = fcmp oeq double %.fr, %.fr141
   br i1 %cmp.i.i24, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread, label %if.end.i.i25
 
 if.end.i.i25:                                     ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i19
-  %sub.i.i26 = fsub double %24, %25
-  %sub.i.i26.fr = freeze double %sub.i.i26
-  %26 = tail call double @llvm.fabs.f64(double %sub.i.i26.fr)
-  %cmp1.i.i27 = fcmp oeq double %24, 0.000000e+00
-  %cmp2.i.i28 = fcmp oeq double %25, 0.000000e+00
+  %sub.i.i26 = fsub double %.fr, %.fr141
+  %26 = tail call double @llvm.fabs.f64(double %sub.i.i26)
+  %cmp1.i.i27 = fcmp oeq double %.fr, 0.000000e+00
+  %cmp2.i.i28 = fcmp oeq double %.fr141, 0.000000e+00
   %or.cond.i.i29 = or i1 %cmp1.i.i27, %cmp2.i.i28
   br i1 %or.cond.i.i29, label %if.then3.i.i36, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40
 
@@ -3380,22 +3381,21 @@ if.then3.i.i36:                                   ; preds = %if.end.i.i25
   br i1 %cmp4.i.i37, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread, label %for.cond
 
 _ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40: ; preds = %if.end.i.i25
-  %27 = tail call double @llvm.fabs.f64(double %24)
+  %27 = tail call double @llvm.fabs.f64(double %.fr)
   %mul.i.i31 = fmul double %27, 0x3D05000000000000
   %cmp6.i.i32 = fcmp ole double %26, %mul.i.i31
-  %28 = tail call double @llvm.fabs.f64(double %25)
+  %28 = tail call double @llvm.fabs.f64(double %.fr141)
   %mul7.i.i33 = fmul double %28, 0x3D05000000000000
   %cmp8.i.i34 = fcmp ole double %26, %mul7.i.i33
   %29 = or i1 %cmp6.i.i32, %cmp8.i.i34
-  %cond.fr = freeze i1 %29
-  br i1 %cond.fr, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread, label %for.cond
+  br i1 %29, label %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread, label %for.cond
 
 _ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread: ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i19, %if.then3.i.i36, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40
   br label %for.cond
 
 for.cond:                                         ; preds = %if.then3.i.i36, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread
-  %30 = phi i1 [ true, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread ], [ %convertible.1143, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40 ], [ %convertible.1143, %if.then3.i.i36 ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0142, i64 8
+  %30 = phi i1 [ true, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40.thread ], [ %convertible.1146, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit40 ], [ %convertible.1146, %if.then3.i.i36 ]
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0145, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %19
   br i1 %cmp.i.not, label %sw.epilog, label %for.body
 
@@ -3561,8 +3561,8 @@ sw.epilog:                                        ; preds = %for.cond, %sw.bb15,
   %_M_finish.i56 = getelementptr inbounds nuw i8, ptr %this, i64 344
   %52 = load ptr, ptr %_M_finish.i56, align 8, !tbaa !60
   %53 = load ptr, ptr %callabilityTimes_, align 8, !tbaa !59
-  %cmp52148.not = icmp eq ptr %52, %53
-  br i1 %cmp52148.not, label %for.cond63.preheader, label %for.body54.lr.ph
+  %cmp52151.not = icmp eq ptr %52, %53
+  br i1 %cmp52151.not, label %for.cond63.preheader, label %for.body54.lr.ph
 
 for.body54.lr.ph:                                 ; preds = %sw.epilog
   %method_.i.i58 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3574,8 +3574,8 @@ for.cond63.preheader:                             ; preds = %for.inc60, %sw.epil
   %_M_finish.i82 = getelementptr inbounds nuw i8, ptr %this, i64 368
   %54 = load ptr, ptr %_M_finish.i82, align 8, !tbaa !60
   %55 = load ptr, ptr %couponTimes_, align 8, !tbaa !59
-  %cmp65154.not = icmp eq ptr %54, %55
-  br i1 %cmp65154.not, label %for.cond.cleanup66, label %for.body67.lr.ph
+  %cmp65157.not = icmp eq ptr %54, %55
+  br i1 %cmp65157.not, label %for.cond.cleanup66, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %for.cond63.preheader
   %method_.i.i88 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3587,8 +3587,8 @@ for.body67.lr.ph:                                 ; preds = %for.cond63.preheade
 
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.inc60
   %56 = phi ptr [ %53, %for.body54.lr.ph ], [ %68, %for.inc60 ]
-  %i.0149 = phi i64 [ 0, %for.body54.lr.ph ], [ %inc, %for.inc60 ]
-  %add.ptr.i57 = getelementptr inbounds nuw double, ptr %56, i64 %i.0149
+  %i.0152 = phi i64 [ 0, %for.body54.lr.ph ], [ %inc, %for.inc60 ]
+  %add.ptr.i57 = getelementptr inbounds nuw double, ptr %56, i64 %i.0152
   %57 = load double, ptr %add.ptr.i57, align 8, !tbaa !73
   %58 = load ptr, ptr %method_.i.i58, align 8, !tbaa !119
   %cmp.not.i.i59 = icmp eq ptr %58, null
@@ -3633,11 +3633,11 @@ _ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit81: ; preds = %if.end.i.i66
   br i1 %66, label %if.then58, label %for.inc60
 
 if.then58:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i60, %if.then3.i.i77, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit81
-  tail call void @_ZN8QuantLib22DiscretizedConvertible16applyCallabilityEmb(ptr noundef nonnull align 8 dereferenceable(496) %this, i64 noundef %i.0149, i1 noundef zeroext %convertible.0)
+  tail call void @_ZN8QuantLib22DiscretizedConvertible16applyCallabilityEmb(ptr noundef nonnull align 8 dereferenceable(496) %this, i64 noundef %i.0152, i1 noundef zeroext %convertible.0)
   br label %for.inc60
 
 for.inc60:                                        ; preds = %if.then3.i.i77, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit81, %if.then58
-  %inc = add nuw i64 %i.0149, 1
+  %inc = add nuw i64 %i.0152, 1
   %67 = load ptr, ptr %_M_finish.i56, align 8, !tbaa !60
   %68 = load ptr, ptr %callabilityTimes_, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i = ptrtoint ptr %67 to i64
@@ -3652,8 +3652,8 @@ for.cond.cleanup66:                               ; preds = %for.inc73, %for.con
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc73
   %69 = phi ptr [ %55, %for.body67.lr.ph ], [ %86, %for.inc73 ]
-  %i62.0155 = phi i64 [ 0, %for.body67.lr.ph ], [ %inc74, %for.inc73 ]
-  %add.ptr.i87 = getelementptr inbounds nuw double, ptr %69, i64 %i62.0155
+  %i62.0158 = phi i64 [ 0, %for.body67.lr.ph ], [ %inc74, %for.inc73 ]
+  %add.ptr.i87 = getelementptr inbounds nuw double, ptr %69, i64 %i62.0158
   %70 = load double, ptr %add.ptr.i87, align 8, !tbaa !73
   %71 = load ptr, ptr %method_.i.i88, align 8, !tbaa !119
   %cmp.not.i.i89 = icmp eq ptr %71, null
@@ -3699,7 +3699,7 @@ _ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit111: ; preds = %if.end.i.i96
 
 if.then71:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib7LatticeEEptEv.exit.i90, %if.then3.i.i107, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit111
   %80 = load ptr, ptr %couponAmounts_.i, align 8, !tbaa !59
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %80, i64 %i62.0155
+  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %80, i64 %i62.0158
   %81 = load double, ptr %add.ptr.i.i, align 8, !tbaa !73
   %82 = load ptr, ptr %values_.i, align 8, !tbaa !69
   %83 = load i64, ptr %n_.i.i.i, align 8, !tbaa !114
@@ -3718,7 +3718,7 @@ for.body.i.i.i:                                   ; preds = %if.then71, %for.bod
   br i1 %cmp.not.i.i.i, label %for.inc73, label %for.body.i.i.i, !llvm.loop !122
 
 for.inc73:                                        ; preds = %for.body.i.i.i, %if.then71, %if.then3.i.i107, %_ZNK8QuantLib16DiscretizedAsset8isOnTimeEd.exit111
-  %inc74 = add nuw i64 %i62.0155, 1
+  %inc74 = add nuw i64 %i62.0158, 1
   %85 = load ptr, ptr %_M_finish.i82, align 8, !tbaa !60
   %86 = load ptr, ptr %couponTimes_, align 8, !tbaa !59
   %sub.ptr.lhs.cast.i83 = ptrtoint ptr %85 to i64

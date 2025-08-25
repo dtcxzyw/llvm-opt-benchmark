@@ -28472,29 +28472,36 @@ define hidden noundef ptr @_ZNK10TypeAryPtr13compute_klassEv(ptr noundef nonnull
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK4Type8make_ptrEv.exit
 
 _ZNK4Type8make_ptrEv.exit:                        ; preds = %9, %1
-  %12 = phi i32 [ %7, %1 ], [ %.pre, %9 ]
-  %.fr = freeze i32 %12
-  switch i32 %.fr, label %13 [
-    i32 21, label %18
-    i32 22, label %18
-    i32 37, label %18
-    i32 2, label %18
+  %.0 = phi ptr [ %5, %1 ], [ %11, %9 ]
+  %.0.fr = freeze ptr %.0
+  %12 = getelementptr inbounds nuw i8, ptr %.0.fr, i64 16
+  %13 = load i32, ptr %12, align 8
+  %.fr = freeze i32 %13
+  %14 = icmp eq i32 %.fr, 21
+  %.not1016 = icmp ne ptr %.0.fr, null
+  %.not10.not20 = and i1 %.not1016, %14
+  %15 = icmp eq i32 %.fr, 22
+  %or.cond = or i1 %.not10.not20, %15
+  br i1 %or.cond, label %21, label %switch.early.test
+
+switch.early.test:                                ; preds = %_ZNK4Type8make_ptrEv.exit
+  switch i32 %.fr, label %16 [
+    i32 37, label %21
+    i32 2, label %21
   ]
 
-13:                                               ; preds = %_ZNK4Type8make_ptrEv.exit
-  %14 = zext i32 %.fr to i64
-  %15 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %14, i32 1
-  %16 = load i8, ptr %15, align 4
-  %17 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %16) #17
-  br label %18
+16:                                               ; preds = %switch.early.test
+  %17 = zext i32 %.fr to i64
+  %18 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %17, i32 1
+  %19 = load i8, ptr %18, align 4
+  %20 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %19) #17
+  br label %21
 
-18:                                               ; preds = %_ZNK4Type8make_ptrEv.exit, %_ZNK4Type8make_ptrEv.exit, %_ZNK4Type8make_ptrEv.exit, %_ZNK4Type8make_ptrEv.exit, %13
-  %.09 = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit ], [ %17, %13 ], [ null, %_ZNK4Type8make_ptrEv.exit ], [ null, %_ZNK4Type8make_ptrEv.exit ], [ null, %_ZNK4Type8make_ptrEv.exit ]
+21:                                               ; preds = %switch.early.test, %switch.early.test, %16, %_ZNK4Type8make_ptrEv.exit
+  %.09 = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit ], [ null, %switch.early.test ], [ %20, %16 ], [ null, %switch.early.test ]
   ret ptr %.09
 }
 
@@ -28503,7 +28510,7 @@ define hidden noundef ptr @_ZNK10TypeAryPtr5klassEv(ptr noundef nonnull align 8 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %25
+  br i1 %.not, label %4, label %28
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -28520,43 +28527,50 @@ define hidden noundef ptr @_ZNK10TypeAryPtr5klassEv(ptr noundef nonnull align 8 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %14 = load ptr, ptr %13, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK4Type8make_ptrEv.exit.i
 
 _ZNK4Type8make_ptrEv.exit.i:                      ; preds = %12, %4
-  %15 = phi i32 [ %10, %4 ], [ %.pre.i, %12 ]
-  %.fr.i = freeze i32 %15
-  switch i32 %.fr.i, label %16 [
-    i32 21, label %_ZNK10TypeAryPtr13compute_klassEv.exit
-    i32 22, label %_ZNK10TypeAryPtr13compute_klassEv.exit
+  %.0.i = phi ptr [ %8, %4 ], [ %14, %12 ]
+  %.0.fr.i = freeze ptr %.0.i
+  %15 = getelementptr inbounds nuw i8, ptr %.0.fr.i, i64 16
+  %16 = load i32, ptr %15, align 8
+  %.fr.i = freeze i32 %16
+  %17 = icmp eq i32 %.fr.i, 21
+  %.not1016.i = icmp ne ptr %.0.fr.i, null
+  %.not10.not20.i = and i1 %.not1016.i, %17
+  %18 = icmp eq i32 %.fr.i, 22
+  %or.cond.i = or i1 %18, %.not10.not20.i
+  br i1 %or.cond.i, label %_ZNK10TypeAryPtr13compute_klassEv.exit, label %switch.early.test.i
+
+switch.early.test.i:                              ; preds = %_ZNK4Type8make_ptrEv.exit.i
+  switch i32 %.fr.i, label %19 [
     i32 37, label %_ZNK10TypeAryPtr13compute_klassEv.exit
     i32 2, label %_ZNK10TypeAryPtr13compute_klassEv.exit
   ]
 
-16:                                               ; preds = %_ZNK4Type8make_ptrEv.exit.i
-  %17 = zext i32 %.fr.i to i64
-  %18 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %17, i32 1
-  %19 = load i8, ptr %18, align 4
-  %20 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %19) #17
+19:                                               ; preds = %switch.early.test.i
+  %20 = zext i32 %.fr.i to i64
+  %21 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %20, i32 1
+  %22 = load i8, ptr %21, align 4
+  %23 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %22) #17
   br label %_ZNK10TypeAryPtr13compute_klassEv.exit
 
-_ZNK10TypeAryPtr13compute_klassEv.exit:           ; preds = %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit.i, %_ZNK4Type8make_ptrEv.exit.i, %16
-  %.09.i = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit.i ], [ %20, %16 ], [ null, %_ZNK4Type8make_ptrEv.exit.i ], [ null, %_ZNK4Type8make_ptrEv.exit.i ], [ null, %_ZNK4Type8make_ptrEv.exit.i ]
-  %21 = load ptr, ptr @_ZN10TypeAryPtr4OOPSE, align 8
-  %.not6 = icmp eq ptr %0, %21
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %.not7 = icmp eq ptr %23, %21
+_ZNK10TypeAryPtr13compute_klassEv.exit:           ; preds = %_ZNK4Type8make_ptrEv.exit.i, %switch.early.test.i, %switch.early.test.i, %19
+  %.09.i = phi ptr [ null, %_ZNK4Type8make_ptrEv.exit.i ], [ null, %switch.early.test.i ], [ %23, %19 ], [ null, %switch.early.test.i ]
+  %24 = load ptr, ptr @_ZN10TypeAryPtr4OOPSE, align 8
+  %.not6 = icmp eq ptr %0, %24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not7 = icmp eq ptr %26, %24
   %or.cond = select i1 %.not6, i1 true, i1 %.not7
-  br i1 %or.cond, label %25, label %24
+  br i1 %or.cond, label %28, label %27
 
-24:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit
+27:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit
   store ptr %.09.i, ptr %2, align 8
-  br label %25
+  br label %28
 
-25:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit, %24, %1
-  %.0 = phi ptr [ %3, %1 ], [ %.09.i, %24 ], [ %.09.i, %_ZNK10TypeAryPtr13compute_klassEv.exit ]
+28:                                               ; preds = %_ZNK10TypeAryPtr13compute_klassEv.exit, %27, %1
+  %.0 = phi ptr [ %3, %1 ], [ %.09.i, %27 ], [ %.09.i, %_ZNK10TypeAryPtr13compute_klassEv.exit ]
   ret ptr %.0
 }
 
@@ -30617,36 +30631,37 @@ define hidden noundef ptr @_ZNK15TypeAryKlassPtr5klassEv(ptr noundef nonnull ali
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %16
+  br i1 %.not, label %4, label %15
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.fr9 = freeze ptr %6
+  %7 = getelementptr inbounds nuw i8, ptr %.fr9, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = add i32 %8, -24
+  %.fr = freeze i32 %8
+  %9 = add i32 %.fr, -24
   %or.cond.i = icmp ult i32 %9, 3
-  %.not68 = icmp ne ptr %6, null
+  %.not68 = icmp ne ptr %.fr9, null
   %.not6 = and i1 %.not68, %or.cond.i
-  %10 = freeze i1 %.not6
-  br i1 %10, label %16, label %switch.early.test
+  br i1 %.not6, label %15, label %switch.early.test
 
 switch.early.test:                                ; preds = %4
-  switch i32 %8, label %11 [
-    i32 37, label %16
-    i32 2, label %16
+  switch i32 %.fr, label %10 [
+    i32 37, label %15
+    i32 2, label %15
   ]
 
-11:                                               ; preds = %switch.early.test
-  %12 = zext i32 %8 to i64
-  %13 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %12, i32 1
-  %14 = load i8, ptr %13, align 4
-  %15 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %14) #17
-  store ptr %15, ptr %2, align 8
-  br label %16
+10:                                               ; preds = %switch.early.test
+  %11 = zext i32 %.fr to i64
+  %12 = getelementptr inbounds nuw [0 x %"struct.Type::TypeInfo"], ptr @_ZN4Type10_type_infoE, i64 0, i64 %11, i32 1
+  %13 = load i8, ptr %12, align 4
+  %14 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext %13) #17
+  store ptr %14, ptr %2, align 8
+  br label %15
 
-16:                                               ; preds = %switch.early.test, %switch.early.test, %4, %11, %1
-  %.04 = phi ptr [ %3, %1 ], [ null, %switch.early.test ], [ %15, %11 ], [ null, %4 ], [ null, %switch.early.test ]
+15:                                               ; preds = %switch.early.test, %switch.early.test, %4, %10, %1
+  %.04 = phi ptr [ %3, %1 ], [ null, %switch.early.test ], [ %14, %10 ], [ null, %4 ], [ null, %switch.early.test ]
   ret ptr %.04
 }
 

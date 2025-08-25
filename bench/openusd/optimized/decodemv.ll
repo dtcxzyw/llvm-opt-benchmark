@@ -1460,9 +1460,9 @@ read_angle_delta.exit156.i:                       ; preds = %._crit_edge.loopexi
   br label %634
 
 634:                                              ; preds = %read_angle_delta.exit156.i, %588, %587, %498, %493
-  %.sink205.i = phi i64 [ 97, %587 ], [ 97, %588 ], [ 97, %read_angle_delta.exit156.i ], [ 3, %498 ], [ 3, %493 ]
+  %.sink204.i = phi i64 [ 97, %587 ], [ 97, %588 ], [ 97, %read_angle_delta.exit156.i ], [ 3, %498 ], [ 3, %493 ]
   %.sink.i = phi i8 [ 0, %587 ], [ 0, %588 ], [ %633, %read_angle_delta.exit156.i ], [ 0, %498 ], [ 0, %493 ]
-  %635 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink205.i
+  %635 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink204.i
   store i8 %.sink.i, ptr %635, align 1
   %.val101.i = load i8, ptr %496, align 1
   %636 = load ptr, ptr %12, align 8
@@ -1502,8 +1502,8 @@ store_cfl_required.exit.i:                        ; preds = %648, %is_inter_bloc
   store i32 %.0.i158.i, ptr %653, align 16
   %654 = getelementptr inbounds nuw i8, ptr %0, i64 49007
   %655 = load i8, ptr %654, align 1
-  %.fr169.i = freeze i8 %655
-  %656 = and i8 %.fr169.i, 1
+  %.fr.i = freeze i8 %655
+  %656 = and i8 %.fr.i, 1
   %.not.i160.i = icmp eq i8 %656, 0
   br i1 %.not.i160.i, label %658, label %switch.early.test.i
 
@@ -6033,9 +6033,9 @@ read_angle_delta.exit76.i:                        ; preds = %._crit_edge.loopexi
   br label %2538
 
 2538:                                             ; preds = %read_angle_delta.exit76.i, %2492, %2491, %2401, %2396
-  %.sink102.i = phi i64 [ 97, %2491 ], [ 97, %2492 ], [ 97, %read_angle_delta.exit76.i ], [ 3, %2401 ], [ 3, %2396 ]
+  %.sink101.i = phi i64 [ 97, %2491 ], [ 97, %2492 ], [ 97, %read_angle_delta.exit76.i ], [ 3, %2401 ], [ 3, %2396 ]
   %.sink.i92 = phi i8 [ 0, %2491 ], [ 0, %2492 ], [ %2537, %read_angle_delta.exit76.i ], [ 0, %2401 ], [ 0, %2396 ]
-  %2539 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink102.i
+  %2539 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink101.i
   store i8 %.sink.i92, ptr %2539, align 1
   %.val.i93 = load i8, ptr %2399, align 1
   %2540 = load ptr, ptr %12, align 8
@@ -6079,8 +6079,8 @@ store_cfl_required.exit.i:                        ; preds = %2552, %is_inter_blo
   store i8 0, ptr %2559, align 1
   %2560 = getelementptr inbounds nuw i8, ptr %0, i64 49007
   %2561 = load i8, ptr %2560, align 1
-  %.fr86.i = freeze i8 %2561
-  %2562 = and i8 %.fr86.i, 1
+  %.fr.i = freeze i8 %2561
+  %2562 = and i8 %.fr.i, 1
   %.not.i80.i = icmp eq i8 %2562, 0
   br i1 %.not.i80.i, label %read_intra_block_mode_info.exit, label %switch.early.test.i
 
@@ -7864,8 +7864,8 @@ get_segment_id.exit.i:                            ; preds = %._crit_edge.i
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i8, ptr %11, i64 %49
   %51 = load i8, ptr %50, align 1
-  %.fr63 = freeze i8 %51
-  %52 = tail call i8 @llvm.umin.i8(i8 %.fr63, i8 8)
+  %.fr = freeze i8 %51
+  %52 = tail call i8 @llvm.umin.i8(i8 %.fr, i8 8)
   %.1..us.i62.i = zext nneg i8 %52 to i32
   br label %get_segment_id.exit63.i
 

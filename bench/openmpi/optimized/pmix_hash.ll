@@ -749,8 +749,8 @@ pmix_hash_lookup_key.exit:
   %.05370 = phi i64 [ %10, %.lr.ph ], [ 0, %pmix_hash_lookup_key.exit ]
   %7 = getelementptr inbounds nuw %struct.pmix_info, ptr %2, i64 %.05370
   %8 = tail call zeroext i1 @PMIx_Info_is_qualifier(ptr noundef nonnull %7) #17
-  %.fr128 = freeze i1 %8
-  %9 = zext i1 %.fr128 to i64
+  %.fr = freeze i1 %8
+  %9 = zext i1 %.fr to i64
   %spec.select = add i64 %.15271, %9
   %10 = add nuw i64 %.05370, 1
   %exitcond.not = icmp eq i64 %10, %3
@@ -7145,7 +7145,8 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %pmix_obj
   %471 = load i64, ptr %470, align 8, !tbaa !220
   %472 = getelementptr inbounds nuw i8, ptr %430, i64 160
   %473 = load i64, ptr %472, align 8, !tbaa !217
-  %474 = sub i64 %471, %473
+  %.fr55.i.i = freeze i64 %473
+  %474 = sub i64 %471, %.fr55.i.i
   %.not.i.i1020 = icmp ult i64 %474, %469
   br i1 %.not.i.i1020, label %478, label %475
 
@@ -7155,16 +7156,16 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %pmix_obj
   br label %pmix_bfrops_base_tma_buffer_extend.exit.i
 
 478:                                              ; preds = %466
-  %479 = add i64 %473, %469
+  %479 = add i64 %.fr55.i.i, %469
   %480 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_globals, i64 288), align 8, !tbaa !221
-  %.not54.i.i = icmp ult i64 %479, %480
+  %.fr56.i.i = freeze i64 %480
+  %.not54.i.i = icmp ult i64 %479, %.fr56.i.i
   br i1 %.not54.i.i, label %486, label %481
 
 481:                                              ; preds = %478
-  %482 = add i64 %480, %479
-  %.fr55.i.i = freeze i64 %482
-  %483 = add i64 %.fr55.i.i, -1
-  %484 = urem i64 %483, %480
+  %482 = add i64 %479, -1
+  %483 = add i64 %482, %.fr56.i.i
+  %484 = urem i64 %483, %.fr56.i.i
   %485 = sub nuw i64 %483, %484
   br label %.loopexit.i.i
 
@@ -7228,9 +7229,9 @@ pmix_tma_realloc.exit.i.i:                        ; preds = %505, %502
   br label %pmix_tma_malloc.exit.i.i
 
 pmix_tma_malloc.exit.i.i:                         ; preds = %514, %511
-  %.0.i58.i.i = phi ptr [ %513, %511 ], [ %515, %514 ]
-  store ptr %.0.i58.i.i, ptr %442, align 8, !tbaa !214
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i58.i.i, i8 0, i64 %.045.i.i, i1 false)
+  %.0.i59.i.i = phi ptr [ %513, %511 ], [ %515, %514 ]
+  store ptr %.0.i59.i.i, ptr %442, align 8, !tbaa !214
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i59.i.i, i8 0, i64 %.045.i.i, i1 false)
   br label %516
 
 516:                                              ; preds = %pmix_tma_malloc.exit.i.i, %pmix_tma_realloc.exit.i.i
@@ -7503,7 +7504,7 @@ pmix_tma_malloc.exit1044:                         ; preds = %625
   br i1 %.not1335, label %.sink.split, label %.lr.ph1288.preheader
 
 .lr.ph1288.preheader:                             ; preds = %pmix_tma_malloc.exit1044.thread, %pmix_tma_malloc.exit1044
-  %.0.i10431512 = phi ptr [ %627, %pmix_tma_malloc.exit1044.thread ], [ %630, %pmix_tma_malloc.exit1044 ]
+  %.0.i10431511 = phi ptr [ %627, %pmix_tma_malloc.exit1044.thread ], [ %630, %pmix_tma_malloc.exit1044 ]
   %632 = phi i64 [ %14, %pmix_tma_malloc.exit1044.thread ], [ %.pre1386, %pmix_tma_malloc.exit1044 ]
   %633 = load ptr, ptr %18, align 8, !tbaa !45
   br label %.lr.ph1288
@@ -7512,7 +7513,7 @@ pmix_tma_malloc.exit1044:                         ; preds = %625
   %.08321287 = phi i64 [ %637, %.lr.ph1288 ], [ 0, %.lr.ph1288.preheader ]
   %634 = getelementptr inbounds nuw ptr, ptr %633, i64 %.08321287
   %635 = load ptr, ptr %634, align 8, !tbaa !68
-  %636 = getelementptr inbounds nuw ptr, ptr %.0.i10431512, i64 %.08321287
+  %636 = getelementptr inbounds nuw ptr, ptr %.0.i10431511, i64 %.08321287
   store ptr %635, ptr %636, align 8, !tbaa !68
   %637 = add nuw i64 %.08321287, 1
   %exitcond.not = icmp eq i64 %637, %632
@@ -7681,9 +7682,9 @@ pmix_tma_strdup.exit1059:                         ; preds = %692, %701, %698
   br label %pmix_tma_strdup.exit1062
 
 pmix_tma_strdup.exit1062:                         ; preds = %pmix_tma_strdup.exit1059, %710, %707
-  %.sink1550 = phi ptr [ %709, %707 ], [ %711, %710 ], [ null, %pmix_tma_strdup.exit1059 ]
+  %.sink1549 = phi ptr [ %709, %707 ], [ %711, %710 ], [ null, %pmix_tma_strdup.exit1059 ]
   %712 = getelementptr inbounds nuw i8, ptr %693, i64 272
-  store ptr %.sink1550, ptr %712, align 8, !tbaa !105
+  store ptr %.sink1549, ptr %712, align 8, !tbaa !105
   %713 = getelementptr inbounds nuw i8, ptr %694, i64 280
   %714 = load i32, ptr %713, align 8, !tbaa !230
   %715 = getelementptr inbounds nuw i8, ptr %693, i64 280

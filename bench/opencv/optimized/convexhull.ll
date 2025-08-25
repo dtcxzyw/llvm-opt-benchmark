@@ -288,13 +288,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 
 112:                                              ; preds = %.preheader, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit102
   %113 = load i64, ptr %85, align 8, !tbaa !42
-  %114 = and i64 %113, 4294967295
+  %.fr154 = freeze i64 %113
+  %114 = and i64 %.fr154, 4294967295
   %115 = mul nuw i64 %114, 4164903690
-  %116 = lshr i64 %113, 32
+  %116 = lshr i64 %.fr154, 32
   %117 = add nuw i64 %115, %116
-  %.fr154 = freeze i64 %117
-  store i64 %.fr154, ptr %85, align 8, !tbaa !42
-  %118 = trunc i64 %.fr154 to i32
+  store i64 %117, ptr %85, align 8, !tbaa !42
+  %118 = trunc i64 %117 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %119 = trunc nuw i64 %116 to i32
@@ -302,9 +302,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
   %121 = urem i32 %118, 100
   %.neg = sub i32 %121, %118
   %122 = add i32 %.neg, %120
-  %123 = trunc i64 %113 to i32
-  %.neg155 = mul i32 %123, -130063606
-  %124 = add i32 %.neg155, %122
+  %123 = trunc i64 %.fr154 to i32
+  %.neg156 = mul i32 %123, -130063606
+  %124 = add i32 %.neg156, %122
   br label %125
 
 125:                                              ; preds = %112, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit

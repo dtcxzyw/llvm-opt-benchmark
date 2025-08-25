@@ -778,9 +778,9 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h2c4d01abd730e6b1E.exit.i10.i.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i9.i.i
-  %rhsc18.i.i = load i8, ptr %9, align 1, !alias.scope !140
-  %rhsc18.fr.i.i = freeze i8 %rhsc18.i.i
-  %10 = icmp eq i8 %rhsc18.fr.i.i, 13
+  %rhsc17.i.i = load i8, ptr %9, align 1, !alias.scope !140
+  %rhsc17.fr.i.i = freeze i8 %rhsc17.i.i
+  %10 = icmp eq i8 %rhsc17.fr.i.i, 13
   %spec.select.i13.i.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit14.i.i"
 
@@ -3825,9 +3825,9 @@ define hidden { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h2c4d01abd730e6b1E.exit.i10": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i9
-  %rhsc18 = load i8, ptr %9, align 1
-  %rhsc18.fr = freeze i8 %rhsc18
-  %10 = icmp eq i8 %rhsc18.fr, 13
+  %rhsc17 = load i8, ptr %9, align 1
+  %rhsc17.fr = freeze i8 %rhsc17
+  %10 = icmp eq i8 %rhsc17.fr, 13
   %spec.select.i13 = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit14"
 
@@ -4641,9 +4641,9 @@ define hidden { ptr, i64 } @"_ZN92_$LT$core..str..LinesMap$u20$as$u20$core..ops.
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h2c4d01abd730e6b1E.exit.i10.i": ; preds = %6
   %9 = getelementptr inbounds i8, ptr %1, i64 %.pre.i9.i
-  %rhsc18.i = load i8, ptr %9, align 1, !alias.scope !751
-  %rhsc18.fr.i = freeze i8 %rhsc18.i
-  %10 = icmp eq i8 %rhsc18.fr.i, 13
+  %rhsc17.i = load i8, ptr %9, align 1, !alias.scope !751
+  %rhsc17.fr.i = freeze i8 %rhsc17.i
+  %10 = icmp eq i8 %rhsc17.fr.i, 13
   %spec.select.i13.i = select i1 %10, ptr %1, ptr null
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_suffix_of17h54edf0d48358f020E.exit14.i"
 
@@ -13788,10 +13788,10 @@ default.unreachable:                              ; preds = %.noexc2
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %89 = load i64, ptr %88, align 8, !alias.scope !2503, !noalias !2510, !noundef !4
   %90 = load i64, ptr %14, align 8, !alias.scope !2503, !noalias !2510
-  %.fr50.i = freeze i64 %90
+  %.fr.i = freeze i64 %90
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %92 = load i64, ptr %91, align 8, !alias.scope !2503, !noalias !2510
-  %93 = add i64 %.fr50.i, -1
+  %93 = add i64 %.fr.i, -1
   %.first_iter.i.i = icmp ult i64 %93, %25
   br label %94
 
@@ -13818,7 +13818,7 @@ default.unreachable:                              ; preds = %.noexc2
   br i1 %.not37.i.i.i, label %94, label %.loopexit.i
 
 .preheader27.i.i:                                 ; preds = %94, %124
-  %.sroa.04.0.i.i.i = phi i64 [ %125, %124 ], [ %.fr50.i, %94 ]
+  %.sroa.04.0.i.i.i = phi i64 [ %125, %124 ], [ %.fr.i, %94 ]
   %109 = icmp ult i64 %.sroa.04.0.i.i.i, %25
   br i1 %109, label %121, label %.preheader.i.preheader.i
 
@@ -13826,7 +13826,7 @@ default.unreachable:                              ; preds = %.noexc2
   br i1 %.first_iter.i.i, label %.preheader.i.us.i, label %.preheader.i.i, !prof !568
 
 .preheader.i.us.i:                                ; preds = %.preheader.i.preheader.i, %114
-  %.sroa.5.0.i.i.us.i = phi i64 [ %111, %114 ], [ %.fr50.i, %.preheader.i.preheader.i ]
+  %.sroa.5.0.i.i.us.i = phi i64 [ %111, %114 ], [ %.fr.i, %.preheader.i.preheader.i ]
   %.not.i.us.i = icmp eq i64 %.sroa.5.0.i.i.us.i, 0
   br i1 %.not.i.us.i, label %.split.us.i, label %110
 
@@ -13849,7 +13849,7 @@ default.unreachable:                              ; preds = %.noexc2
   br label %106
 
 .preheader.i.i:                                   ; preds = %.preheader.i.preheader.i
-  %.not.i.i = icmp eq i64 %.fr50.i, 0
+  %.not.i.i = icmp eq i64 %.fr.i, 0
   br i1 %.not.i.i, label %.split.us.i, label %.invoke
 
 .split.us.i:                                      ; preds = %.preheader.i.us.i, %.preheader.i.i
@@ -13871,7 +13871,7 @@ default.unreachable:                              ; preds = %.noexc2
   br i1 %.not.i.i.i, label %.preheader27.i.i, label %135
 
 130:                                              ; preds = %121
-  %131 = add i64 %95, %.fr50.i
+  %131 = add i64 %95, %.fr.i
   %umax.i.i.i = tail call i64 @llvm.umax.i64(i64 %21, i64 %131)
   br label %.invoke
 
@@ -13886,7 +13886,7 @@ default.unreachable:                              ; preds = %.noexc2
   unreachable
 
 135:                                              ; preds = %124
-  %reass.sub33 = sub i64 %95, %.fr50.i
+  %reass.sub33 = sub i64 %95, %.fr.i
   %136 = add i64 %reass.sub33, 1
   %137 = add i64 %136, %.sroa.04.0.i.i.i
   br label %106

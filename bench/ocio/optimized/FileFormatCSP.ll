@@ -6632,8 +6632,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit198._crit_edge.us: ;
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205.us: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit200._crit_edge.us
   %467 = add nuw nsw i32 %.068455.us, 1
-  %exitcond483.not = icmp eq i32 %467, 3
-  br i1 %exitcond483.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !168
+  %exitcond481.not = icmp eq i32 %467, 3
+  br i1 %exitcond481.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !168
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit200.preheader.us: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit198._crit_edge.us, %_ZNSolsEf.exit209.us
   %.066453.us = phi i32 [ %477, %_ZNSolsEf.exit209.us ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit198._crit_edge.us ]
@@ -6728,8 +6728,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit200.preheader: ; pre
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit200.preheader
   %501 = add nuw nsw i32 %.068455, 1
-  %exitcond481.not = icmp eq i32 %501, 3
-  br i1 %exitcond481.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !168
+  %exitcond479.not = icmp eq i32 %501, 3
+  br i1 %exitcond479.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !168
 
 .loopexit:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit205.us, %460
   %502 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.17, i64 noundef 1)
@@ -6800,8 +6800,8 @@ _ZNSolsEf.exit229:                                ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit231: ; preds = %_ZNSolsEf.exit229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond485.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond485.not, label %512, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217.preheader, !llvm.loop !171
+  %exitcond483.not = icmp eq i64 %indvars.iv.next, %34
+  br i1 %exitcond483.not, label %512, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217.preheader, !llvm.loop !171
 
 529:                                              ; preds = %_ZNSolsEf.exit229, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit227, %_ZNSolsEf.exit225, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223, %_ZNSolsEf.exit221, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit217.preheader
   %530 = landingpad { ptr, i32 }

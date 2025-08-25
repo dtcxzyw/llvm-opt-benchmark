@@ -288,7 +288,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ruby_array__create_semaphore = external global i16, section ".probes", align 2
 @.str.179 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @rb_cHash = external local_unnamed_addr global i64, align 8
-@vm_exec_core.insns_address_table = internal constant [220 x ptr] [ptr blockaddress(@vm_exec_core, %69), ptr blockaddress(@vm_exec_core, %71), ptr blockaddress(@vm_exec_core, %90), ptr blockaddress(@vm_exec_core, %118), ptr blockaddress(@vm_exec_core, %170), ptr blockaddress(@vm_exec_core, %200), ptr blockaddress(@vm_exec_core, %249), ptr blockaddress(@vm_exec_core, %308), ptr blockaddress(@vm_exec_core, %325), ptr blockaddress(@vm_exec_core, %416), ptr blockaddress(@vm_exec_core, %431), ptr blockaddress(@vm_exec_core, %465), ptr blockaddress(@vm_exec_core, %512), ptr blockaddress(@vm_exec_core, %521), ptr blockaddress(@vm_exec_core, %536), ptr blockaddress(@vm_exec_core, %566), ptr blockaddress(@vm_exec_core, %574), ptr blockaddress(@vm_exec_core, %585), ptr blockaddress(@vm_exec_core, %590), ptr blockaddress(@vm_exec_core, %597), ptr blockaddress(@vm_exec_core, %604), ptr blockaddress(@vm_exec_core, %636), ptr blockaddress(@vm_exec_core, %644), ptr blockaddress(@vm_exec_core, %652), ptr blockaddress(@vm_exec_core, %665), ptr blockaddress(@vm_exec_core, %677), ptr blockaddress(@vm_exec_core, %695), ptr blockaddress(@vm_exec_core, %704), ptr blockaddress(@vm_exec_core, %717), ptr blockaddress(@vm_exec_core, %743), ptr blockaddress(@vm_exec_core, %765), ptr blockaddress(@vm_exec_core, %790), ptr blockaddress(@vm_exec_core, %889), ptr blockaddress(@vm_exec_core, %915), ptr blockaddress(@vm_exec_core, %932), ptr blockaddress(@vm_exec_core, %946), ptr blockaddress(@vm_exec_core, %964), ptr blockaddress(@vm_exec_core, %979), ptr blockaddress(@vm_exec_core, %1001), ptr blockaddress(@vm_exec_core, %1016), ptr blockaddress(@vm_exec_core, %1021), ptr blockaddress(@vm_exec_core, %1028), ptr blockaddress(@vm_exec_core, %1042), ptr blockaddress(@vm_exec_core, %1050), ptr blockaddress(@vm_exec_core, %1066), ptr blockaddress(@vm_exec_core, %1077), ptr blockaddress(@vm_exec_core, %1088), ptr blockaddress(@vm_exec_core, %1096), ptr blockaddress(@vm_exec_core, %1111), ptr blockaddress(@vm_exec_core, %1207), ptr blockaddress(@vm_exec_core, %1249), ptr blockaddress(@vm_exec_core, %1276), ptr blockaddress(@vm_exec_core, %1304), ptr blockaddress(@vm_exec_core, %1454), ptr blockaddress(@vm_exec_core, %1460), ptr blockaddress(@vm_exec_core, %1470), ptr blockaddress(@vm_exec_core, %1585), ptr blockaddress(@vm_exec_core, %vm_objtostring.exit.thread), ptr blockaddress(@vm_exec_core, %1831), ptr blockaddress(@vm_exec_core, %1948), ptr blockaddress(@vm_exec_core, %1980), ptr blockaddress(@vm_exec_core, %2015), ptr blockaddress(@vm_exec_core, %2033), ptr blockaddress(@vm_exec_core, %2083), ptr blockaddress(@vm_exec_core, %2101), ptr blockaddress(@vm_exec_core, %2120), ptr blockaddress(@vm_exec_core, %2202), ptr blockaddress(@vm_exec_core, %2261), ptr blockaddress(@vm_exec_core, %2336), ptr blockaddress(@vm_exec_core, %2437), ptr blockaddress(@vm_exec_core, %2499), ptr blockaddress(@vm_exec_core, %2508), ptr blockaddress(@vm_exec_core, %2517), ptr blockaddress(@vm_exec_core, %2535), ptr blockaddress(@vm_exec_core, %2553), ptr blockaddress(@vm_exec_core, %2571), ptr blockaddress(@vm_exec_core, %2621), ptr blockaddress(@vm_exec_core, %2684), ptr blockaddress(@vm_exec_core, %2834), ptr blockaddress(@vm_exec_core, %2956), ptr blockaddress(@vm_exec_core, %3082), ptr blockaddress(@vm_exec_core, %3160), ptr blockaddress(@vm_exec_core, %3289), ptr blockaddress(@vm_exec_core, %3308), ptr blockaddress(@vm_exec_core, %3363), ptr blockaddress(@vm_exec_core, %3447), ptr blockaddress(@vm_exec_core, %3532), ptr blockaddress(@vm_exec_core, %3616), ptr blockaddress(@vm_exec_core, %3702), ptr blockaddress(@vm_exec_core, %3750), ptr blockaddress(@vm_exec_core, %3764), ptr blockaddress(@vm_exec_core, %3781), ptr blockaddress(@vm_exec_core, %3852), ptr blockaddress(@vm_exec_core, %3894), ptr blockaddress(@vm_exec_core, %3931), ptr blockaddress(@vm_exec_core, %3967), ptr blockaddress(@vm_exec_core, %3979), ptr blockaddress(@vm_exec_core, %3991), ptr blockaddress(@vm_exec_core, %4002), ptr blockaddress(@vm_exec_core, %4038), ptr blockaddress(@vm_exec_core, %4084), ptr blockaddress(@vm_exec_core, %4140), ptr blockaddress(@vm_exec_core, %4161), ptr blockaddress(@vm_exec_core, %4197), ptr blockaddress(@vm_exec_core, %4243), ptr blockaddress(@vm_exec_core, %.lr.ph.i2736), ptr blockaddress(@vm_exec_core, %4270), ptr blockaddress(@vm_exec_core, %.lr.ph.i2746), ptr blockaddress(@vm_exec_core, %4315), ptr blockaddress(@vm_exec_core, %4320), ptr blockaddress(@vm_exec_core, %4325), ptr blockaddress(@vm_exec_core, %4326), ptr blockaddress(@vm_exec_core, %4327), ptr blockaddress(@vm_exec_core, %4328), ptr blockaddress(@vm_exec_core, %4329), ptr blockaddress(@vm_exec_core, %4330), ptr blockaddress(@vm_exec_core, %4331), ptr blockaddress(@vm_exec_core, %4332), ptr blockaddress(@vm_exec_core, %4333), ptr blockaddress(@vm_exec_core, %4334), ptr blockaddress(@vm_exec_core, %4335), ptr blockaddress(@vm_exec_core, %4336), ptr blockaddress(@vm_exec_core, %4337), ptr blockaddress(@vm_exec_core, %4338), ptr blockaddress(@vm_exec_core, %4339), ptr blockaddress(@vm_exec_core, %4340), ptr blockaddress(@vm_exec_core, %4341), ptr blockaddress(@vm_exec_core, %4342), ptr blockaddress(@vm_exec_core, %4343), ptr blockaddress(@vm_exec_core, %4344), ptr blockaddress(@vm_exec_core, %4345), ptr blockaddress(@vm_exec_core, %4346), ptr blockaddress(@vm_exec_core, %4347), ptr blockaddress(@vm_exec_core, %4348), ptr blockaddress(@vm_exec_core, %4349), ptr blockaddress(@vm_exec_core, %4350), ptr blockaddress(@vm_exec_core, %4351), ptr blockaddress(@vm_exec_core, %4352), ptr blockaddress(@vm_exec_core, %4353), ptr blockaddress(@vm_exec_core, %4354), ptr blockaddress(@vm_exec_core, %4355), ptr blockaddress(@vm_exec_core, %4356), ptr blockaddress(@vm_exec_core, %4357), ptr blockaddress(@vm_exec_core, %4358), ptr blockaddress(@vm_exec_core, %4359), ptr blockaddress(@vm_exec_core, %4360), ptr blockaddress(@vm_exec_core, %4361), ptr blockaddress(@vm_exec_core, %4362), ptr blockaddress(@vm_exec_core, %4363), ptr blockaddress(@vm_exec_core, %4364), ptr blockaddress(@vm_exec_core, %4365), ptr blockaddress(@vm_exec_core, %4366), ptr blockaddress(@vm_exec_core, %4367), ptr blockaddress(@vm_exec_core, %4368), ptr blockaddress(@vm_exec_core, %4369), ptr blockaddress(@vm_exec_core, %4370), ptr blockaddress(@vm_exec_core, %4371), ptr blockaddress(@vm_exec_core, %4372), ptr blockaddress(@vm_exec_core, %4373), ptr blockaddress(@vm_exec_core, %4374), ptr blockaddress(@vm_exec_core, %4375), ptr blockaddress(@vm_exec_core, %4376), ptr blockaddress(@vm_exec_core, %4377), ptr blockaddress(@vm_exec_core, %4378), ptr blockaddress(@vm_exec_core, %4379), ptr blockaddress(@vm_exec_core, %4380), ptr blockaddress(@vm_exec_core, %4381), ptr blockaddress(@vm_exec_core, %4382), ptr blockaddress(@vm_exec_core, %4383), ptr blockaddress(@vm_exec_core, %4384), ptr blockaddress(@vm_exec_core, %4385), ptr blockaddress(@vm_exec_core, %4386), ptr blockaddress(@vm_exec_core, %4387), ptr blockaddress(@vm_exec_core, %4388), ptr blockaddress(@vm_exec_core, %4389), ptr blockaddress(@vm_exec_core, %4390), ptr blockaddress(@vm_exec_core, %4391), ptr blockaddress(@vm_exec_core, %4392), ptr blockaddress(@vm_exec_core, %4393), ptr blockaddress(@vm_exec_core, %4394), ptr blockaddress(@vm_exec_core, %4395), ptr blockaddress(@vm_exec_core, %4396), ptr blockaddress(@vm_exec_core, %4397), ptr blockaddress(@vm_exec_core, %4398), ptr blockaddress(@vm_exec_core, %4399), ptr blockaddress(@vm_exec_core, %4400), ptr blockaddress(@vm_exec_core, %4401), ptr blockaddress(@vm_exec_core, %4402), ptr blockaddress(@vm_exec_core, %4403), ptr blockaddress(@vm_exec_core, %4404), ptr blockaddress(@vm_exec_core, %4405), ptr blockaddress(@vm_exec_core, %4406), ptr blockaddress(@vm_exec_core, %4407), ptr blockaddress(@vm_exec_core, %4408), ptr blockaddress(@vm_exec_core, %4410), ptr blockaddress(@vm_exec_core, %4411), ptr blockaddress(@vm_exec_core, %4412), ptr blockaddress(@vm_exec_core, %4413), ptr blockaddress(@vm_exec_core, %4414), ptr blockaddress(@vm_exec_core, %4415), ptr blockaddress(@vm_exec_core, %4416), ptr blockaddress(@vm_exec_core, %4417), ptr blockaddress(@vm_exec_core, %4418), ptr blockaddress(@vm_exec_core, %4419), ptr blockaddress(@vm_exec_core, %4420), ptr blockaddress(@vm_exec_core, %4421), ptr blockaddress(@vm_exec_core, %4422), ptr blockaddress(@vm_exec_core, %4423), ptr blockaddress(@vm_exec_core, %4424), ptr blockaddress(@vm_exec_core, %4425), ptr blockaddress(@vm_exec_core, %4426), ptr blockaddress(@vm_exec_core, %4427), ptr blockaddress(@vm_exec_core, %4428), ptr blockaddress(@vm_exec_core, %4429), ptr blockaddress(@vm_exec_core, %4430), ptr blockaddress(@vm_exec_core, %4431), ptr blockaddress(@vm_exec_core, %4432), ptr blockaddress(@vm_exec_core, %4433), ptr blockaddress(@vm_exec_core, %4434), ptr blockaddress(@vm_exec_core, %4435)], align 16
+@vm_exec_core.insns_address_table = internal constant [220 x ptr] [ptr blockaddress(@vm_exec_core, %69), ptr blockaddress(@vm_exec_core, %71), ptr blockaddress(@vm_exec_core, %90), ptr blockaddress(@vm_exec_core, %118), ptr blockaddress(@vm_exec_core, %170), ptr blockaddress(@vm_exec_core, %200), ptr blockaddress(@vm_exec_core, %249), ptr blockaddress(@vm_exec_core, %308), ptr blockaddress(@vm_exec_core, %325), ptr blockaddress(@vm_exec_core, %416), ptr blockaddress(@vm_exec_core, %431), ptr blockaddress(@vm_exec_core, %465), ptr blockaddress(@vm_exec_core, %512), ptr blockaddress(@vm_exec_core, %521), ptr blockaddress(@vm_exec_core, %536), ptr blockaddress(@vm_exec_core, %566), ptr blockaddress(@vm_exec_core, %574), ptr blockaddress(@vm_exec_core, %585), ptr blockaddress(@vm_exec_core, %590), ptr blockaddress(@vm_exec_core, %597), ptr blockaddress(@vm_exec_core, %604), ptr blockaddress(@vm_exec_core, %636), ptr blockaddress(@vm_exec_core, %644), ptr blockaddress(@vm_exec_core, %652), ptr blockaddress(@vm_exec_core, %665), ptr blockaddress(@vm_exec_core, %677), ptr blockaddress(@vm_exec_core, %695), ptr blockaddress(@vm_exec_core, %704), ptr blockaddress(@vm_exec_core, %717), ptr blockaddress(@vm_exec_core, %743), ptr blockaddress(@vm_exec_core, %765), ptr blockaddress(@vm_exec_core, %790), ptr blockaddress(@vm_exec_core, %889), ptr blockaddress(@vm_exec_core, %915), ptr blockaddress(@vm_exec_core, %932), ptr blockaddress(@vm_exec_core, %946), ptr blockaddress(@vm_exec_core, %964), ptr blockaddress(@vm_exec_core, %979), ptr blockaddress(@vm_exec_core, %1001), ptr blockaddress(@vm_exec_core, %1016), ptr blockaddress(@vm_exec_core, %1021), ptr blockaddress(@vm_exec_core, %1028), ptr blockaddress(@vm_exec_core, %1042), ptr blockaddress(@vm_exec_core, %1050), ptr blockaddress(@vm_exec_core, %1066), ptr blockaddress(@vm_exec_core, %1077), ptr blockaddress(@vm_exec_core, %1088), ptr blockaddress(@vm_exec_core, %1096), ptr blockaddress(@vm_exec_core, %1111), ptr blockaddress(@vm_exec_core, %1207), ptr blockaddress(@vm_exec_core, %1249), ptr blockaddress(@vm_exec_core, %1276), ptr blockaddress(@vm_exec_core, %1304), ptr blockaddress(@vm_exec_core, %1454), ptr blockaddress(@vm_exec_core, %1460), ptr blockaddress(@vm_exec_core, %1470), ptr blockaddress(@vm_exec_core, %1585), ptr blockaddress(@vm_exec_core, %vm_objtostring.exit.thread), ptr blockaddress(@vm_exec_core, %1831), ptr blockaddress(@vm_exec_core, %1948), ptr blockaddress(@vm_exec_core, %1980), ptr blockaddress(@vm_exec_core, %2015), ptr blockaddress(@vm_exec_core, %2033), ptr blockaddress(@vm_exec_core, %2083), ptr blockaddress(@vm_exec_core, %2101), ptr blockaddress(@vm_exec_core, %2120), ptr blockaddress(@vm_exec_core, %2202), ptr blockaddress(@vm_exec_core, %2261), ptr blockaddress(@vm_exec_core, %2336), ptr blockaddress(@vm_exec_core, %2437), ptr blockaddress(@vm_exec_core, %2499), ptr blockaddress(@vm_exec_core, %2508), ptr blockaddress(@vm_exec_core, %2517), ptr blockaddress(@vm_exec_core, %2535), ptr blockaddress(@vm_exec_core, %2553), ptr blockaddress(@vm_exec_core, %2571), ptr blockaddress(@vm_exec_core, %2621), ptr blockaddress(@vm_exec_core, %2684), ptr blockaddress(@vm_exec_core, %2834), ptr blockaddress(@vm_exec_core, %2956), ptr blockaddress(@vm_exec_core, %3082), ptr blockaddress(@vm_exec_core, %3160), ptr blockaddress(@vm_exec_core, %3289), ptr blockaddress(@vm_exec_core, %3308), ptr blockaddress(@vm_exec_core, %3363), ptr blockaddress(@vm_exec_core, %3447), ptr blockaddress(@vm_exec_core, %3532), ptr blockaddress(@vm_exec_core, %3616), ptr blockaddress(@vm_exec_core, %3702), ptr blockaddress(@vm_exec_core, %3750), ptr blockaddress(@vm_exec_core, %3764), ptr blockaddress(@vm_exec_core, %3781), ptr blockaddress(@vm_exec_core, %3852), ptr blockaddress(@vm_exec_core, %3894), ptr blockaddress(@vm_exec_core, %3931), ptr blockaddress(@vm_exec_core, %3967), ptr blockaddress(@vm_exec_core, %3979), ptr blockaddress(@vm_exec_core, %3991), ptr blockaddress(@vm_exec_core, %4002), ptr blockaddress(@vm_exec_core, %4038), ptr blockaddress(@vm_exec_core, %4084), ptr blockaddress(@vm_exec_core, %4140), ptr blockaddress(@vm_exec_core, %4161), ptr blockaddress(@vm_exec_core, %4197), ptr blockaddress(@vm_exec_core, %4243), ptr blockaddress(@vm_exec_core, %.lr.ph.i2737), ptr blockaddress(@vm_exec_core, %4270), ptr blockaddress(@vm_exec_core, %.lr.ph.i2747), ptr blockaddress(@vm_exec_core, %4315), ptr blockaddress(@vm_exec_core, %4320), ptr blockaddress(@vm_exec_core, %4325), ptr blockaddress(@vm_exec_core, %4326), ptr blockaddress(@vm_exec_core, %4327), ptr blockaddress(@vm_exec_core, %4328), ptr blockaddress(@vm_exec_core, %4329), ptr blockaddress(@vm_exec_core, %4330), ptr blockaddress(@vm_exec_core, %4331), ptr blockaddress(@vm_exec_core, %4332), ptr blockaddress(@vm_exec_core, %4333), ptr blockaddress(@vm_exec_core, %4334), ptr blockaddress(@vm_exec_core, %4335), ptr blockaddress(@vm_exec_core, %4336), ptr blockaddress(@vm_exec_core, %4337), ptr blockaddress(@vm_exec_core, %4338), ptr blockaddress(@vm_exec_core, %4339), ptr blockaddress(@vm_exec_core, %4340), ptr blockaddress(@vm_exec_core, %4341), ptr blockaddress(@vm_exec_core, %4342), ptr blockaddress(@vm_exec_core, %4343), ptr blockaddress(@vm_exec_core, %4344), ptr blockaddress(@vm_exec_core, %4345), ptr blockaddress(@vm_exec_core, %4346), ptr blockaddress(@vm_exec_core, %4347), ptr blockaddress(@vm_exec_core, %4348), ptr blockaddress(@vm_exec_core, %4349), ptr blockaddress(@vm_exec_core, %4350), ptr blockaddress(@vm_exec_core, %4351), ptr blockaddress(@vm_exec_core, %4352), ptr blockaddress(@vm_exec_core, %4353), ptr blockaddress(@vm_exec_core, %4354), ptr blockaddress(@vm_exec_core, %4355), ptr blockaddress(@vm_exec_core, %4356), ptr blockaddress(@vm_exec_core, %4357), ptr blockaddress(@vm_exec_core, %4358), ptr blockaddress(@vm_exec_core, %4359), ptr blockaddress(@vm_exec_core, %4360), ptr blockaddress(@vm_exec_core, %4361), ptr blockaddress(@vm_exec_core, %4362), ptr blockaddress(@vm_exec_core, %4363), ptr blockaddress(@vm_exec_core, %4364), ptr blockaddress(@vm_exec_core, %4365), ptr blockaddress(@vm_exec_core, %4366), ptr blockaddress(@vm_exec_core, %4367), ptr blockaddress(@vm_exec_core, %4368), ptr blockaddress(@vm_exec_core, %4369), ptr blockaddress(@vm_exec_core, %4370), ptr blockaddress(@vm_exec_core, %4371), ptr blockaddress(@vm_exec_core, %4372), ptr blockaddress(@vm_exec_core, %4373), ptr blockaddress(@vm_exec_core, %4374), ptr blockaddress(@vm_exec_core, %4375), ptr blockaddress(@vm_exec_core, %4376), ptr blockaddress(@vm_exec_core, %4377), ptr blockaddress(@vm_exec_core, %4378), ptr blockaddress(@vm_exec_core, %4379), ptr blockaddress(@vm_exec_core, %4380), ptr blockaddress(@vm_exec_core, %4381), ptr blockaddress(@vm_exec_core, %4382), ptr blockaddress(@vm_exec_core, %4383), ptr blockaddress(@vm_exec_core, %4384), ptr blockaddress(@vm_exec_core, %4385), ptr blockaddress(@vm_exec_core, %4386), ptr blockaddress(@vm_exec_core, %4387), ptr blockaddress(@vm_exec_core, %4388), ptr blockaddress(@vm_exec_core, %4389), ptr blockaddress(@vm_exec_core, %4390), ptr blockaddress(@vm_exec_core, %4391), ptr blockaddress(@vm_exec_core, %4392), ptr blockaddress(@vm_exec_core, %4393), ptr blockaddress(@vm_exec_core, %4394), ptr blockaddress(@vm_exec_core, %4395), ptr blockaddress(@vm_exec_core, %4396), ptr blockaddress(@vm_exec_core, %4397), ptr blockaddress(@vm_exec_core, %4398), ptr blockaddress(@vm_exec_core, %4399), ptr blockaddress(@vm_exec_core, %4400), ptr blockaddress(@vm_exec_core, %4401), ptr blockaddress(@vm_exec_core, %4402), ptr blockaddress(@vm_exec_core, %4403), ptr blockaddress(@vm_exec_core, %4404), ptr blockaddress(@vm_exec_core, %4405), ptr blockaddress(@vm_exec_core, %4406), ptr blockaddress(@vm_exec_core, %4407), ptr blockaddress(@vm_exec_core, %4408), ptr blockaddress(@vm_exec_core, %4410), ptr blockaddress(@vm_exec_core, %4411), ptr blockaddress(@vm_exec_core, %4412), ptr blockaddress(@vm_exec_core, %4413), ptr blockaddress(@vm_exec_core, %4414), ptr blockaddress(@vm_exec_core, %4415), ptr blockaddress(@vm_exec_core, %4416), ptr blockaddress(@vm_exec_core, %4417), ptr blockaddress(@vm_exec_core, %4418), ptr blockaddress(@vm_exec_core, %4419), ptr blockaddress(@vm_exec_core, %4420), ptr blockaddress(@vm_exec_core, %4421), ptr blockaddress(@vm_exec_core, %4422), ptr blockaddress(@vm_exec_core, %4423), ptr blockaddress(@vm_exec_core, %4424), ptr blockaddress(@vm_exec_core, %4425), ptr blockaddress(@vm_exec_core, %4426), ptr blockaddress(@vm_exec_core, %4427), ptr blockaddress(@vm_exec_core, %4428), ptr blockaddress(@vm_exec_core, %4429), ptr blockaddress(@vm_exec_core, %4430), ptr blockaddress(@vm_exec_core, %4431), ptr blockaddress(@vm_exec_core, %4432), ptr blockaddress(@vm_exec_core, %4433), ptr blockaddress(@vm_exec_core, %4434), ptr blockaddress(@vm_exec_core, %4435)], align 16
 @ruby_hash__create_semaphore = external global i16, section ".probes", align 2
 @.str.181 = private unnamed_addr constant [61 x i8] c"not defined at the refinement, but at the outer class/module\00", align 1
 @.str.182 = private unnamed_addr constant [45 x i8] c"putspecialobject insn: unknown value_type %d\00", align 1
@@ -923,8 +923,8 @@ define hidden i64 @rb_vm_bh_to_procval(ptr noundef readnone captures(none) %0, i
 RB_SYMBOL_P.exit.i:                               ; preds = %9
   %11 = inttoptr i64 %1 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !97
-  %.fr10.i = freeze i64 %12
-  %13 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %12
+  %13 = and i64 %.fr.i, 31
   %14 = icmp eq i64 %13, 20
   br i1 %14, label %vm_block_handler_type.exit, label %20
 
@@ -3103,8 +3103,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2
 rbimpl_RB_TYPE_P_fastpath.exit22:                 ; preds = %10
   %17 = inttoptr i64 %12 to ptr
   %18 = load i64, ptr %17, align 8, !tbaa !97
-  %.fr33 = freeze i64 %18
-  %19 = and i64 %.fr33, 31
+  %.fr = freeze i64 %18
+  %19 = and i64 %.fr, 31
   %20 = icmp eq i64 %19, 2
   %spec.select = select i1 %20, i64 %12, i64 %0
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -3112,17 +3112,17 @@ rbimpl_RB_TYPE_P_fastpath.exit22:                 ; preds = %10
 rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit22, %10, %2, %rbimpl_RB_TYPE_P_fastpath.exit
   %.017 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %0, %2 ], [ %0, %10 ], [ %spec.select, %rbimpl_RB_TYPE_P_fastpath.exit22 ]
   %21 = and i64 %.017, -5
-  %.not3436 = icmp eq i64 %21, 0
-  br i1 %.not3436, label %.thread, label %.lr.ph
+  %.not3335 = icmp eq i64 %21, 0
+  br i1 %.not3335, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread, %31
-  %.11837 = phi i64 [ %34, %31 ], [ %.017, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
-  %22 = and i64 %.11837, 7
-  %.not35 = icmp eq i64 %22, 0
-  br i1 %.not35, label %rbimpl_RB_TYPE_P_fastpath.exit24, label %rbimpl_RB_TYPE_P_fastpath.exit24.thread
+  %.11836 = phi i64 [ %34, %31 ], [ %.017, %rbimpl_RB_TYPE_P_fastpath.exit.thread ]
+  %22 = and i64 %.11836, 7
+  %.not34 = icmp eq i64 %22, 0
+  br i1 %.not34, label %rbimpl_RB_TYPE_P_fastpath.exit24, label %rbimpl_RB_TYPE_P_fastpath.exit24.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit24:                 ; preds = %.lr.ph
-  %23 = inttoptr i64 %.11837 to ptr
+  %23 = inttoptr i64 %.11836 to ptr
   %24 = load i64, ptr %23, align 8, !tbaa !97
   %25 = and i64 %24, 31
   %26 = icmp eq i64 %25, 28
@@ -3134,20 +3134,20 @@ rbimpl_RB_TYPE_P_fastpath.exit24:                 ; preds = %.lr.ph
   br label %rbimpl_RB_TYPE_P_fastpath.exit24.thread
 
 rbimpl_RB_TYPE_P_fastpath.exit24.thread:          ; preds = %.lr.ph, %rbimpl_RB_TYPE_P_fastpath.exit24, %27
-  %30 = phi i64 [ %29, %27 ], [ %.11837, %rbimpl_RB_TYPE_P_fastpath.exit24 ], [ %.11837, %.lr.ph ]
+  %30 = phi i64 [ %29, %27 ], [ %.11836, %rbimpl_RB_TYPE_P_fastpath.exit24 ], [ %.11836, %.lr.ph ]
   %.not20 = icmp eq i64 %30, %1
   br i1 %.not20, label %.thread, label %31
 
 31:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit24.thread
-  %32 = inttoptr i64 %.11837 to ptr
+  %32 = inttoptr i64 %.11836 to ptr
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !184
   %35 = and i64 %34, -5
-  %.not34 = icmp eq i64 %35, 0
-  br i1 %.not34, label %.thread, label %.lr.ph
+  %.not33 = icmp eq i64 %35, 0
+  br i1 %.not33, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %31, %rbimpl_RB_TYPE_P_fastpath.exit24.thread, %rbimpl_RB_TYPE_P_fastpath.exit.thread
-  %.2 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %.11837, %rbimpl_RB_TYPE_P_fastpath.exit24.thread ], [ %0, %31 ]
+  %.2 = phi i64 [ %0, %rbimpl_RB_TYPE_P_fastpath.exit.thread ], [ %.11836, %rbimpl_RB_TYPE_P_fastpath.exit24.thread ], [ %0, %31 ]
   ret i64 %.2
 }
 
@@ -3198,8 +3198,8 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %9
 rbimpl_RB_TYPE_P_fastpath.exit22.i:               ; preds = %21
   %28 = inttoptr i64 %23 to ptr
   %29 = load i64, ptr %28, align 8, !tbaa !97
-  %.fr33.i = freeze i64 %29
-  %30 = and i64 %.fr33.i, 31
+  %.fr.i = freeze i64 %29
+  %30 = and i64 %.fr.i, 31
   %31 = icmp eq i64 %30, 2
   %spec.select.i = select i1 %31, i64 %23, i64 %11
   br label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
@@ -3207,17 +3207,17 @@ rbimpl_RB_TYPE_P_fastpath.exit22.i:               ; preds = %21
 rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fastpath.exit22.i, %21, %rbimpl_RB_TYPE_P_fastpath.exit.i, %9
   %.017.i = phi i64 [ %11, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %11, %9 ], [ %11, %21 ], [ %spec.select.i, %rbimpl_RB_TYPE_P_fastpath.exit22.i ]
   %32 = and i64 %.017.i, -5
-  %.not3436.i = icmp eq i64 %32, 0
-  br i1 %.not3436.i, label %rb_find_defined_class_by_owner.exit, label %.lr.ph.i
+  %.not3335.i = icmp eq i64 %32, 0
+  br i1 %.not3335.i, label %rb_find_defined_class_by_owner.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.thread.i, %42
-  %.11837.i = phi i64 [ %45, %42 ], [ %.017.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
-  %33 = and i64 %.11837.i, 7
-  %.not35.i = icmp eq i64 %33, 0
-  br i1 %.not35.i, label %rbimpl_RB_TYPE_P_fastpath.exit24.i, label %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i
+  %.11836.i = phi i64 [ %45, %42 ], [ %.017.i, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ]
+  %33 = and i64 %.11836.i, 7
+  %.not34.i = icmp eq i64 %33, 0
+  br i1 %.not34.i, label %rbimpl_RB_TYPE_P_fastpath.exit24.i, label %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit24.i:               ; preds = %.lr.ph.i
-  %34 = inttoptr i64 %.11837.i to ptr
+  %34 = inttoptr i64 %.11836.i to ptr
   %35 = load i64, ptr %34, align 8, !tbaa !97
   %36 = and i64 %35, 31
   %37 = icmp eq i64 %36, 28
@@ -3229,20 +3229,20 @@ rbimpl_RB_TYPE_P_fastpath.exit24.i:               ; preds = %.lr.ph.i
   br label %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i
 
 rbimpl_RB_TYPE_P_fastpath.exit24.thread.i:        ; preds = %38, %rbimpl_RB_TYPE_P_fastpath.exit24.i, %.lr.ph.i
-  %41 = phi i64 [ %40, %38 ], [ %.11837.i, %rbimpl_RB_TYPE_P_fastpath.exit24.i ], [ %.11837.i, %.lr.ph.i ]
+  %41 = phi i64 [ %40, %38 ], [ %.11836.i, %rbimpl_RB_TYPE_P_fastpath.exit24.i ], [ %.11836.i, %.lr.ph.i ]
   %.not20.i = icmp eq i64 %41, %13
   br i1 %.not20.i, label %rb_find_defined_class_by_owner.exit, label %42
 
 42:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i
-  %43 = inttoptr i64 %.11837.i to ptr
+  %43 = inttoptr i64 %.11836.i to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !184
   %46 = and i64 %45, -5
-  %.not34.i = icmp eq i64 %46, 0
-  br i1 %.not34.i, label %rb_find_defined_class_by_owner.exit, label %.lr.ph.i
+  %.not33.i = icmp eq i64 %46, 0
+  br i1 %.not33.i, label %rb_find_defined_class_by_owner.exit, label %.lr.ph.i
 
 rb_find_defined_class_by_owner.exit:              ; preds = %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i, %42, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i
-  %.2.i = phi i64 [ %11, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %11, %42 ], [ %.11837.i, %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i ]
+  %.2.i = phi i64 [ %11, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i ], [ %11, %42 ], [ %.11836.i, %rbimpl_RB_TYPE_P_fastpath.exit24.thread.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i64, ptr %47, align 8, !tbaa !189
   %49 = tail call ptr @rb_method_entry_complement_defined_class(ptr noundef %5, i64 noundef %48, i64 noundef %.2.i)
@@ -3418,8 +3418,8 @@ define internal fastcc i64 @vm_yield_with_cfunc(ptr noundef captures(none) %0, p
 RB_SYMBOL_P.exit.i.i:                             ; preds = %21
   %23 = inttoptr i64 %6 to ptr
   %24 = load i64, ptr %23, align 8, !tbaa !97
-  %.fr10.i.i = freeze i64 %24
-  %25 = and i64 %.fr10.i.i, 31
+  %.fr.i.i = freeze i64 %24
+  %25 = and i64 %.fr.i.i, 31
   %26 = icmp eq i64 %25, 20
   br i1 %26, label %vm_block_handler_type.exit.i, label %rb_vm_bh_to_procval.exit
 
@@ -5589,8 +5589,8 @@ vm_block_handler_type.exit.thread8.i.i:           ; preds = %348
 RB_SYMBOL_P.exit.i.i.i:                           ; preds = %353
   %355 = inttoptr i64 %.val2.i.i to ptr
   %356 = load i64, ptr %355, align 8, !tbaa !97
-  %.fr10.i.i.i = freeze i64 %356
-  %357 = and i64 %.fr10.i.i.i, 31
+  %.fr.i.i.i = freeze i64 %356
+  %357 = and i64 %.fr.i.i.i, 31
   %358 = icmp eq i64 %357, 20
   br i1 %358, label %vm_block_handler_type.exit.i.i, label %vm_invokeblock_i.exit
 
@@ -6618,8 +6618,8 @@ vm_block_handler_type.exit.thread8.i.i.i:         ; preds = %55
 RB_SYMBOL_P.exit.i.i.i.i:                         ; preds = %60
   %62 = inttoptr i64 %.val2.i.i.i to ptr
   %63 = load i64, ptr %62, align 8, !tbaa !97
-  %.fr10.i.i.i.i = freeze i64 %63
-  %64 = and i64 %.fr10.i.i.i.i, 31
+  %.fr.i.i.i.i = freeze i64 %63
+  %64 = and i64 %.fr.i.i.i.i, 31
   %65 = icmp eq i64 %64, 20
   br i1 %65, label %vm_block_handler_type.exit.i.i.i, label %vm_sendish.exit
 
@@ -7685,7 +7685,7 @@ define internal fastcc i64 @vm_exec_core(ptr noundef %0) unnamed_addr #2 {
   %31 = alloca %struct.rb_forwarding_call_data, align 8
   %32 = alloca %struct.rb_callinfo, align 8
   %33 = icmp eq ptr %0, null
-  br i1 %33, label %.loopexit2880, label %34, !prof !176
+  br i1 %33, label %.loopexit2881, label %34, !prof !176
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7808,11 +7808,11 @@ vm_get_ep.exit2321:                               ; preds = %.lr.ph.i2316, %90
 
 115:                                              ; preds = %vm_get_ep.exit2321
   call fastcc void @vm_env_write_slowpath(ptr noundef nonnull %.0.lcssa.i2320, i32 noundef %108, i64 noundef %98)
-  %.pre3137 = load ptr, ptr %95, align 8, !tbaa !93
+  %.pre3138 = load ptr, ptr %95, align 8, !tbaa !93
   br label %vm_env_write.exit
 
 vm_env_write.exit:                                ; preds = %112, %115
-  %116 = phi ptr [ %96, %112 ], [ %.pre3137, %115 ]
+  %116 = phi ptr [ %96, %112 ], [ %.pre3138, %115 ]
   %117 = getelementptr i8, ptr %116, i64 -8
   store ptr %117, ptr %95, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -7873,8 +7873,8 @@ vm_get_ep.exit2328:                               ; preds = %.lr.ph.i2323, %118
 RB_SYMBOL_P.exit.i.i:                             ; preds = %140
   %142 = inttoptr i64 %.val2303 to ptr
   %143 = load i64, ptr %142, align 8, !tbaa !97
-  %.fr10.i.i = freeze i64 %143
-  %144 = and i64 %.fr10.i.i, 31
+  %.fr.i.i = freeze i64 %143
+  %144 = and i64 %.fr.i.i, 31
   %145 = icmp eq i64 %144, 20
   br i1 %145, label %vm_block_handler_type.exit.i, label %rb_vm_bh_to_procval.exit
 
@@ -7973,11 +7973,11 @@ vm_get_ep.exit2338:                               ; preds = %.lr.ph.i2333, %170
 
 195:                                              ; preds = %vm_get_ep.exit2338
   call fastcc void @vm_env_write_slowpath(ptr noundef nonnull %.0.lcssa.i2337, i32 noundef %188, i64 noundef %178)
-  %.pre3136 = load ptr, ptr %175, align 8, !tbaa !93
+  %.pre3137 = load ptr, ptr %175, align 8, !tbaa !93
   br label %vm_env_write.exit2339
 
 vm_env_write.exit2339:                            ; preds = %192, %195
-  %196 = phi ptr [ %176, %192 ], [ %.pre3136, %195 ]
+  %196 = phi ptr [ %176, %192 ], [ %.pre3137, %195 ]
   %197 = load i64, ptr %.0.lcssa.i2337, align 8, !tbaa !7
   %198 = or i64 %197, 512
   store i64 %198, ptr %.0.lcssa.i2337, align 8, !tbaa !7
@@ -8035,14 +8035,14 @@ vm_get_ep.exit2346:                               ; preds = %.lr.ph.i2341, %200
 
 221:                                              ; preds = %218
   %222 = and i64 %.val2304, 7
-  %.not2879 = icmp eq i64 %222, 0
-  br i1 %.not2879, label %RB_SYMBOL_P.exit.i, label %229
+  %.not2880 = icmp eq i64 %222, 0
+  br i1 %.not2880, label %RB_SYMBOL_P.exit.i, label %229
 
 RB_SYMBOL_P.exit.i:                               ; preds = %221
   %223 = inttoptr i64 %.val2304 to ptr
   %224 = load i64, ptr %223, align 8, !tbaa !97
-  %.fr10.i = freeze i64 %224
-  %225 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %224
+  %225 = and i64 %.fr.i, 31
   %226 = icmp eq i64 %225, 20
   br i1 %226, label %vm_block_handler_type.exit, label %229
 
@@ -8052,11 +8052,11 @@ RB_SYMBOL_P.exit.thread7.fold.split.i:            ; preds = %216, %216
 
 vm_block_handler_type.exit:                       ; preds = %RB_SYMBOL_P.exit.i, %218
   %228 = call i64 @rb_sym_to_proc(i64 noundef %.val2304) #20
-  %.pre3135 = load i64, ptr %.0.lcssa.i2345, align 8, !tbaa !7
+  %.pre3136 = load i64, ptr %.0.lcssa.i2345, align 8, !tbaa !7
   br label %229
 
 229:                                              ; preds = %221, %RB_SYMBOL_P.exit.i, %214, %vm_block_handler_type.exit
-  %230 = phi i64 [ %.pre3135, %vm_block_handler_type.exit ], [ %.val2302, %214 ], [ %.val2302, %RB_SYMBOL_P.exit.i ], [ %.val2302, %221 ]
+  %230 = phi i64 [ %.pre3136, %vm_block_handler_type.exit ], [ %.val2302, %214 ], [ %.val2302, %RB_SYMBOL_P.exit.i ], [ %.val2302, %221 ]
   %.02232 = phi i64 [ %228, %vm_block_handler_type.exit ], [ 4, %214 ], [ %.val2304, %RB_SYMBOL_P.exit.i ], [ %.val2304, %221 ]
   %231 = trunc i64 %202 to i32
   %232 = sub i32 0, %231
@@ -9003,11 +9003,11 @@ RHASH_EMPTY_P.exit:                               ; preds = %728, %731
 
 737:                                              ; preds = %RHASH_EMPTY_P.exit
   %738 = call i64 @rb_ary_push(i64 noundef %722, i64 noundef %723) #20
-  %.pre3134 = load ptr, ptr %718, align 8, !tbaa !93
+  %.pre3135 = load ptr, ptr %718, align 8, !tbaa !93
   br label %739
 
 739:                                              ; preds = %737, %RHASH_EMPTY_P.exit
-  %740 = phi ptr [ %.pre3134, %737 ], [ %719, %RHASH_EMPTY_P.exit ]
+  %740 = phi ptr [ %.pre3135, %737 ], [ %719, %RHASH_EMPTY_P.exit ]
   %741 = getelementptr i8, ptr %740, i64 -8
   store ptr %741, ptr %718, align 8, !tbaa !93
   %742 = getelementptr i8, ptr %740, i64 -16
@@ -9498,11 +9498,11 @@ vm_splat_array.exit:                              ; preds = %956, %958, %960
 
 973:                                              ; preds = %964
   %974 = call i64 @rb_to_hash_type(i64 noundef %969) #20
-  %.pre3133 = load ptr, ptr %965, align 8, !tbaa !93
+  %.pre3134 = load ptr, ptr %965, align 8, !tbaa !93
   br label %975
 
 975:                                              ; preds = %964, %973
-  %976 = phi ptr [ %.pre3133, %973 ], [ %966, %964 ]
+  %976 = phi ptr [ %.pre3134, %973 ], [ %966, %964 ]
   %.02234 = phi i64 [ %974, %973 ], [ 4, %964 ]
   %977 = getelementptr i8, ptr %976, i64 -8
   store i64 %970, ptr %977, align 8, !tbaa !7
@@ -9623,11 +9623,11 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %1028
 1038:                                             ; preds = %rbimpl_size_mul_or_raise.exit
   %1039 = shl nuw i64 %1030, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %1033, ptr noundef nonnull readonly align 1 %1035, i64 noundef %1039, i1 noundef false) #20
-  %.pre3132 = load ptr, ptr %1032, align 8, !tbaa !93
+  %.pre3133 = load ptr, ptr %1032, align 8, !tbaa !93
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_raise.exit, %1038
-  %1040 = phi ptr [ %1033, %rbimpl_size_mul_or_raise.exit ], [ %.pre3132, %1038 ]
+  %1040 = phi ptr [ %1033, %rbimpl_size_mul_or_raise.exit ], [ %.pre3133, %1038 ]
   %1041 = getelementptr i64, ptr %1040, i64 %1030
   store ptr %1041, ptr %1032, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -9655,27 +9655,27 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %1056 = sub i64 0, %1052
   %1057 = getelementptr i64, ptr %1055, i64 %1056
   %1058 = lshr i64 %1052, 1
-  %.not2997 = icmp ult i64 %1052, 2
-  br i1 %.not2997, label %.backedge.backedge, label %.lr.ph2996
+  %.not2998 = icmp ult i64 %1052, 2
+  br i1 %.not2998, label %.backedge.backedge, label %.lr.ph2997
 
-.backedge.backedge:                               ; preds = %.lr.ph2996, %1050, %69, %vm_get_ep.exit, %vm_env_write.exit, %166, %vm_env_write.exit2339, %245, %vm_getspecial.exit, %VM_EP_LEP.exit2362, %vm_getinstancevariable.exit, %416, %vm_getclassvariable.exit, %vm_setclassvariable.exit, %512, %521, %vm_ensure_not_refinement_module.exit2379, %566, %574, %585, %590, %597, %vm_get_special_object.exit, %636, %644, %652, %665, %677, %695, %704, %739, %760, %785, %vm_expandarray.exit, %vm_concat_array.exit, %vm_concat_to_array.exit, %932, %vm_splat_array.exit, %975, %996, %1001, %1016, %1021, %ruby_nonempty_memcpy.exit, %1042, %1066, %1077, %1088, %1096, %1202, %vm_check_match.exit, %vm_check_keyword.exit, %rb_type.exit, %vm_push_frame.exit, %1454, %1460, %.thread, %.thread2792, %1708, %1711, %.thread2798, %.thread2800, %1945, %1976, %2011, %2029, %2080, %2097, %2109, %vm_opt_newarray_hash.exit, %.thread2808, %.thread2810, %2330, %2333, %.thread2816, %.thread2818, %2494, %rb_vm_check_ints.exit, %2532, %2550, %2568, %vm_once_dispatch.exit, %vm_case_dispatch.exit.thread, %vm_opt_plus.exit.thread2825, %vm_opt_minus.exit.thread2830, %vm_opt_mult.exit.thread2835, %3156, %vm_opt_mod.exit.thread2844, %3304, %vm_opt_neq.exit, %vm_opt_lt.exit, %vm_opt_le.exit, %vm_opt_gt.exit, %vm_opt_ge.exit, %3746, %3763, %3780, %vm_opt_aref.exit.thread2858, %3890, %3923, %3964, %3976, %3988, %3999, %vm_opt_succ.exit.thread2865, %vm_opt_not.exit, %4136, %4140, %vm_invoke_builtin_delegate.exit, %4238, %4243, %.lr.ph.i2736, %vm_env_write.exit2745, %vm_env_write.exit2753, %4315, %4320
-  %.02230.be = phi ptr [ %.02230, %69 ], [ %.02230, %vm_get_ep.exit ], [ %.02230, %vm_env_write.exit ], [ %.02230, %166 ], [ %.02230, %vm_env_write.exit2339 ], [ %.02230, %245 ], [ %.02230, %vm_getspecial.exit ], [ %.02230, %VM_EP_LEP.exit2362 ], [ %.02230, %vm_getinstancevariable.exit ], [ %.02230, %416 ], [ %.02230, %vm_getclassvariable.exit ], [ %.02230, %vm_setclassvariable.exit ], [ %.02230, %512 ], [ %.02230, %521 ], [ %.02230, %vm_ensure_not_refinement_module.exit2379 ], [ %.02230, %566 ], [ %.02230, %574 ], [ %.02230, %585 ], [ %.02230, %590 ], [ %.02230, %597 ], [ %.02230, %vm_get_special_object.exit ], [ %.02230, %636 ], [ %.02230, %644 ], [ %.02230, %652 ], [ %.02230, %665 ], [ %.02230, %677 ], [ %.02230, %695 ], [ %.02230, %704 ], [ %.02230, %739 ], [ %.02230, %760 ], [ %.02230, %785 ], [ %.02230, %vm_expandarray.exit ], [ %.02230, %vm_concat_array.exit ], [ %.02230, %vm_concat_to_array.exit ], [ %.02230, %932 ], [ %.02230, %vm_splat_array.exit ], [ %.02230, %975 ], [ %.02230, %996 ], [ %.02230, %1001 ], [ %.02230, %1016 ], [ %.02230, %1021 ], [ %.02230, %ruby_nonempty_memcpy.exit ], [ %.02230, %1042 ], [ %.02230, %1066 ], [ %.02230, %1077 ], [ %.02230, %1088 ], [ %.02230, %1096 ], [ %.02230, %1202 ], [ %.02230, %vm_check_match.exit ], [ %.02230, %vm_check_keyword.exit ], [ %.02230, %rb_type.exit ], [ %1441, %vm_push_frame.exit ], [ %.02230, %1454 ], [ %.02230, %1460 ], [ %1581, %.thread ], [ %.02230, %.thread2792 ], [ %1709, %1708 ], [ %.02230, %1711 ], [ %1827, %.thread2798 ], [ %.02230, %.thread2800 ], [ %.02230, %1945 ], [ %.02230, %1976 ], [ %.02230, %2011 ], [ %.02230, %2029 ], [ %.02230, %2080 ], [ %.02230, %2097 ], [ %.02230, %2109 ], [ %.02230, %vm_opt_newarray_hash.exit ], [ %2257, %.thread2808 ], [ %.02230, %.thread2810 ], [ %2331, %2330 ], [ %.02230, %2333 ], [ %2433, %.thread2816 ], [ %.02230, %.thread2818 ], [ %2492, %2494 ], [ %.02230, %rb_vm_check_ints.exit ], [ %.02230, %2532 ], [ %.02230, %2550 ], [ %.02230, %2568 ], [ %.02230, %vm_once_dispatch.exit ], [ %.02230, %vm_case_dispatch.exit.thread ], [ %.02230, %vm_opt_plus.exit.thread2825 ], [ %.02230, %vm_opt_minus.exit.thread2830 ], [ %.02230, %vm_opt_mult.exit.thread2835 ], [ %.02230, %3156 ], [ %.02230, %vm_opt_mod.exit.thread2844 ], [ %.02230, %3304 ], [ %.02230, %vm_opt_neq.exit ], [ %.02230, %vm_opt_lt.exit ], [ %.02230, %vm_opt_le.exit ], [ %.02230, %vm_opt_gt.exit ], [ %.02230, %vm_opt_ge.exit ], [ %.02230, %3746 ], [ %.02230, %3763 ], [ %.02230, %3780 ], [ %.02230, %vm_opt_aref.exit.thread2858 ], [ %.02230, %3890 ], [ %.02230, %3923 ], [ %.02230, %3964 ], [ %.02230, %3976 ], [ %.02230, %3988 ], [ %.02230, %3999 ], [ %.02230, %vm_opt_succ.exit.thread2865 ], [ %.02230, %vm_opt_not.exit ], [ %.02230, %4136 ], [ %.02230, %4140 ], [ %.02230, %vm_invoke_builtin_delegate.exit ], [ %4236, %4238 ], [ %.02230, %4243 ], [ %.02230, %.lr.ph.i2736 ], [ %.02230, %vm_env_write.exit2745 ], [ %.02230, %vm_env_write.exit2753 ], [ %.02230, %4315 ], [ %.02230, %4320 ], [ %.02230, %1050 ], [ %.02230, %.lr.ph2996 ]
-  %.02229.be = phi ptr [ %70, %69 ], [ %76, %vm_get_ep.exit ], [ %99, %vm_env_write.exit ], [ %123, %166 ], [ %179, %vm_env_write.exit2339 ], [ %205, %245 ], [ %254, %vm_getspecial.exit ], [ %315, %VM_EP_LEP.exit2362 ], [ %331, %vm_getinstancevariable.exit ], [ %426, %416 ], [ %437, %vm_getclassvariable.exit ], [ %475, %vm_setclassvariable.exit ], [ %516, %512 ], [ %530, %521 ], [ %545, %vm_ensure_not_refinement_module.exit2379 ], [ %569, %566 ], [ %581, %574 ], [ %586, %585 ], [ %591, %590 ], [ %600, %597 ], [ %607, %vm_get_special_object.exit ], [ %639, %636 ], [ %647, %644 ], [ %655, %652 ], [ %672, %665 ], [ %682, %677 ], [ %700, %695 ], [ %707, %704 ], [ %724, %739 ], [ %746, %760 ], [ %768, %785 ], [ %799, %vm_expandarray.exit ], [ %896, %vm_concat_array.exit ], [ %922, %vm_concat_to_array.exit ], [ %935, %932 ], [ %953, %vm_splat_array.exit ], [ %971, %975 ], [ %982, %996 ], [ %1010, %1001 ], [ %1018, %1016 ], [ %1026, %1021 ], [ %1031, %ruby_nonempty_memcpy.exit ], [ %1049, %1042 ], [ %1069, %1066 ], [ %1084, %1077 ], [ %1091, %1088 ], [ %1107, %1096 ], [ %1119, %1202 ], [ %1216, %vm_check_match.exit ], [ %1254, %vm_check_keyword.exit ], [ %1283, %rb_type.exit ], [ %1453, %vm_push_frame.exit ], [ %1459, %1454 ], [ %1469, %1460 ], [ %1582, %.thread ], [ %1477, %.thread2792 ], [ %1710, %1708 ], [ %1592, %1711 ], [ %1828, %.thread2798 ], [ %1717, %.thread2800 ], [ %1839, %1945 ], [ %1951, %1976 ], [ %1983, %2011 ], [ %2018, %2029 ], [ %2041, %2080 ], [ %2086, %2097 ], [ %2108, %2109 ], [ %2125, %vm_opt_newarray_hash.exit ], [ %2258, %.thread2808 ], [ %2209, %.thread2810 ], [ %2332, %2330 ], [ %2268, %2333 ], [ %2434, %.thread2816 ], [ %2340, %.thread2818 ], [ %2495, %2494 ], [ %2516, %rb_vm_check_ints.exit ], [ %.2, %2532 ], [ %.3, %2550 ], [ %.4, %2568 ], [ %2578, %vm_once_dispatch.exit ], [ %.5, %vm_case_dispatch.exit.thread ], [ %2691, %vm_opt_plus.exit.thread2825 ], [ %2841, %vm_opt_minus.exit.thread2830 ], [ %2963, %vm_opt_mult.exit.thread2835 ], [ %3089, %3156 ], [ %3167, %vm_opt_mod.exit.thread2844 ], [ %3299, %3304 ], [ %3321, %vm_opt_neq.exit ], [ %3370, %vm_opt_lt.exit ], [ %3454, %vm_opt_le.exit ], [ %3539, %vm_opt_gt.exit ], [ %3623, %vm_opt_ge.exit ], [ %3709, %3746 ], [ %3757, %3763 ], [ %3771, %3780 ], [ %3788, %vm_opt_aref.exit.thread2858 ], [ %3861, %3890 ], [ %3903, %3923 ], [ %3938, %3964 ], [ %3972, %3976 ], [ %3984, %3988 ], [ %3996, %3999 ], [ %4007, %vm_opt_succ.exit.thread2865 ], [ %4046, %vm_opt_not.exit ], [ %4091, %4136 ], [ %4144, %4140 ], [ %4167, %vm_invoke_builtin_delegate.exit ], [ %4239, %4238 ], [ %4246, %4243 ], [ %4257, %.lr.ph.i2736 ], [ %4277, %vm_env_write.exit2745 ], [ %4297, %vm_env_write.exit2753 ], [ %4316, %4315 ], [ %4321, %4320 ], [ %1053, %1050 ], [ %1053, %.lr.ph2996 ]
+.backedge.backedge:                               ; preds = %.lr.ph2997, %1050, %69, %vm_get_ep.exit, %vm_env_write.exit, %166, %vm_env_write.exit2339, %245, %vm_getspecial.exit, %VM_EP_LEP.exit2362, %vm_getinstancevariable.exit, %416, %vm_getclassvariable.exit, %vm_setclassvariable.exit, %512, %521, %vm_ensure_not_refinement_module.exit2379, %566, %574, %585, %590, %597, %vm_get_special_object.exit, %636, %644, %652, %665, %677, %695, %704, %739, %760, %785, %vm_expandarray.exit, %vm_concat_array.exit, %vm_concat_to_array.exit, %932, %vm_splat_array.exit, %975, %996, %1001, %1016, %1021, %ruby_nonempty_memcpy.exit, %1042, %1066, %1077, %1088, %1096, %1202, %vm_check_match.exit, %vm_check_keyword.exit, %rb_type.exit, %vm_push_frame.exit, %1454, %1460, %.thread, %.thread2793, %1708, %1711, %.thread2799, %.thread2801, %1945, %1976, %2011, %2029, %2080, %2097, %2109, %vm_opt_newarray_hash.exit, %.thread2809, %.thread2811, %2330, %2333, %.thread2817, %.thread2819, %2494, %rb_vm_check_ints.exit, %2532, %2550, %2568, %vm_once_dispatch.exit, %vm_case_dispatch.exit.thread, %vm_opt_plus.exit.thread2826, %vm_opt_minus.exit.thread2831, %vm_opt_mult.exit.thread2836, %3156, %vm_opt_mod.exit.thread2845, %3304, %vm_opt_neq.exit, %vm_opt_lt.exit, %vm_opt_le.exit, %vm_opt_gt.exit, %vm_opt_ge.exit, %3746, %3763, %3780, %vm_opt_aref.exit.thread2859, %3890, %3923, %3964, %3976, %3988, %3999, %vm_opt_succ.exit.thread2866, %vm_opt_not.exit, %4136, %4140, %vm_invoke_builtin_delegate.exit, %4238, %4243, %.lr.ph.i2737, %vm_env_write.exit2746, %vm_env_write.exit2754, %4315, %4320
+  %.02230.be = phi ptr [ %.02230, %69 ], [ %.02230, %vm_get_ep.exit ], [ %.02230, %vm_env_write.exit ], [ %.02230, %166 ], [ %.02230, %vm_env_write.exit2339 ], [ %.02230, %245 ], [ %.02230, %vm_getspecial.exit ], [ %.02230, %VM_EP_LEP.exit2362 ], [ %.02230, %vm_getinstancevariable.exit ], [ %.02230, %416 ], [ %.02230, %vm_getclassvariable.exit ], [ %.02230, %vm_setclassvariable.exit ], [ %.02230, %512 ], [ %.02230, %521 ], [ %.02230, %vm_ensure_not_refinement_module.exit2379 ], [ %.02230, %566 ], [ %.02230, %574 ], [ %.02230, %585 ], [ %.02230, %590 ], [ %.02230, %597 ], [ %.02230, %vm_get_special_object.exit ], [ %.02230, %636 ], [ %.02230, %644 ], [ %.02230, %652 ], [ %.02230, %665 ], [ %.02230, %677 ], [ %.02230, %695 ], [ %.02230, %704 ], [ %.02230, %739 ], [ %.02230, %760 ], [ %.02230, %785 ], [ %.02230, %vm_expandarray.exit ], [ %.02230, %vm_concat_array.exit ], [ %.02230, %vm_concat_to_array.exit ], [ %.02230, %932 ], [ %.02230, %vm_splat_array.exit ], [ %.02230, %975 ], [ %.02230, %996 ], [ %.02230, %1001 ], [ %.02230, %1016 ], [ %.02230, %1021 ], [ %.02230, %ruby_nonempty_memcpy.exit ], [ %.02230, %1042 ], [ %.02230, %1066 ], [ %.02230, %1077 ], [ %.02230, %1088 ], [ %.02230, %1096 ], [ %.02230, %1202 ], [ %.02230, %vm_check_match.exit ], [ %.02230, %vm_check_keyword.exit ], [ %.02230, %rb_type.exit ], [ %1441, %vm_push_frame.exit ], [ %.02230, %1454 ], [ %.02230, %1460 ], [ %1581, %.thread ], [ %.02230, %.thread2793 ], [ %1709, %1708 ], [ %.02230, %1711 ], [ %1827, %.thread2799 ], [ %.02230, %.thread2801 ], [ %.02230, %1945 ], [ %.02230, %1976 ], [ %.02230, %2011 ], [ %.02230, %2029 ], [ %.02230, %2080 ], [ %.02230, %2097 ], [ %.02230, %2109 ], [ %.02230, %vm_opt_newarray_hash.exit ], [ %2257, %.thread2809 ], [ %.02230, %.thread2811 ], [ %2331, %2330 ], [ %.02230, %2333 ], [ %2433, %.thread2817 ], [ %.02230, %.thread2819 ], [ %2492, %2494 ], [ %.02230, %rb_vm_check_ints.exit ], [ %.02230, %2532 ], [ %.02230, %2550 ], [ %.02230, %2568 ], [ %.02230, %vm_once_dispatch.exit ], [ %.02230, %vm_case_dispatch.exit.thread ], [ %.02230, %vm_opt_plus.exit.thread2826 ], [ %.02230, %vm_opt_minus.exit.thread2831 ], [ %.02230, %vm_opt_mult.exit.thread2836 ], [ %.02230, %3156 ], [ %.02230, %vm_opt_mod.exit.thread2845 ], [ %.02230, %3304 ], [ %.02230, %vm_opt_neq.exit ], [ %.02230, %vm_opt_lt.exit ], [ %.02230, %vm_opt_le.exit ], [ %.02230, %vm_opt_gt.exit ], [ %.02230, %vm_opt_ge.exit ], [ %.02230, %3746 ], [ %.02230, %3763 ], [ %.02230, %3780 ], [ %.02230, %vm_opt_aref.exit.thread2859 ], [ %.02230, %3890 ], [ %.02230, %3923 ], [ %.02230, %3964 ], [ %.02230, %3976 ], [ %.02230, %3988 ], [ %.02230, %3999 ], [ %.02230, %vm_opt_succ.exit.thread2866 ], [ %.02230, %vm_opt_not.exit ], [ %.02230, %4136 ], [ %.02230, %4140 ], [ %.02230, %vm_invoke_builtin_delegate.exit ], [ %4236, %4238 ], [ %.02230, %4243 ], [ %.02230, %.lr.ph.i2737 ], [ %.02230, %vm_env_write.exit2746 ], [ %.02230, %vm_env_write.exit2754 ], [ %.02230, %4315 ], [ %.02230, %4320 ], [ %.02230, %1050 ], [ %.02230, %.lr.ph2997 ]
+  %.02229.be = phi ptr [ %70, %69 ], [ %76, %vm_get_ep.exit ], [ %99, %vm_env_write.exit ], [ %123, %166 ], [ %179, %vm_env_write.exit2339 ], [ %205, %245 ], [ %254, %vm_getspecial.exit ], [ %315, %VM_EP_LEP.exit2362 ], [ %331, %vm_getinstancevariable.exit ], [ %426, %416 ], [ %437, %vm_getclassvariable.exit ], [ %475, %vm_setclassvariable.exit ], [ %516, %512 ], [ %530, %521 ], [ %545, %vm_ensure_not_refinement_module.exit2379 ], [ %569, %566 ], [ %581, %574 ], [ %586, %585 ], [ %591, %590 ], [ %600, %597 ], [ %607, %vm_get_special_object.exit ], [ %639, %636 ], [ %647, %644 ], [ %655, %652 ], [ %672, %665 ], [ %682, %677 ], [ %700, %695 ], [ %707, %704 ], [ %724, %739 ], [ %746, %760 ], [ %768, %785 ], [ %799, %vm_expandarray.exit ], [ %896, %vm_concat_array.exit ], [ %922, %vm_concat_to_array.exit ], [ %935, %932 ], [ %953, %vm_splat_array.exit ], [ %971, %975 ], [ %982, %996 ], [ %1010, %1001 ], [ %1018, %1016 ], [ %1026, %1021 ], [ %1031, %ruby_nonempty_memcpy.exit ], [ %1049, %1042 ], [ %1069, %1066 ], [ %1084, %1077 ], [ %1091, %1088 ], [ %1107, %1096 ], [ %1119, %1202 ], [ %1216, %vm_check_match.exit ], [ %1254, %vm_check_keyword.exit ], [ %1283, %rb_type.exit ], [ %1453, %vm_push_frame.exit ], [ %1459, %1454 ], [ %1469, %1460 ], [ %1582, %.thread ], [ %1477, %.thread2793 ], [ %1710, %1708 ], [ %1592, %1711 ], [ %1828, %.thread2799 ], [ %1717, %.thread2801 ], [ %1839, %1945 ], [ %1951, %1976 ], [ %1983, %2011 ], [ %2018, %2029 ], [ %2041, %2080 ], [ %2086, %2097 ], [ %2108, %2109 ], [ %2125, %vm_opt_newarray_hash.exit ], [ %2258, %.thread2809 ], [ %2209, %.thread2811 ], [ %2332, %2330 ], [ %2268, %2333 ], [ %2434, %.thread2817 ], [ %2340, %.thread2819 ], [ %2495, %2494 ], [ %2516, %rb_vm_check_ints.exit ], [ %.2, %2532 ], [ %.3, %2550 ], [ %.4, %2568 ], [ %2578, %vm_once_dispatch.exit ], [ %.5, %vm_case_dispatch.exit.thread ], [ %2691, %vm_opt_plus.exit.thread2826 ], [ %2841, %vm_opt_minus.exit.thread2831 ], [ %2963, %vm_opt_mult.exit.thread2836 ], [ %3089, %3156 ], [ %3167, %vm_opt_mod.exit.thread2845 ], [ %3299, %3304 ], [ %3321, %vm_opt_neq.exit ], [ %3370, %vm_opt_lt.exit ], [ %3454, %vm_opt_le.exit ], [ %3539, %vm_opt_gt.exit ], [ %3623, %vm_opt_ge.exit ], [ %3709, %3746 ], [ %3757, %3763 ], [ %3771, %3780 ], [ %3788, %vm_opt_aref.exit.thread2859 ], [ %3861, %3890 ], [ %3903, %3923 ], [ %3938, %3964 ], [ %3972, %3976 ], [ %3984, %3988 ], [ %3996, %3999 ], [ %4007, %vm_opt_succ.exit.thread2866 ], [ %4046, %vm_opt_not.exit ], [ %4091, %4136 ], [ %4144, %4140 ], [ %4167, %vm_invoke_builtin_delegate.exit ], [ %4239, %4238 ], [ %4246, %4243 ], [ %4257, %.lr.ph.i2737 ], [ %4277, %vm_env_write.exit2746 ], [ %4297, %vm_env_write.exit2754 ], [ %4316, %4315 ], [ %4321, %4320 ], [ %1053, %1050 ], [ %1053, %.lr.ph2997 ]
   br label %.backedge
 
-.lr.ph2996:                                       ; preds = %1050, %.lr.ph2996
-  %.022362995 = phi i64 [ %1065, %.lr.ph2996 ], [ 0, %1050 ]
-  %1059 = getelementptr i64, ptr %1057, i64 %.022362995
+.lr.ph2997:                                       ; preds = %1050, %.lr.ph2997
+  %.022362996 = phi i64 [ %1065, %.lr.ph2997 ], [ 0, %1050 ]
+  %1059 = getelementptr i64, ptr %1057, i64 %.022362996
   %1060 = load i64, ptr %1059, align 8, !tbaa !7
-  %1061 = sub nsw i64 0, %.022362995
+  %1061 = sub nsw i64 0, %.022362996
   %1062 = getelementptr i64, ptr %1055, i64 %1061
   %1063 = getelementptr i8, ptr %1062, i64 -8
   %1064 = load i64, ptr %1063, align 8, !tbaa !7
   store i64 %1064, ptr %1059, align 8, !tbaa !7
   store i64 %1060, ptr %1063, align 8, !tbaa !7
-  %1065 = add nuw nsw i64 %.022362995, 1
-  %exitcond3111.not = icmp eq i64 %1065, %1058
-  br i1 %exitcond3111.not, label %.backedge.backedge, label %.lr.ph2996, !llvm.loop !309
+  %1065 = add nuw nsw i64 %.022362996, 1
+  %exitcond3112.not = icmp eq i64 %1065, %1058
+  br i1 %exitcond3112.not, label %.backedge.backedge, label %.lr.ph2997, !llvm.loop !309
 
 1066:                                             ; preds = %.backedge, %4369
   %1067 = getelementptr i8, ptr %.02229, i64 8
@@ -9798,9 +9798,9 @@ rb_ractor_main_p.exit:                            ; preds = %1138
 1141:                                             ; preds = %rb_ractor_main_p.exit
   %1142 = call i64 @rb_ivar_defined(i64 noundef %1121, i64 noundef %1113) #20
   %.not56.i = icmp eq i64 %1142, 0
-  br i1 %.not56.i, label %.sink.split, label %vm_getivar.exit.thread2784
+  br i1 %.not56.i, label %.sink.split, label %vm_getivar.exit.thread2785
 
-vm_getivar.exit.thread2784:                       ; preds = %1141
+vm_getivar.exit.thread2785:                       ; preds = %1141
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -9902,24 +9902,24 @@ ROBJECT_IVPTR.exit:                               ; preds = %1136, %1133, %1147,
 1184:                                             ; preds = %1182
   %1185 = load i32, ptr %21, align 4, !tbaa !139
   %.not59.i = icmp eq i32 %1185, %1152
-  %.pre3131 = load i32, ptr %22, align 4, !tbaa !139
+  %.pre3132 = load i32, ptr %22, align 4, !tbaa !139
   br i1 %.not59.i, label %1192, label %1186
 
 1186:                                             ; preds = %1184
   %1187 = zext i32 %1185 to i64
   %1188 = shl nuw i64 %1187, 32
-  %1189 = add i32 %.pre3131, 1
+  %1189 = add i32 %.pre3132, 1
   %1190 = zext i32 %1189 to i64
   %1191 = or disjoint i64 %1188, %1190
   store i64 %1191, ptr %1116, align 8, !tbaa !7
   br label %1192
 
 1192:                                             ; preds = %1186, %1184
-  %1193 = icmp eq i32 %.pre3131, -1
+  %1193 = icmp eq i32 %.pre3132, -1
   br i1 %1193, label %.sink.split, label %1194
 
 1194:                                             ; preds = %1192
-  %1195 = zext i32 %.pre3131 to i64
+  %1195 = zext i32 %.pre3132 to i64
   %1196 = getelementptr i64, ptr %.050.i, i64 %1195
   br label %vm_getivar.exit
 
@@ -9929,8 +9929,8 @@ ROBJECT_IVPTR.exit:                               ; preds = %1136, %1133, %1147,
   br label %.sink.split
 
 vm_getivar.exit:                                  ; preds = %1180, %1158, %1194
-  %.in3437 = phi ptr [ %1160, %1158 ], [ %1196, %1194 ], [ %19, %1180 ]
-  %1199 = load i64, ptr %.in3437, align 8, !tbaa !7
+  %.in3438 = phi ptr [ %1160, %1158 ], [ %1196, %1194 ], [ %19, %1180 ]
+  %1199 = load i64, ptr %.in3438, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -9947,8 +9947,8 @@ vm_getivar.exit:                                  ; preds = %1180, %1158, %1194
 1201:                                             ; preds = %.sink.split, %vm_getivar.exit
   br label %1202
 
-1202:                                             ; preds = %vm_getivar.exit.thread2784, %vm_getivar.exit, %1201
-  %1203 = phi i64 [ 4, %1201 ], [ %1118, %vm_getivar.exit ], [ %1118, %vm_getivar.exit.thread2784 ]
+1202:                                             ; preds = %vm_getivar.exit.thread2785, %vm_getivar.exit, %1201
+  %1203 = phi i64 [ 4, %1201 ], [ %1118, %vm_getivar.exit ], [ %1118, %vm_getivar.exit.thread2785 ]
   %1204 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
   %1205 = load ptr, ptr %1204, align 8, !tbaa !93
   %1206 = getelementptr i8, ptr %1205, i64 8
@@ -9977,60 +9977,60 @@ vm_getivar.exit:                                  ; preds = %1180, %1158, %1194
   %1221 = inttoptr i64 %1215 to ptr
   %1222 = load i64, ptr %1221, align 8, !tbaa !97
   %1223 = and i64 %1222, 8192
-  %.not.i2756 = icmp eq i64 %1223, 0
-  br i1 %.not.i2756, label %1227, label %1224
+  %.not.i2757 = icmp eq i64 %1223, 0
+  br i1 %.not.i2757, label %1227, label %1224
 
 1224:                                             ; preds = %1220
   %1225 = lshr i64 %1222, 15
   %1226 = and i64 %1225, 127
-  br label %rb_array_len.exit2758
+  br label %rb_array_len.exit2759
 
 1227:                                             ; preds = %1220
   %1228 = getelementptr inbounds nuw i8, ptr %1221, i64 16
   %1229 = load i64, ptr %1228, align 8, !tbaa !26
-  br label %rb_array_len.exit2758
+  br label %rb_array_len.exit2759
 
-rb_array_len.exit2758:                            ; preds = %1224, %1227
-  %.0.i2757 = phi i64 [ %1226, %1224 ], [ %1229, %1227 ]
-  %1230 = icmp sgt i64 %.0.i2757, 0
+rb_array_len.exit2759:                            ; preds = %1224, %1227
+  %.0.i2758 = phi i64 [ %1226, %1224 ], [ %1229, %1227 ]
+  %1230 = icmp sgt i64 %.0.i2758, 0
   br i1 %1230, label %.lr.ph, label %vm_check_match.exit
 
-.lr.ph:                                           ; preds = %rb_array_len.exit2758
+.lr.ph:                                           ; preds = %rb_array_len.exit2759
   %1231 = getelementptr inbounds nuw i8, ptr %1221, i64 16
   %1232 = getelementptr inbounds nuw i8, ptr %1221, i64 32
   br label %1235
 
 1233:                                             ; preds = %RARRAY_AREF.exit
-  %1234 = add nuw nsw i64 %.020.i2993, 1
-  %exitcond.not = icmp eq i64 %1234, %.0.i2757
+  %1234 = add nuw nsw i64 %.020.i2994, 1
+  %exitcond.not = icmp eq i64 %1234, %.0.i2758
   br i1 %exitcond.not, label %vm_check_match.exit, label %1235, !llvm.loop !205
 
 1235:                                             ; preds = %.lr.ph, %1233
-  %.020.i2993 = phi i64 [ 0, %.lr.ph ], [ %1234, %1233 ]
+  %.020.i2994 = phi i64 [ 0, %.lr.ph ], [ %1234, %1233 ]
   %1236 = load i64, ptr %1221, align 8, !tbaa !97
   %1237 = and i64 %1236, 8192
-  %.not.i.i2754 = icmp eq i64 %1237, 0
-  br i1 %.not.i.i2754, label %1238, label %RARRAY_AREF.exit
+  %.not.i.i2755 = icmp eq i64 %1237, 0
+  br i1 %.not.i.i2755, label %1238, label %RARRAY_AREF.exit
 
 1238:                                             ; preds = %1235
   %1239 = load ptr, ptr %1232, align 8, !tbaa !26
   br label %RARRAY_AREF.exit
 
 RARRAY_AREF.exit:                                 ; preds = %1235, %1238
-  %.0.i.i2755 = phi ptr [ %1239, %1238 ], [ %1231, %1235 ]
-  %1240 = getelementptr i64, ptr %.0.i.i2755, i64 %.020.i2993
+  %.0.i.i2756 = phi ptr [ %1239, %1238 ], [ %1231, %1235 ]
+  %1240 = getelementptr i64, ptr %.0.i.i2756, i64 %.020.i2994
   %1241 = load i64, ptr %1240, align 8, !tbaa !7
   %1242 = call fastcc i64 @check_match(ptr noundef %0, i64 noundef %1241, i64 noundef %1214, i32 noundef %1218)
   %1243 = and i64 %1242, -5
-  %.not2878 = icmp eq i64 %1243, 0
-  br i1 %.not2878, label %1233, label %vm_check_match.exit
+  %.not2879 = icmp eq i64 %1243, 0
+  br i1 %.not2879, label %1233, label %vm_check_match.exit
 
 1244:                                             ; preds = %1207
   %1245 = call fastcc i64 @check_match(ptr noundef %0, i64 noundef %1215, i64 noundef %1214, i32 noundef %1218)
   br label %vm_check_match.exit
 
-vm_check_match.exit:                              ; preds = %RARRAY_AREF.exit, %1233, %rb_array_len.exit2758, %1244
-  %.3.i = phi i64 [ %1245, %1244 ], [ 0, %rb_array_len.exit2758 ], [ %1242, %RARRAY_AREF.exit ], [ 0, %1233 ]
+vm_check_match.exit:                              ; preds = %RARRAY_AREF.exit, %1233, %rb_array_len.exit2759, %1244
+  %.3.i = phi i64 [ %1245, %1244 ], [ 0, %rb_array_len.exit2759 ], [ %1242, %RARRAY_AREF.exit ], [ 0, %1233 ]
   %1246 = load ptr, ptr %1210, align 8, !tbaa !93
   %1247 = getelementptr i8, ptr %1246, i64 -8
   store ptr %1247, ptr %1210, align 8, !tbaa !93
@@ -10396,8 +10396,8 @@ vm_const_get_under.exit.i18.i:                    ; preds = %1408, %1406
 rbimpl_RB_TYPE_P_fastpath.exit.i.i20.i:           ; preds = %1410
   %1412 = inttoptr i64 %.0.i.i.i2414 to ptr
   %1413 = load i64, ptr %1412, align 8, !tbaa !97
-  %.fr5.i.i.i = freeze i64 %1413
-  %1414 = and i64 %.fr5.i.i.i, 31
+  %.fr.i.i.i = freeze i64 %1413
+  %1414 = and i64 %.fr.i.i.i, 31
   %1415 = icmp eq i64 %1414, 3
   br i1 %1415, label %vm_find_or_create_class_by_id.exit, label %1416
 
@@ -10658,7 +10658,7 @@ vm_sendish.exit:                                  ; preds = %1530, %1534
   %1537 = call i64 %.0.i.val.i(ptr noundef %0, ptr noundef nonnull %.02230, ptr noundef nonnull %11) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %1538 = icmp eq i64 %1537, 36
-  br i1 %1538, label %1539, label %.thread2792
+  br i1 %1538, label %1539, label %.thread2793
 
 1539:                                             ; preds = %vm_sendish.exit
   %1540 = load ptr, ptr %35, align 8, !tbaa !66
@@ -10721,41 +10721,41 @@ vm_sendish.exit:                                  ; preds = %1530, %1534
   br label %jit_compile.exitthread-pre-split
 
 jit_compile.exitthread-pre-split:                 ; preds = %1572, %1571, %1562
-  %.pr2790 = load ptr, ptr %1546, align 8, !tbaa !256
-  %.pre3130.pre = load ptr, ptr %35, align 8, !tbaa !66
+  %.pr2791 = load ptr, ptr %1546, align 8, !tbaa !256
+  %.pre3131.pre = load ptr, ptr %35, align 8, !tbaa !66
   br label %jit_compile.exit
 
 jit_compile.exit:                                 ; preds = %jit_compile.exitthread-pre-split, %1541
-  %.pre3130 = phi ptr [ %.pre3130.pre, %jit_compile.exitthread-pre-split ], [ %1540, %1541 ]
-  %1573 = phi ptr [ %.pr2790, %jit_compile.exitthread-pre-split ], [ %1547, %1541 ]
+  %.pre3131 = phi ptr [ %.pre3131.pre, %jit_compile.exitthread-pre-split ], [ %1540, %1541 ]
+  %1573 = phi ptr [ %.pr2791, %jit_compile.exitthread-pre-split ], [ %1547, %1541 ]
   %.not2289 = icmp eq ptr %1573, null
   br i1 %.not2289, label %.thread, label %1574
 
 1574:                                             ; preds = %jit_compile.exit
-  %1575 = call i64 %1573(ptr noundef nonnull %0, ptr noundef %.pre3130) #20
+  %1575 = call i64 %1573(ptr noundef nonnull %0, ptr noundef %.pre3131) #20
   %1576 = load ptr, ptr %47, align 8, !tbaa !63
   %1577 = getelementptr inbounds nuw i8, ptr %1576, i64 64
   %1578 = load i32, ptr %1577, align 8, !tbaa !64
   %.not2290 = icmp eq i32 %1578, 0
-  br i1 %.not2290, label %1579, label %.loopexit2880
+  br i1 %.not2290, label %1579, label %.loopexit2881
 
 1579:                                             ; preds = %1574
   %1580 = icmp eq i64 %1575, 36
-  br i1 %1580, label %..thread_crit_edge, label %.thread2792
+  br i1 %1580, label %..thread_crit_edge, label %.thread2793
 
 ..thread_crit_edge:                               ; preds = %1579
-  %.pre3129 = load ptr, ptr %35, align 8, !tbaa !66
+  %.pre3130 = load ptr, ptr %35, align 8, !tbaa !66
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %1539, %jit_compile.exit
-  %1581 = phi ptr [ %.pre3129, %..thread_crit_edge ], [ %1540, %1539 ], [ %.pre3130, %jit_compile.exit ]
+  %1581 = phi ptr [ %.pre3130, %..thread_crit_edge ], [ %1540, %1539 ], [ %.pre3131, %jit_compile.exit ]
   %1582 = load ptr, ptr %1581, align 8, !tbaa !136
   br label %.backedge.backedge
 
-.thread2792:                                      ; preds = %vm_sendish.exit, %1579
-  %.022392794 = phi i64 [ %1575, %1579 ], [ %1537, %vm_sendish.exit ]
+.thread2793:                                      ; preds = %vm_sendish.exit, %1579
+  %.022392795 = phi i64 [ %1575, %1579 ], [ %1537, %vm_sendish.exit ]
   %1583 = load ptr, ptr %1478, align 8, !tbaa !93
-  store i64 %.022392794, ptr %1583, align 8, !tbaa !7
+  store i64 %.022392795, ptr %1583, align 8, !tbaa !7
   %1584 = getelementptr i8, ptr %1583, i64 8
   store ptr %1584, ptr %1478, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -10954,11 +10954,11 @@ vm_sendish.exit2456:                              ; preds = %1644, %1648
   br label %jit_compile.exit2459thread-pre-split
 
 jit_compile.exit2459thread-pre-split:             ; preds = %1686, %1685, %1676
-  %.pr2795 = load ptr, ptr %1660, align 8, !tbaa !256
+  %.pr2796 = load ptr, ptr %1660, align 8, !tbaa !256
   br label %jit_compile.exit2459
 
 jit_compile.exit2459:                             ; preds = %jit_compile.exit2459thread-pre-split, %1655
-  %1687 = phi ptr [ %.pr2795, %jit_compile.exit2459thread-pre-split ], [ %1661, %1655 ]
+  %1687 = phi ptr [ %.pr2796, %jit_compile.exit2459thread-pre-split ], [ %1661, %1655 ]
   %.not2284 = icmp eq ptr %1687, null
   br i1 %.not2284, label %1694, label %1688
 
@@ -10969,7 +10969,7 @@ jit_compile.exit2459:                             ; preds = %jit_compile.exit245
   %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 64
   %1693 = load i32, ptr %1692, align 8, !tbaa !64
   %.not2285 = icmp eq i32 %1693, 0
-  br i1 %.not2285, label %1694, label %.loopexit2880
+  br i1 %.not2285, label %1694, label %.loopexit2881
 
 1694:                                             ; preds = %vm_sendish.exit2456, %1653, %jit_compile.exit2459, %1688
   %.02240 = phi i64 [ %1690, %1688 ], [ 36, %jit_compile.exit2459 ], [ 36, %1653 ], [ %1651, %vm_sendish.exit2456 ]
@@ -10982,16 +10982,16 @@ jit_compile.exit2459:                             ; preds = %jit_compile.exit245
 1698:                                             ; preds = %1694
   %1699 = load i64, ptr %1697, align 8, !tbaa !97
   %1700 = and i64 %1699, 2048
-  %.not2876 = icmp eq i64 %1700, 0
-  br i1 %.not2876, label %1701, label %rb_obj_write.exit
+  %.not2877 = icmp eq i64 %1700, 0
+  br i1 %.not2877, label %1701, label %rb_obj_write.exit
 
 1701:                                             ; preds = %1698
   %1702 = load ptr, ptr %1623, align 8, !tbaa !132
   %1703 = ptrtoint ptr %1697 to i64
   store i64 %1703, ptr %1695, align 8, !tbaa !7
   %1704 = and i64 %1703, 7
-  %.not2877 = icmp eq i64 %1704, 0
-  br i1 %.not2877, label %1705, label %rb_obj_write.exit
+  %.not2878 = icmp eq i64 %1704, 0
+  br i1 %.not2878, label %1705, label %rb_obj_write.exit
 
 1705:                                             ; preds = %1701
   %1706 = ptrtoint ptr %1702 to i64
@@ -11014,8 +11014,8 @@ rb_obj_write.exit:                                ; preds = %1705, %1701, %1698,
   store ptr %1713, ptr %1593, align 8, !tbaa !93
   br label %.backedge.backedge
 
-vm_objtostring.exit.thread:                       ; preds = %3595, %3601, %3606, %3585, %3590, %3511, %3517, %3522, %3501, %3506, %3426, %3432, %3437, %3416, %3421, %vm_method_cfunc_is.exit.i2618, %vm_search_method.exit.i.i2609, %vm_search_method.exit.thread.i.i2613, %3355, %3289, %vm_opt_mod.exit, %3174, %3247, %3242, %3263, %3258, %3252, %vm_opt_div.exit, %3096, %3133, %3128, %3149, %3144, %3138, %vm_opt_mult.exit, %3039, %3034, %3055, %3050, %3044, %vm_opt_minus.exit, %2913, %2908, %2929, %2924, %2918, %vm_opt_plus.exit, %2763, %2758, %2824, %2819, %2816, %vm_search_method.exit.i.i, %vm_search_method.exit.thread.i.i, %vm_method_cfunc_is.exit.i, %vm_objtostring.exit, %check_cfunc.exit56.i, %check_cfunc.exit52.i, %check_cfunc.exit48.i, %check_cfunc.exit44.i, %check_cfunc.exit.i, %check_method_basic_definition.exit.i, %vm_search_method.exit.i, %1880, %1886, %1888, %1900, %1902, %1911, %1913, %1922, %1924, %1933, %1935, %.backedge, %4426, %4425, %4424, %4423, %4422, %4421, %4418, %4417, %4416, %4415, %4414, %4413, %4412, %4411, %4410, %4408, %4407, %4406, %4405, %4404, %4403, %4402, %4387, %4382, %vm_opt_regexpmatch2.exit.thread, %vm_opt_not.exit.thread, %vm_opt_succ.exit.thread, %3998, %3987, %3975, %vm_opt_aref_with.exit.thread, %vm_opt_aset_with.exit.thread, %vm_opt_aset.exit.thread, %vm_opt_aref.exit.thread, %vm_opt_or.exit.thread, %vm_opt_and.exit.thread, %vm_opt_ltlt.exit.thread, %3701, %2092, %2024, %2006, %1971
-  %.1 = phi ptr [ %.02229, %.backedge ], [ %1949, %1971 ], [ %1981, %2006 ], [ %2016, %2024 ], [ %2084, %2092 ], [ %.02229, %3701 ], [ %.02229, %vm_opt_ltlt.exit.thread ], [ %.02229, %vm_opt_and.exit.thread ], [ %.02229, %vm_opt_or.exit.thread ], [ %.02229, %vm_opt_aref.exit.thread ], [ %.02229, %vm_opt_aset.exit.thread ], [ %3895, %vm_opt_aset_with.exit.thread ], [ %3932, %vm_opt_aref_with.exit.thread ], [ %.02229, %3975 ], [ %.02229, %3987 ], [ %.02229, %3998 ], [ %.02229, %vm_opt_succ.exit.thread ], [ %.02229, %vm_opt_not.exit.thread ], [ %.02229, %vm_opt_regexpmatch2.exit.thread ], [ %.02229, %4382 ], [ %.02229, %4387 ], [ %.02229, %4402 ], [ %.02229, %4403 ], [ %.02229, %4404 ], [ %.02229, %4405 ], [ %.02229, %4406 ], [ %.02229, %4407 ], [ %4409, %4408 ], [ %.02229, %4410 ], [ %.02229, %4411 ], [ %.02229, %4412 ], [ %.02229, %4413 ], [ %.02229, %4414 ], [ %.02229, %4415 ], [ %.02229, %4416 ], [ %.02229, %4417 ], [ %.02229, %4418 ], [ %.02229, %4421 ], [ %.02229, %4422 ], [ %.02229, %4423 ], [ %.02229, %4424 ], [ %.02229, %4425 ], [ %.02229, %4426 ], [ %.02229, %1935 ], [ %.02229, %1933 ], [ %.02229, %1924 ], [ %.02229, %1922 ], [ %.02229, %1913 ], [ %.02229, %1911 ], [ %.02229, %1902 ], [ %.02229, %1900 ], [ %.02229, %1888 ], [ %.02229, %1886 ], [ %.02229, %1880 ], [ %.02229, %vm_search_method.exit.i ], [ %.02229, %check_method_basic_definition.exit.i ], [ %.02229, %check_cfunc.exit.i ], [ %.02229, %check_cfunc.exit44.i ], [ %.02229, %check_cfunc.exit48.i ], [ %.02229, %check_cfunc.exit52.i ], [ %.02229, %check_cfunc.exit56.i ], [ %.02229, %vm_objtostring.exit ], [ %.02229, %vm_method_cfunc_is.exit.i ], [ %.02229, %vm_search_method.exit.thread.i.i ], [ %.02229, %vm_search_method.exit.i.i ], [ %.02229, %2816 ], [ %.02229, %2819 ], [ %.02229, %2824 ], [ %.02229, %2758 ], [ %.02229, %2763 ], [ %.02229, %vm_opt_plus.exit ], [ %.02229, %2918 ], [ %.02229, %2924 ], [ %.02229, %2929 ], [ %.02229, %2908 ], [ %.02229, %2913 ], [ %.02229, %vm_opt_minus.exit ], [ %.02229, %3044 ], [ %.02229, %3050 ], [ %.02229, %3055 ], [ %.02229, %3034 ], [ %.02229, %3039 ], [ %.02229, %vm_opt_mult.exit ], [ %.02229, %3138 ], [ %.02229, %3144 ], [ %.02229, %3149 ], [ %.02229, %3128 ], [ %.02229, %3133 ], [ %.02229, %3096 ], [ %.02229, %vm_opt_div.exit ], [ %.02229, %3252 ], [ %.02229, %3258 ], [ %.02229, %3263 ], [ %.02229, %3242 ], [ %.02229, %3247 ], [ %.02229, %3174 ], [ %.02229, %vm_opt_mod.exit ], [ %.02229, %3289 ], [ %3309, %3355 ], [ %3309, %vm_search_method.exit.thread.i.i2613 ], [ %3309, %vm_search_method.exit.i.i2609 ], [ %3309, %vm_method_cfunc_is.exit.i2618 ], [ %.02229, %3421 ], [ %.02229, %3416 ], [ %.02229, %3437 ], [ %.02229, %3432 ], [ %.02229, %3426 ], [ %.02229, %3506 ], [ %.02229, %3501 ], [ %.02229, %3522 ], [ %.02229, %3517 ], [ %.02229, %3511 ], [ %.02229, %3590 ], [ %.02229, %3585 ], [ %.02229, %3606 ], [ %.02229, %3601 ], [ %.02229, %3595 ]
+vm_objtostring.exit.thread:                       ; preds = %3595, %3601, %3606, %3585, %3590, %3511, %3517, %3522, %3501, %3506, %3426, %3432, %3437, %3416, %3421, %vm_method_cfunc_is.exit.i2619, %vm_search_method.exit.i.i2610, %vm_search_method.exit.thread.i.i2614, %3355, %3289, %vm_opt_mod.exit, %3174, %3247, %3242, %3263, %3258, %3252, %vm_opt_div.exit, %3096, %3133, %3128, %3149, %3144, %3138, %vm_opt_mult.exit, %3039, %3034, %3055, %3050, %3044, %vm_opt_minus.exit, %2913, %2908, %2929, %2924, %2918, %vm_opt_plus.exit, %2763, %2758, %2824, %2819, %2816, %vm_search_method.exit.i.i, %vm_search_method.exit.thread.i.i, %vm_method_cfunc_is.exit.i, %vm_objtostring.exit, %check_cfunc.exit56.i, %check_cfunc.exit52.i, %check_cfunc.exit48.i, %check_cfunc.exit44.i, %check_cfunc.exit.i, %check_method_basic_definition.exit.i, %vm_search_method.exit.i, %1880, %1886, %1888, %1900, %1902, %1911, %1913, %1922, %1924, %1933, %1935, %.backedge, %4426, %4425, %4424, %4423, %4422, %4421, %4418, %4417, %4416, %4415, %4414, %4413, %4412, %4411, %4410, %4408, %4407, %4406, %4405, %4404, %4403, %4402, %4387, %4382, %vm_opt_regexpmatch2.exit.thread, %vm_opt_not.exit.thread, %vm_opt_succ.exit.thread, %3998, %3987, %3975, %vm_opt_aref_with.exit.thread, %vm_opt_aset_with.exit.thread, %vm_opt_aset.exit.thread, %vm_opt_aref.exit.thread, %vm_opt_or.exit.thread, %vm_opt_and.exit.thread, %vm_opt_ltlt.exit.thread, %3701, %2092, %2024, %2006, %1971
+  %.1 = phi ptr [ %.02229, %.backedge ], [ %1949, %1971 ], [ %1981, %2006 ], [ %2016, %2024 ], [ %2084, %2092 ], [ %.02229, %3701 ], [ %.02229, %vm_opt_ltlt.exit.thread ], [ %.02229, %vm_opt_and.exit.thread ], [ %.02229, %vm_opt_or.exit.thread ], [ %.02229, %vm_opt_aref.exit.thread ], [ %.02229, %vm_opt_aset.exit.thread ], [ %3895, %vm_opt_aset_with.exit.thread ], [ %3932, %vm_opt_aref_with.exit.thread ], [ %.02229, %3975 ], [ %.02229, %3987 ], [ %.02229, %3998 ], [ %.02229, %vm_opt_succ.exit.thread ], [ %.02229, %vm_opt_not.exit.thread ], [ %.02229, %vm_opt_regexpmatch2.exit.thread ], [ %.02229, %4382 ], [ %.02229, %4387 ], [ %.02229, %4402 ], [ %.02229, %4403 ], [ %.02229, %4404 ], [ %.02229, %4405 ], [ %.02229, %4406 ], [ %.02229, %4407 ], [ %4409, %4408 ], [ %.02229, %4410 ], [ %.02229, %4411 ], [ %.02229, %4412 ], [ %.02229, %4413 ], [ %.02229, %4414 ], [ %.02229, %4415 ], [ %.02229, %4416 ], [ %.02229, %4417 ], [ %.02229, %4418 ], [ %.02229, %4421 ], [ %.02229, %4422 ], [ %.02229, %4423 ], [ %.02229, %4424 ], [ %.02229, %4425 ], [ %.02229, %4426 ], [ %.02229, %1935 ], [ %.02229, %1933 ], [ %.02229, %1924 ], [ %.02229, %1922 ], [ %.02229, %1913 ], [ %.02229, %1911 ], [ %.02229, %1902 ], [ %.02229, %1900 ], [ %.02229, %1888 ], [ %.02229, %1886 ], [ %.02229, %1880 ], [ %.02229, %vm_search_method.exit.i ], [ %.02229, %check_method_basic_definition.exit.i ], [ %.02229, %check_cfunc.exit.i ], [ %.02229, %check_cfunc.exit44.i ], [ %.02229, %check_cfunc.exit48.i ], [ %.02229, %check_cfunc.exit52.i ], [ %.02229, %check_cfunc.exit56.i ], [ %.02229, %vm_objtostring.exit ], [ %.02229, %vm_method_cfunc_is.exit.i ], [ %.02229, %vm_search_method.exit.thread.i.i ], [ %.02229, %vm_search_method.exit.i.i ], [ %.02229, %2816 ], [ %.02229, %2819 ], [ %.02229, %2824 ], [ %.02229, %2758 ], [ %.02229, %2763 ], [ %.02229, %vm_opt_plus.exit ], [ %.02229, %2918 ], [ %.02229, %2924 ], [ %.02229, %2929 ], [ %.02229, %2908 ], [ %.02229, %2913 ], [ %.02229, %vm_opt_minus.exit ], [ %.02229, %3044 ], [ %.02229, %3050 ], [ %.02229, %3055 ], [ %.02229, %3034 ], [ %.02229, %3039 ], [ %.02229, %vm_opt_mult.exit ], [ %.02229, %3138 ], [ %.02229, %3144 ], [ %.02229, %3149 ], [ %.02229, %3128 ], [ %.02229, %3133 ], [ %.02229, %3096 ], [ %.02229, %vm_opt_div.exit ], [ %.02229, %3252 ], [ %.02229, %3258 ], [ %.02229, %3263 ], [ %.02229, %3242 ], [ %.02229, %3247 ], [ %.02229, %3174 ], [ %.02229, %vm_opt_mod.exit ], [ %.02229, %3289 ], [ %3309, %3355 ], [ %3309, %vm_search_method.exit.thread.i.i2614 ], [ %3309, %vm_search_method.exit.i.i2610 ], [ %3309, %vm_method_cfunc_is.exit.i2619 ], [ %.02229, %3421 ], [ %.02229, %3416 ], [ %.02229, %3437 ], [ %.02229, %3432 ], [ %.02229, %3426 ], [ %.02229, %3506 ], [ %.02229, %3501 ], [ %.02229, %3522 ], [ %.02229, %3517 ], [ %.02229, %3511 ], [ %.02229, %3590 ], [ %.02229, %3585 ], [ %.02229, %3606 ], [ %.02229, %3601 ], [ %.02229, %3595 ]
   %1714 = getelementptr i8, ptr %.1, i64 8
   %1715 = load i64, ptr %1714, align 8, !tbaa !7
   %1716 = inttoptr i64 %1715 to ptr
@@ -11133,10 +11133,10 @@ rb_class_of.exit.i2465:                           ; preds = %1761, %1759, %1758,
   %1773 = load ptr, ptr %1716, align 8, !tbaa !206
   %1774 = call ptr @rb_vm_search_method_slowpath(ptr noundef %1773, i64 noundef %.0.i29.i2467)
   store ptr %1774, ptr %1764, align 8, !tbaa !215
-  %.not.i2759 = icmp eq ptr %1747, null
+  %.not.i2760 = icmp eq ptr %1747, null
   %.not10.i = icmp eq ptr %1774, @vm_empty_cc
-  %or.cond.i2760 = select i1 %.not.i2759, i1 true, i1 %.not10.i
-  br i1 %or.cond.i2760, label %vm_sendish.exit2476, label %1775
+  %or.cond.i2761 = select i1 %.not.i2760, i1 true, i1 %.not10.i
+  br i1 %or.cond.i2761, label %vm_sendish.exit2476, label %1775
 
 1775:                                             ; preds = %1772
   %1776 = ptrtoint ptr %1774 to i64
@@ -11158,12 +11158,12 @@ vm_sendish.exit2476:                              ; preds = %1781, %1775, %1772,
   %1783 = call i64 %.0.i.val.i2470(ptr noundef %0, ptr noundef nonnull %.02230, ptr noundef nonnull %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %1784 = icmp eq i64 %1783, 36
-  br i1 %1784, label %1785, label %.thread2800
+  br i1 %1784, label %1785, label %.thread2801
 
 1785:                                             ; preds = %vm_sendish.exit2476
   %1786 = load ptr, ptr %35, align 8, !tbaa !66
   %.not2280 = icmp eq ptr %.02230, %1786
-  br i1 %.not2280, label %.thread2798, label %1787
+  br i1 %.not2280, label %.thread2799, label %1787
 
 1787:                                             ; preds = %1785
   %1788 = getelementptr inbounds nuw i8, ptr %1786, i64 16
@@ -11221,41 +11221,41 @@ vm_sendish.exit2476:                              ; preds = %1781, %1775, %1772,
   br label %jit_compile.exit2479thread-pre-split
 
 jit_compile.exit2479thread-pre-split:             ; preds = %1818, %1817, %1808
-  %.pr2796 = load ptr, ptr %1792, align 8, !tbaa !256
-  %.pre3128.pre = load ptr, ptr %35, align 8, !tbaa !66
+  %.pr2797 = load ptr, ptr %1792, align 8, !tbaa !256
+  %.pre3129.pre = load ptr, ptr %35, align 8, !tbaa !66
   br label %jit_compile.exit2479
 
 jit_compile.exit2479:                             ; preds = %jit_compile.exit2479thread-pre-split, %1787
-  %.pre3128 = phi ptr [ %.pre3128.pre, %jit_compile.exit2479thread-pre-split ], [ %1786, %1787 ]
-  %1819 = phi ptr [ %.pr2796, %jit_compile.exit2479thread-pre-split ], [ %1793, %1787 ]
+  %.pre3129 = phi ptr [ %.pre3129.pre, %jit_compile.exit2479thread-pre-split ], [ %1786, %1787 ]
+  %1819 = phi ptr [ %.pr2797, %jit_compile.exit2479thread-pre-split ], [ %1793, %1787 ]
   %.not2281 = icmp eq ptr %1819, null
-  br i1 %.not2281, label %.thread2798, label %1820
+  br i1 %.not2281, label %.thread2799, label %1820
 
 1820:                                             ; preds = %jit_compile.exit2479
-  %1821 = call i64 %1819(ptr noundef nonnull %0, ptr noundef %.pre3128) #20
+  %1821 = call i64 %1819(ptr noundef nonnull %0, ptr noundef %.pre3129) #20
   %1822 = load ptr, ptr %47, align 8, !tbaa !63
   %1823 = getelementptr inbounds nuw i8, ptr %1822, i64 64
   %1824 = load i32, ptr %1823, align 8, !tbaa !64
   %.not2282 = icmp eq i32 %1824, 0
-  br i1 %.not2282, label %1825, label %.loopexit2880
+  br i1 %.not2282, label %1825, label %.loopexit2881
 
 1825:                                             ; preds = %1820
   %1826 = icmp eq i64 %1821, 36
-  br i1 %1826, label %..thread2798_crit_edge, label %.thread2800
+  br i1 %1826, label %..thread2799_crit_edge, label %.thread2801
 
-..thread2798_crit_edge:                           ; preds = %1825
-  %.pre3127 = load ptr, ptr %35, align 8, !tbaa !66
-  br label %.thread2798
+..thread2799_crit_edge:                           ; preds = %1825
+  %.pre3128 = load ptr, ptr %35, align 8, !tbaa !66
+  br label %.thread2799
 
-.thread2798:                                      ; preds = %..thread2798_crit_edge, %1785, %jit_compile.exit2479
-  %1827 = phi ptr [ %.pre3127, %..thread2798_crit_edge ], [ %1786, %1785 ], [ %.pre3128, %jit_compile.exit2479 ]
+.thread2799:                                      ; preds = %..thread2799_crit_edge, %1785, %jit_compile.exit2479
+  %1827 = phi ptr [ %.pre3128, %..thread2799_crit_edge ], [ %1786, %1785 ], [ %.pre3129, %jit_compile.exit2479 ]
   %1828 = load ptr, ptr %1827, align 8, !tbaa !136
   br label %.backedge.backedge
 
-.thread2800:                                      ; preds = %vm_sendish.exit2476, %1825
-  %.022412802 = phi i64 [ %1821, %1825 ], [ %1783, %vm_sendish.exit2476 ]
+.thread2801:                                      ; preds = %vm_sendish.exit2476, %1825
+  %.022412803 = phi i64 [ %1821, %1825 ], [ %1783, %vm_sendish.exit2476 ]
   %1829 = load ptr, ptr %1718, align 8, !tbaa !93
-  store i64 %.022412802, ptr %1829, align 8, !tbaa !7
+  store i64 %.022412803, ptr %1829, align 8, !tbaa !7
   %1830 = getelementptr i8, ptr %1829, i64 8
   store ptr %1830, ptr %1718, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -11281,11 +11281,11 @@ jit_compile.exit2479:                             ; preds = %jit_compile.exit247
 1846:                                             ; preds = %1831
   %1847 = call i64 @llvm.fshl.i64(i64 %1838, i64 %1838, i64 62)
   %1848 = icmp ult i64 %1847, 10
-  %switch.maskindex3550 = trunc i64 %1847 to i16
-  %switch.shifted3551 = lshr i16 547, %switch.maskindex3550
-  %switch.lobit3552 = trunc i16 %switch.shifted3551 to i1
-  %or.cond3555 = select i1 %1848, i1 %switch.lobit3552, i1 false
-  br i1 %or.cond3555, label %switch.lookup3549, label %1849
+  %switch.maskindex3551 = trunc i64 %1847 to i16
+  %switch.shifted3552 = lshr i16 547, %switch.maskindex3551
+  %switch.lobit3553 = trunc i16 %switch.shifted3552 to i1
+  %or.cond3556 = select i1 %1848, i1 %switch.lobit3553, i1 false
+  br i1 %or.cond3556, label %switch.lookup3550, label %1849
 
 1849:                                             ; preds = %1846
   %1850 = and i64 %1838, 1
@@ -11310,13 +11310,13 @@ rb_type.exit.i:                                   ; preds = %1831
   %1860 = getelementptr inbounds nuw i8, ptr %1854, i64 8
   br label %rb_class_of.exit.i.i
 
-switch.lookup3549:                                ; preds = %1846
-  %switch.gep3553 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.vm_exec_core.111, i64 0, i64 %1847
-  %switch.load3554 = load i32, ptr %switch.gep3553, align 4
+switch.lookup3550:                                ; preds = %1846
+  %switch.gep3554 = getelementptr inbounds nuw [10 x i32], ptr @switch.table.vm_exec_core.111, i64 0, i64 %1847
+  %switch.load3555 = load i32, ptr %switch.gep3554, align 4
   br label %1861
 
-1861:                                             ; preds = %switch.lookup3549, %1851, %1849
-  %.0.i.ph.i = phi i32 [ %spec.select.i.i2487, %1851 ], [ 21, %1849 ], [ %switch.load3554, %switch.lookup3549 ]
+1861:                                             ; preds = %switch.lookup3550, %1851, %1849
+  %.0.i.ph.i = phi i32 [ %spec.select.i.i2487, %1851 ], [ 21, %1849 ], [ %switch.load3555, %switch.lookup3550 ]
   switch i64 %1838, label %1864 [
     i64 0, label %rb_class_of.exit.i.i
     i64 4, label %1862
@@ -11750,11 +11750,11 @@ rb_class_of.exit.i.i.i:                           ; preds = %2061, %2059, %2058,
 
 2069:                                             ; preds = %rb_class_of.exit.i.i.i
   %2070 = getelementptr i8, ptr %2066, i64 16
-  %.val.i.i.i2499 = load ptr, ptr %2070, align 8, !tbaa !218
-  %2071 = load i64, ptr %.val.i.i.i2499, align 8, !tbaa !167
+  %.val.i.i.i2500 = load ptr, ptr %2070, align 8, !tbaa !218
+  %2071 = load i64, ptr %.val.i.i.i2500, align 8, !tbaa !167
   %2072 = and i64 %2071, 2097152
-  %.not.i.i.i.i2500 = icmp eq i64 %2072, 0
-  br i1 %.not.i.i.i.i2500, label %vm_search_method.exit.thread.i.i, label %vm_search_method.exit.i.i, !prof !69
+  %.not.i.i.i.i2501 = icmp eq i64 %2072, 0
+  br i1 %.not.i.i.i.i2501, label %vm_search_method.exit.thread.i.i, label %vm_search_method.exit.i.i, !prof !69
 
 vm_search_method.exit.i.i:                        ; preds = %2069, %rb_class_of.exit.i.i.i
   %2073 = call fastcc ptr @vm_search_method_slowpath0(i64 noundef %2064, ptr noundef nonnull %2036, i64 noundef %.0.i4.i.i.i)
@@ -11764,7 +11764,7 @@ vm_search_method.exit.i.i:                        ; preds = %2069, %rb_class_of.
   br i1 %.not.i.i.i2496, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i
 
 vm_search_method.exit.thread.i.i:                 ; preds = %vm_search_method.exit.i.i, %2069
-  %.val6.i.i = phi ptr [ %.val.pre.i.i, %vm_search_method.exit.i.i ], [ %.val.i.i.i2499, %2069 ]
+  %.val6.i.i = phi ptr [ %.val.pre.i.i, %vm_search_method.exit.i.i ], [ %.val.i.i.i2500, %2069 ]
   %2074 = getelementptr inbounds nuw i8, ptr %.val6.i.i, i64 16
   %2075 = load ptr, ptr %2074, align 8, !tbaa !101
   %2076 = load i64, ptr %2075, align 8
@@ -11775,16 +11775,16 @@ vm_search_method.exit.thread.i.i:                 ; preds = %vm_search_method.ex
 vm_method_cfunc_is.exit.i:                        ; preds = %vm_search_method.exit.thread.i.i
   %2078 = getelementptr inbounds nuw i8, ptr %2075, i64 8
   %2079 = load ptr, ptr %2078, align 8, !tbaa !26
-  %.fr.i = freeze ptr %2079
-  %.not.i2498 = icmp eq ptr %.fr.i, @rb_false
-  br i1 %.not.i2498, label %vm_method_cfunc_is.exit.i._crit_edge, label %vm_objtostring.exit.thread
+  %.fr.i2498 = freeze ptr %2079
+  %.not.i2499 = icmp eq ptr %.fr.i2498, @rb_false
+  br i1 %.not.i2499, label %vm_method_cfunc_is.exit.i._crit_edge, label %vm_objtostring.exit.thread
 
 vm_method_cfunc_is.exit.i._crit_edge:             ; preds = %vm_method_cfunc_is.exit.i
-  %.pre3126 = load ptr, ptr %2037, align 8, !tbaa !93
+  %.pre3127 = load ptr, ptr %2037, align 8, !tbaa !93
   br label %2080
 
 2080:                                             ; preds = %vm_method_cfunc_is.exit.i._crit_edge, %2045
-  %2081 = phi ptr [ %.pre3126, %vm_method_cfunc_is.exit.i._crit_edge ], [ %2038, %2045 ]
+  %2081 = phi ptr [ %.pre3127, %vm_method_cfunc_is.exit.i._crit_edge ], [ %2038, %2045 ]
   %.0.i2497.ph = phi i64 [ 0, %vm_method_cfunc_is.exit.i._crit_edge ], [ 20, %2045 ]
   %2082 = getelementptr i8, ptr %2081, i64 -8
   store i64 %.0.i2497.ph, ptr %2082, align 8, !tbaa !7
@@ -11998,12 +11998,12 @@ vm_opt_newarray_hash.exit:                        ; preds = %2182, %2179, %2165,
   %2212 = call fastcc i64 @vm_caller_setup_arg_block(ptr noundef nonnull %.02230, ptr noundef %2211, ptr noundef %2208, i32 noundef 1)
   %2213 = call fastcc i64 @vm_sendish(ptr noundef %0, ptr noundef nonnull %.02230, ptr noundef nonnull %2205, i64 noundef %2212, i32 noundef 2)
   %2214 = icmp eq i64 %2213, 36
-  br i1 %2214, label %2215, label %.thread2810
+  br i1 %2214, label %2215, label %.thread2811
 
 2215:                                             ; preds = %2202
   %2216 = load ptr, ptr %35, align 8, !tbaa !66
   %.not2273 = icmp eq ptr %.02230, %2216
-  br i1 %.not2273, label %.thread2808, label %2217
+  br i1 %.not2273, label %.thread2809, label %2217
 
 2217:                                             ; preds = %2215
   %2218 = getelementptr inbounds nuw i8, ptr %2216, i64 16
@@ -12015,8 +12015,8 @@ vm_opt_newarray_hash.exit:                        ; preds = %2182, %2179, %2165,
   %2224 = icmp eq ptr %2223, null
   %2225 = load i8, ptr @rb_yjit_enabled_p, align 1, !range !257
   %2226 = trunc nuw i8 %2225 to i1
-  %or.cond.i2504 = select i1 %2224, i1 %2226, i1 false
-  br i1 %or.cond.i2504, label %2227, label %jit_compile.exit2506
+  %or.cond.i2505 = select i1 %2224, i1 %2226, i1 false
+  br i1 %or.cond.i2505, label %2227, label %jit_compile.exit2507
 
 2227:                                             ; preds = %2217
   %2228 = getelementptr inbounds nuw i8, ptr %2221, i64 304
@@ -12038,7 +12038,7 @@ vm_opt_newarray_hash.exit:                        ; preds = %2182, %2179, %2165,
 
 2238:                                             ; preds = %2236, %2227
   %2239 = icmp eq i64 %2230, %2234
-  br i1 %2239, label %2240, label %jit_compile.exit2506thread-pre-split
+  br i1 %2239, label %2240, label %jit_compile.exit2507thread-pre-split
 
 2240:                                             ; preds = %2238
   %2241 = icmp ult i64 %2230, 20
@@ -12049,53 +12049,53 @@ vm_opt_newarray_hash.exit:                        ; preds = %2182, %2179, %2165,
   %2244 = load i64, ptr %2243, align 8, !tbaa !259
   %2245 = sub i64 %2232, %2244
   %2246 = load i64, ptr @rb_yjit_cold_threshold, align 8, !tbaa !7
-  %.not.i.i2505 = icmp ugt i64 %2245, %2246
-  br i1 %.not.i.i2505, label %2247, label %2248
+  %.not.i.i2506 = icmp ugt i64 %2245, %2246
+  br i1 %.not.i.i2506, label %2247, label %2248
 
 2247:                                             ; preds = %2242
   call void @rb_yjit_incr_counter(ptr noundef nonnull @.str.192) #20
-  br label %jit_compile.exit2506thread-pre-split
+  br label %jit_compile.exit2507thread-pre-split
 
 2248:                                             ; preds = %2242, %2240
   call void @rb_yjit_compile_iseq(ptr noundef nonnull %2219, ptr noundef nonnull %0, i1 noundef zeroext false) #20
-  br label %jit_compile.exit2506thread-pre-split
+  br label %jit_compile.exit2507thread-pre-split
 
-jit_compile.exit2506thread-pre-split:             ; preds = %2248, %2247, %2238
-  %.pr2806 = load ptr, ptr %2222, align 8, !tbaa !256
-  %.pre3125.pre = load ptr, ptr %35, align 8, !tbaa !66
-  br label %jit_compile.exit2506
+jit_compile.exit2507thread-pre-split:             ; preds = %2248, %2247, %2238
+  %.pr2807 = load ptr, ptr %2222, align 8, !tbaa !256
+  %.pre3126.pre = load ptr, ptr %35, align 8, !tbaa !66
+  br label %jit_compile.exit2507
 
-jit_compile.exit2506:                             ; preds = %jit_compile.exit2506thread-pre-split, %2217
-  %.pre3125 = phi ptr [ %.pre3125.pre, %jit_compile.exit2506thread-pre-split ], [ %2216, %2217 ]
-  %2249 = phi ptr [ %.pr2806, %jit_compile.exit2506thread-pre-split ], [ %2223, %2217 ]
+jit_compile.exit2507:                             ; preds = %jit_compile.exit2507thread-pre-split, %2217
+  %.pre3126 = phi ptr [ %.pre3126.pre, %jit_compile.exit2507thread-pre-split ], [ %2216, %2217 ]
+  %2249 = phi ptr [ %.pr2807, %jit_compile.exit2507thread-pre-split ], [ %2223, %2217 ]
   %.not2274 = icmp eq ptr %2249, null
-  br i1 %.not2274, label %.thread2808, label %2250
+  br i1 %.not2274, label %.thread2809, label %2250
 
-2250:                                             ; preds = %jit_compile.exit2506
-  %2251 = call i64 %2249(ptr noundef nonnull %0, ptr noundef %.pre3125) #20
+2250:                                             ; preds = %jit_compile.exit2507
+  %2251 = call i64 %2249(ptr noundef nonnull %0, ptr noundef %.pre3126) #20
   %2252 = load ptr, ptr %47, align 8, !tbaa !63
   %2253 = getelementptr inbounds nuw i8, ptr %2252, i64 64
   %2254 = load i32, ptr %2253, align 8, !tbaa !64
   %.not2275 = icmp eq i32 %2254, 0
-  br i1 %.not2275, label %2255, label %.loopexit2880
+  br i1 %.not2275, label %2255, label %.loopexit2881
 
 2255:                                             ; preds = %2250
   %2256 = icmp eq i64 %2251, 36
-  br i1 %2256, label %..thread2808_crit_edge, label %.thread2810
+  br i1 %2256, label %..thread2809_crit_edge, label %.thread2811
 
-..thread2808_crit_edge:                           ; preds = %2255
-  %.pre3124 = load ptr, ptr %35, align 8, !tbaa !66
-  br label %.thread2808
+..thread2809_crit_edge:                           ; preds = %2255
+  %.pre3125 = load ptr, ptr %35, align 8, !tbaa !66
+  br label %.thread2809
 
-.thread2808:                                      ; preds = %..thread2808_crit_edge, %2215, %jit_compile.exit2506
-  %2257 = phi ptr [ %.pre3124, %..thread2808_crit_edge ], [ %2216, %2215 ], [ %.pre3125, %jit_compile.exit2506 ]
+.thread2809:                                      ; preds = %..thread2809_crit_edge, %2215, %jit_compile.exit2507
+  %2257 = phi ptr [ %.pre3125, %..thread2809_crit_edge ], [ %2216, %2215 ], [ %.pre3126, %jit_compile.exit2507 ]
   %2258 = load ptr, ptr %2257, align 8, !tbaa !136
   br label %.backedge.backedge
 
-.thread2810:                                      ; preds = %2202, %2255
-  %.022432812 = phi i64 [ %2251, %2255 ], [ %2213, %2202 ]
+.thread2811:                                      ; preds = %2202, %2255
+  %.022432813 = phi i64 [ %2251, %2255 ], [ %2213, %2202 ]
   %2259 = load ptr, ptr %2210, align 8, !tbaa !93
-  store i64 %.022432812, ptr %2259, align 8, !tbaa !7
+  store i64 %.022432813, ptr %2259, align 8, !tbaa !7
   %2260 = getelementptr i8, ptr %2259, i64 8
   store ptr %2260, ptr %2210, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -12131,8 +12131,8 @@ jit_compile.exit2506:                             ; preds = %jit_compile.exit250
   %2283 = icmp eq ptr %2282, null
   %2284 = load i8, ptr @rb_yjit_enabled_p, align 1, !range !257
   %2285 = trunc nuw i8 %2284 to i1
-  %or.cond.i2507 = select i1 %2283, i1 %2285, i1 false
-  br i1 %or.cond.i2507, label %2286, label %jit_compile.exit2509
+  %or.cond.i2508 = select i1 %2283, i1 %2285, i1 false
+  br i1 %or.cond.i2508, label %2286, label %jit_compile.exit2510
 
 2286:                                             ; preds = %2276
   %2287 = getelementptr inbounds nuw i8, ptr %2280, i64 304
@@ -12154,7 +12154,7 @@ jit_compile.exit2506:                             ; preds = %jit_compile.exit250
 
 2297:                                             ; preds = %2295, %2286
   %2298 = icmp eq i64 %2289, %2293
-  br i1 %2298, label %2299, label %jit_compile.exit2509thread-pre-split
+  br i1 %2298, label %2299, label %jit_compile.exit2510thread-pre-split
 
 2299:                                             ; preds = %2297
   %2300 = icmp ult i64 %2289, 20
@@ -12165,48 +12165,48 @@ jit_compile.exit2506:                             ; preds = %jit_compile.exit250
   %2303 = load i64, ptr %2302, align 8, !tbaa !259
   %2304 = sub i64 %2291, %2303
   %2305 = load i64, ptr @rb_yjit_cold_threshold, align 8, !tbaa !7
-  %.not.i.i2508 = icmp ugt i64 %2304, %2305
-  br i1 %.not.i.i2508, label %2306, label %2307
+  %.not.i.i2509 = icmp ugt i64 %2304, %2305
+  br i1 %.not.i.i2509, label %2306, label %2307
 
 2306:                                             ; preds = %2301
   call void @rb_yjit_incr_counter(ptr noundef nonnull @.str.192) #20
-  br label %jit_compile.exit2509thread-pre-split
+  br label %jit_compile.exit2510thread-pre-split
 
 2307:                                             ; preds = %2301, %2299
   call void @rb_yjit_compile_iseq(ptr noundef nonnull %2278, ptr noundef nonnull %0, i1 noundef zeroext false) #20
-  br label %jit_compile.exit2509thread-pre-split
+  br label %jit_compile.exit2510thread-pre-split
 
-jit_compile.exit2509thread-pre-split:             ; preds = %2307, %2306, %2297
-  %.pr2813 = load ptr, ptr %2281, align 8, !tbaa !256
-  br label %jit_compile.exit2509
+jit_compile.exit2510thread-pre-split:             ; preds = %2307, %2306, %2297
+  %.pr2814 = load ptr, ptr %2281, align 8, !tbaa !256
+  br label %jit_compile.exit2510
 
-jit_compile.exit2509:                             ; preds = %jit_compile.exit2509thread-pre-split, %2276
-  %2308 = phi ptr [ %.pr2813, %jit_compile.exit2509thread-pre-split ], [ %2282, %2276 ]
+jit_compile.exit2510:                             ; preds = %jit_compile.exit2510thread-pre-split, %2276
+  %2308 = phi ptr [ %.pr2814, %jit_compile.exit2510thread-pre-split ], [ %2282, %2276 ]
   %.not2269 = icmp eq ptr %2308, null
   br i1 %.not2269, label %2315, label %2309
 
-2309:                                             ; preds = %jit_compile.exit2509
+2309:                                             ; preds = %jit_compile.exit2510
   %2310 = load ptr, ptr %35, align 8, !tbaa !66
   %2311 = call i64 %2308(ptr noundef nonnull %0, ptr noundef %2310) #20
   %2312 = load ptr, ptr %47, align 8, !tbaa !63
   %2313 = getelementptr inbounds nuw i8, ptr %2312, i64 64
   %2314 = load i32, ptr %2313, align 8, !tbaa !64
   %.not2270 = icmp eq i32 %2314, 0
-  br i1 %.not2270, label %2315, label %.loopexit2880
+  br i1 %.not2270, label %2315, label %.loopexit2881
 
-2315:                                             ; preds = %2261, %2274, %jit_compile.exit2509, %2309
-  %.02244 = phi i64 [ %2311, %2309 ], [ 36, %jit_compile.exit2509 ], [ 36, %2274 ], [ %2272, %2261 ]
+2315:                                             ; preds = %2261, %2274, %jit_compile.exit2510, %2309
+  %.02244 = phi i64 [ %2311, %2309 ], [ 36, %jit_compile.exit2510 ], [ 36, %2274 ], [ %2272, %2261 ]
   %2316 = getelementptr inbounds nuw i8, ptr %2264, i64 8
   %2317 = load ptr, ptr %2316, align 8, !tbaa !215
   %2318 = load ptr, ptr %48, align 8, !tbaa !221
   %.not2271 = icmp eq ptr %2317, %2318
-  br i1 %.not2271, label %rb_obj_write.exit2510, label %2319
+  br i1 %.not2271, label %rb_obj_write.exit2511, label %2319
 
 2319:                                             ; preds = %2315
   %2320 = load i64, ptr %2318, align 8, !tbaa !97
   %2321 = and i64 %2320, 2048
-  %.not2874 = icmp eq i64 %2321, 0
-  br i1 %.not2874, label %2322, label %rb_obj_write.exit2510
+  %.not2875 = icmp eq i64 %2321, 0
+  br i1 %.not2875, label %2322, label %rb_obj_write.exit2511
 
 2322:                                             ; preds = %2319
   %2323 = getelementptr inbounds nuw i8, ptr %.02230, i64 16
@@ -12214,24 +12214,24 @@ jit_compile.exit2509:                             ; preds = %jit_compile.exit250
   %2325 = ptrtoint ptr %2318 to i64
   store i64 %2325, ptr %2316, align 8, !tbaa !7
   %2326 = and i64 %2325, 7
-  %.not2875 = icmp eq i64 %2326, 0
-  br i1 %.not2875, label %2327, label %rb_obj_write.exit2510
+  %.not2876 = icmp eq i64 %2326, 0
+  br i1 %.not2876, label %2327, label %rb_obj_write.exit2511
 
 2327:                                             ; preds = %2322
   %2328 = ptrtoint ptr %2324 to i64
   call void @rb_gc_writebarrier(i64 noundef %2328, i64 noundef %2325) #20
-  br label %rb_obj_write.exit2510
+  br label %rb_obj_write.exit2511
 
-rb_obj_write.exit2510:                            ; preds = %2327, %2322, %2319, %2315
+rb_obj_write.exit2511:                            ; preds = %2327, %2322, %2319, %2315
   %2329 = icmp eq i64 %.02244, 36
   br i1 %2329, label %2330, label %2333
 
-2330:                                             ; preds = %rb_obj_write.exit2510
+2330:                                             ; preds = %rb_obj_write.exit2511
   %2331 = load ptr, ptr %35, align 8, !tbaa !66
   %2332 = load ptr, ptr %2331, align 8, !tbaa !136
   br label %.backedge.backedge
 
-2333:                                             ; preds = %rb_obj_write.exit2510
+2333:                                             ; preds = %rb_obj_write.exit2511
   %2334 = load ptr, ptr %2269, align 8, !tbaa !93
   store i64 %.02244, ptr %2334, align 8, !tbaa !7
   %2335 = getelementptr i8, ptr %2334, i64 8
@@ -12248,25 +12248,25 @@ rb_obj_write.exit2510:                            ; preds = %2327, %2322, %2319,
   %2342 = load ptr, ptr %2339, align 8, !tbaa !206
   %2343 = ptrtoint ptr %2342 to i64
   %2344 = and i64 %2343, 1
-  %.not.i.not.i.i2511 = icmp eq i64 %2344, 0
-  br i1 %.not.i.not.i.i2511, label %2349, label %2345
+  %.not.i.not.i.i2512 = icmp eq i64 %2344, 0
+  br i1 %.not.i.not.i.i2512, label %2349, label %2345
 
 2345:                                             ; preds = %2336
   %2346 = trunc i64 %2343 to i32
   %2347 = lshr i32 %2346, 1
   %2348 = and i32 %2347, 32767
-  br label %vm_ci_argc.exit.i2512
+  br label %vm_ci_argc.exit.i2513
 
 2349:                                             ; preds = %2336
   %2350 = getelementptr inbounds nuw i8, ptr %2342, i64 32
   %2351 = load i64, ptr %2350, align 8, !tbaa !168
   %2352 = trunc i64 %2351 to i32
-  br label %vm_ci_argc.exit.i2512
+  br label %vm_ci_argc.exit.i2513
 
-vm_ci_argc.exit.i2512:                            ; preds = %2349, %2345
-  %.0.i26.i2513 = phi i32 [ %2348, %2345 ], [ %2352, %2349 ]
+vm_ci_argc.exit.i2513:                            ; preds = %2349, %2345
+  %.0.i26.i2514 = phi i32 [ %2348, %2345 ], [ %2352, %2349 ]
   %2353 = load ptr, ptr %2341, align 8, !tbaa !93
-  %2354 = sext i32 %.0.i26.i2513 to i64
+  %2354 = sext i32 %.0.i26.i2514 to i64
   %2355 = sub nsw i64 0, %2354
   %2356 = getelementptr i64, ptr %2353, i64 %2355
   %2357 = getelementptr i8, ptr %2356, i64 -8
@@ -12275,23 +12275,23 @@ vm_ci_argc.exit.i2512:                            ; preds = %2349, %2345
   store ptr %2339, ptr %6, align 8, !tbaa !209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store i64 %2358, ptr %43, align 8, !tbaa !212
-  store i32 %.0.i26.i2513, ptr %44, align 8, !tbaa !213
-  br i1 %.not.i.not.i.i2511, label %2362, label %2359
+  store i32 %.0.i26.i2514, ptr %44, align 8, !tbaa !213
+  br i1 %.not.i.not.i.i2512, label %2362, label %2359
 
-2359:                                             ; preds = %vm_ci_argc.exit.i2512
+2359:                                             ; preds = %vm_ci_argc.exit.i2513
   %2360 = trunc i64 %2343 to i32
   %2361 = lshr i32 %2360, 16
-  br label %vm_ci_flag.exit.i2514
+  br label %vm_ci_flag.exit.i2515
 
-2362:                                             ; preds = %vm_ci_argc.exit.i2512
+2362:                                             ; preds = %vm_ci_argc.exit.i2513
   %2363 = getelementptr inbounds nuw i8, ptr %2342, i64 24
   %2364 = load i64, ptr %2363, align 8, !tbaa !169
   %2365 = trunc i64 %2364 to i32
-  br label %vm_ci_flag.exit.i2514
+  br label %vm_ci_flag.exit.i2515
 
-vm_ci_flag.exit.i2514:                            ; preds = %2362, %2359
-  %.0.i28.i2515 = phi i32 [ %2361, %2359 ], [ %2365, %2362 ]
-  %2366 = trunc i32 %.0.i28.i2515 to i8
+vm_ci_flag.exit.i2515:                            ; preds = %2362, %2359
+  %.0.i28.i2516 = phi i32 [ %2361, %2359 ], [ %2365, %2362 ]
+  %2366 = trunc i32 %.0.i28.i2516 to i8
   %2367 = lshr i8 %2366, 6
   %2368 = and i8 %2367, 1
   store i8 %2368, ptr %45, align 4, !tbaa !214
@@ -12303,8 +12303,8 @@ vm_ci_flag.exit.i2514:                            ; preds = %2362, %2359
   %.not5.i.i.i.i.i = icmp eq i64 %2370, 0
   br i1 %.not5.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %VM_CF_BLOCK_HANDLER.exit.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %vm_ci_flag.exit.i2514, %.lr.ph.i.i.i.i.i
-  %.06.i.i.i.i.i = phi ptr [ %2373, %.lr.ph.i.i.i.i.i ], [ %.val.i32.i, %vm_ci_flag.exit.i2514 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %vm_ci_flag.exit.i2515, %.lr.ph.i.i.i.i.i
+  %.06.i.i.i.i.i = phi ptr [ %2373, %.lr.ph.i.i.i.i.i ], [ %.val.i32.i, %vm_ci_flag.exit.i2515 ]
   %2371 = getelementptr i8, ptr %.06.i.i.i.i.i, i64 -8
   %.0.val3.i.i.i.i.i = load i64, ptr %2371, align 8, !tbaa !7
   %2372 = and i64 %.0.val3.i.i.i.i.i, -4
@@ -12314,8 +12314,8 @@ vm_ci_flag.exit.i2514:                            ; preds = %2362, %2359
   %.not.i.i.i.i34.i = icmp eq i64 %2374, 0
   br i1 %.not.i.i.i.i34.i, label %.lr.ph.i.i.i.i.i, label %VM_CF_BLOCK_HANDLER.exit.i.i, !llvm.loop !11
 
-VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %vm_ci_flag.exit.i2514
-  %.0.lcssa.i.i.i.i.i = phi ptr [ %.val.i32.i, %vm_ci_flag.exit.i2514 ], [ %2373, %.lr.ph.i.i.i.i.i ]
+VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %vm_ci_flag.exit.i2515
+  %.0.lcssa.i.i.i.i.i = phi ptr [ %.val.i32.i, %vm_ci_flag.exit.i2515 ], [ %2373, %.lr.ph.i.i.i.i.i ]
   %2375 = getelementptr i8, ptr %.0.lcssa.i.i.i.i.i, i64 -8
   %.val2.i.i.i = load i64, ptr %2375, align 8, !tbaa !7
   %2376 = icmp eq i64 %.val2.i.i.i, 0
@@ -12329,11 +12329,11 @@ VM_CF_BLOCK_HANDLER.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i.i, %
   %2379 = and i64 %.val2.i.i.i, 3
   switch i64 %2379, label %2380 [
     i64 1, label %vm_block_handler_type.exit.thread8.i.i.i
-    i64 3, label %vm_sendish.exit2518
+    i64 3, label %vm_sendish.exit2519
   ]
 
 vm_block_handler_type.exit.thread8.i.i.i:         ; preds = %2378
-  br label %vm_sendish.exit2518
+  br label %vm_sendish.exit2519
 
 2380:                                             ; preds = %2378
   %2381 = and i64 %.val2.i.i.i, 255
@@ -12343,30 +12343,30 @@ vm_block_handler_type.exit.thread8.i.i.i:         ; preds = %2378
 2383:                                             ; preds = %2380
   %2384 = and i64 %.val2.i.i.i, 7
   %.not.i33.i = icmp eq i64 %2384, 0
-  br i1 %.not.i33.i, label %RB_SYMBOL_P.exit.i.i.i.i, label %vm_sendish.exit2518
+  br i1 %.not.i33.i, label %RB_SYMBOL_P.exit.i.i.i.i, label %vm_sendish.exit2519
 
 RB_SYMBOL_P.exit.i.i.i.i:                         ; preds = %2383
   %2385 = inttoptr i64 %.val2.i.i.i to ptr
   %2386 = load i64, ptr %2385, align 8, !tbaa !97
-  %.fr10.i.i.i.i = freeze i64 %2386
-  %2387 = and i64 %.fr10.i.i.i.i, 31
+  %.fr.i.i.i.i = freeze i64 %2386
+  %2387 = and i64 %.fr.i.i.i.i, 31
   %2388 = icmp eq i64 %2387, 20
-  br i1 %2388, label %vm_block_handler_type.exit.i.i.i, label %vm_sendish.exit2518
+  br i1 %2388, label %vm_block_handler_type.exit.i.i.i, label %vm_sendish.exit2519
 
 vm_block_handler_type.exit.i.i.i:                 ; preds = %RB_SYMBOL_P.exit.i.i.i.i, %2380
-  br label %vm_sendish.exit2518
+  br label %vm_sendish.exit2519
 
-vm_sendish.exit2518:                              ; preds = %2378, %vm_block_handler_type.exit.thread8.i.i.i, %2383, %RB_SYMBOL_P.exit.i.i.i.i, %vm_block_handler_type.exit.i.i.i
-  %.0.i.i.i2516 = phi ptr [ @vm_invoke_symbol_block, %vm_block_handler_type.exit.i.i.i ], [ @vm_invoke_iseq_block, %vm_block_handler_type.exit.thread8.i.i.i ], [ @vm_invoke_ifunc_block, %2378 ], [ @vm_invoke_proc_block, %RB_SYMBOL_P.exit.i.i.i.i ], [ @vm_invoke_proc_block, %2383 ]
-  %2389 = call i64 %.0.i.i.i2516(ptr noundef %0, ptr noundef nonnull %.02230, ptr noundef nonnull %6, ptr noundef %2342, i1 noundef zeroext false, i64 noundef %.val2.i.i.i) #20, !callees !248
+vm_sendish.exit2519:                              ; preds = %2378, %vm_block_handler_type.exit.thread8.i.i.i, %2383, %RB_SYMBOL_P.exit.i.i.i.i, %vm_block_handler_type.exit.i.i.i
+  %.0.i.i.i2517 = phi ptr [ @vm_invoke_symbol_block, %vm_block_handler_type.exit.i.i.i ], [ @vm_invoke_iseq_block, %vm_block_handler_type.exit.thread8.i.i.i ], [ @vm_invoke_ifunc_block, %2378 ], [ @vm_invoke_proc_block, %RB_SYMBOL_P.exit.i.i.i.i ], [ @vm_invoke_proc_block, %2383 ]
+  %2389 = call i64 %.0.i.i.i2517(ptr noundef %0, ptr noundef nonnull %.02230, ptr noundef nonnull %6, ptr noundef %2342, i1 noundef zeroext false, i64 noundef %.val2.i.i.i) #20, !callees !248
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %2390 = icmp eq i64 %2389, 36
-  br i1 %2390, label %2391, label %.thread2818
+  br i1 %2390, label %2391, label %.thread2819
 
-2391:                                             ; preds = %vm_sendish.exit2518
+2391:                                             ; preds = %vm_sendish.exit2519
   %2392 = load ptr, ptr %35, align 8, !tbaa !66
   %.not2265 = icmp eq ptr %.02230, %2392
-  br i1 %.not2265, label %.thread2816, label %2393
+  br i1 %.not2265, label %.thread2817, label %2393
 
 2393:                                             ; preds = %2391
   %2394 = getelementptr inbounds nuw i8, ptr %2392, i64 16
@@ -12378,8 +12378,8 @@ vm_sendish.exit2518:                              ; preds = %2378, %vm_block_han
   %2400 = icmp eq ptr %2399, null
   %2401 = load i8, ptr @rb_yjit_enabled_p, align 1, !range !257
   %2402 = trunc nuw i8 %2401 to i1
-  %or.cond.i2519 = select i1 %2400, i1 %2402, i1 false
-  br i1 %or.cond.i2519, label %2403, label %jit_compile.exit2521
+  %or.cond.i2520 = select i1 %2400, i1 %2402, i1 false
+  br i1 %or.cond.i2520, label %2403, label %jit_compile.exit2522
 
 2403:                                             ; preds = %2393
   %2404 = getelementptr inbounds nuw i8, ptr %2397, i64 304
@@ -12401,7 +12401,7 @@ vm_sendish.exit2518:                              ; preds = %2378, %vm_block_han
 
 2414:                                             ; preds = %2412, %2403
   %2415 = icmp eq i64 %2406, %2410
-  br i1 %2415, label %2416, label %jit_compile.exit2521thread-pre-split
+  br i1 %2415, label %2416, label %jit_compile.exit2522thread-pre-split
 
 2416:                                             ; preds = %2414
   %2417 = icmp ult i64 %2406, 20
@@ -12412,53 +12412,53 @@ vm_sendish.exit2518:                              ; preds = %2378, %vm_block_han
   %2420 = load i64, ptr %2419, align 8, !tbaa !259
   %2421 = sub i64 %2408, %2420
   %2422 = load i64, ptr @rb_yjit_cold_threshold, align 8, !tbaa !7
-  %.not.i.i2520 = icmp ugt i64 %2421, %2422
-  br i1 %.not.i.i2520, label %2423, label %2424
+  %.not.i.i2521 = icmp ugt i64 %2421, %2422
+  br i1 %.not.i.i2521, label %2423, label %2424
 
 2423:                                             ; preds = %2418
   call void @rb_yjit_incr_counter(ptr noundef nonnull @.str.192) #20
-  br label %jit_compile.exit2521thread-pre-split
+  br label %jit_compile.exit2522thread-pre-split
 
 2424:                                             ; preds = %2418, %2416
   call void @rb_yjit_compile_iseq(ptr noundef nonnull %2395, ptr noundef nonnull %0, i1 noundef zeroext false) #20
-  br label %jit_compile.exit2521thread-pre-split
+  br label %jit_compile.exit2522thread-pre-split
 
-jit_compile.exit2521thread-pre-split:             ; preds = %2424, %2423, %2414
-  %.pr2814 = load ptr, ptr %2398, align 8, !tbaa !256
-  %.pre3123.pre = load ptr, ptr %35, align 8, !tbaa !66
-  br label %jit_compile.exit2521
+jit_compile.exit2522thread-pre-split:             ; preds = %2424, %2423, %2414
+  %.pr2815 = load ptr, ptr %2398, align 8, !tbaa !256
+  %.pre3124.pre = load ptr, ptr %35, align 8, !tbaa !66
+  br label %jit_compile.exit2522
 
-jit_compile.exit2521:                             ; preds = %jit_compile.exit2521thread-pre-split, %2393
-  %.pre3123 = phi ptr [ %.pre3123.pre, %jit_compile.exit2521thread-pre-split ], [ %2392, %2393 ]
-  %2425 = phi ptr [ %.pr2814, %jit_compile.exit2521thread-pre-split ], [ %2399, %2393 ]
+jit_compile.exit2522:                             ; preds = %jit_compile.exit2522thread-pre-split, %2393
+  %.pre3124 = phi ptr [ %.pre3124.pre, %jit_compile.exit2522thread-pre-split ], [ %2392, %2393 ]
+  %2425 = phi ptr [ %.pr2815, %jit_compile.exit2522thread-pre-split ], [ %2399, %2393 ]
   %.not2266 = icmp eq ptr %2425, null
-  br i1 %.not2266, label %.thread2816, label %2426
+  br i1 %.not2266, label %.thread2817, label %2426
 
-2426:                                             ; preds = %jit_compile.exit2521
-  %2427 = call i64 %2425(ptr noundef nonnull %0, ptr noundef %.pre3123) #20
+2426:                                             ; preds = %jit_compile.exit2522
+  %2427 = call i64 %2425(ptr noundef nonnull %0, ptr noundef %.pre3124) #20
   %2428 = load ptr, ptr %47, align 8, !tbaa !63
   %2429 = getelementptr inbounds nuw i8, ptr %2428, i64 64
   %2430 = load i32, ptr %2429, align 8, !tbaa !64
   %.not2267 = icmp eq i32 %2430, 0
-  br i1 %.not2267, label %2431, label %.loopexit2880
+  br i1 %.not2267, label %2431, label %.loopexit2881
 
 2431:                                             ; preds = %2426
   %2432 = icmp eq i64 %2427, 36
-  br i1 %2432, label %..thread2816_crit_edge, label %.thread2818
+  br i1 %2432, label %..thread2817_crit_edge, label %.thread2819
 
-..thread2816_crit_edge:                           ; preds = %2431
-  %.pre3122 = load ptr, ptr %35, align 8, !tbaa !66
-  br label %.thread2816
+..thread2817_crit_edge:                           ; preds = %2431
+  %.pre3123 = load ptr, ptr %35, align 8, !tbaa !66
+  br label %.thread2817
 
-.thread2816:                                      ; preds = %..thread2816_crit_edge, %2391, %jit_compile.exit2521
-  %2433 = phi ptr [ %.pre3122, %..thread2816_crit_edge ], [ %2392, %2391 ], [ %.pre3123, %jit_compile.exit2521 ]
+.thread2817:                                      ; preds = %..thread2817_crit_edge, %2391, %jit_compile.exit2522
+  %2433 = phi ptr [ %.pre3123, %..thread2817_crit_edge ], [ %2392, %2391 ], [ %.pre3124, %jit_compile.exit2522 ]
   %2434 = load ptr, ptr %2433, align 8, !tbaa !136
   br label %.backedge.backedge
 
-.thread2818:                                      ; preds = %vm_sendish.exit2518, %2431
-  %.022452820 = phi i64 [ %2427, %2431 ], [ %2389, %vm_sendish.exit2518 ]
+.thread2819:                                      ; preds = %vm_sendish.exit2519, %2431
+  %.022452821 = phi i64 [ %2427, %2431 ], [ %2389, %vm_sendish.exit2519 ]
   %2435 = load ptr, ptr %2341, align 8, !tbaa !93
-  store i64 %.022452820, ptr %2435, align 8, !tbaa !7
+  store i64 %.022452821, ptr %2435, align 8, !tbaa !7
   %2436 = getelementptr i8, ptr %2435, i64 8
   store ptr %2436, ptr %2341, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -12473,8 +12473,8 @@ jit_compile.exit2521:                             ; preds = %jit_compile.exit252
   store ptr %2440, ptr %2438, align 8, !tbaa !93
   %2443 = getelementptr inbounds nuw i8, ptr %.02230, i64 16
   %2444 = load ptr, ptr %2443, align 8, !tbaa !132
-  %.not.i2522 = icmp eq ptr %2444, null
-  br i1 %.not.i2522, label %vm_base_ptr.exit, label %2445
+  %.not.i2523 = icmp eq ptr %2444, null
+  br i1 %.not.i2523, label %vm_base_ptr.exit, label %2445
 
 2445:                                             ; preds = %2437
   %2446 = getelementptr i8, ptr %.02230, i64 32
@@ -12501,8 +12501,8 @@ jit_compile.exit2521:                             ; preds = %jit_compile.exit252
   %.not20.i = icmp eq i16 %2461, 0
   %2462 = and i32 %2447, 2
   %.not21.i = icmp eq i32 %2462, 0
-  %or.cond.i2524 = or i1 %.not21.i, %.not20.i
-  br i1 %or.cond.i2524, label %2480, label %2463
+  %or.cond.i2525 = or i1 %.not21.i, %.not20.i
+  br i1 %or.cond.i2525, label %2480, label %2463
 
 2463:                                             ; preds = %2449
   %2464 = getelementptr inbounds nuw i8, ptr %2453, i64 20
@@ -12513,45 +12513,45 @@ jit_compile.exit2521:                             ; preds = %jit_compile.exit252
   %2468 = getelementptr i64, ptr %.val23.i, i64 %2467
   %2469 = load i64, ptr %2468, align 8, !tbaa !7
   %2470 = and i64 %2469, 1
-  %.not.i.not.i.i2525 = icmp eq i64 %2470, 0
-  br i1 %.not.i.not.i.i2525, label %2474, label %2471
+  %.not.i.not.i.i2526 = icmp eq i64 %2470, 0
+  br i1 %.not.i.not.i.i2526, label %2474, label %2471
 
 2471:                                             ; preds = %2463
   %2472 = lshr i64 %2469, 1
   %2473 = and i64 %2472, 32767
-  br label %vm_ci_argc.exit.i2526
+  br label %vm_ci_argc.exit.i2527
 
 2474:                                             ; preds = %2463
   %2475 = inttoptr i64 %2469 to ptr
   %2476 = getelementptr inbounds nuw i8, ptr %2475, i64 32
   %2477 = load i64, ptr %2476, align 8, !tbaa !168
   %2478 = and i64 %2477, 4294967295
-  br label %vm_ci_argc.exit.i2526
+  br label %vm_ci_argc.exit.i2527
 
-vm_ci_argc.exit.i2526:                            ; preds = %2474, %2471
-  %.0.i.i2527 = phi i64 [ %2473, %2471 ], [ %2478, %2474 ]
-  %2479 = getelementptr i64, ptr %2458, i64 %.0.i.i2527
+vm_ci_argc.exit.i2527:                            ; preds = %2474, %2471
+  %.0.i.i2528 = phi i64 [ %2473, %2471 ], [ %2478, %2474 ]
+  %2479 = getelementptr i64, ptr %2458, i64 %.0.i.i2528
   br label %2480
 
-2480:                                             ; preds = %vm_ci_argc.exit.i2526, %2449
-  %.018.i = phi ptr [ %2479, %vm_ci_argc.exit.i2526 ], [ %2458, %2449 ]
+2480:                                             ; preds = %vm_ci_argc.exit.i2527, %2449
+  %.018.i = phi ptr [ %2479, %vm_ci_argc.exit.i2527 ], [ %2458, %2449 ]
   %2481 = load i32, ptr %2453, align 8, !tbaa !76
   %2482 = icmp ne i32 %2481, 1
   %2483 = and i32 %2447, 64
   %.not22.i = icmp eq i32 %2483, 0
   %or.cond25.i = and i1 %.not22.i, %2482
   %spec.select.idx.i = select i1 %or.cond25.i, i64 0, i64 8
-  %spec.select.i2528 = getelementptr i8, ptr %.018.i, i64 %spec.select.idx.i
+  %spec.select.i2529 = getelementptr i8, ptr %.018.i, i64 %spec.select.idx.i
   br label %vm_base_ptr.exit
 
 vm_base_ptr.exit:                                 ; preds = %2437, %2445, %2480
-  %.0.i2523 = phi ptr [ null, %2445 ], [ null, %2437 ], [ %spec.select.i2528, %2480 ]
-  %.not2263 = icmp eq ptr %2440, %.0.i2523
+  %.0.i2524 = phi ptr [ null, %2445 ], [ null, %2437 ], [ %spec.select.i2529, %2480 ]
+  %.not2263 = icmp eq ptr %2440, %.0.i2524
   br i1 %.not2263, label %2485, label %2484
 
 2484:                                             ; preds = %vm_base_ptr.exit
   %.val2309 = load ptr, ptr %0, align 8, !tbaa !130
-  call fastcc void @vm_stack_consistency_error(ptr %.val2309, ptr nonnull %2440, ptr noundef %.0.i2523) #56
+  call fastcc void @vm_stack_consistency_error(ptr %.val2309, ptr nonnull %2440, ptr noundef %.0.i2524) #56
   unreachable
 
 2485:                                             ; preds = %vm_base_ptr.exit
@@ -12559,15 +12559,15 @@ vm_base_ptr.exit:                                 ; preds = %2437, %2445, %2480
   %2487 = load ptr, ptr %2486, align 8, !tbaa !13
   %.val2306 = load i64, ptr %2487, align 8, !tbaa !7
   %.val2.i.i = load i32, ptr %38, align 8, !tbaa !67
-  %.val3.i.i2529 = load i32, ptr %39, align 4, !tbaa !68
-  %2488 = xor i32 %.val3.i.i2529, -1
+  %.val3.i.i2530 = load i32, ptr %39, align 4, !tbaa !68
+  %2488 = xor i32 %.val3.i.i2530, -1
   %2489 = and i32 %.val2.i.i, %2488
-  %.not.i.i2530 = icmp eq i32 %2489, 0
-  br i1 %.not.i.i2530, label %vm_pop_frame.exit, label %2490, !prof !69
+  %.not.i.i2531 = icmp eq i32 %2489, 0
+  br i1 %.not.i.i2531, label %vm_pop_frame.exit, label %2490, !prof !69
 
 2490:                                             ; preds = %2485
-  %.val.i.i2531 = load ptr, ptr %40, align 8, !tbaa !29
-  %2491 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i.i2531, i32 noundef 0) #20
+  %.val.i.i2532 = load ptr, ptr %40, align 8, !tbaa !29
+  %2491 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i.i2532, i32 noundef 0) #20
   br label %vm_pop_frame.exit
 
 vm_pop_frame.exit:                                ; preds = %2485, %2490
@@ -12575,7 +12575,7 @@ vm_pop_frame.exit:                                ; preds = %2485, %2490
   store ptr %2492, ptr %35, align 8, !tbaa !66
   %2493 = and i64 %.val2306, 32
   %.not2264 = icmp eq i64 %2493, 0
-  br i1 %.not2264, label %2494, label %.loopexit2880
+  br i1 %.not2264, label %2494, label %.loopexit2881
 
 2494:                                             ; preds = %vm_pop_frame.exit
   %2495 = load ptr, ptr %2492, align 8, !tbaa !136
@@ -12596,7 +12596,7 @@ vm_pop_frame.exit:                                ; preds = %2485, %2490
   %2506 = getelementptr i8, ptr %.02229, i64 16
   store ptr %2506, ptr %.02230, align 8, !tbaa !136
   %2507 = call fastcc i64 @vm_throw(ptr noundef %0, ptr noundef nonnull %.02230, i64 noundef %2501, i64 noundef %2505)
-  br label %.loopexit2880
+  br label %.loopexit2881
 
 2508:                                             ; preds = %.backedge, %4396
   %2509 = getelementptr i8, ptr %.02229, i64 8
@@ -12607,12 +12607,12 @@ vm_pop_frame.exit:                                ; preds = %2485, %2490
   %.val3.i = load i32, ptr %39, align 4, !tbaa !68
   %2512 = xor i32 %.val3.i, -1
   %2513 = and i32 %.val2.i, %2512
-  %.not.i2532 = icmp eq i32 %2513, 0
-  br i1 %.not.i2532, label %rb_vm_check_ints.exit, label %2514, !prof !69
+  %.not.i2533 = icmp eq i32 %2513, 0
+  br i1 %.not.i2533, label %rb_vm_check_ints.exit, label %2514, !prof !69
 
 2514:                                             ; preds = %2508
-  %.val.i2533 = load ptr, ptr %40, align 8, !tbaa !29
-  %2515 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2533, i32 noundef 0) #20
+  %.val.i2534 = load ptr, ptr %40, align 8, !tbaa !29
+  %2515 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2534, i32 noundef 0) #20
   br label %rb_vm_check_ints.exit
 
 rb_vm_check_ints.exit:                            ; preds = %2508, %2514
@@ -12630,32 +12630,32 @@ rb_vm_check_ints.exit:                            ; preds = %2508, %2514
   %2524 = getelementptr i8, ptr %.02229, i64 16
   store ptr %2524, ptr %.02230, align 8, !tbaa !136
   %2525 = and i64 %2523, -5
-  %.not2873 = icmp eq i64 %2525, 0
-  br i1 %.not2873, label %2532, label %2526
+  %.not2874 = icmp eq i64 %2525, 0
+  br i1 %.not2874, label %2532, label %2526
 
 2526:                                             ; preds = %2517
-  %.val2.i2534 = load i32, ptr %38, align 8, !tbaa !67
-  %.val3.i2535 = load i32, ptr %39, align 4, !tbaa !68
-  %2527 = xor i32 %.val3.i2535, -1
-  %2528 = and i32 %.val2.i2534, %2527
-  %.not.i2536 = icmp eq i32 %2528, 0
-  br i1 %.not.i2536, label %rb_vm_check_ints.exit2538, label %2529, !prof !69
+  %.val2.i2535 = load i32, ptr %38, align 8, !tbaa !67
+  %.val3.i2536 = load i32, ptr %39, align 4, !tbaa !68
+  %2527 = xor i32 %.val3.i2536, -1
+  %2528 = and i32 %.val2.i2535, %2527
+  %.not.i2537 = icmp eq i32 %2528, 0
+  br i1 %.not.i2537, label %rb_vm_check_ints.exit2539, label %2529, !prof !69
 
 2529:                                             ; preds = %2526
-  %.val.i2537 = load ptr, ptr %40, align 8, !tbaa !29
-  %2530 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2537, i32 noundef 0) #20
-  %.pre3121.pre = load ptr, ptr %2520, align 8, !tbaa !93
-  br label %rb_vm_check_ints.exit2538
+  %.val.i2538 = load ptr, ptr %40, align 8, !tbaa !29
+  %2530 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2538, i32 noundef 0) #20
+  %.pre3122.pre = load ptr, ptr %2520, align 8, !tbaa !93
+  br label %rb_vm_check_ints.exit2539
 
-rb_vm_check_ints.exit2538:                        ; preds = %2526, %2529
-  %.pre3121 = phi ptr [ %2521, %2526 ], [ %.pre3121.pre, %2529 ]
+rb_vm_check_ints.exit2539:                        ; preds = %2526, %2529
+  %.pre3122 = phi ptr [ %2521, %2526 ], [ %.pre3122.pre, %2529 ]
   %2531 = getelementptr i64, ptr %2524, i64 %2519
   store ptr %2531, ptr %.02230, align 8, !tbaa !136
   br label %2532
 
-2532:                                             ; preds = %rb_vm_check_ints.exit2538, %2517
-  %2533 = phi ptr [ %.pre3121, %rb_vm_check_ints.exit2538 ], [ %2521, %2517 ]
-  %.2 = phi ptr [ %2531, %rb_vm_check_ints.exit2538 ], [ %2524, %2517 ]
+2532:                                             ; preds = %rb_vm_check_ints.exit2539, %2517
+  %2533 = phi ptr [ %.pre3122, %rb_vm_check_ints.exit2539 ], [ %2521, %2517 ]
+  %.2 = phi ptr [ %2531, %rb_vm_check_ints.exit2539 ], [ %2524, %2517 ]
   %2534 = getelementptr i8, ptr %2533, i64 -8
   store ptr %2534, ptr %2520, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -12670,32 +12670,32 @@ rb_vm_check_ints.exit2538:                        ; preds = %2526, %2529
   %2542 = getelementptr i8, ptr %.02229, i64 16
   store ptr %2542, ptr %.02230, align 8, !tbaa !136
   %2543 = and i64 %2541, -5
-  %.not2872 = icmp eq i64 %2543, 0
-  br i1 %.not2872, label %2544, label %2550
+  %.not2873 = icmp eq i64 %2543, 0
+  br i1 %.not2873, label %2544, label %2550
 
 2544:                                             ; preds = %2535
-  %.val2.i2539 = load i32, ptr %38, align 8, !tbaa !67
-  %.val3.i2540 = load i32, ptr %39, align 4, !tbaa !68
-  %2545 = xor i32 %.val3.i2540, -1
-  %2546 = and i32 %.val2.i2539, %2545
-  %.not.i2541 = icmp eq i32 %2546, 0
-  br i1 %.not.i2541, label %rb_vm_check_ints.exit2543, label %2547, !prof !69
+  %.val2.i2540 = load i32, ptr %38, align 8, !tbaa !67
+  %.val3.i2541 = load i32, ptr %39, align 4, !tbaa !68
+  %2545 = xor i32 %.val3.i2541, -1
+  %2546 = and i32 %.val2.i2540, %2545
+  %.not.i2542 = icmp eq i32 %2546, 0
+  br i1 %.not.i2542, label %rb_vm_check_ints.exit2544, label %2547, !prof !69
 
 2547:                                             ; preds = %2544
-  %.val.i2542 = load ptr, ptr %40, align 8, !tbaa !29
-  %2548 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2542, i32 noundef 0) #20
-  %.pre3120.pre = load ptr, ptr %2538, align 8, !tbaa !93
-  br label %rb_vm_check_ints.exit2543
+  %.val.i2543 = load ptr, ptr %40, align 8, !tbaa !29
+  %2548 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2543, i32 noundef 0) #20
+  %.pre3121.pre = load ptr, ptr %2538, align 8, !tbaa !93
+  br label %rb_vm_check_ints.exit2544
 
-rb_vm_check_ints.exit2543:                        ; preds = %2544, %2547
-  %.pre3120 = phi ptr [ %2539, %2544 ], [ %.pre3120.pre, %2547 ]
+rb_vm_check_ints.exit2544:                        ; preds = %2544, %2547
+  %.pre3121 = phi ptr [ %2539, %2544 ], [ %.pre3121.pre, %2547 ]
   %2549 = getelementptr i64, ptr %2542, i64 %2537
   store ptr %2549, ptr %.02230, align 8, !tbaa !136
   br label %2550
 
-2550:                                             ; preds = %rb_vm_check_ints.exit2543, %2535
-  %2551 = phi ptr [ %2539, %2535 ], [ %.pre3120, %rb_vm_check_ints.exit2543 ]
-  %.3 = phi ptr [ %2542, %2535 ], [ %2549, %rb_vm_check_ints.exit2543 ]
+2550:                                             ; preds = %rb_vm_check_ints.exit2544, %2535
+  %2551 = phi ptr [ %2539, %2535 ], [ %.pre3121, %rb_vm_check_ints.exit2544 ]
+  %.3 = phi ptr [ %2542, %2535 ], [ %2549, %rb_vm_check_ints.exit2544 ]
   %2552 = getelementptr i8, ptr %2551, i64 -8
   store ptr %2552, ptr %2538, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -12713,28 +12713,28 @@ rb_vm_check_ints.exit2543:                        ; preds = %2544, %2547
   br i1 %2561, label %2562, label %2568
 
 2562:                                             ; preds = %2553
-  %.val2.i2544 = load i32, ptr %38, align 8, !tbaa !67
-  %.val3.i2545 = load i32, ptr %39, align 4, !tbaa !68
-  %2563 = xor i32 %.val3.i2545, -1
-  %2564 = and i32 %.val2.i2544, %2563
-  %.not.i2546 = icmp eq i32 %2564, 0
-  br i1 %.not.i2546, label %rb_vm_check_ints.exit2548, label %2565, !prof !69
+  %.val2.i2545 = load i32, ptr %38, align 8, !tbaa !67
+  %.val3.i2546 = load i32, ptr %39, align 4, !tbaa !68
+  %2563 = xor i32 %.val3.i2546, -1
+  %2564 = and i32 %.val2.i2545, %2563
+  %.not.i2547 = icmp eq i32 %2564, 0
+  br i1 %.not.i2547, label %rb_vm_check_ints.exit2549, label %2565, !prof !69
 
 2565:                                             ; preds = %2562
-  %.val.i2547 = load ptr, ptr %40, align 8, !tbaa !29
-  %2566 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2547, i32 noundef 0) #20
-  %.pre3119.pre = load ptr, ptr %2556, align 8, !tbaa !93
-  br label %rb_vm_check_ints.exit2548
+  %.val.i2548 = load ptr, ptr %40, align 8, !tbaa !29
+  %2566 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i2548, i32 noundef 0) #20
+  %.pre3120.pre = load ptr, ptr %2556, align 8, !tbaa !93
+  br label %rb_vm_check_ints.exit2549
 
-rb_vm_check_ints.exit2548:                        ; preds = %2562, %2565
-  %.pre3119 = phi ptr [ %2557, %2562 ], [ %.pre3119.pre, %2565 ]
+rb_vm_check_ints.exit2549:                        ; preds = %2562, %2565
+  %.pre3120 = phi ptr [ %2557, %2562 ], [ %.pre3120.pre, %2565 ]
   %2567 = getelementptr i64, ptr %2560, i64 %2555
   store ptr %2567, ptr %.02230, align 8, !tbaa !136
   br label %2568
 
-2568:                                             ; preds = %rb_vm_check_ints.exit2548, %2553
-  %2569 = phi ptr [ %.pre3119, %rb_vm_check_ints.exit2548 ], [ %2557, %2553 ]
-  %.4 = phi ptr [ %2567, %rb_vm_check_ints.exit2548 ], [ %2560, %2553 ]
+2568:                                             ; preds = %rb_vm_check_ints.exit2549, %2553
+  %2569 = phi ptr [ %.pre3120, %rb_vm_check_ints.exit2549 ], [ %2557, %2553 ]
+  %.4 = phi ptr [ %2567, %rb_vm_check_ints.exit2549 ], [ %2560, %2553 ]
   %2570 = getelementptr i8, ptr %2569, i64 -8
   store ptr %2570, ptr %2556, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -12749,7 +12749,7 @@ rb_vm_check_ints.exit2548:                        ; preds = %2562, %2565
   %2578 = getelementptr i8, ptr %.02229, i64 24
   store ptr %2578, ptr %.02230, align 8, !tbaa !136
   %2579 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
-  %.val.i2549 = load ptr, ptr %40, align 8, !tbaa !29
+  %.val.i2550 = load ptr, ptr %40, align 8, !tbaa !29
   br label %2580
 
 2580:                                             ; preds = %rb_vm_check_ints.exit.i, %2571
@@ -12766,7 +12766,7 @@ rb_vm_check_ints.exit2548:                        ; preds = %2562, %2565
   br label %vm_once_dispatch.exit
 
 2585:                                             ; preds = %2580
-  store ptr %.val.i2549, ptr %2577, align 8, !tbaa !26
+  store ptr %.val.i2550, ptr %2577, align 8, !tbaa !26
   %2586 = call i64 @rb_ensure(ptr noundef nonnull @vm_once_exec, i64 noundef %2573, ptr noundef nonnull @vm_once_clear, i64 noundef %2576) #20
   %2587 = load ptr, ptr %35, align 8, !tbaa !66
   %2588 = getelementptr inbounds nuw i8, ptr %2587, i64 16
@@ -12789,7 +12789,7 @@ rb_obj_write.exit.i:                              ; preds = %2595, %2585
   br label %vm_once_dispatch.exit
 
 2597:                                             ; preds = %2580
-  %2598 = icmp eq ptr %2581, %.val.i2549
+  %2598 = icmp eq ptr %2581, %.val.i2550
   br i1 %2598, label %2599, label %2614
 
 2599:                                             ; preds = %2597
@@ -12801,9 +12801,9 @@ rb_obj_write.exit.i:                              ; preds = %2595, %2585
   %.val8.i.i.i.i = load i64, ptr %2603, align 8, !tbaa !131
   %2604 = getelementptr i64, ptr %.val.i.i.i.i, i64 %.val8.i.i.i.i
   %.not910.i.i.i.i = icmp ugt ptr %2604, %2602
-  br i1 %.not910.i.i.i.i, label %.lr.ph.i.i.i.i2555, label %.loopexit.i.i.i
+  br i1 %.not910.i.i.i.i, label %.lr.ph.i.i.i.i2556, label %.loopexit.i.i.i
 
-.lr.ph.i.i.i.i2555:                               ; preds = %2599, %2607
+.lr.ph.i.i.i.i2556:                               ; preds = %2599, %2607
   %.011.i.i.i.i = phi ptr [ %2608, %2607 ], [ %2602, %2599 ]
   %2605 = getelementptr i8, ptr %.011.i.i.i.i, i64 32
   %.0.val.i.i.i.i = load ptr, ptr %2605, align 8, !tbaa !13
@@ -12812,16 +12812,16 @@ rb_obj_write.exit.i:                              ; preds = %2595, %2585
   %.not7.not.i.i.i.i = icmp eq i64 %2606, 0
   br i1 %.not7.not.i.i.i.i, label %vm_once_exec.exit.i, label %2607
 
-2607:                                             ; preds = %.lr.ph.i.i.i.i2555
+2607:                                             ; preds = %.lr.ph.i.i.i.i2556
   %2608 = getelementptr i8, ptr %.011.i.i.i.i, i64 56
   %.not9.i.i.i.i = icmp ugt ptr %2604, %2608
-  br i1 %.not9.i.i.i.i, label %.lr.ph.i.i.i.i2555, label %.loopexit.i.i.i, !llvm.loop !321
+  br i1 %.not9.i.i.i.i, label %.lr.ph.i.i.i.i2556, label %.loopexit.i.i.i, !llvm.loop !321
 
 .loopexit.i.i.i:                                  ; preds = %2599, %2607
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.193) #55
   unreachable
 
-vm_once_exec.exit.i:                              ; preds = %.lr.ph.i.i.i.i2555
+vm_once_exec.exit.i:                              ; preds = %.lr.ph.i.i.i.i2556
   %2609 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %2610 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 40
   store ptr %2574, ptr %2610, align 8, !tbaa !26
@@ -12831,16 +12831,16 @@ vm_once_exec.exit.i:                              ; preds = %.lr.ph.i.i.i.i2555
   br label %vm_once_dispatch.exit
 
 2614:                                             ; preds = %2597
-  %.val2.i.i2551 = load i32, ptr %38, align 8, !tbaa !67
-  %.val3.i.i2552 = load i32, ptr %39, align 4, !tbaa !68
-  %2615 = xor i32 %.val3.i.i2552, -1
-  %2616 = and i32 %.val2.i.i2551, %2615
-  %.not.i.i2553 = icmp eq i32 %2616, 0
-  br i1 %.not.i.i2553, label %rb_vm_check_ints.exit.i, label %2617, !prof !69
+  %.val2.i.i2552 = load i32, ptr %38, align 8, !tbaa !67
+  %.val3.i.i2553 = load i32, ptr %39, align 4, !tbaa !68
+  %2615 = xor i32 %.val3.i.i2553, -1
+  %2616 = and i32 %.val2.i.i2552, %2615
+  %.not.i.i2554 = icmp eq i32 %2616, 0
+  br i1 %.not.i.i2554, label %rb_vm_check_ints.exit.i, label %2617, !prof !69
 
 2617:                                             ; preds = %2614
-  %.val.i.i2554 = load ptr, ptr %40, align 8, !tbaa !29
-  %2618 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i.i2554, i32 noundef 0) #20
+  %.val.i.i2555 = load ptr, ptr %40, align 8, !tbaa !29
+  %2618 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i.i2555, i32 noundef 0) #20
   br label %rb_vm_check_ints.exit.i
 
 rb_vm_check_ints.exit.i:                          ; preds = %2617, %2614
@@ -12848,9 +12848,9 @@ rb_vm_check_ints.exit.i:                          ; preds = %2617, %2614
   br label %2580
 
 vm_once_dispatch.exit:                            ; preds = %2582, %rb_obj_write.exit.i, %vm_once_exec.exit.i
-  %.0.i2550 = phi i64 [ %2584, %2582 ], [ %2586, %rb_obj_write.exit.i ], [ %2613, %vm_once_exec.exit.i ]
+  %.0.i2551 = phi i64 [ %2584, %2582 ], [ %2586, %rb_obj_write.exit.i ], [ %2613, %vm_once_exec.exit.i ]
   %2619 = load ptr, ptr %2579, align 8, !tbaa !93
-  store i64 %.0.i2550, ptr %2619, align 8, !tbaa !7
+  store i64 %.0.i2551, ptr %2619, align 8, !tbaa !7
   %2620 = getelementptr i8, ptr %2619, i64 8
   store ptr %2620, ptr %2579, align 8, !tbaa !93
   br label %.backedge.backedge
@@ -12908,8 +12908,8 @@ RB_FLOAT_TYPE_P.exit.i:                           ; preds = %2646
 
 2651:                                             ; preds = %2643
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not.i.i.i2560 = icmp eq i64 %2629, -9223372036854775806
-  br i1 %.not.i.i.i2560, label %rb_float_value_inline.exit.i, label %2652
+  %.not.i.i.i2561 = icmp eq i64 %2629, -9223372036854775806
+  br i1 %.not.i.i.i2561, label %rb_float_value_inline.exit.i, label %2652
 
 2652:                                             ; preds = %2651
   %.neg.i.i.i = ashr i64 %2629, 63
@@ -12942,8 +12942,8 @@ rb_float_value_inline.exit.i:                     ; preds = %2658, %2652, %2651
   %2667 = load double, ptr %5, align 8, !tbaa !325
   %2668 = fcmp olt double %2667, 0x43D0000000000000
   %2669 = fcmp oge double %2667, 0xC3D0000000000000
-  %or.cond.i2559 = and i1 %2668, %2669
-  br i1 %or.cond.i2559, label %2670, label %2674
+  %or.cond.i2560 = and i1 %2668, %2669
+  br i1 %or.cond.i2560, label %2670, label %2674
 
 2670:                                             ; preds = %2666
   %2671 = fptosi double %2667 to i64
@@ -12963,16 +12963,16 @@ rb_float_value_inline.exit.i:                     ; preds = %2658, %2652, %2651
 vm_case_dispatch.exit:                            ; preds = %2646, %RB_FLOAT_TYPE_P.exit.i, %2676
   %.011.i = phi i64 [ %.112.i, %2676 ], [ %2629, %RB_FLOAT_TYPE_P.exit.i ], [ %2629, %2646 ]
   %2677 = call i32 @rb_hash_stlike_lookup(i64 noundef %2623, i64 noundef %.011.i, ptr noundef nonnull %4) #20
-  %.not.i2557 = icmp eq i32 %2677, 0
+  %.not.i2558 = icmp eq i32 %2677, 0
   %2678 = load i64, ptr %4, align 8
   %2679 = ashr i64 %2678, 1
-  %.0.i2558 = select i1 %.not.i2557, i64 %2625, i64 %2679
+  %.0.i2559 = select i1 %.not.i2558, i64 %2625, i64 %2679
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not2262 = icmp eq i64 %.0.i2558, 0
+  %.not2262 = icmp eq i64 %.0.i2559, 0
   br i1 %.not2262, label %vm_case_dispatch.exit.thread, label %2680
 
 2680:                                             ; preds = %vm_case_dispatch.exit
-  %2681 = getelementptr i64, ptr %2630, i64 %.0.i2558
+  %2681 = getelementptr i64, ptr %2630, i64 %.0.i2559
   store ptr %2681, ptr %.02230, align 8, !tbaa !136
   br label %vm_case_dispatch.exit.thread
 
@@ -12994,8 +12994,8 @@ vm_case_dispatch.exit.thread:                     ; preds = %2635, %.thread.i, %
   store ptr %2691, ptr %.02230, align 8, !tbaa !136
   %2692 = and i64 %2689, 1
   %2693 = and i64 %2692, %2690
-  %.not.i2561 = icmp eq i64 %2693, 0
-  br i1 %.not.i2561, label %2707, label %2694
+  %.not.i2562 = icmp eq i64 %2693, 0
+  br i1 %.not.i2562, label %2707, label %2694
 
 2694:                                             ; preds = %2684
   %2695 = load i16, ptr @ruby_vm_redefined_flag, align 16, !tbaa !263
@@ -13021,8 +13021,8 @@ vm_case_dispatch.exit.thread:                     ; preds = %2635, %.thread.i, %
   %2709 = xor i64 %2690, 2
   %2710 = or i64 %2709, %2708
   %2711 = and i64 %2710, 3
-  %.not.i.i2562 = icmp eq i64 %2711, 0
-  br i1 %.not.i.i2562, label %2712, label %2758
+  %.not.i.i2563 = icmp eq i64 %2711, 0
+  br i1 %.not.i.i2563, label %2712, label %2758
 
 2712:                                             ; preds = %2707
   %2713 = load i16, ptr @ruby_vm_redefined_flag, align 16, !tbaa !263
@@ -13036,31 +13036,31 @@ vm_case_dispatch.exit.thread:                     ; preds = %2635, %.thread.i, %
   br i1 %2718, label %2719, label %2726
 
 2719:                                             ; preds = %2716
-  %.not.i.i.i2566 = icmp eq i64 %2689, -9223372036854775806
-  br i1 %.not.i.i.i2566, label %rb_float_value_inline.exit.i2564, label %2720
+  %.not.i.i.i2567 = icmp eq i64 %2689, -9223372036854775806
+  br i1 %.not.i.i.i2567, label %rb_float_value_inline.exit.i2565, label %2720
 
 2720:                                             ; preds = %2719
-  %.neg.i.i.i2567 = ashr i64 %2689, 63
-  %2721 = add nsw i64 %.neg.i.i.i2567, 2
+  %.neg.i.i.i2568 = ashr i64 %2689, 63
+  %2721 = add nsw i64 %.neg.i.i.i2568, 2
   %2722 = and i64 %2689, -4
   %2723 = or i64 %2721, %2722
   %2724 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2723, i64 range(i64 1, 0) %2723, i64 61)
   %2725 = bitcast i64 %2724 to double
-  br label %rb_float_value_inline.exit.i2564
+  br label %rb_float_value_inline.exit.i2565
 
 2726:                                             ; preds = %2716
   %2727 = inttoptr i64 %2689 to ptr
   %2728 = getelementptr inbounds nuw i8, ptr %2727, i64 16
   %2729 = load double, ptr %2728, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2564
+  br label %rb_float_value_inline.exit.i2565
 
-rb_float_value_inline.exit.i2564:                 ; preds = %2726, %2720, %2719
-  %.0.i26.i2565 = phi double [ %2729, %2726 ], [ %2725, %2720 ], [ 0.000000e+00, %2719 ]
+rb_float_value_inline.exit.i2565:                 ; preds = %2726, %2720, %2719
+  %.0.i26.i2566 = phi double [ %2729, %2726 ], [ %2725, %2720 ], [ 0.000000e+00, %2719 ]
   %2730 = and i64 %2690, 3
   %2731 = icmp eq i64 %2730, 2
   br i1 %2731, label %2732, label %2739
 
-2732:                                             ; preds = %rb_float_value_inline.exit.i2564
+2732:                                             ; preds = %rb_float_value_inline.exit.i2565
   %.not.i.i28.i = icmp eq i64 %2690, -9223372036854775806
   br i1 %.not.i.i28.i, label %rb_float_value_inline.exit30.i, label %2733
 
@@ -13073,7 +13073,7 @@ rb_float_value_inline.exit.i2564:                 ; preds = %2726, %2720, %2719
   %2738 = bitcast i64 %2737 to double
   br label %rb_float_value_inline.exit30.i
 
-2739:                                             ; preds = %rb_float_value_inline.exit.i2564
+2739:                                             ; preds = %rb_float_value_inline.exit.i2565
   %2740 = inttoptr i64 %2690 to ptr
   %2741 = getelementptr inbounds nuw i8, ptr %2740, i64 16
   %2742 = load double, ptr %2741, align 8, !tbaa !322
@@ -13081,7 +13081,7 @@ rb_float_value_inline.exit.i2564:                 ; preds = %2726, %2720, %2719
 
 rb_float_value_inline.exit30.i:                   ; preds = %2739, %2733, %2732
   %.0.i27.i = phi double [ %2742, %2739 ], [ %2738, %2733 ], [ 0.000000e+00, %2732 ]
-  %2743 = fadd double %.0.i26.i2565, %.0.i27.i
+  %2743 = fadd double %.0.i26.i2566, %.0.i27.i
   %2744 = bitcast double %2743 to i64
   %cond.i.i = icmp eq i64 %2744, 3458764513820540928
   br i1 %cond.i.i, label %2756, label %2745
@@ -13098,11 +13098,11 @@ rb_float_value_inline.exit30.i:                   ; preds = %2739, %2733, %2732
   %2751 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2744, i64 range(i64 3458764513820540929, 3458764513820540928) %2744, i64 3)
   %2752 = and i64 %2751, -4
   %2753 = or disjoint i64 %2752, 2
-  br label %vm_opt_plus.exit.thread2825
+  br label %vm_opt_plus.exit.thread2826
 
 2754:                                             ; preds = %2745
   %2755 = icmp eq i64 %2744, 0
-  br i1 %2755, label %vm_opt_plus.exit.thread2825, label %2756
+  br i1 %2755, label %vm_opt_plus.exit.thread2826, label %2756
 
 2756:                                             ; preds = %2754, %rb_float_value_inline.exit30.i
   %2757 = call i64 @rb_float_new_in_heap(double noundef %2743) #20
@@ -13158,18 +13158,18 @@ rb_float_value_inline.exit35.i:                   ; preds = %2779
   %2791 = trunc nuw nsw i64 %2790 to i32
   %2792 = and i32 %2791, 7
   %2793 = add nsw i32 %2792, -3
-  %.not7.i2761 = icmp ult i32 %2793, 2
-  br i1 %.not7.i2761, label %2794, label %2798
+  %.not7.i2762 = icmp ult i32 %2793, 2
+  br i1 %.not7.i2762, label %2794, label %2798
 
 2794:                                             ; preds = %2789
   %2795 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2788, i64 range(i64 3458764513820540929, 3458764513820540928) %2788, i64 3)
   %2796 = and i64 %2795, -4
   %2797 = or disjoint i64 %2796, 2
-  br label %vm_opt_plus.exit.thread2825
+  br label %vm_opt_plus.exit.thread2826
 
 2798:                                             ; preds = %2789
   %2799 = icmp eq i64 %2788, 0
-  br i1 %2799, label %vm_opt_plus.exit.thread2825, label %2800
+  br i1 %2799, label %vm_opt_plus.exit.thread2826, label %2800
 
 2800:                                             ; preds = %2798, %rb_float_value_inline.exit35.i
   %2801 = call i64 @rb_float_new_in_heap(double noundef %2787) #20
@@ -13220,21 +13220,21 @@ rb_float_value_inline.exit35.i:                   ; preds = %2779
   br label %vm_opt_plus.exit
 
 vm_opt_plus.exit:                                 ; preds = %2800, %2698, %2703, %2756, %2814, %2828
-  %.0.i2563 = phi i64 [ %2815, %2814 ], [ %2829, %2828 ], [ %2706, %2703 ], [ %2702, %2698 ], [ %2757, %2756 ], [ %2801, %2800 ]
-  %2830 = icmp eq i64 %.0.i2563, 36
-  br i1 %2830, label %vm_objtostring.exit.thread, label %vm_opt_plus.exit.vm_opt_plus.exit.thread2825_crit_edge
+  %.0.i2564 = phi i64 [ %2815, %2814 ], [ %2829, %2828 ], [ %2706, %2703 ], [ %2702, %2698 ], [ %2757, %2756 ], [ %2801, %2800 ]
+  %2830 = icmp eq i64 %.0.i2564, 36
+  br i1 %2830, label %vm_objtostring.exit.thread, label %vm_opt_plus.exit.vm_opt_plus.exit.thread2826_crit_edge
 
-vm_opt_plus.exit.vm_opt_plus.exit.thread2825_crit_edge: ; preds = %vm_opt_plus.exit
-  %.pre3118 = load ptr, ptr %2685, align 8, !tbaa !93
-  br label %vm_opt_plus.exit.thread2825
+vm_opt_plus.exit.vm_opt_plus.exit.thread2826_crit_edge: ; preds = %vm_opt_plus.exit
+  %.pre3119 = load ptr, ptr %2685, align 8, !tbaa !93
+  br label %vm_opt_plus.exit.thread2826
 
-vm_opt_plus.exit.thread2825:                      ; preds = %vm_opt_plus.exit.vm_opt_plus.exit.thread2825_crit_edge, %2798, %2794, %2754, %2750
-  %2831 = phi ptr [ %.pre3118, %vm_opt_plus.exit.vm_opt_plus.exit.thread2825_crit_edge ], [ %2686, %2798 ], [ %2686, %2794 ], [ %2686, %2754 ], [ %2686, %2750 ]
-  %.0.i25632827 = phi i64 [ %.0.i2563, %vm_opt_plus.exit.vm_opt_plus.exit.thread2825_crit_edge ], [ -9223372036854775806, %2798 ], [ %2797, %2794 ], [ -9223372036854775806, %2754 ], [ %2753, %2750 ]
+vm_opt_plus.exit.thread2826:                      ; preds = %vm_opt_plus.exit.vm_opt_plus.exit.thread2826_crit_edge, %2798, %2794, %2754, %2750
+  %2831 = phi ptr [ %.pre3119, %vm_opt_plus.exit.vm_opt_plus.exit.thread2826_crit_edge ], [ %2686, %2798 ], [ %2686, %2794 ], [ %2686, %2754 ], [ %2686, %2750 ]
+  %.0.i25642828 = phi i64 [ %.0.i2564, %vm_opt_plus.exit.vm_opt_plus.exit.thread2826_crit_edge ], [ -9223372036854775806, %2798 ], [ %2797, %2794 ], [ -9223372036854775806, %2754 ], [ %2753, %2750 ]
   %2832 = getelementptr i8, ptr %2831, i64 -8
   store ptr %2832, ptr %2685, align 8, !tbaa !93
   %2833 = getelementptr i8, ptr %2831, i64 -16
-  store i64 %.0.i25632827, ptr %2833, align 8, !tbaa !7
+  store i64 %.0.i25642828, ptr %2833, align 8, !tbaa !7
   br label %.backedge.backedge
 
 2834:                                             ; preds = %.backedge
@@ -13248,8 +13248,8 @@ vm_opt_plus.exit.thread2825:                      ; preds = %vm_opt_plus.exit.vm
   store ptr %2841, ptr %.02230, align 8, !tbaa !136
   %2842 = and i64 %2839, 1
   %2843 = and i64 %2842, %2840
-  %.not.i2568 = icmp eq i64 %2843, 0
-  br i1 %.not.i2568, label %2857, label %2844
+  %.not.i2569 = icmp eq i64 %2843, 0
+  br i1 %.not.i2569, label %2857, label %2844
 
 2844:                                             ; preds = %2834
   %2845 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2, !tbaa !263
@@ -13275,8 +13275,8 @@ vm_opt_plus.exit.thread2825:                      ; preds = %vm_opt_plus.exit.vm
   %2859 = xor i64 %2840, 2
   %2860 = or i64 %2859, %2858
   %2861 = and i64 %2860, 3
-  %.not.i.i2569 = icmp eq i64 %2861, 0
-  br i1 %.not.i.i2569, label %2862, label %2908
+  %.not.i.i2570 = icmp eq i64 %2861, 0
+  br i1 %.not.i.i2570, label %2862, label %2908
 
 2862:                                             ; preds = %2857
   %2863 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 2), align 2, !tbaa !263
@@ -13290,31 +13290,31 @@ vm_opt_plus.exit.thread2825:                      ; preds = %vm_opt_plus.exit.vm
   br i1 %2868, label %2869, label %2876
 
 2869:                                             ; preds = %2866
-  %.not.i.i.i2574 = icmp eq i64 %2839, -9223372036854775806
-  br i1 %.not.i.i.i2574, label %rb_float_value_inline.exit.i2571, label %2870
+  %.not.i.i.i2575 = icmp eq i64 %2839, -9223372036854775806
+  br i1 %.not.i.i.i2575, label %rb_float_value_inline.exit.i2572, label %2870
 
 2870:                                             ; preds = %2869
-  %.neg.i.i.i2575 = ashr i64 %2839, 63
-  %2871 = add nsw i64 %.neg.i.i.i2575, 2
+  %.neg.i.i.i2576 = ashr i64 %2839, 63
+  %2871 = add nsw i64 %.neg.i.i.i2576, 2
   %2872 = and i64 %2839, -4
   %2873 = or i64 %2871, %2872
   %2874 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2873, i64 range(i64 1, 0) %2873, i64 61)
   %2875 = bitcast i64 %2874 to double
-  br label %rb_float_value_inline.exit.i2571
+  br label %rb_float_value_inline.exit.i2572
 
 2876:                                             ; preds = %2866
   %2877 = inttoptr i64 %2839 to ptr
   %2878 = getelementptr inbounds nuw i8, ptr %2877, i64 16
   %2879 = load double, ptr %2878, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2571
+  br label %rb_float_value_inline.exit.i2572
 
-rb_float_value_inline.exit.i2571:                 ; preds = %2876, %2870, %2869
+rb_float_value_inline.exit.i2572:                 ; preds = %2876, %2870, %2869
   %.0.i16.i = phi double [ %2879, %2876 ], [ %2875, %2870 ], [ 0.000000e+00, %2869 ]
   %2880 = and i64 %2840, 3
   %2881 = icmp eq i64 %2880, 2
   br i1 %2881, label %2882, label %2889
 
-2882:                                             ; preds = %rb_float_value_inline.exit.i2571
+2882:                                             ; preds = %rb_float_value_inline.exit.i2572
   %.not.i.i18.i = icmp eq i64 %2840, -9223372036854775806
   br i1 %.not.i.i18.i, label %rb_float_value_inline.exit20.i, label %2883
 
@@ -13327,7 +13327,7 @@ rb_float_value_inline.exit.i2571:                 ; preds = %2876, %2870, %2869
   %2888 = bitcast i64 %2887 to double
   br label %rb_float_value_inline.exit20.i
 
-2889:                                             ; preds = %rb_float_value_inline.exit.i2571
+2889:                                             ; preds = %rb_float_value_inline.exit.i2572
   %2890 = inttoptr i64 %2840 to ptr
   %2891 = getelementptr inbounds nuw i8, ptr %2890, i64 16
   %2892 = load double, ptr %2891, align 8, !tbaa !322
@@ -13337,26 +13337,26 @@ rb_float_value_inline.exit20.i:                   ; preds = %2889, %2883, %2882
   %.0.i17.i = phi double [ %2892, %2889 ], [ %2888, %2883 ], [ 0.000000e+00, %2882 ]
   %2893 = fsub double %.0.i16.i, %.0.i17.i
   %2894 = bitcast double %2893 to i64
-  %cond.i.i2572 = icmp eq i64 %2894, 3458764513820540928
-  br i1 %cond.i.i2572, label %2906, label %2895
+  %cond.i.i2573 = icmp eq i64 %2894, 3458764513820540928
+  br i1 %cond.i.i2573, label %2906, label %2895
 
 2895:                                             ; preds = %rb_float_value_inline.exit20.i
   %2896 = lshr i64 %2894, 60
   %2897 = trunc nuw nsw i64 %2896 to i32
   %2898 = and i32 %2897, 7
   %2899 = add nsw i32 %2898, -3
-  %.not7.i.i2573 = icmp ult i32 %2899, 2
-  br i1 %.not7.i.i2573, label %2900, label %2904
+  %.not7.i.i2574 = icmp ult i32 %2899, 2
+  br i1 %.not7.i.i2574, label %2900, label %2904
 
 2900:                                             ; preds = %2895
   %2901 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2894, i64 range(i64 3458764513820540929, 3458764513820540928) %2894, i64 3)
   %2902 = and i64 %2901, -4
   %2903 = or disjoint i64 %2902, 2
-  br label %vm_opt_minus.exit.thread2830
+  br label %vm_opt_minus.exit.thread2831
 
 2904:                                             ; preds = %2895
   %2905 = icmp eq i64 %2894, 0
-  br i1 %2905, label %vm_opt_minus.exit.thread2830, label %2906
+  br i1 %2905, label %vm_opt_minus.exit.thread2831, label %2906
 
 2906:                                             ; preds = %2904, %rb_float_value_inline.exit20.i
   %2907 = call i64 @rb_float_new_in_heap(double noundef %2893) #20
@@ -13404,47 +13404,47 @@ rb_float_value_inline.exit25.i:                   ; preds = %2929
   %2936 = load double, ptr %2935, align 8, !tbaa !322
   %2937 = fsub double %2934, %2936
   %2938 = bitcast double %2937 to i64
-  %cond.i2763 = icmp eq i64 %2938, 3458764513820540928
-  br i1 %cond.i2763, label %2950, label %2939
+  %cond.i2764 = icmp eq i64 %2938, 3458764513820540928
+  br i1 %cond.i2764, label %2950, label %2939
 
 2939:                                             ; preds = %rb_float_value_inline.exit25.i
   %2940 = lshr i64 %2938, 60
   %2941 = trunc nuw nsw i64 %2940 to i32
   %2942 = and i32 %2941, 7
   %2943 = add nsw i32 %2942, -3
-  %.not7.i2764 = icmp ult i32 %2943, 2
-  br i1 %.not7.i2764, label %2944, label %2948
+  %.not7.i2765 = icmp ult i32 %2943, 2
+  br i1 %.not7.i2765, label %2944, label %2948
 
 2944:                                             ; preds = %2939
   %2945 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %2938, i64 range(i64 3458764513820540929, 3458764513820540928) %2938, i64 3)
   %2946 = and i64 %2945, -4
   %2947 = or disjoint i64 %2946, 2
-  br label %vm_opt_minus.exit.thread2830
+  br label %vm_opt_minus.exit.thread2831
 
 2948:                                             ; preds = %2939
   %2949 = icmp eq i64 %2938, 0
-  br i1 %2949, label %vm_opt_minus.exit.thread2830, label %2950
+  br i1 %2949, label %vm_opt_minus.exit.thread2831, label %2950
 
 2950:                                             ; preds = %2948, %rb_float_value_inline.exit25.i
   %2951 = call i64 @rb_float_new_in_heap(double noundef %2937) #20
   br label %vm_opt_minus.exit
 
 vm_opt_minus.exit:                                ; preds = %2950, %2848, %2853, %2906
-  %.0.i2570 = phi i64 [ %2856, %2853 ], [ %2852, %2848 ], [ %2907, %2906 ], [ %2951, %2950 ]
-  %2952 = icmp eq i64 %.0.i2570, 36
-  br i1 %2952, label %vm_objtostring.exit.thread, label %vm_opt_minus.exit.vm_opt_minus.exit.thread2830_crit_edge
+  %.0.i2571 = phi i64 [ %2856, %2853 ], [ %2852, %2848 ], [ %2907, %2906 ], [ %2951, %2950 ]
+  %2952 = icmp eq i64 %.0.i2571, 36
+  br i1 %2952, label %vm_objtostring.exit.thread, label %vm_opt_minus.exit.vm_opt_minus.exit.thread2831_crit_edge
 
-vm_opt_minus.exit.vm_opt_minus.exit.thread2830_crit_edge: ; preds = %vm_opt_minus.exit
-  %.pre3117 = load ptr, ptr %2835, align 8, !tbaa !93
-  br label %vm_opt_minus.exit.thread2830
+vm_opt_minus.exit.vm_opt_minus.exit.thread2831_crit_edge: ; preds = %vm_opt_minus.exit
+  %.pre3118 = load ptr, ptr %2835, align 8, !tbaa !93
+  br label %vm_opt_minus.exit.thread2831
 
-vm_opt_minus.exit.thread2830:                     ; preds = %vm_opt_minus.exit.vm_opt_minus.exit.thread2830_crit_edge, %2948, %2944, %2904, %2900
-  %2953 = phi ptr [ %.pre3117, %vm_opt_minus.exit.vm_opt_minus.exit.thread2830_crit_edge ], [ %2836, %2948 ], [ %2836, %2944 ], [ %2836, %2904 ], [ %2836, %2900 ]
-  %.0.i25702832 = phi i64 [ %.0.i2570, %vm_opt_minus.exit.vm_opt_minus.exit.thread2830_crit_edge ], [ -9223372036854775806, %2948 ], [ %2947, %2944 ], [ -9223372036854775806, %2904 ], [ %2903, %2900 ]
+vm_opt_minus.exit.thread2831:                     ; preds = %vm_opt_minus.exit.vm_opt_minus.exit.thread2831_crit_edge, %2948, %2944, %2904, %2900
+  %2953 = phi ptr [ %.pre3118, %vm_opt_minus.exit.vm_opt_minus.exit.thread2831_crit_edge ], [ %2836, %2948 ], [ %2836, %2944 ], [ %2836, %2904 ], [ %2836, %2900 ]
+  %.0.i25712833 = phi i64 [ %.0.i2571, %vm_opt_minus.exit.vm_opt_minus.exit.thread2831_crit_edge ], [ -9223372036854775806, %2948 ], [ %2947, %2944 ], [ -9223372036854775806, %2904 ], [ %2903, %2900 ]
   %2954 = getelementptr i8, ptr %2953, i64 -8
   store ptr %2954, ptr %2835, align 8, !tbaa !93
   %2955 = getelementptr i8, ptr %2953, i64 -16
-  store i64 %.0.i25702832, ptr %2955, align 8, !tbaa !7
+  store i64 %.0.i25712833, ptr %2955, align 8, !tbaa !7
   br label %.backedge.backedge
 
 2956:                                             ; preds = %.backedge
@@ -13458,8 +13458,8 @@ vm_opt_minus.exit.thread2830:                     ; preds = %vm_opt_minus.exit.v
   store ptr %2963, ptr %.02230, align 8, !tbaa !136
   %2964 = and i64 %2961, 1
   %2965 = and i64 %2964, %2962
-  %.not.i2576 = icmp eq i64 %2965, 0
-  br i1 %.not.i2576, label %2983, label %2966
+  %.not.i2577 = icmp eq i64 %2965, 0
+  br i1 %.not.i2577, label %2983, label %2966
 
 2966:                                             ; preds = %2956
   %2967 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4, !tbaa !263
@@ -13481,7 +13481,7 @@ vm_opt_minus.exit.thread2830:                     ; preds = %vm_opt_minus.exit.v
 2978:                                             ; preds = %2970
   %2979 = shl nsw i64 %2977, 1
   %2980 = or disjoint i64 %2979, 1
-  br label %vm_opt_mult.exit.thread2835
+  br label %vm_opt_mult.exit.thread2836
 
 2981:                                             ; preds = %2970
   %.sroa.2.0.extract.shift.i.i = lshr i128 %2975, 64
@@ -13494,8 +13494,8 @@ vm_opt_minus.exit.thread2830:                     ; preds = %vm_opt_minus.exit.v
   %2985 = xor i64 %2962, 2
   %2986 = or i64 %2985, %2984
   %2987 = and i64 %2986, 3
-  %.not.i.i2577 = icmp eq i64 %2987, 0
-  br i1 %.not.i.i2577, label %2988, label %3034
+  %.not.i.i2578 = icmp eq i64 %2987, 0
+  br i1 %.not.i.i2578, label %2988, label %3034
 
 2988:                                             ; preds = %2983
   %2989 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 4), align 4, !tbaa !263
@@ -13509,31 +13509,31 @@ vm_opt_minus.exit.thread2830:                     ; preds = %vm_opt_minus.exit.v
   br i1 %2994, label %2995, label %3002
 
 2995:                                             ; preds = %2992
-  %.not.i.i.i2584 = icmp eq i64 %2961, -9223372036854775806
-  br i1 %.not.i.i.i2584, label %rb_float_value_inline.exit.i2579, label %2996
+  %.not.i.i.i2585 = icmp eq i64 %2961, -9223372036854775806
+  br i1 %.not.i.i.i2585, label %rb_float_value_inline.exit.i2580, label %2996
 
 2996:                                             ; preds = %2995
-  %.neg.i.i.i2585 = ashr i64 %2961, 63
-  %2997 = add nsw i64 %.neg.i.i.i2585, 2
+  %.neg.i.i.i2586 = ashr i64 %2961, 63
+  %2997 = add nsw i64 %.neg.i.i.i2586, 2
   %2998 = and i64 %2961, -4
   %2999 = or i64 %2997, %2998
   %3000 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %2999, i64 range(i64 1, 0) %2999, i64 61)
   %3001 = bitcast i64 %3000 to double
-  br label %rb_float_value_inline.exit.i2579
+  br label %rb_float_value_inline.exit.i2580
 
 3002:                                             ; preds = %2992
   %3003 = inttoptr i64 %2961 to ptr
   %3004 = getelementptr inbounds nuw i8, ptr %3003, i64 16
   %3005 = load double, ptr %3004, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2579
+  br label %rb_float_value_inline.exit.i2580
 
-rb_float_value_inline.exit.i2579:                 ; preds = %3002, %2996, %2995
-  %.0.i.i2580 = phi double [ %3005, %3002 ], [ %3001, %2996 ], [ 0.000000e+00, %2995 ]
+rb_float_value_inline.exit.i2580:                 ; preds = %3002, %2996, %2995
+  %.0.i.i2581 = phi double [ %3005, %3002 ], [ %3001, %2996 ], [ 0.000000e+00, %2995 ]
   %3006 = and i64 %2962, 3
   %3007 = icmp eq i64 %3006, 2
   br i1 %3007, label %3008, label %3015
 
-3008:                                             ; preds = %rb_float_value_inline.exit.i2579
+3008:                                             ; preds = %rb_float_value_inline.exit.i2580
   %.not.i.i17.i = icmp eq i64 %2962, -9223372036854775806
   br i1 %.not.i.i17.i, label %rb_float_value_inline.exit19.i, label %3009
 
@@ -13546,36 +13546,36 @@ rb_float_value_inline.exit.i2579:                 ; preds = %3002, %2996, %2995
   %3014 = bitcast i64 %3013 to double
   br label %rb_float_value_inline.exit19.i
 
-3015:                                             ; preds = %rb_float_value_inline.exit.i2579
+3015:                                             ; preds = %rb_float_value_inline.exit.i2580
   %3016 = inttoptr i64 %2962 to ptr
   %3017 = getelementptr inbounds nuw i8, ptr %3016, i64 16
   %3018 = load double, ptr %3017, align 8, !tbaa !322
   br label %rb_float_value_inline.exit19.i
 
 rb_float_value_inline.exit19.i:                   ; preds = %3015, %3009, %3008
-  %.0.i16.i2581 = phi double [ %3018, %3015 ], [ %3014, %3009 ], [ 0.000000e+00, %3008 ]
-  %3019 = fmul double %.0.i.i2580, %.0.i16.i2581
+  %.0.i16.i2582 = phi double [ %3018, %3015 ], [ %3014, %3009 ], [ 0.000000e+00, %3008 ]
+  %3019 = fmul double %.0.i.i2581, %.0.i16.i2582
   %3020 = bitcast double %3019 to i64
-  %cond.i.i2582 = icmp eq i64 %3020, 3458764513820540928
-  br i1 %cond.i.i2582, label %3032, label %3021
+  %cond.i.i2583 = icmp eq i64 %3020, 3458764513820540928
+  br i1 %cond.i.i2583, label %3032, label %3021
 
 3021:                                             ; preds = %rb_float_value_inline.exit19.i
   %3022 = lshr i64 %3020, 60
   %3023 = trunc nuw nsw i64 %3022 to i32
   %3024 = and i32 %3023, 7
   %3025 = add nsw i32 %3024, -3
-  %.not7.i.i2583 = icmp ult i32 %3025, 2
-  br i1 %.not7.i.i2583, label %3026, label %3030
+  %.not7.i.i2584 = icmp ult i32 %3025, 2
+  br i1 %.not7.i.i2584, label %3026, label %3030
 
 3026:                                             ; preds = %3021
   %3027 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %3020, i64 range(i64 3458764513820540929, 3458764513820540928) %3020, i64 3)
   %3028 = and i64 %3027, -4
   %3029 = or disjoint i64 %3028, 2
-  br label %vm_opt_mult.exit.thread2835
+  br label %vm_opt_mult.exit.thread2836
 
 3030:                                             ; preds = %3021
   %3031 = icmp eq i64 %3020, 0
-  br i1 %3031, label %vm_opt_mult.exit.thread2835, label %3032
+  br i1 %3031, label %vm_opt_mult.exit.thread2836, label %3032
 
 3032:                                             ; preds = %3030, %rb_float_value_inline.exit19.i
   %3033 = call i64 @rb_float_new_in_heap(double noundef %3019) #20
@@ -13623,47 +13623,47 @@ rb_float_value_inline.exit24.i:                   ; preds = %3055
   %3062 = load double, ptr %3061, align 8, !tbaa !322
   %3063 = fmul double %3060, %3062
   %3064 = bitcast double %3063 to i64
-  %cond.i2767 = icmp eq i64 %3064, 3458764513820540928
-  br i1 %cond.i2767, label %3076, label %3065
+  %cond.i2768 = icmp eq i64 %3064, 3458764513820540928
+  br i1 %cond.i2768, label %3076, label %3065
 
 3065:                                             ; preds = %rb_float_value_inline.exit24.i
   %3066 = lshr i64 %3064, 60
   %3067 = trunc nuw nsw i64 %3066 to i32
   %3068 = and i32 %3067, 7
   %3069 = add nsw i32 %3068, -3
-  %.not7.i2768 = icmp ult i32 %3069, 2
-  br i1 %.not7.i2768, label %3070, label %3074
+  %.not7.i2769 = icmp ult i32 %3069, 2
+  br i1 %.not7.i2769, label %3070, label %3074
 
 3070:                                             ; preds = %3065
   %3071 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %3064, i64 range(i64 3458764513820540929, 3458764513820540928) %3064, i64 3)
   %3072 = and i64 %3071, -4
   %3073 = or disjoint i64 %3072, 2
-  br label %vm_opt_mult.exit.thread2835
+  br label %vm_opt_mult.exit.thread2836
 
 3074:                                             ; preds = %3065
   %3075 = icmp eq i64 %3064, 0
-  br i1 %3075, label %vm_opt_mult.exit.thread2835, label %3076
+  br i1 %3075, label %vm_opt_mult.exit.thread2836, label %3076
 
 3076:                                             ; preds = %3074, %rb_float_value_inline.exit24.i
   %3077 = call i64 @rb_float_new_in_heap(double noundef %3063) #20
   br label %vm_opt_mult.exit
 
 vm_opt_mult.exit:                                 ; preds = %3076, %2981, %3032
-  %.0.i2578 = phi i64 [ %2982, %2981 ], [ %3033, %3032 ], [ %3077, %3076 ]
-  %3078 = icmp eq i64 %.0.i2578, 36
-  br i1 %3078, label %vm_objtostring.exit.thread, label %vm_opt_mult.exit.vm_opt_mult.exit.thread2835_crit_edge
+  %.0.i2579 = phi i64 [ %2982, %2981 ], [ %3033, %3032 ], [ %3077, %3076 ]
+  %3078 = icmp eq i64 %.0.i2579, 36
+  br i1 %3078, label %vm_objtostring.exit.thread, label %vm_opt_mult.exit.vm_opt_mult.exit.thread2836_crit_edge
 
-vm_opt_mult.exit.vm_opt_mult.exit.thread2835_crit_edge: ; preds = %vm_opt_mult.exit
-  %.pre3116 = load ptr, ptr %2957, align 8, !tbaa !93
-  br label %vm_opt_mult.exit.thread2835
+vm_opt_mult.exit.vm_opt_mult.exit.thread2836_crit_edge: ; preds = %vm_opt_mult.exit
+  %.pre3117 = load ptr, ptr %2957, align 8, !tbaa !93
+  br label %vm_opt_mult.exit.thread2836
 
-vm_opt_mult.exit.thread2835:                      ; preds = %vm_opt_mult.exit.vm_opt_mult.exit.thread2835_crit_edge, %3074, %3070, %3030, %3026, %2978
-  %3079 = phi ptr [ %.pre3116, %vm_opt_mult.exit.vm_opt_mult.exit.thread2835_crit_edge ], [ %2958, %3074 ], [ %2958, %3070 ], [ %2958, %3030 ], [ %2958, %3026 ], [ %2958, %2978 ]
-  %.0.i25782837 = phi i64 [ %.0.i2578, %vm_opt_mult.exit.vm_opt_mult.exit.thread2835_crit_edge ], [ -9223372036854775806, %3074 ], [ %3073, %3070 ], [ -9223372036854775806, %3030 ], [ %3029, %3026 ], [ %2980, %2978 ]
+vm_opt_mult.exit.thread2836:                      ; preds = %vm_opt_mult.exit.vm_opt_mult.exit.thread2836_crit_edge, %3074, %3070, %3030, %3026, %2978
+  %3079 = phi ptr [ %.pre3117, %vm_opt_mult.exit.vm_opt_mult.exit.thread2836_crit_edge ], [ %2958, %3074 ], [ %2958, %3070 ], [ %2958, %3030 ], [ %2958, %3026 ], [ %2958, %2978 ]
+  %.0.i25792838 = phi i64 [ %.0.i2579, %vm_opt_mult.exit.vm_opt_mult.exit.thread2836_crit_edge ], [ -9223372036854775806, %3074 ], [ %3073, %3070 ], [ -9223372036854775806, %3030 ], [ %3029, %3026 ], [ %2980, %2978 ]
   %3080 = getelementptr i8, ptr %3079, i64 -8
   store ptr %3080, ptr %2957, align 8, !tbaa !93
   %3081 = getelementptr i8, ptr %3079, i64 -16
-  store i64 %.0.i25782837, ptr %3081, align 8, !tbaa !7
+  store i64 %.0.i25792838, ptr %3081, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3082:                                             ; preds = %.backedge
@@ -13677,8 +13677,8 @@ vm_opt_mult.exit.thread2835:                      ; preds = %vm_opt_mult.exit.vm
   store ptr %3089, ptr %.02230, align 8, !tbaa !136
   %3090 = and i64 %3087, 1
   %3091 = and i64 %3090, %3088
-  %.not.i2586 = icmp eq i64 %3091, 0
-  br i1 %.not.i2586, label %3117, label %3092
+  %.not.i2587 = icmp eq i64 %3091, 0
+  br i1 %.not.i2587, label %3117, label %3092
 
 3092:                                             ; preds = %3082
   %3093 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2, !tbaa !263
@@ -13710,17 +13710,17 @@ vm_opt_mult.exit.thread2835:                      ; preds = %vm_opt_mult.exit.vm
 
 3109:                                             ; preds = %3105
   %3110 = icmp slt i64 %3107, 0
-  br i1 %3110, label %3113, label %vm_opt_div.exit.thread2839
+  br i1 %3110, label %3113, label %vm_opt_div.exit.thread2840
 
 3111:                                             ; preds = %3105
   %3112 = icmp sgt i64 %3107, 0
-  br i1 %3112, label %3113, label %vm_opt_div.exit.thread2839
+  br i1 %3112, label %3113, label %vm_opt_div.exit.thread2840
 
 3113:                                             ; preds = %3111, %3109
   %3114 = add nsw i64 %3106, -1
-  br label %vm_opt_div.exit.thread2839
+  br label %vm_opt_div.exit.thread2840
 
-vm_opt_div.exit.thread2839:                       ; preds = %3109, %3111, %3113
+vm_opt_div.exit.thread2840:                       ; preds = %3109, %3111, %3113
   %.024.i.i.i = phi i64 [ %3114, %3113 ], [ %3106, %3109 ], [ %3106, %3111 ]
   %3115 = shl i64 %.024.i.i.i, 1
   %3116 = or disjoint i64 %3115, 1
@@ -13731,8 +13731,8 @@ vm_opt_div.exit.thread2839:                       ; preds = %3109, %3111, %3113
   %3119 = xor i64 %3088, 2
   %3120 = or i64 %3119, %3118
   %3121 = and i64 %3120, 3
-  %.not.i.i2587 = icmp eq i64 %3121, 0
-  br i1 %.not.i.i2587, label %3122, label %3128
+  %.not.i.i2588 = icmp eq i64 %3121, 0
+  br i1 %.not.i.i2588, label %3122, label %3128
 
 3122:                                             ; preds = %3117
   %3123 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 6), align 2, !tbaa !263
@@ -13784,21 +13784,21 @@ vm_opt_div.exit.thread2839:                       ; preds = %3109, %3111, %3113
   br label %vm_opt_div.exit
 
 vm_opt_div.exit:                                  ; preds = %3103, %3126, %3153
-  %.0.i2588 = phi i64 [ %3127, %3126 ], [ %3154, %3153 ], [ %3104, %3103 ]
-  %3155 = icmp eq i64 %.0.i2588, 36
+  %.0.i2589 = phi i64 [ %3127, %3126 ], [ %3154, %3153 ], [ %3104, %3103 ]
+  %3155 = icmp eq i64 %.0.i2589, 36
   br i1 %3155, label %vm_objtostring.exit.thread, label %vm_opt_div.exit._crit_edge
 
 vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
-  %.pre3115 = load ptr, ptr %3083, align 8, !tbaa !93
+  %.pre3116 = load ptr, ptr %3083, align 8, !tbaa !93
   br label %3156
 
-3156:                                             ; preds = %vm_opt_div.exit._crit_edge, %vm_opt_div.exit.thread2839
-  %3157 = phi ptr [ %3084, %vm_opt_div.exit.thread2839 ], [ %.pre3115, %vm_opt_div.exit._crit_edge ]
-  %.0.i25882841 = phi i64 [ %3116, %vm_opt_div.exit.thread2839 ], [ %.0.i2588, %vm_opt_div.exit._crit_edge ]
+3156:                                             ; preds = %vm_opt_div.exit._crit_edge, %vm_opt_div.exit.thread2840
+  %3157 = phi ptr [ %3084, %vm_opt_div.exit.thread2840 ], [ %.pre3116, %vm_opt_div.exit._crit_edge ]
+  %.0.i25892842 = phi i64 [ %3116, %vm_opt_div.exit.thread2840 ], [ %.0.i2589, %vm_opt_div.exit._crit_edge ]
   %3158 = getelementptr i8, ptr %3157, i64 -8
   store ptr %3158, ptr %3083, align 8, !tbaa !93
   %3159 = getelementptr i8, ptr %3157, i64 -16
-  store i64 %.0.i25882841, ptr %3159, align 8, !tbaa !7
+  store i64 %.0.i25892842, ptr %3159, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3160:                                             ; preds = %.backedge
@@ -13812,8 +13812,8 @@ vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
   store ptr %3167, ptr %.02230, align 8, !tbaa !136
   %3168 = and i64 %3165, 1
   %3169 = and i64 %3168, %3166
-  %.not.i2589 = icmp eq i64 %3169, 0
-  br i1 %.not.i2589, label %3193, label %3170
+  %.not.i2590 = icmp eq i64 %3169, 0
+  br i1 %.not.i2590, label %3193, label %3170
 
 3170:                                             ; preds = %3160
   %3171 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8, !tbaa !263
@@ -13830,8 +13830,8 @@ vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
   %3178 = ashr i64 %3165, 1
   %3179 = icmp eq i64 %3178, -4611686018427387904
   %3180 = icmp eq i64 %3175, -1
-  %or.cond.i.i.i2603 = and i1 %3179, %3180
-  br i1 %or.cond.i.i.i2603, label %vm_opt_mod.exit.thread2844, label %3181
+  %or.cond.i.i.i2604 = and i1 %3179, %3180
+  br i1 %or.cond.i.i.i2604, label %vm_opt_mod.exit.thread2845, label %3181
 
 3181:                                             ; preds = %3177
   %3182 = srem i64 %3178, %3175
@@ -13851,18 +13851,18 @@ vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
   br label %3190
 
 3190:                                             ; preds = %3188, %3186, %3184
-  %.0.i.i.i2604 = phi i64 [ %3189, %3188 ], [ %3182, %3184 ], [ %3182, %3186 ]
-  %3191 = shl i64 %.0.i.i.i2604, 1
+  %.0.i.i.i2605 = phi i64 [ %3189, %3188 ], [ %3182, %3184 ], [ %3182, %3186 ]
+  %3191 = shl i64 %.0.i.i.i2605, 1
   %3192 = or disjoint i64 %3191, 1
-  br label %vm_opt_mod.exit.thread2844
+  br label %vm_opt_mod.exit.thread2845
 
 3193:                                             ; preds = %3170, %3160
   %3194 = xor i64 %3165, 2
   %3195 = xor i64 %3166, 2
   %3196 = or i64 %3195, %3194
   %3197 = and i64 %3196, 3
-  %.not.i.i2590 = icmp eq i64 %3197, 0
-  br i1 %.not.i.i2590, label %3198, label %3242
+  %.not.i.i2591 = icmp eq i64 %3197, 0
+  br i1 %.not.i.i2591, label %3198, label %3242
 
 3198:                                             ; preds = %3193
   %3199 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8, !tbaa !263
@@ -13876,73 +13876,73 @@ vm_opt_div.exit._crit_edge:                       ; preds = %vm_opt_div.exit
   br i1 %3204, label %3205, label %3212
 
 3205:                                             ; preds = %3202
-  %.not.i.i.i2601 = icmp eq i64 %3165, -9223372036854775806
-  br i1 %.not.i.i.i2601, label %rb_float_value_inline.exit.i2593, label %3206
+  %.not.i.i.i2602 = icmp eq i64 %3165, -9223372036854775806
+  br i1 %.not.i.i.i2602, label %rb_float_value_inline.exit.i2594, label %3206
 
 3206:                                             ; preds = %3205
-  %.neg.i.i.i2602 = ashr i64 %3165, 63
-  %3207 = add nsw i64 %.neg.i.i.i2602, 2
+  %.neg.i.i.i2603 = ashr i64 %3165, 63
+  %3207 = add nsw i64 %.neg.i.i.i2603, 2
   %3208 = and i64 %3165, -4
   %3209 = or i64 %3207, %3208
   %3210 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3209, i64 range(i64 1, 0) %3209, i64 61)
   %3211 = bitcast i64 %3210 to double
-  br label %rb_float_value_inline.exit.i2593
+  br label %rb_float_value_inline.exit.i2594
 
 3212:                                             ; preds = %3202
   %3213 = inttoptr i64 %3165 to ptr
   %3214 = getelementptr inbounds nuw i8, ptr %3213, i64 16
   %3215 = load double, ptr %3214, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2593
+  br label %rb_float_value_inline.exit.i2594
 
-rb_float_value_inline.exit.i2593:                 ; preds = %3212, %3206, %3205
-  %.0.i.i2594 = phi double [ %3215, %3212 ], [ %3211, %3206 ], [ 0.000000e+00, %3205 ]
+rb_float_value_inline.exit.i2594:                 ; preds = %3212, %3206, %3205
+  %.0.i.i2595 = phi double [ %3215, %3212 ], [ %3211, %3206 ], [ 0.000000e+00, %3205 ]
   %3216 = and i64 %3166, 3
   %3217 = icmp eq i64 %3216, 2
   br i1 %3217, label %3218, label %3225
 
-3218:                                             ; preds = %rb_float_value_inline.exit.i2593
-  %.not.i.i18.i2599 = icmp eq i64 %3166, -9223372036854775806
-  br i1 %.not.i.i18.i2599, label %rb_float_value_inline.exit20.i2595, label %3219
+3218:                                             ; preds = %rb_float_value_inline.exit.i2594
+  %.not.i.i18.i2600 = icmp eq i64 %3166, -9223372036854775806
+  br i1 %.not.i.i18.i2600, label %rb_float_value_inline.exit20.i2596, label %3219
 
 3219:                                             ; preds = %3218
-  %.neg.i.i19.i2600 = ashr i64 %3166, 63
-  %3220 = add nsw i64 %.neg.i.i19.i2600, 2
+  %.neg.i.i19.i2601 = ashr i64 %3166, 63
+  %3220 = add nsw i64 %.neg.i.i19.i2601, 2
   %3221 = and i64 %3166, -4
   %3222 = or i64 %3220, %3221
   %3223 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3222, i64 range(i64 1, 0) %3222, i64 61)
   %3224 = bitcast i64 %3223 to double
-  br label %rb_float_value_inline.exit20.i2595
+  br label %rb_float_value_inline.exit20.i2596
 
-3225:                                             ; preds = %rb_float_value_inline.exit.i2593
+3225:                                             ; preds = %rb_float_value_inline.exit.i2594
   %3226 = inttoptr i64 %3166 to ptr
   %3227 = getelementptr inbounds nuw i8, ptr %3226, i64 16
   %3228 = load double, ptr %3227, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit20.i2595
+  br label %rb_float_value_inline.exit20.i2596
 
-rb_float_value_inline.exit20.i2595:               ; preds = %3225, %3219, %3218
-  %.0.i17.i2596 = phi double [ %3228, %3225 ], [ %3224, %3219 ], [ 0.000000e+00, %3218 ]
-  %3229 = call double @ruby_float_mod(double noundef %.0.i.i2594, double noundef %.0.i17.i2596) #20
+rb_float_value_inline.exit20.i2596:               ; preds = %3225, %3219, %3218
+  %.0.i17.i2597 = phi double [ %3228, %3225 ], [ %3224, %3219 ], [ 0.000000e+00, %3218 ]
+  %3229 = call double @ruby_float_mod(double noundef %.0.i.i2595, double noundef %.0.i17.i2597) #20
   %3230 = bitcast double %3229 to i64
-  %cond.i.i2597 = icmp eq i64 %3230, 3458764513820540928
-  br i1 %cond.i.i2597, label %vm_opt_mod.exit, label %3231
+  %cond.i.i2598 = icmp eq i64 %3230, 3458764513820540928
+  br i1 %cond.i.i2598, label %vm_opt_mod.exit, label %3231
 
-3231:                                             ; preds = %rb_float_value_inline.exit20.i2595
+3231:                                             ; preds = %rb_float_value_inline.exit20.i2596
   %3232 = lshr i64 %3230, 60
   %3233 = trunc nuw nsw i64 %3232 to i32
   %3234 = and i32 %3233, 7
   %3235 = add nsw i32 %3234, -3
-  %.not7.i.i2598 = icmp ult i32 %3235, 2
-  br i1 %.not7.i.i2598, label %3236, label %3240
+  %.not7.i.i2599 = icmp ult i32 %3235, 2
+  br i1 %.not7.i.i2599, label %3236, label %3240
 
 3236:                                             ; preds = %3231
   %3237 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %3230, i64 range(i64 3458764513820540929, 3458764513820540928) %3230, i64 3)
   %3238 = and i64 %3237, -4
   %3239 = or disjoint i64 %3238, 2
-  br label %vm_opt_mod.exit.thread2844
+  br label %vm_opt_mod.exit.thread2845
 
 3240:                                             ; preds = %3231
   %3241 = icmp eq i64 %3230, 0
-  br i1 %3241, label %vm_opt_mod.exit.thread2844, label %vm_opt_mod.exit
+  br i1 %3241, label %vm_opt_mod.exit.thread2845, label %vm_opt_mod.exit
 
 3242:                                             ; preds = %3198, %3193
   %3243 = icmp eq i64 %3165, 0
@@ -13977,49 +13977,49 @@ rb_float_value_inline.exit20.i2595:               ; preds = %3225, %3219, %3218
   %3264 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 8), align 8, !tbaa !263
   %3265 = and i16 %3264, 2
   %3266 = icmp eq i16 %3265, 0
-  br i1 %3266, label %rb_float_value_inline.exit25.i2592, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3266, label %rb_float_value_inline.exit25.i2593, label %vm_objtostring.exit.thread, !prof !69
 
-rb_float_value_inline.exit25.i2592:               ; preds = %3263
+rb_float_value_inline.exit25.i2593:               ; preds = %3263
   %3267 = getelementptr inbounds nuw i8, ptr %3253, i64 16
   %3268 = load double, ptr %3267, align 8, !tbaa !322
   %3269 = getelementptr inbounds nuw i8, ptr %3259, i64 16
   %3270 = load double, ptr %3269, align 8, !tbaa !322
   %3271 = call double @ruby_float_mod(double noundef %3268, double noundef %3270) #20
   %3272 = bitcast double %3271 to i64
-  %cond.i2771 = icmp eq i64 %3272, 3458764513820540928
-  br i1 %cond.i2771, label %vm_opt_mod.exit, label %3273
+  %cond.i2772 = icmp eq i64 %3272, 3458764513820540928
+  br i1 %cond.i2772, label %vm_opt_mod.exit, label %3273
 
-3273:                                             ; preds = %rb_float_value_inline.exit25.i2592
+3273:                                             ; preds = %rb_float_value_inline.exit25.i2593
   %3274 = lshr i64 %3272, 60
   %3275 = trunc nuw nsw i64 %3274 to i32
   %3276 = and i32 %3275, 7
   %3277 = add nsw i32 %3276, -3
-  %.not7.i2772 = icmp ult i32 %3277, 2
-  br i1 %.not7.i2772, label %3278, label %3282
+  %.not7.i2773 = icmp ult i32 %3277, 2
+  br i1 %.not7.i2773, label %3278, label %3282
 
 3278:                                             ; preds = %3273
   %3279 = call noundef i64 @llvm.fshl.i64(i64 range(i64 3458764513820540929, 3458764513820540928) %3272, i64 range(i64 3458764513820540929, 3458764513820540928) %3272, i64 3)
   %3280 = and i64 %3279, -4
   %3281 = or disjoint i64 %3280, 2
-  br label %vm_opt_mod.exit.thread2844
+  br label %vm_opt_mod.exit.thread2845
 
 3282:                                             ; preds = %3273
   %3283 = icmp eq i64 %3272, 0
-  br i1 %3283, label %vm_opt_mod.exit.thread2844, label %vm_opt_mod.exit
+  br i1 %3283, label %vm_opt_mod.exit.thread2845, label %vm_opt_mod.exit
 
-vm_opt_mod.exit:                                  ; preds = %rb_float_value_inline.exit25.i2592, %3282, %rb_float_value_inline.exit20.i2595, %3240
-  %.sink = phi double [ %3229, %3240 ], [ %3229, %rb_float_value_inline.exit20.i2595 ], [ %3271, %3282 ], [ %3271, %rb_float_value_inline.exit25.i2592 ]
+vm_opt_mod.exit:                                  ; preds = %rb_float_value_inline.exit25.i2593, %3282, %rb_float_value_inline.exit20.i2596, %3240
+  %.sink = phi double [ %3229, %3240 ], [ %3229, %rb_float_value_inline.exit20.i2596 ], [ %3271, %3282 ], [ %3271, %rb_float_value_inline.exit25.i2593 ]
   %3284 = call i64 @rb_float_new_in_heap(double noundef %.sink) #20
   %3285 = icmp eq i64 %3284, 36
-  br i1 %3285, label %vm_objtostring.exit.thread, label %vm_opt_mod.exit.thread2844
+  br i1 %3285, label %vm_objtostring.exit.thread, label %vm_opt_mod.exit.thread2845
 
-vm_opt_mod.exit.thread2844:                       ; preds = %3282, %3278, %3240, %3236, %3177, %3190, %vm_opt_mod.exit
-  %.0.i25912846 = phi i64 [ %3284, %vm_opt_mod.exit ], [ -9223372036854775806, %3282 ], [ %3281, %3278 ], [ -9223372036854775806, %3240 ], [ %3239, %3236 ], [ 1, %3177 ], [ %3192, %3190 ]
+vm_opt_mod.exit.thread2845:                       ; preds = %3282, %3278, %3240, %3236, %3177, %3190, %vm_opt_mod.exit
+  %.0.i25922847 = phi i64 [ %3284, %vm_opt_mod.exit ], [ -9223372036854775806, %3282 ], [ %3281, %3278 ], [ -9223372036854775806, %3240 ], [ %3239, %3236 ], [ 1, %3177 ], [ %3192, %3190 ]
   %3286 = load ptr, ptr %3161, align 8, !tbaa !93
   %3287 = getelementptr i8, ptr %3286, i64 -8
   store ptr %3287, ptr %3161, align 8, !tbaa !93
   %3288 = getelementptr i8, ptr %3286, i64 -16
-  store i64 %.0.i25912846, ptr %3288, align 8, !tbaa !7
+  store i64 %.0.i25922847, ptr %3288, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3289:                                             ; preds = %.backedge
@@ -14075,73 +14075,73 @@ vm_opt_mod.exit.thread2844:                       ; preds = %3282, %3278, %3240,
 3329:                                             ; preds = %3308
   %3330 = inttoptr i64 %3319 to ptr
   %3331 = getelementptr inbounds nuw i8, ptr %3330, i64 8
-  br label %rb_class_of.exit.i.i.i2605
+  br label %rb_class_of.exit.i.i.i2606
 
 3332:                                             ; preds = %3308
   switch i64 %3319, label %3335 [
-    i64 0, label %rb_class_of.exit.i.i.i2605
+    i64 0, label %rb_class_of.exit.i.i.i2606
     i64 4, label %3333
     i64 20, label %3334
   ]
 
 3333:                                             ; preds = %3332
-  br label %rb_class_of.exit.i.i.i2605
+  br label %rb_class_of.exit.i.i.i2606
 
 3334:                                             ; preds = %3332
-  br label %rb_class_of.exit.i.i.i2605
+  br label %rb_class_of.exit.i.i.i2606
 
 3335:                                             ; preds = %3332
   %3336 = and i64 %3319, 1
-  %.not.i5.i.i.i2622 = icmp eq i64 %3336, 0
-  br i1 %.not.i5.i.i.i2622, label %3337, label %rb_class_of.exit.i.i.i2605
+  %.not.i5.i.i.i2623 = icmp eq i64 %3336, 0
+  br i1 %.not.i5.i.i.i2623, label %3337, label %rb_class_of.exit.i.i.i2606
 
 3337:                                             ; preds = %3335
   %3338 = and i64 %3319, 254
   %3339 = icmp eq i64 %3338, 12
-  %spec.select.i.i.i.i2623 = select i1 %3339, ptr @rb_cSymbol, ptr @rb_cFloat
-  br label %rb_class_of.exit.i.i.i2605
+  %spec.select.i.i.i.i2624 = select i1 %3339, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit.i.i.i2606
 
-rb_class_of.exit.i.i.i2605:                       ; preds = %3337, %3335, %3334, %3333, %3332, %3329
-  %.0.in.i.i.i.i2606 = phi ptr [ @rb_cNilClass, %3333 ], [ @rb_cTrueClass, %3334 ], [ %3331, %3329 ], [ @rb_cFalseClass, %3332 ], [ @rb_cInteger, %3335 ], [ %spec.select.i.i.i.i2623, %3337 ]
-  %.0.i4.i.i.i2607 = load i64, ptr %.0.in.i.i.i.i2606, align 8, !tbaa !7
+rb_class_of.exit.i.i.i2606:                       ; preds = %3337, %3335, %3334, %3333, %3332, %3329
+  %.0.in.i.i.i.i2607 = phi ptr [ @rb_cNilClass, %3333 ], [ @rb_cTrueClass, %3334 ], [ %3331, %3329 ], [ @rb_cFalseClass, %3332 ], [ @rb_cInteger, %3335 ], [ %spec.select.i.i.i.i2624, %3337 ]
+  %.0.i4.i.i.i2608 = load i64, ptr %.0.in.i.i.i.i2607, align 8, !tbaa !7
   %3340 = getelementptr inbounds nuw i8, ptr %3314, i64 8
   %3341 = load ptr, ptr %3340, align 8, !tbaa !215
   %3342 = getelementptr i8, ptr %3341, i64 8
-  %.val3.i.i.i2608 = load i64, ptr %3342, align 8, !tbaa !216
-  %3343 = icmp eq i64 %.val3.i.i.i2608, %.0.i4.i.i.i2607
-  br i1 %3343, label %3344, label %vm_search_method.exit.i.i2609, !prof !69
+  %.val3.i.i.i2609 = load i64, ptr %3342, align 8, !tbaa !216
+  %3343 = icmp eq i64 %.val3.i.i.i2609, %.0.i4.i.i.i2608
+  br i1 %3343, label %3344, label %vm_search_method.exit.i.i2610, !prof !69
 
-3344:                                             ; preds = %rb_class_of.exit.i.i.i2605
+3344:                                             ; preds = %rb_class_of.exit.i.i.i2606
   %3345 = getelementptr i8, ptr %3341, i64 16
-  %.val.i.i.i2620 = load ptr, ptr %3345, align 8, !tbaa !218
-  %3346 = load i64, ptr %.val.i.i.i2620, align 8, !tbaa !167
+  %.val.i.i.i2621 = load ptr, ptr %3345, align 8, !tbaa !218
+  %3346 = load i64, ptr %.val.i.i.i2621, align 8, !tbaa !167
   %3347 = and i64 %3346, 2097152
-  %.not.i.i.i.i2621 = icmp eq i64 %3347, 0
-  br i1 %.not.i.i.i.i2621, label %vm_search_method.exit.thread.i.i2613, label %vm_search_method.exit.i.i2609, !prof !69
+  %.not.i.i.i.i2622 = icmp eq i64 %3347, 0
+  br i1 %.not.i.i.i.i2622, label %vm_search_method.exit.thread.i.i2614, label %vm_search_method.exit.i.i2610, !prof !69
 
-vm_search_method.exit.i.i2609:                    ; preds = %3344, %rb_class_of.exit.i.i.i2605
-  %3348 = call fastcc ptr @vm_search_method_slowpath0(i64 noundef %3324, ptr noundef nonnull %3314, i64 noundef %.0.i4.i.i.i2607)
-  %.phi.trans.insert.i.i2610 = getelementptr i8, ptr %3348, i64 16
-  %.val.pre.i.i2611 = load ptr, ptr %.phi.trans.insert.i.i2610, align 8, !tbaa !218
-  %.not.i.i.i2612 = icmp eq ptr %.val.pre.i.i2611, null
-  br i1 %.not.i.i.i2612, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i2613
+vm_search_method.exit.i.i2610:                    ; preds = %3344, %rb_class_of.exit.i.i.i2606
+  %3348 = call fastcc ptr @vm_search_method_slowpath0(i64 noundef %3324, ptr noundef nonnull %3314, i64 noundef %.0.i4.i.i.i2608)
+  %.phi.trans.insert.i.i2611 = getelementptr i8, ptr %3348, i64 16
+  %.val.pre.i.i2612 = load ptr, ptr %.phi.trans.insert.i.i2611, align 8, !tbaa !218
+  %.not.i.i.i2613 = icmp eq ptr %.val.pre.i.i2612, null
+  br i1 %.not.i.i.i2613, label %vm_objtostring.exit.thread, label %vm_search_method.exit.thread.i.i2614
 
-vm_search_method.exit.thread.i.i2613:             ; preds = %vm_search_method.exit.i.i2609, %3344
-  %.val6.i.i2614 = phi ptr [ %.val.pre.i.i2611, %vm_search_method.exit.i.i2609 ], [ %.val.i.i.i2620, %3344 ]
-  %3349 = getelementptr inbounds nuw i8, ptr %.val6.i.i2614, i64 16
+vm_search_method.exit.thread.i.i2614:             ; preds = %vm_search_method.exit.i.i2610, %3344
+  %.val6.i.i2615 = phi ptr [ %.val.pre.i.i2612, %vm_search_method.exit.i.i2610 ], [ %.val.i.i.i2621, %3344 ]
+  %3349 = getelementptr inbounds nuw i8, ptr %.val6.i.i2615, i64 16
   %3350 = load ptr, ptr %3349, align 8, !tbaa !101
   %3351 = load i64, ptr %3350, align 8
   %3352 = and i64 %3351, 15
-  %.not4.i.i.i2615 = icmp eq i64 %3352, 1
-  br i1 %.not4.i.i.i2615, label %vm_method_cfunc_is.exit.i2618, label %vm_objtostring.exit.thread
+  %.not4.i.i.i2616 = icmp eq i64 %3352, 1
+  br i1 %.not4.i.i.i2616, label %vm_method_cfunc_is.exit.i2619, label %vm_objtostring.exit.thread
 
-vm_method_cfunc_is.exit.i2618:                    ; preds = %vm_search_method.exit.thread.i.i2613
+vm_method_cfunc_is.exit.i2619:                    ; preds = %vm_search_method.exit.thread.i.i2614
   %3353 = getelementptr inbounds nuw i8, ptr %3350, i64 8
   %3354 = load ptr, ptr %3353, align 8, !tbaa !26
-  %.not.i2619 = icmp eq ptr %3354, @rb_obj_not_equal
-  br i1 %.not.i2619, label %3355, label %vm_objtostring.exit.thread
+  %.not.i2620 = icmp eq ptr %3354, @rb_obj_not_equal
+  br i1 %.not.i2620, label %3355, label %vm_objtostring.exit.thread
 
-3355:                                             ; preds = %vm_method_cfunc_is.exit.i2618
+3355:                                             ; preds = %vm_method_cfunc_is.exit.i2619
   %3356 = call fastcc i64 @opt_equality(ptr noundef %3323, i64 noundef %3319, i64 noundef %3320, ptr noundef %3311)
   %3357 = icmp eq i64 %3356, 36
   br i1 %3357, label %vm_objtostring.exit.thread, label %vm_opt_neq.exit
@@ -14168,8 +14168,8 @@ vm_opt_neq.exit:                                  ; preds = %3355
   store ptr %3370, ptr %.02230, align 8, !tbaa !136
   %3371 = and i64 %3368, 1
   %3372 = and i64 %3371, %3369
-  %.not.i2624 = icmp eq i64 %3372, 0
-  br i1 %.not.i2624, label %3379, label %3373
+  %.not.i2625 = icmp eq i64 %3372, 0
+  br i1 %.not.i2625, label %3379, label %3373
 
 3373:                                             ; preds = %3363
   %3374 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2, !tbaa !263
@@ -14186,8 +14186,8 @@ vm_opt_neq.exit:                                  ; preds = %3355
   %3381 = xor i64 %3369, 2
   %3382 = or i64 %3381, %3380
   %3383 = and i64 %3382, 3
-  %.not.i.i2625 = icmp eq i64 %3383, 0
-  br i1 %.not.i.i2625, label %3384, label %3416
+  %.not.i.i2626 = icmp eq i64 %3383, 0
+  br i1 %.not.i.i2626, label %3384, label %3416
 
 3384:                                             ; preds = %3379
   %3385 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 14), align 2, !tbaa !263
@@ -14201,52 +14201,52 @@ vm_opt_neq.exit:                                  ; preds = %3355
   br i1 %3390, label %3391, label %3398
 
 3391:                                             ; preds = %3388
-  %.not.i.i.i2633 = icmp eq i64 %3368, -9223372036854775806
-  br i1 %.not.i.i.i2633, label %rb_float_value_inline.exit.i2627, label %3392
+  %.not.i.i.i2634 = icmp eq i64 %3368, -9223372036854775806
+  br i1 %.not.i.i.i2634, label %rb_float_value_inline.exit.i2628, label %3392
 
 3392:                                             ; preds = %3391
-  %.neg.i.i.i2634 = ashr i64 %3368, 63
-  %3393 = add nsw i64 %.neg.i.i.i2634, 2
+  %.neg.i.i.i2635 = ashr i64 %3368, 63
+  %3393 = add nsw i64 %.neg.i.i.i2635, 2
   %3394 = and i64 %3368, -4
   %3395 = or i64 %3393, %3394
   %3396 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3395, i64 range(i64 1, 0) %3395, i64 61)
   %3397 = bitcast i64 %3396 to double
-  br label %rb_float_value_inline.exit.i2627
+  br label %rb_float_value_inline.exit.i2628
 
 3398:                                             ; preds = %3388
   %3399 = inttoptr i64 %3368 to ptr
   %3400 = getelementptr inbounds nuw i8, ptr %3399, i64 16
   %3401 = load double, ptr %3400, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2627
+  br label %rb_float_value_inline.exit.i2628
 
-rb_float_value_inline.exit.i2627:                 ; preds = %3398, %3392, %3391
-  %.0.i.i2628 = phi double [ %3401, %3398 ], [ %3397, %3392 ], [ 0.000000e+00, %3391 ]
+rb_float_value_inline.exit.i2628:                 ; preds = %3398, %3392, %3391
+  %.0.i.i2629 = phi double [ %3401, %3398 ], [ %3397, %3392 ], [ 0.000000e+00, %3391 ]
   %3402 = and i64 %3369, 3
   %3403 = icmp eq i64 %3402, 2
   br i1 %3403, label %3404, label %3411
 
-3404:                                             ; preds = %rb_float_value_inline.exit.i2627
-  %.not.i.i17.i2631 = icmp eq i64 %3369, -9223372036854775806
-  br i1 %.not.i.i17.i2631, label %rb_float_value_inline.exit19.i2629, label %3405
+3404:                                             ; preds = %rb_float_value_inline.exit.i2628
+  %.not.i.i17.i2632 = icmp eq i64 %3369, -9223372036854775806
+  br i1 %.not.i.i17.i2632, label %rb_float_value_inline.exit19.i2630, label %3405
 
 3405:                                             ; preds = %3404
-  %.neg.i.i18.i2632 = ashr i64 %3369, 63
-  %3406 = add nsw i64 %.neg.i.i18.i2632, 2
+  %.neg.i.i18.i2633 = ashr i64 %3369, 63
+  %3406 = add nsw i64 %.neg.i.i18.i2633, 2
   %3407 = and i64 %3369, -4
   %3408 = or i64 %3406, %3407
   %3409 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3408, i64 range(i64 1, 0) %3408, i64 61)
   %3410 = bitcast i64 %3409 to double
-  br label %rb_float_value_inline.exit19.i2629
+  br label %rb_float_value_inline.exit19.i2630
 
-3411:                                             ; preds = %rb_float_value_inline.exit.i2627
+3411:                                             ; preds = %rb_float_value_inline.exit.i2628
   %3412 = inttoptr i64 %3369 to ptr
   %3413 = getelementptr inbounds nuw i8, ptr %3412, i64 16
   %3414 = load double, ptr %3413, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit19.i2629
+  br label %rb_float_value_inline.exit19.i2630
 
-rb_float_value_inline.exit19.i2629:               ; preds = %3411, %3405, %3404
-  %.0.i16.i2630 = phi double [ %3414, %3411 ], [ %3410, %3405 ], [ 0.000000e+00, %3404 ]
-  %3415 = fcmp olt double %.0.i.i2628, %.0.i16.i2630
+rb_float_value_inline.exit19.i2630:               ; preds = %3411, %3405, %3404
+  %.0.i16.i2631 = phi double [ %3414, %3411 ], [ %3410, %3405 ], [ 0.000000e+00, %3404 ]
+  %3415 = fcmp olt double %.0.i.i2629, %.0.i16.i2631
   br label %vm_opt_lt.exit
 
 3416:                                             ; preds = %3384, %3379
@@ -14292,9 +14292,9 @@ rb_float_value_inline.exit23.i:                   ; preds = %3437
   %3445 = fcmp olt double %3442, %3444
   br label %vm_opt_lt.exit
 
-vm_opt_lt.exit:                                   ; preds = %rb_float_value_inline.exit23.i, %rb_float_value_inline.exit19.i2629, %3377
-  %.sink3435 = phi i1 [ %3445, %rb_float_value_inline.exit23.i ], [ %3415, %rb_float_value_inline.exit19.i2629 ], [ %3378, %3377 ]
-  %3446 = select i1 %.sink3435, i64 20, i64 0
+vm_opt_lt.exit:                                   ; preds = %rb_float_value_inline.exit23.i, %rb_float_value_inline.exit19.i2630, %3377
+  %.sink3436 = phi i1 [ %3445, %rb_float_value_inline.exit23.i ], [ %3415, %rb_float_value_inline.exit19.i2630 ], [ %3378, %3377 ]
+  %3446 = select i1 %.sink3436, i64 20, i64 0
   store ptr %3366, ptr %3364, align 8, !tbaa !93
   store i64 %3446, ptr %3367, align 8, !tbaa !7
   br label %.backedge.backedge
@@ -14320,8 +14320,8 @@ vm_opt_lt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3460, label %3461, label %3463, !prof !69
 
 3461:                                             ; preds = %3457
-  %.not.i2646 = icmp sgt i64 %3452, %3453
-  %3462 = select i1 %.not.i2646, i64 0, i64 20
+  %.not.i2647 = icmp sgt i64 %3452, %3453
+  %3462 = select i1 %.not.i2647, i64 0, i64 20
   br label %vm_opt_le.exit
 
 3463:                                             ; preds = %3457, %3447
@@ -14329,8 +14329,8 @@ vm_opt_lt.exit:                                   ; preds = %rb_float_value_inli
   %3465 = xor i64 %3453, 2
   %3466 = or i64 %3465, %3464
   %3467 = and i64 %3466, 3
-  %.not.i.i2635 = icmp eq i64 %3467, 0
-  br i1 %.not.i.i2635, label %3468, label %3501
+  %.not.i.i2636 = icmp eq i64 %3467, 0
+  br i1 %.not.i.i2636, label %3468, label %3501
 
 3468:                                             ; preds = %3463
   %3469 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16, !tbaa !263
@@ -14344,52 +14344,52 @@ vm_opt_lt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3474, label %3475, label %3482
 
 3475:                                             ; preds = %3472
-  %.not.i.i.i2644 = icmp eq i64 %3452, -9223372036854775806
-  br i1 %.not.i.i.i2644, label %rb_float_value_inline.exit.i2638, label %3476
+  %.not.i.i.i2645 = icmp eq i64 %3452, -9223372036854775806
+  br i1 %.not.i.i.i2645, label %rb_float_value_inline.exit.i2639, label %3476
 
 3476:                                             ; preds = %3475
-  %.neg.i.i.i2645 = ashr i64 %3452, 63
-  %3477 = add nsw i64 %.neg.i.i.i2645, 2
+  %.neg.i.i.i2646 = ashr i64 %3452, 63
+  %3477 = add nsw i64 %.neg.i.i.i2646, 2
   %3478 = and i64 %3452, -4
   %3479 = or i64 %3477, %3478
   %3480 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3479, i64 range(i64 1, 0) %3479, i64 61)
   %3481 = bitcast i64 %3480 to double
-  br label %rb_float_value_inline.exit.i2638
+  br label %rb_float_value_inline.exit.i2639
 
 3482:                                             ; preds = %3472
   %3483 = inttoptr i64 %3452 to ptr
   %3484 = getelementptr inbounds nuw i8, ptr %3483, i64 16
   %3485 = load double, ptr %3484, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2638
+  br label %rb_float_value_inline.exit.i2639
 
-rb_float_value_inline.exit.i2638:                 ; preds = %3482, %3476, %3475
-  %.0.i.i2639 = phi double [ %3485, %3482 ], [ %3481, %3476 ], [ 0.000000e+00, %3475 ]
+rb_float_value_inline.exit.i2639:                 ; preds = %3482, %3476, %3475
+  %.0.i.i2640 = phi double [ %3485, %3482 ], [ %3481, %3476 ], [ 0.000000e+00, %3475 ]
   %3486 = and i64 %3453, 3
   %3487 = icmp eq i64 %3486, 2
   br i1 %3487, label %3488, label %3495
 
-3488:                                             ; preds = %rb_float_value_inline.exit.i2638
-  %.not.i.i17.i2642 = icmp eq i64 %3453, -9223372036854775806
-  br i1 %.not.i.i17.i2642, label %rb_float_value_inline.exit19.i2640, label %3489
+3488:                                             ; preds = %rb_float_value_inline.exit.i2639
+  %.not.i.i17.i2643 = icmp eq i64 %3453, -9223372036854775806
+  br i1 %.not.i.i17.i2643, label %rb_float_value_inline.exit19.i2641, label %3489
 
 3489:                                             ; preds = %3488
-  %.neg.i.i18.i2643 = ashr i64 %3453, 63
-  %3490 = add nsw i64 %.neg.i.i18.i2643, 2
+  %.neg.i.i18.i2644 = ashr i64 %3453, 63
+  %3490 = add nsw i64 %.neg.i.i18.i2644, 2
   %3491 = and i64 %3453, -4
   %3492 = or i64 %3490, %3491
   %3493 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3492, i64 range(i64 1, 0) %3492, i64 61)
   %3494 = bitcast i64 %3493 to double
-  br label %rb_float_value_inline.exit19.i2640
+  br label %rb_float_value_inline.exit19.i2641
 
-3495:                                             ; preds = %rb_float_value_inline.exit.i2638
+3495:                                             ; preds = %rb_float_value_inline.exit.i2639
   %3496 = inttoptr i64 %3453 to ptr
   %3497 = getelementptr inbounds nuw i8, ptr %3496, i64 16
   %3498 = load double, ptr %3497, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit19.i2640
+  br label %rb_float_value_inline.exit19.i2641
 
-rb_float_value_inline.exit19.i2640:               ; preds = %3495, %3489, %3488
-  %.0.i16.i2641 = phi double [ %3498, %3495 ], [ %3494, %3489 ], [ 0.000000e+00, %3488 ]
-  %3499 = fcmp ole double %.0.i.i2639, %.0.i16.i2641
+rb_float_value_inline.exit19.i2641:               ; preds = %3495, %3489, %3488
+  %.0.i16.i2642 = phi double [ %3498, %3495 ], [ %3494, %3489 ], [ 0.000000e+00, %3488 ]
+  %3499 = fcmp ole double %.0.i.i2640, %.0.i16.i2642
   %3500 = select i1 %3499, i64 20, i64 0
   br label %vm_opt_le.exit
 
@@ -14426,9 +14426,9 @@ rb_float_value_inline.exit19.i2640:               ; preds = %3495, %3489, %3488
   %3523 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 16), align 16, !tbaa !263
   %3524 = and i16 %3523, 2
   %3525 = icmp eq i16 %3524, 0
-  br i1 %3525, label %rb_float_value_inline.exit23.i2637, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3525, label %rb_float_value_inline.exit23.i2638, label %vm_objtostring.exit.thread, !prof !69
 
-rb_float_value_inline.exit23.i2637:               ; preds = %3522
+rb_float_value_inline.exit23.i2638:               ; preds = %3522
   %3526 = getelementptr inbounds nuw i8, ptr %3512, i64 16
   %3527 = load double, ptr %3526, align 8, !tbaa !322
   %3528 = getelementptr inbounds nuw i8, ptr %3518, i64 16
@@ -14437,10 +14437,10 @@ rb_float_value_inline.exit23.i2637:               ; preds = %3522
   %3531 = select i1 %3530, i64 20, i64 0
   br label %vm_opt_le.exit
 
-vm_opt_le.exit:                                   ; preds = %rb_float_value_inline.exit23.i2637, %rb_float_value_inline.exit19.i2640, %3461
-  %.0.i2636 = phi i64 [ %3462, %3461 ], [ %3500, %rb_float_value_inline.exit19.i2640 ], [ %3531, %rb_float_value_inline.exit23.i2637 ]
+vm_opt_le.exit:                                   ; preds = %rb_float_value_inline.exit23.i2638, %rb_float_value_inline.exit19.i2641, %3461
+  %.0.i2637 = phi i64 [ %3462, %3461 ], [ %3500, %rb_float_value_inline.exit19.i2641 ], [ %3531, %rb_float_value_inline.exit23.i2638 ]
   store ptr %3450, ptr %3448, align 8, !tbaa !93
-  store i64 %.0.i2636, ptr %3451, align 8, !tbaa !7
+  store i64 %.0.i2637, ptr %3451, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3532:                                             ; preds = %.backedge
@@ -14454,8 +14454,8 @@ vm_opt_le.exit:                                   ; preds = %rb_float_value_inli
   store ptr %3539, ptr %.02230, align 8, !tbaa !136
   %3540 = and i64 %3537, 1
   %3541 = and i64 %3540, %3538
-  %.not.i2647 = icmp eq i64 %3541, 0
-  br i1 %.not.i2647, label %3548, label %3542
+  %.not.i2648 = icmp eq i64 %3541, 0
+  br i1 %.not.i2648, label %3548, label %3542
 
 3542:                                             ; preds = %3532
   %3543 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2, !tbaa !263
@@ -14472,8 +14472,8 @@ vm_opt_le.exit:                                   ; preds = %rb_float_value_inli
   %3550 = xor i64 %3538, 2
   %3551 = or i64 %3550, %3549
   %3552 = and i64 %3551, 3
-  %.not.i.i2648 = icmp eq i64 %3552, 0
-  br i1 %.not.i.i2648, label %3553, label %3585
+  %.not.i.i2649 = icmp eq i64 %3552, 0
+  br i1 %.not.i.i2649, label %3553, label %3585
 
 3553:                                             ; preds = %3548
   %3554 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2, !tbaa !263
@@ -14487,52 +14487,52 @@ vm_opt_le.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3559, label %3560, label %3567
 
 3560:                                             ; preds = %3557
-  %.not.i.i.i2657 = icmp eq i64 %3537, -9223372036854775806
-  br i1 %.not.i.i.i2657, label %rb_float_value_inline.exit.i2651, label %3561
+  %.not.i.i.i2658 = icmp eq i64 %3537, -9223372036854775806
+  br i1 %.not.i.i.i2658, label %rb_float_value_inline.exit.i2652, label %3561
 
 3561:                                             ; preds = %3560
-  %.neg.i.i.i2658 = ashr i64 %3537, 63
-  %3562 = add nsw i64 %.neg.i.i.i2658, 2
+  %.neg.i.i.i2659 = ashr i64 %3537, 63
+  %3562 = add nsw i64 %.neg.i.i.i2659, 2
   %3563 = and i64 %3537, -4
   %3564 = or i64 %3562, %3563
   %3565 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3564, i64 range(i64 1, 0) %3564, i64 61)
   %3566 = bitcast i64 %3565 to double
-  br label %rb_float_value_inline.exit.i2651
+  br label %rb_float_value_inline.exit.i2652
 
 3567:                                             ; preds = %3557
   %3568 = inttoptr i64 %3537 to ptr
   %3569 = getelementptr inbounds nuw i8, ptr %3568, i64 16
   %3570 = load double, ptr %3569, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2651
+  br label %rb_float_value_inline.exit.i2652
 
-rb_float_value_inline.exit.i2651:                 ; preds = %3567, %3561, %3560
-  %.0.i.i2652 = phi double [ %3570, %3567 ], [ %3566, %3561 ], [ 0.000000e+00, %3560 ]
+rb_float_value_inline.exit.i2652:                 ; preds = %3567, %3561, %3560
+  %.0.i.i2653 = phi double [ %3570, %3567 ], [ %3566, %3561 ], [ 0.000000e+00, %3560 ]
   %3571 = and i64 %3538, 3
   %3572 = icmp eq i64 %3571, 2
   br i1 %3572, label %3573, label %3580
 
-3573:                                             ; preds = %rb_float_value_inline.exit.i2651
-  %.not.i.i17.i2655 = icmp eq i64 %3538, -9223372036854775806
-  br i1 %.not.i.i17.i2655, label %rb_float_value_inline.exit19.i2653, label %3574
+3573:                                             ; preds = %rb_float_value_inline.exit.i2652
+  %.not.i.i17.i2656 = icmp eq i64 %3538, -9223372036854775806
+  br i1 %.not.i.i17.i2656, label %rb_float_value_inline.exit19.i2654, label %3574
 
 3574:                                             ; preds = %3573
-  %.neg.i.i18.i2656 = ashr i64 %3538, 63
-  %3575 = add nsw i64 %.neg.i.i18.i2656, 2
+  %.neg.i.i18.i2657 = ashr i64 %3538, 63
+  %3575 = add nsw i64 %.neg.i.i18.i2657, 2
   %3576 = and i64 %3538, -4
   %3577 = or i64 %3575, %3576
   %3578 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3577, i64 range(i64 1, 0) %3577, i64 61)
   %3579 = bitcast i64 %3578 to double
-  br label %rb_float_value_inline.exit19.i2653
+  br label %rb_float_value_inline.exit19.i2654
 
-3580:                                             ; preds = %rb_float_value_inline.exit.i2651
+3580:                                             ; preds = %rb_float_value_inline.exit.i2652
   %3581 = inttoptr i64 %3538 to ptr
   %3582 = getelementptr inbounds nuw i8, ptr %3581, i64 16
   %3583 = load double, ptr %3582, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit19.i2653
+  br label %rb_float_value_inline.exit19.i2654
 
-rb_float_value_inline.exit19.i2653:               ; preds = %3580, %3574, %3573
-  %.0.i16.i2654 = phi double [ %3583, %3580 ], [ %3579, %3574 ], [ 0.000000e+00, %3573 ]
-  %3584 = fcmp ogt double %.0.i.i2652, %.0.i16.i2654
+rb_float_value_inline.exit19.i2654:               ; preds = %3580, %3574, %3573
+  %.0.i16.i2655 = phi double [ %3583, %3580 ], [ %3579, %3574 ], [ 0.000000e+00, %3573 ]
+  %3584 = fcmp ogt double %.0.i.i2653, %.0.i16.i2655
   br label %vm_opt_gt.exit
 
 3585:                                             ; preds = %3553, %3548
@@ -14568,9 +14568,9 @@ rb_float_value_inline.exit19.i2653:               ; preds = %3580, %3574, %3573
   %3607 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 34), align 2, !tbaa !263
   %3608 = and i16 %3607, 2
   %3609 = icmp eq i16 %3608, 0
-  br i1 %3609, label %rb_float_value_inline.exit23.i2650, label %vm_objtostring.exit.thread, !prof !69
+  br i1 %3609, label %rb_float_value_inline.exit23.i2651, label %vm_objtostring.exit.thread, !prof !69
 
-rb_float_value_inline.exit23.i2650:               ; preds = %3606
+rb_float_value_inline.exit23.i2651:               ; preds = %3606
   %3610 = getelementptr inbounds nuw i8, ptr %3596, i64 16
   %3611 = load double, ptr %3610, align 8, !tbaa !322
   %3612 = getelementptr inbounds nuw i8, ptr %3602, i64 16
@@ -14578,9 +14578,9 @@ rb_float_value_inline.exit23.i2650:               ; preds = %3606
   %3614 = fcmp ogt double %3611, %3613
   br label %vm_opt_gt.exit
 
-vm_opt_gt.exit:                                   ; preds = %rb_float_value_inline.exit23.i2650, %rb_float_value_inline.exit19.i2653, %3546
-  %.sink3436 = phi i1 [ %3614, %rb_float_value_inline.exit23.i2650 ], [ %3584, %rb_float_value_inline.exit19.i2653 ], [ %3547, %3546 ]
-  %3615 = select i1 %.sink3436, i64 20, i64 0
+vm_opt_gt.exit:                                   ; preds = %rb_float_value_inline.exit23.i2651, %rb_float_value_inline.exit19.i2654, %3546
+  %.sink3437 = phi i1 [ %3614, %rb_float_value_inline.exit23.i2651 ], [ %3584, %rb_float_value_inline.exit19.i2654 ], [ %3547, %3546 ]
+  %3615 = select i1 %.sink3437, i64 20, i64 0
   store ptr %3535, ptr %3533, align 8, !tbaa !93
   store i64 %3615, ptr %3536, align 8, !tbaa !7
   br label %.backedge.backedge
@@ -14596,8 +14596,8 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   store ptr %3623, ptr %.02230, align 8, !tbaa !136
   %3624 = and i64 %3621, 1
   %3625 = and i64 %3624, %3622
-  %.not28.i2659 = icmp eq i64 %3625, 0
-  br i1 %.not28.i2659, label %3632, label %3626
+  %.not28.i2660 = icmp eq i64 %3625, 0
+  br i1 %.not28.i2660, label %3632, label %3626
 
 3626:                                             ; preds = %3616
   %3627 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4, !tbaa !263
@@ -14606,8 +14606,8 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3629, label %3630, label %3632, !prof !69
 
 3630:                                             ; preds = %3626
-  %.not.i2671 = icmp slt i64 %3621, %3622
-  %3631 = select i1 %.not.i2671, i64 0, i64 20
+  %.not.i2672 = icmp slt i64 %3621, %3622
+  %3631 = select i1 %.not.i2672, i64 0, i64 20
   br label %vm_opt_ge.exit
 
 3632:                                             ; preds = %3626, %3616
@@ -14615,8 +14615,8 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   %3634 = xor i64 %3622, 2
   %3635 = or i64 %3634, %3633
   %3636 = and i64 %3635, 3
-  %.not.i.i2660 = icmp eq i64 %3636, 0
-  br i1 %.not.i.i2660, label %3637, label %3670
+  %.not.i.i2661 = icmp eq i64 %3636, 0
+  br i1 %.not.i.i2661, label %3637, label %3670
 
 3637:                                             ; preds = %3632
   %3638 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4, !tbaa !263
@@ -14630,52 +14630,52 @@ vm_opt_gt.exit:                                   ; preds = %rb_float_value_inli
   br i1 %3643, label %3644, label %3651
 
 3644:                                             ; preds = %3641
-  %.not.i.i.i2669 = icmp eq i64 %3621, -9223372036854775806
-  br i1 %.not.i.i.i2669, label %rb_float_value_inline.exit.i2663, label %3645
+  %.not.i.i.i2670 = icmp eq i64 %3621, -9223372036854775806
+  br i1 %.not.i.i.i2670, label %rb_float_value_inline.exit.i2664, label %3645
 
 3645:                                             ; preds = %3644
-  %.neg.i.i.i2670 = ashr i64 %3621, 63
-  %3646 = add nsw i64 %.neg.i.i.i2670, 2
+  %.neg.i.i.i2671 = ashr i64 %3621, 63
+  %3646 = add nsw i64 %.neg.i.i.i2671, 2
   %3647 = and i64 %3621, -4
   %3648 = or i64 %3646, %3647
   %3649 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3648, i64 range(i64 1, 0) %3648, i64 61)
   %3650 = bitcast i64 %3649 to double
-  br label %rb_float_value_inline.exit.i2663
+  br label %rb_float_value_inline.exit.i2664
 
 3651:                                             ; preds = %3641
   %3652 = inttoptr i64 %3621 to ptr
   %3653 = getelementptr inbounds nuw i8, ptr %3652, i64 16
   %3654 = load double, ptr %3653, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit.i2663
+  br label %rb_float_value_inline.exit.i2664
 
-rb_float_value_inline.exit.i2663:                 ; preds = %3651, %3645, %3644
-  %.0.i.i2664 = phi double [ %3654, %3651 ], [ %3650, %3645 ], [ 0.000000e+00, %3644 ]
+rb_float_value_inline.exit.i2664:                 ; preds = %3651, %3645, %3644
+  %.0.i.i2665 = phi double [ %3654, %3651 ], [ %3650, %3645 ], [ 0.000000e+00, %3644 ]
   %3655 = and i64 %3622, 3
   %3656 = icmp eq i64 %3655, 2
   br i1 %3656, label %3657, label %3664
 
-3657:                                             ; preds = %rb_float_value_inline.exit.i2663
-  %.not.i.i17.i2667 = icmp eq i64 %3622, -9223372036854775806
-  br i1 %.not.i.i17.i2667, label %rb_float_value_inline.exit19.i2665, label %3658
+3657:                                             ; preds = %rb_float_value_inline.exit.i2664
+  %.not.i.i17.i2668 = icmp eq i64 %3622, -9223372036854775806
+  br i1 %.not.i.i17.i2668, label %rb_float_value_inline.exit19.i2666, label %3658
 
 3658:                                             ; preds = %3657
-  %.neg.i.i18.i2668 = ashr i64 %3622, 63
-  %3659 = add nsw i64 %.neg.i.i18.i2668, 2
+  %.neg.i.i18.i2669 = ashr i64 %3622, 63
+  %3659 = add nsw i64 %.neg.i.i18.i2669, 2
   %3660 = and i64 %3622, -4
   %3661 = or i64 %3659, %3660
   %3662 = call noundef i64 @llvm.fshl.i64(i64 range(i64 1, 0) %3661, i64 range(i64 1, 0) %3661, i64 61)
   %3663 = bitcast i64 %3662 to double
-  br label %rb_float_value_inline.exit19.i2665
+  br label %rb_float_value_inline.exit19.i2666
 
-3664:                                             ; preds = %rb_float_value_inline.exit.i2663
+3664:                                             ; preds = %rb_float_value_inline.exit.i2664
   %3665 = inttoptr i64 %3622 to ptr
   %3666 = getelementptr inbounds nuw i8, ptr %3665, i64 16
   %3667 = load double, ptr %3666, align 8, !tbaa !322
-  br label %rb_float_value_inline.exit19.i2665
+  br label %rb_float_value_inline.exit19.i2666
 
-rb_float_value_inline.exit19.i2665:               ; preds = %3664, %3658, %3657
-  %.0.i16.i2666 = phi double [ %3667, %3664 ], [ %3663, %3658 ], [ 0.000000e+00, %3657 ]
-  %3668 = fcmp oge double %.0.i.i2664, %.0.i16.i2666
+rb_float_value_inline.exit19.i2666:               ; preds = %3664, %3658, %3657
+  %.0.i16.i2667 = phi double [ %3667, %3664 ], [ %3663, %3658 ], [ 0.000000e+00, %3657 ]
+  %3668 = fcmp oge double %.0.i.i2665, %.0.i16.i2667
   %3669 = select i1 %3668, i64 20, i64 0
   br label %vm_opt_ge.exit
 
@@ -14712,9 +14712,9 @@ rb_float_value_inline.exit19.i2665:               ; preds = %3664, %3658, %3657
   %3692 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 36), align 4, !tbaa !263
   %3693 = and i16 %3692, 2
   %3694 = icmp eq i16 %3693, 0
-  br i1 %3694, label %rb_float_value_inline.exit23.i2662, label %3701, !prof !69
+  br i1 %3694, label %rb_float_value_inline.exit23.i2663, label %3701, !prof !69
 
-rb_float_value_inline.exit23.i2662:               ; preds = %3691
+rb_float_value_inline.exit23.i2663:               ; preds = %3691
   %3695 = getelementptr inbounds nuw i8, ptr %3681, i64 16
   %3696 = load double, ptr %3695, align 8, !tbaa !322
   %3697 = getelementptr inbounds nuw i8, ptr %3687, i64 16
@@ -14727,10 +14727,10 @@ rb_float_value_inline.exit23.i2662:               ; preds = %3691
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
   br label %vm_objtostring.exit.thread
 
-vm_opt_ge.exit:                                   ; preds = %rb_float_value_inline.exit23.i2662, %rb_float_value_inline.exit19.i2665, %3630
-  %.0.i2661 = phi i64 [ %3631, %3630 ], [ %3669, %rb_float_value_inline.exit19.i2665 ], [ %3700, %rb_float_value_inline.exit23.i2662 ]
+vm_opt_ge.exit:                                   ; preds = %rb_float_value_inline.exit23.i2663, %rb_float_value_inline.exit19.i2666, %3630
+  %.0.i2662 = phi i64 [ %3631, %3630 ], [ %3669, %rb_float_value_inline.exit19.i2666 ], [ %3700, %rb_float_value_inline.exit23.i2663 ]
   store ptr %3619, ptr %3617, align 8, !tbaa !93
-  store i64 %.0.i2661, ptr %3620, align 8, !tbaa !7
+  store i64 %.0.i2662, ptr %3620, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3702:                                             ; preds = %.backedge
@@ -14767,20 +14767,20 @@ vm_opt_ge.exit:                                   ; preds = %rb_float_value_inli
   %3726 = and i64 %3708, 7
   %3727 = icmp ne i64 %3726, 0
   %3728 = or i1 %3725, %3727
-  br i1 %3728, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2674, label %rbimpl_RB_TYPE_P_fastpath.exit.i2673, !prof !310
+  br i1 %3728, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2675, label %rbimpl_RB_TYPE_P_fastpath.exit.i2674, !prof !310
 
-rbimpl_RB_TYPE_P_fastpath.exit.i2673:             ; preds = %3724
+rbimpl_RB_TYPE_P_fastpath.exit.i2674:             ; preds = %3724
   %3729 = inttoptr i64 %3708 to ptr
   %3730 = load i64, ptr %3729, align 8, !tbaa !97
   %3731 = and i64 %3730, 31
   %3732 = icmp eq i64 %3731, 5
-  br i1 %3732, label %3733, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2674, !prof !326
+  br i1 %3732, label %3733, label %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2675, !prof !326
 
-3733:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i2673
+3733:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i2674
   %3734 = call i64 @rb_str_buf_append(i64 noundef %3707, i64 noundef %3708) #20
   br label %vm_opt_ltlt.exit
 
-rbimpl_RB_TYPE_P_fastpath.exit.thread.i2674:      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i2673, %3724
+rbimpl_RB_TYPE_P_fastpath.exit.thread.i2675:      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i2674, %3724
   %3735 = call i64 @rb_str_concat(i64 noundef %3707, i64 noundef %3708) #20
   br label %vm_opt_ltlt.exit
 
@@ -14799,9 +14799,9 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i2674:      ; preds = %rbimpl_RB_TYPE_P_fa
   %3744 = call i64 @rb_ary_push(i64 noundef %3707, i64 noundef %3708) #20
   br label %vm_opt_ltlt.exit
 
-vm_opt_ltlt.exit:                                 ; preds = %3733, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2674, %3743
-  %.0.i2672 = phi i64 [ %3734, %3733 ], [ %3735, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2674 ], [ %3744, %3743 ]
-  %3745 = icmp eq i64 %.0.i2672, 36
+vm_opt_ltlt.exit:                                 ; preds = %3733, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2675, %3743
+  %.0.i2673 = phi i64 [ %3734, %3733 ], [ %3735, %rbimpl_RB_TYPE_P_fastpath.exit.thread.i2675 ], [ %3744, %3743 ]
+  %3745 = icmp eq i64 %.0.i2673, 36
   br i1 %3745, label %vm_opt_ltlt.exit.thread, label %3746
 
 vm_opt_ltlt.exit.thread:                          ; preds = %3736, %3739, %3702, %vm_opt_ltlt.exit
@@ -14813,7 +14813,7 @@ vm_opt_ltlt.exit.thread:                          ; preds = %3736, %3739, %3702,
   %3748 = getelementptr i8, ptr %3747, i64 -8
   store ptr %3748, ptr %3703, align 8, !tbaa !93
   %3749 = getelementptr i8, ptr %3747, i64 -16
-  store i64 %.0.i2672, ptr %3749, align 8, !tbaa !7
+  store i64 %.0.i2673, ptr %3749, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3750:                                             ; preds = %.backedge
@@ -14827,14 +14827,14 @@ vm_opt_ltlt.exit.thread:                          ; preds = %3736, %3739, %3702,
   store ptr %3757, ptr %.02230, align 8, !tbaa !136
   %3758 = and i64 %3756, %3755
   %3759 = and i64 %3758, 1
-  %.not.i2675 = icmp eq i64 %3759, 0
-  br i1 %.not.i2675, label %vm_opt_and.exit.thread, label %3760
+  %.not.i2676 = icmp eq i64 %3759, 0
+  br i1 %.not.i2676, label %vm_opt_and.exit.thread, label %3760
 
 3760:                                             ; preds = %3750
   %3761 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 56), align 8, !tbaa !263
   %3762 = and i16 %3761, 1
-  %.not2871 = icmp eq i16 %3762, 0
-  br i1 %.not2871, label %3763, label %vm_opt_and.exit.thread, !prof !327
+  %.not2872 = icmp eq i16 %3762, 0
+  br i1 %.not2872, label %3763, label %vm_opt_and.exit.thread, !prof !327
 
 vm_opt_and.exit.thread:                           ; preds = %3760, %3750
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
@@ -14856,8 +14856,8 @@ vm_opt_and.exit.thread:                           ; preds = %3760, %3750
   store ptr %3771, ptr %.02230, align 8, !tbaa !136
   %3772 = and i64 %3769, 1
   %3773 = and i64 %3772, %3770
-  %.not.i2677 = icmp eq i64 %3773, 0
-  br i1 %.not.i2677, label %vm_opt_or.exit.thread, label %3774
+  %.not.i2678 = icmp eq i64 %3773, 0
+  br i1 %.not.i2678, label %vm_opt_or.exit.thread, label %3774
 
 3774:                                             ; preds = %3764
   %3775 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 58), align 2, !tbaa !263
@@ -14865,8 +14865,8 @@ vm_opt_and.exit.thread:                           ; preds = %3760, %3750
   %3777 = icmp ne i16 %3776, 0
   %3778 = or i64 %3770, %3769
   %3779 = icmp eq i64 %3778, 36
-  %or.cond2870 = or i1 %3779, %3777
-  br i1 %or.cond2870, label %vm_opt_or.exit.thread, label %3780, !prof !328
+  %or.cond2871 = or i1 %3779, %3777
+  br i1 %or.cond2871, label %vm_opt_or.exit.thread, label %3780, !prof !328
 
 vm_opt_or.exit.thread:                            ; preds = %3774, %3764
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
@@ -14895,8 +14895,8 @@ vm_opt_or.exit.thread:                            ; preds = %3774, %3764
 3793:                                             ; preds = %3781
   %3794 = and i64 %3787, 1
   %3795 = and i64 %3794, %3786
-  %.not15.i2684 = icmp eq i64 %3795, 0
-  br i1 %.not15.i2684, label %vm_opt_aref.exit.thread, label %3796
+  %.not15.i2685 = icmp eq i64 %3795, 0
+  br i1 %.not15.i2685, label %vm_opt_aref.exit.thread, label %3796
 
 3796:                                             ; preds = %3793
   %3797 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 20), align 4, !tbaa !263
@@ -14924,15 +14924,15 @@ vm_opt_or.exit.thread:                            ; preds = %3774, %3764
 
 3812:                                             ; preds = %3808
   %3813 = and i64 %3787, 1
-  %.not.i2681 = icmp eq i64 %3813, 0
-  br i1 %.not.i2681, label %3837, label %3814
+  %.not.i2682 = icmp eq i64 %3813, 0
+  br i1 %.not.i2682, label %3837, label %3814
 
 3814:                                             ; preds = %3812
   %3815 = ashr i64 %3787, 1
   %3816 = load i64, ptr %3803, align 8, !tbaa !97
   %3817 = and i64 %3816, 8192
-  %.not.i.i.i2682 = icmp eq i64 %3817, 0
-  br i1 %.not.i.i.i2682, label %3822, label %3818
+  %.not.i.i.i2683 = icmp eq i64 %3817, 0
+  br i1 %.not.i.i.i2683, label %3822, label %3818
 
 3818:                                             ; preds = %3814
   %3819 = lshr i64 %3816, 15
@@ -14951,7 +14951,7 @@ rb_array_const_ptr.exit.i.i:                      ; preds = %3822, %3818
   %.0.i18.i.i = phi i64 [ %3820, %3818 ], [ %3824, %3822 ]
   %.0.i16.i.i = phi ptr [ %3821, %3818 ], [ %3826, %3822 ]
   %3827 = icmp eq i64 %.0.i18.i.i, 0
-  br i1 %3827, label %vm_opt_aref.exit.thread2858, label %3828
+  br i1 %3827, label %vm_opt_aref.exit.thread2859, label %3828
 
 3828:                                             ; preds = %rb_array_const_ptr.exit.i.i
   %3829 = icmp slt i64 %3815, 0
@@ -14960,11 +14960,11 @@ rb_array_const_ptr.exit.i.i:                      ; preds = %3822, %3818
 3830:                                             ; preds = %3828
   %3831 = add i64 %.0.i18.i.i, %3815
   %3832 = icmp slt i64 %3831, 0
-  br i1 %3832, label %vm_opt_aref.exit.thread2858, label %3834
+  br i1 %3832, label %vm_opt_aref.exit.thread2859, label %3834
 
 3833:                                             ; preds = %3828
-  %.not.i.i2683 = icmp sgt i64 %.0.i18.i.i, %3815
-  br i1 %.not.i.i2683, label %3834, label %vm_opt_aref.exit.thread2858
+  %.not.i.i2684 = icmp sgt i64 %.0.i18.i.i, %3815
+  br i1 %.not.i.i2684, label %3834, label %vm_opt_aref.exit.thread2859
 
 3834:                                             ; preds = %3833, %3830
   %.011.i.i = phi i64 [ %3831, %3830 ], [ %3815, %3833 ]
@@ -14992,25 +14992,25 @@ rb_array_const_ptr.exit.i.i:                      ; preds = %3822, %3818
   br label %vm_opt_aref.exit
 
 vm_opt_aref.exit:                                 ; preds = %3800, %3834, %3837, %3846
-  %.0.i2680 = phi i64 [ %3801, %3800 ], [ %3838, %3837 ], [ %3847, %3846 ], [ %3836, %3834 ]
-  %3848 = icmp eq i64 %.0.i2680, 36
-  br i1 %3848, label %vm_opt_aref.exit.thread, label %vm_opt_aref.exit.vm_opt_aref.exit.thread2858_crit_edge
+  %.0.i2681 = phi i64 [ %3801, %3800 ], [ %3838, %3837 ], [ %3847, %3846 ], [ %3836, %3834 ]
+  %3848 = icmp eq i64 %.0.i2681, 36
+  br i1 %3848, label %vm_opt_aref.exit.thread, label %vm_opt_aref.exit.vm_opt_aref.exit.thread2859_crit_edge
 
-vm_opt_aref.exit.vm_opt_aref.exit.thread2858_crit_edge: ; preds = %vm_opt_aref.exit
-  %.pre3114 = load ptr, ptr %3782, align 8, !tbaa !93
-  br label %vm_opt_aref.exit.thread2858
+vm_opt_aref.exit.vm_opt_aref.exit.thread2859_crit_edge: ; preds = %vm_opt_aref.exit
+  %.pre3115 = load ptr, ptr %3782, align 8, !tbaa !93
+  br label %vm_opt_aref.exit.thread2859
 
 vm_opt_aref.exit.thread:                          ; preds = %3839, %3842, %3793, %3796, %vm_opt_aref.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
   br label %vm_objtostring.exit.thread
 
-vm_opt_aref.exit.thread2858:                      ; preds = %vm_opt_aref.exit.vm_opt_aref.exit.thread2858_crit_edge, %3833, %3830, %rb_array_const_ptr.exit.i.i
-  %3849 = phi ptr [ %.pre3114, %vm_opt_aref.exit.vm_opt_aref.exit.thread2858_crit_edge ], [ %3783, %rb_array_const_ptr.exit.i.i ], [ %3783, %3830 ], [ %3783, %3833 ]
-  %.0.i26802860 = phi i64 [ %.0.i2680, %vm_opt_aref.exit.vm_opt_aref.exit.thread2858_crit_edge ], [ 4, %rb_array_const_ptr.exit.i.i ], [ 4, %3830 ], [ 4, %3833 ]
+vm_opt_aref.exit.thread2859:                      ; preds = %vm_opt_aref.exit.vm_opt_aref.exit.thread2859_crit_edge, %3833, %3830, %rb_array_const_ptr.exit.i.i
+  %3849 = phi ptr [ %.pre3115, %vm_opt_aref.exit.vm_opt_aref.exit.thread2859_crit_edge ], [ %3783, %rb_array_const_ptr.exit.i.i ], [ %3783, %3830 ], [ %3783, %3833 ]
+  %.0.i26812861 = phi i64 [ %.0.i2681, %vm_opt_aref.exit.vm_opt_aref.exit.thread2859_crit_edge ], [ 4, %rb_array_const_ptr.exit.i.i ], [ 4, %3830 ], [ 4, %3833 ]
   %3850 = getelementptr i8, ptr %3849, i64 -8
   store ptr %3850, ptr %3782, align 8, !tbaa !93
   %3851 = getelementptr i8, ptr %3849, i64 -16
-  store i64 %.0.i26802860, ptr %3851, align 8, !tbaa !7
+  store i64 %.0.i26812861, ptr %3851, align 8, !tbaa !7
   br label %.backedge.backedge
 
 3852:                                             ; preds = %.backedge
@@ -15044,8 +15044,8 @@ vm_opt_aref.exit.thread2858:                      ; preds = %vm_opt_aref.exit.vm
   %3875 = icmp eq i16 %3874, 0
   %3876 = and i64 %3859, 1
   %3877 = icmp ne i64 %3876, 0
-  %or.cond.i2686 = and i1 %3877, %3875
-  br i1 %or.cond.i2686, label %3878, label %3880, !prof !327
+  %or.cond.i2687 = and i1 %3877, %3875
+  br i1 %or.cond.i2687, label %3878, label %3880, !prof !327
 
 3878:                                             ; preds = %3872
   %3879 = ashr i64 %3859, 1
@@ -15180,11 +15180,11 @@ vm_opt_aset_with.exit.thread:                     ; preds = %3894, %3908, %3914,
 RB_FL_TEST.exit.i:                                ; preds = %3953
   %3956 = load i64, ptr %3944, align 8, !tbaa !97
   %3957 = and i64 %3956, 31
-  %.not.i.i2689 = icmp eq i64 %3957, 27
+  %.not.i.i2690 = icmp eq i64 %3957, 27
   %3958 = and i64 %3956, 16384
   %.not7.i = icmp eq i64 %3958, 0
-  %.not.i2690 = or i1 %.not.i.i2689, %.not7.i
-  br i1 %.not.i2690, label %vm_opt_aref_with.exit, label %vm_opt_aref_with.exit.thread
+  %.not.i2691 = or i1 %.not.i.i2690, %.not7.i
+  br i1 %.not.i2691, label %vm_opt_aref_with.exit, label %vm_opt_aref_with.exit.thread
 
 vm_opt_aref_with.exit:                            ; preds = %RB_FL_TEST.exit.i
   %3959 = call i64 @rb_hash_aref(i64 noundef %3937, i64 noundef %3933) #20
@@ -15279,8 +15279,8 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3931, %3943, %3949,
   %4007 = getelementptr i8, ptr %.02229, i64 16
   store ptr %4007, ptr %.02230, align 8, !tbaa !136
   %4008 = and i64 %4006, 1
-  %.not.i2691 = icmp eq i64 %4008, 0
-  br i1 %.not.i2691, label %4018, label %4009
+  %.not.i2692 = icmp eq i64 %4008, 0
+  br i1 %.not.i2692, label %4018, label %4009
 
 4009:                                             ; preds = %4002
   %4010 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 32), align 16, !tbaa !263
@@ -15290,7 +15290,7 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3931, %3943, %3949,
 
 4013:                                             ; preds = %4009
   switch i64 %4006, label %4016 [
-    i64 -1, label %vm_opt_succ.exit.thread2865
+    i64 -1, label %vm_opt_succ.exit.thread2866
     i64 9223372036854775807, label %4014
   ]
 
@@ -15328,23 +15328,23 @@ vm_opt_aref_with.exit.thread:                     ; preds = %3931, %3943, %3949,
   br label %vm_opt_succ.exit
 
 vm_opt_succ.exit:                                 ; preds = %4014, %4016, %4033
-  %.0.i2692 = phi i64 [ %4034, %4033 ], [ %4017, %4016 ], [ %4015, %4014 ]
-  %4035 = icmp eq i64 %.0.i2692, 36
-  br i1 %4035, label %vm_opt_succ.exit.thread, label %vm_opt_succ.exit.vm_opt_succ.exit.thread2865_crit_edge
+  %.0.i2693 = phi i64 [ %4034, %4033 ], [ %4017, %4016 ], [ %4015, %4014 ]
+  %4035 = icmp eq i64 %.0.i2693, 36
+  br i1 %4035, label %vm_opt_succ.exit.thread, label %vm_opt_succ.exit.vm_opt_succ.exit.thread2866_crit_edge
 
-vm_opt_succ.exit.vm_opt_succ.exit.thread2865_crit_edge: ; preds = %vm_opt_succ.exit
-  %.pre3113 = load ptr, ptr %4003, align 8, !tbaa !93
-  br label %vm_opt_succ.exit.thread2865
+vm_opt_succ.exit.vm_opt_succ.exit.thread2866_crit_edge: ; preds = %vm_opt_succ.exit
+  %.pre3114 = load ptr, ptr %4003, align 8, !tbaa !93
+  br label %vm_opt_succ.exit.thread2866
 
 vm_opt_succ.exit.thread:                          ; preds = %4023, %4029, %4018, %vm_opt_succ.exit
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
   br label %vm_objtostring.exit.thread
 
-vm_opt_succ.exit.thread2865:                      ; preds = %vm_opt_succ.exit.vm_opt_succ.exit.thread2865_crit_edge, %4013
-  %4036 = phi ptr [ %.pre3113, %vm_opt_succ.exit.vm_opt_succ.exit.thread2865_crit_edge ], [ %4004, %4013 ]
-  %.0.i26922867 = phi i64 [ %.0.i2692, %vm_opt_succ.exit.vm_opt_succ.exit.thread2865_crit_edge ], [ 1, %4013 ]
+vm_opt_succ.exit.thread2866:                      ; preds = %vm_opt_succ.exit.vm_opt_succ.exit.thread2866_crit_edge, %4013
+  %4036 = phi ptr [ %.pre3114, %vm_opt_succ.exit.vm_opt_succ.exit.thread2866_crit_edge ], [ %4004, %4013 ]
+  %.0.i26932868 = phi i64 [ %.0.i2693, %vm_opt_succ.exit.vm_opt_succ.exit.thread2866_crit_edge ], [ 1, %4013 ]
   %4037 = getelementptr i8, ptr %4036, i64 -8
-  store i64 %.0.i26922867, ptr %4037, align 8, !tbaa !7
+  store i64 %.0.i26932868, ptr %4037, align 8, !tbaa !7
   br label %.backedge.backedge
 
 4038:                                             ; preds = %.backedge
@@ -15369,73 +15369,73 @@ vm_opt_succ.exit.thread2865:                      ; preds = %vm_opt_succ.exit.vm
 4054:                                             ; preds = %4038
   %4055 = inttoptr i64 %4045 to ptr
   %4056 = getelementptr inbounds nuw i8, ptr %4055, i64 8
-  br label %rb_class_of.exit.i.i.i2693
+  br label %rb_class_of.exit.i.i.i2694
 
 4057:                                             ; preds = %4038
   switch i64 %4045, label %4060 [
-    i64 0, label %rb_class_of.exit.i.i.i2693
+    i64 0, label %rb_class_of.exit.i.i.i2694
     i64 4, label %4058
     i64 20, label %4059
   ]
 
 4058:                                             ; preds = %4057
-  br label %rb_class_of.exit.i.i.i2693
+  br label %rb_class_of.exit.i.i.i2694
 
 4059:                                             ; preds = %4057
-  br label %rb_class_of.exit.i.i.i2693
+  br label %rb_class_of.exit.i.i.i2694
 
 4060:                                             ; preds = %4057
   %4061 = and i64 %4045, 1
-  %.not.i5.i.i.i2710 = icmp eq i64 %4061, 0
-  br i1 %.not.i5.i.i.i2710, label %4062, label %rb_class_of.exit.i.i.i2693
+  %.not.i5.i.i.i2711 = icmp eq i64 %4061, 0
+  br i1 %.not.i5.i.i.i2711, label %4062, label %rb_class_of.exit.i.i.i2694
 
 4062:                                             ; preds = %4060
   %4063 = and i64 %4045, 254
   %4064 = icmp eq i64 %4063, 12
-  %spec.select.i.i.i.i2711 = select i1 %4064, ptr @rb_cSymbol, ptr @rb_cFloat
-  br label %rb_class_of.exit.i.i.i2693
+  %spec.select.i.i.i.i2712 = select i1 %4064, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit.i.i.i2694
 
-rb_class_of.exit.i.i.i2693:                       ; preds = %4062, %4060, %4059, %4058, %4057, %4054
-  %.0.in.i.i.i.i2694 = phi ptr [ @rb_cNilClass, %4058 ], [ @rb_cTrueClass, %4059 ], [ %4056, %4054 ], [ @rb_cFalseClass, %4057 ], [ @rb_cInteger, %4060 ], [ %spec.select.i.i.i.i2711, %4062 ]
-  %.0.i4.i.i.i2695 = load i64, ptr %.0.in.i.i.i.i2694, align 8, !tbaa !7
+rb_class_of.exit.i.i.i2694:                       ; preds = %4062, %4060, %4059, %4058, %4057, %4054
+  %.0.in.i.i.i.i2695 = phi ptr [ @rb_cNilClass, %4058 ], [ @rb_cTrueClass, %4059 ], [ %4056, %4054 ], [ @rb_cFalseClass, %4057 ], [ @rb_cInteger, %4060 ], [ %spec.select.i.i.i.i2712, %4062 ]
+  %.0.i4.i.i.i2696 = load i64, ptr %.0.in.i.i.i.i2695, align 8, !tbaa !7
   %4065 = getelementptr inbounds nuw i8, ptr %4041, i64 8
   %4066 = load ptr, ptr %4065, align 8, !tbaa !215
   %4067 = getelementptr i8, ptr %4066, i64 8
-  %.val3.i.i.i2696 = load i64, ptr %4067, align 8, !tbaa !216
-  %4068 = icmp eq i64 %.val3.i.i.i2696, %.0.i4.i.i.i2695
-  br i1 %4068, label %4069, label %vm_search_method.exit.i.i2697, !prof !69
+  %.val3.i.i.i2697 = load i64, ptr %4067, align 8, !tbaa !216
+  %4068 = icmp eq i64 %.val3.i.i.i2697, %.0.i4.i.i.i2696
+  br i1 %4068, label %4069, label %vm_search_method.exit.i.i2698, !prof !69
 
-4069:                                             ; preds = %rb_class_of.exit.i.i.i2693
+4069:                                             ; preds = %rb_class_of.exit.i.i.i2694
   %4070 = getelementptr i8, ptr %4066, i64 16
-  %.val.i.i.i2708 = load ptr, ptr %4070, align 8, !tbaa !218
-  %4071 = load i64, ptr %.val.i.i.i2708, align 8, !tbaa !167
+  %.val.i.i.i2709 = load ptr, ptr %4070, align 8, !tbaa !218
+  %4071 = load i64, ptr %.val.i.i.i2709, align 8, !tbaa !167
   %4072 = and i64 %4071, 2097152
-  %.not.i.i.i.i2709 = icmp eq i64 %4072, 0
-  br i1 %.not.i.i.i.i2709, label %vm_search_method.exit.thread.i.i2701, label %vm_search_method.exit.i.i2697, !prof !69
+  %.not.i.i.i.i2710 = icmp eq i64 %4072, 0
+  br i1 %.not.i.i.i.i2710, label %vm_search_method.exit.thread.i.i2702, label %vm_search_method.exit.i.i2698, !prof !69
 
-vm_search_method.exit.i.i2697:                    ; preds = %4069, %rb_class_of.exit.i.i.i2693
-  %4073 = call fastcc ptr @vm_search_method_slowpath0(i64 noundef %4049, ptr noundef nonnull %4041, i64 noundef %.0.i4.i.i.i2695)
-  %.phi.trans.insert.i.i2698 = getelementptr i8, ptr %4073, i64 16
-  %.val.pre.i.i2699 = load ptr, ptr %.phi.trans.insert.i.i2698, align 8, !tbaa !218
-  %.not.i.i.i2700 = icmp eq ptr %.val.pre.i.i2699, null
-  br i1 %.not.i.i.i2700, label %vm_opt_not.exit.thread, label %vm_search_method.exit.thread.i.i2701
+vm_search_method.exit.i.i2698:                    ; preds = %4069, %rb_class_of.exit.i.i.i2694
+  %4073 = call fastcc ptr @vm_search_method_slowpath0(i64 noundef %4049, ptr noundef nonnull %4041, i64 noundef %.0.i4.i.i.i2696)
+  %.phi.trans.insert.i.i2699 = getelementptr i8, ptr %4073, i64 16
+  %.val.pre.i.i2700 = load ptr, ptr %.phi.trans.insert.i.i2699, align 8, !tbaa !218
+  %.not.i.i.i2701 = icmp eq ptr %.val.pre.i.i2700, null
+  br i1 %.not.i.i.i2701, label %vm_opt_not.exit.thread, label %vm_search_method.exit.thread.i.i2702
 
-vm_search_method.exit.thread.i.i2701:             ; preds = %vm_search_method.exit.i.i2697, %4069
-  %.val6.i.i2702 = phi ptr [ %.val.pre.i.i2699, %vm_search_method.exit.i.i2697 ], [ %.val.i.i.i2708, %4069 ]
-  %4074 = getelementptr inbounds nuw i8, ptr %.val6.i.i2702, i64 16
+vm_search_method.exit.thread.i.i2702:             ; preds = %vm_search_method.exit.i.i2698, %4069
+  %.val6.i.i2703 = phi ptr [ %.val.pre.i.i2700, %vm_search_method.exit.i.i2698 ], [ %.val.i.i.i2709, %4069 ]
+  %4074 = getelementptr inbounds nuw i8, ptr %.val6.i.i2703, i64 16
   %4075 = load ptr, ptr %4074, align 8, !tbaa !101
   %4076 = load i64, ptr %4075, align 8
   %4077 = and i64 %4076, 15
-  %.not4.i.i.i2703 = icmp eq i64 %4077, 1
-  br i1 %.not4.i.i.i2703, label %vm_method_cfunc_is.exit.i2706, label %vm_opt_not.exit.thread
+  %.not4.i.i.i2704 = icmp eq i64 %4077, 1
+  br i1 %.not4.i.i.i2704, label %vm_method_cfunc_is.exit.i2707, label %vm_opt_not.exit.thread
 
-vm_method_cfunc_is.exit.i2706:                    ; preds = %vm_search_method.exit.thread.i.i2701
+vm_method_cfunc_is.exit.i2707:                    ; preds = %vm_search_method.exit.thread.i.i2702
   %4078 = getelementptr inbounds nuw i8, ptr %4075, i64 8
   %4079 = load ptr, ptr %4078, align 8, !tbaa !26
-  %.not.i2707 = icmp eq ptr %4079, @rb_obj_not
-  br i1 %.not.i2707, label %vm_opt_not.exit, label %vm_opt_not.exit.thread
+  %.not.i2708 = icmp eq ptr %4079, @rb_obj_not
+  br i1 %.not.i2708, label %vm_opt_not.exit, label %vm_opt_not.exit.thread
 
-vm_opt_not.exit:                                  ; preds = %vm_method_cfunc_is.exit.i2706
+vm_opt_not.exit:                                  ; preds = %vm_method_cfunc_is.exit.i2707
   %4080 = and i64 %4045, -5
   %.not6.i = icmp eq i64 %4080, 0
   %4081 = select i1 %.not6.i, i64 20, i64 0
@@ -15444,7 +15444,7 @@ vm_opt_not.exit:                                  ; preds = %vm_method_cfunc_is.
   store i64 %4081, ptr %4083, align 8, !tbaa !7
   br label %.backedge.backedge
 
-vm_opt_not.exit.thread:                           ; preds = %vm_search_method.exit.thread.i.i2701, %vm_search_method.exit.i.i2697, %vm_method_cfunc_is.exit.i2706
+vm_opt_not.exit.thread:                           ; preds = %vm_search_method.exit.thread.i.i2702, %vm_search_method.exit.i.i2698, %vm_method_cfunc_is.exit.i2707
   store ptr %.02229, ptr %.02230, align 8, !tbaa !136
   br label %vm_objtostring.exit.thread
 
@@ -15469,10 +15469,10 @@ vm_opt_not.exit.thread:                           ; preds = %vm_search_method.ex
   %4099 = load i64, ptr %4098, align 8, !tbaa !57
   %4100 = load i64, ptr @rb_cString, align 8, !tbaa !7
   %4101 = icmp eq i64 %4099, %4100
-  br i1 %4101, label %4102, label %._crit_edge.i2712
+  br i1 %4101, label %4102, label %._crit_edge.i2713
 
-._crit_edge.i2712:                                ; preds = %4096
-  %.pre.i2713 = load i64, ptr @rb_cRegexp, align 8, !tbaa !7
+._crit_edge.i2713:                                ; preds = %4096
+  %.pre.i2714 = load i64, ptr @rb_cRegexp, align 8, !tbaa !7
   br label %4126
 
 4102:                                             ; preds = %4096
@@ -15485,40 +15485,40 @@ vm_opt_not.exit.thread:                           ; preds = %vm_search_method.ex
 4107:                                             ; preds = %4102
   %4108 = inttoptr i64 %4090 to ptr
   %4109 = getelementptr inbounds nuw i8, ptr %4108, i64 8
-  br label %rb_class_of.exit.i2715
+  br label %rb_class_of.exit.i2716
 
 4110:                                             ; preds = %4102
   switch i64 %4090, label %4113 [
-    i64 0, label %rb_class_of.exit.i2715
+    i64 0, label %rb_class_of.exit.i2716
     i64 4, label %4111
     i64 20, label %4112
   ]
 
 4111:                                             ; preds = %4110
-  br label %rb_class_of.exit.i2715
+  br label %rb_class_of.exit.i2716
 
 4112:                                             ; preds = %4110
-  br label %rb_class_of.exit.i2715
+  br label %rb_class_of.exit.i2716
 
 4113:                                             ; preds = %4110
   %4114 = and i64 %4090, 1
-  %.not.i.i2718 = icmp eq i64 %4114, 0
-  br i1 %.not.i.i2718, label %4115, label %rb_class_of.exit.i2715
+  %.not.i.i2719 = icmp eq i64 %4114, 0
+  br i1 %.not.i.i2719, label %4115, label %rb_class_of.exit.i2716
 
 4115:                                             ; preds = %4113
   %4116 = and i64 %4090, 254
   %4117 = icmp eq i64 %4116, 12
-  %spec.select.i.i2719 = select i1 %4117, ptr @rb_cSymbol, ptr @rb_cFloat
-  br label %rb_class_of.exit.i2715
+  %spec.select.i.i2720 = select i1 %4117, ptr @rb_cSymbol, ptr @rb_cFloat
+  br label %rb_class_of.exit.i2716
 
-rb_class_of.exit.i2715:                           ; preds = %4115, %4113, %4112, %4111, %4110, %4107
-  %.0.in.i.i2716 = phi ptr [ @rb_cNilClass, %4111 ], [ @rb_cTrueClass, %4112 ], [ %4109, %4107 ], [ @rb_cFalseClass, %4110 ], [ @rb_cInteger, %4113 ], [ %spec.select.i.i2719, %4115 ]
-  %.0.i.i2717 = load i64, ptr %.0.in.i.i2716, align 8, !tbaa !7
+rb_class_of.exit.i2716:                           ; preds = %4115, %4113, %4112, %4111, %4110, %4107
+  %.0.in.i.i2717 = phi ptr [ @rb_cNilClass, %4111 ], [ @rb_cTrueClass, %4112 ], [ %4109, %4107 ], [ @rb_cFalseClass, %4110 ], [ @rb_cInteger, %4113 ], [ %spec.select.i.i2720, %4115 ]
+  %.0.i.i2718 = load i64, ptr %.0.in.i.i2717, align 8, !tbaa !7
   %4118 = load i64, ptr @rb_cRegexp, align 8, !tbaa !7
-  %4119 = icmp eq i64 %.0.i.i2717, %4118
+  %4119 = icmp eq i64 %.0.i.i2718, %4118
   br i1 %4119, label %4120, label %4126
 
-4120:                                             ; preds = %rb_class_of.exit.i2715
+4120:                                             ; preds = %rb_class_of.exit.i2716
   %4121 = load i16, ptr getelementptr inbounds nuw (i8, ptr @ruby_vm_redefined_flag, i64 42), align 2, !tbaa !263
   %4122 = and i16 %4121, 4
   %4123 = icmp eq i16 %4122, 0
@@ -15528,8 +15528,8 @@ rb_class_of.exit.i2715:                           ; preds = %4115, %4113, %4112,
   %4125 = call i64 @rb_reg_match(i64 noundef %4090, i64 noundef %4089) #20
   br label %vm_opt_regexpmatch2.exit
 
-4126:                                             ; preds = %4120, %rb_class_of.exit.i2715, %._crit_edge.i2712
-  %4127 = phi i64 [ %.pre.i2713, %._crit_edge.i2712 ], [ %.0.i.i2717, %4120 ], [ %4118, %rb_class_of.exit.i2715 ]
+4126:                                             ; preds = %4120, %rb_class_of.exit.i2716, %._crit_edge.i2713
+  %4127 = phi i64 [ %.pre.i2714, %._crit_edge.i2713 ], [ %.0.i.i2718, %4120 ], [ %4118, %rb_class_of.exit.i2716 ]
   %4128 = icmp eq i64 %4099, %4127
   br i1 %4128, label %4129, label %vm_opt_regexpmatch2.exit.thread
 
@@ -15544,8 +15544,8 @@ rb_class_of.exit.i2715:                           ; preds = %4115, %4113, %4112,
   br label %vm_opt_regexpmatch2.exit
 
 vm_opt_regexpmatch2.exit:                         ; preds = %4124, %4133
-  %.0.i2714 = phi i64 [ %4125, %4124 ], [ %4134, %4133 ]
-  %4135 = icmp eq i64 %.0.i2714, 36
+  %.0.i2715 = phi i64 [ %4125, %4124 ], [ %4134, %4133 ]
+  %4135 = icmp eq i64 %.0.i2715, 36
   br i1 %4135, label %vm_opt_regexpmatch2.exit.thread, label %4136
 
 vm_opt_regexpmatch2.exit.thread:                  ; preds = %4126, %4129, %4084, %vm_opt_regexpmatch2.exit
@@ -15557,7 +15557,7 @@ vm_opt_regexpmatch2.exit.thread:                  ; preds = %4126, %4129, %4084,
   %4138 = getelementptr i8, ptr %4137, i64 -8
   store ptr %4138, ptr %4085, align 8, !tbaa !93
   %4139 = getelementptr i8, ptr %4137, i64 -16
-  store i64 %.0.i2714, ptr %4139, align 8, !tbaa !7
+  store i64 %.0.i2715, ptr %4139, align 8, !tbaa !7
   br label %.backedge.backedge
 
 4140:                                             ; preds = %.backedge, %4427
@@ -15604,9 +15604,9 @@ vm_opt_regexpmatch2.exit.thread:                  ; preds = %4126, %4129, %4084,
 
 4171:                                             ; preds = %4161
   %4172 = getelementptr i8, ptr %.02230, i64 24
-  %.val.i2721 = load i64, ptr %4172, align 8, !tbaa !94
+  %.val.i2722 = load i64, ptr %4172, align 8, !tbaa !94
   %.val11.i = load ptr, ptr %4164, align 8, !tbaa !332
-  %4173 = call i64 %.val11.i(ptr noundef nonnull %0, i64 noundef %.val.i2721) #20
+  %4173 = call i64 %.val11.i(ptr noundef nonnull %0, i64 noundef %.val.i2722) #20
   br label %vm_invoke_builtin_delegate.exit
 
 4174:                                             ; preds = %4161
@@ -15634,12 +15634,12 @@ vm_opt_regexpmatch2.exit.thread:                  ; preds = %4126, %4129, %4084,
   br label %vm_invoke_builtin_delegate.exit
 
 vm_invoke_builtin_delegate.exit:                  ; preds = %4171, %4174
-  %.0.i2720 = phi i64 [ %4173, %4171 ], [ %4193, %4174 ]
+  %.0.i2721 = phi i64 [ %4173, %4171 ], [ %4193, %4174 ]
   %4194 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
   %4195 = load ptr, ptr %4194, align 8, !tbaa !93
   %4196 = getelementptr i8, ptr %4195, i64 8
   store ptr %4196, ptr %4194, align 8, !tbaa !93
-  store i64 %.0.i2720, ptr %4195, align 8, !tbaa !7
+  store i64 %.0.i2721, ptr %4195, align 8, !tbaa !7
   br label %.backedge.backedge
 
 4197:                                             ; preds = %.backedge, %4429
@@ -15657,10 +15657,10 @@ vm_invoke_builtin_delegate.exit:                  ; preds = %4171, %4174
 
 4207:                                             ; preds = %4197
   %4208 = getelementptr i8, ptr %.02230, i64 24
-  %.val.i2725 = load i64, ptr %4208, align 8, !tbaa !94
-  %.val11.i2726 = load ptr, ptr %4200, align 8, !tbaa !332
-  %4209 = call i64 %.val11.i2726(ptr noundef nonnull %0, i64 noundef %.val.i2725) #20
-  br label %vm_invoke_builtin_delegate.exit2727
+  %.val.i2726 = load i64, ptr %4208, align 8, !tbaa !94
+  %.val11.i2727 = load ptr, ptr %4200, align 8, !tbaa !332
+  %4209 = call i64 %.val11.i2727(ptr noundef nonnull %0, i64 noundef %.val.i2726) #20
+  br label %vm_invoke_builtin_delegate.exit2728
 
 4210:                                             ; preds = %4197
   %4211 = getelementptr inbounds nuw i8, ptr %.02230, i64 32
@@ -15678,45 +15678,45 @@ vm_invoke_builtin_delegate.exit:                  ; preds = %4171, %4174
   %4223 = and i64 %4202, 4294967295
   %4224 = getelementptr i64, ptr %4222, i64 %4223
   %4225 = getelementptr i8, ptr %.02230, i64 24
-  %.val13.i2722 = load i64, ptr %4225, align 8, !tbaa !94
-  %.val14.i2723 = load ptr, ptr %4200, align 8, !tbaa !332
+  %.val13.i2723 = load i64, ptr %4225, align 8, !tbaa !94
+  %.val14.i2724 = load ptr, ptr %4200, align 8, !tbaa !332
   %4226 = sext i32 %4205 to i64
   %4227 = getelementptr [16 x ptr], ptr @lookup_builtin_invoker.invokers, i64 0, i64 %4226
   %4228 = load ptr, ptr %4227, align 8, !tbaa !179
-  %4229 = call i64 %4228(ptr noundef nonnull %0, i64 noundef %.val13.i2722, ptr noundef %4224, ptr noundef %.val14.i2723) #20
-  br label %vm_invoke_builtin_delegate.exit2727
+  %4229 = call i64 %4228(ptr noundef nonnull %0, i64 noundef %.val13.i2723, ptr noundef %4224, ptr noundef %.val14.i2724) #20
+  br label %vm_invoke_builtin_delegate.exit2728
 
-vm_invoke_builtin_delegate.exit2727:              ; preds = %4207, %4210
-  %.0.i2724 = phi i64 [ %4209, %4207 ], [ %4229, %4210 ]
+vm_invoke_builtin_delegate.exit2728:              ; preds = %4207, %4210
+  %.0.i2725 = phi i64 [ %4209, %4207 ], [ %4229, %4210 ]
   %4230 = getelementptr inbounds nuw i8, ptr %.02230, i64 32
   %4231 = load ptr, ptr %4230, align 8, !tbaa !13
   %.val2305 = load i64, ptr %4231, align 8, !tbaa !7
-  %.val2.i.i2728 = load i32, ptr %38, align 8, !tbaa !67
-  %.val3.i.i2729 = load i32, ptr %39, align 4, !tbaa !68
-  %4232 = xor i32 %.val3.i.i2729, -1
-  %4233 = and i32 %.val2.i.i2728, %4232
-  %.not.i.i2730 = icmp eq i32 %4233, 0
-  br i1 %.not.i.i2730, label %vm_pop_frame.exit2733, label %4234, !prof !69
+  %.val2.i.i2729 = load i32, ptr %38, align 8, !tbaa !67
+  %.val3.i.i2730 = load i32, ptr %39, align 4, !tbaa !68
+  %4232 = xor i32 %.val3.i.i2730, -1
+  %4233 = and i32 %.val2.i.i2729, %4232
+  %.not.i.i2731 = icmp eq i32 %4233, 0
+  br i1 %.not.i.i2731, label %vm_pop_frame.exit2734, label %4234, !prof !69
 
-4234:                                             ; preds = %vm_invoke_builtin_delegate.exit2727
-  %.val.i.i2731 = load ptr, ptr %40, align 8, !tbaa !29
-  %4235 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i.i2731, i32 noundef 0) #20
-  br label %vm_pop_frame.exit2733
+4234:                                             ; preds = %vm_invoke_builtin_delegate.exit2728
+  %.val.i.i2732 = load ptr, ptr %40, align 8, !tbaa !29
+  %4235 = call i32 @rb_threadptr_execute_interrupts(ptr noundef %.val.i.i2732, i32 noundef 0) #20
+  br label %vm_pop_frame.exit2734
 
-vm_pop_frame.exit2733:                            ; preds = %vm_invoke_builtin_delegate.exit2727, %4234
+vm_pop_frame.exit2734:                            ; preds = %vm_invoke_builtin_delegate.exit2728, %4234
   %4236 = getelementptr i8, ptr %.02230, i64 56
   store ptr %4236, ptr %35, align 8, !tbaa !66
   %4237 = and i64 %.val2305, 32
   %.not = icmp eq i64 %4237, 0
-  br i1 %.not, label %4238, label %.loopexit2880
+  br i1 %.not, label %4238, label %.loopexit2881
 
-4238:                                             ; preds = %vm_pop_frame.exit2733
+4238:                                             ; preds = %vm_pop_frame.exit2734
   %4239 = load ptr, ptr %4236, align 8, !tbaa !136
   %4240 = getelementptr i8, ptr %.02230, i64 64
   %4241 = load ptr, ptr %4240, align 8, !tbaa !93
   %4242 = getelementptr i8, ptr %4241, i64 8
   store ptr %4242, ptr %4240, align 8, !tbaa !93
-  store i64 %.0.i2724, ptr %4241, align 8, !tbaa !7
+  store i64 %.0.i2725, ptr %4241, align 8, !tbaa !7
   br label %.backedge.backedge
 
 4243:                                             ; preds = %.backedge, %4430
@@ -15736,7 +15736,7 @@ vm_pop_frame.exit2733:                            ; preds = %vm_invoke_builtin_d
   store i64 %4251, ptr %4253, align 8, !tbaa !7
   br label %.backedge.backedge
 
-.lr.ph.i2736:                                     ; preds = %.backedge, %4431
+.lr.ph.i2737:                                     ; preds = %.backedge, %4431
   %4255 = getelementptr i8, ptr %.02229, i64 8
   %4256 = load i64, ptr %4255, align 8, !tbaa !7
   %4257 = getelementptr i8, ptr %.02229, i64 16
@@ -15779,20 +15779,20 @@ vm_pop_frame.exit2733:                            ; preds = %vm_invoke_builtin_d
   %4286 = sext i32 %4281 to i64
   %4287 = getelementptr i64, ptr %4279, i64 %4286
   store i64 %4276, ptr %4287, align 8, !tbaa !7
-  br label %vm_env_write.exit2745
+  br label %vm_env_write.exit2746
 
 4288:                                             ; preds = %4270
   call fastcc void @vm_env_write_slowpath(ptr noundef nonnull %4279, i32 noundef %4281, i64 noundef %4276)
-  %.pre3112 = load ptr, ptr %4273, align 8, !tbaa !93
-  br label %vm_env_write.exit2745
+  %.pre3113 = load ptr, ptr %4273, align 8, !tbaa !93
+  br label %vm_env_write.exit2746
 
-vm_env_write.exit2745:                            ; preds = %4285, %4288
-  %4289 = phi ptr [ %4274, %4285 ], [ %.pre3112, %4288 ]
+vm_env_write.exit2746:                            ; preds = %4285, %4288
+  %4289 = phi ptr [ %4274, %4285 ], [ %.pre3113, %4288 ]
   %4290 = getelementptr i8, ptr %4289, i64 -8
   store ptr %4290, ptr %4273, align 8, !tbaa !93
   br label %.backedge.backedge
 
-.lr.ph.i2746:                                     ; preds = %.backedge, %4433
+.lr.ph.i2747:                                     ; preds = %.backedge, %4433
   %4291 = getelementptr i8, ptr %.02229, i64 8
   %4292 = load i64, ptr %4291, align 8, !tbaa !7
   %4293 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
@@ -15814,18 +15814,18 @@ vm_env_write.exit2745:                            ; preds = %4285, %4288
   %4308 = icmp eq i64 %4307, 0
   br i1 %4308, label %4309, label %4312, !prof !69
 
-4309:                                             ; preds = %.lr.ph.i2746
+4309:                                             ; preds = %.lr.ph.i2747
   %4310 = sext i32 %4305 to i64
   %4311 = getelementptr i64, ptr %4303, i64 %4310
   store i64 %4296, ptr %4311, align 8, !tbaa !7
-  br label %vm_env_write.exit2753
+  br label %vm_env_write.exit2754
 
-4312:                                             ; preds = %.lr.ph.i2746
+4312:                                             ; preds = %.lr.ph.i2747
   call fastcc void @vm_env_write_slowpath(ptr noundef nonnull %4303, i32 noundef %4305, i64 noundef %4296)
   %.pre = load ptr, ptr %4293, align 8, !tbaa !93
-  br label %vm_env_write.exit2753
+  br label %vm_env_write.exit2754
 
-vm_env_write.exit2753:                            ; preds = %4309, %4312
+vm_env_write.exit2754:                            ; preds = %4309, %4312
   %4313 = phi ptr [ %4294, %4309 ], [ %.pre, %4312 ]
   %4314 = getelementptr i8, ptr %4313, i64 -8
   store ptr %4314, ptr %4293, align 8, !tbaa !93
@@ -16275,7 +16275,7 @@ vm_env_write.exit2753:                            ; preds = %4309, %4312
 
 4431:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %.lr.ph.i2736
+  br label %.lr.ph.i2737
 
 4432:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
@@ -16283,7 +16283,7 @@ vm_env_write.exit2753:                            ; preds = %4309, %4312
 
 4433:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
-  br label %.lr.ph.i2746
+  br label %.lr.ph.i2747
 
 4434:                                             ; preds = %.backedge
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
@@ -16293,8 +16293,8 @@ vm_env_write.exit2753:                            ; preds = %4309, %4312
   call fastcc void @vm_trace(ptr noundef %0, ptr noundef nonnull %.02230)
   br label %4320
 
-.loopexit2880:                                    ; preds = %vm_pop_frame.exit2733, %vm_pop_frame.exit, %2426, %2309, %2250, %1820, %1688, %1574, %1, %2499
-  %.0 = phi i64 [ %2507, %2499 ], [ ptrtoint (ptr @vm_exec_core.insns_address_table to i64), %1 ], [ %.0.i2724, %vm_pop_frame.exit2733 ], [ %2441, %vm_pop_frame.exit ], [ %2427, %2426 ], [ %2311, %2309 ], [ %2251, %2250 ], [ %1821, %1820 ], [ %1690, %1688 ], [ %1575, %1574 ]
+.loopexit2881:                                    ; preds = %vm_pop_frame.exit2734, %vm_pop_frame.exit, %2426, %2309, %2250, %1820, %1688, %1574, %1, %2499
+  %.0 = phi i64 [ %2507, %2499 ], [ ptrtoint (ptr @vm_exec_core.insns_address_table to i64), %1 ], [ %.0.i2725, %vm_pop_frame.exit2734 ], [ %2441, %vm_pop_frame.exit ], [ %2427, %2426 ], [ %2311, %2309 ], [ %2251, %2250 ], [ %1821, %1820 ], [ %1690, %1688 ], [ %1575, %1574 ]
   ret i64 %.0
 
 .backedge:                                        ; preds = %.backedge.backedge, %34
@@ -16302,7 +16302,7 @@ vm_env_write.exit2753:                            ; preds = %4309, %4312
   %.02229 = phi ptr [ %37, %34 ], [ %.02229.be, %.backedge.backedge ]
   %.in = load i64, ptr %.02229, align 8, !tbaa !7
   %4436 = inttoptr i64 %.in to ptr
-  indirectbr ptr %4436, [label %69, label %71, label %90, label %118, label %170, label %200, label %249, label %308, label %325, label %416, label %431, label %465, label %512, label %521, label %536, label %566, label %574, label %585, label %590, label %597, label %604, label %636, label %644, label %652, label %665, label %677, label %695, label %704, label %717, label %743, label %765, label %790, label %889, label %915, label %932, label %946, label %964, label %979, label %1001, label %1016, label %1021, label %1028, label %1042, label %1050, label %1066, label %1077, label %1088, label %1096, label %1111, label %1207, label %1249, label %1276, label %1304, label %1454, label %1460, label %1470, label %1585, label %vm_objtostring.exit.thread, label %1831, label %1948, label %1980, label %2015, label %2033, label %2083, label %2101, label %2120, label %2202, label %2261, label %2336, label %2437, label %2499, label %2508, label %2517, label %2535, label %2553, label %2571, label %2621, label %2684, label %2834, label %2956, label %3082, label %3160, label %3289, label %3308, label %3363, label %3447, label %3532, label %3616, label %3702, label %3750, label %3764, label %3781, label %3852, label %3894, label %3931, label %3967, label %3979, label %3991, label %4002, label %4038, label %4084, label %4140, label %4161, label %4197, label %4243, label %.lr.ph.i2736, label %4270, label %.lr.ph.i2746, label %4315, label %4320, label %4325, label %4326, label %4327, label %4328, label %4329, label %4330, label %4331, label %4332, label %4333, label %4334, label %4335, label %4336, label %4337, label %4338, label %4339, label %4340, label %4341, label %4342, label %4343, label %4344, label %4345, label %4346, label %4347, label %4348, label %4349, label %4350, label %4351, label %4352, label %4353, label %4354, label %4355, label %4356, label %4357, label %4358, label %4359, label %4360, label %4361, label %4362, label %4363, label %4364, label %4365, label %4366, label %4367, label %4368, label %4369, label %4370, label %4371, label %4372, label %4373, label %4374, label %4375, label %4376, label %4377, label %4378, label %4379, label %4380, label %4381, label %4382, label %4383, label %4384, label %4385, label %4386, label %4387, label %4388, label %4389, label %4390, label %4391, label %4392, label %4393, label %4394, label %4395, label %4396, label %4397, label %4398, label %4399, label %4400, label %4401, label %4402, label %4403, label %4404, label %4405, label %4406, label %4407, label %4408, label %4410, label %4411, label %4412, label %4413, label %4414, label %4415, label %4416, label %4417, label %4418, label %4419, label %4420, label %4421, label %4422, label %4423, label %4424, label %4425, label %4426, label %4427, label %4428, label %4429, label %4430, label %4431, label %4432, label %4433, label %4434, label %4435]
+  indirectbr ptr %4436, [label %69, label %71, label %90, label %118, label %170, label %200, label %249, label %308, label %325, label %416, label %431, label %465, label %512, label %521, label %536, label %566, label %574, label %585, label %590, label %597, label %604, label %636, label %644, label %652, label %665, label %677, label %695, label %704, label %717, label %743, label %765, label %790, label %889, label %915, label %932, label %946, label %964, label %979, label %1001, label %1016, label %1021, label %1028, label %1042, label %1050, label %1066, label %1077, label %1088, label %1096, label %1111, label %1207, label %1249, label %1276, label %1304, label %1454, label %1460, label %1470, label %1585, label %vm_objtostring.exit.thread, label %1831, label %1948, label %1980, label %2015, label %2033, label %2083, label %2101, label %2120, label %2202, label %2261, label %2336, label %2437, label %2499, label %2508, label %2517, label %2535, label %2553, label %2571, label %2621, label %2684, label %2834, label %2956, label %3082, label %3160, label %3289, label %3308, label %3363, label %3447, label %3532, label %3616, label %3702, label %3750, label %3764, label %3781, label %3852, label %3894, label %3931, label %3967, label %3979, label %3991, label %4002, label %4038, label %4084, label %4140, label %4161, label %4197, label %4243, label %.lr.ph.i2737, label %4270, label %.lr.ph.i2747, label %4315, label %4320, label %4325, label %4326, label %4327, label %4328, label %4329, label %4330, label %4331, label %4332, label %4333, label %4334, label %4335, label %4336, label %4337, label %4338, label %4339, label %4340, label %4341, label %4342, label %4343, label %4344, label %4345, label %4346, label %4347, label %4348, label %4349, label %4350, label %4351, label %4352, label %4353, label %4354, label %4355, label %4356, label %4357, label %4358, label %4359, label %4360, label %4361, label %4362, label %4363, label %4364, label %4365, label %4366, label %4367, label %4368, label %4369, label %4370, label %4371, label %4372, label %4373, label %4374, label %4375, label %4376, label %4377, label %4378, label %4379, label %4380, label %4381, label %4382, label %4383, label %4384, label %4385, label %4386, label %4387, label %4388, label %4389, label %4390, label %4391, label %4392, label %4393, label %4394, label %4395, label %4396, label %4397, label %4398, label %4399, label %4400, label %4401, label %4402, label %4403, label %4404, label %4405, label %4406, label %4407, label %4408, label %4410, label %4411, label %4412, label %4413, label %4414, label %4415, label %4416, label %4417, label %4418, label %4419, label %4420, label %4421, label %4422, label %4423, label %4424, label %4425, label %4426, label %4427, label %4428, label %4429, label %4430, label %4431, label %4432, label %4433, label %4434, label %4435]
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -18773,10 +18773,10 @@ define internal fastcc ptr @rb_method_entry_make(i64 noundef %0, i64 noundef %1,
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %8
   %19 = inttoptr i64 %spec.select to ptr
   %20 = load i64, ptr %19, align 8, !tbaa !97
-  %.fr153 = freeze i64 %20
-  %21 = and i64 %.fr153, 8223
-  %or.cond163.not = icmp eq i64 %21, 8194
-  br i1 %or.cond163.not, label %24, label %switch.early.test
+  %.fr = freeze i64 %20
+  %21 = and i64 %.fr, 8223
+  %or.cond162.not = icmp eq i64 %21, 8194
+  br i1 %or.cond162.not, label %24, label %switch.early.test
 
 switch.early.test:                                ; preds = %8, %rbimpl_RB_TYPE_P_fastpath.exit.i
   switch i32 %4, label %22 [
@@ -18815,8 +18815,8 @@ rbimpl_RB_TYPE_P_fastpath.exit123:                ; preds = %25
   %26 = inttoptr i64 %spec.select to ptr
   %27 = load i64, ptr %26, align 8, !tbaa !97
   %28 = and i64 %27, 32799
-  %or.cond171.not = icmp eq i64 %28, 32771
-  br i1 %or.cond171.not, label %29, label %rb_add_refined_method_entry.exit
+  %or.cond170.not = icmp eq i64 %28, 32771
+  br i1 %or.cond170.not, label %29, label %rb_add_refined_method_entry.exit
 
 29:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit123
   %30 = tail call i64 @rb_refinement_module_get_refined_class(i64 noundef %spec.select) #20
@@ -18828,8 +18828,8 @@ rbimpl_RB_TYPE_P_fastpath.exit123:                ; preds = %25
   %.not.i134 = icmp eq i32 %34, 0
   %35 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not.i125155 = icmp eq i64 %35, 0
-  %.not.i125 = select i1 %.not.i134, i1 true, i1 %.not.i125155
+  %.not.i125154 = icmp eq i64 %35, 0
+  %.not.i125 = select i1 %.not.i134, i1 true, i1 %.not.i125154
   br i1 %.not.i125, label %38, label %36
 
 36:                                               ; preds = %29
@@ -18857,8 +18857,8 @@ rb_add_refined_method_entry.exit:                 ; preds = %25, %38, %36, %rbim
   %.not.i126 = icmp eq i32 %47, 0
   %48 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %.not112156 = icmp eq i64 %48, 0
-  %.not112 = select i1 %.not.i126, i1 true, i1 %.not112156
+  %.not112155 = icmp eq i64 %48, 0
+  %.not112 = select i1 %.not.i126, i1 true, i1 %.not112155
   br i1 %.not112, label %53, label %49
 
 49:                                               ; preds = %43
@@ -19075,13 +19075,13 @@ rb_method_entry_create.exit:                      ; preds = %110, %115
 154:                                              ; preds = %151, %152, %148
   %155 = icmp ne i64 %1, 2833
   %156 = icmp ne i64 %1, 2849
-  %or.cond9.not162 = and i1 %155, %156
+  %or.cond9.not161 = and i1 %155, %156
   %157 = icmp ne i64 %1, 3137
-  %or.cond11.not159 = and i1 %157, %or.cond9.not162
+  %or.cond11.not158 = and i1 %157, %or.cond9.not161
   %158 = icmp eq i32 %4, 1
-  %or.cond13.not157 = or i1 %or.cond11.not159, %158
+  %or.cond13.not156 = or i1 %or.cond11.not158, %158
   %.not18.i.i = icmp eq i64 %.199, 0
-  %or.cond151 = or i1 %or.cond13.not157, %.not18.i.i
+  %or.cond151 = or i1 %or.cond13.not156, %.not18.i.i
   br i1 %or.cond151, label %search_method.exit.thread, label %.lr.ph.split.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %154, %164
@@ -22722,20 +22722,20 @@ rb_ruby_verbose_ptr.exit:                         ; preds = %31, %33
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %42
   %48 = inttoptr i64 %1 to ptr
   %49 = load i64, ptr %48, align 8, !tbaa !97
-  %.fr53 = freeze i64 %49
-  %50 = and i64 %.fr53, 31
+  %.fr = freeze i64 %49
+  %50 = and i64 %.fr, 31
   %51 = icmp eq i64 %50, 2
-  %52 = and i64 %.fr53, 8192
+  %52 = and i64 %.fr, 8192
   %.not = icmp eq i64 %52, 0
   %spec.select = select i1 %.not, i64 %1, i64 %2
   %spec.select52 = select i1 %.not, i32 35, i32 46
-  %spec.select64 = select i1 %51, i64 %spec.select, i64 %1
-  %spec.select65 = select i1 %51, i32 %spec.select52, i32 35
+  %spec.select63 = select i1 %51, i64 %spec.select, i64 %1
+  %spec.select64 = select i1 %51, i32 %spec.select52, i32 35
   br label %RCLASS_SINGLETON_P.exit39.thread
 
 RCLASS_SINGLETON_P.exit39.thread:                 ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i, %42
-  %53 = phi i64 [ %1, %42 ], [ %spec.select64, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
-  %54 = phi i32 [ 35, %42 ], [ %spec.select65, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %53 = phi i64 [ %1, %42 ], [ %spec.select63, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
+  %54 = phi i32 [ 35, %42 ], [ %spec.select64, %rbimpl_RB_TYPE_P_fastpath.exit.i ]
   %55 = call i64 @rb_id_quote_unprintable(i64 noundef %3) #20
   call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @.str.217, i64 noundef %53, i32 noundef %54, i64 noundef %55) #60
   %56 = icmp eq i64 %43, 4
@@ -23984,8 +23984,8 @@ search_method.exit85.thread:                      ; preds = %rbimpl_RB_TYPE_P_fa
 
 RB_SYMBOL_P.exit.i:                               ; preds = %88
   %93 = load i64, ptr %.pre, align 8, !tbaa !97
-  %.fr10.i = freeze i64 %93
-  %94 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %93
+  %94 = and i64 %.fr.i, 31
   %95 = icmp eq i64 %94, 20
   br i1 %95, label %vm_proc_to_block_handler.exit, label %vm_block_handler_type.exit
 
@@ -28829,8 +28829,8 @@ VM_CF_BLOCK_HANDLER.exit:                         ; preds = %.lr.ph.i.i.i, %5
 
 RB_SYMBOL_P.exit.i:                               ; preds = %22
   %27 = load i64, ptr %.pre, align 8, !tbaa !97
-  %.fr10.i = freeze i64 %27
-  %28 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %27
+  %28 = and i64 %.fr.i, 31
   %29 = icmp eq i64 %28, 20
   br i1 %29, label %vm_block_handler_type.exit, label %._crit_edge
 
@@ -32597,8 +32597,8 @@ RHASH_EMPTY_P.exit:                               ; preds = %155, %158
 RB_SYMBOL_P.exit.i.i.i:                           ; preds = %176
   %178 = inttoptr i64 %6 to ptr
   %179 = load i64, ptr %178, align 8, !tbaa !97
-  %.fr10.i.i.i = freeze i64 %179
-  %180 = and i64 %.fr10.i.i.i, 31
+  %.fr.i.i.i = freeze i64 %179
+  %180 = and i64 %.fr.i.i.i, 31
   %181 = icmp eq i64 %180, 20
   br i1 %181, label %vm_block_handler_type.exit.i.i, label %vm_yield_with_symbol.exit
 
@@ -32941,8 +32941,8 @@ RHASH_EMPTY_P.exit:                               ; preds = %120, %123
 RB_SYMBOL_P.exit.i.i.i:                           ; preds = %141
   %143 = inttoptr i64 %6 to ptr
   %144 = load i64, ptr %143, align 8, !tbaa !97
-  %.fr10.i.i.i = freeze i64 %144
-  %145 = and i64 %.fr10.i.i.i, 31
+  %.fr.i.i.i = freeze i64 %144
+  %145 = and i64 %.fr.i.i.i, 31
   %146 = icmp eq i64 %145, 20
   br i1 %146, label %vm_block_handler_type.exit.i.i, label %vm_yield_with_symbol.exit
 
@@ -45962,8 +45962,8 @@ RHASH_SIZE.exit:                                  ; preds = %948, %951
 RB_SYMBOL_P.exit.i.i.i:                           ; preds = %980
   %982 = inttoptr i64 %.val to ptr
   %983 = load i64, ptr %982, align 8, !tbaa !97
-  %.fr10.i.i.i = freeze i64 %983
-  %984 = and i64 %.fr10.i.i.i, 31
+  %.fr.i.i.i = freeze i64 %983
+  %984 = and i64 %.fr.i.i.i, 31
   %985 = icmp eq i64 %984, 20
   br i1 %985, label %vm_block_handler_type.exit.i.i, label %args_setup_block_parameter.exit
 
@@ -51223,8 +51223,8 @@ vm_block_handler_type.exit.thread8.i:             ; preds = %21
 RB_SYMBOL_P.exit.i.i:                             ; preds = %29
   %34 = inttoptr i64 %4 to ptr
   %35 = load i64, ptr %34, align 8, !tbaa !97
-  %.fr10.i.i = freeze i64 %35
-  %36 = and i64 %.fr10.i.i, 31
+  %.fr.i.i = freeze i64 %35
+  %36 = and i64 %.fr.i.i, 31
   %37 = icmp eq i64 %36, 20
   br i1 %37, label %vm_block_handler_type.exit.i, label %vm_invoke_block.exit
 
@@ -51427,8 +51427,8 @@ vm_proc_to_block_handler.exit:                    ; preds = %vm_proc_to_block_ha
 RB_SYMBOL_P.exit.i:                               ; preds = %11
   %16 = inttoptr i64 %.09 to ptr
   %17 = load i64, ptr %16, align 8, !tbaa !97
-  %.fr10.i = freeze i64 %17
-  %18 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %17
+  %18 = and i64 %.fr.i, 31
   %19 = icmp eq i64 %18, 20
   br i1 %19, label %RB_SYMBOL_P.exit.i.i, label %vm_block_handler_type.exit.thread14
 
@@ -51483,8 +51483,8 @@ vm_proc_to_block_handler.exit.backedge:           ; preds = %28, %31, %34, %36
 RB_SYMBOL_P.exit.i.i:                             ; preds = %RB_SYMBOL_P.exit.i
   %39 = inttoptr i64 %.09 to ptr
   %40 = load i64, ptr %39, align 8, !tbaa !97
-  %.fr10.i.i = freeze i64 %40
-  %41 = and i64 %.fr10.i.i, 31
+  %.fr.i.i = freeze i64 %40
+  %41 = and i64 %.fr.i.i, 31
   %42 = icmp eq i64 %41, 20
   br i1 %42, label %vm_block_handler_type.exit.i, label %vm_invoke_block.exit
 
@@ -55507,8 +55507,8 @@ rbimpl_RB_TYPE_P_fastpath.exit16:                 ; preds = %2
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %11
   %18 = inttoptr i64 %13 to ptr
   %19 = load i64, ptr %18, align 8, !tbaa !97
-  %.fr33 = freeze i64 %19
-  %20 = and i64 %.fr33, 31
+  %.fr = freeze i64 %19
+  %20 = and i64 %.fr, 31
   %21 = icmp eq i64 %20, 2
   %spec.select = select i1 %21, i64 %13, i64 %1
   br label %rbimpl_RB_TYPE_P_fastpath.exit16.thread
@@ -60029,8 +60029,8 @@ define internal range(i32 0, 3) i32 @ref_delete_symkey(i64 noundef %0, i64 %1, i
 RB_SYMBOL_P.exit:                                 ; preds = %6
   %11 = inttoptr i64 %0 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !97
-  %.fr4 = freeze i64 %12
-  %13 = and i64 %.fr4, 31
+  %.fr = freeze i64 %12
+  %13 = and i64 %.fr, 31
   %14 = icmp eq i64 %13, 20
   br i1 %14, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread2
 
@@ -60698,8 +60698,8 @@ define internal fastcc i64 @invoke_block_from_c_bh(ptr noundef %0, i64 noundef r
 RB_SYMBOL_P.exit.i.us:                            ; preds = %20
   %25 = inttoptr i64 %.027.us to ptr
   %26 = load i64, ptr %25, align 8, !tbaa !97
-  %.fr10.i.us = freeze i64 %26
-  %27 = and i64 %.fr10.i.us, 31
+  %.fr.i.us = freeze i64 %26
+  %27 = and i64 %.fr.i.us, 31
   %28 = icmp eq i64 %27, 20
   br i1 %28, label %vm_block_handler_type.exit, label %.thread
 
@@ -60773,8 +60773,8 @@ RB_SYMBOL_P.exit.i.us:                            ; preds = %20
 
 RB_SYMBOL_P.exit.i:                               ; preds = %56
   %61 = load i64, ptr %.pre70, align 8, !tbaa !97
-  %.fr10.i = freeze i64 %61
-  %62 = and i64 %.fr10.i, 31
+  %.fr.i = freeze i64 %61
+  %62 = and i64 %.fr.i, 31
   %63 = icmp eq i64 %62, 20
   br i1 %63, label %vm_block_handler_type.exit, label %block_proc_is_lambda.exit
 
@@ -61000,8 +61000,8 @@ vm_block_handler_type.exit:                       ; preds = %53, %RB_SYMBOL_P.ex
 RB_SYMBOL_P.exit.i.i.i:                           ; preds = %161
   %163 = inttoptr i64 %5 to ptr
   %164 = load i64, ptr %163, align 8, !tbaa !97
-  %.fr10.i.i.i = freeze i64 %164
-  %165 = and i64 %.fr10.i.i.i, 31
+  %.fr.i.i.i = freeze i64 %164
+  %165 = and i64 %.fr.i.i.i, 31
   %166 = icmp eq i64 %165, 20
   br i1 %166, label %vm_block_handler_type.exit.i.i, label %vm_yield_with_symbol.exit
 

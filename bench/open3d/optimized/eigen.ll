@@ -97804,47 +97804,52 @@ _ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   %7 = getelementptr i8, ptr %.16.val, i64 8
   %.val2.i = load ptr, ptr %7, align 8, !tbaa !254, !noalias !3108
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3111)
-  %8 = ptrtoint ptr %.val2.i to i64
-  %9 = ptrtoint ptr %.val.i to i64
+  %.0.val.fr.i.i = freeze ptr %.val.i
+  %.8.val.fr.i.i = freeze ptr %.val2.i
+  %8 = ptrtoint ptr %.8.val.fr.i.i to i64
+  %9 = ptrtoint ptr %.0.val.fr.i.i to i64
   %10 = sub i64 %8, %9
-  %reass.sub.fr.i = freeze i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !3114
-  %.not.i.i.i.i.i.i = icmp eq ptr %.val2.i, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %14
 
 .thread.i.i:                                      ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !253, !alias.scope !3114
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !3114
+  store ptr %12, ptr %13, align 8, !tbaa !253, !alias.scope !3114
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIdLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_T2_EUlS8_E0_JLm0EENS0_9void_typeEEET_OSM_St16integer_sequenceImJXspT1_EEEOSZ_.exit
 
-13:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %14 = sdiv exact i64 %reass.sub.fr.i, 24
-  %15 = icmp ugt i64 %14, 384307168202282325
-  br i1 %15, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
+14:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
+  %15 = sdiv exact i64 %10, 24
+  %16 = icmp ugt i64 %15, 384307168202282325
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
 
-.noexc.i.i.i.i:                                   ; preds = %13
+.noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #35, !noalias !3114
   unreachable
 
-_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37, !noalias !3114
-  store ptr %16, ptr %0, align 8, !tbaa !250, !alias.scope !3114
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %reass.sub.fr.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !253, !alias.scope !3114
-  %19 = add i64 %reass.sub.fr.i, -24
-  %20 = urem i64 %19, 24
-  %21 = sub nuw i64 %19, %20
-  %22 = add i64 %21, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %.val.i, i64 %22, i1 false), !noalias !3114
-  %scevgep.i.i = getelementptr i8, ptr %16, i64 %22
+_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #37, !noalias !3114
+  store ptr %17, ptr %0, align 8, !tbaa !250, !alias.scope !3114
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !254, !alias.scope !3114
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !253, !alias.scope !3114
+  %21 = add i64 %10, -24
+  %22 = urem i64 %21, 24
+  %23 = sub nuw i64 %21, %22
+  %24 = add i64 %23, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %.0.val.fr.i.i, i64 %24, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %24
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIdLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_T2_EUlS8_E0_JLm0EENS0_9void_typeEEET_OSM_St16integer_sequenceImJXspT1_EEEOSZ_.exit
 
 _ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIdLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_T2_EUlS8_E0_JLm0EENS0_9void_typeEEET_OSM_St16integer_sequenceImJXspT1_EEEOSZ_.exit: ; preds = %.thread.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i
+  %25 = phi ptr [ %11, %.thread.i.i ], [ %18, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.thread.i.i ], [ %scevgep.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !254, !alias.scope !3114
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !254, !alias.scope !3114
   ret void
 }
 
@@ -98203,47 +98208,52 @@ _ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
   %7 = getelementptr i8, ptr %.24.val, i64 8
   %.val2.i = load ptr, ptr %7, align 8, !tbaa !254, !noalias !3122
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3125)
-  %8 = ptrtoint ptr %.val2.i to i64
-  %9 = ptrtoint ptr %.val.i to i64
+  %.0.val.fr.i.i = freeze ptr %.val.i
+  %.8.val.fr.i.i = freeze ptr %.val2.i
+  %8 = ptrtoint ptr %.8.val.fr.i.i to i64
+  %9 = ptrtoint ptr %.0.val.fr.i.i to i64
   %10 = sub i64 %8, %9
-  %reass.sub.fr.i = freeze i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !3128
-  %.not.i.i.i.i.i.i = icmp eq ptr %.val2.i, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %14
 
 .thread.i.i:                                      ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !253, !alias.scope !3128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !3128
+  store ptr %12, ptr %13, align 8, !tbaa !253, !alias.scope !3128
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIdLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_T2_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OSO_St16integer_sequenceImJXspT1_EEEOS11_.exit
 
-13:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %14 = sdiv exact i64 %reass.sub.fr.i, 24
-  %15 = icmp ugt i64 %14, 384307168202282325
-  br i1 %15, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
+14:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
+  %15 = sdiv exact i64 %10, 24
+  %16 = icmp ugt i64 %15, 384307168202282325
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
 
-.noexc.i.i.i.i:                                   ; preds = %13
+.noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #35, !noalias !3128
   unreachable
 
-_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37, !noalias !3128
-  store ptr %16, ptr %0, align 8, !tbaa !250, !alias.scope !3128
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %reass.sub.fr.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !253, !alias.scope !3128
-  %19 = add i64 %reass.sub.fr.i, -24
-  %20 = urem i64 %19, 24
-  %21 = sub nuw i64 %19, %20
-  %22 = add i64 %21, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %.val.i, i64 %22, i1 false), !noalias !3128
-  %scevgep.i.i = getelementptr i8, ptr %16, i64 %22
+_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #37, !noalias !3128
+  store ptr %17, ptr %0, align 8, !tbaa !250, !alias.scope !3128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !254, !alias.scope !3128
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !253, !alias.scope !3128
+  %21 = add i64 %10, -24
+  %22 = urem i64 %21, 24
+  %23 = sub nuw i64 %21, %22
+  %24 = add i64 %23, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %.0.val.fr.i.i, i64 %24, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %24
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIdLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_T2_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OSO_St16integer_sequenceImJXspT1_EEEOS11_.exit
 
 _ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIdLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_T2_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OSO_St16integer_sequenceImJXspT1_EEEOS11_.exit: ; preds = %.thread.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i
+  %25 = phi ptr [ %11, %.thread.i.i ], [ %18, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.thread.i.i ], [ %scevgep.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !254, !alias.scope !3128
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !254, !alias.scope !3128
   ret void
 }
 
@@ -99881,8 +99891,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESa
   %43 = load ptr, ptr %26, align 8, !tbaa !2936
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !2936
-  %.not6.i.i.i.i.i17 = icmp eq ptr %43, %45
-  br i1 %.not6.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %.lr.ph.i.i.i.i.i18
+  %.not7.i.i.i.i.i17 = icmp eq ptr %43, %45
+  br i1 %.not7.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29, label %.lr.ph.i.i.i.i.i18
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
   %46 = load double, ptr %3, align 8, !tbaa !258
@@ -99890,43 +99900,44 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESa
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %49 = load double, ptr %47, align 8
   %50 = load double, ptr %48, align 8
+  %.fr6.i.i.i.i.i19 = freeze double %50
   br label %51
 
-51:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %.lr.ph.i.i.i.i.i18
-  %.08.i.i.i.i.i19 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %.sroa.03.07.i.i.i.i.i20 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %52 = load double, ptr %.sroa.03.07.i.i.i.i.i20, align 8, !tbaa !258
+51:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %.lr.ph.i.i.i.i.i18
+  %.09.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %.sroa.03.08.i.i.i.i.i21 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %52 = load double, ptr %.sroa.03.08.i.i.i.i.i21, align 8, !tbaa !258
   %53 = fcmp oeq double %52, %46
-  br i1 %53, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %53, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24: ; preds = %51
-  %54 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 8
+_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25: ; preds = %51
+  %54 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 8
   %55 = load double, ptr %54, align 8, !tbaa !258
   %56 = fcmp oeq double %55, %49
-  br i1 %56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24
-  %57 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 16
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25
+  %57 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 16
   %58 = load double, ptr %57, align 8, !tbaa !258
-  %59 = fcmp oeq double %58, %50
-  %cond.fr.i.i.i.i.i26 = freeze i1 %59
-  %60 = zext i1 %cond.fr.i.i.i.i.i26 to i64
-  %spec.select.i.i.i.i.i27 = add nsw i64 %.08.i.i.i.i.i19, %60
-  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  %.fr.i.i.i.i.i27 = freeze double %58
+  %59 = fcmp oeq double %.fr.i.i.i.i.i27, %.fr6.i.i.i.i.i19
+  %60 = zext i1 %59 to i64
+  %spec.select.i.i.i.i.i28 = add nsw i64 %.09.i.i.i.i.i20, %60
+  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24, %51
-  %61 = phi i64 [ %.08.i.i.i.i.i19, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24 ], [ %.08.i.i.i.i.i19, %51 ], [ %spec.select.i.i.i.i.i27, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 24
-  %.not.i.i.i.i.i22 = icmp eq ptr %62, %45
-  br i1 %.not.i.i.i.i.i22, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %51, !llvm.loop !3193
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25, %51
+  %61 = phi i64 [ %.09.i.i.i.i.i20, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25 ], [ %.09.i.i.i.i.i20, %51 ], [ %spec.select.i.i.i.i.i28, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 24
+  %.not.i.i.i.i.i23 = icmp eq ptr %62, %45
+  br i1 %.not.i.i.i.i.i23, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29, label %51, !llvm.loop !3193
 
-_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
-  %.0.lcssa.i.i.i.i.i23 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %63 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i23)
+_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
+  %.0.lcssa.i.i.i.i.i24 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %63 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i24)
   br label %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %63, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
+_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %63, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -107659,13 +107670,14 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE8_M_eraseEN9__gnu_cxx
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS3_EELb1EE8_S_do_itERS5_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !2936
+  %.fr10.i.i = freeze ptr %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !2936
-  %5 = ptrtoint ptr %4 to i64
-  %6 = ptrtoint ptr %2 to i64
+  %.fr9.i.i = freeze ptr %4
+  %5 = ptrtoint ptr %.fr9.i.i to i64
+  %6 = ptrtoint ptr %.fr10.i.i to i64
   %7 = sub i64 %5, %6
-  %reass.sub.fr.i = freeze i64 %7
-  %8 = sdiv exact i64 %reass.sub.fr.i, 24
+  %8 = sdiv exact i64 %7, 24
   %9 = icmp ugt i64 %8, 384307168202282325
   br i1 %9, label %10, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
@@ -107677,24 +107689,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vec
   unreachable
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %1
-  %.not.i.i.i = icmp eq ptr %4, %2
+  %.not.i.i.i = icmp eq ptr %.fr9.i.i, %.fr10.i.i
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
+  %11 = getelementptr inbounds nuw i8, ptr null, i64 %7
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #37
           to label %.noexc5.i unwind label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit.i
 
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %reass.sub.fr.i
-  %14 = add i64 %reass.sub.fr.i, -24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
+  %14 = add i64 %7, -24
   %15 = urem i64 %14, 24
   %16 = sub nuw i64 %14, %15
   %17 = add i64 %16, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %2, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %.fr10.i.i, i64 %17, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %12, i64 %17
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
@@ -107715,13 +107727,13 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorI
   store ptr %.sroa.012.0, ptr %0, align 8, !tbaa !250
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %3, align 8, !tbaa !254
   store ptr %.sroa.12.0, ptr %20, align 8, !tbaa !253
-  %.not.i.i.i10 = icmp eq ptr %2, null
+  %.not.i.i.i10 = icmp eq ptr %.fr10.i.i, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %23, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %24) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull %.fr10.i.i, i64 noundef %24) #36
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit: ; preds = %22, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit.i
@@ -117822,47 +117834,52 @@ _ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaI
   %7 = getelementptr i8, ptr %.16.val, i64 8
   %.val2.i = load ptr, ptr %7, align 8, !tbaa !592, !noalias !3792
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3795)
-  %8 = ptrtoint ptr %.val2.i to i64
-  %9 = ptrtoint ptr %.val.i to i64
+  %.0.val.fr.i.i = freeze ptr %.val.i
+  %.8.val.fr.i.i = freeze ptr %.val2.i
+  %8 = ptrtoint ptr %.8.val.fr.i.i to i64
+  %9 = ptrtoint ptr %.0.val.fr.i.i to i64
   %10 = sub i64 %8, %9
-  %reass.sub.fr.i = freeze i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !3798
-  %.not.i.i.i.i.i.i = icmp eq ptr %.val2.i, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %14
 
 .thread.i.i:                                      ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !591, !alias.scope !3798
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !3798
+  store ptr %12, ptr %13, align 8, !tbaa !591, !alias.scope !3798
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIiLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_T2_EUlS8_E0_JLm0EENS0_9void_typeEEET_OSM_St16integer_sequenceImJXspT1_EEEOSZ_.exit
 
-13:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %14 = sdiv exact i64 %reass.sub.fr.i, 12
-  %15 = icmp ugt i64 %14, 768614336404564650
-  br i1 %15, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
+14:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
+  %15 = sdiv exact i64 %10, 12
+  %16 = icmp ugt i64 %15, 768614336404564650
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
 
-.noexc.i.i.i.i:                                   ; preds = %13
+.noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #35, !noalias !3798
   unreachable
 
-_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37, !noalias !3798
-  store ptr %16, ptr %0, align 8, !tbaa !588, !alias.scope !3798
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %reass.sub.fr.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !591, !alias.scope !3798
-  %19 = add i64 %reass.sub.fr.i, -12
-  %20 = urem i64 %19, 12
-  %21 = sub nuw i64 %19, %20
-  %22 = add i64 %21, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %.val.i, i64 %22, i1 false), !noalias !3798
-  %scevgep.i.i = getelementptr i8, ptr %16, i64 %22
+_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #37, !noalias !3798
+  store ptr %17, ptr %0, align 8, !tbaa !588, !alias.scope !3798
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !592, !alias.scope !3798
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !591, !alias.scope !3798
+  %21 = add i64 %10, -12
+  %22 = urem i64 %21, 12
+  %23 = sub nuw i64 %21, %22
+  %24 = add i64 %23, 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %.0.val.fr.i.i, i64 %24, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %24
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIiLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_T2_EUlS8_E0_JLm0EENS0_9void_typeEEET_OSM_St16integer_sequenceImJXspT1_EEEOSZ_.exit
 
 _ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIiLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESY_T2_EUlS8_E0_JLm0EENS0_9void_typeEEET_OSM_St16integer_sequenceImJXspT1_EEEOSZ_.exit: ; preds = %.thread.i.i, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i
+  %25 = phi ptr [ %11, %.thread.i.i ], [ %18, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.thread.i.i ], [ %scevgep.i.i, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !592, !alias.scope !3798
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !592, !alias.scope !3798
   ret void
 }
 
@@ -118221,47 +118238,52 @@ _ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaI
   %7 = getelementptr i8, ptr %.24.val, i64 8
   %.val2.i = load ptr, ptr %7, align 8, !tbaa !592, !noalias !3806
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3809)
-  %8 = ptrtoint ptr %.val2.i to i64
-  %9 = ptrtoint ptr %.val.i to i64
+  %.0.val.fr.i.i = freeze ptr %.val.i
+  %.8.val.fr.i.i = freeze ptr %.val2.i
+  %8 = ptrtoint ptr %.8.val.fr.i.i to i64
+  %9 = ptrtoint ptr %.0.val.fr.i.i to i64
   %10 = sub i64 %8, %9
-  %reass.sub.fr.i = freeze i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !3812
-  %.not.i.i.i.i.i.i = icmp eq ptr %.val2.i, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %14
 
 .thread.i.i:                                      ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !591, !alias.scope !3812
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !3812
+  store ptr %12, ptr %13, align 8, !tbaa !591, !alias.scope !3812
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIiLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_T2_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OSO_St16integer_sequenceImJXspT1_EEEOS11_.exit
 
-13:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %14 = sdiv exact i64 %reass.sub.fr.i, 12
-  %15 = icmp ugt i64 %14, 768614336404564650
-  br i1 %15, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
+14:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
+  %15 = sdiv exact i64 %10, 12
+  %16 = icmp ugt i64 %15, 768614336404564650
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
 
-.noexc.i.i.i.i:                                   ; preds = %13
+.noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #35, !noalias !3812
   unreachable
 
-_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37, !noalias !3812
-  store ptr %16, ptr %0, align 8, !tbaa !588, !alias.scope !3812
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %reass.sub.fr.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !591, !alias.scope !3812
-  %19 = add i64 %reass.sub.fr.i, -12
-  %20 = urem i64 %19, 12
-  %21 = sub nuw i64 %19, %20
-  %22 = add i64 %21, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr align 4 %.val.i, i64 %22, i1 false), !noalias !3812
-  %scevgep.i.i = getelementptr i8, ptr %16, i64 %22
+_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #37, !noalias !3812
+  store ptr %17, ptr %0, align 8, !tbaa !588, !alias.scope !3812
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !592, !alias.scope !3812
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !591, !alias.scope !3812
+  %21 = add i64 %10, -12
+  %22 = urem i64 %21, 12
+  %23 = sub nuw i64 %21, %22
+  %24 = add i64 %23, 12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 4 %.0.val.fr.i.i, i64 %24, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %24
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIiLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_T2_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OSO_St16integer_sequenceImJXspT1_EEEOS11_.exit
 
 _ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_vectorIS5_S7_St10unique_ptrIS7_St14default_deleteIS7_EEPFS7_NS_7array_tIiLi17EEEEEENS_6class_IT0_JT1_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES10_T2_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OSO_St16integer_sequenceImJXspT1_EEEOS11_.exit: ; preds = %.thread.i.i, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i
+  %25 = phi ptr [ %11, %.thread.i.i ], [ %18, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.thread.i.i ], [ %scevgep.i.i, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !592, !alias.scope !3812
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !592, !alias.scope !3812
   ret void
 }
 
@@ -119900,8 +119922,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESa
   %43 = load ptr, ptr %26, align 8, !tbaa !3721
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !3721
-  %.not6.i.i.i.i.i17 = icmp eq ptr %43, %45
-  br i1 %.not6.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %.lr.ph.i.i.i.i.i18
+  %.not7.i.i.i.i.i17 = icmp eq ptr %43, %45
+  br i1 %.not7.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29, label %.lr.ph.i.i.i.i.i18
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
   %46 = load i32, ptr %3, align 8, !tbaa !595
@@ -119909,43 +119931,44 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESa
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = load i32, ptr %47, align 4
   %50 = load i32, ptr %48, align 8
+  %.fr6.i.i.i.i.i19 = freeze i32 %50
   br label %51
 
-51:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %.lr.ph.i.i.i.i.i18
-  %.08.i.i.i.i.i19 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %.sroa.03.07.i.i.i.i.i20 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %52 = load i32, ptr %.sroa.03.07.i.i.i.i.i20, align 4, !tbaa !595
+51:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %.lr.ph.i.i.i.i.i18
+  %.09.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %.sroa.03.08.i.i.i.i.i21 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %52 = load i32, ptr %.sroa.03.08.i.i.i.i.i21, align 4, !tbaa !595
   %53 = icmp eq i32 %52, %46
-  br i1 %53, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %53, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24: ; preds = %51
-  %54 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 4
+_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25: ; preds = %51
+  %54 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !595
   %56 = icmp eq i32 %55, %49
-  br i1 %56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24
-  %57 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 8
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25
+  %57 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 8
   %58 = load i32, ptr %57, align 4, !tbaa !595
-  %59 = icmp eq i32 %58, %50
-  %cond.fr.i.i.i.i.i26 = freeze i1 %59
-  %60 = zext i1 %cond.fr.i.i.i.i.i26 to i64
-  %spec.select.i.i.i.i.i27 = add nsw i64 %.08.i.i.i.i.i19, %60
-  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  %.fr.i.i.i.i.i27 = freeze i32 %58
+  %59 = icmp eq i32 %.fr.i.i.i.i.i27, %.fr6.i.i.i.i.i19
+  %60 = zext i1 %59 to i64
+  %spec.select.i.i.i.i.i28 = add nsw i64 %.09.i.i.i.i.i20, %60
+  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24, %51
-  %61 = phi i64 [ %.08.i.i.i.i.i19, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i24 ], [ %.08.i.i.i.i.i19, %51 ], [ %spec.select.i.i.i.i.i27, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 12
-  %.not.i.i.i.i.i22 = icmp eq ptr %62, %45
-  br i1 %.not.i.i.i.i.i22, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %51, !llvm.loop !3877
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25, %51
+  %61 = phi i64 [ %.09.i.i.i.i.i20, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25 ], [ %.09.i.i.i.i.i20, %51 ], [ %spec.select.i.i.i.i.i28, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i26 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 12
+  %.not.i.i.i.i.i23 = icmp eq ptr %62, %45
+  br i1 %.not.i.i.i.i.i23, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29, label %51, !llvm.loop !3877
 
-_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
-  %.0.lcssa.i.i.i.i.i23 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %63 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i23)
+_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
+  %.0.lcssa.i.i.i.i.i24 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %61, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %63 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i24)
   br label %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %63, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
+_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %63, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit29 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -126873,13 +126896,14 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE8_M_eraseEN9__gnu_cxx
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS3_EELb1EE8_S_do_itERS5_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3721
+  %.fr10.i.i = freeze ptr %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3721
-  %5 = ptrtoint ptr %4 to i64
-  %6 = ptrtoint ptr %2 to i64
+  %.fr9.i.i = freeze ptr %4
+  %5 = ptrtoint ptr %.fr9.i.i to i64
+  %6 = ptrtoint ptr %.fr10.i.i to i64
   %7 = sub i64 %5, %6
-  %reass.sub.fr.i = freeze i64 %7
-  %8 = sdiv exact i64 %reass.sub.fr.i, 12
+  %8 = sdiv exact i64 %7, 12
   %9 = icmp ugt i64 %8, 768614336404564650
   br i1 %9, label %10, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
@@ -126891,24 +126915,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vec
   unreachable
 
 _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %1
-  %.not.i.i.i = icmp eq ptr %4, %2
+  %.not.i.i.i = icmp eq ptr %.fr9.i.i, %.fr10.i.i
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
+  %11 = getelementptr inbounds nuw i8, ptr null, i64 %7
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #37
           to label %.noexc5.i unwind label %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit.i
 
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %reass.sub.fr.i
-  %14 = add i64 %reass.sub.fr.i, -12
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
+  %14 = add i64 %7, -12
   %15 = urem i64 %14, 12
   %16 = sub nuw i64 %14, %15
   %17 = add i64 %16, 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %2, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %.fr10.i.i, i64 %17, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %12, i64 %17
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
@@ -126929,13 +126953,13 @@ _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorI
   store ptr %.sroa.012.0, ptr %0, align 8, !tbaa !588
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %3, align 8, !tbaa !592
   store ptr %.sroa.12.0, ptr %20, align 8, !tbaa !591
-  %.not.i.i.i10 = icmp eq ptr %2, null
+  %.not.i.i.i10 = icmp eq ptr %.fr10.i.i, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %23, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %24) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull %.fr10.i.i, i64 noundef %24) #36
   br label %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit: ; preds = %22, %_ZNSt6vectorIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit, %_ZNSt12_Vector_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESaIS2_EED2Ev.exit.i
@@ -137617,44 +137641,45 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESa
   %43 = load ptr, ptr %26, align 8, !tbaa !4333
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !4333
-  %.not6.i.i.i.i.i17 = icmp eq ptr %43, %45
-  br i1 %.not6.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, label %.lr.ph.i.i.i.i.i18
+  %.not7.i.i.i.i.i17 = icmp eq ptr %43, %45
+  br i1 %.not7.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %.lr.ph.i.i.i.i.i18
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
   %46 = load i32, ptr %3, align 8, !tbaa !595
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %48 = load i32, ptr %47, align 4
+  %.fr6.i.i.i.i.i19 = freeze i32 %48
   br label %49
 
-49:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %.lr.ph.i.i.i.i.i18
-  %.08.i.i.i.i.i19 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %.sroa.03.07.i.i.i.i.i20 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %50 = load i32, ptr %.sroa.03.07.i.i.i.i.i20, align 4, !tbaa !595
+49:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %.lr.ph.i.i.i.i.i18
+  %.09.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %.sroa.03.08.i.i.i.i.i21 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %50 = load i32, ptr %.sroa.03.08.i.i.i.i.i21, align 4, !tbaa !595
   %51 = icmp eq i32 %50, %46
-  br i1 %51, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %51, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24: ; preds = %49
-  %52 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 4
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25: ; preds = %49
+  %52 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !595
-  %54 = icmp eq i32 %53, %48
-  %cond.fr.i.i.i.i.i25 = freeze i1 %54
-  %55 = zext i1 %cond.fr.i.i.i.i.i25 to i64
-  %spec.select.i.i.i.i.i26 = add nsw i64 %.08.i.i.i.i.i19, %55
-  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  %.fr.i.i.i.i.i26 = freeze i32 %53
+  %54 = icmp eq i32 %.fr.i.i.i.i.i26, %.fr6.i.i.i.i.i19
+  %55 = zext i1 %54 to i64
+  %spec.select.i.i.i.i.i27 = add nsw i64 %.09.i.i.i.i.i20, %55
+  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24, %49
-  %56 = phi i64 [ %.08.i.i.i.i.i19, %49 ], [ %spec.select.i.i.i.i.i26, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 8
-  %.not.i.i.i.i.i22 = icmp eq ptr %57, %45
-  br i1 %.not.i.i.i.i.i22, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, label %49, !llvm.loop !4485
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, %49
+  %56 = phi i64 [ %.09.i.i.i.i.i20, %49 ], [ %spec.select.i.i.i.i.i27, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 8
+  %.not.i.i.i.i.i23 = icmp eq ptr %57, %45
+  br i1 %.not.i.i.i.i.i23, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %49, !llvm.loop !4485
 
-_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
-  %.0.lcssa.i.i.i.i.i23 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %58 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i23)
+_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
+  %.0.lcssa.i.i.i.i.i24 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %58 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i24)
   br label %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %58, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
+_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %58, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -154636,44 +154661,45 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESa
   %43 = load ptr, ptr %26, align 8, !tbaa !4931
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !4931
-  %.not6.i.i.i.i.i17 = icmp eq ptr %43, %45
-  br i1 %.not6.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, label %.lr.ph.i.i.i.i.i18
+  %.not7.i.i.i.i.i17 = icmp eq ptr %43, %45
+  br i1 %.not7.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %.lr.ph.i.i.i.i.i18
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
   %46 = load double, ptr %3, align 16, !tbaa !258
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load double, ptr %47, align 8
+  %.fr6.i.i.i.i.i19 = freeze double %48
   br label %49
 
-49:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %.lr.ph.i.i.i.i.i18
-  %.08.i.i.i.i.i19 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %.sroa.03.07.i.i.i.i.i20 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %50 = load double, ptr %.sroa.03.07.i.i.i.i.i20, align 8, !tbaa !258
+49:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %.lr.ph.i.i.i.i.i18
+  %.09.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %.sroa.03.08.i.i.i.i.i21 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %57, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %50 = load double, ptr %.sroa.03.08.i.i.i.i.i21, align 8, !tbaa !258
   %51 = fcmp oeq double %50, %46
-  br i1 %51, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %51, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24: ; preds = %49
-  %52 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 8
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25: ; preds = %49
+  %52 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 8
   %53 = load double, ptr %52, align 8, !tbaa !258
-  %54 = fcmp oeq double %53, %48
-  %cond.fr.i.i.i.i.i25 = freeze i1 %54
-  %55 = zext i1 %cond.fr.i.i.i.i.i25 to i64
-  %spec.select.i.i.i.i.i26 = add nsw i64 %.08.i.i.i.i.i19, %55
-  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21
+  %.fr.i.i.i.i.i26 = freeze double %53
+  %54 = fcmp oeq double %.fr.i.i.i.i.i26, %.fr6.i.i.i.i.i19
+  %55 = zext i1 %54 to i64
+  %spec.select.i.i.i.i.i27 = add nsw i64 %.09.i.i.i.i.i20, %55
+  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24, %49
-  %56 = phi i64 [ %.08.i.i.i.i.i19, %49 ], [ %spec.select.i.i.i.i.i26, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i24 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 16
-  %.not.i.i.i.i.i22 = icmp eq ptr %57, %45
-  br i1 %.not.i.i.i.i.i22, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, label %49, !llvm.loop !5083
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25, %49
+  %56 = phi i64 [ %.09.i.i.i.i.i20, %49 ], [ %spec.select.i.i.i.i.i27, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i.i.i25 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 16
+  %.not.i.i.i.i.i23 = icmp eq ptr %57, %45
+  br i1 %.not.i.i.i.i.i23, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, label %49, !llvm.loop !5083
 
-_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
-  %.0.lcssa.i.i.i.i.i23 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %58 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i23)
+_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16
+  %.0.lcssa.i.i.i.i.i24 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit.i.i16 ], [ %56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %58 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i24)
   br label %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %58, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit27 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
+_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %58, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit28 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEESaIS5_EERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS7_NS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlS9_SB_E_EENSM_IXntsr3std7is_voidISN_EE5valueESN_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }
@@ -168980,47 +169006,52 @@ _ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaI
   %7 = getelementptr i8, ptr %.16.val, i64 8
   %.val2.i = load ptr, ptr %7, align 8, !tbaa !5508, !noalias !5563
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5566)
-  %8 = ptrtoint ptr %.val2.i to i64
-  %9 = ptrtoint ptr %.val.i to i64
+  %.0.val.fr.i.i = freeze ptr %.val.i
+  %.8.val.fr.i.i = freeze ptr %.val2.i
+  %8 = ptrtoint ptr %.8.val.fr.i.i to i64
+  %9 = ptrtoint ptr %.0.val.fr.i.i to i64
   %10 = sub i64 %8, %9
-  %reass.sub.fr.i = freeze i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !5569
-  %.not.i.i.i.i.i.i = icmp eq ptr %.val2.i, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %14
 
 .thread.i.i:                                      ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !5514, !alias.scope !5569
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !5569
+  store ptr %12, ptr %13, align 8, !tbaa !5514, !alias.scope !5569
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_matrixIS5_S6_S7_St10unique_ptrIS7_St14default_deleteIS7_EEEENS_6class_IT1_JT2_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_EUlS8_E0_JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOSJ_.exit
 
-13:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %14 = sdiv exact i64 %reass.sub.fr.i, 72
-  %15 = icmp ugt i64 %14, 128102389400760775
-  br i1 %15, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
+14:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
+  %15 = sdiv exact i64 %10, 72
+  %16 = icmp ugt i64 %15, 128102389400760775
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
 
-.noexc.i.i.i.i:                                   ; preds = %13
+.noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #35, !noalias !5569
   unreachable
 
-_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37, !noalias !5569
-  store ptr %16, ptr %0, align 8, !tbaa !5511, !alias.scope !5569
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %reass.sub.fr.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !5514, !alias.scope !5569
-  %19 = add i64 %reass.sub.fr.i, -72
-  %20 = urem i64 %19, 72
-  %21 = sub nuw i64 %19, %20
-  %22 = add i64 %21, 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %.val.i, i64 %22, i1 false), !noalias !5569
-  %scevgep.i.i = getelementptr i8, ptr %16, i64 %22
+_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #37, !noalias !5569
+  store ptr %17, ptr %0, align 8, !tbaa !5511, !alias.scope !5569
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !5508, !alias.scope !5569
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !5514, !alias.scope !5569
+  %21 = add i64 %10, -72
+  %22 = urem i64 %21, 72
+  %23 = sub nuw i64 %21, %22
+  %24 = add i64 %23, 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %.0.val.fr.i.i, i64 %24, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %24
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_matrixIS5_S6_S7_St10unique_ptrIS7_St14default_deleteIS7_EEEENS_6class_IT1_JT2_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_EUlS8_E0_JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOSJ_.exit
 
 _ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_matrixIS5_S6_S7_St10unique_ptrIS7_St14default_deleteIS7_EEEENS_6class_IT1_JT2_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESU_EUlS8_E0_JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOSJ_.exit: ; preds = %.thread.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i
+  %25 = phi ptr [ %11, %.thread.i.i ], [ %18, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.thread.i.i ], [ %scevgep.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !5508, !alias.scope !5569
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !5508, !alias.scope !5569
   ret void
 }
 
@@ -169379,47 +169410,52 @@ _ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaI
   %7 = getelementptr i8, ptr %.24.val, i64 8
   %.val2.i = load ptr, ptr %7, align 8, !tbaa !5508, !noalias !5577
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5580)
-  %8 = ptrtoint ptr %.val2.i to i64
-  %9 = ptrtoint ptr %.val.i to i64
+  %.0.val.fr.i.i = freeze ptr %.val.i
+  %.8.val.fr.i.i = freeze ptr %.val2.i
+  %8 = ptrtoint ptr %.8.val.fr.i.i to i64
+  %9 = ptrtoint ptr %.0.val.fr.i.i to i64
   %10 = sub i64 %8, %9
-  %reass.sub.fr.i = freeze i64 %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !5583
-  %.not.i.i.i.i.i.i = icmp eq ptr %.val2.i, %.val.i
-  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %13
+  %.not.i.i.i.i.i.i = icmp eq ptr %.8.val.fr.i.i, %.0.val.fr.i.i
+  br i1 %.not.i.i.i.i.i.i, label %.thread.i.i, label %14
 
 .thread.i.i:                                      ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !5514, !alias.scope !5583
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr null, i64 %10
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !5583
+  store ptr %12, ptr %13, align 8, !tbaa !5514, !alias.scope !5583
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_matrixIS5_S6_S7_St10unique_ptrIS7_St14default_deleteIS7_EEEENS_6class_IT1_JT2_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESW_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOSL_.exit
 
-13:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
-  %14 = sdiv exact i64 %reass.sub.fr.i, 72
-  %15 = icmp ugt i64 %14, 128102389400760775
-  br i1 %15, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
+14:                                               ; preds = %_ZN8pybind116detail7cast_opIRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISB_E4typeEEEOSE_.exit.i
+  %15 = sdiv exact i64 %10, 72
+  %16 = icmp ugt i64 %15, 128102389400760775
+  br i1 %16, label %.noexc.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i, !prof !621
 
-.noexc.i.i.i.i:                                   ; preds = %13
+.noexc.i.i.i.i:                                   ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #35, !noalias !5583
   unreachable
 
-_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %13
-  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37, !noalias !5583
-  store ptr %16, ptr %0, align 8, !tbaa !5511, !alias.scope !5583
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 %reass.sub.fr.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !5514, !alias.scope !5583
-  %19 = add i64 %reass.sub.fr.i, -72
-  %20 = urem i64 %19, 72
-  %21 = sub nuw i64 %19, %20
-  %22 = add i64 %21, 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %.val.i, i64 %22, i1 false), !noalias !5583
-  %scevgep.i.i = getelementptr i8, ptr %16, i64 %22
+_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i: ; preds = %14
+  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #37, !noalias !5583
+  store ptr %17, ptr %0, align 8, !tbaa !5511, !alias.scope !5583
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !5508, !alias.scope !5583
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %19, ptr %20, align 8, !tbaa !5514, !alias.scope !5583
+  %21 = add i64 %10, -72
+  %22 = urem i64 %21, 72
+  %23 = sub nuw i64 %21, %22
+  %24 = add i64 %23, 72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr align 8 %.0.val.fr.i.i, i64 %24, i1 false)
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %24
   br label %_ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_matrixIS5_S6_S7_St10unique_ptrIS7_St14default_deleteIS7_EEEENS_6class_IT1_JT2_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESW_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOSL_.exit
 
 _ZNO8pybind116detail15argument_loaderIJRSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EERNS_4dictEEE9call_implIS7_RZN12_GLOBAL__N_129pybind_eigen_vector_of_matrixIS5_S6_S7_St10unique_ptrIS7_St14default_deleteIS7_EEEENS_6class_IT1_JT2_EEERNS_7module_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESW_EUlS8_SA_E_JLm0ELm1EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOSL_.exit: ; preds = %.thread.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i
+  %25 = phi ptr [ %11, %.thread.i.i ], [ %18, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ null, %.thread.i.i ], [ %scevgep.i.i, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ERKS4_.exit.loopexit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %23, align 8, !tbaa !5508, !alias.scope !5583
+  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %25, align 8, !tbaa !5508, !alias.scope !5583
   ret void
 }
 
@@ -171812,8 +171848,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESa
   %11 = load ptr, ptr %5, align 8, !tbaa !5527
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !5527
-  %.not6.i.i.i = icmp eq ptr %11, %13
-  br i1 %.not6.i.i.i, label %_ZZN8pybind116detail24vector_if_equal_operatorISt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EENS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS7_RKS5_E_clESL_SN_.exit, label %.lr.ph.i.i.i
+  %.not7.i.i.i = icmp eq ptr %11, %13
+  br i1 %.not7.i.i.i, label %_ZZN8pybind116detail24vector_if_equal_operatorISt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EENS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS7_RKS5_E_clESL_SN_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISC_E4typeEEEOSF_.exit
   %14 = load double, ptr %0, align 8, !tbaa !258
@@ -171833,69 +171869,70 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESa
   %28 = load double, ptr %20, align 8
   %29 = load double, ptr %21, align 8
   %30 = load double, ptr %22, align 8
+  %.fr6.i.i.i = freeze double %30
   br label %31
 
 31:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i, %.lr.ph.i.i.i
-  %.08.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i ]
-  %.sroa.03.07.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i ]
-  %32 = load double, ptr %.sroa.03.07.i.i.i, align 8, !tbaa !258
+  %.09.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %59, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i ]
+  %.sroa.03.08.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %60, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i ]
+  %32 = load double, ptr %.sroa.03.08.i.i.i, align 8, !tbaa !258
   %33 = fcmp oeq double %32, %14
   br i1 %33, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %31
-  %34 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 8
+  %34 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 8
   %35 = load double, ptr %34, align 8, !tbaa !258
   %36 = fcmp oeq double %35, %23
   br i1 %36, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi3ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi3ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %37 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 16
+  %37 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 16
   %38 = load double, ptr %37, align 8, !tbaa !258
   %39 = fcmp oeq double %38, %24
   br i1 %39, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi4ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi4ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi3ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  %40 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 24
+  %40 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 24
   %41 = load double, ptr %40, align 8, !tbaa !258
   %42 = fcmp oeq double %41, %25
   br i1 %42, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi5ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi5ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi4ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i
-  %43 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 32
+  %43 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 32
   %44 = load double, ptr %43, align 8, !tbaa !258
   %45 = fcmp oeq double %44, %26
   br i1 %45, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi6ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi6ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi5ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i
-  %46 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 40
+  %46 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 40
   %47 = load double, ptr %46, align 8, !tbaa !258
   %48 = fcmp oeq double %47, %27
   br i1 %48, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi7ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi7ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi6ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i
-  %49 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 48
+  %49 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 48
   %50 = load double, ptr %49, align 8, !tbaa !258
   %51 = fcmp oeq double %50, %28
   br i1 %51, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi8ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi8ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi7ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i
-  %52 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 56
+  %52 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 56
   %53 = load double, ptr %52, align 8, !tbaa !258
   %54 = fcmp oeq double %53, %29
   br i1 %54, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi8ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i
-  %55 = getelementptr i8, ptr %.sroa.03.07.i.i.i, i64 64
+  %55 = getelementptr i8, ptr %.sroa.03.08.i.i.i, i64 64
   %56 = load double, ptr %55, align 8, !tbaa !258
-  %57 = fcmp oeq double %56, %30
-  %cond.fr.i.i.i = freeze i1 %57
-  %58 = zext i1 %cond.fr.i.i.i to i64
-  %spec.select.i.i.i = add nsw i64 %.08.i.i.i, %58
+  %.fr.i.i.i = freeze double %56
+  %57 = fcmp oeq double %.fr.i.i.i, %.fr6.i.i.i
+  %58 = zext i1 %57 to i64
+  %spec.select.i.i.i = add nsw i64 %.09.i.i.i, %58
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi8ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi7ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi6ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi5ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi4ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi3ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %31
-  %59 = phi i64 [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi8ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i ], [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi7ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i ], [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi6ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i ], [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi5ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi4ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi3ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.08.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.08.i.i.i, %31 ], [ %spec.select.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i ]
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i, i64 72
+  %59 = phi i64 [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi8ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i ], [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi7ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i ], [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi6ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i ], [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi5ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i ], [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi4ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i ], [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi3ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.09.i.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIdEEKNS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.09.i.i.i, %31 ], [ %spec.select.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_SaIS4_EEEEEEbT_.exit.i.i.i ]
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %60, %13
   br i1 %.not.i.i.i, label %_ZZN8pybind116detail24vector_if_equal_operatorISt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS5_EENS_6class_IS7_JSt10unique_ptrIS7_St14default_deleteIS7_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEENKUlRKS7_RKS5_E_clESL_SN_.exit, label %31, !llvm.loop !5667
 
@@ -178513,13 +178550,14 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE8_M_eraseEN9__gnu_cxx
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS3_EELb1EE8_S_do_itERS5_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !5527
+  %.fr10.i.i = freeze ptr %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !5527
-  %5 = ptrtoint ptr %4 to i64
-  %6 = ptrtoint ptr %2 to i64
+  %.fr9.i.i = freeze ptr %4
+  %5 = ptrtoint ptr %.fr9.i.i to i64
+  %6 = ptrtoint ptr %.fr10.i.i to i64
   %7 = sub i64 %5, %6
-  %reass.sub.fr.i = freeze i64 %7
-  %8 = sdiv exact i64 %reass.sub.fr.i, 72
+  %8 = sdiv exact i64 %7, 72
   %9 = icmp ugt i64 %8, 128102389400760775
   br i1 %9, label %10, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
 
@@ -178531,24 +178569,24 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt19__shrink_to_fit_auxISt6vec
   unreachable
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; preds = %1
-  %.not.i.i.i = icmp eq ptr %4, %2
+  %.not.i.i.i = icmp eq ptr %.fr9.i.i, %.fr10.i.i
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %11 = getelementptr inbounds nuw i8, ptr null, i64 %reass.sub.fr.i
+  %11 = getelementptr inbounds nuw i8, ptr null, i64 %7
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i
-  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %reass.sub.fr.i) #37
+  %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #37
           to label %.noexc5.i unwind label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EED2Ev.exit.i
 
 .noexc5.i:                                        ; preds = %.lr.ph.i.i.i.i.preheader.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %reass.sub.fr.i
-  %14 = add i64 %reass.sub.fr.i, -72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
+  %14 = add i64 %7, -72
   %15 = urem i64 %14, 72
   %16 = sub nuw i64 %14, %15
   %17 = add i64 %16, 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %2, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 8 %.fr10.i.i, i64 %17, i1 false)
   %scevgep.i.i = getelementptr i8, ptr %12, i64 %17
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
@@ -178569,13 +178607,13 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ISt13move_iteratorI
   store ptr %.sroa.012.0, ptr %0, align 8, !tbaa !5511
   store ptr %.0.lcssa.i.i.i.i.i.i, ptr %3, align 8, !tbaa !5508
   store ptr %.sroa.12.0, ptr %20, align 8, !tbaa !5514
-  %.not.i.i.i10 = icmp eq ptr %2, null
+  %.not.i.i.i10 = icmp eq ptr %.fr10.i.i, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EED2Ev.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %23, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %24) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull %.fr10.i.i, i64 noundef %24) #36
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EED2Ev.exit: ; preds = %22, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEESaIS2_EED2Ev.exit.i
@@ -205354,8 +205392,8 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS
   %43 = load ptr, ptr %26, align 8, !tbaa !6647
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !6647
-  %.not6.i.i.i.i.i17 = icmp eq ptr %43, %45
-  br i1 %.not6.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit29, label %.lr.ph.i.i.i.i.i18
+  %.not7.i.i.i.i.i17 = icmp eq ptr %43, %45
+  br i1 %.not7.i.i.i.i.i17, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit30, label %.lr.ph.i.i.i.i.i18
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i.i16
   %46 = load i32, ptr %3, align 16, !tbaa !595
@@ -205365,49 +205403,50 @@ _ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS
   %50 = load i32, ptr %47, align 4
   %51 = load i32, ptr %48, align 8
   %52 = load i32, ptr %49, align 4
+  %.fr6.i.i.i.i.i19 = freeze i32 %52
   br label %53
 
-53:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21, %.lr.ph.i.i.i.i.i18
-  %.08.i.i.i.i.i19 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %.sroa.03.07.i.i.i.i.i20 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %67, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %54 = load i32, ptr %.sroa.03.07.i.i.i.i.i20, align 4, !tbaa !595
+53:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22, %.lr.ph.i.i.i.i.i18
+  %.09.i.i.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i.i.i18 ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %.sroa.03.08.i.i.i.i.i21 = phi ptr [ %43, %.lr.ph.i.i.i.i.i18 ], [ %67, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %54 = load i32, ptr %.sroa.03.08.i.i.i.i.i21, align 4, !tbaa !595
   %55 = icmp eq i32 %54, %46
-  br i1 %55, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %55, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i24: ; preds = %53
-  %56 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 4
+_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i25: ; preds = %53
+  %56 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 4
   %57 = load i32, ptr %56, align 4, !tbaa !595
   %58 = icmp eq i32 %57, %50
-  br i1 %58, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %58, label %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i24
-  %59 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 8
+_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i26: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i25
+  %59 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 8
   %60 = load i32, ptr %59, align 4, !tbaa !595
   %61 = icmp eq i32 %60, %51
-  br i1 %61, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i26, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21
+  br i1 %61, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i27, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i26: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25
-  %62 = getelementptr i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 12
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i27: ; preds = %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i26
+  %62 = getelementptr i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 12
   %63 = load i32, ptr %62, align 4, !tbaa !595
-  %64 = icmp eq i32 %63, %52
-  %cond.fr.i.i.i.i.i27 = freeze i1 %64
-  %65 = zext i1 %cond.fr.i.i.i.i.i27 to i64
-  %spec.select.i.i.i.i.i28 = add nsw i64 %.08.i.i.i.i.i19, %65
-  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21
+  %.fr.i.i.i.i.i28 = freeze i32 %63
+  %64 = icmp eq i32 %.fr.i.i.i.i.i28, %.fr6.i.i.i.i.i19
+  %65 = zext i1 %64 to i64
+  %spec.select.i.i.i.i.i29 = add nsw i64 %.09.i.i.i.i.i20, %65
+  br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i26, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i24, %53
-  %66 = phi i64 [ %.08.i.i.i.i.i19, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i25 ], [ %.08.i.i.i.i.i19, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i24 ], [ %.08.i.i.i.i.i19, %53 ], [ %spec.select.i.i.i.i.i28, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i26 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i.i.i.i20, i64 16
-  %.not.i.i.i.i.i22 = icmp eq ptr %67, %45
-  br i1 %.not.i.i.i.i.i22, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit29, label %53, !llvm.loop !6783
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i27, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i26, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i25, %53
+  %66 = phi i64 [ %.09.i.i.i.i.i20, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi3ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i26 ], [ %.09.i.i.i.i.i20, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi4ELi1ELi0ELi4ELi1EEES9_EEEELi2ELi4EE3runERKSB_.exit.i.i.i.i.i.i.i.i.i.i25 ], [ %.09.i.i.i.i.i20, %53 ], [ %spec.select.i.i.i.i.i29, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.i.i.i.i.i27 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i.i.i.i.i21, i64 16
+  %.not.i.i.i.i.i23 = icmp eq ptr %67, %45
+  br i1 %.not.i.i.i.i.i23, label %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit30, label %53, !llvm.loop !6783
 
-_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit29: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i.i16
-  %.0.lcssa.i.i.i.i.i23 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i.i16 ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i21 ]
-  %68 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i23)
+_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit30: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i.i16
+  %.0.lcssa.i.i.i.i.i24 = phi i64 [ 0, %_ZN8pybind116detail7cast_opIRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEEEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceISD_E4typeEEEOSG_.exit.i.i16 ], [ %66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEEEclINS_17__normal_iteratorIPS5_St6vectorIS4_NS2_17aligned_allocatorIS4_EEEEEEEbT_.exit.thread.i.i.i.i.i22 ]
+  %68 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.lcssa.i.i.i.i.i24)
   br label %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit.thread
 
-_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit29, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit
-  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %68, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit29 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
+_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit.thread: ; preds = %36, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit, %2, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit30, %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE9load_argsERNS0_13function_callE.exit ], [ %68, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit30 ], [ inttoptr (i64 1 to ptr), %2 ], [ @_Py_NoneStruct, %_ZNO8pybind116detail15argument_loaderIJRKSt6vectorIN5Eigen6MatrixIiLi4ELi1ELi0ELi4ELi1EEENS3_17aligned_allocatorIS5_EEERKS5_EE4callIlNS0_9void_typeERZNS0_24vector_if_equal_operatorIS8_NS_6class_IS8_JSt10unique_ptrIS8_St14default_deleteIS8_EEEEEEEvRNSt9enable_ifIXsr13is_comparableIT_EE5valueET0_E4typeEEUlSA_SC_E_EENSN_IXntsr3std7is_voidISO_EE5valueESO_E4typeEOT1_.exit ], [ @_Py_NoneStruct, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.sroa.0.0
 }

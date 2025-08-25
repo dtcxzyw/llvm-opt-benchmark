@@ -2225,9 +2225,9 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i:   ; preds = %456
           to label %472 unwind label %519
 
 472:                                              ; preds = %470
-  %473 = load i32, ptr %471, align 4
-  %474 = getelementptr inbounds nuw i8, ptr %471, i64 4
-  %475 = load i32, ptr %474, align 4
+  %473 = load i64, ptr %471, align 4
+  %474 = lshr i64 %473, 32
+  %475 = trunc nuw i64 %474 to i32
   %476 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %477 = load i32, ptr %476, align 4
   %478 = getelementptr inbounds nuw i8, ptr %471, i64 12
@@ -2247,16 +2247,12 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i:   ; preds = %456
   %488 = load i32, ptr %487, align 4
   %489 = add nsw i32 %477, 1
   %490 = add nsw i32 %479, 1
-  %.sroa.4292.0.insert.ext = zext i32 %475 to i64
-  %.sroa.4292.0.insert.shift = shl nuw i64 %.sroa.4292.0.insert.ext, 32
-  %.sroa.0291.0.insert.ext = zext i32 %473 to i64
-  %.sroa.0291.0.insert.insert = or disjoint i64 %.sroa.4292.0.insert.shift, %.sroa.0291.0.insert.ext
   %.sroa.4290.0.insert.ext = zext i32 %490 to i64
   %.sroa.4290.0.insert.shift = shl nuw i64 %.sroa.4290.0.insert.ext, 32
   %.sroa.0289.0.insert.ext = zext i32 %489 to i64
   %.sroa.0289.0.insert.insert = or disjoint i64 %.sroa.4290.0.insert.shift, %.sroa.0289.0.insert.ext
   %491 = getelementptr inbounds i8, ptr %.0.i200, i64 -60
-  store i64 %.sroa.0291.0.insert.insert, ptr %491, align 4
+  store i64 %473, ptr %491, align 4
   %.sroa.4294.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i200, i64 -52
   store i64 %.sroa.0289.0.insert.insert, ptr %.sroa.4294.0..sroa_idx, align 4
   %492 = add nsw i32 %486, 1
@@ -21412,8 +21408,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.323, align 8
-  %.fr102 = freeze i64 %3
-  store i64 %.fr102, ptr %7, align 8
+  %.fr101 = freeze i64 %3
+  store i64 %.fr101, ptr %7, align 8
   %24 = load i32, ptr %1, align 4
   store i32 %24, ptr %8, align 4
   %25 = or i32 %24, 1
@@ -21428,9 +21424,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %34 = trunc nuw i64 %33 to i32
   store i32 %34, ptr %9, align 4
   store i8 48, ptr %10, align 1
-  %35 = lshr i64 %.fr102, 32
+  %35 = lshr i64 %.fr101, 32
   %36 = trunc nuw i64 %35 to i32
-  %37 = lshr i64 %.fr102, 40
+  %37 = lshr i64 %.fr101, 40
   %38 = trunc i64 %37 to i8
   store i8 %38, ptr %11, align 1
   %.not = icmp ne i8 %38, 0
@@ -21439,7 +21435,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %41 = and i64 %40, 4294967295
   %42 = and i32 %36, 131072
   %.not63 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr102 to i32
+  %43 = trunc i64 %.fr101 to i32
   br i1 %.not63, label %54, label %44
 
 44:                                               ; preds = %5
@@ -21825,11 +21821,11 @@ _ZN3fmt2v96detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 216:                                              ; preds = %209
   %217 = and i32 %36, 524288
-  %.not95 = icmp eq i32 %217, 0
+  %.not94 = icmp eq i32 %217, 0
   %.lobit = lshr exact i32 %217, 19
   %218 = trunc nuw nsw i32 %.lobit to i8
   store i8 %218, ptr %22, align 1
-  br i1 %.not95, label %220, label %219
+  br i1 %.not94, label %220, label %219
 
 219:                                              ; preds = %.thread92, %216
   br label %220
@@ -24876,8 +24872,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.330, align 8
-  %.fr102 = freeze i64 %3
-  store i64 %.fr102, ptr %7, align 8
+  %.fr101 = freeze i64 %3
+  store i64 %.fr101, ptr %7, align 8
   %24 = load i64, ptr %1, align 8
   store i64 %24, ptr %8, align 8
   %25 = or i64 %24, 1
@@ -24894,9 +24890,9 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %35 = add nsw i32 %.neg.i.i.i, %30
   store i32 %35, ptr %9, align 4
   store i8 48, ptr %10, align 1
-  %36 = lshr i64 %.fr102, 32
+  %36 = lshr i64 %.fr101, 32
   %37 = trunc nuw i64 %36 to i32
-  %38 = lshr i64 %.fr102, 40
+  %38 = lshr i64 %.fr101, 40
   %39 = trunc i64 %38 to i8
   store i8 %39, ptr %11, align 1
   %.not = icmp ne i8 %39, 0
@@ -24905,7 +24901,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %42 = zext i32 %41 to i64
   %43 = and i32 %37, 131072
   %.not63 = icmp eq i32 %43, 0
-  %44 = trunc i64 %.fr102 to i32
+  %44 = trunc i64 %.fr101 to i32
   br i1 %.not63, label %55, label %45
 
 45:                                               ; preds = %5
@@ -25291,11 +25287,11 @@ _ZN3fmt2v96detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 217:                                              ; preds = %210
   %218 = and i32 %37, 524288
-  %.not95 = icmp eq i32 %218, 0
+  %.not94 = icmp eq i32 %218, 0
   %.lobit = lshr exact i32 %218, 19
   %219 = trunc nuw nsw i32 %.lobit to i8
   store i8 %219, ptr %22, align 1
-  br i1 %.not95, label %221, label %220
+  br i1 %.not94, label %221, label %220
 
 220:                                              ; preds = %.thread92, %217
   br label %221
@@ -31787,17 +31783,17 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.354, align 8
-  %.fr102 = freeze i64 %3
-  store i64 %.fr102, ptr %7, align 8
+  %.fr101 = freeze i64 %3
+  store i64 %.fr101, ptr %7, align 8
   %24 = load ptr, ptr %1, align 8
   store ptr %24, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   store i32 %26, ptr %9, align 4
   store i8 48, ptr %10, align 1
-  %27 = lshr i64 %.fr102, 32
+  %27 = lshr i64 %.fr101, 32
   %28 = trunc nuw i64 %27 to i32
-  %29 = lshr i64 %.fr102, 40
+  %29 = lshr i64 %.fr101, 40
   %30 = trunc i64 %29 to i8
   store i8 %30, ptr %11, align 1
   %.not = icmp ne i8 %30, 0
@@ -31806,7 +31802,7 @@ define linkonce_odr dso_local ptr @_ZN3fmt2v96detail14do_write_floatINS0_8append
   %33 = zext i32 %32 to i64
   %34 = and i32 %28, 131072
   %.not63 = icmp eq i32 %34, 0
-  %35 = trunc i64 %.fr102 to i32
+  %35 = trunc i64 %.fr101 to i32
   br i1 %.not63, label %46, label %36
 
 36:                                               ; preds = %5
@@ -32192,11 +32188,11 @@ _ZN3fmt2v96detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcZNS1_14do_writ
 
 208:                                              ; preds = %201
   %209 = and i32 %28, 524288
-  %.not95 = icmp eq i32 %209, 0
+  %.not94 = icmp eq i32 %209, 0
   %.lobit = lshr exact i32 %209, 19
   %210 = trunc nuw nsw i32 %.lobit to i8
   store i8 %210, ptr %22, align 1
-  br i1 %.not95, label %212, label %211
+  br i1 %.not94, label %212, label %211
 
 211:                                              ; preds = %.thread92, %208
   br label %212
@@ -55538,9 +55534,9 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i:   ; preds = %439
           to label %455 unwind label %502
 
 455:                                              ; preds = %453
-  %456 = load i32, ptr %454, align 4
-  %457 = getelementptr inbounds nuw i8, ptr %454, i64 4
-  %458 = load i32, ptr %457, align 4
+  %456 = load i64, ptr %454, align 4
+  %457 = lshr i64 %456, 32
+  %458 = trunc nuw i64 %457 to i32
   %459 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %460 = load i32, ptr %459, align 4
   %461 = getelementptr inbounds nuw i8, ptr %454, i64 12
@@ -55560,16 +55556,12 @@ _ZN7nanogui6MatrixIfLm4EEC2Ef.exit.i.i.i.i.i.i:   ; preds = %439
   %471 = load i32, ptr %470, align 4
   %472 = add nsw i32 %460, 1
   %473 = add nsw i32 %462, 1
-  %.sroa.4295.0.insert.ext = zext i32 %458 to i64
-  %.sroa.4295.0.insert.shift = shl nuw i64 %.sroa.4295.0.insert.ext, 32
-  %.sroa.0294.0.insert.ext = zext i32 %456 to i64
-  %.sroa.0294.0.insert.insert = or disjoint i64 %.sroa.4295.0.insert.shift, %.sroa.0294.0.insert.ext
   %.sroa.4297.0.insert.ext = zext i32 %473 to i64
   %.sroa.4297.0.insert.shift = shl nuw i64 %.sroa.4297.0.insert.ext, 32
   %.sroa.0296.0.insert.ext = zext i32 %472 to i64
   %.sroa.0296.0.insert.insert = or disjoint i64 %.sroa.4297.0.insert.shift, %.sroa.0296.0.insert.ext
   %474 = getelementptr inbounds i8, ptr %.0.i191, i64 -60
-  store i64 %.sroa.0294.0.insert.insert, ptr %474, align 4
+  store i64 %456, ptr %474, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i191, i64 -52
   store i64 %.sroa.0296.0.insert.insert, ptr %.sroa.4.0..sroa_idx, align 4
   %475 = add nsw i32 %469, 1

@@ -17161,7 +17161,7 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget21adjustSchedDependencyEPNS_5S
   %8 = alloca %"class.llvm::iterator_range", align 8
   %9 = alloca %"class.llvm::iterator_range", align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %217, label %10
+  br i1 %.not, label %215, label %10
 
 10:                                               ; preds = %7
   %.0.copyload.i.i.i.i = load i64, ptr %5, align 8
@@ -17171,7 +17171,7 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget21adjustSchedDependencyEPNS_5S
   %13 = load i32, ptr %12, align 8
   %.not52 = icmp eq i32 %13, 0
   %or.cond = select i1 %.not51, i1 true, i1 %.not52
-  br i1 %or.cond, label %217, label %14
+  br i1 %or.cond, label %215, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 254
@@ -17181,7 +17181,7 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget21adjustSchedDependencyEPNS_5S
   %18 = load ptr, ptr %1, align 8
   %19 = icmp ne ptr %18, null
   %20 = select i1 %.not.i, i1 %19, i1 false
-  br i1 %20, label %21, label %217
+  br i1 %20, label %21, label %215
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 254
@@ -17191,7 +17191,7 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget21adjustSchedDependencyEPNS_5S
   %25 = load ptr, ptr %3, align 8
   %26 = icmp ne ptr %25, null
   %27 = select i1 %.not.i55, i1 %26, i1 false
-  br i1 %27, label %28, label %217
+  br i1 %27, label %28, label %215
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 68
@@ -17203,7 +17203,7 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget21adjustSchedDependencyEPNS_5S
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %33 = load i16, ptr %32, align 4, !tbaa !407
   %.not54 = icmp eq i16 %33, 21
-  br i1 %.not54, label %.thread, label %217
+  br i1 %.not54, label %.thread, label %215
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -17224,242 +17224,243 @@ define dso_local void @_ZNK4llvm16AArch64Subtarget21adjustSchedDependencyEPNS_5S
   %.sroa.071.0.copyload = load ptr, ptr %40, align 8
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.sroa.473.0.copyload = load ptr, ptr %.sroa.473.0..sroa_idx, align 8
+  %.sroa.473.0.copyload.fr = freeze ptr %.sroa.473.0.copyload
   %.sroa.574.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.sroa.574.0.copyload = load ptr, ptr %.sroa.574.0..sroa_idx, align 8
-  %41 = icmp ne ptr %.sroa.473.0.copyload, %.sroa.574.0.copyload
-  %.fr = freeze i1 %41
-  br i1 %.fr, label %.split.us.preheader, label %.split.outer.outer
+  %.sroa.574.0.copyload.fr = freeze ptr %.sroa.574.0.copyload
+  %.not136 = icmp eq ptr %.sroa.473.0.copyload.fr, %.sroa.574.0.copyload.fr
+  br i1 %.not136, label %.split.outer.outer, label %.split.us.preheader
 
 .split.us.preheader:                              ; preds = %34
-  %42 = icmp eq ptr %.sroa.075.0.copyload, %.sroa.071.0.copyload
-  %43 = icmp eq ptr %.sroa.877.0.copyload, %.sroa.473.0.copyload
-  %or.cond134261 = select i1 %42, i1 %43, i1 false
-  br i1 %or.cond134261, label %.loopexit, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
+  %41 = icmp eq ptr %.sroa.075.0.copyload, %.sroa.071.0.copyload
+  %42 = icmp eq ptr %.sroa.877.0.copyload, %.sroa.473.0.copyload.fr
+  %or.cond134260 = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond134260, label %.loopexit, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
 
 _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us: ; preds = %.split.us.preheader, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us
-  %.1.us266 = phi i32 [ %.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %2, %.split.us.preheader ]
-  %.148.us265 = phi ptr [ %.249.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %18, %.split.us.preheader ]
-  %.sroa.1380.0.us264 = phi ptr [ %.sroa.1380.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.sroa.1380.0.copyload, %.split.us.preheader ]
-  %.sroa.877.0.us263 = phi ptr [ %.sroa.877.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.sroa.877.0.copyload, %.split.us.preheader ]
-  %.sroa.075.0.us262 = phi ptr [ %.sroa.075.1.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.sroa.075.0.copyload, %.split.us.preheader ]
-  %44 = load i32, ptr %.sroa.877.0.us263, align 8
-  %45 = and i32 %44, 16777471
-  %or.cond92.us = icmp eq i32 %45, 16777216
-  br i1 %or.cond92.us, label %46, label %.critedge.us
+  %.1.us265 = phi i32 [ %.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %2, %.split.us.preheader ]
+  %.148.us264 = phi ptr [ %.249.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %18, %.split.us.preheader ]
+  %.sroa.1380.0.us263 = phi ptr [ %.sroa.1380.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.sroa.1380.0.copyload, %.split.us.preheader ]
+  %.sroa.877.0.us262 = phi ptr [ %.sroa.877.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.sroa.877.0.copyload, %.split.us.preheader ]
+  %.sroa.075.0.us261 = phi ptr [ %.sroa.075.1.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.sroa.075.0.copyload, %.split.us.preheader ]
+  %43 = load i32, ptr %.sroa.877.0.us262, align 8
+  %44 = and i32 %43, 16777471
+  %or.cond92.us = icmp eq i32 %44, 16777216
+  br i1 %or.cond92.us, label %45, label %.critedge.us
 
-46:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.877.0.us263, i64 4
-  %48 = load i32, ptr %47, align 4, !tbaa !406
-  %49 = icmp eq i32 %48, %39
-  br i1 %49, label %50, label %.critedge.us
+45:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.877.0.us262, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !406
+  %48 = icmp eq i32 %47, %39
+  br i1 %48, label %49, label %.critedge.us
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.877.0.us263, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !666
-  %53 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.877.0.us263) #24
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.877.0.us262, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !666
+  %52 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.877.0.us262) #24
   br label %.critedge.us
 
-.critedge.us:                                     ; preds = %50, %46, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
-  %.249.us = phi ptr [ %52, %50 ], [ %.148.us265, %46 ], [ %.148.us265, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us ]
-  %.2.us = phi i32 [ %53, %50 ], [ %.1.us266, %46 ], [ %.1.us266, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us ]
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.877.0.us263, i64 32
-  %55 = icmp eq ptr %54, %.sroa.1380.0.us264
-  br i1 %55, label %.lr.ph.i.i.preheader.us, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us
+.critedge.us:                                     ; preds = %49, %45, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
+  %.249.us = phi ptr [ %51, %49 ], [ %.148.us264, %45 ], [ %.148.us264, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us ]
+  %.2.us = phi i32 [ %52, %49 ], [ %.1.us265, %45 ], [ %.1.us265, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.877.0.us262, i64 32
+  %54 = icmp eq ptr %53, %.sroa.1380.0.us263
+  br i1 %54, label %.lr.ph.i.i.preheader.us, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us
 
 .lr.ph.i.i.us:                                    ; preds = %.lr.ph109
-  %56 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !669
-  %58 = icmp eq ptr %57, %.sroa.776.0.copyload
-  br i1 %58, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split, label %59, !llvm.loop !670
+  %55 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !669
+  %57 = icmp eq ptr %56, %.sroa.776.0.copyload
+  br i1 %57, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split, label %58, !llvm.loop !670
 
-59:                                               ; preds = %.lr.ph.i.i.us
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 44
-  %61 = load i32, ptr %60, align 4
-  %62 = and i32 %61, 4
-  %.not.i.i.us = icmp eq i32 %62, 0
+58:                                               ; preds = %.lr.ph.i.i.us
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 44
+  %60 = load i32, ptr %59, align 4
+  %61 = and i32 %60, 4
+  %.not.i.i.us = icmp eq i32 %61, 0
   br i1 %.not.i.i.us, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split, label %.lr.ph109, !llvm.loop !670
 
-.lr.ph109:                                        ; preds = %.lr.ph.us, %59
-  %63 = phi ptr [ %57, %59 ], [ %74, %.lr.ph.us ]
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = load i24, ptr %64, align 8
-  %66 = icmp eq i24 %65, 0
-  br i1 %66, label %.lr.ph.i.i.us, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us, !llvm.loop !670
+.lr.ph109:                                        ; preds = %.lr.ph.us, %58
+  %62 = phi ptr [ %56, %58 ], [ %73, %.lr.ph.us ]
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
+  %64 = load i24, ptr %63, align 8
+  %65 = icmp eq i24 %64, 0
+  br i1 %65, label %.lr.ph.i.i.us, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us, !llvm.loop !670
 
-_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split: ; preds = %.lr.ph.i.i.us, %59, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us
-  %.sroa.075.1.us.ph = phi ptr [ %63, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us ], [ %.sroa.776.0.copyload, %59 ], [ %.sroa.776.0.copyload, %.lr.ph.i.i.us ]
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !388
-  %69 = zext i24 %65 to i64
-  %.idx.i.i.us.le214 = shl nuw nsw i64 %69, 5
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.us.le214
+_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split: ; preds = %.lr.ph.i.i.us, %58, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us
+  %.sroa.075.1.us.ph = phi ptr [ %62, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us ], [ %.sroa.776.0.copyload, %58 ], [ %.sroa.776.0.copyload, %.lr.ph.i.i.us ]
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  %67 = load ptr, ptr %66, align 8, !tbaa !388
+  %68 = zext i24 %64 to i64
+  %.idx.i.i.us.le216 = shl nuw nsw i64 %68, 5
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.us.le216
   br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us
 
 _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split, %.lr.ph.us, %.lr.ph.i.i.preheader.us, %.critedge.us
-  %.sroa.075.1.us = phi ptr [ %.sroa.075.0.us262, %.critedge.us ], [ %.sroa.776.0.copyload, %.lr.ph.i.i.preheader.us ], [ %.sroa.776.0.copyload, %.lr.ph.us ], [ %.sroa.075.1.us.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split ]
-  %.sroa.877.2.us = phi ptr [ %54, %.critedge.us ], [ %54, %.lr.ph.i.i.preheader.us ], [ %54, %.lr.ph.us ], [ %68, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split ]
-  %.sroa.1380.2.us = phi ptr [ %.sroa.1380.0.us264, %.critedge.us ], [ %.sroa.1380.0.us264, %.lr.ph.i.i.preheader.us ], [ %.sroa.1380.0.us264, %.lr.ph.us ], [ %70, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split ]
-  %71 = icmp eq ptr %.sroa.075.1.us, %.sroa.071.0.copyload
-  %72 = icmp eq ptr %.sroa.877.2.us, %.sroa.473.0.copyload
-  %or.cond134 = select i1 %71, i1 %72, i1 false
+  %.sroa.075.1.us = phi ptr [ %.sroa.075.0.us261, %.critedge.us ], [ %.sroa.776.0.copyload, %.lr.ph.i.i.preheader.us ], [ %.sroa.776.0.copyload, %.lr.ph.us ], [ %.sroa.075.1.us.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split ]
+  %.sroa.877.2.us = phi ptr [ %53, %.critedge.us ], [ %53, %.lr.ph.i.i.preheader.us ], [ %53, %.lr.ph.us ], [ %67, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split ]
+  %.sroa.1380.2.us = phi ptr [ %.sroa.1380.0.us263, %.critedge.us ], [ %.sroa.1380.0.us263, %.lr.ph.i.i.preheader.us ], [ %.sroa.1380.0.us263, %.lr.ph.us ], [ %69, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split ]
+  %70 = icmp eq ptr %.sroa.075.1.us, %.sroa.071.0.copyload
+  %71 = icmp eq ptr %.sroa.877.2.us, %.sroa.473.0.copyload.fr
+  %or.cond134 = select i1 %70, i1 %71, i1 false
   br i1 %or.cond134, label %.loopexit, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread.us
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.critedge.us
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.us262, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !669
-  %75 = icmp eq ptr %74, %.sroa.776.0.copyload
-  br i1 %75, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us, label %.lr.ph.us
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.us261, i64 8
+  %73 = load ptr, ptr %72, align 8, !tbaa !669
+  %74 = icmp eq ptr %73, %.sroa.776.0.copyload
+  br i1 %74, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.i.i.preheader.us
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 44
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, 4
-  %.not.i.i.us108 = icmp eq i32 %78, 0
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 44
+  %76 = load i32, ptr %75, align 4
+  %77 = and i32 %76, 4
+  %.not.i.i.us108 = icmp eq i32 %77, 0
   br i1 %.not.i.i.us108, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us, label %.lr.ph109
 
 ._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge.us: ; preds = %.lr.ph109
   br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us.sink.split, !llvm.loop !670
 
 .split.loopexit:                                  ; preds = %.lr.ph
-  %79 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %80 = load ptr, ptr %79, align 8, !tbaa !388
-  %81 = zext i24 %115 to i64
-  %.idx.i.i.le358 = shl nuw nsw i64 %81, 5
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i.i.le358
+  %78 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %79 = load ptr, ptr %78, align 8, !tbaa !388
+  %80 = zext i24 %114 to i64
+  %.idx.i.i.le362 = shl nuw nsw i64 %80, 5
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i.i.le362
   br label %.split.outer.outer.backedge
 
 .split.outer.outer.backedge:                      ; preds = %.split.loopexit, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge
-  %83 = phi ptr [ %118, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %122, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %80, %.split.loopexit ]
-  %84 = phi ptr [ %120, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %124, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %82, %.split.loopexit ]
-  %.sroa.075.0.ph.ph.be = phi ptr [ %113, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %.sroa.776.0.copyload, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %.sroa.776.0.copyload, %.split.loopexit ]
+  %82 = phi ptr [ %117, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %121, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %79, %.split.loopexit ]
+  %83 = phi ptr [ %119, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %123, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %81, %.split.loopexit ]
+  %.sroa.075.0.ph.ph.be = phi ptr [ %112, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %.sroa.776.0.copyload, %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge ], [ %.sroa.776.0.copyload, %.split.loopexit ]
   br label %.split.outer.outer, !llvm.loop !670
 
 .split.outer.outer:                               ; preds = %34, %.split.outer.outer.backedge
   %.sroa.075.0.ph.ph = phi ptr [ %.sroa.075.0.ph.ph.be, %.split.outer.outer.backedge ], [ %.sroa.075.0.copyload, %34 ]
-  %.sroa.877.0.ph.ph = phi ptr [ %83, %.split.outer.outer.backedge ], [ %.sroa.877.0.copyload, %34 ]
-  %.sroa.1380.0.ph.ph = phi ptr [ %84, %.split.outer.outer.backedge ], [ %.sroa.1380.0.copyload, %34 ]
+  %.sroa.877.0.ph.ph = phi ptr [ %82, %.split.outer.outer.backedge ], [ %.sroa.877.0.copyload, %34 ]
+  %.sroa.1380.0.ph.ph = phi ptr [ %83, %.split.outer.outer.backedge ], [ %.sroa.1380.0.copyload, %34 ]
   %.148.ph.ph = phi ptr [ %.249, %.split.outer.outer.backedge ], [ %18, %34 ]
   %.1.ph.ph = phi i32 [ %.2, %.split.outer.outer.backedge ], [ %2, %34 ]
   br label %.split.outer
 
 .split.outer:                                     ; preds = %.split.outer.backedge, %.split.outer.outer
   %.sroa.075.0.ph = phi ptr [ %.sroa.075.0.ph.ph, %.split.outer.outer ], [ %.sroa.776.0.copyload, %.split.outer.backedge ]
-  %.sroa.877.0.ph = phi ptr [ %.sroa.877.0.ph.ph, %.split.outer.outer ], [ %99, %.split.outer.backedge ]
+  %.sroa.877.0.ph = phi ptr [ %.sroa.877.0.ph.ph, %.split.outer.outer ], [ %98, %.split.outer.backedge ]
   %.148.ph = phi ptr [ %.148.ph.ph, %.split.outer.outer ], [ %.249, %.split.outer.backedge ]
   %.1.ph = phi i32 [ %.1.ph.ph, %.split.outer.outer ], [ %.2, %.split.outer.backedge ]
-  %85 = icmp eq ptr %.sroa.075.0.ph, %.sroa.071.0.copyload
+  %84 = icmp eq ptr %.sroa.075.0.ph, %.sroa.071.0.copyload
   br label %.split
 
 .split:                                           ; preds = %.split.outer, %.critedge
-  %.sroa.877.0 = phi ptr [ %99, %.critedge ], [ %.sroa.877.0.ph, %.split.outer ]
+  %.sroa.877.0 = phi ptr [ %98, %.critedge ], [ %.sroa.877.0.ph, %.split.outer ]
   %.148 = phi ptr [ %.249, %.critedge ], [ %.148.ph, %.split.outer ]
   %.1 = phi i32 [ %.2, %.critedge ], [ %.1.ph, %.split.outer ]
-  br i1 %85, label %86, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread
+  br i1 %84, label %85, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread
 
-86:                                               ; preds = %.split
-  %87 = icmp ne ptr %.sroa.877.0, %.sroa.473.0.copyload
-  %88 = icmp ne ptr %.sroa.877.0, %.sroa.1380.0.ph.ph
-  %or.cond132 = select i1 %87, i1 %88, i1 false
+85:                                               ; preds = %.split
+  %86 = icmp ne ptr %.sroa.877.0, %.sroa.473.0.copyload.fr
+  %87 = icmp ne ptr %.sroa.877.0, %.sroa.1380.0.ph.ph
+  %or.cond132 = select i1 %86, i1 %87, i1 false
   br i1 %or.cond132, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread, label %.loopexit
 
-_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread: ; preds = %86, %.split
-  %89 = load i32, ptr %.sroa.877.0, align 8
-  %90 = and i32 %89, 16777471
-  %or.cond92 = icmp eq i32 %90, 16777216
-  br i1 %or.cond92, label %91, label %.critedge
+_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread: ; preds = %85, %.split
+  %88 = load i32, ptr %.sroa.877.0, align 8
+  %89 = and i32 %88, 16777471
+  %or.cond92 = icmp eq i32 %89, 16777216
+  br i1 %or.cond92, label %90, label %.critedge
 
-91:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.877.0, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !406
-  %94 = icmp eq i32 %93, %39
-  br i1 %94, label %95, label %.critedge
+90:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.877.0, i64 4
+  %92 = load i32, ptr %91, align 4, !tbaa !406
+  %93 = icmp eq i32 %92, %39
+  br i1 %93, label %94, label %.critedge
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.877.0, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !666
-  %98 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.877.0) #24
+94:                                               ; preds = %90
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.877.0, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !666
+  %97 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.877.0) #24
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread, %95, %91
-  %.249 = phi ptr [ %97, %95 ], [ %.148, %91 ], [ %.148, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread ]
-  %.2 = phi i32 [ %98, %95 ], [ %.1, %91 ], [ %.1, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.877.0, i64 32
-  %100 = icmp eq ptr %99, %.sroa.1380.0.ph.ph
-  br i1 %100, label %.lr.ph.i.i.preheader, label %.split
+.critedge:                                        ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread, %94, %90
+  %.249 = phi ptr [ %96, %94 ], [ %.148, %90 ], [ %.148, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread ]
+  %.2 = phi i32 [ %97, %94 ], [ %.1, %90 ], [ %.1, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit.thread ]
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.877.0, i64 32
+  %99 = icmp eq ptr %98, %.sroa.1380.0.ph.ph
+  br i1 %99, label %.lr.ph.i.i.preheader, label %.split
 
 .lr.ph.i.i.preheader:                             ; preds = %.critedge
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.ph, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !669
-  %103 = icmp eq ptr %102, %.sroa.776.0.copyload
-  br i1 %103, label %.split.outer.backedge, label %.lr.ph.preheader
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.ph, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !669
+  %102 = icmp eq ptr %101, %.sroa.776.0.copyload
+  br i1 %102, label %.split.outer.backedge, label %.lr.ph.preheader
 
 .split.outer.backedge:                            ; preds = %.lr.ph.i.i.preheader, %.lr.ph.preheader
   br label %.split.outer
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.preheader
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 44
-  %105 = load i32, ptr %104, align 4
-  %106 = and i32 %105, 4
-  %.not.i.i256 = icmp eq i32 %106, 0
-  br i1 %.not.i.i256, label %.split.outer.backedge, label %.lr.ph257
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 44
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %104, 4
+  %.not.i.i267 = icmp eq i32 %105, 0
+  br i1 %.not.i.i267, label %.split.outer.backedge, label %.lr.ph268
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph257
-  %107 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !669
-  %109 = icmp eq ptr %108, %.sroa.776.0.copyload
-  br i1 %109, label %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, label %.lr.ph, !llvm.loop !670
+.lr.ph.i.i:                                       ; preds = %.lr.ph268
+  %106 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !669
+  %108 = icmp eq ptr %107, %.sroa.776.0.copyload
+  br i1 %108, label %.lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, label %.lr.ph, !llvm.loop !670
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 44
-  %111 = load i32, ptr %110, align 4
-  %112 = and i32 %111, 4
-  %.not.i.i = icmp eq i32 %112, 0
-  br i1 %.not.i.i, label %.split.loopexit, label %.lr.ph257, !llvm.loop !670
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 44
+  %110 = load i32, ptr %109, align 4
+  %111 = and i32 %110, 4
+  %.not.i.i = icmp eq i32 %111, 0
+  br i1 %.not.i.i, label %.split.loopexit, label %.lr.ph268, !llvm.loop !670
 
-.lr.ph257:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %113 = phi ptr [ %108, %.lr.ph ], [ %102, %.lr.ph.preheader ]
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  %115 = load i24, ptr %114, align 8
-  %116 = icmp eq i24 %115, 0
-  br i1 %116, label %.lr.ph.i.i, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, !llvm.loop !670
+.lr.ph268:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %112 = phi ptr [ %107, %.lr.ph ], [ %101, %.lr.ph.preheader ]
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  %114 = load i24, ptr %113, align 8
+  %115 = icmp eq i24 %114, 0
+  br i1 %115, label %.lr.ph.i.i, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge, !llvm.loop !670
 
-._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph257
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %118 = load ptr, ptr %117, align 8, !tbaa !388
-  %119 = zext i24 %115 to i64
-  %.idx.i.i.le = shl nuw nsw i64 %119, 5
-  %120 = getelementptr inbounds nuw i8, ptr %118, i64 %.idx.i.i.le
+._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph268
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %117 = load ptr, ptr %116, align 8, !tbaa !388
+  %118 = zext i24 %114 to i64
+  %.idx.i.i.le = shl nuw nsw i64 %118, 5
+  %119 = getelementptr inbounds nuw i8, ptr %117, i64 %.idx.i.i.le
   br label %.split.outer.outer.backedge
 
 .lr.ph.i.i._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.loopexit_crit_edge: ; preds = %.lr.ph.i.i
-  %121 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !388
-  %123 = zext i24 %115 to i64
-  %.idx.i.i.le356 = shl nuw nsw i64 %123, 5
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx.i.i.le356
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  %121 = load ptr, ptr %120, align 8, !tbaa !388
+  %122 = zext i24 %114 to i64
+  %.idx.i.i.le360 = shl nuw nsw i64 %122, 5
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i.le360
   br label %.split.outer.outer.backedge
 
-.loopexit:                                        ; preds = %86, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us, %.split.us.preheader
-  %.us-phi = phi ptr [ %18, %.split.us.preheader ], [ %.249.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.148, %86 ]
-  %.us-phi107 = phi i32 [ %2, %.split.us.preheader ], [ %.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ], [ %.1, %86 ]
+.loopexit:                                        ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us, %85, %.split.us.preheader
+  %.us-phi = phi ptr [ %18, %.split.us.preheader ], [ %.148, %85 ], [ %.249.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ]
+  %.us-phi107 = phi i32 [ %2, %.split.us.preheader ], [ %.1, %85 ], [ %.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load ptr, ptr %3, align 8, !tbaa !406
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 68
-  %.pre160 = load i16, ptr %.phi.trans.insert, align 4, !tbaa !407
-  %125 = icmp eq i16 %.pre160, 21
-  br i1 %125, label %.thread, label %214
+  %.pre162 = load i16, ptr %.phi.trans.insert, align 4, !tbaa !407
+  %124 = icmp eq i16 %.pre162, 21
+  br i1 %124, label %.thread, label %212
 
 .thread:                                          ; preds = %31, %.loopexit
-  %.0185 = phi i32 [ %.us-phi107, %.loopexit ], [ %2, %31 ]
-  %.047183 = phi ptr [ %.us-phi, %.loopexit ], [ %18, %31 ]
-  %126 = phi ptr [ %.pre, %.loopexit ], [ %25, %31 ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %128 = load ptr, ptr %127, align 8, !tbaa !388
-  %129 = zext i32 %4 to i64
-  %130 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %128, i64 %129, i32 1
-  %131 = load i32, ptr %130, align 4, !tbaa !406
+  %.0187 = phi i32 [ %.us-phi107, %.loopexit ], [ %2, %31 ]
+  %.047185 = phi ptr [ %.us-phi, %.loopexit ], [ %18, %31 ]
+  %125 = phi ptr [ %.pre, %.loopexit ], [ %25, %31 ]
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
+  %127 = load ptr, ptr %126, align 8, !tbaa !388
+  %128 = zext i32 %4 to i64
+  %129 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %127, i64 %128, i32 1
+  %130 = load i32, ptr %129, align 4, !tbaa !406
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %9, ptr noundef nonnull align 8 dereferenceable(70) %126)
+  call void @_ZN4llvm19const_mi_bundle_opsERKNS_12MachineInstrE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range") align 8 %9, ptr noundef nonnull align 8 dereferenceable(70) %125)
   %.sroa.066.0.copyload = load ptr, ptr %9, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
@@ -17467,225 +17468,226 @@ _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOp
   %.sroa.8.0.copyload = load ptr, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.13.0.copyload = load ptr, ptr %.sroa.13.0..sroa_idx, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sroa.064.0.copyload = load ptr, ptr %132, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sroa.064.0.copyload = load ptr, ptr %131, align 8
   %.sroa.465.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   %.sroa.465.0.copyload = load ptr, ptr %.sroa.465.0..sroa_idx, align 8
+  %.sroa.465.0.copyload.fr = freeze ptr %.sroa.465.0.copyload
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
-  %133 = icmp ne ptr %.sroa.465.0.copyload, %.sroa.5.0.copyload
-  %.fr127 = freeze i1 %133
-  br i1 %.fr127, label %.split125.us.preheader, label %.split125.outer.outer
+  %.sroa.5.0.copyload.fr = freeze ptr %.sroa.5.0.copyload
+  %.not137 = icmp eq ptr %.sroa.465.0.copyload.fr, %.sroa.5.0.copyload.fr
+  br i1 %.not137, label %.split125.outer.outer, label %.split125.us.preheader
 
 .split125.us.preheader:                           ; preds = %.thread
-  %134 = icmp eq ptr %.sroa.066.0.copyload, %.sroa.064.0.copyload
-  %135 = icmp eq ptr %.sroa.8.0.copyload, %.sroa.465.0.copyload
-  %or.cond135275 = select i1 %134, i1 %135, i1 false
-  br i1 %or.cond135275, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
+  %132 = icmp eq ptr %.sroa.066.0.copyload, %.sroa.064.0.copyload
+  %133 = icmp eq ptr %.sroa.8.0.copyload, %.sroa.465.0.copyload.fr
+  %or.cond135273 = select i1 %132, i1 %133, i1 false
+  br i1 %or.cond135273, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
 
 _ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us: ; preds = %.split125.us.preheader, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us
-  %.sroa.13.0.us278 = phi ptr [ %.sroa.13.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %.sroa.13.0.copyload, %.split125.us.preheader ]
-  %.sroa.8.0.us277 = phi ptr [ %.sroa.8.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %.sroa.8.0.copyload, %.split125.us.preheader ]
-  %.sroa.066.0.us276 = phi ptr [ %.sroa.066.1.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %.sroa.066.0.copyload, %.split125.us.preheader ]
-  %136 = load i32, ptr %.sroa.8.0.us277, align 8
-  %137 = and i32 %136, 16777471
-  %or.cond94.us = icmp eq i32 %137, 0
-  br i1 %or.cond94.us, label %138, label %142
+  %.sroa.13.0.us276 = phi ptr [ %.sroa.13.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %.sroa.13.0.copyload, %.split125.us.preheader ]
+  %.sroa.8.0.us275 = phi ptr [ %.sroa.8.2.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %.sroa.8.0.copyload, %.split125.us.preheader ]
+  %.sroa.066.0.us274 = phi ptr [ %.sroa.066.1.us, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %.sroa.066.0.copyload, %.split125.us.preheader ]
+  %134 = load i32, ptr %.sroa.8.0.us275, align 8
+  %135 = and i32 %134, 16777471
+  %or.cond94.us = icmp eq i32 %135, 0
+  br i1 %or.cond94.us, label %136, label %140
 
-138:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.us277, i64 4
-  %140 = load i32, ptr %139, align 4, !tbaa !406
-  %141 = icmp eq i32 %140, %131
-  br i1 %141, label %.critedge2, label %142
+136:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.us275, i64 4
+  %138 = load i32, ptr %137, align 4, !tbaa !406
+  %139 = icmp eq i32 %138, %130
+  br i1 %139, label %.critedge2, label %140
 
-142:                                              ; preds = %138, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.us277, i64 32
-  %144 = icmp eq ptr %143, %.sroa.13.0.us278
-  br i1 %144, label %.lr.ph.i.i59.preheader.us, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us
+140:                                              ; preds = %136, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.us275, i64 32
+  %142 = icmp eq ptr %141, %.sroa.13.0.us276
+  br i1 %142, label %.lr.ph.i.i59.preheader.us, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us
 
 .lr.ph.i.i59.us:                                  ; preds = %.lr.ph129
-  %145 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !669
-  %147 = icmp eq ptr %146, %.sroa.7.0.copyload
-  br i1 %147, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split, label %148, !llvm.loop !670
+  %143 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %144 = load ptr, ptr %143, align 8, !tbaa !669
+  %145 = icmp eq ptr %144, %.sroa.7.0.copyload
+  br i1 %145, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split, label %146, !llvm.loop !670
 
-148:                                              ; preds = %.lr.ph.i.i59.us
-  %149 = getelementptr inbounds nuw i8, ptr %146, i64 44
-  %150 = load i32, ptr %149, align 4
-  %151 = and i32 %150, 4
-  %.not.i.i61.us = icmp eq i32 %151, 0
+146:                                              ; preds = %.lr.ph.i.i59.us
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 44
+  %148 = load i32, ptr %147, align 4
+  %149 = and i32 %148, 4
+  %.not.i.i61.us = icmp eq i32 %149, 0
   br i1 %.not.i.i61.us, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split, label %.lr.ph129, !llvm.loop !670
 
-.lr.ph129:                                        ; preds = %.lr.ph114.us, %148
-  %152 = phi ptr [ %146, %148 ], [ %163, %.lr.ph114.us ]
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
-  %154 = load i24, ptr %153, align 8
-  %155 = icmp eq i24 %154, 0
-  br i1 %155, label %.lr.ph.i.i59.us, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us, !llvm.loop !670
+.lr.ph129:                                        ; preds = %.lr.ph114.us, %146
+  %150 = phi ptr [ %144, %146 ], [ %161, %.lr.ph114.us ]
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %152 = load i24, ptr %151, align 8
+  %153 = icmp eq i24 %152, 0
+  br i1 %153, label %.lr.ph.i.i59.us, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us, !llvm.loop !670
 
-_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split: ; preds = %.lr.ph.i.i59.us, %148, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us
-  %.sroa.066.1.us.ph = phi ptr [ %152, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us ], [ %.sroa.7.0.copyload, %148 ], [ %.sroa.7.0.copyload, %.lr.ph.i.i59.us ]
-  %156 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !388
-  %158 = zext i24 %154 to i64
-  %.idx.i.i62.us.le225 = shl nuw nsw i64 %158, 5
-  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %.idx.i.i62.us.le225
+_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split: ; preds = %.lr.ph.i.i59.us, %146, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us
+  %.sroa.066.1.us.ph = phi ptr [ %150, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us ], [ %.sroa.7.0.copyload, %146 ], [ %.sroa.7.0.copyload, %.lr.ph.i.i59.us ]
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 32
+  %155 = load ptr, ptr %154, align 8, !tbaa !388
+  %156 = zext i24 %152 to i64
+  %.idx.i.i62.us.le228 = shl nuw nsw i64 %156, 5
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 %.idx.i.i62.us.le228
   br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us
 
-_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split, %.lr.ph114.us, %.lr.ph.i.i59.preheader.us, %142
-  %.sroa.066.1.us = phi ptr [ %.sroa.066.0.us276, %142 ], [ %.sroa.7.0.copyload, %.lr.ph.i.i59.preheader.us ], [ %.sroa.7.0.copyload, %.lr.ph114.us ], [ %.sroa.066.1.us.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split ]
-  %.sroa.8.2.us = phi ptr [ %143, %142 ], [ %143, %.lr.ph.i.i59.preheader.us ], [ %143, %.lr.ph114.us ], [ %157, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split ]
-  %.sroa.13.2.us = phi ptr [ %.sroa.13.0.us278, %142 ], [ %.sroa.13.0.us278, %.lr.ph.i.i59.preheader.us ], [ %.sroa.13.0.us278, %.lr.ph114.us ], [ %159, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split ]
-  %160 = icmp eq ptr %.sroa.066.1.us, %.sroa.064.0.copyload
-  %161 = icmp eq ptr %.sroa.8.2.us, %.sroa.465.0.copyload
-  %or.cond135 = select i1 %160, i1 %161, i1 false
+_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split, %.lr.ph114.us, %.lr.ph.i.i59.preheader.us, %140
+  %.sroa.066.1.us = phi ptr [ %.sroa.066.0.us274, %140 ], [ %.sroa.7.0.copyload, %.lr.ph.i.i59.preheader.us ], [ %.sroa.7.0.copyload, %.lr.ph114.us ], [ %.sroa.066.1.us.ph, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split ]
+  %.sroa.8.2.us = phi ptr [ %141, %140 ], [ %141, %.lr.ph.i.i59.preheader.us ], [ %141, %.lr.ph114.us ], [ %155, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split ]
+  %.sroa.13.2.us = phi ptr [ %.sroa.13.0.us276, %140 ], [ %.sroa.13.0.us276, %.lr.ph.i.i59.preheader.us ], [ %.sroa.13.0.us276, %.lr.ph114.us ], [ %157, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split ]
+  %158 = icmp eq ptr %.sroa.066.1.us, %.sroa.064.0.copyload
+  %159 = icmp eq ptr %.sroa.8.2.us, %.sroa.465.0.copyload.fr
+  %or.cond135 = select i1 %158, i1 %159, i1 false
   br i1 %or.cond135, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread.us
 
-.lr.ph.i.i59.preheader.us:                        ; preds = %142
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.066.0.us276, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !669
-  %164 = icmp eq ptr %163, %.sroa.7.0.copyload
-  br i1 %164, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us, label %.lr.ph114.us
+.lr.ph.i.i59.preheader.us:                        ; preds = %140
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.066.0.us274, i64 8
+  %161 = load ptr, ptr %160, align 8, !tbaa !669
+  %162 = icmp eq ptr %161, %.sroa.7.0.copyload
+  br i1 %162, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us, label %.lr.ph114.us
 
 .lr.ph114.us:                                     ; preds = %.lr.ph.i.i59.preheader.us
-  %165 = getelementptr inbounds nuw i8, ptr %163, i64 44
-  %166 = load i32, ptr %165, align 4
-  %167 = and i32 %166, 4
-  %.not.i.i61.us128 = icmp eq i32 %167, 0
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 44
+  %164 = load i32, ptr %163, align 4
+  %165 = and i32 %164, 4
+  %.not.i.i61.us128 = icmp eq i32 %165, 0
   br i1 %.not.i.i61.us128, label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us, label %.lr.ph129
 
 ._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge.us: ; preds = %.lr.ph129
   br label %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us.sink.split, !llvm.loop !670
 
 .split125.loopexit:                               ; preds = %.lr.ph114
-  %168 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  %169 = load ptr, ptr %168, align 8, !tbaa !388
-  %170 = zext i24 %204 to i64
-  %.idx.i.i62.le377 = shl nuw nsw i64 %170, 5
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx.i.i62.le377
+  %166 = getelementptr inbounds nuw i8, ptr %200, i64 32
+  %167 = load ptr, ptr %166, align 8, !tbaa !388
+  %168 = zext i24 %202 to i64
+  %.idx.i.i62.le381 = shl nuw nsw i64 %168, 5
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 %.idx.i.i62.le381
   br label %.split125.outer.outer.backedge
 
 .split125.outer.outer.backedge:                   ; preds = %.split125.loopexit, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge
-  %172 = phi ptr [ %207, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %211, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %169, %.split125.loopexit ]
-  %173 = phi ptr [ %209, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %213, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %171, %.split125.loopexit ]
-  %.sroa.066.0.ph.ph.be = phi ptr [ %202, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %.sroa.7.0.copyload, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %.sroa.7.0.copyload, %.split125.loopexit ]
+  %170 = phi ptr [ %205, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %209, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %167, %.split125.loopexit ]
+  %171 = phi ptr [ %207, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %211, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %169, %.split125.loopexit ]
+  %.sroa.066.0.ph.ph.be = phi ptr [ %200, %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %.sroa.7.0.copyload, %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge ], [ %.sroa.7.0.copyload, %.split125.loopexit ]
   br label %.split125.outer.outer, !llvm.loop !670
 
 .split125.outer.outer:                            ; preds = %.thread, %.split125.outer.outer.backedge
   %.sroa.066.0.ph.ph = phi ptr [ %.sroa.066.0.ph.ph.be, %.split125.outer.outer.backedge ], [ %.sroa.066.0.copyload, %.thread ]
-  %.sroa.8.0.ph.ph = phi ptr [ %172, %.split125.outer.outer.backedge ], [ %.sroa.8.0.copyload, %.thread ]
-  %.sroa.13.0.ph.ph = phi ptr [ %173, %.split125.outer.outer.backedge ], [ %.sroa.13.0.copyload, %.thread ]
+  %.sroa.8.0.ph.ph = phi ptr [ %170, %.split125.outer.outer.backedge ], [ %.sroa.8.0.copyload, %.thread ]
+  %.sroa.13.0.ph.ph = phi ptr [ %171, %.split125.outer.outer.backedge ], [ %.sroa.13.0.copyload, %.thread ]
   br label %.split125.outer
 
 .split125.outer:                                  ; preds = %.split125.outer.backedge, %.split125.outer.outer
   %.sroa.066.0.ph = phi ptr [ %.sroa.066.0.ph.ph, %.split125.outer.outer ], [ %.sroa.7.0.copyload, %.split125.outer.backedge ]
-  %.sroa.8.0.ph = phi ptr [ %.sroa.8.0.ph.ph, %.split125.outer.outer ], [ %188, %.split125.outer.backedge ]
-  %174 = icmp eq ptr %.sroa.066.0.ph, %.sroa.064.0.copyload
+  %.sroa.8.0.ph = phi ptr [ %.sroa.8.0.ph.ph, %.split125.outer.outer ], [ %186, %.split125.outer.backedge ]
+  %172 = icmp eq ptr %.sroa.066.0.ph, %.sroa.064.0.copyload
   br label %.split125
 
-.split125:                                        ; preds = %.split125.outer, %187
-  %.sroa.8.0 = phi ptr [ %188, %187 ], [ %.sroa.8.0.ph, %.split125.outer ]
-  br i1 %174, label %175, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread
+.split125:                                        ; preds = %.split125.outer, %185
+  %.sroa.8.0 = phi ptr [ %186, %185 ], [ %.sroa.8.0.ph, %.split125.outer ]
+  br i1 %172, label %173, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread
 
-175:                                              ; preds = %.split125
-  %176 = icmp ne ptr %.sroa.8.0, %.sroa.465.0.copyload
-  %177 = icmp ne ptr %.sroa.8.0, %.sroa.13.0.ph.ph
-  %or.cond133 = select i1 %176, i1 %177, i1 false
+173:                                              ; preds = %.split125
+  %174 = icmp ne ptr %.sroa.8.0, %.sroa.465.0.copyload.fr
+  %175 = icmp ne ptr %.sroa.8.0, %.sroa.13.0.ph.ph
+  %or.cond133 = select i1 %174, i1 %175, i1 false
   br i1 %or.cond133, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread, label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83
 
-_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread: ; preds = %175, %.split125
-  %178 = load i32, ptr %.sroa.8.0, align 8
-  %179 = and i32 %178, 16777471
-  %or.cond94 = icmp eq i32 %179, 0
-  br i1 %or.cond94, label %180, label %187
+_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread: ; preds = %173, %.split125
+  %176 = load i32, ptr %.sroa.8.0, align 8
+  %177 = and i32 %176, 16777471
+  %or.cond94 = icmp eq i32 %177, 0
+  br i1 %or.cond94, label %178, label %185
 
-180:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 4
-  %182 = load i32, ptr %181, align 4, !tbaa !406
-  %183 = icmp eq i32 %182, %131
-  br i1 %183, label %.critedge2, label %187
+178:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 4
+  %180 = load i32, ptr %179, align 4, !tbaa !406
+  %181 = icmp eq i32 %180, %130
+  br i1 %181, label %.critedge2, label %185
 
-.critedge2:                                       ; preds = %180, %138
-  %.us-phi126 = phi ptr [ %.sroa.8.0.us277, %138 ], [ %.sroa.8.0, %180 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.us-phi126, i64 8
-  %185 = load ptr, ptr %184, align 8, !tbaa !666
-  %186 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi126) #24
+.critedge2:                                       ; preds = %136, %178
+  %.us-phi126 = phi ptr [ %.sroa.8.0, %178 ], [ %.sroa.8.0.us275, %136 ]
+  %182 = getelementptr inbounds nuw i8, ptr %.us-phi126, i64 8
+  %183 = load ptr, ptr %182, align 8, !tbaa !666
+  %184 = call noundef i32 @_ZNK4llvm14MachineOperand12getOperandNoEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi126) #24
   br label %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83
 
-187:                                              ; preds = %180, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread
-  %188 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 32
-  %189 = icmp eq ptr %188, %.sroa.13.0.ph.ph
-  br i1 %189, label %.lr.ph.i.i59.preheader, label %.split125
+185:                                              ; preds = %178, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 32
+  %187 = icmp eq ptr %186, %.sroa.13.0.ph.ph
+  br i1 %187, label %.lr.ph.i.i59.preheader, label %.split125
 
-.lr.ph.i.i59.preheader:                           ; preds = %187
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.066.0.ph, i64 8
-  %191 = load ptr, ptr %190, align 8, !tbaa !669
-  %192 = icmp eq ptr %191, %.sroa.7.0.copyload
-  br i1 %192, label %.split125.outer.backedge, label %.lr.ph114.preheader
+.lr.ph.i.i59.preheader:                           ; preds = %185
+  %188 = getelementptr inbounds nuw i8, ptr %.sroa.066.0.ph, i64 8
+  %189 = load ptr, ptr %188, align 8, !tbaa !669
+  %190 = icmp eq ptr %189, %.sroa.7.0.copyload
+  br i1 %190, label %.split125.outer.backedge, label %.lr.ph114.preheader
 
 .split125.outer.backedge:                         ; preds = %.lr.ph.i.i59.preheader, %.lr.ph114.preheader
   br label %.split125.outer
 
 .lr.ph114.preheader:                              ; preds = %.lr.ph.i.i59.preheader
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 44
-  %194 = load i32, ptr %193, align 4
-  %195 = and i32 %194, 4
-  %.not.i.i61269 = icmp eq i32 %195, 0
-  br i1 %.not.i.i61269, label %.split125.outer.backedge, label %.lr.ph270
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 44
+  %192 = load i32, ptr %191, align 4
+  %193 = and i32 %192, 4
+  %.not.i.i61277 = icmp eq i32 %193, 0
+  br i1 %.not.i.i61277, label %.split125.outer.backedge, label %.lr.ph278
 
-.lr.ph.i.i59:                                     ; preds = %.lr.ph270
-  %196 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  %197 = load ptr, ptr %196, align 8, !tbaa !669
-  %198 = icmp eq ptr %197, %.sroa.7.0.copyload
-  br i1 %198, label %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge, label %.lr.ph114, !llvm.loop !670
+.lr.ph.i.i59:                                     ; preds = %.lr.ph278
+  %194 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %195 = load ptr, ptr %194, align 8, !tbaa !669
+  %196 = icmp eq ptr %195, %.sroa.7.0.copyload
+  br i1 %196, label %.lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge, label %.lr.ph114, !llvm.loop !670
 
 .lr.ph114:                                        ; preds = %.lr.ph.i.i59
-  %199 = getelementptr inbounds nuw i8, ptr %197, i64 44
-  %200 = load i32, ptr %199, align 4
-  %201 = and i32 %200, 4
-  %.not.i.i61 = icmp eq i32 %201, 0
-  br i1 %.not.i.i61, label %.split125.loopexit, label %.lr.ph270, !llvm.loop !670
+  %197 = getelementptr inbounds nuw i8, ptr %195, i64 44
+  %198 = load i32, ptr %197, align 4
+  %199 = and i32 %198, 4
+  %.not.i.i61 = icmp eq i32 %199, 0
+  br i1 %.not.i.i61, label %.split125.loopexit, label %.lr.ph278, !llvm.loop !670
 
-.lr.ph270:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %202 = phi ptr [ %197, %.lr.ph114 ], [ %191, %.lr.ph114.preheader ]
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
-  %204 = load i24, ptr %203, align 8
-  %205 = icmp eq i24 %204, 0
-  br i1 %205, label %.lr.ph.i.i59, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge, !llvm.loop !670
+.lr.ph278:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
+  %200 = phi ptr [ %195, %.lr.ph114 ], [ %189, %.lr.ph114.preheader ]
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 40
+  %202 = load i24, ptr %201, align 8
+  %203 = icmp eq i24 %202, 0
+  br i1 %203, label %.lr.ph.i.i59, label %._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge, !llvm.loop !670
 
-._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge: ; preds = %.lr.ph270
-  %206 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  %207 = load ptr, ptr %206, align 8, !tbaa !388
-  %208 = zext i24 %204 to i64
-  %.idx.i.i62.le = shl nuw nsw i64 %208, 5
-  %209 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx.i.i62.le
+._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge: ; preds = %.lr.ph278
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 32
+  %205 = load ptr, ptr %204, align 8, !tbaa !388
+  %206 = zext i24 %202 to i64
+  %.idx.i.i62.le = shl nuw nsw i64 %206, 5
+  %207 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx.i.i62.le
   br label %.split125.outer.outer.backedge
 
 .lr.ph.i.i59._ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.loopexit_crit_edge: ; preds = %.lr.ph.i.i59
-  %210 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  %211 = load ptr, ptr %210, align 8, !tbaa !388
-  %212 = zext i24 %204 to i64
-  %.idx.i.i62.le375 = shl nuw nsw i64 %212, 5
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 %.idx.i.i62.le375
+  %208 = getelementptr inbounds nuw i8, ptr %200, i64 32
+  %209 = load ptr, ptr %208, align 8, !tbaa !388
+  %210 = zext i24 %202 to i64
+  %.idx.i.i62.le379 = shl nuw nsw i64 %210, 5
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx.i.i62.le379
   br label %.split125.outer.outer.backedge
 
-_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83: ; preds = %175, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us, %.split125.us.preheader, %.critedge2
-  %.245 = phi ptr [ %185, %.critedge2 ], [ %126, %.split125.us.preheader ], [ %126, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %126, %175 ]
-  %.242 = phi i32 [ %186, %.critedge2 ], [ %4, %.split125.us.preheader ], [ %4, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ], [ %4, %175 ]
+_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83: ; preds = %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us, %173, %.split125.us.preheader, %.critedge2
+  %.245 = phi ptr [ %183, %.critedge2 ], [ %125, %.split125.us.preheader ], [ %125, %173 ], [ %125, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ]
+  %.242 = phi i32 [ %184, %.critedge2 ], [ %4, %.split125.us.preheader ], [ %4, %173 ], [ %4, %_ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit63.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %214
+  br label %212
 
-214:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83, %.loopexit
-  %.0184 = phi i32 [ %.0185, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83 ], [ %.us-phi107, %.loopexit ]
-  %.047182 = phi ptr [ %.047183, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83 ], [ %.us-phi, %.loopexit ]
+212:                                              ; preds = %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83, %.loopexit
+  %.0186 = phi i32 [ %.0187, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83 ], [ %.us-phi107, %.loopexit ]
+  %.047184 = phi ptr [ %.047185, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83 ], [ %.us-phi, %.loopexit ]
   %.043 = phi ptr [ %.245, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83 ], [ %.pre, %.loopexit ]
   %.040 = phi i32 [ %.242, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit56.thread83 ], [ %4, %.loopexit ]
-  %215 = call noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j(ptr noundef nonnull align 8 dereferenceable(280) %6, ptr noundef %.047182, i32 noundef %.0184, ptr noundef %.043, i32 noundef %.040) #24
-  %216 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %215, ptr %216, align 4, !tbaa !671
-  br label %217
+  %213 = call noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatencyEPKNS_12MachineInstrEjS3_j(ptr noundef nonnull align 8 dereferenceable(280) %6, ptr noundef %.047184, i32 noundef %.0186, ptr noundef %.043, i32 noundef %.040) #24
+  %214 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %213, ptr %214, align 4, !tbaa !671
+  br label %215
 
-217:                                              ; preds = %7, %10, %14, %21, %31, %214
+215:                                              ; preds = %7, %10, %14, %21, %31, %212
   ret void
 }
 
@@ -19511,10 +19513,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_12AArch64PAuth
   %11 = load ptr, ptr %10, align 8, !tbaa !845
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !500
-  %.not25.i = icmp eq i64 %13, 0
+  %.fr15 = freeze i64 %13
+  %.not25.i = icmp eq i64 %.fr15, 0
   %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
-  %spec.select24.i = select i1 %.not25.i, i64 %3, i64 %5
-  %spec.select24.i.fr = freeze i64 %spec.select24.i
+  %.fr16 = freeze i64 %3
+  %.fr17 = freeze i64 %5
+  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !419
   %16 = zext i32 %15 to i64
@@ -19524,7 +19528,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_12AArch64PAuth
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !191
-  %19 = icmp eq i64 %spec.select24.i.fr, 0
+  %19 = icmp eq i64 %spec.select24.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
@@ -19544,12 +19548,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
   %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::AArch64PAuth::AuthCheckMethod>::OptionInfo", ptr %18, i64 %.01527.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i.fr
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !437
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN4llvm2cl6parserINS_12AArch64PAuth15AuthCheckMethodEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
@@ -19576,7 +19580,7 @@ _ZN4llvm2cl6parserINS_12AArch64PAuth15AuthCheckMethodEE5parseERNS0_6OptionENS_9S
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select.i, ptr %29, align 8, !tbaa !406, !alias.scope !848
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i.fr, ptr %30, align 8, !tbaa !406, !alias.scope !848
+  store i64 %spec.select24.i, ptr %30, align 8, !tbaa !406, !alias.scope !848
   store ptr %8, ptr %7, align 8, !alias.scope !851
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.62, ptr %31, align 8, !alias.scope !851

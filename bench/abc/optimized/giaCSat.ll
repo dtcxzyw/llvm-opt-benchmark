@@ -1735,9 +1735,10 @@ Cbs_ManCancelUntil.exit:                          ; preds = %.lr.ph.i22, %77, %C
   store i32 1, ptr %90, align 4, !tbaa !28
   store i32 1, ptr %89, align 8, !tbaa !29
   %91 = load i32, ptr %5, align 8, !tbaa !58
+  %.fr = freeze i32 %91
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %93 = load i32, ptr %92, align 4, !tbaa !90
-  %94 = add nsw i32 %93, %91
+  %94 = add nsw i32 %93, %.fr
   store i32 %94, ptr %92, align 4, !tbaa !90
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load i32, ptr %95, align 8, !tbaa !91
@@ -1751,14 +1752,14 @@ Cbs_ManCancelUntil.exit:                          ; preds = %.lr.ph.i22, %77, %C
 
 Cbs_ManCheckLimits.exit26:                        ; preds = %Cbs_ManCancelUntil.exit
   %102 = load i32, ptr %0, align 8, !tbaa !13
-  %103 = icmp sle i32 %91, %102
-  %cond.fr = freeze i1 %103
-  %spec.select = select i1 %cond.fr, i32 %.0, i32 -1
+  %.fr31 = freeze i32 %102
+  %.not32 = icmp sgt i32 %.fr, %.fr31
+  %spec.select = select i1 %.not32, i32 -1, i32 %.0
   br label %Cbs_ManCheckLimits.exit26.thread
 
 Cbs_ManCheckLimits.exit26.thread:                 ; preds = %Cbs_ManCheckLimits.exit26, %Cbs_ManCancelUntil.exit
-  %104 = phi i32 [ -1, %Cbs_ManCancelUntil.exit ], [ %spec.select, %Cbs_ManCheckLimits.exit26 ]
-  ret i32 %104
+  %103 = phi i32 [ -1, %Cbs_ManCancelUntil.exit ], [ %spec.select, %Cbs_ManCheckLimits.exit26 ]
+  ret i32 %103
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1951,9 +1952,10 @@ Cbs_ManCancelUntil.exit:                          ; preds = %.lr.ph.i27, %84, %C
   store i32 1, ptr %97, align 4, !tbaa !28
   store i32 1, ptr %96, align 8, !tbaa !29
   %98 = load i32, ptr %6, align 8, !tbaa !58
+  %.fr = freeze i32 %98
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %100 = load i32, ptr %99, align 4, !tbaa !90
-  %101 = add nsw i32 %100, %98
+  %101 = add nsw i32 %100, %.fr
   store i32 %101, ptr %99, align 4, !tbaa !90
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load i32, ptr %102, align 8, !tbaa !91
@@ -1967,14 +1969,14 @@ Cbs_ManCancelUntil.exit:                          ; preds = %.lr.ph.i27, %84, %C
 
 Cbs_ManCheckLimits.exit31:                        ; preds = %Cbs_ManCancelUntil.exit
   %109 = load i32, ptr %0, align 8, !tbaa !13
-  %110 = icmp sle i32 %98, %109
-  %cond.fr = freeze i1 %110
-  %spec.select = select i1 %cond.fr, i32 %.0, i32 -1
+  %.fr36 = freeze i32 %109
+  %.not37 = icmp sgt i32 %.fr, %.fr36
+  %spec.select = select i1 %.not37, i32 -1, i32 %.0
   br label %Cbs_ManCheckLimits.exit31.thread
 
 Cbs_ManCheckLimits.exit31.thread:                 ; preds = %Cbs_ManCheckLimits.exit31, %Cbs_ManCancelUntil.exit
-  %111 = phi i32 [ -1, %Cbs_ManCancelUntil.exit ], [ %spec.select, %Cbs_ManCheckLimits.exit31 ]
-  ret i32 %111
+  %110 = phi i32 [ -1, %Cbs_ManCancelUntil.exit ], [ %spec.select, %Cbs_ManCheckLimits.exit31 ]
+  ret i32 %110
 }
 
 ; Function Attrs: nounwind uwtable

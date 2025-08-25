@@ -3687,32 +3687,33 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds i32, ptr %245, i64 %250
   %252 = load i32, ptr %247, align 4
+  %.fr66.i = freeze i32 %252
   %253 = load ptr, ptr %64, align 8
   %254 = getelementptr inbounds i16, ptr %253, i64 %250
-  %255 = icmp sgt i32 %244, %252
-  %.fr.i = freeze i1 %255
-  %256 = icmp sgt i32 %252, 0
+  %.fr65.i = freeze i32 %244
+  %255 = icmp sgt i32 %.fr65.i, %.fr66.i
+  %256 = icmp sgt i32 %.fr66.i, 0
   br i1 %256, label %.lr.ph.i41, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit
 
 .lr.ph.i41:                                       ; preds = %239
-  %257 = add nsw i32 %252, -1
+  %257 = add nsw i32 %.fr66.i, -1
   br i1 %65, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i41
-  br i1 %.fr.i, label %.lr.ph.split.us.split.preheader.i, label %.lr.ph.split.us.split.us.preheader.i
+  br i1 %255, label %.lr.ph.split.us.split.preheader.i, label %.lr.ph.split.us.split.us.preheader.i
 
 .lr.ph.split.us.split.us.preheader.i:             ; preds = %.lr.ph.split.us.i
-  %wide.trip.count82.i = zext nneg i32 %252 to i64
+  %wide.trip.count84.i = zext nneg i32 %.fr66.i to i64
   br label %.lr.ph.split.us.split.us.i
 
 .lr.ph.split.us.split.preheader.i:                ; preds = %.lr.ph.split.us.i
   %258 = zext nneg i32 %257 to i64
-  %wide.trip.count87.i = zext nneg i32 %252 to i64
+  %wide.trip.count89.i = zext nneg i32 %.fr66.i to i64
   br label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.preheader.i
-  %indvars.iv77.i = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader.i ], [ %indvars.iv.next78.i, %.lr.ph.split.us.split.us.i ]
-  %259 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv77.i
+  %indvars.iv79.i = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader.i ], [ %indvars.iv.next80.i, %.lr.ph.split.us.split.us.i ]
+  %259 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv79.i
   %260 = load i32, ptr %259, align 4
   %261 = shl nsw i32 %260, 1
   %262 = load ptr, ptr %48, align 8
@@ -3723,7 +3724,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   %267 = sext i32 %266 to i64
   %268 = load ptr, ptr %47, align 8
   %269 = getelementptr inbounds i32, ptr %268, i64 %267
-  %270 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv77.i
+  %270 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv79.i
   %271 = load i16, ptr %270, align 2
   %272 = zext i16 %271 to i64
   %273 = add nuw nsw i64 %272, 1
@@ -3732,16 +3733,16 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   %276 = sext i32 %275 to i64
   %277 = getelementptr inbounds i32, ptr %269, i64 %276
   %278 = load i32, ptr %277, align 4
-  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
-  %279 = getelementptr inbounds nuw i32, ptr %236, i64 %indvars.iv77.i
+  %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
+  %279 = getelementptr inbounds nuw i32, ptr %236, i64 %indvars.iv79.i
   store i32 %278, ptr %279, align 4
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count82.i
-  br i1 %exitcond83.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !20
+  %exitcond85.not.i = icmp eq i64 %indvars.iv.next80.i, %wide.trip.count84.i
+  br i1 %exitcond85.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.us.split.us.i, !llvm.loop !20
 
 .lr.ph.split.us.split.i:                          ; preds = %316, %.lr.ph.split.us.split.preheader.i
-  %indvars.iv84.i = phi i64 [ 0, %.lr.ph.split.us.split.preheader.i ], [ %indvars.iv.next85.i, %316 ]
+  %indvars.iv86.i = phi i64 [ 0, %.lr.ph.split.us.split.preheader.i ], [ %indvars.iv.next87.i, %316 ]
   %.056.us.i = phi i32 [ 0, %.lr.ph.split.us.split.preheader.i ], [ %.1.us.i, %316 ]
-  %280 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv84.i
+  %280 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv86.i
   %281 = load i32, ptr %280, align 4
   %282 = shl nsw i32 %281, 1
   %283 = load ptr, ptr %48, align 8
@@ -3752,7 +3753,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   %288 = sext i32 %287 to i64
   %289 = load ptr, ptr %47, align 8
   %290 = getelementptr inbounds i32, ptr %289, i64 %288
-  %291 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv84.i
+  %291 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv86.i
   %292 = load i16, ptr %291, align 2
   %293 = zext i16 %292 to i32
   %294 = add nuw nsw i32 %293, 1
@@ -3766,7 +3767,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   %302 = sext i32 %.056.us.i to i64
   %303 = getelementptr inbounds i32, ptr %236, i64 %302
   store i32 %300, ptr %303, align 4
-  %304 = icmp eq i64 %indvars.iv84.i, %258
+  %304 = icmp eq i64 %indvars.iv86.i, %258
   br i1 %304, label %305, label %316
 
 305:                                              ; preds = %.lr.ph.split.us.split.i
@@ -3785,20 +3786,20 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
 
 316:                                              ; preds = %305, %.lr.ph.split.us.split.i
   %.1.us.i = phi i32 [ %313, %305 ], [ %301, %.lr.ph.split.us.split.i ]
-  %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
-  %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count87.i
-  br i1 %exitcond88.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.us.split.i, !llvm.loop !20
+  %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
+  %exitcond90.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count89.i
+  br i1 %exitcond90.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.us.split.i, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i41
-  br i1 %.fr.i, label %.lr.ph.split.split.preheader.i, label %.lr.ph.split.split.us.preheader.i
+  br i1 %255, label %.lr.ph.split.split.preheader.i, label %.lr.ph.split.split.us.preheader.i
 
 .lr.ph.split.split.us.preheader.i:                ; preds = %.lr.ph.split.i
-  %wide.trip.count.i = zext nneg i32 %252 to i64
+  %wide.trip.count.i = zext nneg i32 %.fr66.i to i64
   br label %.lr.ph.split.split.us.i
 
 .lr.ph.split.split.preheader.i:                   ; preds = %.lr.ph.split.i
   %317 = zext nneg i32 %257 to i64
-  %wide.trip.count75.i = zext nneg i32 %252 to i64
+  %wide.trip.count77.i = zext nneg i32 %.fr66.i to i64
   br label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.noexc44, %.lr.ph.split.split.us.preheader.i
@@ -3826,16 +3827,16 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   br i1 %exitcond.not.i42, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.split.us.i, !llvm.loop !20
 
 .lr.ph.split.split.i:                             ; preds = %359, %.lr.ph.split.split.preheader.i
-  %indvars.iv72.i = phi i64 [ 0, %.lr.ph.split.split.preheader.i ], [ %indvars.iv.next73.i, %359 ]
+  %indvars.iv74.i = phi i64 [ 0, %.lr.ph.split.split.preheader.i ], [ %indvars.iv.next75.i, %359 ]
   %.056.i = phi i32 [ 0, %.lr.ph.split.split.preheader.i ], [ %.1.i43, %359 ]
-  %331 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv72.i
+  %331 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv74.i
   %332 = load i32, ptr %331, align 4
   %333 = invoke { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level17getFaceFVarValuesEii(ptr noundef nonnull align 8 dereferenceable(480) %46, i32 noundef %332, i32 noundef %6)
           to label %.noexc45 unwind label %.loopexit
 
 .noexc45:                                         ; preds = %.lr.ph.split.split.i
   %.fca.0.extract.i = extractvalue { ptr, i32 } %333, 0
-  %334 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv72.i
+  %334 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv74.i
   %335 = load i16, ptr %334, align 2
   %336 = zext i16 %335 to i32
   %337 = add nuw nsw i32 %336, 1
@@ -3849,7 +3850,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
   %345 = sext i32 %.056.i to i64
   %346 = getelementptr inbounds i32, ptr %236, i64 %345
   store i32 %343, ptr %346, align 4
-  %347 = icmp eq i64 %indvars.iv72.i, %317
+  %347 = icmp eq i64 %indvars.iv74.i, %317
   br i1 %347, label %348, label %359
 
 348:                                              ; preds = %.noexc45
@@ -3868,9 +3869,9 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i: ; preds = %228, %
 
 359:                                              ; preds = %348, %.noexc45
   %.1.i43 = phi i32 [ %356, %348 ], [ %344, %.noexc45 ]
-  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
-  br i1 %exitcond76.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.split.i, !llvm.loop !20
+  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
+  %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count77.i
+  br i1 %exitcond78.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit, label %.lr.ph.split.split.i, !llvm.loop !20
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_136gatherRegularPartialRingAroundVertexERKNS0_3Vtr8internal5LevelEiRKNS5_5VSpanEPii.exit: ; preds = %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit.i, %.noexc44, %359, %.lr.ph.split.us.split.us.i, %316, %239, %237
   %360 = load ptr, ptr %9, align 8

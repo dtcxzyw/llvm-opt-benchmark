@@ -218,10 +218,10 @@ _ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
 
 65:                                               ; preds = %65, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i
   %indvars.iv.i5.i = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i ], [ %indvars.iv.next.i6.i, %65 ]
-  %.0911.i.i = phi i32 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i ], [ %73, %65 ]
+  %.0910.i.i = phi i32 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i ], [ %73, %65 ]
   %66 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv.i5.i
   %67 = load i32, ptr %66, align 4, !tbaa !9
-  %68 = shl i32 %.0911.i.i, %67
+  %68 = shl i32 %.0910.i.i, %67
   %69 = trunc nuw nsw i64 %indvars.iv.i5.i to i32
   %70 = and i32 %69, 1
   %71 = xor i32 %70, 1
@@ -529,10 +529,10 @@ _ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib
 
 189:                                              ; preds = %189, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70
   %indvars.iv.i5.i74 = phi i64 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70 ], [ %indvars.iv.next.i6.i77, %189 ]
-  %.0911.i.i75 = phi i32 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70 ], [ %197, %189 ]
+  %.0910.i.i75 = phi i32 [ 0, %_ZN5ZXing20NormalizedE2EPatternILi6EEESt5arrayIiXmiT_Li2EEERKNS_11PatternViewEib.exit.i70 ], [ %197, %189 ]
   %190 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv.i5.i74
   %191 = load i32, ptr %190, align 4, !tbaa !9
-  %192 = shl i32 %.0911.i.i75, %191
+  %192 = shl i32 %.0910.i.i75, %191
   %193 = trunc nuw nsw i64 %indvars.iv.i5.i74 to i32
   %194 = and i32 %193, 1
   %195 = xor i32 %194, 1
@@ -2874,10 +2874,10 @@ define internal void @_GLOBAL__sub_I_ODCode128Reader.cpp() #13 section ".text.st
 
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.preheader.i.i ], [ 0, %13 ]
-  %.0911.i.i.i = phi i32 [ %11, %.preheader.i.i ], [ 0, %13 ]
+  %.0910.i.i.i = phi i32 [ %11, %.preheader.i.i ], [ 0, %13 ]
   %4 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv.i.i.i
   %5 = load i32, ptr %4, align 4, !tbaa !9
-  %6 = shl i32 %.0911.i.i.i, %5
+  %6 = shl i32 %.0910.i.i.i, %5
   %7 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %8 = and i32 %7, 1
   %9 = xor i32 %8, 1

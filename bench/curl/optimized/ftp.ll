@@ -7508,10 +7508,10 @@ _ftp_state.exit96:                                ; preds = %87, %92, %98, %104,
 
 .critedge89:                                      ; preds = %2
   %109 = load i64, ptr %9, align 2
-  %.fr126 = freeze i64 %109
-  %110 = and i64 %.fr126, 8192
-  %.not127 = icmp eq i64 %110, 0
-  br i1 %.not127, label %111, label %.critedge89.thread123
+  %.fr = freeze i64 %109
+  %110 = and i64 %.fr, 8192
+  %.not126 = icmp eq i64 %110, 0
+  br i1 %.not126, label %111, label %.critedge89.thread123
 
 .critedge89.thread123:                            ; preds = %.thread, %72, %.critedge89
   br label %111
@@ -8198,9 +8198,9 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %68 = load i16, ptr %5, align 8, !tbaa !221
   %cond = icmp eq i16 %68, 10
   %69 = zext i16 %68 to i32
-  %.sink582.sroa.sel.v = select i1 %cond, i64 8, i64 4
-  %.sink582.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink582.sroa.sel.v
-  %70 = call ptr @inet_ntop(i32 noundef %69, ptr noundef nonnull %.sink582.sroa.sel, ptr noundef nonnull %7, i32 noundef 1025) #10
+  %.sink581.sroa.sel.v = select i1 %cond, i64 8, i64 4
+  %.sink581.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink581.sroa.sel.v
+  %70 = call ptr @inet_ntop(i32 noundef %69, ptr noundef nonnull %.sink581.sroa.sel, ptr noundef nonnull %7, i32 noundef 1025) #10
   %.not291 = icmp eq ptr %70, null
   br i1 %.not291, label %.thread384, label %71
 
@@ -8548,12 +8548,12 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 
 225:                                              ; preds = %223, %.thread395
   %226 = phi i64 [ %224, %223 ], [ %221, %.thread395 ]
-  %.fr = freeze i64 %226
-  %227 = and i64 %.fr, 65536
+  %.fr481 = freeze i64 %226
+  %227 = and i64 %.fr481, 65536
   %228 = icmp eq i64 %227, 0
   %229 = load i16, ptr %5, align 8
-  %.fr482 = freeze i16 %229
-  %.not313 = icmp eq i16 %.fr482, 2
+  %.fr = freeze i16 %229
+  %.not313 = icmp eq i16 %.fr, 2
   %230 = load i16, ptr %122, align 2
   %rev.i346 = call i16 @llvm.bswap.i16(i16 %230)
   br i1 %228, label %.split447, label %.split447.us
@@ -8562,11 +8562,11 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br i1 %.not313, label %.split447.us.split.us.preheader, label %.split447.us.split.preheader
 
 .split447.us.split.preheader:                     ; preds = %.split447.us
-  %.not483605 = icmp eq i32 %1, 1
-  br i1 %.not483605, label %.loopexit, label %.lr.ph.preheader
+  %.not482604 = icmp eq i32 %1, 1
+  br i1 %.not482604, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.split447.us.split.preheader
-  %cond580 = icmp ne i16 %.fr482, 10
+  %cond579 = icmp ne i16 %.fr, 10
   br label %.lr.ph
 
 .split447.us.split.us.preheader:                  ; preds = %.split447.us, %231
@@ -8581,14 +8581,14 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br label %.split447.us.split.us.preheader
 
 .split447.us.split:                               ; preds = %.lr.ph
-  %233 = add i32 %.0217446.us606, 1
-  %.not483 = icmp eq i32 %.0217446.us606, 0
-  br i1 %.not483, label %.loopexit, label %.lr.ph
+  %233 = add i32 %.0217446.us605, 1
+  %.not482 = icmp eq i32 %.0217446.us605, 0
+  br i1 %.not482, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.split447.us.split
-  %.0217446.us606 = phi i32 [ %233, %.split447.us.split ], [ %1, %.lr.ph.preheader ]
-  %234 = icmp ne i32 %.0217446.us606, 0
-  %brmerge = or i1 %cond580, %234
+  %.0217446.us605 = phi i32 [ %233, %.split447.us.split ], [ %1, %.lr.ph.preheader ]
+  %234 = icmp ne i32 %.0217446.us605, 0
+  %brmerge = or i1 %cond579, %234
   br i1 %brmerge, label %.split447.us.split, label %.split449.us
 
 .split447:                                        ; preds = %225
@@ -8680,8 +8680,8 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %260 = load ptr, ptr %12, align 8, !tbaa !105
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 1358
   %262 = load i8, ptr %261, align 2, !tbaa !136
-  %.not585 = icmp eq i8 %262, 0
-  br i1 %.not585, label %_ftp_state.exit, label %263
+  %.not584 = icmp eq i8 %262, 0
+  br i1 %.not584, label %_ftp_state.exit, label %263
 
 263:                                              ; preds = %259
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 2658

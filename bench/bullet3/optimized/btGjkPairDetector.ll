@@ -234,8 +234,8 @@ define dso_local void @_ZN17btGjkPairDetector26getClosestPointsNonVirtualERKN36b
 78:                                               ; preds = %4
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !23
-  %.fr635 = freeze i32 %80
-  %81 = add i32 %.fr635, -17
+  %.fr = freeze i32 %80
+  %81 = add i32 %.fr, -17
   %82 = icmp ult i32 %81, 2
   br label %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit
 
@@ -866,7 +866,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit:      ; preds = %341, %511
   %512 = call fastcc noundef i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %14, ptr noundef nonnull %15)
   switch i32 %512, label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge [
     i32 1, label %.thread
-    i32 -1, label %.thread.loopexit657
+    i32 -1, label %.thread.loopexit656
   ]
 
 _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
@@ -883,14 +883,14 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %519 = call noundef float @llvm.fmuladd.f32(float %518, float %518, float %517)
   %520 = fcmp uge float %519, 0x3E80000000000000
   %521 = fcmp uge float %519, 0x3D10000000000000
-  %or.cond646 = and i1 %520, %521
-  br i1 %or.cond646, label %228, label %.thread
+  %or.cond645 = and i1 %520, %521
+  br i1 %or.cond645, label %228, label %.thread
 
-.thread.loopexit657:                              ; preds = %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
+.thread.loopexit656:                              ; preds = %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
   br label %.thread
 
-.thread:                                          ; preds = %412, %408, %404, %400, %396, %347, %513, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179, %228, %390, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit, %.thread.loopexit657
-  %.1104 = phi i1 [ true, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ false, %390 ], [ true, %412 ], [ true, %408 ], [ true, %404 ], [ true, %400 ], [ true, %396 ], [ true, %347 ], [ false, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179 ], [ false, %513 ], [ false, %228 ], [ false, %.thread.loopexit657 ]
+.thread:                                          ; preds = %412, %408, %404, %400, %396, %347, %513, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179, %228, %390, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit, %.thread.loopexit656
+  %.1104 = phi i1 [ true, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ false, %390 ], [ true, %412 ], [ true, %408 ], [ true, %404 ], [ true, %400 ], [ true, %396 ], [ true, %347 ], [ false, %_ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S8_.exit179 ], [ false, %513 ], [ false, %228 ], [ false, %.thread.loopexit656 ]
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %523 = load ptr, ptr %522, align 8, !tbaa !20
   call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %523)

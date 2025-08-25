@@ -10075,14 +10075,14 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %97 = phi i32 [ %57, %.thread ], [ %.pre, %68 ], [ %57, %93 ], [ %57, %91 ], [ %57, %88 ]
   %98 = or i32 %97, 96
   store i32 %98, ptr %4, align 4
-  %.pre161 = load i32, ptr %58, align 8
-  %.pre162 = load i8, ptr %60, align 4, !range !25
+  %.pre158 = load i32, ptr %58, align 8
+  %.pre159 = load i8, ptr %60, align 4, !range !25
   br label %99
 
 99:                                               ; preds = %93, %.critedge
   %100 = phi i32 [ %57, %93 ], [ %98, %.critedge ]
-  %101 = phi i8 [ %61, %93 ], [ %.pre162, %.critedge ]
-  %102 = phi i32 [ %59, %93 ], [ %.pre161, %.critedge ]
+  %101 = phi i8 [ %61, %93 ], [ %.pre159, %.critedge ]
+  %102 = phi i32 [ %59, %93 ], [ %.pre158, %.critedge ]
   %103 = icmp eq i8 %101, 0
   br i1 %103, label %106, label %104
 
@@ -10104,7 +10104,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #18, !srcloc !125
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.79, i32 626, i32 2305, i64 12) #18, !srcloc !126
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #18, !srcloc !127
-  %.pre163 = load i32, ptr %4, align 4
+  %.pre160 = load i32, ptr %4, align 4
   br label %.critedge52
 
 .thread57:                                        ; preds = %104, %105, %106
@@ -10149,7 +10149,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   br i1 %137, label %.critedge52, label %140
 
 .critedge52:                                      ; preds = %129, %.thread57, %109, %134, %132
-  %138 = phi i32 [ %100, %.thread57 ], [ %.pre163, %109 ], [ %100, %134 ], [ %100, %132 ], [ %100, %129 ]
+  %138 = phi i32 [ %100, %.thread57 ], [ %.pre160, %109 ], [ %100, %134 ], [ %100, %132 ], [ %100, %129 ]
   %139 = or i32 %138, 64
   store i32 %139, ptr %4, align 4
   br label %140
@@ -10273,11 +10273,11 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %221 = zext i8 %220 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %217, ptr align 1 %219, i64 %221, i1 false)
   %222 = add i8 %209, 1
-  %.pre164 = load i8, ptr %198, align 1
+  %.pre161 = load i8, ptr %198, align 1
   br label %223
 
 223:                                              ; preds = %213, %206
-  %224 = phi i8 [ %207, %206 ], [ %.pre164, %213 ]
+  %224 = phi i8 [ %207, %206 ], [ %.pre161, %213 ]
   %225 = phi i8 [ %209, %206 ], [ %222, %213 ]
   %226 = add nuw nsw i64 %208, 1
   %227 = zext i8 %224 to i64
@@ -10330,15 +10330,15 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %258 = zext i16 %256 to i32
   %259 = and i32 %258, 3
   %260 = icmp eq i32 %259, 3
-  %.pre169 = zext i16 %257 to i32
-  %261 = and i32 %.pre169, 3
+  %.pre166 = zext i16 %257 to i32
+  %261 = and i32 %.pre166, 3
   %262 = icmp eq i32 %261, 3
-  %or.cond256 = select i1 %260, i1 true, i1 %262
-  br i1 %or.cond256, label %._crit_edge, label %265
+  %or.cond253 = select i1 %260, i1 true, i1 %262
+  br i1 %or.cond253, label %._crit_edge, label %265
 
 ._crit_edge:                                      ; preds = %253
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  %264 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.183, ptr noundef nonnull %263, i32 noundef %258, i32 noundef %.pre169) #19
+  %264 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.183, ptr noundef nonnull %263, i32 noundef %258, i32 noundef %.pre166) #19
   br label %.thread68
 
 265:                                              ; preds = %253
@@ -10366,7 +10366,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   br i1 %280, label %295, label %281
 
 281:                                              ; preds = %274
-  %282 = lshr i32 %.pre169, %277
+  %282 = lshr i32 %.pre166, %277
   %283 = and i32 %282, 3
   %284 = lshr i32 %258, %277
   %285 = and i32 %284, 3
@@ -10581,8 +10581,8 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   call void asm sideeffect "513: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 513b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 513) #18, !srcloc !125
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.79, i32 626, i32 2305, i64 12) #18, !srcloc !126
   call void asm sideeffect "514: nop\0A\09.pushsection .discard.instr_end\0A\09.long 514b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 514) #18, !srcloc !127
-  %.pre165.pre = load i32, ptr %58, align 8
-  %.pre166.pre = load i8, ptr %60, align 4, !range !25
+  %.pre162.pre = load i32, ptr %58, align 8
+  %.pre163.pre = load i8, ptr %60, align 4, !range !25
   br label %.thread74
 
 .thread72:                                        ; preds = %410, %411, %412
@@ -10628,8 +10628,8 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   br label %.thread74
 
 .thread74:                                        ; preds = %435, %440, %438, %415, %.thread72
-  %444 = phi i8 [ %408, %.thread72 ], [ %.pre166.pre, %415 ], [ %408, %438 ], [ %408, %440 ], [ %408, %435 ]
-  %445 = phi i32 [ %407, %.thread72 ], [ %.pre165.pre, %415 ], [ %407, %438 ], [ %407, %440 ], [ %407, %435 ]
+  %444 = phi i8 [ %408, %.thread72 ], [ %.pre163.pre, %415 ], [ %408, %438 ], [ %408, %440 ], [ %408, %435 ]
+  %445 = phi i32 [ %407, %.thread72 ], [ %.pre162.pre, %415 ], [ %407, %438 ], [ %407, %440 ], [ %407, %435 ]
   %446 = phi ptr [ null, %.thread72 ], [ null, %415 ], [ null, %438 ], [ %spec.select, %440 ], [ null, %435 ]
   %447 = icmp eq i8 %444, 0
   br i1 %447, label %450, label %448
@@ -10707,12 +10707,12 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
   %489 = load i8, ptr %488, align 1
   %490 = getelementptr inbounds nuw i8, ptr %468, i64 62
   %491 = load i8, ptr %490, align 1
-  %.fr127 = freeze i8 %489
-  %492 = zext i8 %.fr127 to i32
+  %.fr = freeze i8 %489
+  %492 = zext i8 %.fr to i32
   %493 = and i32 %492, 30
   %494 = icmp eq i32 %493, 0
-  %.fr = freeze i8 %491
-  %495 = and i8 %.fr, 2
+  %.fr124 = freeze i8 %491
+  %495 = and i8 %.fr124, 2
   %496 = icmp eq i8 %495, 0
   %497 = getelementptr inbounds nuw i8, ptr %468, i64 77
   %498 = and i32 %492, 24
@@ -10750,7 +10750,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
 
 .split.split.us:                                  ; preds = %.split, %533
   %521 = phi i32 [ %534, %533 ], [ 0, %.split ]
-  switch i32 %521, label %default.unreachable221 [
+  switch i32 %521, label %default.unreachable218 [
     i32 0, label %523
     i32 1, label %522
     i32 2, label %526
@@ -10783,7 +10783,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
 
 .split.split.split.us:                            ; preds = %.split.split, %548
   %536 = phi i32 [ %549, %548 ], [ 0, %.split.split ]
-  switch i32 %536, label %default.unreachable221 [
+  switch i32 %536, label %default.unreachable218 [
     i32 0, label %538
     i32 1, label %541
     i32 2, label %537
@@ -10818,7 +10818,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
 
 .split.split.split:                               ; preds = %.split.split, %551
   %554 = phi i32 [ %552, %551 ], [ 0, %.split.split ]
-  switch i32 %554, label %default.unreachable221 [
+  switch i32 %554, label %default.unreachable218 [
     i32 0, label %557
     i32 1, label %555
     i32 2, label %556
@@ -10830,7 +10830,7 @@ define internal fastcc i32 @ieee80211_prep_channel(ptr noundef %0, ptr noundef %
 556:                                              ; preds = %.split.split.split
   br label %557
 
-default.unreachable221:                           ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us
+default.unreachable218:                           ; preds = %.split.split.split, %.split.split.split.us, %.split.split.us
   unreachable
 
 557:                                              ; preds = %555, %556, %.split.split.split

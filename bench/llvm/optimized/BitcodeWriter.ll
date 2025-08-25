@@ -35607,13 +35607,15 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit21: ; preds = %_ZNK4llv
   %72 = add i32 %71, 1
   store i32 %72, ptr %59, align 8, !tbaa !26
   %73 = load i32, ptr %4, align 8, !tbaa !503
-  %74 = icmp ult i32 %73, 65
+  %.fr = freeze i32 %73
+  %74 = icmp ult i32 %.fr, 65
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit21
-  %.neg.i.i.i.i = add nsw i32 %73, -64
+  %.neg.i.i.i.i = add nsw i32 %.fr, -64
   %76 = load i64, ptr %1, align 8
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %76, i1 false)
+  %.fr61 = freeze i64 %76
+  %77 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr61, i1 false)
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = add nsw i32 %.neg.i.i.i.i, %78
   br label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i
@@ -35626,14 +35628,13 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit21: ; preds = %_ZNK4llv
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i:         ; preds = %80, %75
   %.0.i.i = phi ptr [ %1, %75 ], [ %.pre.i22, %80 ]
   %.0.i.i.i.i = phi i32 [ %79, %75 ], [ %81, %80 ]
-  %.not.i.i = icmp ne i32 %73, %.0.i.i.i.i
+  %.not.i.i.not = icmp eq i32 %.fr, %.0.i.i.i.i
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not.i.i.fr = freeze i1 %.not.i.i
-  br i1 %.not.i.i.fr, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.us
+  br i1 %.not.i.i.not, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.us, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader
 
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader: ; preds = %_ZNK4llvm5APInt14getActiveWordsEv.exit.i
   %83 = xor i32 %.0.i.i.i.i, -1
-  %84 = add i32 %73, %83
+  %84 = add i32 %.fr, %83
   %85 = lshr i32 %84, 6
   %narrow = add nuw nsw i32 %85, 1
   %86 = zext nneg i32 %narrow to i64
@@ -35723,13 +35724,15 @@ _ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i: ; preds = %_ZL15emitSi
 _ZL13emitWideAPIntRN4llvm15SmallVectorImplImEERKNS_5APIntE.exit: ; preds = %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i, %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i.us
   %115 = phi i32 [ %storemerge.i.us, %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i.us ], [ %storemerge.i, %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i ]
   %116 = load i32, ptr %41, align 8, !tbaa !503
-  %117 = icmp ult i32 %116, 65
+  %.fr62 = freeze i32 %116
+  %117 = icmp ult i32 %.fr62, 65
   br i1 %117, label %118, label %123
 
 118:                                              ; preds = %_ZL13emitWideAPIntRN4llvm15SmallVectorImplImEERKNS_5APIntE.exit
-  %.neg.i.i.i.i42 = add nsw i32 %116, -64
+  %.neg.i.i.i.i42 = add nsw i32 %.fr62, -64
   %119 = load i64, ptr %40, align 8
-  %120 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %119, i1 false)
+  %.fr63 = freeze i64 %119
+  %120 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr63, i1 false)
   %121 = trunc nuw nsw i64 %120 to i32
   %122 = add nsw i32 %.neg.i.i.i.i42, %121
   br label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24
@@ -35742,16 +35745,15 @@ _ZL13emitWideAPIntRN4llvm15SmallVectorImplImEERKNS_5APIntE.exit: ; preds = %_ZL1
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i24:       ; preds = %123, %118
   %.0.i.i25 = phi ptr [ %40, %118 ], [ %.pre.i23, %123 ]
   %.0.i.i.i.i26 = phi i32 [ %122, %118 ], [ %124, %123 ]
-  %.not.i.i27 = icmp ne i32 %116, %.0.i.i.i.i26
-  %.not.i.i27.fr = freeze i1 %.not.i.i27
-  br i1 %.not.i.i27.fr, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split.preheader, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split.us
+  %.not.i.i27.not = icmp eq i32 %.fr62, %.0.i.i.i.i26
+  br i1 %.not.i.i27.not, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split.us, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split.preheader
 
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split.preheader: ; preds = %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24
   %125 = xor i32 %.0.i.i.i.i26, -1
-  %126 = add i32 %116, %125
+  %126 = add i32 %.fr62, %125
   %127 = lshr i32 %126, 6
-  %narrow92 = add nuw nsw i32 %127, 1
-  %128 = zext nneg i32 %narrow92 to i64
+  %narrow93 = add nuw nsw i32 %127, 1
+  %128 = zext nneg i32 %narrow93 to i64
   br label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split
 
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split.us: ; preds = %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24
@@ -35832,8 +35834,8 @@ _ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i35: ; preds = %_ZL15emit
   %storemerge.i39 = add i32 %storemerge.in.i38, 1
   store i32 %storemerge.i39, ptr %59, align 8, !tbaa !26
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i28, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next.i40, %128
-  br i1 %exitcond61.not, label %_ZL13emitWideAPIntRN4llvm15SmallVectorImplImEERKNS_5APIntE.exit43, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split, !llvm.loop !1410
+  %exitcond64.not = icmp eq i64 %indvars.iv.next.i40, %128
+  br i1 %exitcond64.not, label %_ZL13emitWideAPIntRN4llvm15SmallVectorImplImEERKNS_5APIntE.exit43, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i24.split, !llvm.loop !1410
 
 157:                                              ; preds = %22
   br i1 %25, label %158, label %165
@@ -36984,7 +36986,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit233: ; preds = %72, %_ZN
   store i64 0, ptr %81, align 8
   %.sroa.2.0..sroa_idx.i.i225 = getelementptr inbounds nuw i8, ptr %73, i64 56
   store i64 6, ptr %.sroa.2.0..sroa_idx.i.i225, align 8
-  %.pre607 = load ptr, ptr %0, align 8, !tbaa !290
+  %.pre608 = load ptr, ptr %0, align 8, !tbaa !290
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store i64 8, ptr %82, align 8
   %.sroa.2.0..sroa_idx.i.i232 = getelementptr inbounds nuw i8, ptr %73, i64 72
@@ -36993,11 +36995,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit233: ; preds = %72, %_ZN
   store ptr %76, ptr %6, align 8, !tbaa !162
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %73, ptr %83, align 8, !tbaa !167
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre607, ptr noundef nonnull align 8 dereferenceable(528) %76)
-  %84 = getelementptr inbounds nuw i8, ptr %.pre607, i64 64
-  %85 = getelementptr inbounds nuw i8, ptr %.pre607, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre608, ptr noundef nonnull align 8 dereferenceable(528) %76)
+  %84 = getelementptr inbounds nuw i8, ptr %.pre608, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %.pre608, i64 72
   %86 = load ptr, ptr %85, align 8, !tbaa !168
-  %87 = getelementptr inbounds nuw i8, ptr %.pre607, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %.pre608, i64 80
   %88 = load ptr, ptr %87, align 8, !tbaa !169
   %.not.i.i.i234 = icmp eq ptr %86, %88
   br i1 %.not.i.i.i234, label %94, label %89
@@ -37099,7 +37101,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit272: ; preds = %124, %_Z
   store i64 0, ptr %133, align 8
   %.sroa.2.0..sroa_idx.i.i264 = getelementptr inbounds nuw i8, ptr %125, i64 56
   store i64 6, ptr %.sroa.2.0..sroa_idx.i.i264, align 8
-  %.pre608 = load ptr, ptr %0, align 8, !tbaa !290
+  %.pre609 = load ptr, ptr %0, align 8, !tbaa !290
   %134 = getelementptr inbounds nuw i8, ptr %125, i64 64
   store i64 7, ptr %134, align 8
   %.sroa.2.0..sroa_idx.i.i271 = getelementptr inbounds nuw i8, ptr %125, i64 72
@@ -37108,11 +37110,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit272: ; preds = %124, %_Z
   store ptr %128, ptr %7, align 8, !tbaa !162
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %125, ptr %135, align 8, !tbaa !167
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre608, ptr noundef nonnull align 8 dereferenceable(528) %128)
-  %136 = getelementptr inbounds nuw i8, ptr %.pre608, i64 64
-  %137 = getelementptr inbounds nuw i8, ptr %.pre608, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre609, ptr noundef nonnull align 8 dereferenceable(528) %128)
+  %136 = getelementptr inbounds nuw i8, ptr %.pre609, i64 64
+  %137 = getelementptr inbounds nuw i8, ptr %.pre609, i64 72
   %138 = load ptr, ptr %137, align 8, !tbaa !168
-  %139 = getelementptr inbounds nuw i8, ptr %.pre608, i64 80
+  %139 = getelementptr inbounds nuw i8, ptr %.pre609, i64 80
   %140 = load ptr, ptr %139, align 8, !tbaa !169
   %.not.i.i.i273 = icmp eq ptr %138, %140
   br i1 %.not.i.i.i273, label %146, label %141
@@ -37213,7 +37215,7 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit311: ; preds = %176, %_Z
   store i64 0, ptr %185, align 8
   %.sroa.2.0..sroa_idx.i.i303 = getelementptr inbounds nuw i8, ptr %177, i64 56
   store i64 6, ptr %.sroa.2.0..sroa_idx.i.i303, align 8
-  %.pre609 = load ptr, ptr %0, align 8, !tbaa !290
+  %.pre610 = load ptr, ptr %0, align 8, !tbaa !290
   %186 = getelementptr inbounds nuw i8, ptr %177, i64 64
   store i64 0, ptr %186, align 8
   %.sroa.2.0..sroa_idx.i.i310 = getelementptr inbounds nuw i8, ptr %177, i64 72
@@ -37222,11 +37224,11 @@ _ZN4llvm13BitCodeAbbrev3AddERKNS_15BitCodeAbbrevOpE.exit311: ; preds = %176, %_Z
   store ptr %180, ptr %8, align 8, !tbaa !162
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %177, ptr %187, align 8, !tbaa !167
-  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre609, ptr noundef nonnull align 8 dereferenceable(528) %180)
-  %188 = getelementptr inbounds nuw i8, ptr %.pre609, i64 64
-  %189 = getelementptr inbounds nuw i8, ptr %.pre609, i64 72
+  call void @_ZN4llvm15BitstreamWriter12EncodeAbbrevERKNS_13BitCodeAbbrevE(ptr noundef nonnull align 8 dereferenceable(152) %.pre610, ptr noundef nonnull align 8 dereferenceable(528) %180)
+  %188 = getelementptr inbounds nuw i8, ptr %.pre610, i64 64
+  %189 = getelementptr inbounds nuw i8, ptr %.pre610, i64 72
   %190 = load ptr, ptr %189, align 8, !tbaa !168
-  %191 = getelementptr inbounds nuw i8, ptr %.pre609, i64 80
+  %191 = getelementptr inbounds nuw i8, ptr %.pre610, i64 80
   %192 = load ptr, ptr %191, align 8, !tbaa !169
   %.not.i.i.i312 = icmp eq ptr %190, %192
   br i1 %.not.i.i.i312, label %198, label %193
@@ -37770,8 +37772,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6.i: ; preds = %470, %4
   br label %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit
 
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i:         ; preds = %441
-  %.pre.i360 = load ptr, ptr %445, align 8
   %479 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %445) #32
+  %.pre.i360 = load ptr, ptr %445, align 8
   %.not.i.i363.not = icmp eq i32 %.fr, %479
   br i1 %.not.i.i363.not, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.us, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader
 
@@ -37888,11 +37890,11 @@ _ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit.i: ; preds = %_ZL15emitSi
   %525 = load ptr, ptr %524, align 8, !tbaa !469
   %526 = load ptr, ptr %525, align 8, !tbaa !467
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %526, i64 8
-  %.pre610 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre611 = load i32, ptr %.phi.trans.insert, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit
 
 _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %517, %523
-  %527 = phi i32 [ %.pre610, %523 ], [ %520, %517 ]
+  %527 = phi i32 [ %.pre611, %523 ], [ %520, %517 ]
   %trunc = trunc i32 %527 to i8
   switch i8 %trunc, label %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit [
     i8 0, label %528
@@ -38036,10 +38038,10 @@ _ZN4llvm5APIntD2Ev.exit373:                       ; preds = %570, %579, %582
 
 585:                                              ; preds = %583
   %586 = call noundef zeroext i1 @_ZNK4llvm22ConstantDataSequential8isStringEj(ptr noundef nonnull align 8 dereferenceable(40) %249, i32 noundef 8) #28
-  br i1 %586, label %587, label %._crit_edge611
+  br i1 %586, label %587, label %._crit_edge612
 
-._crit_edge611:                                   ; preds = %585
-  %.pre612 = load i8, ptr %249, align 8, !tbaa !520
+._crit_edge612:                                   ; preds = %585
+  %.pre613 = load i8, ptr %249, align 8, !tbaa !520
   br label %623
 
 587:                                              ; preds = %585
@@ -38121,8 +38123,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit377: ; preds = %.lr.ph5
   %.not191 = icmp eq i32 %622, %.0156
   br i1 %.not191, label %._crit_edge.loopexit, label %.lr.ph592, !llvm.loop !1455
 
-623:                                              ; preds = %._crit_edge611, %583
-  %624 = phi i8 [ %.pre612, %._crit_edge611 ], [ %435, %583 ]
+623:                                              ; preds = %._crit_edge612, %583
+  %624 = phi i8 [ %.pre613, %._crit_edge612 ], [ %435, %583 ]
   %625 = add i8 %624, -17
   %spec.select.i.i.i.i.i.i.i.i378 = icmp ult i8 %625, -2
   %.not180 = or i1 %.not177563, %spec.select.i.i.i.i.i.i.i.i378
@@ -38292,8 +38294,8 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %677, %678
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %686, %689
   %694 = phi ptr [ %688, %686 ], [ %693, %689 ]
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %686 ], [ %691, %689 ]
-  %.idx599 = shl nuw nsw i64 %.pre-phi2.i.i, 5
-  %695 = getelementptr inbounds nuw i8, ptr %694, i64 %.idx599
+  %.idx600 = shl nuw nsw i64 %.pre-phi2.i.i, 5
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 %.idx600
   %.not188585 = icmp eq i64 %.pre-phi2.i.i, 0
   br i1 %.not188585, label %_ZL15emitSignedInt64RN4llvm15SmallVectorImplImEEm.exit, label %.lr.ph587
 
@@ -38882,11 +38884,11 @@ _ZNK4llvm4User10getOperandEj.exit448:             ; preds = %_ZNK4llvm4User10get
   %1032 = call noundef i32 @_ZNK4llvm15ValueEnumerator9getTypeIDEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(492) %232, ptr noundef %1031)
   %1033 = zext i32 %1032 to i64
   call void @_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %1033)
-  %.pre613 = load i32, ptr %1014, align 4
+  %.pre614 = load i32, ptr %1014, align 4
   br label %1034
 
 1034:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit446.thread, %_ZNK4llvm4User10getOperandEj.exit446, %_ZNK4llvm4User10getOperandEj.exit448
-  %1035 = phi i32 [ %.pre613, %_ZNK4llvm4User10getOperandEj.exit448 ], [ %1015, %_ZNK4llvm4User10getOperandEj.exit446 ], [ %1015, %_ZNK4llvm4User10getOperandEj.exit446.thread ]
+  %1035 = phi i32 [ %.pre614, %_ZNK4llvm4User10getOperandEj.exit448 ], [ %1015, %_ZNK4llvm4User10getOperandEj.exit446 ], [ %1015, %_ZNK4llvm4User10getOperandEj.exit446.thread ]
   %.6 = phi i32 [ 19, %_ZNK4llvm4User10getOperandEj.exit448 ], [ 16, %_ZNK4llvm4User10getOperandEj.exit446 ], [ 16, %_ZNK4llvm4User10getOperandEj.exit446.thread ]
   %1036 = and i32 %1035, 1073741824
   %.not.i.i449 = icmp eq i32 %1036, 0
@@ -43108,13 +43110,15 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17: ; preds = %_ZNK4llv
   %94 = add i32 %93, 1
   store i32 %94, ptr %14, align 8, !tbaa !26
   %95 = load i32, ptr %29, align 8, !tbaa !503
-  %96 = icmp ult i32 %95, 65
+  %.fr = freeze i32 %95
+  %96 = icmp ult i32 %.fr, 65
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17
-  %.neg.i.i.i.i = add nsw i32 %95, -64
+  %.neg.i.i.i.i = add nsw i32 %.fr, -64
   %98 = load i64, ptr %28, align 8
-  %99 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %98, i1 false)
+  %.fr19 = freeze i64 %98
+  %99 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.fr19, i1 false)
   %100 = trunc nuw nsw i64 %99 to i32
   %101 = add nsw i32 %.neg.i.i.i.i, %100
   br label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i
@@ -43127,14 +43131,13 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit17: ; preds = %_ZNK4llv
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i:         ; preds = %102, %97
   %.0.i.i = phi ptr [ %28, %97 ], [ %.pre.i18, %102 ]
   %.0.i.i.i.i = phi i32 [ %101, %97 ], [ %103, %102 ]
-  %.not.i.i = icmp ne i32 %95, %.0.i.i.i.i
+  %.not.i.i.not = icmp eq i32 %.fr, %.0.i.i.i.i
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not.i.i.fr = freeze i1 %.not.i.i
-  br i1 %.not.i.i.fr, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.us
+  br i1 %.not.i.i.not, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.us, label %_ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader
 
 _ZNK4llvm5APInt14getActiveWordsEv.exit.i.split.preheader: ; preds = %_ZNK4llvm5APInt14getActiveWordsEv.exit.i
   %105 = xor i32 %.0.i.i.i.i, -1
-  %106 = add i32 %95, %105
+  %106 = add i32 %.fr, %105
   %107 = lshr i32 %106, 6
   %narrow = add nuw nsw i32 %107, 1
   %108 = zext nneg i32 %narrow to i64

@@ -1806,68 +1806,50 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store <4 x i64> <i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935>, ptr %10, align 32, !tbaa !3
   store <4 x i64> <i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809>, ptr %11, align 32, !tbaa !3
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !18
-  %14 = load i8, ptr %3, align 8, !tbaa !21
+  %12 = load i64, ptr %3, align 8
+  %13 = trunc i64 %12 to i32
+  %14 = lshr i32 %13, 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = load ptr, ptr %15, align 8, !tbaa !21
   %.val75 = load i64, ptr %16, align 1
   %17 = getelementptr i8, ptr %16, i64 8
   %.val74 = load i64, ptr %17, align 1
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   %.val73 = load i64, ptr %19, align 1
   %20 = getelementptr i8, ptr %19, i64 8
   %.val = load i64, ptr %20, align 1
-  %21 = zext i8 %14 to i64
-  %22 = zext i8 %13 to i64
-  %23 = shl nuw nsw i64 %22, 8
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %25 = load i8, ptr %24, align 2, !tbaa !24
-  %26 = zext i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 16
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !25
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %30, 24
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !26
-  %34 = zext i32 %33 to i64
-  %35 = shl nuw i64 %34, 32
-  %36 = or disjoint i64 %23, %27
-  %37 = or disjoint i64 %36, %31
-  %38 = or disjoint i64 %37, %35
-  %39 = or disjoint i64 %38, %21
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !27
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %43 = load i16, ptr %42, align 8
-  %44 = zext i16 %43 to i64
-  %45 = xor i64 %39, 7640891576956012808
-  %46 = xor i64 %41, -4942790177534073029
-  %47 = xor i64 %44, 4354685564936845355
-  %48 = xor i64 %.val75, 5840696475078001361
-  %49 = xor i64 %.val74, -7276294671716946913
-  %50 = xor i64 %.val73, 2270897969802886507
-  %51 = xor i64 %.val, 6620516959819538809
-  %52 = insertelement <4 x i64> <i64 poison, i64 poison, i64 poison, i64 -6534734903238641935>, i64 %45, i64 0
-  %53 = insertelement <4 x i64> %52, i64 %46, i64 1
-  %54 = insertelement <4 x i64> %53, i64 %47, i64 2
-  store <4 x i64> %54, ptr %7, align 32, !tbaa !3
-  %55 = insertelement <4 x i64> poison, i64 %48, i64 0
-  %56 = insertelement <4 x i64> %55, i64 %49, i64 1
-  %57 = insertelement <4 x i64> %56, i64 %50, i64 2
-  %58 = insertelement <4 x i64> %57, i64 %51, i64 3
-  store <4 x i64> %58, ptr %9, align 32, !tbaa !3
-  %59 = zext i8 %13 to i32
-  call fastcc void @update(ptr noundef %8, ptr noundef %7, i32 noundef %59, ptr noundef %4, i32 noundef %2, ptr noundef %1)
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !23
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %24 = load i16, ptr %23, align 8
+  %25 = zext i16 %24 to i64
+  %26 = xor i64 %12, 7640891576956012808
+  %27 = xor i64 %22, -4942790177534073029
+  %28 = xor i64 %25, 4354685564936845355
+  %29 = xor i64 %.val75, 5840696475078001361
+  %30 = xor i64 %.val74, -7276294671716946913
+  %31 = xor i64 %.val73, 2270897969802886507
+  %32 = xor i64 %.val, 6620516959819538809
+  %33 = insertelement <4 x i64> <i64 poison, i64 poison, i64 poison, i64 -6534734903238641935>, i64 %26, i64 0
+  %34 = insertelement <4 x i64> %33, i64 %27, i64 1
+  %35 = insertelement <4 x i64> %34, i64 %28, i64 2
+  store <4 x i64> %35, ptr %7, align 32, !tbaa !3
+  %36 = insertelement <4 x i64> poison, i64 %29, i64 0
+  %37 = insertelement <4 x i64> %36, i64 %30, i64 1
+  %38 = insertelement <4 x i64> %37, i64 %31, i64 2
+  %39 = insertelement <4 x i64> %38, i64 %32, i64 3
+  store <4 x i64> %39, ptr %9, align 32, !tbaa !3
+  %40 = and i32 %14, 255
+  call fastcc void @update(ptr noundef %8, ptr noundef %7, i32 noundef %40, ptr noundef %4, i32 noundef %2, ptr noundef %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %61 = load <4 x i64>, ptr %7, align 32, !tbaa !3
-  store <4 x i64> %61, ptr %6, align 16, !tbaa !3
-  %62 = load <4 x i64>, ptr %9, align 32, !tbaa !3
-  store <4 x i64> %62, ptr %60, align 16, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %6, i64 %21, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %42 = load <4 x i64>, ptr %7, align 32, !tbaa !3
+  store <4 x i64> %42, ptr %6, align 16, !tbaa !3
+  %43 = load <4 x i64>, ptr %9, align 32, !tbaa !3
+  store <4 x i64> %43, ptr %41, align 16, !tbaa !3
+  %44 = and i64 %12, 255
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %6, i64 %44, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 64) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 128) #25
@@ -1942,10 +1924,6 @@ attributes #28 = { nounwind allocsize(0) }
 !18 = !{!19, !4, i64 1}
 !19 = !{!"Hacl_Hash_Blake2b_blake2_params_s", !4, i64 0, !4, i64 1, !4, i64 2, !4, i64 3, !17, i64 4, !9, i64 8, !4, i64 16, !4, i64 17, !15, i64 24, !15, i64 32}
 !20 = !{i64 0, i64 1, !3, i64 1, i64 1, !3, i64 2, i64 1, !10, i64 8, i64 8, !12, i64 16, i64 8, !12, i64 24, i64 8, !14, i64 32, i64 8, !8}
-!21 = !{!19, !4, i64 0}
-!22 = !{!19, !15, i64 24}
-!23 = !{!19, !15, i64 32}
-!24 = !{!19, !4, i64 2}
-!25 = !{!19, !4, i64 3}
-!26 = !{!19, !17, i64 4}
-!27 = !{!19, !9, i64 8}
+!21 = !{!19, !15, i64 24}
+!22 = !{!19, !15, i64 32}
+!23 = !{!19, !9, i64 8}

@@ -603,12 +603,12 @@ stripsnug.exit.pluscount.exit_crit_edge:          ; preds = %seterr.exit13.i, %s
 
 201:                                              ; preds = %.preheader, %switch.early.test.i
   %.248.i = phi ptr [ %203, %switch.early.test.i ], [ %.046.i, %.preheader ]
-  %.1.i = phi i64 [ %.fr2.i, %switch.early.test.i ], [ %194, %.preheader ]
+  %.1.i = phi i64 [ %.fr.i, %switch.early.test.i ], [ %194, %.preheader ]
   %202 = and i64 %.1.i, 134217727
   %203 = getelementptr inbounds nuw i64, ptr %.248.i, i64 %202
   %204 = load i64, ptr %203, align 8, !tbaa !34
-  %.fr2.i = freeze i64 %204
-  %205 = and i64 %.fr2.i, 4160749568
+  %.fr.i = freeze i64 %204
+  %205 = and i64 %.fr.i, 4160749568
   %.not1.i = icmp eq i64 %205, 1610612736
   br i1 %.not1.i, label %.loopexit.i104, label %switch.early.test.i
 
@@ -627,7 +627,7 @@ switch.early.test.i:                              ; preds = %201
 
 .loopexit.i104:                                   ; preds = %switch.early.test.i, %201, %192
   %.147.i = phi ptr [ %193, %192 ], [ %203, %201 ], [ %203, %switch.early.test.i ]
-  %.037.i = phi i64 [ %194, %192 ], [ %.fr2.i, %201 ], [ %.fr2.i, %switch.early.test.i ]
+  %.037.i = phi i64 [ %194, %192 ], [ %.fr.i, %201 ], [ %.fr.i, %switch.early.test.i ]
   %209 = load i32, ptr %49, align 8, !tbaa !28
   %210 = sext i32 %209 to i64
   %211 = icmp sgt i64 %.038.i, %210
@@ -659,9 +659,9 @@ switch.early.test.i:                              ; preds = %201
   %222 = call noalias ptr @malloc(i64 noundef %221) #14
   store ptr %222, ptr %48, align 8, !tbaa !27
   %223 = icmp eq ptr %222, null
-  br i1 %223, label %225, label %.preheader4.i
+  br i1 %223, label %225, label %.preheader3.i
 
-.preheader4.i:                                    ; preds = %219
+.preheader3.i:                                    ; preds = %219
   %224 = icmp sgt i32 %217, 0
   br i1 %224, label %.preheader.i105, label %._crit_edge.i
 
@@ -669,14 +669,14 @@ switch.early.test.i:                              ; preds = %201
   store i32 0, ptr %49, align 8, !tbaa !28
   br label %findmust.exit.preheader
 
-.preheader.i105:                                  ; preds = %.preheader4.i, %230
-  %.011.i = phi i64 [ %233, %230 ], [ %220, %.preheader4.i ]
-  %.03610.i = phi ptr [ %232, %230 ], [ %222, %.preheader4.i ]
-  %.49.i = phi ptr [ %227, %230 ], [ %.245.i, %.preheader4.i ]
+.preheader.i105:                                  ; preds = %.preheader3.i, %230
+  %.010.i = phi i64 [ %233, %230 ], [ %220, %.preheader3.i ]
+  %.0369.i = phi ptr [ %232, %230 ], [ %222, %.preheader3.i ]
+  %.48.i = phi ptr [ %227, %230 ], [ %.245.i, %.preheader3.i ]
   br label %226
 
 226:                                              ; preds = %226, %.preheader.i105
-  %.5.i = phi ptr [ %227, %226 ], [ %.49.i, %.preheader.i105 ]
+  %.5.i = phi ptr [ %227, %226 ], [ %.48.i, %.preheader.i105 ]
   %227 = getelementptr inbounds nuw i8, ptr %.5.i, i64 8
   %228 = load i64, ptr %.5.i, align 8, !tbaa !34
   %229 = and i64 %228, 4160749568
@@ -685,14 +685,14 @@ switch.early.test.i:                              ; preds = %201
 
 230:                                              ; preds = %226
   %231 = trunc i64 %228 to i8
-  %232 = getelementptr inbounds nuw i8, ptr %.03610.i, i64 1
-  store i8 %231, ptr %.03610.i, align 1, !tbaa !36
-  %233 = add nsw i64 %.011.i, -1
-  %234 = icmp sgt i64 %.011.i, 1
+  %232 = getelementptr inbounds nuw i8, ptr %.0369.i, i64 1
+  store i8 %231, ptr %.0369.i, align 1, !tbaa !36
+  %233 = add nsw i64 %.010.i, -1
+  %234 = icmp sgt i64 %.010.i, 1
   br i1 %234, label %.preheader.i105, label %._crit_edge.i, !llvm.loop !50
 
-._crit_edge.i:                                    ; preds = %230, %.preheader4.i
-  %.036.lcssa.i = phi ptr [ %222, %.preheader4.i ], [ %232, %230 ]
+._crit_edge.i:                                    ; preds = %230, %.preheader3.i
+  %.036.lcssa.i = phi ptr [ %222, %.preheader3.i ], [ %232, %230 ]
   store i8 0, ptr %.036.lcssa.i, align 1, !tbaa !36
   br label %findmust.exit.preheader
 

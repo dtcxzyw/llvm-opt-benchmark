@@ -90,13 +90,13 @@ define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h8f2d4dd5ab10
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %6 = load i64, ptr %3, align 8, !alias.scope !12, !noalias !13, !noundef !4
   %7 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %6, i64 noundef 136), !noalias !12
-  %.fr15.i = freeze { ptr, i64 } %7
-  %8 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %7
+  %8 = extractvalue { ptr, i64 } %.fr.i, 0
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %4
-  %10 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %10 = extractvalue { ptr, i64 } %.fr.i, 1
   %11 = add i64 %6, 136
   store i64 %11, ptr %3, align 8, !alias.scope !12, !noalias !13
   %12 = icmp ult i64 %10, 136
@@ -218,13 +218,13 @@ define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h9aaa57779956
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %6 = load i64, ptr %3, align 8, !alias.scope !28, !noalias !29, !noundef !4
   %7 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %6, i64 noundef 120), !noalias !28
-  %.fr15.i = freeze { ptr, i64 } %7
-  %8 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %7
+  %8 = extractvalue { ptr, i64 } %.fr.i, 0
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.1655692584469633042.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %4
-  %10 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %10 = extractvalue { ptr, i64 } %.fr.i, 1
   %11 = add i64 %6, 120
   store i64 %11, ptr %3, align 8, !alias.scope !28, !noalias !29
   %12 = icmp ult i64 %10, 120
@@ -342,13 +342,13 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN6object4read2pe4file44_$LT$impl$u20$object..pe..ImageDosHeader$GT$5parse17hb0ca509b4b636584E"(ptr noalias noundef writeonly sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef 64), !noalias !37
-  %.fr15.i.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i.i, 0
+  %.fr.i.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef7read_at17hb80828e7c54106e7E.llvm.1655692584469633042.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i.i, 1
   %8 = icmp ult i64 %7, 64
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1178,13 +1178,13 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %4 = load i64, ptr %2, align 8, !alias.scope !152, !noalias !155, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 64), !noalias !152
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 64
   store i64 %9, ptr %2, align 8, !alias.scope !152, !noalias !155
   %10 = icmp ult i64 %8, 64
@@ -1207,13 +1207,13 @@ define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %4 = load i64, ptr %2, align 8, !alias.scope !157, !noalias !160, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 32), !noalias !157
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 32
   store i64 %9, ptr %2, align 8, !alias.scope !157, !noalias !160
   %10 = icmp ult i64 %8, 32
@@ -1236,13 +1236,13 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %4 = load i64, ptr %2, align 8, !alias.scope !162, !noalias !165, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 64), !noalias !162
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 64
   store i64 %9, ptr %2, align 8, !alias.scope !162, !noalias !165
   %10 = icmp ult i64 %8, 64
@@ -1265,13 +1265,13 @@ define hidden noundef align 4 dereferenceable_or_null(52) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %4 = load i64, ptr %2, align 8, !alias.scope !167, !noalias !170, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 52), !noalias !167
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 52
   store i64 %9, ptr %2, align 8, !alias.scope !167, !noalias !170
   %10 = icmp ult i64 %8, 52
@@ -1294,13 +1294,13 @@ define hidden noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %4 = load i64, ptr %2, align 8, !alias.scope !172, !noalias !175, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 40), !noalias !172
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 40
   store i64 %9, ptr %2, align 8, !alias.scope !172, !noalias !175
   %10 = icmp ult i64 %8, 40
@@ -1345,13 +1345,13 @@ define hidden noundef align 4 dereferenceable_or_null(28) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   %4 = load i64, ptr %2, align 8, !alias.scope !182, !noalias !185, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 28), !noalias !182
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 28
   store i64 %9, ptr %2, align 8, !alias.scope !182, !noalias !185
   %10 = icmp ult i64 %8, 28
@@ -1374,13 +1374,13 @@ define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %4 = load i64, ptr %2, align 8, !alias.scope !187, !noalias !190, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 32), !noalias !187
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 32
   store i64 %9, ptr %2, align 8, !alias.scope !187, !noalias !190
   %10 = icmp ult i64 %8, 32
@@ -1403,13 +1403,13 @@ define hidden noundef align 4 dereferenceable_or_null(120) ptr @_ZN6object4read8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   %4 = load i64, ptr %2, align 8, !alias.scope !192, !noalias !195, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 120), !noalias !192
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 120
   store i64 %9, ptr %2, align 8, !alias.scope !192, !noalias !195
   %10 = icmp ult i64 %8, 120
@@ -1432,13 +1432,13 @@ define hidden noundef align 4 dereferenceable_or_null(64) ptr @_ZN6object4read8r
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %4 = load i64, ptr %2, align 8, !alias.scope !197, !noalias !200, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 64), !noalias !197
-  %.fr15 = freeze { ptr, i64 } %5
-  %6 = extractvalue { ptr, i64 } %.fr15, 0
+  %.fr = freeze { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %.fr, 0
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit: ; preds = %3
-  %8 = extractvalue { ptr, i64 } %.fr15, 1
+  %8 = extractvalue { ptr, i64 } %.fr, 1
   %9 = add i64 %4, 64
   store i64 %9, ptr %2, align 8, !alias.scope !197, !noalias !200
   %10 = icmp ult i64 %8, 64
@@ -1459,13 +1459,13 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(52) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h4186b4b7e74b874fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 52), !noalias !202
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 52
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1484,13 +1484,13 @@ _ZN6object4read8read_ref7ReadRef4read17h43bf4884b6702ae2E.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h6371400ef8389033E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 40), !noalias !207
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 40
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1509,13 +1509,13 @@ _ZN6object4read8read_ref7ReadRef4read17h4f8ccd93a310bb2eE.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h7b4fb86bf96f48f2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 64), !noalias !212
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 64
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 7
@@ -1534,13 +1534,13 @@ _ZN6object4read8read_ref7ReadRef4read17h188bb1c4c4ef776dE.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h90db67429c6b3210E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 64), !noalias !217
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 64
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 7
@@ -1559,13 +1559,13 @@ _ZN6object4read8read_ref7ReadRef4read17h41931d68f2494f71E.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(120) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h96868bad3e4df192E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 120), !noalias !222
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 120
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1597,13 +1597,13 @@ _ZN6object4read8read_ref7ReadRef4read17h5f5787a12f805378E.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hb80828e7c54106e7E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 64), !noalias !232
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 64
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1622,13 +1622,13 @@ _ZN6object4read8read_ref7ReadRef4read17he9d5af677a74dc99E.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hc9a178284b007869E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 32), !noalias !237
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 32
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1647,13 +1647,13 @@ _ZN6object4read8read_ref7ReadRef4read17ha64c8063aa5da23dE.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(28) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hd245e23efec1d56bE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 28), !noalias !242
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 28
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1672,13 +1672,13 @@ _ZN6object4read8read_ref7ReadRef4read17h79fba1a78f44caedE.llvm.16556925844696330
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hd5e22f4e0062ad33E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 32), !noalias !247
-  %.fr15.i = freeze { ptr, i64 } %4
-  %5 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %4
+  %5 = extractvalue { ptr, i64 } %.fr.i, 0
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread.i, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %3
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %7 = extractvalue { ptr, i64 } %.fr.i, 1
   %8 = icmp ult i64 %7, 32
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
@@ -1700,13 +1700,13 @@ define hidden void @"_ZN84_$LT$object..pe..ImageFileHeader$u20$as$u20$object..re
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %5 = load i64, ptr %3, align 8, !alias.scope !258, !noalias !259, !noundef !4
   %6 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %5, i64 noundef 20), !noalias !258
-  %.fr15.i = freeze { ptr, i64 } %6
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %6
+  %7 = extractvalue { ptr, i64 } %.fr.i, 0
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN6object4read8read_ref7ReadRef4read17h4375711d2807dc34E.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %4
-  %9 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %9 = extractvalue { ptr, i64 } %.fr.i, 1
   %10 = add i64 %5, 20
   store i64 %10, ptr %3, align 8, !alias.scope !258, !noalias !259
   %11 = icmp ult i64 %9, 20
@@ -1755,13 +1755,13 @@ define hidden void @"_ZN91_$LT$object..pe..AnonObjectHeaderBigobj$u20$as$u20$obj
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %5 = load i64, ptr %3, align 8, !alias.scope !268, !noalias !269, !noundef !4
   %6 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %5, i64 noundef 56), !noalias !268
-  %.fr15.i = freeze { ptr, i64 } %6
-  %7 = extractvalue { ptr, i64 } %.fr15.i, 0
+  %.fr.i = freeze { ptr, i64 } %6
+  %7 = extractvalue { ptr, i64 } %.fr.i, 0
   %8 = icmp eq ptr %7, null
   br i1 %8, label %_ZN6object4read8read_ref7ReadRef4read17hf55c8d5ff0a948efE.exit.thread, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds = %4
-  %9 = extractvalue { ptr, i64 } %.fr15.i, 1
+  %9 = extractvalue { ptr, i64 } %.fr.i, 1
   %10 = add i64 %5, 56
   store i64 %10, ptr %3, align 8, !alias.scope !268, !noalias !269
   %11 = icmp ult i64 %9, 56

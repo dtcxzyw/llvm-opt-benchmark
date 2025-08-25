@@ -2959,16 +2959,17 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   store i32 %211, ptr %161, align 4
   store i32 %210, ptr %162, align 8
   %212 = load ptr, ptr %71, align 8
+  %.fr678 = freeze ptr %212
   %213 = load ptr, ptr %72, align 8
-  %214 = icmp eq ptr %212, %213
+  %.fr677 = freeze ptr %213
+  %214 = icmp eq ptr %.fr678, %.fr677
   br i1 %214, label %.loopexit457, label %215
 
 215:                                              ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
-  %216 = ptrtoint ptr %213 to i64
-  %217 = ptrtoint ptr %212 to i64
+  %216 = ptrtoint ptr %.fr677 to i64
+  %217 = ptrtoint ptr %.fr678 to i64
   %218 = sub i64 %216, %217
-  %.fr680 = freeze i64 %218
-  %219 = ashr i64 %.fr680, 5
+  %219 = ashr i64 %218, 5
   %220 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %219, i64 24)
   %221 = extractvalue { i64, i1 } %220, 1
   %222 = extractvalue { i64, i1 } %220, 0
@@ -3793,14 +3794,16 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317: ; preds = %591, %_ZNSt6ve
 
 619:                                              ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317
   %620 = load ptr, ptr %1, align 8
+  %.fr680 = freeze ptr %620
   %621 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %622 = load ptr, ptr %621, align 8
-  %623 = icmp eq ptr %620, %622
+  %.fr679 = freeze ptr %622
+  %623 = icmp eq ptr %.fr680, %.fr679
   br i1 %623, label %922, label %624
 
 624:                                              ; preds = %619
-  %625 = ptrtoint ptr %622 to i64
-  %626 = ptrtoint ptr %620 to i64
+  %625 = ptrtoint ptr %.fr679 to i64
+  %626 = ptrtoint ptr %.fr680 to i64
   %627 = sub i64 %625, %626
   %628 = sdiv exact i64 %627, 12
   %629 = trunc i64 %628 to i32
@@ -3843,19 +3846,20 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317: ; preds = %591, %_ZNSt6ve
   %653 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %652) #27
   %654 = add i64 %625, -12
   %655 = sub i64 %654, %626
-  %.fr = freeze i64 %655
-  %656 = urem i64 %.fr, 12
-  %657 = sub nuw i64 %.fr, %656
+  %656 = urem i64 %655, 12
+  %657 = sub nuw i64 %655, %656
   %658 = add i64 %657, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %653, i8 0, i64 %658, i1 false)
   store ptr %653, ptr %575, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %653, ptr nonnull align 4 %620, i64 %627, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %653, ptr nonnull align 4 %.fr680, i64 %627, i1 false)
   %659 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %660 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %661 = load ptr, ptr %660, align 8
+  %.fr681 = freeze ptr %661
   %662 = load ptr, ptr %659, align 8
-  %663 = ptrtoint ptr %661 to i64
-  %664 = ptrtoint ptr %662 to i64
+  %.fr682 = freeze ptr %662
+  %663 = ptrtoint ptr %.fr681 to i64
+  %664 = ptrtoint ptr %.fr682 to i64
   %665 = sub i64 %663, %664
   %666 = sdiv exact i64 %665, 12
   %667 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %666, i64 12)
@@ -3863,15 +3867,14 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317: ; preds = %591, %_ZNSt6ve
   %669 = extractvalue { i64, i1 } %667, 0
   %670 = select i1 %668, i64 -1, i64 %669
   %671 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %670) #27
-  %672 = icmp eq ptr %661, %662
+  %672 = icmp eq ptr %.fr681, %.fr682
   br i1 %672, label %.loopexit440, label %.loopexit440.loopexit
 
 .loopexit440.loopexit:                            ; preds = %.loopexit441
   %673 = add i64 %663, -12
   %674 = sub i64 %673, %664
-  %.fr681 = freeze i64 %674
-  %675 = urem i64 %.fr681, 12
-  %676 = sub nuw i64 %.fr681, %675
+  %675 = urem i64 %674, 12
+  %676 = sub nuw i64 %674, %675
   %677 = add i64 %676, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %671, i8 0, i64 %677, i1 false)
   br label %.loopexit440
@@ -3879,7 +3882,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317: ; preds = %591, %_ZNSt6ve
 .loopexit440:                                     ; preds = %.loopexit440.loopexit, %.loopexit441
   %678 = getelementptr inbounds nuw i8, ptr %572, i64 24
   store ptr %671, ptr %678, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %671, ptr nonnull align 4 %662, i64 %665, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %671, ptr nonnull align 4 %.fr682, i64 %665, i1 false)
   %679 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %680 = getelementptr inbounds nuw i8, ptr %572, i64 112
   %681 = getelementptr inbounds nuw i8, ptr %1, i64 684
@@ -3898,14 +3901,16 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317: ; preds = %591, %_ZNSt6ve
   %indvars.iv569 = phi i64 [ 0, %.loopexit440 ], [ %indvars.iv.next570, %714 ]
   %690 = getelementptr inbounds nuw [8 x %"class.std::vector.38"], ptr %679, i64 0, i64 %indvars.iv569
   %691 = load ptr, ptr %690, align 8
+  %.fr684 = freeze ptr %691
   %692 = getelementptr inbounds nuw i8, ptr %690, i64 8
   %693 = load ptr, ptr %692, align 8
-  %694 = icmp eq ptr %691, %693
+  %.fr683 = freeze ptr %693
+  %694 = icmp eq ptr %.fr684, %.fr683
   br i1 %694, label %714, label %695
 
 695:                                              ; preds = %689
-  %696 = ptrtoint ptr %693 to i64
-  %697 = ptrtoint ptr %691 to i64
+  %696 = ptrtoint ptr %.fr683 to i64
+  %697 = ptrtoint ptr %.fr684 to i64
   %698 = sub i64 %696, %697
   %699 = sdiv exact i64 %698, 12
   %700 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %699, i64 12)
@@ -3915,14 +3920,13 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit317: ; preds = %591, %_ZNSt6ve
   %704 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %703) #27
   %705 = add i64 %696, -12
   %706 = sub i64 %705, %697
-  %.fr682 = freeze i64 %706
-  %707 = urem i64 %.fr682, 12
-  %708 = sub nuw i64 %.fr682, %707
+  %707 = urem i64 %706, 12
+  %708 = sub nuw i64 %706, %707
   %709 = add i64 %708, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %704, i8 0, i64 %709, i1 false)
   %710 = getelementptr inbounds nuw [8 x ptr], ptr %680, i64 0, i64 %indvars.iv569
   store ptr %704, ptr %710, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %704, ptr nonnull align 4 %691, i64 %698, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %704, ptr nonnull align 4 %.fr684, i64 %698, i1 false)
   %711 = getelementptr inbounds nuw [8 x i32], ptr %681, i64 0, i64 %indvars.iv569
   %712 = load i32, ptr %711, align 4
   %713 = getelementptr inbounds nuw [8 x i32], ptr %682, i64 0, i64 %indvars.iv569
@@ -8167,9 +8171,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
+  %.fr13.i = freeze ptr %5
   %6 = load ptr, ptr %1, align 8
-  %7 = ptrtoint ptr %5 to i64
-  %8 = ptrtoint ptr %6 to i64
+  %.fr14.i = freeze ptr %6
+  %7 = ptrtoint ptr %.fr13.i to i64
+  %8 = ptrtoint ptr %.fr14.i to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -8191,17 +8197,16 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
 
 _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #27
-  %.not7.i.i.i.i.i = icmp eq ptr %6, %5
+  %.not7.i.i.i.i.i = icmp eq ptr %.fr14.i, %.fr13.i
   br i1 %.not7.i.i.i.i.i, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i
   %22 = add i64 %7, -12
   %23 = sub i64 %22, %8
-  %.fr.i = freeze i64 %23
-  %24 = urem i64 %.fr.i, 12
-  %25 = add i64 %.fr.i, 12
+  %24 = urem i64 %23, 12
+  %25 = add i64 %23, 12
   %26 = sub i64 %25, %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %6, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %.fr14.i, i64 %26, i1 false)
   br label %_ZNSt6vectorI10aiVector3tIfESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit
 
 _ZNSt6vectorI10aiVector3tIfESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit: ; preds = %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.preheader.i
@@ -8227,11 +8232,11 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   br i1 %.not24, label %36, label %34
 
 34:                                               ; preds = %29
-  %.not.i.i.i.i.i = icmp eq ptr %5, %6
+  %.not.i.i.i.i.i = icmp eq ptr %.fr13.i, %.fr14.i
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %9, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %9, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
 36:                                               ; preds = %29
@@ -8239,7 +8244,7 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIP10aiVector3tIfES2_ET0_T_S4_S3_.exit, label %37
 
 37:                                               ; preds = %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %6, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %12, ptr align 4 %.fr14.i, i64 %33, i1 false)
   %.pre = load ptr, ptr %1, align 8
   %.pre27 = load ptr, ptr %30, align 8
   %.pre28 = load ptr, ptr %0, align 8
@@ -8251,9 +8256,9 @@ _ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
 
 _ZSt4copyIP10aiVector3tIfES2_ET0_T_S4_S3_.exit:   ; preds = %36, %37
   %.pre-phi34 = phi i64 [ 0, %36 ], [ %.pre33, %37 ]
-  %38 = phi ptr [ %5, %36 ], [ %.pre29, %37 ]
+  %38 = phi ptr [ %.fr13.i, %36 ], [ %.pre29, %37 ]
   %39 = phi ptr [ %31, %36 ], [ %.pre27, %37 ]
-  %40 = phi ptr [ %6, %36 ], [ %.pre, %37 ]
+  %40 = phi ptr [ %.fr14.i, %36 ], [ %.pre, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.pre-phi34
   %.not9.i.i.i.i = icmp eq ptr %41, %38
   br i1 %.not9.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit, label %.lr.ph.i.i.i.i

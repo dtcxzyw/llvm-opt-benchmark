@@ -756,9 +756,9 @@ define dso_local void @_ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageE
   br i1 %or.cond, label %.sink.split, label %14
 
 .sink.split:                                      ; preds = %10, %5
-  %.sink202 = phi i64 [ 8589934592, %5 ], [ 262144, %10 ]
+  %.sink201 = phi i64 [ 8589934592, %5 ], [ 262144, %10 ]
   %12 = load i64, ptr %0, align 8
-  %13 = or i64 %12, %.sink202
+  %13 = or i64 %12, %.sink201
   store i64 %13, ptr %0, align 8
   br label %14
 
@@ -901,18 +901,18 @@ define dso_local void @_ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageE
   %126 = or disjoint i64 %124, %125
   store i64 %126, ptr %106, align 8
   %127 = load i32, ptr %21, align 8, !tbaa !77
-  %.fr172 = freeze i32 %127
-  %128 = and i32 %.fr172, 128
+  %.fr = freeze i32 %127
+  %128 = and i32 %.fr, 128
   %.not.i = icmp eq i32 %128, 0
   br i1 %.not.i, label %129, label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.thread
 
 129:                                              ; preds = %18
-  %130 = and i32 %.fr172, 66
+  %130 = and i32 %.fr, 66
   %or.cond.i = icmp eq i32 %130, 2
   br i1 %or.cond.i, label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit, label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.thread
 
 _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit: ; preds = %129
-  %131 = and i32 %.fr172, 16384
+  %131 = and i32 %.fr, 16384
   %132 = zext nneg i32 %131 to i64
   %spec.select155 = shl nuw nsw i64 %132, 23
   br label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.thread
@@ -1020,23 +1020,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 32639, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond214 = select i1 %177, i1 %switch.lobit, i1 false
-  br i1 %or.cond214, label %switch.lookup, label %185
+  %or.cond213 = select i1 %177, i1 %switch.lobit, i1 false
+  br i1 %or.cond213, label %switch.lookup, label %185
 
 switch.lookup:                                    ; preds = %168
   %178 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE, i64 0, i64 %178
   %switch.load = load i64, ptr %switch.gep, align 8
   %179 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep210 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.1, i64 0, i64 %179
-  %switch.load211 = load i64, ptr %switch.gep210, align 8
+  %switch.gep209 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.1, i64 0, i64 %179
+  %switch.load210 = load i64, ptr %switch.gep209, align 8
   %180 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep212 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.2, i64 0, i64 %180
-  %switch.load213 = load i64, ptr %switch.gep212, align 8
+  %switch.gep211 = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.2, i64 0, i64 %180
+  %switch.load212 = load i64, ptr %switch.gep211, align 8
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %182 = load i64, ptr %181, align 8
-  %183 = and i64 %182, %switch.load211
-  %184 = or disjoint i64 %183, %switch.load213
+  %183 = and i64 %182, %switch.load210
+  %184 = or disjoint i64 %183, %switch.load212
   store i64 %184, ptr %181, align 8
   br label %185
 
@@ -1130,8 +1130,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit137: ; preds = %._crit_edge.i.i132
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %222, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %.pre177 = load ptr, ptr %7, align 8, !tbaa !62
-  %233 = icmp eq ptr %.pre177, %219
+  %.pre176 = load ptr, ptr %7, align 8, !tbaa !62
+  %233 = icmp eq ptr %.pre176, %219
   br i1 %233, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i138
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit137.thread, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit137
@@ -1143,7 +1143,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i138: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit137
   %236 = load i64, ptr %219, align 8, !tbaa !49
   %237 = add i64 %236, 1
-  call void @_ZdlPvm(ptr noundef %.pre177, i64 noundef %237) #18
+  call void @_ZdlPvm(ptr noundef %.pre176, i64 noundef %237) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i139, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i138
@@ -1192,8 +1192,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit146: ; preds = %._crit_edge.i.i141
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr %241, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  %.pre178 = load ptr, ptr %8, align 8, !tbaa !62
-  %252 = icmp eq ptr %.pre178, %238
+  %.pre177 = load ptr, ptr %8, align 8, !tbaa !62
+  %252 = icmp eq ptr %.pre177, %238
   br i1 %252, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit146.thread, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit146
@@ -1205,7 +1205,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit146
   %255 = load i64, ptr %238, align 8, !tbaa !49
   %256 = add i64 %255, 1
-  call void @_ZdlPvm(ptr noundef %.pre178, i64 noundef %256) #18
+  call void @_ZdlPvm(ptr noundef %.pre177, i64 noundef %256) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i147
@@ -1213,18 +1213,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   br label %257
 
 257:                                              ; preds = %186, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140, %185
-  %.not175 = icmp eq i8 %1, 11
+  %.not174 = icmp eq i8 %1, 11
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %259 = load i64, ptr %258, align 8
-  %260 = select i1 %.not175, i64 137438953472, i64 0
+  %260 = select i1 %.not174, i64 137438953472, i64 0
   %261 = and i64 %259, -206158430209
   %262 = and i8 %1, -2
-  %.not176 = icmp eq i8 %262, 10
-  %spec.select = select i1 %.not176, i64 68719476736, i64 0
+  %.not175 = icmp eq i8 %262, 10
+  %spec.select = select i1 %.not175, i64 68719476736, i64 0
   %263 = or disjoint i64 %spec.select, %260
   %264 = or disjoint i64 %263, %261
   store i64 %264, ptr %258, align 8
-  br i1 %.not175, label %265, label %269
+  br i1 %.not174, label %265, label %269
 
 265:                                              ; preds = %257
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -1234,7 +1234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   br label %283
 
 269:                                              ; preds = %257
-  br i1 %.not176, label %270, label %283
+  br i1 %.not175, label %270, label %283
 
 270:                                              ; preds = %269
   %271 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1263,14 +1263,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
   %284 = load i64, ptr %171, align 8
   %285 = and i64 %284, 2305843009213693952
   %.not125 = icmp eq i64 %285, 0
-  %.pre179 = load i64, ptr %0, align 8
-  %286 = and i64 %.pre179, 2048
+  %.pre178 = load i64, ptr %0, align 8
+  %286 = and i64 %.pre178, 2048
   %.not126 = icmp eq i64 %286, 0
-  %or.cond209 = select i1 %.not125, i1 %.not126, i1 false
-  %287 = shl i64 %.pre179, 23
+  %or.cond208 = select i1 %.not125, i1 %.not126, i1 false
+  %287 = shl i64 %.pre178, 23
   %288 = and i64 %287, 67108864
-  %289 = select i1 %or.cond209, i64 %288, i64 67108864
-  %290 = and i64 %.pre179, -201326593
+  %289 = select i1 %or.cond208, i64 %288, i64 67108864
+  %290 = and i64 %.pre178, -201326593
   %291 = or disjoint i64 %290, %289
   %292 = load i64, ptr %138, align 8
   %293 = shl i64 %292, 19

@@ -3992,7 +3992,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 176:                                              ; preds = %.lr.ph359, %176
   %indvars.iv392 = phi i64 [ 0, %.lr.ph359 ], [ %indvars.iv.next393, %176 ]
-  %.0182.fr358 = phi i32 [ 0, %.lr.ph359 ], [ %.0182.fr, %176 ]
+  %.0182.fr358 = phi i32 [ 0, %.lr.ph359 ], [ %.1183, %176 ]
   %.0180357 = phi i32 [ 0, %.lr.ph359 ], [ %.1181, %176 ]
   %177 = getelementptr inbounds nuw i32, ptr %.val245, i64 %indvars.iv392
   %178 = load i32, ptr %177, align 4, !tbaa !51
@@ -4001,21 +4001,21 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %181 = load ptr, ptr %180, align 8, !tbaa !26
   %182 = getelementptr i8, ptr %181, i64 20
   %.val266 = load i32, ptr %182, align 4
-  %183 = and i32 %.val266, 15
+  %.val266.fr = freeze i32 %.val266
+  %183 = and i32 %.val266.fr, 15
   %184 = add nsw i32 %183, -5
   %narrow.i = icmp ult i32 %184, -2
-  %185 = and i32 %.val266, 1024
+  %185 = and i32 %.val266.fr, 1024
   %.not218 = icmp eq i32 %185, 0
   %..0182 = select i1 %.not218, i32 1, i32 %.0182.fr358
   %.1183 = select i1 %narrow.i, i32 %.0182.fr358, i32 %..0182
   %.1181 = select i1 %narrow.i, i32 1, i32 %.0180357
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
-  %.0182.fr = freeze i32 %.1183
   %exitcond.not = icmp eq i64 %indvars.iv.next393, %wide.trip.count
   br i1 %exitcond.not, label %.critedge6, label %176, !llvm.loop !121
 
 .critedge6:                                       ; preds = %176
-  %186 = icmp eq i32 %.0182.fr, 0
+  %186 = icmp eq i32 %.1183, 0
   %187 = icmp eq i32 %.1181, 0
   %188 = getelementptr i8, ptr %168, i64 20
   %.val268 = load i32, ptr %188, align 4

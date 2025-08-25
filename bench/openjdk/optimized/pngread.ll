@@ -5634,10 +5634,10 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %24 = load i32, ptr %23, align 4
-  %.fr236 = freeze i32 %24
-  %25 = and i32 %.fr236, 1
+  %.fr = freeze i32 %24
+  %25 = and i32 %.fr, 1
   %.not198 = icmp eq i32 %25, 0
-  %26 = and i32 %.fr236, 5
+  %26 = and i32 %.fr, 5
   %or.cond.not = icmp eq i32 %26, 1
   br i1 %or.cond.not, label %27, label %28
 
@@ -5893,8 +5893,8 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge231, %128, %.preheader, %47
   %178 = add nuw nsw i32 %.0234, 1
-  %exitcond241.not = icmp eq i32 %178, %.0173
-  br i1 %exitcond241.not, label %.loopexit211, label %44, !llvm.loop !82
+  %exitcond240.not = icmp eq i32 %178, %.0173
+  br i1 %exitcond240.not, label %.loopexit211, label %44, !llvm.loop !82
 
 179:                                              ; preds = %33
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5903,7 +5903,7 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
   %183 = load i64, ptr %182, align 8
   %184 = sdiv i64 %183, 2
   %185 = add nuw nsw i32 %25, 1
-  %186 = and i32 %.fr236, 33
+  %186 = and i32 %.fr, 33
   %or.cond208.not = icmp eq i32 %186, 33
   %187 = mul i32 %185, %10
   %188 = zext i32 %187 to i64
@@ -5964,8 +5964,8 @@ define internal noundef i32 @png_image_read_background(ptr noundef readonly capt
 
 .loopexit212.us:                                  ; preds = %._crit_edge.split.us.us.us, %225, %195
   %227 = add nuw nsw i32 %.1219.us, 1
-  %exitcond240.not = icmp eq i32 %227, %.0173
-  br i1 %exitcond240.not, label %.loopexit211, label %.split.us, !llvm.loop !83
+  %exitcond239.not = icmp eq i32 %227, %.0173
+  br i1 %exitcond239.not, label %.loopexit211, label %.split.us, !llvm.loop !83
 
 .lr.ph218.us:                                     ; preds = %225
   %228 = zext nneg i32 %.0179.us to i64

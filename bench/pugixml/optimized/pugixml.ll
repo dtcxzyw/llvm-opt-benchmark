@@ -10237,7 +10237,7 @@ select.unfold335.i.i:                             ; preds = %569, %select.unfold
   %698 = load i8, ptr %697, align 1, !tbaa !28, !noalias !129
   %699 = and i8 %698, 64
   %.not97.i.i.i = icmp eq i8 %699, 0
-  %.082.add.i.i.i = add nuw nsw i64 %.082.idx.i.i.i, 1
+  %.082.add.i.i.i = add i64 %.082.idx.i.i.i, 1
   br i1 %.not97.i.i.i, label %700, label %.preheader134.i.i.i, !llvm.loop !140
 
 700:                                              ; preds = %.preheader134.i.i.i
@@ -10260,12 +10260,12 @@ select.unfold335.i.i:                             ; preds = %569, %select.unfold
 710:                                              ; preds = %705
   %711 = getelementptr inbounds nuw i8, ptr %.2199.i.i, i64 3
   %712 = load i8, ptr %711, align 1, !tbaa !28, !noalias !129
-  %713 = and i8 %712, -33
+  %.fr.i.i.i = freeze i8 %712
+  %713 = and i8 %.fr.i.i.i, -33
   %714 = icmp eq i8 %713, 76
   %715 = icmp eq i64 %.082.idx.i.i.i, 4
   %spec.select.i.i.i57 = and i1 %715, %714
-  %cond.fr.i.i.i = freeze i1 %spec.select.i.i.i57
-  %spec.select131.i.i.i = select i1 %cond.fr.i.i.i, i32 256, i32 1
+  %spec.select131.i.i.i = select i1 %spec.select.i.i.i57, i32 256, i32 1
   %716 = and i32 %spec.select131.i.i.i, %5
   %.not99.i.i.i = icmp eq i32 %716, 0
   br i1 %.not99.i.i.i, label %.preheader.i.i.i, label %723
@@ -10301,7 +10301,7 @@ select.unfold335.i.i:                             ; preds = %569, %select.unfold
   br label %.preheader.split.us.i.i.i, !llvm.loop !141
 
 723:                                              ; preds = %710
-  br i1 %cond.fr.i.i.i, label %724, label %.thread123.i.i.i
+  br i1 %spec.select.i.i.i57, label %724, label %.thread123.i.i.i
 
 724:                                              ; preds = %723
   %725 = getelementptr inbounds nuw i8, ptr %.0.ph.i.i, i64 24
@@ -11998,7 +11998,7 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %11, label %12, label %53
+  br i1 %11, label %12, label %52
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8, !tbaa !54
@@ -12017,8 +12017,8 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   store i32 %19, ptr %6, align 8, !tbaa !16
   br label %20
 
-20:                                               ; preds = %46, %17
-  %.0 = phi ptr [ %16, %17 ], [ %.148, %46 ]
+20:                                               ; preds = %45, %17
+  %.0 = phi ptr [ %16, %17 ], [ %.148, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4pugi8xml_nodeC1EPNS_15xml_node_structE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.0)
   %21 = load ptr, ptr %1, align 8, !tbaa !3
@@ -12053,70 +12053,72 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
 .lr.ph.preheader:                                 ; preds = %.preheader
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !80
-  %.not3884 = icmp eq ptr %36, null
-  br i1 %.not3884, label %.critedge, label %.lr.ph85
+  %.fr85 = freeze ptr %36
+  %.not3886 = icmp eq ptr %.fr85, null
+  br i1 %.not3886, label %.critedge, label %.lr.ph88
 
-.lr.ph:                                           ; preds = %.lr.ph85
-  %37 = getelementptr inbounds nuw i8, ptr %39, i64 24
+.lr.ph:                                           ; preds = %.lr.ph88
+  %37 = getelementptr inbounds nuw i8, ptr %.fr87, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !80
-  %.not38 = icmp eq ptr %38, null
-  br i1 %.not38, label %.critedge, label %.lr.ph85, !llvm.loop !190
+  %.fr = freeze ptr %38
+  %.not38 = icmp eq ptr %.fr, null
+  br i1 %.not38, label %.critedge, label %.lr.ph88, !llvm.loop !190
 
-.lr.ph85:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %39 = phi ptr [ %38, %.lr.ph ], [ %36, %.lr.ph.preheader ]
-  %40 = load i32, ptr %6, align 8, !tbaa !16
-  %41 = add nsw i32 %40, -1
-  store i32 %41, ptr %6, align 8, !tbaa !16
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !67
-  %.not36 = icmp ne ptr %43, null
-  %44 = load ptr, ptr %0, align 8
-  %.not37 = icmp eq ptr %39, %44
-  %cond.fr = freeze i1 %.not37
-  %or.cond = or i1 %.not36, %cond.fr
+.lr.ph88:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.fr87 = phi ptr [ %.fr, %.lr.ph ], [ %.fr85, %.lr.ph.preheader ]
+  %39 = load i32, ptr %6, align 8, !tbaa !16
+  %40 = add nsw i32 %39, -1
+  store i32 %40, ptr %6, align 8, !tbaa !16
+  %41 = getelementptr inbounds nuw i8, ptr %.fr87, i64 48
+  %42 = load ptr, ptr %41, align 8, !tbaa !67
+  %.not36 = icmp ne ptr %42, null
+  %43 = load ptr, ptr %0, align 8
+  %.fr78 = freeze ptr %43
+  %.not37 = icmp eq ptr %.fr87, %.fr78
+  %or.cond = or i1 %.not36, %.not37
   br i1 %or.cond, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !190
 
-.critedge.loopexit:                               ; preds = %.lr.ph85
-  %spec.select = select i1 %cond.fr, ptr %39, ptr %43
+.critedge.loopexit:                               ; preds = %.lr.ph88
+  %spec.select = select i1 %.not37, ptr %.fr87, ptr %42
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.critedge.loopexit, %.preheader
-  %45 = phi ptr [ %34, %.preheader ], [ %44, %.critedge.loopexit ], [ %34, %.lr.ph.preheader ], [ %44, %.lr.ph ]
+  %44 = phi ptr [ %34, %.preheader ], [ %.fr78, %.critedge.loopexit ], [ %34, %.lr.ph.preheader ], [ %.fr78, %.lr.ph ]
   %.not37.lcssa = phi ptr [ %.0, %.preheader ], [ %spec.select, %.critedge.loopexit ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %46
+  br label %45
 
 .thread46:                                        ; preds = %28, %31
   %.1.ph = phi ptr [ %33, %31 ], [ %27, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %0, align 8
-  br label %46
+  br label %45
 
-46:                                               ; preds = %.critedge, %.thread46
-  %47 = phi ptr [ %.pre, %.thread46 ], [ %45, %.critedge ]
+45:                                               ; preds = %.critedge, %.thread46
+  %46 = phi ptr [ %.pre, %.thread46 ], [ %44, %.critedge ]
   %.148 = phi ptr [ %.1.ph, %.thread46 ], [ %.not37.lcssa, %.critedge ]
   %.not40 = icmp eq ptr %.148, null
-  %.not41 = icmp eq ptr %.148, %47
+  %.not41 = icmp eq ptr %.148, %46
   %or.cond44 = select i1 %.not40, i1 true, i1 %.not41
   br i1 %or.cond44, label %.critedge2, label %20, !llvm.loop !191
 
-.critedge2:                                       ; preds = %46, %12, %14
-  %48 = phi ptr [ null, %12 ], [ %13, %14 ], [ %47, %46 ]
+.critedge2:                                       ; preds = %45, %12, %14
+  %47 = phi ptr [ null, %12 ], [ %13, %14 ], [ %46, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN4pugi8xml_nodeC1EPNS_15xml_node_structE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %48)
-  %49 = load ptr, ptr %1, align 8, !tbaa !3
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %51 = load ptr, ptr %50, align 8
-  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4pugi8xml_nodeC1EPNS_15xml_node_structE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %47)
+  %48 = load ptr, ptr %1, align 8, !tbaa !3
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %50 = load ptr, ptr %49, align 8
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %53
+  br label %52
 
 .critedge43:                                      ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %53
+  br label %52
 
-53:                                               ; preds = %.critedge2, %.critedge43, %2
-  %.026 = phi i1 [ false, %2 ], [ %52, %.critedge2 ], [ false, %.critedge43 ]
+52:                                               ; preds = %.critedge2, %.critedge43, %2
+  %.026 = phi i1 [ false, %2 ], [ %51, %.critedge2 ], [ false, %.critedge43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.026
 }

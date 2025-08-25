@@ -2334,21 +2334,21 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet11containsAllER
   br i1 %.not.i.us, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %.lr.ph.split.us.split.preheader
 
 .lr.ph.split.us.split.preheader:                  ; preds = %.lr.ph.split.us
-  %wide.trip.count48 = zext nneg i32 %5 to i64
+  %wide.trip.count47 = zext nneg i32 %5 to i64
   br label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %25
-  %indvars.iv45 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next46, %25 ]
-  %.idx53 = shl nuw nsw i64 %indvars.iv45, 3
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx53
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next45, %25 ]
+  %.idx52 = shl nuw nsw i64 %indvars.iv44, 3
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx52
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp slt i32 %23, %10
   br i1 %24, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us
 
 25:                                               ; preds = %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !47
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
+  br i1 %exitcond48.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !47
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us: ; preds = %.lr.ph.split.us.split
   %26 = getelementptr i8, ptr %22, i64 4
@@ -2368,21 +2368,21 @@ _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us: ; preds = %.lr.ph.split.us.s
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split
   %30 = zext nneg i32 %13 to i64
   %31 = getelementptr inbounds nuw i32, ptr %9, i64 %30
-  %wide.trip.count43 = zext nneg i32 %5 to i64
+  %wide.trip.count42 = zext nneg i32 %5 to i64
   br label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %35
-  %indvars.iv40 = phi i64 [ 0, %.lr.ph.split.split.us.split.preheader ], [ %indvars.iv.next41, %35 ]
-  %.idx52 = shl nuw nsw i64 %indvars.iv40, 3
-  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx52
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph.split.split.us.split.preheader ], [ %indvars.iv.next40, %35 ]
+  %.idx51 = shl nuw nsw i64 %indvars.iv39, 3
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx51
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = icmp slt i32 %33, %10
   br i1 %34, label %_ZNK6icu_7710UnicodeSet8containsEii.exit.thread, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27
 
 35:                                               ; preds = %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next41, %wide.trip.count43
-  br i1 %exitcond44.not, label %.critedge, label %.lr.ph.split.split.us.split, !llvm.loop !47
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
+  br i1 %exitcond43.not, label %.critedge, label %.lr.ph.split.split.us.split, !llvm.loop !47
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27: ; preds = %.lr.ph.split.split.us.split
   %36 = getelementptr i8, ptr %32, i64 4
@@ -2827,13 +2827,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
   %20 = icmp eq i32 %19, 0
   %.phi.trans.insert.i.us = sext i32 %13 to i64
   %.phi.trans.insert6.i.us = getelementptr inbounds i32, ptr %9, i64 %.phi.trans.insert.i.us
-  %wide.trip.count59 = zext nneg i32 %5 to i64
+  %wide.trip.count58 = zext nneg i32 %5 to i64
   br i1 %20, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %26
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %26 ], [ 0, %.lr.ph.split.us ]
-  %.idx67 = shl nuw nsw i64 %indvars.iv56, 3
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx67
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %26 ], [ 0, %.lr.ph.split.us ]
+  %.idx66 = shl nuw nsw i64 %indvars.iv55, 3
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx66
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = getelementptr i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !12
@@ -2841,9 +2841,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
   br i1 %25, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us, label %_ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us.us
 
 26:                                               ; preds = %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !52
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
+  br i1 %exitcond59.not, label %.critedge, label %.lr.ph.split.us.split.us, !llvm.loop !52
 
 _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us.us: ; preds = %.lr.ph.split.us.split.us
   %.pre.i.us.us = load i32, ptr %.phi.trans.insert6.i.us, align 4, !tbaa !12
@@ -2855,17 +2855,17 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us.us: ; preds = %_ZNK6icu_7710Uni
   br i1 %.not19.us.us, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread, label %26
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %31
-  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %31 ], [ 0, %.lr.ph.split.us ]
-  %.idx66 = shl nuw nsw i64 %indvars.iv51, 3
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx66
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %31 ], [ 0, %.lr.ph.split.us ]
+  %.idx65 = shl nuw nsw i64 %indvars.iv50, 3
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx65
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = icmp slt i32 %29, %10
   br i1 %30, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
 
 31:                                               ; preds = %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
-  %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count59
-  br i1 %exitcond55.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !52
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count58
+  br i1 %exitcond54.not, label %.critedge, label %.lr.ph.split.us.split, !llvm.loop !52
 
 _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us: ; preds = %.lr.ph.split.us.split
   %32 = getelementptr i8, ptr %28, i64 4
@@ -2875,21 +2875,21 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us: ; preds = %.lr.ph.split.us.spl
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %34 = icmp eq i32 %.fr35, 2
-  %wide.trip.count49 = zext nneg i32 %5 to i64
+  %wide.trip.count48 = zext nneg i32 %5 to i64
   br i1 %34, label %.lr.ph.split.split.us.split, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split, %38
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %38 ], [ 0, %.lr.ph.split ]
-  %.idx65 = shl nuw nsw i64 %indvars.iv46, 3
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx65
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %38 ], [ 0, %.lr.ph.split ]
+  %.idx64 = shl nuw nsw i64 %indvars.iv45, 3
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx64
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = icmp slt i32 %36, %10
   br i1 %37, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30, label %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.thread
 
 38:                                               ; preds = %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
-  br i1 %exitcond50.not, label %.critedge, label %.lr.ph.split.split.us.split, !llvm.loop !52
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
+  br i1 %exitcond49.not, label %.critedge, label %.lr.ph.split.split.us.split, !llvm.loop !52
 
 _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30: ; preds = %.lr.ph.split.split.us.split
   %39 = getelementptr i8, ptr %35, i64 4
@@ -2899,7 +2899,7 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30: ; preds = %.lr.ph.split.spli
 
 41:                                               ; preds = %_ZNK6icu_7710UnicodeSet12containsNoneEii.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count49
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count48
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.split, !llvm.loop !52
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %41

@@ -5302,11 +5302,12 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %138, %_ZNKSt14defau
 
 .lr.ph:                                           ; preds = %173
   %176 = load i64, ptr %36, align 8, !tbaa !611
+  %.fr304 = freeze i64 %176
   br label %186
 
 ._crit_edge:                                      ; preds = %186
-  store i64 %.173.fr, ptr %74, align 8, !tbaa !667
-  %177 = icmp ult i64 %.173.fr, 72057594037927935
+  store i64 %.173, ptr %74, align 8, !tbaa !667
+  %177 = icmp ult i64 %.173, 72057594037927935
   %spec.select303 = select i1 %177, ptr %7, ptr null
   br label %178
 
@@ -5325,13 +5326,13 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %138, %_ZNKSt14defau
   br label %_ZN7rocksdb9LookupKeyD2Ev.exit112
 
 186:                                              ; preds = %.lr.ph, %186
-  %.072202 = phi i64 [ 72057594037927935, %.lr.ph ], [ %.173.fr, %186 ]
+  %.072202 = phi i64 [ 72057594037927935, %.lr.ph ], [ %.173, %186 ]
   %.sroa.0129.0201 = phi ptr [ %174, %.lr.ph ], [ %190, %186 ]
   %187 = load i64, ptr %.sroa.0129.0201, align 8, !tbaa !21
-  %188 = icmp ugt i64 %187, %176
-  %189 = call i64 @llvm.umin.i64(i64 %187, i64 %.072202)
+  %.fr = freeze i64 %187
+  %188 = icmp ugt i64 %.fr, %.fr304
+  %189 = call i64 @llvm.umin.i64(i64 %.fr, i64 %.072202)
   %.173 = select i1 %188, i64 %189, i64 %.072202
-  %.173.fr = freeze i64 %.173
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0201, i64 8
   %.not155 = icmp eq ptr %190, %175
   br i1 %.not155, label %._crit_edge, label %186

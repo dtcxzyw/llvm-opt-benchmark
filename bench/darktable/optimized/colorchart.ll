@@ -1397,14 +1397,14 @@ parse_double.exit538:                             ; preds = %.preheader680
 341:                                              ; preds = %339
   %342 = fadd reassoc nsz arcp contract afn float %.0410, %282
   %343 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %306) #16
-  %.fr48.i = freeze i64 %343
-  %.not41.i = icmp slt i64 %.fr48.i, 1
+  %.fr.i = freeze i64 %343
+  %.not41.i = icmp slt i64 %.fr.i, 1
   br i1 %.not41.i, label %.loopexit.backedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %341
-  %344 = getelementptr inbounds nuw i8, ptr %306, i64 %.fr48.i
+  %344 = getelementptr inbounds nuw i8, ptr %306, i64 %.fr.i
   %.02340.i = getelementptr inbounds i8, ptr %344, i64 -1
-  %345 = add nuw i64 %.fr48.i, 1
+  %345 = add nuw i64 %.fr.i, 1
   %.not29.i = icmp ult i64 %345, %304
   br i1 %.not29.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1484,14 +1484,14 @@ parse_double.exit538:                             ; preds = %.preheader680
 365:                                              ; preds = %360
   %366 = fadd reassoc nsz arcp contract afn float %.0412, %292
   %367 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #16
-  %.fr48.i539 = freeze i64 %367
-  %.not41.i540 = icmp slt i64 %.fr48.i539, 1
+  %.fr.i539 = freeze i64 %367
+  %.not41.i540 = icmp slt i64 %.fr.i539, 1
   br i1 %.not41.i540, label %.loopexit669.backedge, label %.lr.ph.i541
 
 .lr.ph.i541:                                      ; preds = %365
-  %368 = getelementptr inbounds nuw i8, ptr %307, i64 %.fr48.i539
+  %368 = getelementptr inbounds nuw i8, ptr %307, i64 %.fr.i539
   %.02340.i542 = getelementptr inbounds i8, ptr %368, i64 -1
-  %369 = add nuw i64 %.fr48.i539, 1
+  %369 = add nuw i64 %.fr.i539, 1
   %.not29.i543 = icmp ult i64 %369, %305
   br i1 %.not29.i543, label %.lr.ph.split.us.i553, label %.lr.ph.split.i544
 

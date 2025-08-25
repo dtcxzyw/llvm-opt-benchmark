@@ -605,8 +605,8 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %224 = inttoptr i64 %223 to ptr
   %225 = getelementptr i8, ptr %224, i64 44
   %226 = load i32, ptr %225, align 4
-  %.fr14 = freeze i32 %226
-  %227 = and i32 %.fr14, 1
+  %.fr = freeze i32 %226
+  %227 = and i32 %.fr, 1
   %.not = icmp eq i32 %227, 0
   %228 = and i16 %212, 2048
   %spec.select = select i1 %.not, i16 0, i16 %228

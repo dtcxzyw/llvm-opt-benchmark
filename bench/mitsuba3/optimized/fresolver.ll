@@ -1742,13 +1742,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPN7mits
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
+  %.fr18 = freeze ptr %6
   %7 = load ptr, ptr %2, align 8
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %.fr = freeze ptr %7
+  %8 = ptrtoint ptr %.fr18 to i64
+  %9 = ptrtoint ptr %.fr to i64
   %10 = sub i64 %8, %9
-  %.not17.i.i.i.i.i = icmp eq ptr %7, %6
-  %.not17.i.i.i.i.i.fr = freeze i1 %.not17.i.i.i.i.i
-  br i1 %.not17.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not17.i.i.i.i.i = icmp eq ptr %.fr, %.fr18
+  br i1 %.not17.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
   %.012.us = phi ptr [ %19, %18 ], [ %0, %.lr.ph ]
@@ -1779,7 +1780,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPN7mits
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.split, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i
   %.0819.i.i.i.i.i = phi ptr [ %55, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %22, %.lr.ph.split ]
-  %.0918.i.i.i.i.i = phi ptr [ %54, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %7, %.lr.ph.split ]
+  %.0918.i.i.i.i.i = phi ptr [ %54, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %.fr, %.lr.ph.split ]
   %27 = load i8, ptr %.0918.i.i.i.i.i, align 8
   %28 = and i8 %27, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
@@ -1836,7 +1837,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
 _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i: ; preds = %48, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0819.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %54, %6
+  %.not.i.i.i.i.i = icmp eq ptr %54, %.fr18
   br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split
@@ -1857,13 +1858,14 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPKN7mit
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
+  %.fr18 = freeze ptr %6
   %7 = load ptr, ptr %2, align 8
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %.fr = freeze ptr %7
+  %8 = ptrtoint ptr %.fr18 to i64
+  %9 = ptrtoint ptr %.fr to i64
   %10 = sub i64 %8, %9
-  %.not17.i.i.i.i.i = icmp eq ptr %7, %6
-  %.not17.i.i.i.i.i.fr = freeze i1 %.not17.i.i.i.i.i
-  br i1 %.not17.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not17.i.i.i.i.i = icmp eq ptr %.fr, %.fr18
+  br i1 %.not17.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
   %.012.us = phi ptr [ %19, %18 ], [ %0, %.lr.ph ]
@@ -1894,7 +1896,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPKN7mit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.split, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i
   %.0819.i.i.i.i.i = phi ptr [ %55, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %22, %.lr.ph.split ]
-  %.0918.i.i.i.i.i = phi ptr [ %54, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %7, %.lr.ph.split ]
+  %.0918.i.i.i.i.i = phi ptr [ %54, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %.fr, %.lr.ph.split ]
   %27 = load i8, ptr %.0918.i.i.i.i.i, align 8
   %28 = and i8 %27, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %28, 0
@@ -1951,7 +1953,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
 _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i: ; preds = %48, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0819.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %54, %6
+  %.not.i.i.i.i.i = icmp eq ptr %54, %.fr18
   br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split

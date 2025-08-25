@@ -10685,8 +10685,8 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.116, align 8
-  %.fr138 = freeze i64 %3
-  store i64 %.fr138, ptr %7, align 8
+  %.fr137 = freeze i64 %3
+  store i64 %.fr137, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i32, ptr %1, align 4, !tbaa !206
   store i32 %24, ptr %8, align 4, !tbaa !137
@@ -10705,9 +10705,9 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %35 = lshr i64 %.fr138, 32
+  %35 = lshr i64 %.fr137, 32
   %36 = trunc nuw i64 %35 to i32
-  %37 = lshr i64 %.fr138, 40
+  %37 = lshr i64 %.fr137, 40
   %38 = trunc i64 %37 to i8
   store i8 %38, ptr %11, align 1, !tbaa !208
   %.not = icmp ne i8 %38, 0
@@ -10717,7 +10717,7 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %42 = and i32 %36, 131072
   %.not65 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr138 to i32
+  %43 = trunc i64 %.fr137 to i32
   br i1 %.not65, label %60, label %44
 
 44:                                               ; preds = %5
@@ -11260,11 +11260,11 @@ _ZN3fmt3v106detail14digit_groupingIcED2Ev.exit103: ; preds = %_ZNKSt7__cxx1112ba
 
 275:                                              ; preds = %268
   %276 = and i32 %36, 524288
-  %.not115 = icmp eq i32 %276, 0
+  %.not114 = icmp eq i32 %276, 0
   %.lobit = lshr exact i32 %276, 19
   %277 = trunc nuw nsw i32 %.lobit to i8
   store i8 %277, ptr %22, align 1, !tbaa !110
-  br i1 %.not115, label %279, label %278
+  br i1 %.not114, label %279, label %278
 
 278:                                              ; preds = %.thread112, %275
   br label %279
@@ -13622,8 +13622,8 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.123, align 8
-  %.fr138 = freeze i64 %3
-  store i64 %.fr138, ptr %7, align 8
+  %.fr137 = freeze i64 %3
+  store i64 %.fr137, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i64, ptr %1, align 8, !tbaa !262
   store i64 %24, ptr %8, align 8, !tbaa !45
@@ -13644,9 +13644,9 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %36 = lshr i64 %.fr138, 32
+  %36 = lshr i64 %.fr137, 32
   %37 = trunc nuw i64 %36 to i32
-  %38 = lshr i64 %.fr138, 40
+  %38 = lshr i64 %.fr137, 40
   %39 = trunc i64 %38 to i8
   store i8 %39, ptr %11, align 1, !tbaa !208
   %.not = icmp ne i8 %39, 0
@@ -13656,7 +13656,7 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_9d
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = and i32 %37, 131072
   %.not65 = icmp eq i32 %43, 0
-  %44 = trunc i64 %.fr138 to i32
+  %44 = trunc i64 %.fr137 to i32
   br i1 %.not65, label %61, label %45
 
 45:                                               ; preds = %5
@@ -14199,11 +14199,11 @@ _ZN3fmt3v106detail14digit_groupingIcED2Ev.exit103: ; preds = %_ZNKSt7__cxx1112ba
 
 276:                                              ; preds = %269
   %277 = and i32 %37, 524288
-  %.not115 = icmp eq i32 %277, 0
+  %.not114 = icmp eq i32 %277, 0
   %.lobit = lshr exact i32 %277, 19
   %278 = trunc nuw nsw i32 %.lobit to i8
   store i8 %278, ptr %22, align 1, !tbaa !110
-  br i1 %.not115, label %280, label %279
+  br i1 %.not114, label %280, label %279
 
 279:                                              ; preds = %.thread112, %276
   br label %280
@@ -19571,8 +19571,8 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_14
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.142, align 8
-  %.fr138 = freeze i64 %3
-  store i64 %.fr138, ptr %7, align 8
+  %.fr137 = freeze i64 %3
+  store i64 %.fr137, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load ptr, ptr %1, align 8, !tbaa !306
   store ptr %24, ptr %8, align 8, !tbaa !58
@@ -19583,9 +19583,9 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = lshr i64 %.fr138, 32
+  %27 = lshr i64 %.fr137, 32
   %28 = trunc nuw i64 %27 to i32
-  %29 = lshr i64 %.fr138, 40
+  %29 = lshr i64 %.fr137, 40
   %30 = trunc i64 %29 to i8
   store i8 %30, ptr %11, align 1, !tbaa !208
   %.not = icmp ne i8 %30, 0
@@ -19595,7 +19595,7 @@ define linkonce_odr ptr @_ZN3fmt3v106detail14do_write_floatINS0_8appenderENS1_14
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = and i32 %28, 131072
   %.not65 = icmp eq i32 %34, 0
-  %35 = trunc i64 %.fr138 to i32
+  %35 = trunc i64 %.fr137 to i32
   br i1 %.not65, label %52, label %36
 
 36:                                               ; preds = %5
@@ -20138,11 +20138,11 @@ _ZN3fmt3v106detail14digit_groupingIcED2Ev.exit103: ; preds = %_ZNKSt7__cxx1112ba
 
 267:                                              ; preds = %260
   %268 = and i32 %28, 524288
-  %.not115 = icmp eq i32 %268, 0
+  %.not114 = icmp eq i32 %268, 0
   %.lobit = lshr exact i32 %268, 19
   %269 = trunc nuw nsw i32 %.lobit to i8
   store i8 %269, ptr %22, align 1, !tbaa !110
-  br i1 %.not115, label %271, label %270
+  br i1 %.not114, label %271, label %270
 
 270:                                              ; preds = %.thread112, %267
   br label %271
@@ -31157,7 +31157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 17:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @_ZN6open3d7utility6Logger11LogWarning_IJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKciSC_SC_DpOT_(ptr noundef nonnull @.str.3, i32 noundef 76, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d2io33WritePinholeCameraTrajectoryToTUMERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6camera23PinholeCameraTrajectoryE, ptr noundef nonnull @.str.55, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br label %268
+  br label %267
 
 18:                                               ; preds = %._crit_edge.i.i
   %19 = landingpad { ptr, i32 }
@@ -31208,63 +31208,71 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 ._crit_edge:                                      ; preds = %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit, %26
   %42 = call i32 @fclose(ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %268
+  br label %267
 
 43:                                               ; preds = %.lr.ph, %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit
-  %44 = phi ptr [ %31, %.lr.ph ], [ %262, %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit ]
-  %.026 = phi i64 [ 0, %.lr.ph ], [ %260, %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit ]
+  %44 = phi ptr [ %31, %.lr.ph ], [ %261, %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit ]
+  %.026 = phi i64 [ 0, %.lr.ph ], [ %259, %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %45 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %44, i64 %.026, i32 2
   %46 = load <2 x double>, ptr %45, align 1, !tbaa !19
+  %.fr57 = freeze <2 x double> %46
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %48 = load <2 x double>, ptr %47, align 1, !tbaa !19
+  %.fr58 = freeze <2 x double> %48
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %50 = load <2 x double>, ptr %49, align 1, !tbaa !19
+  %.fr = freeze <2 x double> %50
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %52 = load <2 x double>, ptr %51, align 1, !tbaa !19
+  %.fr41 = freeze <2 x double> %52
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %54 = load <2 x double>, ptr %53, align 1, !tbaa !19
+  %.fr43 = freeze <2 x double> %54
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %56 = load <2 x double>, ptr %55, align 1, !tbaa !19
+  %.fr36 = freeze <2 x double> %56
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %58 = load <2 x double>, ptr %57, align 1, !tbaa !19
+  %.fr46 = freeze <2 x double> %58
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %60 = load <2 x double>, ptr %59, align 1, !tbaa !19
-  %61 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %62 = fmul <2 x double> %46, %61
+  %.fr37 = freeze <2 x double> %60
+  %61 = shufflevector <2 x double> %.fr, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %62 = fmul <2 x double> %.fr57, %61
   %63 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %64 = fsub <2 x double> %62, %63
-  %65 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %66 = fmul <2 x double> %48, %65
+  %65 = shufflevector <2 x double> %.fr41, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %66 = fmul <2 x double> %.fr58, %65
   %67 = shufflevector <2 x double> %66, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %68 = fsub <2 x double> %66, %67
-  %69 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %70 = fmul <2 x double> %54, %69
+  %69 = shufflevector <2 x double> %.fr46, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %70 = fmul <2 x double> %.fr43, %69
   %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %72 = fsub <2 x double> %70, %71
-  %73 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %74 = fmul <2 x double> %56, %73
+  %73 = shufflevector <2 x double> %.fr37, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %74 = fmul <2 x double> %.fr36, %73
   %75 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %76 = fsub <2 x double> %74, %75
-  %77 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %78 = fmul <2 x double> %48, %77
-  %79 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %79, %52
-  %81 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %82 = fmul <2 x double> %81, %52
+  %77 = shufflevector <2 x double> %.fr, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %78 = fmul <2 x double> %.fr58, %77
+  %79 = shufflevector <2 x double> %.fr57, <2 x double> poison, <2 x i32> zeroinitializer
+  %80 = fmul <2 x double> %79, %.fr41
+  %81 = shufflevector <2 x double> %.fr57, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %82 = fmul <2 x double> %81, %.fr41
   %83 = fsub <2 x double> %78, %82
-  %84 = shufflevector <2 x double> %50, <2 x double> poison, <2 x i32> zeroinitializer
-  %85 = fmul <2 x double> %48, %84
+  %84 = shufflevector <2 x double> %.fr, <2 x double> poison, <2 x i32> zeroinitializer
+  %85 = fmul <2 x double> %.fr58, %84
   %86 = fsub <2 x double> %80, %85
-  %87 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %88 = fmul <2 x double> %54, %87
-  %89 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> zeroinitializer
-  %90 = fmul <2 x double> %58, %89
-  %91 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %92 = fmul <2 x double> %58, %91
+  %87 = shufflevector <2 x double> %.fr37, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %88 = fmul <2 x double> %.fr43, %87
+  %89 = shufflevector <2 x double> %.fr36, <2 x double> poison, <2 x i32> zeroinitializer
+  %90 = fmul <2 x double> %.fr46, %89
+  %91 = shufflevector <2 x double> %.fr36, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %92 = fmul <2 x double> %.fr46, %91
   %93 = fsub <2 x double> %88, %92
-  %94 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %95 = fmul <2 x double> %54, %94
+  %94 = shufflevector <2 x double> %.fr37, <2 x double> poison, <2 x i32> zeroinitializer
+  %95 = fmul <2 x double> %.fr43, %94
   %96 = fsub <2 x double> %90, %95
   %97 = shufflevector <2 x double> %93, <2 x double> %96, <2 x i32> <i32 0, i32 2>
   %98 = fmul <2 x double> %83, %97
@@ -31272,7 +31280,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   %100 = fmul <2 x double> %86, %99
   %101 = fadd <2 x double> %98, %100
   %102 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %103 = fadd <2 x double> %101, %102
+  %.fr87 = freeze <2 x double> %102
+  %103 = fadd <2 x double> %101, %.fr87
   %104 = fmul <2 x double> %64, %76
   %105 = fmul <2 x double> %68, %72
   %106 = fadd <2 x double> %105, %104
@@ -31280,63 +31289,63 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   %108 = fdiv <2 x double> <double 1.000000e+00, double poison>, %107
   %109 = bitcast <2 x double> %108 to <2 x i64>
   %110 = shufflevector <2 x i64> %109, <2 x i64> poison, <2 x i32> zeroinitializer
-  %111 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
+  %111 = shufflevector <2 x double> %.fr43, <2 x double> poison, <2 x i32> zeroinitializer
   %112 = fmul <2 x double> %83, %111
-  %113 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> zeroinitializer
+  %113 = shufflevector <2 x double> %.fr46, <2 x double> poison, <2 x i32> zeroinitializer
   %114 = fmul <2 x double> %83, %113
-  %115 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %115 = shufflevector <2 x double> %.fr43, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %116 = fmul <2 x double> %86, %115
   %117 = fadd <2 x double> %112, %116
-  %118 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %118 = shufflevector <2 x double> %.fr46, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %119 = fmul <2 x double> %86, %118
   %120 = fadd <2 x double> %114, %119
   %121 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
-  %122 = fmul <2 x double> %56, %121
+  %122 = fmul <2 x double> %.fr36, %121
   %123 = fsub <2 x double> %122, %117
-  %124 = fmul <2 x double> %60, %121
+  %124 = fmul <2 x double> %.fr37, %121
   %125 = fsub <2 x double> %124, %120
-  %126 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> zeroinitializer
+  %126 = shufflevector <2 x double> %.fr58, <2 x double> poison, <2 x i32> zeroinitializer
   %127 = fmul <2 x double> %126, %93
-  %128 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
+  %128 = shufflevector <2 x double> %.fr41, <2 x double> poison, <2 x i32> zeroinitializer
   %129 = fmul <2 x double> %128, %93
-  %130 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %130 = shufflevector <2 x double> %.fr58, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %131 = fmul <2 x double> %130, %96
   %132 = fadd <2 x double> %127, %131
-  %133 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %133 = shufflevector <2 x double> %.fr41, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %134 = fmul <2 x double> %133, %96
   %135 = fadd <2 x double> %129, %134
   %136 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> zeroinitializer
-  %137 = fmul <2 x double> %46, %136
+  %137 = fmul <2 x double> %.fr57, %136
   %138 = fsub <2 x double> %137, %132
-  %139 = fmul <2 x double> %50, %136
+  %139 = fmul <2 x double> %.fr, %136
   %140 = fsub <2 x double> %139, %135
   %141 = shufflevector <2 x double> %86, <2 x double> %83, <2 x i32> <i32 1, i32 2>
-  %142 = fmul <2 x double> %56, %141
-  %143 = fmul <2 x double> %141, %60
-  %144 = shufflevector <2 x double> %56, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %142 = fmul <2 x double> %.fr36, %141
+  %143 = fmul <2 x double> %141, %.fr37
+  %144 = shufflevector <2 x double> %.fr36, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %145 = shufflevector <2 x double> %86, <2 x double> %83, <2 x i32> <i32 0, i32 3>
   %146 = fmul <2 x double> %144, %145
   %147 = fsub <2 x double> %142, %146
   %148 = fmul <2 x double> %145, %73
   %149 = fsub <2 x double> %143, %148
   %150 = shufflevector <2 x double> %68, <2 x double> poison, <2 x i32> zeroinitializer
-  %151 = fmul <2 x double> %54, %150
+  %151 = fmul <2 x double> %.fr43, %150
   %152 = fsub <2 x double> %151, %147
-  %153 = fmul <2 x double> %58, %150
+  %153 = fmul <2 x double> %.fr46, %150
   %154 = fsub <2 x double> %153, %149
   %155 = shufflevector <2 x double> %96, <2 x double> %93, <2 x i32> <i32 1, i32 2>
-  %156 = fmul <2 x double> %46, %155
-  %157 = fmul <2 x double> %50, %155
-  %158 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %156 = fmul <2 x double> %.fr57, %155
+  %157 = fmul <2 x double> %.fr, %155
+  %158 = shufflevector <2 x double> %.fr57, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %159 = shufflevector <2 x double> %96, <2 x double> %93, <2 x i32> <i32 0, i32 3>
   %160 = fmul <2 x double> %158, %159
   %161 = fsub <2 x double> %156, %160
   %162 = fmul <2 x double> %61, %159
   %163 = fsub <2 x double> %157, %162
   %164 = shufflevector <2 x double> %72, <2 x double> poison, <2 x i32> zeroinitializer
-  %165 = fmul <2 x double> %48, %164
+  %165 = fmul <2 x double> %.fr58, %164
   %166 = fsub <2 x double> %165, %161
-  %167 = fmul <2 x double> %52, %164
+  %167 = fmul <2 x double> %.fr41, %164
   %168 = fsub <2 x double> %167, %163
   %169 = xor <2 x i64> %110, <i64 0, i64 -9223372036854775808>
   %170 = bitcast <2 x i64> %169 to <2 x double>
@@ -31388,13 +31397,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   %203 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %204 = fmul double %202, %203
   store double %204, ptr %3, align 16, !tbaa !20
-  %foldExtExtBinop51 = fsub <2 x double> %182, %178
-  %205 = extractelement <2 x double> %foldExtExtBinop51, i64 0
+  %foldExtExtBinop149 = fsub <2 x double> %182, %178
+  %205 = extractelement <2 x double> %foldExtExtBinop149, i64 0
   %206 = fmul double %202, %205
   store double %206, ptr %40, align 8, !tbaa !20
-  %shift53 = shufflevector <2 x double> %174, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop54 = fsub <2 x double> %shift53, %176
-  %207 = extractelement <2 x double> %foldExtExtBinop54, i64 0
+  %shift151 = shufflevector <2 x double> %174, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop152 = fsub <2 x double> %shift151, %176
+  %207 = extractelement <2 x double> %foldExtExtBinop152, i64 0
   %208 = fmul double %202, %207
   store double %208, ptr %41, align 16, !tbaa !20
   br label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit
@@ -31405,59 +31414,58 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   %.idx.i.i.i.sroa.sel = select i1 %210, ptr %32, ptr %4
   %211 = getelementptr double, ptr %.idx.i.i.i.sroa.sel, i64 %.0.i.i
   %212 = load double, ptr %211, align 8, !tbaa !20
-  %213 = fcmp ogt double %191, %212
+  %.fr73.i.i = freeze double %212
+  %213 = fcmp ogt double %191, %.fr73.i.i
   %.1.i.i = select i1 %213, i64 2, i64 %.0.i.i
   %214 = add nuw nsw i64 %.1.i.i, 1
   %215 = icmp eq i64 %214, 3
   %216 = select i1 %215, i64 0, i64 %214
-  %.fr.i.i = freeze i64 %216
-  %217 = add i64 %.fr.i.i, 1
-  %.urem.i.i = add i64 %.fr.i.i, -2
-  %.cmp.i.i = icmp ult i64 %217, 3
-  %218 = select i1 %.cmp.i.i, i64 %217, i64 %.urem.i.i
+  %.cmp.inv.i.i = icmp samesign ugt i64 %216, 1
+  %.v.i.i = select i1 %.cmp.inv.i.i, i64 -2, i64 1
+  %217 = add nsw i64 %.v.i.i, %216
   %.idx.i46.i.i = shl nuw nsw i64 %.1.i.i, 5
-  %219 = getelementptr i8, ptr %4, i64 %.idx.i46.i.i
-  %220 = getelementptr double, ptr %219, i64 %.1.i.i
-  %221 = load double, ptr %220, align 8, !tbaa !20
-  %.idx.i47.i.i = shl nuw nsw i64 %.fr.i.i, 5
-  %222 = getelementptr i8, ptr %4, i64 %.idx.i47.i.i
-  %223 = getelementptr double, ptr %222, i64 %.fr.i.i
-  %224 = load double, ptr %223, align 8, !tbaa !20
-  %225 = fsub double %221, %224
-  %.idx.i48.i.i = shl i64 %218, 5
-  %226 = getelementptr i8, ptr %4, i64 %.idx.i48.i.i
-  %227 = getelementptr double, ptr %226, i64 %218
-  %228 = load double, ptr %227, align 8, !tbaa !20
-  %229 = fsub double %225, %228
-  %230 = fadd double %229, 1.000000e+00
-  %231 = call double @sqrt(double noundef %230) #30, !tbaa !137
-  %232 = fmul double %231, 5.000000e-01
-  %233 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i
-  store double %232, ptr %233, align 8, !tbaa !20
-  %234 = fdiv double 5.000000e-01, %231
-  %235 = getelementptr double, ptr %222, i64 %218
-  %236 = load double, ptr %235, align 8, !tbaa !20
-  %237 = getelementptr double, ptr %226, i64 %.fr.i.i
-  %238 = load double, ptr %237, align 8, !tbaa !20
-  %239 = fsub double %236, %238
-  %240 = fmul double %234, %239
-  store double %240, ptr %39, align 8, !tbaa !20
-  %241 = getelementptr double, ptr %219, i64 %.fr.i.i
-  %242 = load double, ptr %241, align 8, !tbaa !20
-  %243 = getelementptr double, ptr %222, i64 %.1.i.i
-  %244 = load double, ptr %243, align 8, !tbaa !20
-  %245 = fadd double %242, %244
-  %246 = fmul double %234, %245
-  %247 = getelementptr inbounds double, ptr %3, i64 %.fr.i.i
-  store double %246, ptr %247, align 8, !tbaa !20
-  %248 = getelementptr double, ptr %219, i64 %218
-  %249 = load double, ptr %248, align 8, !tbaa !20
-  %250 = getelementptr double, ptr %226, i64 %.1.i.i
-  %251 = load double, ptr %250, align 8, !tbaa !20
-  %252 = fadd double %249, %251
-  %253 = fmul double %234, %252
-  %254 = getelementptr inbounds double, ptr %3, i64 %218
-  store double %253, ptr %254, align 8, !tbaa !20
+  %218 = getelementptr i8, ptr %4, i64 %.idx.i46.i.i
+  %219 = getelementptr double, ptr %218, i64 %.1.i.i
+  %220 = load double, ptr %219, align 8, !tbaa !20
+  %.idx.i47.i.i = shl nuw nsw i64 %216, 5
+  %221 = getelementptr i8, ptr %4, i64 %.idx.i47.i.i
+  %222 = getelementptr double, ptr %221, i64 %216
+  %223 = load double, ptr %222, align 8, !tbaa !20
+  %224 = fsub double %220, %223
+  %.idx.i48.i.i = shl nsw i64 %217, 5
+  %225 = getelementptr i8, ptr %4, i64 %.idx.i48.i.i
+  %226 = getelementptr double, ptr %225, i64 %217
+  %227 = load double, ptr %226, align 8, !tbaa !20
+  %228 = fsub double %224, %227
+  %229 = fadd double %228, 1.000000e+00
+  %230 = call double @sqrt(double noundef %229) #30, !tbaa !137
+  %231 = fmul double %230, 5.000000e-01
+  %232 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i
+  store double %231, ptr %232, align 8, !tbaa !20
+  %233 = fdiv double 5.000000e-01, %230
+  %234 = getelementptr double, ptr %221, i64 %217
+  %235 = load double, ptr %234, align 8, !tbaa !20
+  %236 = getelementptr double, ptr %225, i64 %216
+  %237 = load double, ptr %236, align 8, !tbaa !20
+  %238 = fsub double %235, %237
+  %239 = fmul double %233, %238
+  store double %239, ptr %39, align 8, !tbaa !20
+  %240 = getelementptr double, ptr %218, i64 %216
+  %241 = load double, ptr %240, align 8, !tbaa !20
+  %242 = getelementptr double, ptr %221, i64 %.1.i.i
+  %243 = load double, ptr %242, align 8, !tbaa !20
+  %244 = fadd double %241, %243
+  %245 = fmul double %233, %244
+  %246 = getelementptr inbounds nuw double, ptr %3, i64 %216
+  store double %245, ptr %246, align 8, !tbaa !20
+  %247 = getelementptr double, ptr %218, i64 %217
+  %248 = load double, ptr %247, align 8, !tbaa !20
+  %249 = getelementptr double, ptr %225, i64 %.1.i.i
+  %250 = load double, ptr %249, align 8, !tbaa !20
+  %251 = fadd double %248, %250
+  %252 = fmul double %233, %251
+  %253 = getelementptr inbounds double, ptr %3, i64 %217
+  store double %252, ptr %253, align 8, !tbaa !20
   %.pre = load double, ptr %3, align 16, !tbaa !20
   %.pre27 = load double, ptr %40, align 8, !tbaa !20
   %.pre28 = load double, ptr %41, align 16, !tbaa !20
@@ -31465,23 +31473,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
   br label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit
 
 _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit: ; preds = %198, %209
-  %255 = phi double [ %201, %198 ], [ %.pre29, %209 ]
-  %256 = phi double [ %208, %198 ], [ %.pre28, %209 ]
-  %257 = phi double [ %206, %198 ], [ %.pre27, %209 ]
-  %258 = phi double [ %204, %198 ], [ %.pre, %209 ]
-  %259 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.57, i64 noundef %.026, double noundef %195, double noundef %196, double noundef %197, double noundef %258, double noundef %257, double noundef %256, double noundef %255) #30
+  %254 = phi double [ %201, %198 ], [ %.pre29, %209 ]
+  %255 = phi double [ %208, %198 ], [ %.pre28, %209 ]
+  %256 = phi double [ %206, %198 ], [ %.pre27, %209 ]
+  %257 = phi double [ %204, %198 ], [ %.pre, %209 ]
+  %258 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.57, i64 noundef %.026, double noundef %195, double noundef %196, double noundef %197, double noundef %257, double noundef %256, double noundef %255, double noundef %254) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %260 = add nuw i64 %.026, 1
-  %261 = load ptr, ptr %29, align 8, !tbaa !4
-  %262 = load ptr, ptr %28, align 8, !tbaa !10
+  %259 = add nuw i64 %.026, 1
+  %260 = load ptr, ptr %29, align 8, !tbaa !4
+  %261 = load ptr, ptr %28, align 8, !tbaa !10
+  %262 = ptrtoint ptr %260 to i64
   %263 = ptrtoint ptr %261 to i64
-  %264 = ptrtoint ptr %262 to i64
-  %265 = sub i64 %263, %264
-  %266 = sdiv exact i64 %265, 224
-  %267 = icmp ult i64 %260, %266
-  br i1 %267, label %43, label %._crit_edge, !llvm.loop !624
+  %264 = sub i64 %262, %263
+  %265 = sdiv exact i64 %264, 224
+  %266 = icmp ult i64 %259, %265
+  br i1 %266, label %43, label %._crit_edge, !llvm.loop !624
 
-268:                                              ; preds = %._crit_edge, %17
+267:                                              ; preds = %._crit_edge, %17
   ret i1 %16
 }
 

@@ -2788,8 +2788,8 @@ _ZN12_GLOBAL__N_126AArch64Arm64ECCallLowering15processFunctionERN4llvm8FunctionE
 999:                                              ; preds = %969
   %1000 = getelementptr inbounds nuw i8, ptr %991, i64 8
   %1001 = load i32, ptr %1000, align 8
-  %.fr121.i = freeze i32 %1001
-  %1002 = and i32 %.fr121.i, 255
+  %.fr.i = freeze i32 %1001
+  %1002 = and i32 %.fr.i, 255
   %1003 = icmp ne i32 %1002, 7
   %spec.select.i134 = select i1 %1003, i32 2, i32 1
   br label %.thread.i
@@ -2801,9 +2801,9 @@ _ZN12_GLOBAL__N_126AArch64Arm64ECCallLowering15processFunctionERN4llvm8FunctionE
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 8
   %1008 = load i32, ptr %1007, align 8
   %1009 = icmp ugt i32 %1008, 255
-  br i1 %1009, label %.thread139.i, label %1010
+  br i1 %1009, label %.thread138.i, label %1010
 
-.thread139.i:                                     ; preds = %.thread.i
+.thread138.i:                                     ; preds = %.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store ptr %444, ptr %64, align 8, !tbaa !25
   store i32 0, ptr %445, align 8, !tbaa !26
@@ -2818,11 +2818,11 @@ _ZN12_GLOBAL__N_126AArch64Arm64ECCallLowering15processFunctionERN4llvm8FunctionE
   store ptr %444, ptr %64, align 8, !tbaa !25
   store i32 0, ptr %445, align 8, !tbaa !26
   store i32 6, ptr %446, align 4, !tbaa !27
-  %.not73122.i = icmp eq i32 %1005, %1013
-  br i1 %.not73122.i, label %._crit_edge.i128, label %.lr.ph.i122
+  %.not73121.i = icmp eq i32 %1005, %1013
+  br i1 %.not73121.i, label %._crit_edge.i128, label %.lr.ph.i122
 
-.lr.ph.i122:                                      ; preds = %1010, %.thread139.i
-  %1014 = phi i32 [ 5, %.thread139.i ], [ %1013, %1010 ]
+.lr.ph.i122:                                      ; preds = %1010, %.thread138.i
+  %1014 = phi i32 [ 5, %.thread138.i ], [ %1013, %1010 ]
   %1015 = sub i32 %1014, %1005
   %1016 = getelementptr inbounds nuw i8, ptr %974, i64 96
   %1017 = zext i32 %1015 to i64

@@ -238,25 +238,26 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 46:                                               ; preds = %30
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8
+  %.sroa.0.0.copyload.i.fr = freeze ptr %.sroa.0.0.copyload.i
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.copyload.i15 = load ptr, ptr %47, align 8
   %.sroa.2.0..sroa_idx.i16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.2.0.copyload.i17 = load i64, ptr %.sroa.2.0..sroa_idx.i16, align 8
-  %48 = icmp ne ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i15
-  %.fr = freeze i1 %48
+  %.sroa.0.0.copyload.i15.fr = freeze ptr %.sroa.0.0.copyload.i15
+  %48 = icmp ne ptr %.sroa.0.0.copyload.i.fr, %.sroa.0.0.copyload.i15.fr
   %49 = icmp ne i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i17
-  %.not3.i42 = or i1 %.fr, %49
+  %.not3.i42 = or i1 %48, %49
   br i1 %.not3.i42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %48, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__31PcpComposeSiteVariantSelectionsERKNS_10PcpNodeRefEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit.us
   %.sroa.3.043.us = phi i64 [ %56, %_ZN32pxrInternal_v0_24__pxrReserved__31PcpComposeSiteVariantSelectionsERKNS_10PcpNodeRefEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit.us ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
-  store ptr %.sroa.0.0.copyload.i, ptr %9, align 8
+  store ptr %.sroa.0.0.copyload.i.fr, ptr %9, align 8
   store i64 %.sroa.3.043.us, ptr %50, align 8
   %51 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef18CanContributeSpecsEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %52 unwind label %.loopexit.split.us
@@ -287,7 +288,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__31PcpComposeSiteVariantSelectionsERKNS_10Pc
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__31PcpComposeSiteVariantSelectionsERKNS_10PcpNodeRefEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit
   %.sroa.3.043 = phi i64 [ %64, %_ZN32pxrInternal_v0_24__pxrReserved__31PcpComposeSiteVariantSelectionsERKNS_10PcpNodeRefEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EEE.exit ], [ %.sroa.2.0.copyload.i, %.lr.ph ]
-  store ptr %.sroa.0.0.copyload.i, ptr %9, align 8
+  store ptr %.sroa.0.0.copyload.i.fr, ptr %9, align 8
   store i64 %.sroa.3.043, ptr %50, align 8
   %57 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef18CanContributeSpecsEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %58 unwind label %.loopexit.split

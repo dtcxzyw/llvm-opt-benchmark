@@ -3613,8 +3613,8 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit.i:                ; preds = %_ZNK4llvm3EVT13getS
   %switch.maskindex = trunc i32 %65 to i8
   %switch.shifted = lshr i8 -117, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond315 = select i1 %66, i1 %switch.lobit, i1 false
-  br i1 %or.cond315, label %switch.lookup, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i
+  %or.cond314 = select i1 %66, i1 %switch.lobit, i1 false
+  br i1 %or.cond314, label %switch.lookup, label %_ZN4llvm3MVT12getIntegerVTEj.exit.i.i
 
 _ZN4llvm3MVT12getIntegerVTEj.exit.i.i:            ; preds = %_ZN4llvm8bit_ceilIjEET_S1_.exit.i
   %67 = call { i16, ptr } @_ZN4llvm3EVT20getExtendedIntegerVTERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %63) #27
@@ -3735,7 +3735,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZNK4llvm3EVT13g
 
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT8isVectorEv.exit
   %99 = call i64 @_ZNK4llvm3EVT29getExtendedVectorElementCountEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #28
-  %.fr291 = freeze i64 %99
+  %.fr = freeze i64 %99
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %100 = call { i16, ptr } @_ZNK4llvm3EVT28getExtendedVectorElementTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #27
   %101 = extractvalue { i16, ptr } %100, 0
@@ -3743,7 +3743,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %_ZNK4llvm3EVT8isVec
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %103 = extractvalue { i16, ptr } %100, 1
   store ptr %103, ptr %102, align 8
-  %104 = and i64 %.fr291, 8589934591
+  %104 = and i64 %.fr, 8589934591
   %.not277.not = icmp eq i64 %104, 1
   br i1 %.not277.not, label %105, label %107
 
@@ -3801,7 +3801,7 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %115, %121
   br i1 %.not.i84, label %147, label %124
 
 124:                                              ; preds = %_ZNK4llvm3EVT16isPow2VectorTypeEv.exit
-  %125 = and i64 %.fr291, 4294967295
+  %125 = and i64 %.fr, 4294967295
   %126 = lshr i64 %125, 1
   %127 = or i64 %126, %125
   %128 = lshr i64 %127, 2
@@ -3813,11 +3813,11 @@ _ZNK4llvm3EVT16isPow2VectorTypeEv.exit:           ; preds = %115, %121
   %134 = lshr i64 %133, 16
   %135 = or i64 %134, %133
   %136 = add nuw nsw i64 %135, 1
-  %.sroa.2.0.insert.shift.i.i = and i64 %.fr291, 1095216660480
+  %.sroa.2.0.insert.shift.i.i = and i64 %.fr, 1095216660480
   %.sroa.0.0.insert.ext.i.i = and i64 %136, 4294967295
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i, %.sroa.2.0.insert.shift.i.i
   %.sroa.0.0.extract.trunc.i.i85 = trunc i64 %136 to i32
-  %137 = and i64 %.fr291, 4294967296
+  %137 = and i64 %.fr, 4294967296
   %.not.i.i86 = icmp eq i64 %137, 0
   br i1 %.not.i.i86, label %140, label %138
 
@@ -3884,8 +3884,8 @@ _ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE.exit: ; preds 
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr291 to i32
-  %162 = and i64 %.fr291, 4294967296
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.fr to i32
+  %162 = and i64 %.fr, 4294967296
   %.not.i125 = icmp eq i64 %162, 0
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 400552
   br label %.critedge
@@ -4006,20 +4006,20 @@ _ZN4llvm8bit_ceilIjEET_S1_.exit.i117:             ; preds = %_ZNK4llvm3EVT13getS
   %197 = add i32 %196, -16
   %198 = call i32 @llvm.fshl.i32(i32 %197, i32 %197, i32 28)
   %199 = icmp ult i32 %198, 8
-  %switch.maskindex318 = trunc i32 %198 to i8
-  %switch.shifted319 = lshr i8 -117, %switch.maskindex318
-  %switch.lobit320 = trunc i8 %switch.shifted319 to i1
-  %or.cond323 = select i1 %199, i1 %switch.lobit320, i1 false
-  br i1 %or.cond323, label %switch.lookup317, label %_ZNK4llvm3EVT19getRoundIntegerTypeERNS_11LLVMContextE.exit123
+  %switch.maskindex317 = trunc i32 %198 to i8
+  %switch.shifted318 = lshr i8 -117, %switch.maskindex317
+  %switch.lobit319 = trunc i8 %switch.shifted318 to i1
+  %or.cond322 = select i1 %199, i1 %switch.lobit319, i1 false
+  br i1 %or.cond322, label %switch.lookup316, label %_ZNK4llvm3EVT19getRoundIntegerTypeERNS_11LLVMContextE.exit123
 
-switch.lookup317:                                 ; preds = %_ZN4llvm8bit_ceilIjEET_S1_.exit.i117
+switch.lookup316:                                 ; preds = %_ZN4llvm8bit_ceilIjEET_S1_.exit.i117
   %200 = zext nneg i32 %198 to i64
-  %switch.gep321 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE.13, i64 0, i64 %200
-  %switch.load322 = load i16, ptr %switch.gep321, align 2
+  %switch.gep320 = getelementptr inbounds nuw [8 x i16], ptr @switch.table._ZNK4llvm18TargetLoweringBase17getTypeConversionERNS_11LLVMContextENS_3EVTE.13, i64 0, i64 %200
+  %switch.load321 = load i16, ptr %switch.gep320, align 2
   br label %_ZNK4llvm3EVT19getRoundIntegerTypeERNS_11LLVMContextE.exit123.thread
 
-_ZNK4llvm3EVT19getRoundIntegerTypeERNS_11LLVMContextE.exit123.thread: ; preds = %switch.lookup317, %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i112
-  %.sroa.0.0.i119.ph = phi i16 [ 5, %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i112 ], [ %switch.load322, %switch.lookup317 ]
+_ZNK4llvm3EVT19getRoundIntegerTypeERNS_11LLVMContextE.exit123.thread: ; preds = %switch.lookup316, %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i112
+  %.sroa.0.0.i119.ph = phi i16 [ 5, %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i112 ], [ %switch.load321, %switch.lookup316 ]
   store i16 %.sroa.0.0.i119.ph, ptr %13, align 8, !tbaa !138
   store ptr null, ptr %102, align 8, !tbaa !154
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -4071,7 +4071,7 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit: ; preds = %205, %207
   br label %219
 
 214:                                              ; preds = %209
-  %.sroa.0190.0.insert.ext196.le = and i64 %.fr291, 1099511627775
+  %.sroa.0190.0.insert.ext196.le = and i64 %.fr, 1099511627775
   %.sroa.09.0.copyload = load i16, ptr %13, align 8, !tbaa !138
   %.sroa.211.0.copyload = load ptr, ptr %102, align 8, !tbaa !154
   %215 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_NS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(8) %2, i16 %.sroa.09.0.copyload, ptr %.sroa.211.0.copyload, i64 %.sroa.0190.0.insert.ext196.le)
@@ -4087,13 +4087,13 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit: ; preds = %205, %207
   br label %290
 
 219:                                              ; preds = %108, %.thread, %112
-  %220 = and i64 %.fr291, 4294967296
+  %220 = and i64 %.fr, 4294967296
   %.not.i131 = icmp eq i64 %220, 0
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 400552
   br i1 %.not.i131, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %219, %237
-  %.sroa.0190.0.off0.in.us = phi i64 [ %233, %237 ], [ %.fr291, %219 ]
+  %.sroa.0190.0.off0.in.us = phi i64 [ %233, %237 ], [ %.fr, %219 ]
   %222 = and i64 %.sroa.0190.0.off0.in.us, 4294967295
   %223 = lshr i64 %222, 1
   %224 = or i64 %223, %222
@@ -4124,7 +4124,7 @@ _ZN4llvm3MVT11getVectorVTES0_NS_12ElementCountE.exit133.us: ; preds = %.split.us
   br i1 %241, label %.thread265, label %.split.us
 
 .split:                                           ; preds = %219, %257
-  %.sroa.0190.0.off0.in = phi i64 [ %253, %257 ], [ %.fr291, %219 ]
+  %.sroa.0190.0.off0.in = phi i64 [ %253, %257 ], [ %.fr, %219 ]
   %242 = and i64 %.sroa.0190.0.off0.in, 4294967295
   %243 = lshr i64 %242, 1
   %244 = or i64 %243, %242
@@ -10069,13 +10069,13 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:
   %3 = load ptr, ptr %2, align 8, !tbaa !738
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
-  %.fr2 = freeze i32 %5
-  %trunc.i.i = trunc i32 %.fr2 to i8
+  %.fr = freeze i32 %5
+  %trunc.i.i = trunc i32 %.fr to i8
   %6 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %6, i1 %switch.lobit, i1 false
-  %7 = and i32 %.fr2, 253
+  %7 = and i32 %.fr, 253
   %spec.select.i = icmp eq i32 %7, 4
   %narrow = or i1 %or.cond, %spec.select.i
   %8 = zext i1 %narrow to i32
@@ -10096,13 +10096,13 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:
   %5 = load ptr, ptr %4, align 8, !tbaa !738
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
-  %.fr2 = freeze i32 %7
-  %trunc.i.i = trunc i32 %.fr2 to i8
+  %.fr = freeze i32 %7
+  %trunc.i.i = trunc i32 %.fr to i8
   %8 = icmp ult i8 %trunc.i.i, 6
   %switch.shifted = lshr i8 47, %trunc.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %8, i1 %switch.lobit, i1 false
-  %9 = and i32 %.fr2, 253
+  %9 = and i32 %.fr, 253
   %spec.select.i = icmp eq i32 %9, 4
   %narrow = or i1 %or.cond, %spec.select.i
   %10 = zext i1 %narrow to i32

@@ -2097,29 +2097,34 @@ define hidden void @repeatStoreTrailer(ptr noundef readonly captures(none) %0, p
 define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %5, align 4
-  %6 = add i32 %.val, 1
+  %.val.fr = freeze i32 %.val
+  %6 = add i32 %.val.fr, 1
   %7 = load i64, ptr %1, align 8
-  %8 = sub i64 %3, %7
+  %.fr = freeze i64 %7
+  %8 = sub i64 %3, %.fr
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = zext i32 %10 to i64
+  %.fr93 = freeze i32 %10
+  %11 = zext i32 %.fr93 to i64
   %12 = icmp ult i64 %8, %11
   br i1 %12, label %ringHasMatch.exit.thread48, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr i8, ptr %1, i64 8
   %.val.i = load i16, ptr %14, align 8
+  %.val.i.fr = freeze i16 %.val.i
   %15 = getelementptr i8, ptr %1, i64 10
   %.val2.i = load i16, ptr %15, align 2
-  %16 = zext i16 %.val2.i to i32
-  %17 = zext i16 %.val.i to i32
-  %18 = icmp ugt i16 %.val2.i, %.val.i
+  %.val2.i.fr = freeze i16 %.val2.i
+  %16 = zext i16 %.val2.i.fr to i32
+  %17 = zext i16 %.val.i.fr to i32
+  %18 = icmp ugt i16 %.val2.i.fr, %.val.i.fr
   %19 = sub nsw i32 %16, %17
   %20 = select i1 %18, i32 0, i32 %6
   %.0.i.i = add i32 %19, %20
   %21 = zext i32 %.0.i.i to i64
   %.neg54 = add i64 %3, 1
-  %22 = add i64 %7, %21
+  %22 = add i64 %.fr, %21
   %23 = sub i64 %.neg54, %22
   %24 = zext i32 %6 to i64
   %.not = icmp ult i64 %23, %24
@@ -2127,8 +2132,8 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
 
 25:                                               ; preds = %13
   %26 = trunc i64 %8 to i32
-  %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %26, i32 %.val)
-  %reass.sub = sub i32 %26, %10
+  %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %26, i32 %.val.fr)
+  %reass.sub = sub i32 %26, %.fr93
   %27 = add i32 %reass.sub, 1
   %spec.select52 = tail call i32 @llvm.umin.i32(i32 %27, i32 %.0.i.i)
   %.not35 = icmp ult i32 %spec.select, %spec.select52
@@ -2152,16 +2157,17 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
+  %.fr98 = freeze i8 %39
+  %40 = zext i8 %.fr98 to i32
   %41 = and i32 %spec.select.i, 7
   %42 = shl nuw nsw i32 1, %41
-  %43 = and i32 %42, %40
-  %.fr96 = freeze i32 %43
-  %44 = icmp eq i32 %.fr96, 0
+  %.fr97 = freeze i32 %42
+  %43 = and i32 %.fr97, %40
+  %44 = icmp eq i32 %43, 0
   br i1 %44, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
 45:                                               ; preds = %33
-  %46 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val, i1 true)
+  %46 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val.fr, i1 true)
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_maxlevel_direct_lut, i64 0, i64 %47
   %49 = load i8, ptr %48, align 1
@@ -2201,7 +2207,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %73 = add i32 %spec.select52, %17
   %.not41.i = icmp ult i32 %73, %6
   %74 = select i1 %.not41.i, i32 0, i32 %6
-  %spec.select44.i = sub nuw i32 %73, %74
+  %spec.select44.i = sub i32 %73, %74
   %75 = icmp ult i32 %spec.select.i, %spec.select44.i
   %76 = select i1 %75, i32 %spec.select44.i, i32 %6
   %77 = icmp eq i32 %76, %spec.select.i
@@ -2216,7 +2222,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   br i1 %81, label %82, label %116
 
 82:                                               ; preds = %80
-  %83 = add nsw i32 %.val, 8
+  %83 = add nsw i32 %.val.fr, 8
   %84 = lshr i32 %83, 3
   switch i32 %84, label %99 [
     i32 1, label %85
@@ -2409,7 +2415,7 @@ get_flat_masks.exit121.i:                         ; preds = %174, %mmbit_get_fla
   br i1 %brmerge133.i, label %ringHasMatch.exit, label %242
 
 181:                                              ; preds = %78
-  %182 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val, i1 true)
+  %182 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val.fr, i1 true)
   %183 = zext nneg i32 %182 to i64
   %184 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_keyshift_lut, i64 0, i64 %183
   %185 = load i8, ptr %184, align 1
@@ -2520,7 +2526,7 @@ mmbit_iterate_bounded.exit49.thread.i:            ; preds = %231, %._crit_edge.i
   br i1 %246, label %247, label %get_flat_masks.exit105.preheader.i
 
 247:                                              ; preds = %245
-  %248 = add nsw i32 %.val, 8
+  %248 = add nsw i32 %.val.fr, 8
   %249 = lshr i32 %248, 3
   switch i32 %249, label %264 [
     i32 1, label %250
@@ -2565,11 +2571,12 @@ mmbit_get_flat_block.exit.i:                      ; preds = %264, %256, %253, %2
   %271 = icmp ult i32 %spec.select44.i, 64
   %272 = zext nneg i32 %spec.select44.i to i64
   %notmask81.i = shl nsw i64 -1, %272
-  %273 = xor i64 %notmask81.i, -1
+  %notmask81.i.fr = freeze i64 %notmask81.i
+  %273 = xor i64 %notmask81.i.fr, -1
   %274 = select i1 %271, i64 %273, i64 -1
-  %275 = and i64 %.0.i88.i, %274
-  %.fr93 = freeze i64 %275
-  %.not59.i60.i.not = icmp eq i64 %.fr93, 0
+  %.0.i88.i.fr = freeze i64 %.0.i88.i
+  %275 = and i64 %.0.i88.i.fr, %274
+  %.not59.i60.i.not = icmp eq i64 %275, 0
   br i1 %.not59.i60.i.not, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
 get_flat_masks.exit105.preheader.i:               ; preds = %245
@@ -2649,19 +2656,20 @@ get_flat_masks.exit105.i:                         ; preds = %288, %get_flat_mask
 
 mmbit_get_flat_block.exit92.i:                    ; preds = %311, %303, %300, %297
   %.0.i90.i = phi i64 [ %317, %311 ], [ %299, %297 ], [ %302, %300 ], [ %310, %303 ]
-  %318 = sub nuw i32 %spec.select44.i, %276
+  %318 = sub i32 %spec.select44.i, %276
   %319 = icmp ult i32 %318, 64
   %320 = zext nneg i32 %318 to i64
   %notmask79.i = shl nsw i64 -1, %320
-  %321 = xor i64 %notmask79.i, -1
+  %notmask79.i.fr = freeze i64 %notmask79.i
+  %321 = xor i64 %notmask79.i.fr, -1
   %322 = select i1 %319, i64 %321, i64 -1
-  %323 = and i64 %.0.i90.i, %322
-  %.fr = freeze i64 %323
-  %.not58.i56.i.not = icmp eq i64 %.fr, 0
+  %.0.i90.i.fr = freeze i64 %.0.i90.i
+  %323 = and i64 %.0.i90.i.fr, %322
+  %.not58.i56.i.not = icmp eq i64 %323, 0
   br i1 %.not58.i56.i.not, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
 324:                                              ; preds = %243
-  %325 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val, i1 true)
+  %325 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %.val.fr, i1 true)
   %326 = zext nneg i32 %325 to i64
   %327 = getelementptr inbounds nuw [32 x i8], ptr @mmbit_keyshift_lut, i64 0, i64 %326
   %328 = load i8, ptr %327, align 1
@@ -2719,13 +2727,13 @@ get_lowhi_masks.exit.i:                           ; preds = %382, %324
 367:                                              ; preds = %get_lowhi_masks.exit.i
   %368 = shl i64 %.048.i68.i, 6
   %369 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %366, i1 true)
-  %370 = or disjoint i64 %369, %368
-  %.fr95 = freeze i64 %370
+  %.fr96 = freeze i64 %369
+  %370 = or i64 %.fr96, %368
   %371 = icmp eq i32 %.056.i66.i, %333
   br i1 %371, label %.thread56.i, label %373
 
 .thread56.i:                                      ; preds = %367
-  %372 = and i64 %.fr95, 4294967295
+  %372 = and i64 %370, 4294967295
   %.not53 = icmp eq i64 %372, 4294967295
   br i1 %.not53, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
@@ -2748,7 +2756,7 @@ get_lowhi_masks.exit.i:                           ; preds = %382, %324
 382:                                              ; preds = %378, %373
   %.sink138.i = phi i32 [ 6, %378 ], [ -6, %373 ]
   %.157.i73.i = phi i32 [ %379, %378 ], [ %374, %373 ]
-  %.149.i75.i = phi i64 [ %381, %378 ], [ %.fr95, %373 ]
+  %.149.i75.i = phi i64 [ %381, %378 ], [ %370, %373 ]
   %.146.i76.i = phi i32 [ %380, %378 ], [ %.045.i69.i, %373 ]
   %383 = add i32 %.sink138.i, %.052.i67.i
   br label %get_lowhi_masks.exit.i

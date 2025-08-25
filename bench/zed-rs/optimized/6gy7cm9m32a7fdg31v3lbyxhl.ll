@@ -10773,7 +10773,7 @@ default.unreachable79:                            ; preds = %2
           to label %.body unwind label %46
 
 26:                                               ; preds = %22
-  %.fr36.i = freeze { i64, ptr } %23
+  %.fr.i = freeze { i64, ptr } %23
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %37 unwind label %27
 
@@ -10824,8 +10824,8 @@ default.unreachable79:                            ; preds = %2
   unreachable
 
 48:                                               ; preds = %44, %40, %37
-  %49 = extractvalue { i64, ptr } %.fr36.i, 0
-  %50 = extractvalue { i64, ptr } %.fr36.i, 1
+  %49 = extractvalue { i64, ptr } %.fr.i, 0
+  %50 = extractvalue { i64, ptr } %.fr.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2186
   switch i64 %49, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h80889e89f973a6b8E.exit" [
     i64 2, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h80889e89f973a6b8E.exit.thread58"
@@ -11282,7 +11282,7 @@ default.unreachable125:                           ; preds = %2
           to label %.body unwind label %53
 
 33:                                               ; preds = %29
-  %.fr36.i = freeze { i64, ptr } %30
+  %.fr.i = freeze { i64, ptr } %30
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
           to label %44 unwind label %34
 
@@ -11333,8 +11333,8 @@ default.unreachable125:                           ; preds = %2
   unreachable
 
 55:                                               ; preds = %51, %47, %44
-  %56 = extractvalue { i64, ptr } %.fr36.i, 0
-  %57 = extractvalue { i64, ptr } %.fr36.i, 1
+  %56 = extractvalue { i64, ptr } %.fr.i, 0
+  %57 = extractvalue { i64, ptr } %.fr.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !2354
   switch i64 %56, label %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h80889e89f973a6b8E.exit" [
     i64 2, label %"_ZN4core3ptr84drop_in_place$LT$alloc..sync..Arc$LT$context_servers..manager..ContextServer$GT$$GT$17h38001b414d0406b7E.exit53.sink.split"

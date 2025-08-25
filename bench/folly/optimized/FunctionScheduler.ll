@@ -4806,13 +4806,14 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
   %23 = xor i64 %notmask.i, -1
   %24 = load ptr, ptr %0, align 8
   %.sroa.02.0.copyload.i.i = load ptr, ptr %1, align 8
+  %.sroa.02.0.copyload.i.i.fr = freeze ptr %.sroa.02.0.copyload.i.i
   %.sroa.43.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %25 = ptrtoint ptr %.sroa.43.0.copyload.i.i to i64
-  %26 = ptrtoint ptr %.sroa.02.0.copyload.i.i to i64
+  %.sroa.43.0.copyload.i.i.fr = freeze ptr %.sroa.43.0.copyload.i.i
+  %25 = ptrtoint ptr %.sroa.43.0.copyload.i.i.fr to i64
+  %26 = ptrtoint ptr %.sroa.02.0.copyload.i.i.fr to i64
   %27 = sub i64 %25, %26
-  %28 = icmp eq ptr %.sroa.43.0.copyload.i.i, %.sroa.02.0.copyload.i.i
-  %.fr = freeze i1 %28
-  br i1 %.fr, label %.split.us, label %.split, !llvm.loop !161
+  %28 = icmp eq ptr %.sroa.43.0.copyload.i.i.fr, %.sroa.02.0.copyload.i.i.fr
+  br i1 %28, label %.split.us, label %.split, !llvm.loop !161
 
 .split.us:                                        ; preds = %3, %37
   %.0.i40.us = phi i64 [ %38, %37 ], [ %9, %3 ]
@@ -4907,7 +4908,7 @@ define linkonce_odr noundef i64 @_ZN5folly3f146detail16F14VectorMapImplINS_5Rang
   br i1 %.not.i.i.i, label %77, label %.critedge.i.backedge, !prof !164
 
 77:                                               ; preds = %65
-  %bcmp.i.i.i = call i32 @bcmp(ptr %.sroa.02.0.copyload.i.i, ptr %.sroa.0.0.copyload.i.i3, i64 %27)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %.sroa.02.0.copyload.i.i.fr, ptr %.sroa.0.0.copyload.i.i3, i64 %27)
   %78 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %78, label %_ZNK5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEE14keyMatchesItemIS6_EEbRKT_RKj.exit.thread, label %.critedge.i.backedge, !prof !165
 
@@ -5159,6 +5160,8 @@ define noundef zeroext i1 @_ZN5folly17FunctionScheduler14cancelFunctionENS_5Rang
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::unique_lock", align 8
+  %.fr77 = freeze ptr %1
+  %.fr76 = freeze ptr %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %7, align 8, !tbaa !218
@@ -5173,7 +5176,7 @@ define noundef zeroext i1 @_ZN5folly17FunctionScheduler14cancelFunctionENS_5Rang
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %11, align 8, !tbaa !200
-  %12 = invoke noundef zeroext i1 @_ZN5folly17FunctionScheduler22cancelFunctionWithLockERSt11unique_lockISt5mutexENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1, ptr %2)
+  %12 = invoke noundef zeroext i1 @_ZN5folly17FunctionScheduler22cancelFunctionWithLockERSt11unique_lockISt5mutexENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %.fr77, ptr %.fr76)
           to label %13 unwind label %14
 
 13:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -5186,14 +5189,14 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = ptrtoint ptr %2 to i64
-  %19 = ptrtoint ptr %1 to i64
+  %18 = ptrtoint ptr %.fr76 to i64
+  %19 = ptrtoint ptr %.fr77 to i64
   %20 = sub i64 %18, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !64
-  invoke void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %1, i64 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  invoke void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %.fr77, i64 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %5)
           to label %.noexc14 unwind label %106
 
 .noexc14:                                         ; preds = %16
@@ -5216,9 +5219,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %notmask.i = shl nsw i64 -1, %31
   %35 = xor i64 %notmask.i, -1
   %36 = load ptr, ptr %17, align 8
-  %37 = icmp eq ptr %2, %1
-  %.fr = freeze i1 %37
-  br i1 %.fr, label %.noexc16.us, label %.noexc16, !llvm.loop !161
+  %37 = icmp eq ptr %.fr76, %.fr77
+  br i1 %37, label %.noexc16.us, label %.noexc16, !llvm.loop !161
 
 .noexc16.us:                                      ; preds = %.noexc14, %46
   %.0.i73.us = phi i64 [ %47, %46 ], [ %21, %.noexc14 ]
@@ -5313,7 +5315,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   br i1 %.not.i.i.i23, label %84, label %.critedge.i.backedge, !prof !164
 
 84:                                               ; preds = %.noexc17
-  %bcmp.i.i.i = call i32 @bcmp(ptr %1, ptr %.sroa.0.0.copyload.i.i22, i64 %20)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %.fr77, ptr %.sroa.0.0.copyload.i.i22, i64 %20)
   %85 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %85, label %.noexc18.thread, label %.critedge.i.backedge, !prof !165
 
@@ -5424,6 +5426,8 @@ define noundef zeroext i1 @_ZN5folly17FunctionScheduler21cancelFunctionAndWaitEN
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::unique_lock", align 8
+  %.fr81 = freeze ptr %1
+  %.fr80 = freeze ptr %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %7, align 8, !tbaa !218
@@ -5438,7 +5442,7 @@ define noundef zeroext i1 @_ZN5folly17FunctionScheduler21cancelFunctionAndWaitEN
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   store i8 1, ptr %9, align 8, !tbaa !200
-  %12 = invoke noundef zeroext i1 @_ZN5folly17FunctionScheduler22cancelFunctionWithLockERSt11unique_lockISt5mutexENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %1, ptr %2)
+  %12 = invoke noundef zeroext i1 @_ZN5folly17FunctionScheduler22cancelFunctionWithLockERSt11unique_lockISt5mutexENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(202) %0, ptr noundef nonnull align 8 dereferenceable(9) %7, ptr %.fr81, ptr %.fr80)
           to label %13 unwind label %.loopexit.split-lp
 
 13:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -5449,32 +5453,37 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 201
   %.val.val2.i = load i8, ptr %16, align 1, !tbaa !45, !range !58, !noundef !59
   %17 = trunc nuw i8 %.val.val2.i to i1
-  br i1 %17, label %.lr.ph.i, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
+  br i1 %17, label %.lr.ph.i, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
 
 .lr.ph.i:                                         ; preds = %14, %.noexc23
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(9) %7)
-          to label %.noexc23 unwind label %115
+          to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %.lr.ph.i
   %.val.val.i = load i8, ptr %16, align 1, !tbaa !45, !range !58, !noundef !59
   %18 = trunc nuw i8 %.val.val.i to i1
   br i1 %18, label %.lr.ph.i, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", !llvm.loop !219
 
+.loopexit:                                        ; preds = %.lr.ph.i
+  %lpad.loopexit = landingpad { ptr, i32 }
+          cleanup
+  br label %117
+
 .loopexit.split-lp:                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %117
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %21 = ptrtoint ptr %2 to i64
-  %22 = ptrtoint ptr %1 to i64
+  %21 = ptrtoint ptr %.fr80 to i64
+  %22 = ptrtoint ptr %.fr81 to i64
   %23 = sub i64 %21, %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !64
-  invoke void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %1, i64 noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  invoke void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %.fr81, i64 noundef %23, ptr noundef nonnull %6, ptr noundef nonnull %5)
           to label %.noexc16 unwind label %109
 
 .noexc16:                                         ; preds = %19
@@ -5497,9 +5506,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %notmask.i = shl nsw i64 -1, %34
   %38 = xor i64 %notmask.i, -1
   %39 = load ptr, ptr %20, align 8
-  %40 = icmp eq ptr %2, %1
-  %.fr = freeze i1 %40
-  br i1 %.fr, label %.noexc18.us, label %.noexc18, !llvm.loop !161
+  %40 = icmp eq ptr %.fr80, %.fr81
+  br i1 %40, label %.noexc18.us, label %.noexc18, !llvm.loop !161
 
 .noexc18.us:                                      ; preds = %.noexc16, %49
   %.0.i77.us = phi i64 [ %50, %49 ], [ %24, %.noexc16 ]
@@ -5516,13 +5524,13 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 .critedge.i._crit_edge.split.us.us:               ; preds = %.critedge.i.backedge.us.us, %.noexc18.us
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %49, !prof !126
+  br i1 %48, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %49, !prof !126
 
 49:                                               ; preds = %.critedge.i._crit_edge.split.us.us
   %50 = add i64 %28, %.0.i77.us
   %51 = add i64 %.022.i76.us, -1
   %.not.i.us = icmp eq i64 %51, 0
-  br i1 %.not.i.us, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %.noexc18.us, !llvm.loop !162
+  br i1 %.not.i.us, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %.noexc18.us, !llvm.loop !162
 
 .noexc19.lr.ph.us:                                ; preds = %.noexc18.us
   %52 = zext nneg i16 %46 to i32
@@ -5594,7 +5602,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   br i1 %.not.i.i.i26, label %87, label %.critedge.i.backedge, !prof !164
 
 87:                                               ; preds = %.noexc19
-  %bcmp.i.i.i = call i32 @bcmp(ptr %1, ptr %.sroa.0.0.copyload.i.i25, i64 %23)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %.fr81, ptr %.sroa.0.0.copyload.i.i25, i64 %23)
   %88 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %88, label %.noexc20.thread, label %.critedge.i.backedge, !prof !165
 
@@ -5604,13 +5612,13 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 .critedge.i._crit_edge.split:                     ; preds = %.critedge.i.backedge, %.noexc18
   %89 = icmp eq i8 %72, 0
-  br i1 %89, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %90, !prof !126
+  br i1 %89, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %90, !prof !126
 
 90:                                               ; preds = %.critedge.i._crit_edge.split
   %91 = add i64 %28, %.0.i77
   %92 = add i64 %.022.i76, -1
   %.not.i = icmp eq i64 %92, 0
-  br i1 %.not.i, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %.noexc18, !llvm.loop !162
+  br i1 %.not.i, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %.noexc18, !llvm.loop !162
 
 .noexc20.thread:                                  ; preds = %87, %.noexc19.us.us
   %.pre-phi = phi i64 [ %59, %.noexc19.us.us ], [ %82, %87 ]
@@ -5619,7 +5627,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8, !tbaa !52
   %.not66 = icmp eq ptr %96, null
-  br i1 %.not66, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %97
+  br i1 %.not66, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", label %97
 
 97:                                               ; preds = %.noexc20.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5648,54 +5656,50 @@ _ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10R
   store ptr null, ptr %95, align 8, !tbaa !52
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 48
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE10uninitCallERNS1_4DataE, ptr %108, align 16, !tbaa !189
-  br label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
+  br label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
 
 109:                                              ; preds = %97, %19
   %110 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread
+  br label %117
 
-"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %.noexc23
-  %.pre90 = load i8, ptr %9, align 8, !tbaa !200, !range !58
-  %111 = trunc nuw i8 %.pre90 to i1
-  br i1 %111, label %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit": ; preds = %90, %.critedge.i._crit_edge.split, %49, %.critedge.i._crit_edge.split.us.us, %.noexc23, %.noexc20.thread, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit, %14
+  %.0 = phi i1 [ true, %14 ], [ true, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit ], [ false, %.noexc20.thread ], [ true, %.noexc23 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %49 ], [ false, %.critedge.i._crit_edge.split ], [ false, %90 ]
+  %111 = load i8, ptr %9, align 8, !tbaa !200, !range !58, !noundef !59
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %113, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread": ; preds = %90, %.critedge.i._crit_edge.split, %49, %.critedge.i._crit_edge.split.us.us, %.noexc20.thread, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit, %14, %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
-  %.0104 = phi i1 [ true, %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ], [ false, %.noexc20.thread ], [ true, %_ZN5folly17FunctionScheduler14cancelFunctionERKSt11unique_lockISt5mutexEPNS0_10RepeatFuncE.exit ], [ true, %14 ], [ false, %.critedge.i._crit_edge.split.us.us ], [ false, %49 ], [ false, %.critedge.i._crit_edge.split ], [ false, %90 ]
-  %112 = load ptr, ptr %7, align 8, !tbaa !218
-  %.not.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %113
+113:                                              ; preds = %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit"
+  %114 = load ptr, ptr %7, align 8, !tbaa !218
+  %.not.i.i = icmp eq ptr %114, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %115
 
-113:                                              ; preds = %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread"
-  %114 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %112) #33
+115:                                              ; preds = %113
+  %116 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %114) #33
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread", %113
-  %.0103 = phi i1 [ true, %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit" ], [ %.0104, %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit.thread" ], [ %.0104, %113 ]
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_variable4waitIZN5folly17FunctionScheduler21cancelFunctionAndWaitENS1_5RangeIPKcEEE3$_0EEvRSt11unique_lockISt5mutexET_.exit", %113, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i1 %.0103
+  ret i1 %.0
 
-115:                                              ; preds = %.lr.ph.i
-  %lpad.loopexit = landingpad { ptr, i32 }
-          cleanup
-  %.pre = load i8, ptr %9, align 8, !tbaa !200, !range !58
-  %116 = trunc nuw i8 %.pre to i1
-  br i1 %116, label %.thread, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
+117:                                              ; preds = %.loopexit, %.loopexit.split-lp, %109
+  %.pn9 = phi { ptr, i32 } [ %110, %109 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %118 = load i8, ptr %9, align 8, !tbaa !200, !range !58, !noundef !59
+  %119 = trunc nuw i8 %118 to i1
+  br i1 %119, label %120, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
 
-.thread:                                          ; preds = %.loopexit.split-lp, %109, %115
-  %.pn9107 = phi { ptr, i32 } [ %lpad.loopexit, %115 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %110, %109 ]
-  %117 = load ptr, ptr %7, align 8, !tbaa !218
-  %.not.i.i30 = icmp eq ptr %117, null
-  br i1 %.not.i.i30, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31, label %118
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %7, align 8, !tbaa !218
+  %.not.i.i30 = icmp eq ptr %121, null
+  br i1 %.not.i.i30, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31, label %122
 
-118:                                              ; preds = %.thread
-  %119 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %117) #33
+122:                                              ; preds = %120
+  %123 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %121) #33
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit31:          ; preds = %115, %.thread, %118
-  %.pn9106 = phi { ptr, i32 } [ %lpad.loopexit, %115 ], [ %.pn9107, %.thread ], [ %.pn9107, %118 ]
+_ZNSt11unique_lockISt5mutexED2Ev.exit31:          ; preds = %117, %120, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %.pn9106
+  resume { ptr, i32 } %.pn9
 }
 
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #7
@@ -6070,6 +6074,8 @@ define noundef zeroext i1 @_ZN5folly17FunctionScheduler18resetFunctionTimerENS_5
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
+  %.fr91 = freeze ptr %1
+  %.fr90 = freeze ptr %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %7) #33
   %.not.i.i.i = icmp eq i32 %8, 0
@@ -6086,9 +6092,9 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   br i1 %.not, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49_crit_edge, label %12
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49_crit_edge: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %.pre = ptrtoint ptr %2 to i64
-  %.pre100 = ptrtoint ptr %1 to i64
-  %.pre102 = sub i64 %.pre, %.pre100
+  %.pre = ptrtoint ptr %.fr90 to i64
+  %.pre102 = ptrtoint ptr %.fr91 to i64
+  %.pre104 = sub i64 %.pre, %.pre102
   br label %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49
 
 12:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -6096,8 +6102,8 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIc
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %16 = load i64, ptr %15, align 8, !tbaa !42
-  %17 = ptrtoint ptr %2 to i64
-  %18 = ptrtoint ptr %1 to i64
+  %17 = ptrtoint ptr %.fr90 to i64
+  %18 = ptrtoint ptr %.fr91 to i64
   %19 = sub i64 %17, %18
   %.not.i.i = icmp eq i64 %16, %19
   br i1 %.not.i.i, label %20, label %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49
@@ -6107,7 +6113,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIc
   br i1 %21, label %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread, label %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit
 
 _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit: ; preds = %20
-  %bcmp.i.i = tail call i32 @bcmp(ptr %14, ptr %1, i64 %16)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %14, ptr %.fr91, i64 %16)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread, label %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49
 
@@ -6134,12 +6140,12 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49: ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49_crit_edge, %12, %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit
-  %.pre-phi103 = phi i64 [ %.pre102, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49_crit_edge ], [ %19, %12 ], [ %19, %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit ]
+  %.pre-phi105 = phi i64 [ %.pre104, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit._ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49_crit_edge ], [ %19, %12 ], [ %19, %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !64
-  invoke void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %1, i64 noundef %.pre-phi103, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  invoke void @_ZN5folly4hash12SpookyHashV27Hash128EPKvmPmS4_(ptr noundef %.fr91, i64 noundef %.pre-phi105, ptr noundef nonnull %6, ptr noundef nonnull %5)
           to label %.noexc19 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit34
 
 .noexc19:                                         ; preds = %_ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEEENSt9enable_ifIXsr6detail23ComparableAsStringPieceIT_T0_EE5valueEbE4typeERKSC_RKSD_.exit.thread49
@@ -6163,9 +6169,8 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %notmask.i = shl nsw i64 -1, %48
   %52 = xor i64 %notmask.i, -1
   %53 = load ptr, ptr %37, align 8
-  %54 = icmp eq ptr %2, %1
-  %.fr = freeze i1 %54
-  br i1 %.fr, label %.noexc21.us, label %.noexc21, !llvm.loop !161
+  %54 = icmp eq ptr %.fr90, %.fr91
+  br i1 %54, label %.noexc21.us, label %.noexc21, !llvm.loop !161
 
 .noexc21.us:                                      ; preds = %.noexc19, %63
   %.0.i87.us = phi i64 [ %64, %63 ], [ %38, %.noexc19 ]
@@ -6211,7 +6216,7 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %75 = ptrtoint ptr %.sroa.4.0.copyload.i.i.us.us to i64
   %76 = ptrtoint ptr %.sroa.0.0.copyload.i.i27.us.us to i64
   %77 = sub i64 %75, %76
-  %.not.i.i.i28.us.us = icmp eq i64 %.pre-phi103, %77
+  %.not.i.i.i28.us.us = icmp eq i64 %.pre-phi105, %77
   br i1 %.not.i.i.i28.us.us, label %.noexc23.thread, label %.critedge.i.backedge.us.us, !prof !164
 
 .critedge.i.backedge.us.us:                       ; preds = %.noexc22.us.us
@@ -6256,11 +6261,11 @@ _ZN5follyeqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIPKcEEE
   %98 = ptrtoint ptr %.sroa.4.0.copyload.i.i to i64
   %99 = ptrtoint ptr %.sroa.0.0.copyload.i.i27 to i64
   %100 = sub i64 %98, %99
-  %.not.i.i.i28 = icmp eq i64 %.pre-phi103, %100
+  %.not.i.i.i28 = icmp eq i64 %.pre-phi105, %100
   br i1 %.not.i.i.i28, label %101, label %.critedge.i.backedge, !prof !164
 
 101:                                              ; preds = %.noexc22
-  %bcmp.i.i.i = call i32 @bcmp(ptr %1, ptr %.sroa.0.0.copyload.i.i27, i64 %.pre-phi103)
+  %bcmp.i.i.i = call i32 @bcmp(ptr %.fr91, ptr %.sroa.0.0.copyload.i.i27, i64 %.pre-phi105)
   %102 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %102, label %.noexc23.thread, label %.critedge.i.backedge, !prof !165
 
@@ -8567,14 +8572,15 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %22 = xor i64 %notmask.i, -1
   %23 = load ptr, ptr %1, align 8
   %.sroa.02.0.copyload.i.i = load ptr, ptr %4, align 8
+  %.sroa.02.0.copyload.i.i.fr = freeze ptr %.sroa.02.0.copyload.i.i
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.43.0.copyload.i.i = load ptr, ptr %.sroa.43.0..sroa_idx.i.i, align 8
-  %24 = ptrtoint ptr %.sroa.43.0.copyload.i.i to i64
-  %25 = ptrtoint ptr %.sroa.02.0.copyload.i.i to i64
+  %.sroa.43.0.copyload.i.i.fr = freeze ptr %.sroa.43.0.copyload.i.i
+  %24 = ptrtoint ptr %.sroa.43.0.copyload.i.i.fr to i64
+  %25 = ptrtoint ptr %.sroa.02.0.copyload.i.i.fr to i64
   %26 = sub i64 %24, %25
-  %27 = icmp eq ptr %.sroa.43.0.copyload.i.i, %.sroa.02.0.copyload.i.i
-  %.fr = freeze i1 %27
-  br i1 %.fr, label %.split.us, label %.split, !llvm.loop !161
+  %27 = icmp eq ptr %.sroa.43.0.copyload.i.i.fr, %.sroa.02.0.copyload.i.i.fr
+  br i1 %27, label %.split.us, label %.split, !llvm.loop !161
 
 .split.us:                                        ; preds = %12, %36
   %.0.i88.us = phi i64 [ %37, %36 ], [ %2, %12 ]
@@ -8669,7 +8675,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   br i1 %.not.i.i.i, label %76, label %.critedge.i.backedge, !prof !164
 
 76:                                               ; preds = %64
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.02.0.copyload.i.i, ptr %.sroa.0.0.copyload.i.i, i64 %26)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.02.0.copyload.i.i.fr, ptr %.sroa.0.0.copyload.i.i, i64 %26)
   %77 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %77, label %_ZNK5folly3f146detail21VectorContainerPolicyINS_5RangeIPKcEEPNS_17FunctionScheduler10RepeatFuncENS_4HashEvvSt17integral_constantIbLb1EEE14keyMatchesItemIS6_EEbRKT_RKj.exit.thread, label %.critedge.i.backedge, !prof !165
 

@@ -10089,10 +10089,10 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br label %124
 
 .preheader100:                                    ; preds = %28, %.thread
-  %.160155 = phi i32 [ 1, %.thread ], [ %.160, %28 ]
-  %.163154 = phi i32 [ %.062113, %.thread ], [ %.163, %28 ]
-  %.169153 = phi i32 [ %.068112, %.thread ], [ %.169, %28 ]
-  %14 = icmp sgt i32 %.163154, 0
+  %.160154 = phi i32 [ 1, %.thread ], [ %.160, %28 ]
+  %.163153 = phi i32 [ %.062113, %.thread ], [ %.163, %28 ]
+  %.169152 = phi i32 [ %.068112, %.thread ], [ %.169, %28 ]
+  %14 = icmp sgt i32 %.163153, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .preheader101:                                    ; preds = %.preheader101.preheader, %28
@@ -10118,9 +10118,9 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
 
 21:                                               ; preds = %.preheader101
   %22 = load i32, ptr %5, align 4, !tbaa !13
-  %.fr128 = freeze i32 %22
-  %23 = icmp eq i32 %.fr128, -1
-  %24 = select i1 %23, i32 0, i32 %.fr128
+  %.fr = freeze i32 %22
+  %23 = icmp eq i32 %.fr, -1
+  %24 = select i1 %23, i32 0, i32 %.fr
   %spec.select84 = add nsw i32 %24, %.068112
   %spec.select85 = zext i1 %23 to i32
   br label %28
@@ -10146,17 +10146,17 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br i1 %30, label %.preheader101, label %.preheader100, !llvm.loop !191
 
 .lr.ph:                                           ; preds = %.preheader100, %.loopexit
-  %.261.fr126 = phi i32 [ %.5, %.loopexit ], [ %.160155, %.preheader100 ]
-  %.264125 = phi i32 [ %.365, %.loopexit ], [ %.163154, %.preheader100 ]
-  %.270124 = phi i32 [ %.472, %.loopexit ], [ %.169153, %.preheader100 ]
+  %.261.fr126 = phi i32 [ %.5, %.loopexit ], [ %.160154, %.preheader100 ]
+  %.264125 = phi i32 [ %.365, %.loopexit ], [ %.163153, %.preheader100 ]
+  %.270124 = phi i32 [ %.472, %.loopexit ], [ %.169152, %.preheader100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false), !tbaa !28
   br label %.preheader98
 
 .preheader98:                                     ; preds = %.lr.ph, %58
-  %indvars.iv139 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next140, %58 ]
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next139, %58 ]
   %.055118 = phi i32 [ 0, %.lr.ph ], [ %.1, %58 ]
-  %31 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139
+  %31 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv138
   %32 = load ptr, ptr %31, align 8, !tbaa !192
   %33 = icmp eq ptr %32, null
   br i1 %33, label %58, label %34
@@ -10180,7 +10180,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br label %.loopexit99
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139, i32 1
+  %46 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv138, i32 1
   %47 = load ptr, ptr %46, align 8, !tbaa !45
   %48 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef %47, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %49 = load i32, ptr %6, align 4, !tbaa !13
@@ -10198,8 +10198,8 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
 
 58:                                               ; preds = %45, %.preheader98
   %.1 = phi i32 [ %.055118, %.preheader98 ], [ %spec.select, %45 ]
-  %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next140, %11
+  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next139, %11
   br i1 %exitcond.not, label %.loopexit99, label %.preheader98, !llvm.loop !193
 
 .loopexit99:                                      ; preds = %58, %41
@@ -10233,11 +10233,11 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br label %.thread92
 
 .preheader:                                       ; preds = %63, %120
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %120 ], [ 0, %63 ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %120 ], [ 0, %63 ]
   %.6121 = phi i32 [ %121, %120 ], [ %.4, %63 ]
   %.466120 = phi i32 [ %.567, %120 ], [ %.264125, %63 ]
   %.573119 = phi i32 [ %.674, %120 ], [ %.270124, %63 ]
-  %73 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv142
+  %73 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv141
   %74 = load ptr, ptr %73, align 8, !tbaa !192
   %75 = icmp eq ptr %74, null
   br i1 %75, label %120, label %76
@@ -10261,7 +10261,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br label %.loopexit
 
 87:                                               ; preds = %76
-  %88 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv142, i32 1
+  %88 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv141, i32 1
   %89 = load ptr, ptr %88, align 8, !tbaa !45
   %90 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef %89, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
   %91 = load i64, ptr %7, align 8, !tbaa !28
@@ -10282,7 +10282,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br i1 %.not82, label %120, label %103
 
 103:                                              ; preds = %93, %87
-  %104 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv142
+  %104 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv141
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !45
   %107 = call i32 @ASYNC_start_job(ptr noundef %104, ptr noundef %106, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %104, i64 noundef 13664) #14
@@ -10299,13 +10299,13 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %.775 = add nsw i32 %111, %.573119
   %.9 = select i1 %110, i32 1, i32 %.6121
   %112 = add nsw i32 %.466120, -1
-  %113 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv142
+  %113 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv141
   store ptr null, ptr %113, align 8, !tbaa !192
   br label %120
 
 114:                                              ; preds = %103, %103
   %115 = add nsw i32 %.466120, -1
-  %116 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv142
+  %116 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv141
   store ptr null, ptr %116, align 8, !tbaa !192
   %117 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %118 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %117, ptr noundef nonnull @.str.432) #14
@@ -10319,9 +10319,9 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %.567 = phi i32 [ %.466120, %.preheader ], [ %.466120, %103 ], [ %112, %108 ], [ %115, %114 ], [ %.466120, %93 ]
   %.8 = phi i32 [ %.6121, %.preheader ], [ %.6121, %103 ], [ %.9, %108 ], [ 1, %114 ], [ %.6121, %93 ]
   %121 = freeze i32 %.8
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %11
-  br i1 %exitcond146.not, label %.loopexit, label %.preheader, !llvm.loop !195
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %11
+  br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !195
 
 .thread92:                                        ; preds = %70, %60
   %122 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -10339,8 +10339,8 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br i1 %123, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader100
-  %.270.lcssa = phi i32 [ %.169153, %.preheader100 ], [ %.472, %.loopexit ]
-  %.261.fr.lcssa = phi i32 [ %.160155, %.preheader100 ], [ %.5, %.loopexit ]
+  %.270.lcssa = phi i32 [ %.169152, %.preheader100 ], [ %.472, %.loopexit ]
+  %.261.fr.lcssa = phi i32 [ %.160154, %.preheader100 ], [ %.5, %.loopexit ]
   %.not83 = icmp eq i32 %.261.fr.lcssa, 0
   %spec.select97 = select i1 %.not83, i32 %.270.lcssa, i32 -1
   br label %124

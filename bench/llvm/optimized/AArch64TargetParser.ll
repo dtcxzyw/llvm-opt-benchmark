@@ -3907,9 +3907,9 @@ define dso_local noundef ptr @_ZN4llvm7AArch649parseArchENS_9StringRefE(ptr %0, 
 
 15:                                               ; preds = %10
   %16 = tail call { ptr, i64 } @_ZN4llvm3ARM14getArchSynonymENS_9StringRefE(ptr nonnull %4, i64 %5) #26
-  %.fr = freeze { ptr, i64 } %16
-  %17 = extractvalue { ptr, i64 } %.fr, 0
-  %18 = extractvalue { ptr, i64 } %.fr, 1
+  %.fr28 = freeze { ptr, i64 } %16
+  %17 = extractvalue { ptr, i64 } %.fr28, 0
+  %18 = extractvalue { ptr, i64 } %.fr28, 1
   %19 = icmp eq i64 %18, 0
   %20 = sub i64 0, %18
   br i1 %19, label %_ZL16checkArchVersionN4llvm9StringRefE.exit.thread, label %.split

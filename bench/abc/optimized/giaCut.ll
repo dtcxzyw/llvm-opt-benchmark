@@ -6082,8 +6082,8 @@ Vec_WrdFreeP.exit:                                ; preds = %1, %10
   %14 = icmp slt i32 %.val.val, 7
   %15 = add nsw i32 %.val.val, -6
   %16 = shl nuw i32 1, %15
-  %.fr.i = freeze i32 %16
-  %17 = select i1 %14, i32 1, i32 %.fr.i
+  %.fr44.i = freeze i32 %16
+  %17 = select i1 %14, i32 1, i32 %.fr44.i
   %18 = select i1 %14, i32 0, i32 %15
   %19 = shl i32 %.val.val, %18
   %20 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #27
@@ -10057,26 +10057,28 @@ define range(i32 0, -2147483648) i32 @Gia_ManMatchConesMinimizeTts(ptr noundef c
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i64, ptr %.val38.us.us, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !70
+  %.fr18.us.i.us.us = freeze i64 %34
   br label %Abc_TtHasVar.exit.us.i.us.us
 
 Abc_TtHasVar.exit.us.i.us.us:                     ; preds = %Abc_TtHasVar.exit.us.i.us.us, %.lr.ph.i.us.us
-  %indvars.iv51.i.us.us = phi i64 [ %indvars.iv.next52.i.us.us, %Abc_TtHasVar.exit.us.i.us.us ], [ 0, %.lr.ph.i.us.us ]
-  %.022.us.i.us.us = phi i32 [ %spec.select.i.us.us, %Abc_TtHasVar.exit.us.i.us.us ], [ 0, %.lr.ph.i.us.us ]
-  %35 = trunc nuw nsw i64 %indvars.iv51.i.us.us to i32
+  %indvars.iv53.i.us.us = phi i64 [ %indvars.iv.next54.i.us.us, %Abc_TtHasVar.exit.us.i.us.us ], [ 0, %.lr.ph.i.us.us ]
+  %.024.us.i.us.us = phi i32 [ %spec.select.i.us.us, %Abc_TtHasVar.exit.us.i.us.us ], [ 0, %.lr.ph.i.us.us ]
+  %35 = trunc nuw nsw i64 %indvars.iv53.i.us.us to i32
   %36 = shl nuw i32 1, %35
   %37 = zext nneg i32 %36 to i64
-  %38 = lshr i64 %34, %37
-  %39 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv51.i.us.us
+  %38 = lshr i64 %.fr18.us.i.us.us, %37
+  %39 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv53.i.us.us
   %40 = load i64, ptr %39, align 8, !tbaa !70
-  %41 = xor i64 %38, %34
-  %42 = and i64 %41, %40
-  %.fr.us.i.us.us = freeze i64 %42
-  %.not17.us.i.us.us = icmp ne i64 %.fr.us.i.us.us, 0
+  %.fr.us.i.us.us = freeze i64 %38
+  %41 = xor i64 %.fr.us.i.us.us, %.fr18.us.i.us.us
+  %.fr19.us.i.us.us = freeze i64 %40
+  %42 = and i64 %41, %.fr19.us.i.us.us
+  %.not17.us.i.us.us = icmp ne i64 %42, 0
   %43 = zext i1 %.not17.us.i.us.us to i32
-  %spec.select.i.us.us = add nuw nsw i32 %.022.us.i.us.us, %43
-  %indvars.iv.next52.i.us.us = add nuw nsw i64 %indvars.iv51.i.us.us, 1
-  %exitcond55.not.i.us.us = icmp eq i64 %indvars.iv.next52.i.us.us, %wide.trip.count.i
-  br i1 %exitcond55.not.i.us.us, label %Abc_TtSupportSize.exit.loopexit.us.us, label %Abc_TtHasVar.exit.us.i.us.us, !llvm.loop !219
+  %spec.select.i.us.us = add nuw nsw i32 %.024.us.i.us.us, %43
+  %indvars.iv.next54.i.us.us = add nuw nsw i64 %indvars.iv53.i.us.us, 1
+  %exitcond57.not.i.us.us = icmp eq i64 %indvars.iv.next54.i.us.us, %wide.trip.count.i
+  br i1 %exitcond57.not.i.us.us, label %Abc_TtSupportSize.exit.loopexit.us.us, label %Abc_TtHasVar.exit.us.i.us.us, !llvm.loop !219
 
 44:                                               ; preds = %Abc_TtSupportSize.exit.loopexit.us.us
   %45 = shl i32 %.03446.us.us, %25
@@ -10111,7 +10113,7 @@ Abc_TtSupportSize.exit.loopexit.us.us:            ; preds = %Abc_TtHasVar.exit.u
 
 .lr.ph.split.split.split.i.us:                    ; preds = %Abc_TtHasVar.exit.thread.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %Abc_TtHasVar.exit.thread.i.us ]
-  %.022.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %83, %Abc_TtHasVar.exit.thread.i.us ]
+  %.024.i.us = phi i32 [ 0, %.lr.ph.i.us ], [ %83, %Abc_TtHasVar.exit.thread.i.us ]
   %55 = icmp samesign ult i64 %indvars.iv.i.us, 6
   br i1 %55, label %.lr.ph.i.i.us, label %.preheader.lr.ph.i.i.us
 
@@ -10173,7 +10175,7 @@ Abc_TtSupportSize.exit.loopexit.us.us:            ; preds = %Abc_TtHasVar.exit.u
   br i1 %.not39.i.i.us, label %82, label %Abc_TtHasVar.exit.thread13.i.us
 
 Abc_TtHasVar.exit.thread13.i.us:                  ; preds = %75, %63
-  %81 = add nsw i32 %.022.i.us, 1
+  %81 = add nsw i32 %.024.i.us, 1
   br label %Abc_TtHasVar.exit.thread.i.us
 
 82:                                               ; preds = %75
@@ -10182,7 +10184,7 @@ Abc_TtHasVar.exit.thread13.i.us:                  ; preds = %75, %63
   br i1 %exitcond58.not.i.i.us, label %Abc_TtHasVar.exit.thread.i.us, label %75, !llvm.loop !223
 
 Abc_TtHasVar.exit.thread.i.us:                    ; preds = %._crit_edge.us.i.i.us, %82, %Abc_TtHasVar.exit.thread13.i.us, %.preheader.lr.ph.i.i.us
-  %83 = phi i32 [ %81, %Abc_TtHasVar.exit.thread13.i.us ], [ %.022.i.us, %.preheader.lr.ph.i.i.us ], [ %.022.i.us, %82 ], [ %.022.i.us, %._crit_edge.us.i.i.us ]
+  %83 = phi i32 [ %81, %Abc_TtHasVar.exit.thread13.i.us ], [ %.024.i.us, %.preheader.lr.ph.i.i.us ], [ %.024.i.us, %82 ], [ %.024.i.us, %._crit_edge.us.i.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %Abc_TtSupportSize.exit.loopexit43.us, label %.lr.ph.split.split.split.i.us, !llvm.loop !219
@@ -10619,8 +10621,8 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %16 = icmp slt i32 %.val27.val, 7
   %17 = add nsw i32 %.val27.val, -6
   %18 = shl nuw i32 1, %17
-  %.fr.i = freeze i32 %18
-  %19 = select i1 %16, i32 1, i32 %.fr.i
+  %.fr44.i = freeze i32 %18
+  %19 = select i1 %16, i32 1, i32 %.fr44.i
   %20 = select i1 %16, i32 0, i32 %17
   %21 = shl i32 %.val27.val, %20
   %22 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #27

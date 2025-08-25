@@ -11850,7 +11850,8 @@ define internal fastcc ptr @k_mul(ptr noundef readonly captures(address) %0, ptr
   %20 = lshr i64 %.val101.i, 3
   %21 = getelementptr i8, ptr %.089, i64 16
   %.val100.i = load i64, ptr %21, align 8, !tbaa !30
-  %22 = lshr i64 %.val100.i, 3
+  %.val100.fr.i = freeze i64 %.val100.i
+  %22 = lshr i64 %.val100.fr.i, 3
   %23 = add nuw nsw i64 %22, %20
   %24 = tail call fastcc ptr @long_alloc(i64 noundef %23)
   %25 = icmp eq ptr %24, null
@@ -11871,11 +11872,10 @@ define internal fastcc ptr @k_mul(ptr noundef readonly captures(address) %0, ptr
 
 .lr.ph111.i:                                      ; preds = %.preheader103.i
   %31 = getelementptr inbounds nuw i8, ptr %.084, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %.089, i64 24
+  %32 = getelementptr i8, ptr %.089, i64 24
   %33 = getelementptr i32, ptr %32, i64 %22
   %34 = icmp ult ptr %32, %33
-  %.fr.i = freeze i1 %34
-  br i1 %.fr.i, label %.lr.ph111.split.us.i, label %.lr.ph111.split.i
+  br i1 %34, label %.lr.ph111.split.us.i, label %.lr.ph111.split.i
 
 .lr.ph111.split.us.i:                             ; preds = %.lr.ph111.i, %Py_DECREF.exit.us.i
   %.178110.us.i = phi i64 [ %45, %Py_DECREF.exit.us.i ], [ 0, %.lr.ph111.i ]
@@ -15999,14 +15999,14 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37, %.lr.ph
-  %.0121236 = phi i64 [ %44, %.lr.ph ], [ %39, %37 ]
-  %.0129235 = phi double [ %48, %.lr.ph ], [ %42, %37 ]
-  %44 = add nsw i64 %.0121236, -1
+  %.0121239 = phi i64 [ %44, %.lr.ph ], [ %39, %37 ]
+  %.0129238 = phi double [ %48, %.lr.ph ], [ %42, %37 ]
+  %44 = add nsw i64 %.0121239, -1
   %45 = getelementptr [1 x i32], ptr %38, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !33
   %47 = uitofp i32 %46 to double
-  %48 = tail call double @llvm.fmuladd.f64(double %.0129235, double 0x41D0000000000000, double %47)
-  %49 = icmp samesign ugt i64 %.0121236, 1
+  %48 = tail call double @llvm.fmuladd.f64(double %.0129238, double 0x41D0000000000000, double %47)
+  %49 = icmp samesign ugt i64 %.0121239, 1
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !262
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37
@@ -16017,21 +16017,21 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   %53 = load i32, ptr %52, align 4, !tbaa !33
   %54 = uitofp i32 %53 to double
   %55 = icmp ugt i64 %.val, 15
-  br i1 %55, label %.lr.ph240, label %._crit_edge241
+  br i1 %55, label %.lr.ph243, label %._crit_edge244
 
-.lr.ph240:                                        ; preds = %._crit_edge, %.lr.ph240
-  %.0122238 = phi i64 [ %56, %.lr.ph240 ], [ %51, %._crit_edge ]
-  %.0128237 = phi double [ %60, %.lr.ph240 ], [ %54, %._crit_edge ]
-  %56 = add nsw i64 %.0122238, -1
+.lr.ph243:                                        ; preds = %._crit_edge, %.lr.ph243
+  %.0122241 = phi i64 [ %56, %.lr.ph243 ], [ %51, %._crit_edge ]
+  %.0128240 = phi double [ %60, %.lr.ph243 ], [ %54, %._crit_edge ]
+  %56 = add nsw i64 %.0122241, -1
   %57 = getelementptr [1 x i32], ptr %50, i64 0, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !33
   %59 = uitofp i32 %58 to double
-  %60 = tail call double @llvm.fmuladd.f64(double %.0128237, double 0x41D0000000000000, double %59)
-  %61 = icmp samesign ugt i64 %.0122238, 1
-  br i1 %61, label %.lr.ph240, label %._crit_edge241, !llvm.loop !263
+  %60 = tail call double @llvm.fmuladd.f64(double %.0128240, double 0x41D0000000000000, double %59)
+  %61 = icmp samesign ugt i64 %.0122241, 1
+  br i1 %61, label %.lr.ph243, label %._crit_edge244, !llvm.loop !263
 
-._crit_edge241:                                   ; preds = %.lr.ph240, %._crit_edge
-  %.0128.lcssa = phi double [ %54, %._crit_edge ], [ %60, %.lr.ph240 ]
+._crit_edge244:                                   ; preds = %.lr.ph243, %._crit_edge
+  %.0128.lcssa = phi double [ %54, %._crit_edge ], [ %60, %.lr.ph243 ]
   %62 = fdiv double %.0129.lcssa, %.0128.lcssa
   br label %243
 
@@ -16090,25 +16090,25 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   br i1 %99, label %252, label %.preheader
 
 .preheader:                                       ; preds = %92
-  %.not258 = icmp ult i64 %93, 30
-  br i1 %.not258, label %._crit_edge251, label %.lr.ph250
+  %.not261 = icmp ult i64 %93, 30
+  br i1 %.not261, label %._crit_edge254, label %.lr.ph253
 
-.lr.ph250:                                        ; preds = %.preheader
+.lr.ph253:                                        ; preds = %.preheader
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %umax = tail call i64 @llvm.umax.i64(i64 %94, i64 1)
   %101 = shl nuw nsw i64 %umax, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %100, i8 0, i64 %101, i1 false), !tbaa !33
-  br label %._crit_edge251
+  br label %._crit_edge254
 
-._crit_edge251:                                   ; preds = %.lr.ph250, %.preheader
+._crit_edge254:                                   ; preds = %.lr.ph253, %.preheader
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %103 = getelementptr i32, ptr %102, i64 %94
   %.not.i206 = icmp ult i64 %.val196, 8
   br i1 %.not.i206, label %.thread215, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %._crit_edge251, %.lr.ph.i
-  %.013.i = phi i64 [ %113, %.lr.ph.i ], [ 0, %._crit_edge251 ]
-  %.01112.i = phi i64 [ %112, %.lr.ph.i ], [ 0, %._crit_edge251 ]
+.lr.ph.i:                                         ; preds = %._crit_edge254, %.lr.ph.i
+  %.013.i = phi i64 [ %113, %.lr.ph.i ], [ 0, %._crit_edge254 ]
+  %.01112.i = phi i64 [ %112, %.lr.ph.i ], [ 0, %._crit_edge254 ]
   %104 = getelementptr i32, ptr %69, i64 %.013.i
   %105 = load i32, ptr %104, align 4, !tbaa !33
   %106 = zext i32 %105 to i64
@@ -16127,8 +16127,8 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   %114 = trunc nuw nsw i64 %112 to i32
   br label %.thread215
 
-.thread215:                                       ; preds = %._crit_edge.loopexit.i, %._crit_edge251
-  %.011.lcssa.i = phi i32 [ 0, %._crit_edge251 ], [ %114, %._crit_edge.loopexit.i ]
+.thread215:                                       ; preds = %._crit_edge.loopexit.i, %._crit_edge254
+  %.011.lcssa.i = phi i32 [ 0, %._crit_edge254 ], [ %114, %._crit_edge.loopexit.i ]
   %115 = getelementptr [1 x i32], ptr %102, i64 0, i64 %96
   store i32 %.011.lcssa.i, ptr %115, align 4, !tbaa !33
   br label %.thread222
@@ -16146,23 +16146,24 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   %124 = getelementptr i32, ptr %69, i64 %117
   %125 = trunc nuw nsw i64 %118 to i32
   %notmask.i = shl nsw i32 -1, %125
-  %126 = xor i32 %notmask.i, -1
+  %notmask.i.fr = freeze i32 %notmask.i
+  %126 = xor i32 %notmask.i.fr, -1
   %127 = icmp sgt i64 %119, 0
   br i1 %127, label %.lr.ph.i207, label %141
 
 .lr.ph.i207:                                      ; preds = %122, %.lr.ph.i207
   %.014.i = phi i64 [ %128, %.lr.ph.i207 ], [ %119, %122 ]
-  %.01213.i = phi i32 [ %.fr, %.lr.ph.i207 ], [ 0, %122 ]
+  %.01213.i = phi i32 [ %136, %.lr.ph.i207 ], [ 0, %122 ]
   %128 = add nsw i64 %.014.i, -1
-  %129 = zext nneg i32 %.01213.i to i64
+  %129 = zext i32 %.01213.i to i64
   %130 = shl nuw nsw i64 %129, 30
   %131 = getelementptr i32, ptr %124, i64 %128
   %132 = load i32, ptr %131, align 4, !tbaa !33
-  %133 = zext i32 %132 to i64
+  %.fr = freeze i32 %132
+  %133 = zext i32 %.fr to i64
   %134 = or i64 %130, %133
   %135 = trunc i64 %134 to i32
   %136 = and i32 %135, %126
-  %.fr = freeze i32 %136
   %137 = lshr i64 %134, %118
   %138 = trunc i64 %137 to i32
   %139 = getelementptr i32, ptr %123, i64 %128
@@ -16171,24 +16172,24 @@ define internal ptr @long_true_divide(ptr noundef readonly captures(none) %0, pt
   br i1 %140, label %.lr.ph.i207, label %v_rshift.exit, !llvm.loop !188
 
 v_rshift.exit:                                    ; preds = %.lr.ph.i207
-  %.not171 = icmp eq i32 %.fr, 0
+  %.not171 = icmp eq i32 %136, 0
   br i1 %.not171, label %141, label %.thread222
 
 141:                                              ; preds = %v_rshift.exit, %122
   %142 = icmp ugt i64 %90, 29
-  br i1 %142, label %.lr.ph247, label %.thread222
+  br i1 %142, label %.lr.ph250, label %.thread222
 
-.lr.ph247:                                        ; preds = %141, %.lr.ph247
-  %.0124245 = phi i64 [ %143, %.lr.ph247 ], [ %117, %141 ]
-  %143 = add nsw i64 %.0124245, -1
+.lr.ph250:                                        ; preds = %141, %.lr.ph250
+  %.0124248 = phi i64 [ %143, %.lr.ph250 ], [ %117, %141 ]
+  %143 = add nsw i64 %.0124248, -1
   %144 = getelementptr [1 x i32], ptr %69, i64 0, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !33
   %.not173 = icmp ne i32 %145, 0
-  %146 = icmp ult i64 %.0124245, 2
-  %.not279 = or i1 %146, %.not173
-  br i1 %.not279, label %.thread222.loopexit, label %.lr.ph247, !llvm.loop !264
+  %146 = icmp ult i64 %.0124248, 2
+  %.not286 = or i1 %146, %.not173
+  br i1 %.not286, label %.thread222.loopexit, label %.lr.ph250, !llvm.loop !264
 
-.thread222.loopexit:                              ; preds = %.lr.ph247
+.thread222.loopexit:                              ; preds = %.lr.ph250
   %spec.select180 = zext i1 %.not173 to i32
   br label %.thread222
 
@@ -16216,30 +16217,31 @@ inplace_divrem1.exit.thread:                      ; preds = %154
 
 .lr.ph.i209:                                      ; preds = %154
   %158 = load i32, ptr %77, align 8, !tbaa !33
-  %159 = zext i32 %158 to i64
+  %.fr234 = freeze i32 %158
+  %159 = zext i32 %.fr234 to i64
   br label %160
 
 160:                                              ; preds = %160, %.lr.ph.i209
   %.014.i210 = phi i64 [ %152, %.lr.ph.i209 ], [ %161, %160 ]
-  %.01113.i = phi i64 [ 0, %.lr.ph.i209 ], [ %.fr233, %160 ]
+  %.01113.i = phi i64 [ 0, %.lr.ph.i209 ], [ %170, %160 ]
   %161 = add nsw i64 %.014.i210, -1
   %162 = shl nuw nsw i64 %.01113.i, 30
   %163 = and i64 %162, 4611686017353646080
   %164 = getelementptr i32, ptr %155, i64 %161
   %165 = load i32, ptr %164, align 4, !tbaa !33
-  %166 = zext i32 %165 to i64
+  %.fr233 = freeze i32 %165
+  %166 = zext i32 %.fr233 to i64
   %167 = or i64 %163, %166
   %168 = udiv i64 %167, %159
   %169 = trunc i64 %168 to i32
   %170 = urem i64 %167, %159
-  %.fr233 = freeze i64 %170
   store i32 %169, ptr %164, align 4, !tbaa !33
   %171 = icmp samesign ugt i64 %.014.i210, 1
   br i1 %171, label %160, label %inplace_divrem1.exit, !llvm.loop !202
 
 inplace_divrem1.exit:                             ; preds = %160
   %172 = tail call fastcc ptr @long_normalize(ptr noundef nonnull %.1156)
-  %.not174 = icmp eq i64 %.fr233, 0
+  %.not174 = icmp eq i64 %170, 0
   br i1 %.not174, label %173, label %192
 
 173:                                              ; preds = %inplace_divrem1.exit.thread, %inplace_divrem1.exit
@@ -16340,26 +16342,26 @@ Py_DECREF.exit191:                                ; preds = %Py_DECREF.exit193
   %219 = load i32, ptr %198, align 4, !tbaa !33
   %220 = uitofp i32 %219 to double
   %221 = icmp ugt i64 %.2157.val, 15
-  br i1 %221, label %.lr.ph255, label %._crit_edge256
+  br i1 %221, label %.lr.ph258, label %._crit_edge259
 
-.lr.ph255:                                        ; preds = %217, %.lr.ph255
-  %.0123253 = phi i64 [ %222, %.lr.ph255 ], [ %195, %217 ]
-  %.0134252 = phi double [ %226, %.lr.ph255 ], [ %220, %217 ]
-  %222 = add nsw i64 %.0123253, -1
+.lr.ph258:                                        ; preds = %217, %.lr.ph258
+  %.0123256 = phi i64 [ %222, %.lr.ph258 ], [ %195, %217 ]
+  %.0134255 = phi double [ %226, %.lr.ph258 ], [ %220, %217 ]
+  %222 = add nsw i64 %.0123256, -1
   %223 = getelementptr [1 x i32], ptr %197, i64 0, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !33
   %225 = uitofp i32 %224 to double
-  %226 = tail call double @llvm.fmuladd.f64(double %.0134252, double 0x41D0000000000000, double %225)
-  %227 = icmp sgt i64 %.0123253, 1
-  br i1 %227, label %.lr.ph255, label %._crit_edge256, !llvm.loop !265
+  %226 = tail call double @llvm.fmuladd.f64(double %.0134255, double 0x41D0000000000000, double %225)
+  %227 = icmp sgt i64 %.0123256, 1
+  br i1 %227, label %.lr.ph258, label %._crit_edge259, !llvm.loop !265
 
-._crit_edge256:                                   ; preds = %.lr.ph255, %217
-  %.0134.lcssa = phi double [ %220, %217 ], [ %226, %.lr.ph255 ]
+._crit_edge259:                                   ; preds = %.lr.ph258, %217
+  %.0134.lcssa = phi double [ %220, %217 ], [ %226, %.lr.ph258 ]
   %228 = load i32, ptr %.2157, align 8, !tbaa !29
   %.not.i = icmp sgt i32 %228, -1
   br i1 %.not.i, label %229, label %Py_DECREF.exit
 
-229:                                              ; preds = %._crit_edge256
+229:                                              ; preds = %._crit_edge259
   %230 = add nsw i32 %228, -1
   store i32 %230, ptr %.2157, align 8, !tbaa !29
   %231 = icmp eq i32 %230, 0
@@ -16369,7 +16371,7 @@ Py_DECREF.exit191:                                ; preds = %Py_DECREF.exit193
   tail call void @_Py_Dealloc(ptr noundef nonnull %.2157) #16
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %._crit_edge256, %229, %232
+Py_DECREF.exit:                                   ; preds = %._crit_edge259, %229, %232
   %233 = add i64 %203, %90
   %234 = icmp sgt i64 %233, 1023
   br i1 %234, label %235, label %240
@@ -16389,8 +16391,8 @@ Py_DECREF.exit:                                   ; preds = %._crit_edge256, %22
   %242 = tail call double @ldexp(double noundef %.0134.lcssa, i32 noundef %241) #16, !tbaa !33
   br label %243
 
-243:                                              ; preds = %._crit_edge241, %240
-  %.0133 = phi double [ %62, %._crit_edge241 ], [ %242, %240 ]
+243:                                              ; preds = %._crit_edge244, %240
+  %.0133 = phi double [ %62, %._crit_edge244 ], [ %242, %240 ]
   %244 = fneg double %.0133
   %245 = select i1 %20, double %244, double %.0133
   %246 = tail call ptr @PyFloat_FromDouble(double noundef %245) #16

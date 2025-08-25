@@ -1786,8 +1786,8 @@ define hidden void @_ZN27JvmtiClassFileReconstituter14copy_bytecodesERK12methodH
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %.fr55 = freeze i16 %12
-  %15 = and i16 %.fr55, 1
+  %.fr = freeze i16 %12
+  %15 = and i16 %.fr, 1
   %.not = icmp eq i16 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1968,8 +1968,8 @@ _ZN5Bytes11put_Java_u2EPht.exit48:                ; preds = %111, %112
 .thread:                                          ; preds = %57
   %119 = load i32, ptr %20, align 4
   %120 = and i32 %119, -2
-  %switch62 = icmp eq i32 %120, 230
-  br i1 %switch62, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
+  %switch61 = icmp eq i32 %120, 230
+  br i1 %switch61, label %141, label %_ZN5Bytes11put_Java_u2EPht.exit
 
 121:                                              ; preds = %116
   %.0.i.i49 = load i16, ptr %62, align 1

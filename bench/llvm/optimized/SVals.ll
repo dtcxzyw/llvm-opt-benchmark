@@ -81,14 +81,15 @@ define dso_local noundef ptr @_ZNK5clang4ento4SVal17getAsFunctionDeclEv(ptr noun
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !24
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  %.fr77 = freeze ptr %7
+  %8 = getelementptr inbounds nuw i8, ptr %.fr77, i64 28
   %9 = load i32, ptr %8, align 4
-  %10 = and i32 %9, 126
-  %11 = add nsw i32 %10, -32
-  %12 = icmp ult i32 %11, 6
-  %spec.select.i.i = select i1 %12, ptr %7, ptr null
-  %spec.select.i.i.fr = freeze ptr %spec.select.i.i
-  %.not24 = icmp eq ptr %spec.select.i.i.fr, null
+  %.fr = freeze i32 %9
+  %10 = and i32 %.fr, 126
+  %11 = add nsw i32 %10, -38
+  %12 = icmp ult i32 %11, -6
+  %.not2478 = icmp eq ptr %.fr77, null
+  %.not24 = or i1 %12, %.not2478
   br i1 %.not24, label %.thread57, label %_ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit
 
 .thread57:                                        ; preds = %2, %5
@@ -129,7 +130,7 @@ _ZNK5clang4ento6nonloc15PointerToMember7getDeclEv.exit: ; preds = %14, %20
   br label %_ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_3loc12MemRegionValEEESt8optionalIT_Ev.exit: ; preds = %1, %23, %13, %_ZNK5clang4ento6nonloc15PointerToMember7getDeclEv.exit, %.thread57, %5
-  %.5 = phi ptr [ %spec.select.i.i.fr, %5 ], [ null, %.thread57 ], [ null, %_ZNK5clang4ento6nonloc15PointerToMember7getDeclEv.exit ], [ null, %13 ], [ %spec.select, %23 ], [ null, %1 ]
+  %.5 = phi ptr [ %.fr77, %5 ], [ null, %.thread57 ], [ null, %_ZNK5clang4ento6nonloc15PointerToMember7getDeclEv.exit ], [ null, %13 ], [ %spec.select, %23 ], [ null, %1 ]
   ret ptr %.5
 }
 

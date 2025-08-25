@@ -615,9 +615,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.sroa.05.0.copyload = load i32, ptr %8, align 8, !tbaa !50
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 44
-  %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4, !tbaa !50
+  %.sroa.05.0.copyload = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -633,7 +631,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 
 18:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.4) #7
-  br label %214
+  br label %215
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 216
@@ -710,7 +708,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %69 = load ptr, ptr %68, align 8, !tbaa !86
   %70 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %69, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
   %71 = icmp slt i32 %70, 0
-  br i1 %71, label %213, label %72
+  br i1 %71, label %214, label %72
 
 72:                                               ; preds = %45
   %73 = load double, ptr %3, align 8, !tbaa !81
@@ -734,7 +732,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %80 = load ptr, ptr %62, align 8, !tbaa !85
   %81 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %80, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
   %82 = icmp slt i32 %81, 0
-  br i1 %82, label %213, label %83
+  br i1 %82, label %214, label %83
 
 83:                                               ; preds = %79
   %84 = load double, ptr %3, align 8, !tbaa !81
@@ -755,220 +753,217 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
 
 89:                                               ; preds = %86, %83
   %90 = phi i32 [ %87, %86 ], [ %85, %83 ]
-  %91 = icmp ne i32 %.sroa.05.0.copyload, 0
-  %92 = icmp ne i32 %.sroa.9.0.copyload, 0
-  %or.cond = select i1 %91, i1 %92, i1 false
-  br i1 %or.cond, label %93, label %110
+  %91 = and i64 %.sroa.05.0.copyload, 4294967295
+  %92 = icmp ne i64 %91, 0
+  %93 = icmp ugt i64 %.sroa.05.0.copyload, 4294967295
+  %or.cond = and i1 %92, %93
+  br i1 %or.cond, label %94, label %111
 
-93:                                               ; preds = %89
-  %.sroa.9.0.insert.ext = zext i32 %.sroa.9.0.copyload to i64
-  %.sroa.9.0.insert.shift = shl nuw i64 %.sroa.9.0.insert.ext, 32
-  %.sroa.05.0.insert.ext = zext i32 %.sroa.05.0.copyload to i64
-  %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.shift, %.sroa.05.0.insert.ext
-  %94 = load i64, ptr %37, align 8
-  %95 = call i64 @av_div_q(i64 %.sroa.05.0.insert.insert, i64 %94) #8
-  %96 = load i32, ptr %75, align 4, !tbaa !39
-  %97 = sext i32 %96 to i64
-  %98 = sext i32 %90 to i64
-  %99 = ashr i64 %95, 32
-  %sext = shl i64 %95, 32
-  %100 = ashr exact i64 %sext, 32
-  %101 = call i64 @av_rescale(i64 noundef %98, i64 noundef %99, i64 noundef %100) #8
-  %102 = icmp sgt i64 %101, %97
-  br i1 %102, label %103, label %106
+94:                                               ; preds = %89
+  %95 = load i64, ptr %37, align 8
+  %96 = call i64 @av_div_q(i64 %.sroa.05.0.copyload, i64 %95) #8
+  %97 = load i32, ptr %75, align 4, !tbaa !39
+  %98 = sext i32 %97 to i64
+  %99 = sext i32 %90 to i64
+  %100 = ashr i64 %96, 32
+  %sext = shl i64 %96, 32
+  %101 = ashr exact i64 %sext, 32
+  %102 = call i64 @av_rescale(i64 noundef %99, i64 noundef %100, i64 noundef %101) #8
+  %103 = icmp sgt i64 %102, %98
+  br i1 %103, label %104, label %107
 
-103:                                              ; preds = %93
-  %104 = sitofp i64 %101 to double
-  store double %104, ptr %33, align 8, !tbaa !81
-  store double %104, ptr %34, align 16, !tbaa !81
-  %105 = trunc i64 %101 to i32
-  store i32 %105, ptr %75, align 4, !tbaa !39
-  br label %110
+104:                                              ; preds = %94
+  %105 = sitofp i64 %102 to double
+  store double %105, ptr %33, align 8, !tbaa !81
+  store double %105, ptr %34, align 16, !tbaa !81
+  %106 = trunc i64 %102 to i32
+  store i32 %106, ptr %75, align 4, !tbaa !39
+  br label %111
 
-106:                                              ; preds = %93
-  %107 = call i64 @av_rescale(i64 noundef %97, i64 noundef %100, i64 noundef %99) #8
-  %108 = sitofp i64 %107 to double
-  store double %108, ptr %31, align 8, !tbaa !81
-  store double %108, ptr %32, align 16, !tbaa !81
-  %109 = trunc i64 %107 to i32
-  store i32 %109, ptr %67, align 8, !tbaa !37
-  br label %110
+107:                                              ; preds = %94
+  %108 = call i64 @av_rescale(i64 noundef %98, i64 noundef %101, i64 noundef %100) #8
+  %109 = sitofp i64 %108 to double
+  store double %109, ptr %31, align 8, !tbaa !81
+  store double %109, ptr %32, align 16, !tbaa !81
+  %110 = trunc i64 %108 to i32
+  store i32 %110, ptr %67, align 8, !tbaa !37
+  br label %111
 
-110:                                              ; preds = %103, %106, %89
-  %111 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %112 = load ptr, ptr %111, align 8, !tbaa !87
-  %113 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %112, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
-  %114 = load double, ptr %3, align 8, !tbaa !81
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store double %114, ptr %115, align 16, !tbaa !81
-  %116 = fptosi double %114 to i32
-  %117 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %116, ptr %117, align 8, !tbaa !41
-  %118 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %119 = load ptr, ptr %118, align 8, !tbaa !88
-  %120 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %119, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %213, label %122
+111:                                              ; preds = %104, %107, %89
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %113 = load ptr, ptr %112, align 8, !tbaa !87
+  %114 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %113, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
+  %115 = load double, ptr %3, align 8, !tbaa !81
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store double %115, ptr %116, align 16, !tbaa !81
+  %117 = fptosi double %115 to i32
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 %117, ptr %118, align 8, !tbaa !41
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %120 = load ptr, ptr %119, align 8, !tbaa !88
+  %121 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %120, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
+  %122 = icmp slt i32 %121, 0
+  br i1 %122, label %214, label %123
 
-122:                                              ; preds = %110
-  %123 = load double, ptr %3, align 8, !tbaa !81
-  %124 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store double %123, ptr %124, align 8, !tbaa !81
-  %125 = fptosi double %123 to i32
-  %126 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %125, ptr %126, align 4, !tbaa !52
-  %127 = load ptr, ptr %111, align 8, !tbaa !87
-  %128 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %127, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
-  %129 = icmp slt i32 %128, 0
-  br i1 %129, label %213, label %130
+123:                                              ; preds = %111
+  %124 = load double, ptr %3, align 8, !tbaa !81
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store double %124, ptr %125, align 8, !tbaa !81
+  %126 = fptosi double %124 to i32
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 %126, ptr %127, align 4, !tbaa !52
+  %128 = load ptr, ptr %112, align 8, !tbaa !87
+  %129 = call i32 @av_expr_parse_and_eval(ptr noundef nonnull %3, ptr noundef %128, ptr noundef nonnull @var_names, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef nonnull %5) #7
+  %130 = icmp slt i32 %129, 0
+  br i1 %130, label %214, label %131
 
-130:                                              ; preds = %122
-  %131 = load double, ptr %3, align 8, !tbaa !81
-  store double %131, ptr %115, align 16, !tbaa !81
-  %132 = fptosi double %131 to i32
-  store i32 %132, ptr %117, align 8, !tbaa !41
-  %133 = icmp slt i32 %132, 0
+131:                                              ; preds = %123
+  %132 = load double, ptr %3, align 8, !tbaa !81
+  store double %132, ptr %116, align 16, !tbaa !81
+  %133 = fptosi double %132 to i32
+  store i32 %133, ptr %118, align 8, !tbaa !41
+  %134 = icmp slt i32 %133, 0
   %.pre = load i32, ptr %67, align 8, !tbaa !37
   %.pre155 = load i32, ptr %22, align 8, !tbaa !66
-  %134 = add nsw i32 %.pre155, %132
-  %135 = icmp sgt i32 %134, %.pre
-  %or.cond175 = select i1 %133, i1 true, i1 %135
-  br i1 %or.cond175, label %136, label %140
+  %135 = add nsw i32 %.pre155, %133
+  %136 = icmp sgt i32 %135, %.pre
+  %or.cond175 = select i1 %134, i1 true, i1 %136
+  br i1 %or.cond175, label %137, label %141
 
-136:                                              ; preds = %130
-  %137 = sub nsw i32 %.pre, %.pre155
-  %138 = sdiv i32 %137, 2
-  %139 = sitofp i32 %138 to double
-  store double %139, ptr %115, align 16, !tbaa !81
-  store i32 %138, ptr %117, align 8, !tbaa !41
-  br label %140
+137:                                              ; preds = %131
+  %138 = sub nsw i32 %.pre, %.pre155
+  %139 = sdiv i32 %138, 2
+  %140 = sitofp i32 %139 to double
+  store double %140, ptr %116, align 16, !tbaa !81
+  store i32 %139, ptr %118, align 8, !tbaa !41
+  br label %141
 
-140:                                              ; preds = %130, %136
-  %141 = load i32, ptr %126, align 4, !tbaa !52
-  %142 = icmp slt i32 %141, 0
+141:                                              ; preds = %131, %137
+  %142 = load i32, ptr %127, align 4, !tbaa !52
+  %143 = icmp slt i32 %142, 0
   %.pre156 = load i32, ptr %75, align 4, !tbaa !39
   %.pre157 = load i32, ptr %26, align 4, !tbaa !67
-  %143 = add nsw i32 %.pre157, %141
-  %144 = icmp sgt i32 %143, %.pre156
-  %or.cond177 = select i1 %142, i1 true, i1 %144
-  br i1 %or.cond177, label %145, label %149
+  %144 = add nsw i32 %.pre157, %142
+  %145 = icmp sgt i32 %144, %.pre156
+  %or.cond177 = select i1 %143, i1 true, i1 %145
+  br i1 %or.cond177, label %146, label %150
 
-145:                                              ; preds = %140
-  %146 = sub nsw i32 %.pre156, %.pre157
-  %147 = sdiv i32 %146, 2
-  %148 = sitofp i32 %147 to double
-  store double %148, ptr %124, align 8, !tbaa !81
-  store i32 %147, ptr %126, align 4, !tbaa !52
-  br label %149
+146:                                              ; preds = %141
+  %147 = sub nsw i32 %.pre156, %.pre157
+  %148 = sdiv i32 %147, 2
+  %149 = sitofp i32 %148 to double
+  store double %149, ptr %125, align 8, !tbaa !81
+  store i32 %148, ptr %127, align 4, !tbaa !52
+  br label %150
 
-149:                                              ; preds = %140, %145
-  %150 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef %.pre) #7
-  store i32 %150, ptr %67, align 8, !tbaa !37
-  %151 = load i32, ptr %75, align 4, !tbaa !39
-  %152 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 1, i32 noundef -1, i32 noundef %151) #7
-  store i32 %152, ptr %75, align 4, !tbaa !39
-  %153 = load i32, ptr %67, align 8, !tbaa !37
-  %154 = load i32, ptr %22, align 8, !tbaa !66
-  %155 = icmp slt i32 %153, %154
-  br i1 %155, label %159, label %156
+150:                                              ; preds = %141, %146
+  %151 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef %.pre) #7
+  store i32 %151, ptr %67, align 8, !tbaa !37
+  %152 = load i32, ptr %75, align 4, !tbaa !39
+  %153 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 1, i32 noundef -1, i32 noundef %152) #7
+  store i32 %153, ptr %75, align 4, !tbaa !39
+  %154 = load i32, ptr %67, align 8, !tbaa !37
+  %155 = load i32, ptr %22, align 8, !tbaa !66
+  %156 = icmp slt i32 %154, %155
+  br i1 %156, label %160, label %157
 
-156:                                              ; preds = %149
-  %157 = load i32, ptr %26, align 4, !tbaa !67
-  %158 = icmp slt i32 %152, %157
-  br i1 %158, label %159, label %160
+157:                                              ; preds = %150
+  %158 = load i32, ptr %26, align 4, !tbaa !67
+  %159 = icmp slt i32 %153, %158
+  br i1 %159, label %160, label %161
 
-159:                                              ; preds = %156, %149
+160:                                              ; preds = %157, %150
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.5) #7
-  br label %214
+  br label %215
 
-160:                                              ; preds = %156
-  %161 = load i32, ptr %117, align 8, !tbaa !41
-  %162 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef %161) #7
-  store i32 %162, ptr %117, align 8, !tbaa !41
-  %163 = load i32, ptr %126, align 4, !tbaa !52
-  %164 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 1, i32 noundef -1, i32 noundef %163) #7
-  store i32 %164, ptr %126, align 4, !tbaa !52
-  %165 = load i32, ptr %22, align 8, !tbaa !66
-  %166 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef %165) #7
-  %167 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %166, ptr %167, align 8, !tbaa !38
-  %168 = load i32, ptr %26, align 4, !tbaa !67
-  %169 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 1, i32 noundef -1, i32 noundef %168) #7
-  %170 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %169, ptr %170, align 4, !tbaa !40
-  %171 = load i32, ptr %22, align 8, !tbaa !66
-  %172 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %171, ptr %172, align 8, !tbaa !29
-  %173 = load i32, ptr %26, align 4, !tbaa !67
-  %174 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 %173, ptr %174, align 4, !tbaa !58
-  %175 = load i32, ptr %67, align 8, !tbaa !37
-  %176 = load i32, ptr %75, align 4, !tbaa !39
-  %177 = load i32, ptr %117, align 8, !tbaa !41
-  %178 = load i32, ptr %126, align 4, !tbaa !52
-  %179 = load i8, ptr %21, align 8, !tbaa !51
-  %180 = zext i8 %179 to i32
-  %181 = getelementptr inbounds nuw i8, ptr %7, i64 81
-  %182 = load i8, ptr %181, align 1, !tbaa !51
-  %183 = zext i8 %182 to i32
-  %184 = getelementptr inbounds nuw i8, ptr %7, i64 82
-  %185 = load i8, ptr %184, align 2, !tbaa !51
-  %186 = zext i8 %185 to i32
-  %187 = getelementptr inbounds nuw i8, ptr %7, i64 83
-  %188 = load i8, ptr %187, align 1, !tbaa !51
-  %189 = zext i8 %188 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 40, ptr noundef nonnull @.str.6, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %176, i32 noundef %177, i32 noundef %178, i32 noundef %180, i32 noundef %183, i32 noundef %186, i32 noundef %189) #7
-  %190 = load i32, ptr %117, align 8, !tbaa !41
-  %191 = icmp slt i32 %190, 0
-  %.pre158 = load i32, ptr %126, align 4, !tbaa !52
-  br i1 %191, label %._crit_edge, label %192
+161:                                              ; preds = %157
+  %162 = load i32, ptr %118, align 8, !tbaa !41
+  %163 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef %162) #7
+  store i32 %163, ptr %118, align 8, !tbaa !41
+  %164 = load i32, ptr %127, align 4, !tbaa !52
+  %165 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 1, i32 noundef -1, i32 noundef %164) #7
+  store i32 %165, ptr %127, align 4, !tbaa !52
+  %166 = load i32, ptr %22, align 8, !tbaa !66
+  %167 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef %166) #7
+  %168 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i32 %167, ptr %168, align 8, !tbaa !38
+  %169 = load i32, ptr %26, align 4, !tbaa !67
+  %170 = call i32 @ff_draw_round_to_sub(ptr noundef nonnull %9, i32 noundef 1, i32 noundef -1, i32 noundef %169) #7
+  %171 = getelementptr inbounds nuw i8, ptr %7, i64 28
+  store i32 %170, ptr %171, align 4, !tbaa !40
+  %172 = load i32, ptr %22, align 8, !tbaa !66
+  %173 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i32 %172, ptr %173, align 8, !tbaa !29
+  %174 = load i32, ptr %26, align 4, !tbaa !67
+  %175 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  store i32 %174, ptr %175, align 4, !tbaa !58
+  %176 = load i32, ptr %67, align 8, !tbaa !37
+  %177 = load i32, ptr %75, align 4, !tbaa !39
+  %178 = load i32, ptr %118, align 8, !tbaa !41
+  %179 = load i32, ptr %127, align 4, !tbaa !52
+  %180 = load i8, ptr %21, align 8, !tbaa !51
+  %181 = zext i8 %180 to i32
+  %182 = getelementptr inbounds nuw i8, ptr %7, i64 81
+  %183 = load i8, ptr %182, align 1, !tbaa !51
+  %184 = zext i8 %183 to i32
+  %185 = getelementptr inbounds nuw i8, ptr %7, i64 82
+  %186 = load i8, ptr %185, align 2, !tbaa !51
+  %187 = zext i8 %186 to i32
+  %188 = getelementptr inbounds nuw i8, ptr %7, i64 83
+  %189 = load i8, ptr %188, align 1, !tbaa !51
+  %190 = zext i8 %189 to i32
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 40, ptr noundef nonnull @.str.6, i32 noundef %172, i32 noundef %174, i32 noundef %176, i32 noundef %177, i32 noundef %178, i32 noundef %179, i32 noundef %181, i32 noundef %184, i32 noundef %187, i32 noundef %190) #7
+  %191 = load i32, ptr %118, align 8, !tbaa !41
+  %192 = icmp slt i32 %191, 0
+  %.pre158 = load i32, ptr %127, align 4, !tbaa !52
+  br i1 %192, label %._crit_edge, label %193
 
-._crit_edge:                                      ; preds = %160
+._crit_edge:                                      ; preds = %161
   %.pre159 = load i32, ptr %67, align 8, !tbaa !37
-  br label %206
+  br label %207
 
-192:                                              ; preds = %160
-  %193 = icmp slt i32 %.pre158, 0
+193:                                              ; preds = %161
+  %194 = icmp slt i32 %.pre158, 0
   %.pre160 = load i32, ptr %67, align 8, !tbaa !37
-  %194 = icmp slt i32 %.pre160, 1
-  %or.cond178 = select i1 %193, i1 true, i1 %194
-  br i1 %or.cond178, label %206, label %195
+  %195 = icmp slt i32 %.pre160, 1
+  %or.cond178 = select i1 %194, i1 true, i1 %195
+  br i1 %or.cond178, label %207, label %196
 
-195:                                              ; preds = %192
-  %196 = load i32, ptr %75, align 4, !tbaa !39
-  %197 = icmp slt i32 %196, 1
-  br i1 %197, label %206, label %198
+196:                                              ; preds = %193
+  %197 = load i32, ptr %75, align 4, !tbaa !39
+  %198 = icmp slt i32 %197, 1
+  br i1 %198, label %207, label %199
 
-198:                                              ; preds = %195
-  %199 = load i32, ptr %22, align 8, !tbaa !66
-  %200 = add i32 %199, %190
-  %201 = icmp ugt i32 %200, %.pre160
-  br i1 %201, label %206, label %202
+199:                                              ; preds = %196
+  %200 = load i32, ptr %22, align 8, !tbaa !66
+  %201 = add i32 %200, %191
+  %202 = icmp ugt i32 %201, %.pre160
+  br i1 %202, label %207, label %203
 
-202:                                              ; preds = %198
-  %203 = load i32, ptr %26, align 4, !tbaa !67
-  %204 = add i32 %203, %.pre158
-  %205 = icmp ugt i32 %204, %196
-  br i1 %205, label %206, label %214
+203:                                              ; preds = %199
+  %204 = load i32, ptr %26, align 4, !tbaa !67
+  %205 = add i32 %204, %.pre158
+  %206 = icmp ugt i32 %205, %197
+  br i1 %206, label %207, label %215
 
-206:                                              ; preds = %._crit_edge, %202, %198, %195, %192
-  %207 = phi i32 [ %.pre159, %._crit_edge ], [ %.pre160, %202 ], [ %.pre160, %198 ], [ %.pre160, %195 ], [ %.pre160, %192 ]
-  %208 = load i32, ptr %22, align 8, !tbaa !66
-  %209 = add nsw i32 %208, %190
-  %210 = load i32, ptr %26, align 4, !tbaa !67
-  %211 = add nsw i32 %210, %.pre158
-  %212 = load i32, ptr %75, align 4, !tbaa !39
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %190, i32 noundef %.pre158, i32 noundef %209, i32 noundef %211, i32 noundef %207, i32 noundef %212) #7
-  br label %214
+207:                                              ; preds = %._crit_edge, %203, %199, %196, %193
+  %208 = phi i32 [ %.pre159, %._crit_edge ], [ %.pre160, %203 ], [ %.pre160, %199 ], [ %.pre160, %196 ], [ %.pre160, %193 ]
+  %209 = load i32, ptr %22, align 8, !tbaa !66
+  %210 = add nsw i32 %209, %191
+  %211 = load i32, ptr %26, align 4, !tbaa !67
+  %212 = add nsw i32 %211, %.pre158
+  %213 = load i32, ptr %75, align 4, !tbaa !39
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.7, i32 noundef %191, i32 noundef %.pre158, i32 noundef %210, i32 noundef %212, i32 noundef %208, i32 noundef %213) #7
+  br label %215
 
-213:                                              ; preds = %122, %110, %79, %45
-  %.0138 = phi i32 [ %70, %45 ], [ %81, %79 ], [ %120, %110 ], [ %128, %122 ]
-  %.0137 = phi ptr [ %69, %45 ], [ %80, %79 ], [ %119, %110 ], [ %127, %122 ]
+214:                                              ; preds = %123, %111, %79, %45
+  %.0138 = phi i32 [ %70, %45 ], [ %81, %79 ], [ %121, %111 ], [ %129, %123 ]
+  %.0137 = phi ptr [ %69, %45 ], [ %80, %79 ], [ %120, %111 ], [ %128, %123 ]
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %5, i32 noundef 16, ptr noundef nonnull @.str.8, ptr noundef %.0137) #7
-  br label %214
+  br label %215
 
-214:                                              ; preds = %202, %213, %206, %159, %18
-  %.0 = phi i32 [ %16, %18 ], [ %.0138, %213 ], [ -22, %159 ], [ -22, %206 ], [ 0, %202 ]
+215:                                              ; preds = %203, %214, %207, %160, %18
+  %.0 = phi i32 [ %16, %18 ], [ %.0138, %214 ], [ -22, %160 ], [ -22, %207 ], [ 0, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

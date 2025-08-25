@@ -804,13 +804,13 @@ _ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_110OctalDigitEE
 85:                                               ; preds = %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_110OctalDigitEEEbv.exit
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %86 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i = freeze i8 %86
-  %87 = add i8 %.fr3.i, -48
+  %.fr.i = freeze i8 %86
+  %87 = add i8 %.fr.i, -48
   %or.cond.i.i = icmp ult i8 %87, 10
   br i1 %or.cond.i.i, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %85
-  switch i8 %.fr3.i, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit [
+  switch i8 %.fr.i, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit [
     i8 102, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread
     i8 101, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread
     i8 100, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit.thread
@@ -904,13 +904,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
 109:                                              ; preds = %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_110OctalDigitEEEbv.exit
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %110 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i51 = freeze i8 %110
-  %111 = add i8 %.fr3.i51, -48
+  %.fr.i51 = freeze i8 %110
+  %111 = add i8 %.fr.i51, -48
   %or.cond.i.i52 = icmp ult i8 %111, 10
   br i1 %or.cond.i.i52, label %112, label %switch.early.test.i53
 
 switch.early.test.i53:                            ; preds = %109
-  switch i8 %.fr3.i51, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
+  switch i8 %.fr.i51, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
     i8 102, label %112
     i8 101, label %112
     i8 100, label %112
@@ -928,13 +928,13 @@ switch.early.test.i53:                            ; preds = %109
 112:                                              ; preds = %109, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53, %switch.early.test.i53
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %113 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i56 = freeze i8 %113
-  %114 = add i8 %.fr3.i56, -48
+  %.fr.i56 = freeze i8 %113
+  %114 = add i8 %.fr.i56, -48
   %or.cond.i.i57 = icmp ult i8 %114, 10
   br i1 %or.cond.i.i57, label %115, label %switch.early.test.i58
 
 switch.early.test.i58:                            ; preds = %112
-  switch i8 %.fr3.i56, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
+  switch i8 %.fr.i56, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
     i8 102, label %115
     i8 101, label %115
     i8 100, label %115
@@ -952,13 +952,13 @@ switch.early.test.i58:                            ; preds = %112
 115:                                              ; preds = %112, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58, %switch.early.test.i58
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %116 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i61 = freeze i8 %116
-  %117 = add i8 %.fr3.i61, -48
+  %.fr.i61 = freeze i8 %116
+  %117 = add i8 %.fr.i61, -48
   %or.cond.i.i62 = icmp ult i8 %117, 10
   br i1 %or.cond.i.i62, label %118, label %switch.early.test.i63
 
 switch.early.test.i63:                            ; preds = %115
-  switch i8 %.fr3.i61, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
+  switch i8 %.fr.i61, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
     i8 102, label %118
     i8 101, label %118
     i8 100, label %118
@@ -976,13 +976,13 @@ switch.early.test.i63:                            ; preds = %115
 118:                                              ; preds = %115, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63, %switch.early.test.i63
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %119 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i66 = freeze i8 %119
-  %120 = add i8 %.fr3.i66, -48
+  %.fr.i66 = freeze i8 %119
+  %120 = add i8 %.fr.i66, -48
   %or.cond.i.i67 = icmp ult i8 %120, 10
   br i1 %or.cond.i.i67, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit70.thread, label %switch.early.test.i68
 
 switch.early.test.i68:                            ; preds = %118
-  switch i8 %.fr3.i66, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
+  switch i8 %.fr.i66, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit55 [
     i8 102, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit70.thread
     i8 101, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit70.thread
     i8 100, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit70.thread
@@ -1095,13 +1095,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit82: ; preds = %_ZN
 _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit86.thread: ; preds = %148
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %151 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i88 = freeze i8 %151
-  %152 = add i8 %.fr3.i88, -48
+  %.fr.i88 = freeze i8 %151
+  %152 = add i8 %.fr.i88, -48
   %or.cond.i.i89 = icmp ult i8 %152, 10
   br i1 %or.cond.i.i89, label %153, label %switch.early.test.i90
 
 switch.early.test.i90:                            ; preds = %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit86.thread
-  switch i8 %.fr3.i88, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
+  switch i8 %.fr.i88, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
     i8 102, label %153
     i8 101, label %153
     i8 100, label %153
@@ -1119,13 +1119,13 @@ switch.early.test.i90:                            ; preds = %_ZN6google8protobuf
 153:                                              ; preds = %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit86.thread, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90, %switch.early.test.i90
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %154 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i93 = freeze i8 %154
-  %155 = add i8 %.fr3.i93, -48
+  %.fr.i93 = freeze i8 %154
+  %155 = add i8 %.fr.i93, -48
   %or.cond.i.i94 = icmp ult i8 %155, 10
   br i1 %or.cond.i.i94, label %156, label %switch.early.test.i95
 
 switch.early.test.i95:                            ; preds = %153
-  switch i8 %.fr3.i93, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
+  switch i8 %.fr.i93, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
     i8 102, label %156
     i8 101, label %156
     i8 100, label %156
@@ -1143,13 +1143,13 @@ switch.early.test.i95:                            ; preds = %153
 156:                                              ; preds = %153, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95, %switch.early.test.i95
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %157 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i98 = freeze i8 %157
-  %158 = add i8 %.fr3.i98, -48
+  %.fr.i98 = freeze i8 %157
+  %158 = add i8 %.fr.i98, -48
   %or.cond.i.i99 = icmp ult i8 %158, 10
   br i1 %or.cond.i.i99, label %159, label %switch.early.test.i100
 
 switch.early.test.i100:                           ; preds = %156
-  switch i8 %.fr3.i98, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
+  switch i8 %.fr.i98, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
     i8 102, label %159
     i8 101, label %159
     i8 100, label %159
@@ -1167,13 +1167,13 @@ switch.early.test.i100:                           ; preds = %156
 159:                                              ; preds = %156, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100, %switch.early.test.i100
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %160 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i103 = freeze i8 %160
-  %161 = add i8 %.fr3.i103, -48
+  %.fr.i103 = freeze i8 %160
+  %161 = add i8 %.fr.i103, -48
   %or.cond.i.i104 = icmp ult i8 %161, 10
   br i1 %or.cond.i.i104, label %162, label %switch.early.test.i105
 
 switch.early.test.i105:                           ; preds = %159
-  switch i8 %.fr3.i103, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
+  switch i8 %.fr.i103, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
     i8 102, label %162
     i8 101, label %162
     i8 100, label %162
@@ -1191,13 +1191,13 @@ switch.early.test.i105:                           ; preds = %159
 162:                                              ; preds = %159, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105, %switch.early.test.i105
   call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %163 = load i8, ptr %15, align 8, !tbaa !47
-  %.fr3.i108 = freeze i8 %163
-  %164 = add i8 %.fr3.i108, -48
+  %.fr.i108 = freeze i8 %163
+  %164 = add i8 %.fr.i108, -48
   %or.cond.i.i109 = icmp ult i8 %164, 10
   br i1 %or.cond.i.i109, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit112.thread, label %switch.early.test.i110
 
 switch.early.test.i110:                           ; preds = %162
-  switch i8 %.fr3.i108, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
+  switch i8 %.fr.i108, label %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit84 [
     i8 102, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit112.thread
     i8 101, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit112.thread
     i8 100, label %_ZN6google8protobuf2io9Tokenizer13TryConsumeOneINS1_12_GLOBAL__N_18HexDigitEEEbv.exit112.thread
@@ -1407,13 +1407,13 @@ define hidden noundef range(i32 3, 5) i32 @_ZN6google8protobuf2io9Tokenizer13Con
 _ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit.thread: ; preds = %17, %17
   tail call void @_ZN6google8protobuf2io9Tokenizer8NextCharEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
   %20 = load i8, ptr %18, align 8, !tbaa !47
-  %.fr5.i = freeze i8 %20
-  %21 = add i8 %.fr5.i, -48
+  %.fr.i = freeze i8 %20
+  %21 = add i8 %.fr.i, -48
   %or.cond.i.i = icmp ult i8 %21, 10
   br i1 %or.cond.i.i, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.preheader.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %_ZN6google8protobuf2io9Tokenizer10TryConsumeEc.exit.thread
-  switch i8 %.fr5.i, label %.noexc.i.i [
+  switch i8 %.fr.i, label %.noexc.i.i [
     i8 102, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.preheader.i
     i8 101, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.preheader.i
     i8 100, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.preheader.i
@@ -1609,13 +1609,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i: ; pr
 
 _ZN6google8protobuf2io9Tokenizer8NextCharEv.exit: ; preds = %60, %99
   %100 = phi i8 [ %64, %60 ], [ %.sink.i.i, %99 ]
-  %.fr6.i = freeze i8 %100
-  %101 = add i8 %.fr6.i, -48
+  %.fr5.i = freeze i8 %100
+  %101 = add i8 %.fr5.i, -48
   %or.cond.i9.i = icmp ult i8 %101, 10
   br i1 %or.cond.i9.i, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.i.backedge, label %switch.early.test4.i
 
 switch.early.test4.i:                             ; preds = %_ZN6google8protobuf2io9Tokenizer8NextCharEv.exit
-  switch i8 %.fr6.i, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit [
+  switch i8 %.fr5.i, label %_ZN6google8protobuf2io9Tokenizer16ConsumeOneOrMoreINS1_12_GLOBAL__N_18HexDigitEEEvPKc.exit [
     i8 102, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.i.backedge
     i8 101, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.i.backedge
     i8 100, label %_ZN6google8protobuf2io12_GLOBAL__N_18HexDigit7InClassEc.exit.i.backedge

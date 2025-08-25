@@ -2358,6 +2358,7 @@ _ZNSt6vectorIPKN4llvm4InitESaIS3_EED2Ev.exit.i:   ; preds = %963, %_ZNSt6vectorI
 
 _ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit: ; preds = %_ZNSt6vectorIPKN4llvm4InitESaIS3_EED2Ev.exit.i, %_ZN12_GLOBAL__N_115MapTableEmitterC2ERKN4llvm13CodeGenTargetERKNS1_12RecordKeeperEPKNS1_6RecordE.exit
   %.val.i78 = load ptr, ptr %421, align 8, !tbaa !134
+  %.val.fr.i = freeze ptr %.val.i78
   %967 = load ptr, ptr %441, align 8, !tbaa !135
   %968 = load ptr, ptr %442, align 8, !tbaa !135
   %.not40.i = icmp eq ptr %967, %968
@@ -2365,11 +2366,11 @@ _ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit: ; preds = %_ZNSt6ve
 
 .lr.ph43.i:                                       ; preds = %_ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit
   %.val10.i = load ptr, ptr %429, align 8, !tbaa !132
-  %969 = ptrtoint ptr %.val10.i to i64
-  %970 = ptrtoint ptr %.val.i78 to i64
+  %.val10.fr.i = freeze ptr %.val10.i
+  %969 = ptrtoint ptr %.val10.fr.i to i64
+  %970 = ptrtoint ptr %.val.fr.i to i64
   %971 = sub i64 %969, %970
-  %.fr58.i = freeze i64 %971
-  %972 = lshr i64 %.fr58.i, 3
+  %972 = lshr i64 %971, 3
   %973 = and i64 %972, 4294967295
   %.not.i.i.i.i.i79 = icmp eq i64 %973, 0
   %974 = shl nuw nsw i64 %973, 3
@@ -2377,9 +2378,9 @@ _ZN12_GLOBAL__N_115MapTableEmitter16buildRowInstrMapEv.exit: ; preds = %_ZNSt6ve
   %976 = icmp eq i64 %975, 0
   %977 = add nsw i64 %974, -8
   %.idx.i.i.i.i.i.i.i.i = shl nuw nsw i64 %975, 3
-  %978 = and i64 %.fr58.i, 34359738360
-  %.not59.i = icmp eq i64 %978, 0
-  br i1 %.not59.i, label %.lr.ph43.split.i, label %.lr.ph43.split.us.i
+  %978 = and i64 %971, 34359738360
+  %.not57.i = icmp eq i64 %978, 0
+  br i1 %.not57.i, label %.lr.ph43.split.i, label %.lr.ph43.split.us.i
 
 .lr.ph43.split.us.i:                              ; preds = %.lr.ph43.i, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i
   %.sroa.016.041.us.i = phi ptr [ %990, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i ], [ %967, %.lr.ph43.i ]
@@ -2429,7 +2430,7 @@ _ZNSt6vectorIPKN4llvm6RecordESaIS3_EED2Ev.exit.us.i: ; preds = %_ZNSt6vectorIPKN
 
 991:                                              ; preds = %_ZN12_GLOBAL__N_115MapTableEmitter17getInstrForColumnEPKN4llvm6RecordEPKNS1_8ListInitE.exit.us.i, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EEC2EmRKS4_.exit.us.i
   %indvars.iv.i81 = phi i64 [ 0, %_ZNSt6vectorIPKN4llvm6RecordESaIS3_EEC2EmRKS4_.exit.us.i ], [ %indvars.iv.next.i84, %_ZN12_GLOBAL__N_115MapTableEmitter17getInstrForColumnEPKN4llvm6RecordEPKNS1_8ListInitE.exit.us.i ]
-  %992 = getelementptr inbounds nuw ptr, ptr %.val.i78, i64 %indvars.iv.i81
+  %992 = getelementptr inbounds nuw ptr, ptr %.val.fr.i, i64 %indvars.iv.i81
   %993 = load ptr, ptr %992, align 8, !tbaa !46
   %994 = load ptr, ptr %27, align 8, !tbaa !23
   %.val.i.us.i = load ptr, ptr %426, align 8, !tbaa !117
@@ -3953,11 +3954,12 @@ _ZNK4llvm13CodeGenTarget26getInstructionsByEnumValueEv.exit.i.i: ; preds = %1638
   %1648 = extractvalue { ptr, i64 } %1646, 1
   %.val.i.i = load ptr, ptr %421, align 8, !tbaa !134
   %.val41.i.i = load ptr, ptr %429, align 8, !tbaa !132
-  %1649 = ptrtoint ptr %.val41.i.i to i64
-  %1650 = ptrtoint ptr %.val.i.i to i64
+  %.val41.i.fr.i = freeze ptr %.val41.i.i
+  %1649 = ptrtoint ptr %.val41.i.fr.i to i64
+  %.val.i.fr.i = freeze ptr %.val.i.i
+  %1650 = ptrtoint ptr %.val.i.fr.i to i64
   %1651 = sub i64 %1649, %1650
-  %.fr69.i = freeze i64 %1651
-  %1652 = lshr i64 %.fr69.i, 3
+  %1652 = lshr i64 %1651, 3
   %1653 = load ptr, ptr %70, align 8, !tbaa !3
   %1654 = load ptr, ptr %72, align 8, !tbaa !12
   %1655 = ptrtoint ptr %1653 to i64
@@ -4033,7 +4035,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49.i.i:           ; preds = %1691, %1689
   br i1 %.not117.i.i, label %._crit_edge115.thread.i.i, label %.lr.ph114.i.i
 
 .lr.ph114.i.i:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit49.i.i
-  %1695 = and i64 %.fr69.i, 34359738360
+  %1695 = and i64 %1651, 34359738360
   %.not118.i.i = icmp eq i64 %1695, 0
   %.not.i.i.i102 = icmp eq i64 %1648, 0
   %wide.trip.count123.i.i = and i64 %1645, 4294967295

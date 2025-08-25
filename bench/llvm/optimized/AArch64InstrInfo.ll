@@ -12432,10 +12432,10 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit: ; preds = %_ZN4llvm10M
   %93 = load ptr, ptr %92, align 8, !tbaa !253
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i64, ptr %94, align 8, !tbaa !254
-  %.fr192 = freeze i64 %95
-  %96 = and i64 %.fr192, 524288
-  %.not193 = icmp eq i64 %96, 0
-  br i1 %.not193, label %98, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
+  %.fr = freeze i64 %95
+  %96 = and i64 %.fr, 524288
+  %.not192 = icmp eq i64 %96, 0
+  br i1 %.not192, label %98, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %84
   %97 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 524288, i32 noundef 1) #31
@@ -12594,8 +12594,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit84:                 ; preds = %152
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit86.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit86.sink.split: ; preds = %152, %155
-  %.sink214 = phi ptr [ %22, %155 ], [ %21, %152 ]
-  store ptr null, ptr %.sink214, align 8, !tbaa !271
+  %.sink213 = phi ptr [ %22, %155 ], [ %21, %152 ]
+  store ptr null, ptr %.sink213, align 8, !tbaa !271
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit86
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit86: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit86.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit84
@@ -12640,10 +12640,10 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit86: ; preds = %_ZN4llvm1
   %185 = load ptr, ptr %184, align 8, !tbaa !253
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load i64, ptr %186, align 8, !tbaa !254
-  %.fr194 = freeze i64 %187
-  %188 = and i64 %.fr194, 524288
-  %.not195 = icmp eq i64 %188, 0
-  br i1 %.not195, label %190, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit91.thread
+  %.fr193 = freeze i64 %187
+  %188 = and i64 %.fr193, 524288
+  %.not194 = icmp eq i64 %188, 0
+  br i1 %.not194, label %190, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit91.thread
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit91: ; preds = %176
   %189 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 524288, i32 noundef 1) #31
@@ -12909,8 +12909,8 @@ _ZL18offsetExtendOpcodej.exit:                    ; preds = %230, %230, %230, %2
   %272 = and i32 %266, 31
   %273 = shl nuw i32 1, %272
   %274 = and i32 %273, %271
-  %.not196 = icmp eq i32 %274, 0
-  br i1 %.not196, label %301, label %275
+  %.not195 = icmp eq i32 %274, 0
+  br i1 %.not195, label %301, label %275
 
 275:                                              ; preds = %_ZL18offsetExtendOpcodej.exit
   %276 = tail call i32 @_ZN4llvm19MachineRegisterInfo21createVirtualRegisterEPKNS_19TargetRegisterClassENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %32, ptr noundef nonnull @_ZN4llvm7AArch6413GPR32RegClassE, ptr nonnull @.str.16, i64 0) #31
@@ -12932,8 +12932,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit106:                ; preds = %275
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit108.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit108.sink.split: ; preds = %275, %279
-  %.sink215 = phi ptr [ %24, %279 ], [ %23, %275 ]
-  store ptr null, ptr %.sink215, align 8, !tbaa !271
+  %.sink214 = phi ptr [ %24, %279 ], [ %23, %275 ]
+  store ptr null, ptr %.sink214, align 8, !tbaa !271
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit108
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit108: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit108.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit106
@@ -13012,8 +13012,8 @@ _ZN4llvm8DebugLocC2ERKS0_.exit114:                ; preds = %301
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit116.sink.split
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit116.sink.split: ; preds = %301, %304
-  %.sink216 = phi ptr [ %26, %304 ], [ %25, %301 ]
-  store ptr null, ptr %.sink216, align 8, !tbaa !271
+  %.sink215 = phi ptr [ %26, %304 ], [ %25, %301 ]
+  store ptr null, ptr %.sink215, align 8, !tbaa !271
   br label %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit116
 
 _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit116: ; preds = %_ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit116.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit114
@@ -13056,10 +13056,10 @@ _ZN4llvm10MIMetadataC2ENS_8DebugLocEPNS_6MDNodeES3_.exit116: ; preds = %_ZN4llvm
   %332 = load ptr, ptr %331, align 8, !tbaa !253
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load i64, ptr %333, align 8, !tbaa !254
-  %.fr197 = freeze i64 %334
-  %335 = and i64 %.fr197, 524288
-  %.not198 = icmp eq i64 %335, 0
-  br i1 %.not198, label %337, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit121.thread
+  %.fr196 = freeze i64 %334
+  %335 = and i64 %.fr196, 524288
+  %.not197 = icmp eq i64 %335, 0
+  br i1 %.not197, label %337, label %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit121.thread
 
 _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit121: ; preds = %323
   %336 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 524288, i32 noundef 1) #31
@@ -34200,11 +34200,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isFunctionSafe
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %5 = and i32 %.pre, 15
   %6 = icmp ne i32 %5, 3
-  %or.cond.not18 = select i1 %2, i1 true, i1 %6
+  %or.cond.not20 = select i1 %2, i1 true, i1 %6
   %7 = and i32 %.pre, 67108864
   %.not11 = icmp eq i32 %7, 0
-  %or.cond16 = select i1 %or.cond.not18, i1 %.not11, i1 false
-  br i1 %or.cond16, label %8, label %.critedge
+  %or.cond18 = select i1 %or.cond.not20, i1 %.not11, i1 false
+  br i1 %or.cond18, label %8, label %.critedge
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -34238,15 +34238,14 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo27isFunctionSafe
 _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit:       ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 396
   %27 = load i32, ptr %26, align 4, !tbaa !871
-  %.not.i = icmp ne i32 %27, 0
-  %28 = icmp ne i32 %27, 6
-  %spec.select.i = and i1 %.not.i, %28
-  %cond.fr = freeze i1 %spec.select.i
-  %not.cond.fr = xor i1 %cond.fr, true
+  %.fr = freeze i32 %27
+  %.not.i = icmp eq i32 %.fr, 0
+  %28 = icmp eq i32 %.fr, 6
+  %spec.select.i.not = or i1 %.not.i, %28
   br label %.critedge
 
 .critedge:                                        ; preds = %3, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit, %18, %8, %11, %14
-  %.0 = phi i1 [ false, %11 ], [ false, %14 ], [ false, %8 ], [ true, %18 ], [ %not.cond.fr, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit ], [ false, %3 ]
+  %.0 = phi i1 [ false, %11 ], [ false, %14 ], [ false, %8 ], [ true, %18 ], [ %spec.select.i.not, %_ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit ], [ false, %3 ]
   ret i1 %.0
 }
 

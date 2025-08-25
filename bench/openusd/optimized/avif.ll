@@ -1902,13 +1902,13 @@ define hidden range(i32 0, 2) i32 @avifCropRectConvertCleanApertureBox(ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %21 = load i32, ptr %20, align 4
+  %19 = load i64, ptr %18, align 4
+  %20 = lshr i64 %19, 32
+  %21 = trunc nuw i64 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %25 = load i32, ptr %24, align 4
+  %23 = load i64, ptr %22, align 4
+  %24 = lshr i64 %23, 32
+  %25 = trunc nuw i64 %24 to i32
   %26 = icmp slt i32 %13, 1
   %27 = icmp slt i32 %17, 1
   %or.cond = select i1 %26, i1 true, i1 %27
@@ -1969,11 +1969,7 @@ define hidden range(i32 0, 2) i32 @avifCropRectConvertCleanApertureBox(ptr nound
   %spec.select3.i = select i1 %.not.i, i64 4294967296, i64 8589934592
   %.sroa.0.0.insert.ext.i = zext i32 %spec.select.i to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %spec.select3.i, %.sroa.0.0.insert.ext.i
-  %.sroa.218.0.insert.ext = zext nneg i32 %21 to i64
-  %.sroa.218.0.insert.shift = shl nuw nsw i64 %.sroa.218.0.insert.ext, 32
-  %.sroa.017.0.insert.ext = zext i32 %19 to i64
-  %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.218.0.insert.shift, %.sroa.017.0.insert.ext
-  %49 = call i32 @avifFractionAdd(i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.017.0.insert.insert, ptr noundef nonnull %7) #14
+  %49 = call i32 @avifFractionAdd(i64 %.sroa.0.0.insert.insert.i, i64 %19, ptr noundef nonnull %7) #14
   %.not92 = icmp eq i32 %49, 0
   br i1 %.not92, label %50, label %51
 
@@ -1989,11 +1985,7 @@ define hidden range(i32 0, 2) i32 @avifCropRectConvertCleanApertureBox(ptr nound
   %spec.select.i99 = ashr i32 %3, %53
   %.sroa.0.0.insert.ext.i101 = zext i32 %spec.select.i99 to i64
   %.sroa.0.0.insert.insert.i102 = or disjoint i64 %spec.select3.i100, %.sroa.0.0.insert.ext.i101
-  %.sroa.216.0.insert.ext = zext nneg i32 %25 to i64
-  %.sroa.216.0.insert.shift = shl nuw nsw i64 %.sroa.216.0.insert.ext, 32
-  %.sroa.015.0.insert.ext = zext i32 %23 to i64
-  %.sroa.015.0.insert.insert = or disjoint i64 %.sroa.216.0.insert.shift, %.sroa.015.0.insert.ext
-  %54 = call i32 @avifFractionAdd(i64 %.sroa.0.0.insert.insert.i102, i64 %.sroa.015.0.insert.insert, ptr noundef nonnull %8) #14
+  %54 = call i32 @avifFractionAdd(i64 %.sroa.0.0.insert.insert.i102, i64 %23, ptr noundef nonnull %8) #14
   %.not93 = icmp eq i32 %54, 0
   br i1 %.not93, label %55, label %56
 

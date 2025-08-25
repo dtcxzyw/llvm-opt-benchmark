@@ -769,7 +769,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ioremap_page_range(i64 noundef %
 define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 %3, i32 noundef %4) unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %.fr = freeze i64 %3
+  %.fr26 = freeze i64 %3
   %8 = tail call i32 @__SCT__might_resched() #21
   %9 = icmp ult i64 %0, %1
   br i1 %9, label %11, label %10, !prof !11
@@ -789,8 +789,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %18 = add i64 %1, -1
   %19 = icmp ult i32 %4, 30
   %20 = icmp ult i32 %4, 21
-  %21 = icmp ne i64 %.fr, 0
-  %22 = and i64 %.fr, 1
+  %21 = icmp ne i64 %.fr26, 0
+  %22 = and i64 %.fr26, 1
   %23 = icmp eq i64 %22, 0
   %24 = and i1 %21, %23
   %25 = sext i1 %24 to i64
@@ -924,7 +924,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   br i1 %115, label %.critedge, label %116
 
 116:                                              ; preds = %113, %109
-  %117 = tail call i32 @pud_set_huge(ptr noundef %91, i64 noundef %90, i64 %.fr) #21
+  %117 = tail call i32 @pud_set_huge(ptr noundef %91, i64 noundef %90, i64 %.fr26) #21
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %.critedge, label %.loopexit22
 
@@ -994,7 +994,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   br i1 %162, label %.critedge13, label %163
 
 163:                                              ; preds = %160, %156
-  %164 = tail call i32 @pmd_set_huge(ptr noundef %142, i64 noundef %141, i64 %.fr) #21
+  %164 = tail call i32 @pmd_set_huge(ptr noundef %142, i64 noundef %141, i64 %.fr26) #21
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %.critedge13, label %.loopexit
 
@@ -1048,7 +1048,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %193 = shl i64 %186, 12
   %194 = xor i64 %193, %25
   %195 = and i64 %194, 4503599627366400
-  %196 = or i64 %.fr, %195
+  %196 = or i64 %.fr26, %195
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %196, ptr %6, align 8
   %.0..0..0..0..us = load volatile i64, ptr %6, align 8
@@ -1082,7 +1082,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vmap_range_noflush(i64 nou
   %209 = xor i64 %208, %25
   %210 = and i64 %209, 4503599627366400
   %211 = load i64, ptr @__supported_pte_mask, align 8
-  %212 = and i64 %211, %.fr
+  %212 = and i64 %211, %.fr26
   %213 = or i64 %212, %210
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %213, ptr %6, align 8
@@ -5941,7 +5941,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   tail call void @_raw_spin_lock(ptr noundef nonnull @vmap_area_lock) #21
   %9 = load ptr, ptr @vmap_area_root, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.loopexit70, label %.lr.ph
+  br i1 %10, label %.loopexit75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %20
   %11 = phi ptr [ %24, %20 ], [ %9, %3 ]
@@ -5968,7 +5968,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 .thread:                                          ; preds = %20, %16
   %26 = phi ptr [ %22, %20 ], [ %17, %16 ]
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit70, label %28
+  br i1 %27, label %.loopexit75, label %28
 
 28:                                               ; preds = %.thread
   %29 = add i64 %8, %4
@@ -5977,17 +5977,17 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %33 = icmp eq ptr %32, @vmap_area_list
   %34 = select i1 %31, i1 true, i1 %33
-  br i1 %34, label %.loopexit70, label %.preheader69
+  br i1 %34, label %.loopexit75, label %.preheader74
 
-.preheader69:                                     ; preds = %28
+.preheader74:                                     ; preds = %28
   %35 = icmp ugt i64 ptrtoint (ptr @empty_zero_page to i64), sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   br label %36
 
-36:                                               ; preds = %.preheader69, %.thread48
-  %37 = phi ptr [ %426, %.thread48 ], [ %32, %.preheader69 ]
-  %38 = phi ptr [ %424, %.thread48 ], [ %1, %.preheader69 ]
-  %39 = phi ptr [ %427, %.thread48 ], [ %26, %.preheader69 ]
-  %40 = phi i64 [ %425, %.thread48 ], [ %8, %.preheader69 ]
+36:                                               ; preds = %.preheader74, %.thread48
+  %37 = phi ptr [ %426, %.thread48 ], [ %32, %.preheader74 ]
+  %38 = phi ptr [ %424, %.thread48 ], [ %1, %.preheader74 ]
+  %39 = phi ptr [ %427, %.thread48 ], [ %26, %.preheader74 ]
+  %40 = phi i64 [ %425, %.thread48 ], [ %8, %.preheader74 ]
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.thread52, label %42
 
@@ -6107,32 +6107,32 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 120:                                              ; preds = %111
   %121 = and i64 %46, 2
   %122 = icmp eq i64 %121, 0
-  br i1 %122, label %.preheader63, label %168
+  br i1 %122, label %.preheader68, label %168
 
-.preheader63:                                     ; preds = %120, %163
+.preheader68:                                     ; preds = %120, %163
   %123 = phi ptr [ %165, %163 ], [ %113, %120 ]
   %124 = phi i64 [ %166, %163 ], [ %117, %120 ]
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %.loopexit59.thread, label %126
+  br i1 %125, label %.loopexit64.thread, label %126
 
-126:                                              ; preds = %.preheader63
+126:                                              ; preds = %.preheader68
   %127 = ptrtoint ptr %123 to i64
   %128 = and i64 %127, 4095
   %129 = sub nuw nsw i64 4096, %128
   %130 = tail call i64 @llvm.umin.i64(i64 %129, i64 %124)
   %131 = tail call ptr @vmalloc_to_page(ptr noundef %123)
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %.preheader58, label %146
+  br i1 %132, label %.preheader63, label %146
 
-.preheader58:                                     ; preds = %126
-  br i1 %35, label %.preheader58.split.us, label %.preheader58.split
+.preheader63:                                     ; preds = %126
+  br i1 %35, label %.preheader63.split.us, label %.preheader63.split
 
-.preheader58.split.us:                            ; preds = %.preheader58, %135
-  %133 = phi i64 [ %144, %135 ], [ %130, %.preheader58 ]
+.preheader63.split.us:                            ; preds = %.preheader63, %135
+  %133 = phi i64 [ %144, %135 ], [ %130, %.preheader63 ]
   %134 = icmp eq i64 %133, 0
-  br i1 %134, label %.split80.us, label %135
+  br i1 %134, label %.split86.us, label %135
 
-135:                                              ; preds = %.preheader58.split.us
+135:                                              ; preds = %.preheader63.split.us
   %136 = tail call i64 @llvm.umin.i64(i64 %133, i64 4096)
   %137 = load i64, ptr @vmemmap_base, align 8
   %138 = inttoptr i64 %137 to ptr
@@ -6143,19 +6143,19 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %143 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %142, i32 noundef 0, i64 noundef %136, ptr noundef %0) #21
   %144 = sub i64 %133, %143
   %145 = icmp ult i64 %143, %136
-  br i1 %145, label %.split80.us, label %.preheader58.split.us
+  br i1 %145, label %.split86.us, label %.preheader63.split.us
 
 146:                                              ; preds = %126
   %147 = trunc nuw nsw i64 %128 to i32
   %148 = tail call i64 @copy_page_to_iter_nofault(ptr noundef nonnull %131, i32 noundef %147, i64 noundef %130, ptr noundef %0) #21
   br label %163
 
-.preheader58.split:                               ; preds = %.preheader58, %151
-  %149 = phi i64 [ %160, %151 ], [ %130, %.preheader58 ]
+.preheader63.split:                               ; preds = %.preheader63, %151
+  %149 = phi i64 [ %160, %151 ], [ %130, %.preheader63 ]
   %150 = icmp eq i64 %149, 0
-  br i1 %150, label %.split80.us, label %151
+  br i1 %150, label %.split86.us, label %151
 
-151:                                              ; preds = %.preheader58.split
+151:                                              ; preds = %.preheader63.split
   %152 = tail call i64 @llvm.umin.i64(i64 %149, i64 4096)
   %153 = load i64, ptr @vmemmap_base, align 8
   %154 = inttoptr i64 %153 to ptr
@@ -6166,19 +6166,19 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %159 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %158, i32 noundef 0, i64 noundef %152, ptr noundef %0) #21
   %160 = sub i64 %149, %159
   %161 = icmp ult i64 %159, %152
-  br i1 %161, label %.split80.us, label %.preheader58.split
+  br i1 %161, label %.split86.us, label %.preheader63.split
 
-.split80.us:                                      ; preds = %.preheader58.split, %151, %.preheader58.split.us, %135
-  %.us-phi81 = phi i64 [ %144, %135 ], [ 0, %.preheader58.split.us ], [ %160, %151 ], [ 0, %.preheader58.split ]
-  %162 = sub i64 %130, %.us-phi81
+.split86.us:                                      ; preds = %.preheader63.split, %151, %.preheader63.split.us, %135
+  %.us-phi87 = phi i64 [ %144, %135 ], [ 0, %.preheader63.split.us ], [ %160, %151 ], [ 0, %.preheader63.split ]
+  %162 = sub i64 %130, %.us-phi87
   br label %163
 
-163:                                              ; preds = %.split80.us, %146
-  %164 = phi i64 [ %148, %146 ], [ %162, %.split80.us ]
+163:                                              ; preds = %.split86.us, %146
+  %164 = phi i64 [ %148, %146 ], [ %162, %.split86.us ]
   %165 = getelementptr i8, ptr %123, i64 %164
   %166 = sub i64 %124, %164
   %167 = icmp eq i64 %164, %130
-  br i1 %167, label %.preheader63, label %.loopexit59
+  br i1 %167, label %.preheader68, label %.loopexit64
 
 168:                                              ; preds = %120
   %169 = load i64, ptr @__cpu_possible_mask, align 8
@@ -6199,14 +6199,14 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %184 = lshr i64 %183, 22
   %185 = tail call ptr @xa_load(ptr noundef nonnull %180, i64 noundef %184) #21
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.preheader198, label %187
+  br i1 %186, label %.preheader207, label %187
 
 187:                                              ; preds = %168
   tail call void @_raw_spin_lock(ptr noundef nonnull %185) #21
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %189 = tail call i64 @_find_first_bit(ptr noundef nonnull %188, i64 noundef 1024) #21
   %190 = icmp eq i64 %189, 1024
-  br i1 %190, label %.loopexit68, label %191
+  br i1 %190, label %.loopexit73, label %191
 
 191:                                              ; preds = %187
   %192 = tail call i64 @_find_next_bit(ptr noundef nonnull %188, i64 noundef 1024, i64 noundef 0) #21
@@ -6215,7 +6215,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %195 = tail call i64 @_find_next_zero_bit(ptr noundef nonnull %188, i64 noundef 1024, i64 noundef %194) #21
   %196 = and i64 %192, 4294967295
   %197 = icmp samesign ult i64 %196, 1024
-  br i1 %197, label %198, label %.loopexit68
+  br i1 %197, label %198, label %.loopexit73
 
 198:                                              ; preds = %191
   %199 = getelementptr inbounds nuw i8, ptr %185, i64 8
@@ -6227,6 +6227,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %203 = phi i64 [ %192, %198 ], [ %325, %.thread39 ]
   %204 = phi ptr [ %113, %198 ], [ %322, %.thread39 ]
   %205 = phi i64 [ %117, %198 ], [ %321, %.thread39 ]
+  %.fr = freeze i64 %202
   %206 = icmp eq i64 %205, 0
   br i1 %206, label %.thread43, label %207
 
@@ -6262,7 +6263,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 .split.us:                                        ; preds = %222, %228
   %226 = phi i64 [ %237, %228 ], [ %225, %222 ]
   %227 = icmp eq i64 %226, 0
-  br i1 %227, label %.split75.us, label %228
+  br i1 %227, label %.split81.us, label %228
 
 228:                                              ; preds = %.split.us
   %229 = tail call i64 @llvm.umin.i64(i64 %226, i64 4096)
@@ -6275,12 +6276,12 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %236 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %235, i32 noundef 0, i64 noundef %229, ptr noundef %0) #21
   %237 = sub i64 %226, %236
   %238 = icmp ult i64 %236, %229
-  br i1 %238, label %.split75.us, label %.split.us
+  br i1 %238, label %.split81.us, label %.split.us
 
 .split:                                           ; preds = %222, %241
   %239 = phi i64 [ %250, %241 ], [ %225, %222 ]
   %240 = icmp eq i64 %239, 0
-  br i1 %240, label %.split75.us, label %241
+  br i1 %240, label %.split81.us, label %241
 
 241:                                              ; preds = %.split
   %242 = tail call i64 @llvm.umin.i64(i64 %239, i64 4096)
@@ -6293,9 +6294,9 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %249 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %248, i32 noundef 0, i64 noundef %242, ptr noundef %0) #21
   %250 = sub i64 %239, %249
   %251 = icmp ult i64 %249, %242
-  br i1 %251, label %.split75.us, label %.split
+  br i1 %251, label %.split81.us, label %.split
 
-.split75.us:                                      ; preds = %.split, %241, %.split.us, %228
+.split81.us:                                      ; preds = %.split, %241, %.split.us, %228
   %.us-phi = phi i64 [ %237, %228 ], [ 0, %.split.us ], [ %250, %241 ], [ 0, %.split ]
   %252 = sub i64 %225, %.us-phi
   %253 = getelementptr i8, ptr %204, i64 %252
@@ -6305,28 +6306,31 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %257 = and i1 %256, %255
   br i1 %257, label %258, label %.thread43
 
-258:                                              ; preds = %.split75.us, %219
-  %259 = phi i64 [ %254, %.split75.us ], [ %205, %219 ]
-  %260 = phi ptr [ %253, %.split75.us ], [ %204, %219 ]
-  %261 = ptrtoint ptr %260 to i64
+258:                                              ; preds = %.split81.us, %219
+  %259 = phi i64 [ %254, %.split81.us ], [ %205, %219 ]
+  %260 = phi ptr [ %253, %.split81.us ], [ %204, %219 ]
+  %.fr59 = freeze i64 %259
+  %.fr58 = freeze ptr %260
+  %261 = ptrtoint ptr %.fr58 to i64
   %262 = and i64 %261, 4095
-  %263 = sub i64 %202, %203
+  %.fr57 = freeze i64 %203
+  %263 = sub i64 %.fr, %.fr57
   %264 = shl i64 %263, 12
   %265 = add i64 %264, 4096
   %266 = and i64 %265, 4294963200
   %267 = sub nsw i64 %266, %262
-  %268 = tail call i64 @llvm.umin.i64(i64 %267, i64 %259)
+  %268 = tail call i64 @llvm.umin.i64(i64 %267, i64 %.fr59)
   %269 = getelementptr i8, ptr %220, i64 %262
   br label %270
 
 270:                                              ; preds = %312, %258
   %271 = phi ptr [ %269, %258 ], [ %314, %312 ]
-  %272 = phi i64 [ %268, %258 ], [ %.fr, %312 ]
+  %272 = phi i64 [ %268, %258 ], [ %315, %312 ]
   %273 = icmp eq i64 %272, 0
   br i1 %273, label %.thread34, label %275
 
 .thread34:                                        ; preds = %270
-  %274 = sub i64 %259, %268
+  %274 = sub i64 %.fr59, %268
   br label %.thread39
 
 275:                                              ; preds = %270
@@ -6344,7 +6348,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 .preheader.split.us:                              ; preds = %.preheader, %284
   %282 = phi i64 [ %293, %284 ], [ %279, %.preheader ]
   %283 = icmp eq i64 %282, 0
-  br i1 %283, label %.split77.us, label %284
+  br i1 %283, label %.split83.us, label %284
 
 284:                                              ; preds = %.preheader.split.us
   %285 = tail call i64 @llvm.umin.i64(i64 %282, i64 4096)
@@ -6357,7 +6361,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %292 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %291, i32 noundef 0, i64 noundef %285, ptr noundef %0) #21
   %293 = sub i64 %282, %292
   %294 = icmp ult i64 %292, %285
-  br i1 %294, label %.split77.us, label %.preheader.split.us
+  br i1 %294, label %.split83.us, label %.preheader.split.us
 
 295:                                              ; preds = %275
   %296 = trunc nuw nsw i64 %277 to i32
@@ -6367,7 +6371,7 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 .preheader.split:                                 ; preds = %.preheader, %300
   %298 = phi i64 [ %309, %300 ], [ %279, %.preheader ]
   %299 = icmp eq i64 %298, 0
-  br i1 %299, label %.split77.us, label %300
+  br i1 %299, label %.split83.us, label %300
 
 300:                                              ; preds = %.preheader.split
   %301 = tail call i64 @llvm.umin.i64(i64 %298, i64 4096)
@@ -6380,32 +6384,32 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %308 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %307, i32 noundef 0, i64 noundef %301, ptr noundef %0) #21
   %309 = sub i64 %298, %308
   %310 = icmp ult i64 %308, %301
-  br i1 %310, label %.split77.us, label %.preheader.split
+  br i1 %310, label %.split83.us, label %.preheader.split
 
-.split77.us:                                      ; preds = %.preheader.split, %300, %.preheader.split.us, %284
-  %.us-phi78 = phi i64 [ %293, %284 ], [ 0, %.preheader.split.us ], [ %309, %300 ], [ 0, %.preheader.split ]
-  %311 = sub i64 %279, %.us-phi78
+.split83.us:                                      ; preds = %.preheader.split, %300, %.preheader.split.us, %284
+  %.us-phi84 = phi i64 [ %293, %284 ], [ 0, %.preheader.split.us ], [ %309, %300 ], [ 0, %.preheader.split ]
+  %311 = sub i64 %279, %.us-phi84
   br label %312
 
-312:                                              ; preds = %.split77.us, %295
-  %313 = phi i64 [ %297, %295 ], [ %311, %.split77.us ]
-  %314 = getelementptr i8, ptr %271, i64 %313
-  %315 = sub i64 %272, %313
-  %.fr = freeze i64 %315
-  %316 = icmp eq i64 %313, %279
+312:                                              ; preds = %.split83.us, %295
+  %313 = phi i64 [ %297, %295 ], [ %311, %.split83.us ]
+  %.fr55 = freeze i64 %313
+  %314 = getelementptr i8, ptr %271, i64 %.fr55
+  %315 = sub i64 %272, %.fr55
+  %316 = icmp eq i64 %.fr55, %279
   br i1 %316, label %270, label %317
 
 317:                                              ; preds = %312
-  %318 = sub i64 %268, %.fr
-  %319 = sub i64 %259, %318
-  %320 = icmp eq i64 %.fr, 0
+  %318 = sub i64 %268, %315
+  %319 = sub i64 %.fr59, %318
+  %320 = icmp eq i64 %315, 0
   br i1 %320, label %.thread39, label %.thread43
 
 .thread39:                                        ; preds = %317, %.thread34
   %.pn = phi i64 [ %268, %.thread34 ], [ %318, %317 ]
   %321 = phi i64 [ %274, %.thread34 ], [ %319, %317 ]
-  %322 = getelementptr i8, ptr %260, i64 %.pn
-  %323 = add i64 %202, 1
+  %322 = getelementptr i8, ptr %.fr58, i64 %.pn
+  %323 = add i64 %.fr, 1
   %324 = and i64 %323, 4294967295
   %325 = tail call i64 @_find_next_bit(ptr noundef nonnull %188, i64 noundef 1024, i64 noundef %324) #21
   %326 = add i64 %325, 1
@@ -6413,21 +6417,21 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %328 = tail call i64 @_find_next_zero_bit(ptr noundef nonnull %188, i64 noundef 1024, i64 noundef %327) #21
   %329 = and i64 %325, 4294967295
   %330 = icmp samesign ult i64 %329, 1024
-  br i1 %330, label %200, label %.loopexit68, !llvm.loop !216
+  br i1 %330, label %200, label %.loopexit73, !llvm.loop !216
 
-.loopexit68:                                      ; preds = %.thread39, %191, %187
+.loopexit73:                                      ; preds = %.thread39, %191, %187
   %331 = phi i64 [ %117, %187 ], [ %117, %191 ], [ %321, %.thread39 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %185) #21
-  br label %.preheader198
+  br label %.preheader207
 
-.preheader198:                                    ; preds = %.loopexit68, %168
-  %.ph = phi i64 [ %117, %168 ], [ %331, %.loopexit68 ]
+.preheader207:                                    ; preds = %.loopexit73, %168
+  %.ph = phi i64 [ %117, %168 ], [ %331, %.loopexit73 ]
   br label %332
 
-332:                                              ; preds = %.preheader198, %335
-  %333 = phi i64 [ %347, %335 ], [ %.ph, %.preheader198 ]
+332:                                              ; preds = %.preheader207, %335
+  %333 = phi i64 [ %347, %335 ], [ %.ph, %.preheader207 ]
   %334 = icmp eq i64 %333, 0
-  br i1 %334, label %.loopexit59.thread, label %335
+  br i1 %334, label %.loopexit64.thread, label %335
 
 335:                                              ; preds = %332
   %336 = tail call i64 @llvm.umin.i64(i64 %333, i64 4096)
@@ -6443,31 +6447,31 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %346 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %345, i32 noundef 0, i64 noundef %336, ptr noundef %0) #21
   %347 = sub i64 %333, %346
   %348 = icmp ult i64 %346, %336
-  br i1 %348, label %.loopexit59, label %332
+  br i1 %348, label %.loopexit64, label %332
 
-.thread43:                                        ; preds = %.split75.us, %317, %200
-  %349 = phi i64 [ %319, %317 ], [ 0, %200 ], [ %254, %.split75.us ]
+.thread43:                                        ; preds = %.split81.us, %317, %200
+  %349 = phi i64 [ %319, %317 ], [ 0, %200 ], [ %254, %.split81.us ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %185) #21
-  br label %.loopexit59
+  br label %.loopexit64
 
 350:                                              ; preds = %111
-  br i1 %75, label %351, label %.preheader193
+  br i1 %75, label %351, label %.preheader202
 
 351:                                              ; preds = %350
   %352 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %353 = load i64, ptr %352, align 8
   %354 = and i64 %353, 1
   %355 = icmp eq i64 %354, 0
-  br i1 %355, label %.preheader193, label %.preheader60
+  br i1 %355, label %.preheader202, label %.preheader65
 
-.preheader193:                                    ; preds = %351, %350
+.preheader202:                                    ; preds = %351, %350
   br label %356
 
-356:                                              ; preds = %.preheader193, %397
-  %357 = phi ptr [ %399, %397 ], [ %113, %.preheader193 ]
-  %358 = phi i64 [ %400, %397 ], [ %117, %.preheader193 ]
+356:                                              ; preds = %.preheader202, %397
+  %357 = phi ptr [ %399, %397 ], [ %113, %.preheader202 ]
+  %358 = phi i64 [ %400, %397 ], [ %117, %.preheader202 ]
   %359 = icmp eq i64 %358, 0
-  br i1 %359, label %.loopexit59.thread, label %360
+  br i1 %359, label %.loopexit64.thread, label %360
 
 360:                                              ; preds = %356
   %361 = ptrtoint ptr %357 to i64
@@ -6476,17 +6480,17 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %364 = tail call i64 @llvm.umin.i64(i64 %363, i64 %358)
   %365 = tail call ptr @vmalloc_to_page(ptr noundef %357)
   %366 = icmp eq ptr %365, null
-  br i1 %366, label %.preheader57, label %380
+  br i1 %366, label %.preheader62, label %380
 
-.preheader57:                                     ; preds = %360
-  br i1 %35, label %.preheader57.split.us, label %.preheader57.split
+.preheader62:                                     ; preds = %360
+  br i1 %35, label %.preheader62.split.us, label %.preheader62.split
 
-.preheader57.split.us:                            ; preds = %.preheader57, %369
-  %367 = phi i64 [ %378, %369 ], [ %364, %.preheader57 ]
+.preheader62.split.us:                            ; preds = %.preheader62, %369
+  %367 = phi i64 [ %378, %369 ], [ %364, %.preheader62 ]
   %368 = icmp eq i64 %367, 0
-  br i1 %368, label %.split83.us, label %369
+  br i1 %368, label %.split89.us, label %369
 
-369:                                              ; preds = %.preheader57.split.us
+369:                                              ; preds = %.preheader62.split.us
   %370 = tail call i64 @llvm.umin.i64(i64 %367, i64 4096)
   %371 = load i64, ptr @vmemmap_base, align 8
   %372 = inttoptr i64 %371 to ptr
@@ -6497,19 +6501,19 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %377 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %376, i32 noundef 0, i64 noundef %370, ptr noundef %0) #21
   %378 = sub i64 %367, %377
   %379 = icmp ult i64 %377, %370
-  br i1 %379, label %.split83.us, label %.preheader57.split.us
+  br i1 %379, label %.split89.us, label %.preheader62.split.us
 
 380:                                              ; preds = %360
   %381 = trunc nuw nsw i64 %362 to i32
   %382 = tail call i64 @copy_page_to_iter_nofault(ptr noundef nonnull %365, i32 noundef %381, i64 noundef %364, ptr noundef %0) #21
   br label %397
 
-.preheader57.split:                               ; preds = %.preheader57, %385
-  %383 = phi i64 [ %394, %385 ], [ %364, %.preheader57 ]
+.preheader62.split:                               ; preds = %.preheader62, %385
+  %383 = phi i64 [ %394, %385 ], [ %364, %.preheader62 ]
   %384 = icmp eq i64 %383, 0
-  br i1 %384, label %.split83.us, label %385
+  br i1 %384, label %.split89.us, label %385
 
-385:                                              ; preds = %.preheader57.split
+385:                                              ; preds = %.preheader62.split
   %386 = tail call i64 @llvm.umin.i64(i64 %383, i64 4096)
   %387 = load i64, ptr @vmemmap_base, align 8
   %388 = inttoptr i64 %387 to ptr
@@ -6520,26 +6524,26 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %393 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %392, i32 noundef 0, i64 noundef %386, ptr noundef %0) #21
   %394 = sub i64 %383, %393
   %395 = icmp ult i64 %393, %386
-  br i1 %395, label %.split83.us, label %.preheader57.split
+  br i1 %395, label %.split89.us, label %.preheader62.split
 
-.split83.us:                                      ; preds = %.preheader57.split, %385, %.preheader57.split.us, %369
-  %.us-phi84 = phi i64 [ %378, %369 ], [ 0, %.preheader57.split.us ], [ %394, %385 ], [ 0, %.preheader57.split ]
-  %396 = sub i64 %364, %.us-phi84
+.split89.us:                                      ; preds = %.preheader62.split, %385, %.preheader62.split.us, %369
+  %.us-phi90 = phi i64 [ %378, %369 ], [ 0, %.preheader62.split.us ], [ %394, %385 ], [ 0, %.preheader62.split ]
+  %396 = sub i64 %364, %.us-phi90
   br label %397
 
-397:                                              ; preds = %.split83.us, %380
-  %398 = phi i64 [ %382, %380 ], [ %396, %.split83.us ]
+397:                                              ; preds = %.split89.us, %380
+  %398 = phi i64 [ %382, %380 ], [ %396, %.split89.us ]
   %399 = getelementptr i8, ptr %357, i64 %398
   %400 = sub i64 %358, %398
   %401 = icmp eq i64 %398, %364
-  br i1 %401, label %356, label %.loopexit59
+  br i1 %401, label %356, label %.loopexit64
 
-.preheader60:                                     ; preds = %351, %404
+.preheader65:                                     ; preds = %351, %404
   %402 = phi i64 [ %416, %404 ], [ %117, %351 ]
   %403 = icmp eq i64 %402, 0
-  br i1 %403, label %.loopexit59.thread, label %404
+  br i1 %403, label %.loopexit64.thread, label %404
 
-404:                                              ; preds = %.preheader60
+404:                                              ; preds = %.preheader65
   %405 = tail call i64 @llvm.umin.i64(i64 %402, i64 4096)
   %406 = load i64, ptr @vmemmap_base, align 8
   %407 = inttoptr i64 %406 to ptr
@@ -6553,41 +6557,41 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %415 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %414, i32 noundef 0, i64 noundef %405, ptr noundef %0) #21
   %416 = sub i64 %402, %415
   %417 = icmp ult i64 %415, %405
-  br i1 %417, label %.loopexit59, label %.preheader60
+  br i1 %417, label %.loopexit64, label %.preheader65
 
-.loopexit59.thread:                               ; preds = %332, %.preheader63, %.preheader60, %356
+.loopexit64.thread:                               ; preds = %332, %.preheader68, %.preheader65, %356
   %418 = getelementptr i8, ptr %113, i64 %117
   %419 = sub i64 %112, %117
   br label %.thread48
 
-.loopexit59:                                      ; preds = %335, %163, %404, %397, %.thread43
-  %.pn55 = phi i64 [ %349, %.thread43 ], [ %400, %397 ], [ %416, %404 ], [ %166, %163 ], [ %347, %335 ]
-  %420 = sub i64 %117, %.pn55
+.loopexit64:                                      ; preds = %335, %163, %404, %397, %.thread43
+  %.pn60 = phi i64 [ %349, %.thread43 ], [ %400, %397 ], [ %416, %404 ], [ %166, %163 ], [ %347, %335 ]
+  %420 = sub i64 %117, %.pn60
   %421 = getelementptr i8, ptr %113, i64 %420
   %422 = sub i64 %112, %420
-  %423 = icmp eq i64 %.pn55, 0
+  %423 = icmp eq i64 %.pn60, 0
   br i1 %423, label %.thread48, label %.thread52
 
-.thread48:                                        ; preds = %.loopexit59.thread, %.loopexit59, %73, %54, %49
-  %424 = phi ptr [ %38, %73 ], [ %38, %54 ], [ %38, %49 ], [ %421, %.loopexit59 ], [ %418, %.loopexit59.thread ]
-  %425 = phi i64 [ %40, %73 ], [ %40, %54 ], [ %40, %49 ], [ %422, %.loopexit59 ], [ %419, %.loopexit59.thread ]
+.thread48:                                        ; preds = %.loopexit64.thread, %.loopexit64, %73, %54, %49
+  %424 = phi ptr [ %38, %73 ], [ %38, %54 ], [ %38, %49 ], [ %421, %.loopexit64 ], [ %418, %.loopexit64.thread ]
+  %425 = phi i64 [ %40, %73 ], [ %40, %54 ], [ %40, %49 ], [ %422, %.loopexit64 ], [ %419, %.loopexit64.thread ]
   %426 = load ptr, ptr %37, align 8
   %427 = getelementptr i8, ptr %426, i64 -40
   %428 = icmp eq ptr %426, @vmap_area_list
-  br i1 %428, label %.loopexit70, label %36, !llvm.loop !217
+  br i1 %428, label %.loopexit75, label %36, !llvm.loop !217
 
-.loopexit70:                                      ; preds = %.thread48, %3, %28, %.thread
+.loopexit75:                                      ; preds = %.thread48, %3, %28, %.thread
   %429 = phi i64 [ %8, %28 ], [ %8, %.thread ], [ %8, %3 ], [ %425, %.thread48 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @vmap_area_lock) #21
   %430 = icmp ugt i64 ptrtoint (ptr @empty_zero_page to i64), sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
-  br i1 %430, label %.split85.us, label %.split85
+  br i1 %430, label %.split91.us, label %.split91
 
-.split85.us:                                      ; preds = %.loopexit70, %433
-  %431 = phi i64 [ %442, %433 ], [ %429, %.loopexit70 ]
+.split91.us:                                      ; preds = %.loopexit75, %433
+  %431 = phi i64 [ %442, %433 ], [ %429, %.loopexit75 ]
   %432 = icmp eq i64 %431, 0
   br i1 %432, label %.loopexit, label %433
 
-433:                                              ; preds = %.split85.us
+433:                                              ; preds = %.split91.us
   %434 = tail call i64 @llvm.umin.i64(i64 %431, i64 4096)
   %435 = load i64, ptr @vmemmap_base, align 8
   %436 = inttoptr i64 %435 to ptr
@@ -6598,14 +6602,14 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %441 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %440, i32 noundef 0, i64 noundef %434, ptr noundef %0) #21
   %442 = sub i64 %431, %441
   %443 = icmp ult i64 %441, %434
-  br i1 %443, label %.loopexit, label %.split85.us
+  br i1 %443, label %.loopexit, label %.split91.us
 
-.split85:                                         ; preds = %.loopexit70, %446
-  %444 = phi i64 [ %455, %446 ], [ %429, %.loopexit70 ]
+.split91:                                         ; preds = %.loopexit75, %446
+  %444 = phi i64 [ %455, %446 ], [ %429, %.loopexit75 ]
   %445 = icmp eq i64 %444, 0
   br i1 %445, label %.loopexit, label %446
 
-446:                                              ; preds = %.split85
+446:                                              ; preds = %.split91
   %447 = tail call i64 @llvm.umin.i64(i64 %444, i64 4096)
   %448 = load i64, ptr @vmemmap_base, align 8
   %449 = inttoptr i64 %448 to ptr
@@ -6616,16 +6620,16 @@ define dso_local i64 @vread_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %454 = tail call i64 @copy_page_to_iter_nofault(ptr noundef %453, i32 noundef 0, i64 noundef %447, ptr noundef %0) #21
   %455 = sub i64 %444, %454
   %456 = icmp ult i64 %454, %447
-  br i1 %456, label %.loopexit, label %.split85
+  br i1 %456, label %.loopexit, label %.split91
 
-.thread52:                                        ; preds = %103, %.loopexit59, %36
-  %457 = phi i64 [ %422, %.loopexit59 ], [ 0, %36 ], [ %107, %103 ]
+.thread52:                                        ; preds = %103, %.loopexit64, %36
+  %457 = phi i64 [ %422, %.loopexit64 ], [ 0, %36 ], [ %107, %103 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @vmap_area_lock) #21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %446, %.split85, %433, %.split85.us, %.thread52
-  %.pn56 = phi i64 [ %457, %.thread52 ], [ 0, %.split85.us ], [ %442, %433 ], [ 0, %.split85 ], [ %455, %446 ]
-  %458 = sub i64 %8, %.pn56
+.loopexit:                                        ; preds = %446, %.split91, %433, %.split91.us, %.thread52
+  %.pn61 = phi i64 [ %457, %.thread52 ], [ 0, %.split91.us ], [ %442, %433 ], [ 0, %.split91 ], [ %455, %446 ]
+  %458 = sub i64 %8, %.pn61
   ret i64 %458
 }
 

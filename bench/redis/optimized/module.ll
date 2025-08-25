@@ -2843,23 +2843,23 @@ define dso_local range(i32 0, 2) i32 @RM_AddACLCategory(ptr noundef readonly cap
 
 9:                                                ; preds = %2
   %10 = load i8, ptr %1, align 1, !tbaa !60
-  %.fr3943.i = freeze i8 %10
-  %11 = icmp eq i8 %.fr3943.i, 0
+  %.fr42.i = freeze i8 %10
+  %11 = icmp eq i8 %.fr42.i, 0
   br i1 %11, label %24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %20
-  %.fr3946.i = phi i8 [ %.fr39.i, %20 ], [ %.fr3943.i, %9 ]
-  %.03445.i = phi i64 [ %21, %20 ], [ 0, %9 ]
-  %12 = and i8 %.fr3946.i, -33
+  %.fr45.i = phi i8 [ %.fr.i, %20 ], [ %.fr42.i, %9 ]
+  %.03444.i = phi i64 [ %21, %20 ], [ 0, %9 ]
+  %12 = and i8 %.fr45.i, -33
   %13 = add i8 %12, -65
   %or.cond36.i = icmp ult i8 %13, 26
-  %14 = add i8 %.fr3946.i, -48
+  %14 = add i8 %.fr45.i, -48
   %or.cond8.i = icmp ult i8 %14, 10
   %or.cond.i = or i1 %or.cond8.i, %or.cond36.i
   br i1 %or.cond.i, label %20, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
-  switch i8 %.fr3946.i, label %15 [
+  switch i8 %.fr45.i, label %15 [
     i8 95, label %20
     i8 45, label %20
   ]
@@ -2870,16 +2870,16 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   br i1 %17, label %24, label %18
 
 18:                                               ; preds = %15
-  %19 = sext i8 %.fr3946.i to i32
+  %19 = sext i8 %.fr45.i to i32
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.151, i32 noundef %19, ptr noundef nonnull %1) #35
   br label %24
 
 20:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %21 = add i64 %.03445.i, 1
+  %21 = add i64 %.03444.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !60
-  %.fr39.i = freeze i8 %23
-  %.not.not.i = icmp eq i8 %.fr39.i, 0
+  %.fr.i = freeze i8 %23
+  %.not.not.i = icmp eq i8 %.fr.i, 0
   br i1 %.not.not.i, label %moduleVerifyResourceName.exit, label %.lr.ph.i, !llvm.loop !179
 
 24:                                               ; preds = %9, %15, %18
@@ -2926,23 +2926,23 @@ declare ptr @__errno_location() local_unnamed_addr #10
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @moduleVerifyResourceName(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !60
-  %.fr3943 = freeze i8 %2
-  %3 = icmp eq i8 %.fr3943, 0
+  %.fr42 = freeze i8 %2
+  %3 = icmp eq i8 %.fr42, 0
   br i1 %3, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %12
-  %.fr3946 = phi i8 [ %.fr39, %12 ], [ %.fr3943, %1 ]
-  %.03445 = phi i64 [ %13, %12 ], [ 0, %1 ]
-  %4 = and i8 %.fr3946, -33
+  %.fr45 = phi i8 [ %.fr, %12 ], [ %.fr42, %1 ]
+  %.03444 = phi i64 [ %13, %12 ], [ 0, %1 ]
+  %4 = and i8 %.fr45, -33
   %5 = add i8 %4, -65
   %or.cond36 = icmp ult i8 %5, 26
-  %6 = add i8 %.fr3946, -48
+  %6 = add i8 %.fr45, -48
   %or.cond8 = icmp ult i8 %6, 10
   %or.cond = or i1 %or.cond8, %or.cond36
   br i1 %or.cond, label %12, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr3946, label %7 [
+  switch i8 %.fr45, label %7 [
     i8 95, label %12
     i8 45, label %12
   ]
@@ -2953,16 +2953,16 @@ switch.early.test:                                ; preds = %.lr.ph
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = sext i8 %.fr3946 to i32
+  %11 = sext i8 %.fr45 to i32
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.151, i32 noundef %11, ptr noundef nonnull %0) #35
   br label %.loopexit
 
 12:                                               ; preds = %switch.early.test, %switch.early.test, %.lr.ph
-  %13 = add i64 %.03445, 1
+  %13 = add i64 %.03444, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !60
-  %.fr39 = freeze i8 %15
-  %.not.not = icmp eq i8 %.fr39, 0
+  %.fr = freeze i8 %15
+  %.not.not = icmp eq i8 %.fr, 0
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !179
 
 .loopexit:                                        ; preds = %12, %10, %7, %1
@@ -23646,8 +23646,8 @@ define dso_local range(i32 0, 2) i32 @RM_ScanKey(ptr noundef %0, ptr noundef cap
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %14, align 8
-  %.fr = freeze i32 %17
-  %18 = and i32 %.fr, 15
+  %.fr96 = freeze i32 %17
+  %18 = and i32 %.fr96, 15
   switch i32 %18, label %123 [
     i32 2, label %19
     i32 4, label %25
@@ -23655,7 +23655,7 @@ define dso_local range(i32 0, 2) i32 @RM_ScanKey(ptr noundef %0, ptr noundef cap
   ]
 
 19:                                               ; preds = %16
-  %20 = and i32 %.fr, 240
+  %20 = and i32 %.fr96, 240
   %21 = icmp eq i32 %20, 32
   br i1 %21, label %22, label %38
 
@@ -23665,7 +23665,7 @@ define dso_local range(i32 0, 2) i32 @RM_ScanKey(ptr noundef %0, ptr noundef cap
   br label %38
 
 25:                                               ; preds = %16
-  %26 = and i32 %.fr, 240
+  %26 = and i32 %.fr96, 240
   %27 = icmp eq i32 %26, 32
   br i1 %27, label %28, label %38
 
@@ -23675,7 +23675,7 @@ define dso_local range(i32 0, 2) i32 @RM_ScanKey(ptr noundef %0, ptr noundef cap
   br label %38
 
 31:                                               ; preds = %16
-  %32 = and i32 %.fr, 240
+  %32 = and i32 %.fr96, 240
   %33 = icmp eq i32 %32, 112
   br i1 %33, label %34, label %38
 
@@ -23745,7 +23745,7 @@ define dso_local range(i32 0, 2) i32 @RM_ScanKey(ptr noundef %0, ptr noundef cap
 
 57:                                               ; preds = %50
   %58 = icmp eq i32 %18, 4
-  %59 = and i32 %.fr, 255
+  %59 = and i32 %.fr96, 255
   %60 = icmp eq i32 %59, 196
   br i1 %58, label %61, label %63
 
@@ -27790,27 +27790,27 @@ define dso_local range(i32 0, 2) i32 @moduleVerifyUnprefixedName(ptr noundef %0,
 5:                                                ; preds = %2
   store ptr null, ptr %1, align 8, !tbaa !154
   %6 = load i8, ptr %0, align 1, !tbaa !60
-  %.fr7280 = freeze i8 %6
-  %.not81 = icmp eq i8 %.fr7280, 0
-  br i1 %.not81, label %._crit_edge.thread, label %.outer
+  %.fr79 = freeze i8 %6
+  %.not80 = icmp eq i8 %.fr79, 0
+  br i1 %.not80, label %._crit_edge.thread, label %.outer
 
 .outer:                                           ; preds = %5, %.thread
   %.ph = phi i1 [ false, %.thread ], [ true, %5 ]
-  %.fr7285.ph = phi i8 [ %.fr7292, %.thread ], [ %.fr7280, %5 ]
-  %.05284.ph = phi i64 [ %37, %.thread ], [ 0, %5 ]
+  %.fr84.ph = phi i8 [ %.fr91, %.thread ], [ %.fr79, %5 ]
+  %.05283.ph = phi i64 [ %37, %.thread ], [ 0, %5 ]
   br label %7
 
 7:                                                ; preds = %.outer, %32
-  %.fr7285 = phi i8 [ %.fr72, %32 ], [ %.fr7285.ph, %.outer ]
-  %.05284 = phi i64 [ %33, %32 ], [ %.05284.ph, %.outer ]
-  %.05383 = phi i32 [ %.255, %32 ], [ 0, %.outer ]
-  %.05782 = phi i32 [ %.158, %32 ], [ 0, %.outer ]
-  %8 = icmp eq i8 %.fr7285, 124
+  %.fr84 = phi i8 [ %.fr, %32 ], [ %.fr84.ph, %.outer ]
+  %.05283 = phi i64 [ %33, %32 ], [ %.05283.ph, %.outer ]
+  %.05382 = phi i32 [ %.255, %32 ], [ 0, %.outer ]
+  %.05781 = phi i32 [ %.158, %32 ], [ 0, %.outer ]
+  %8 = icmp eq i8 %.fr84, 124
   %or.cond = and i1 %8, %.ph
   br i1 %or.cond, label %9, label %14
 
 9:                                                ; preds = %7
-  %.not63 = icmp eq i32 %.05383, 0
+  %.not63 = icmp eq i32 %.05382, 0
   br i1 %.not63, label %10, label %.thread
 
 10:                                               ; preds = %9
@@ -27823,28 +27823,28 @@ define dso_local range(i32 0, 2) i32 @moduleVerifyUnprefixedName(ptr noundef %0,
   br label %44
 
 14:                                               ; preds = %7
-  %15 = and i8 %.fr7285, -33
+  %15 = and i8 %.fr84, -33
   %16 = add i8 %15, -65
   %or.cond65 = icmp ult i8 %16, 26
-  %17 = add i8 %.fr7285, -48
+  %17 = add i8 %.fr84, -48
   %or.cond12 = icmp ult i8 %17, 10
-  %or.cond73 = or i1 %or.cond12, %or.cond65
-  br i1 %or.cond73, label %18, label %switch.early.test
+  %or.cond72 = or i1 %or.cond12, %or.cond65
+  br i1 %or.cond72, label %18, label %switch.early.test
 
 switch.early.test:                                ; preds = %14
-  switch i8 %.fr7285, label %27 [
+  switch i8 %.fr84, label %27 [
     i8 95, label %18
     i8 45, label %18
     i8 46, label %20
   ]
 
 18:                                               ; preds = %switch.early.test, %switch.early.test, %14
-  %19 = add nsw i32 %.05383, 1
+  %19 = add nsw i32 %.05382, 1
   br label %32
 
 20:                                               ; preds = %switch.early.test
-  %21 = add nsw i32 %.05782, 1
-  %22 = icmp sgt i32 %.05782, 0
+  %21 = add nsw i32 %.05781, 1
+  %22 = icmp sgt i32 %.05781, 0
   br i1 %22, label %23, label %32
 
 23:                                               ; preds = %20
@@ -27862,29 +27862,29 @@ switch.early.test:                                ; preds = %14
   br i1 %29, label %44, label %30
 
 30:                                               ; preds = %27
-  %31 = sext i8 %.fr7285 to i32
+  %31 = sext i8 %.fr84 to i32
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.154, i32 noundef %31, ptr noundef nonnull %0) #35
   br label %44
 
 32:                                               ; preds = %18, %20
-  %.158 = phi i32 [ %.05782, %18 ], [ %21, %20 ]
-  %.255 = phi i32 [ %19, %18 ], [ %.05383, %20 ]
-  %33 = add i64 %.05284, 1
+  %.158 = phi i32 [ %.05781, %18 ], [ %21, %20 ]
+  %.255 = phi i32 [ %19, %18 ], [ %.05382, %20 ]
+  %33 = add i64 %.05283, 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !60
-  %.fr72 = freeze i8 %35
-  %.not = icmp eq i8 %.fr72, 0
+  %.fr = freeze i8 %35
+  %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !660
 
 .thread:                                          ; preds = %9
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.05284
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.05283
   store ptr %36, ptr %1, align 8, !tbaa !154
-  %37 = add i64 %.05284, 1
+  %37 = add i64 %.05283, 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !60
-  %.fr7292 = freeze i8 %39
-  %.not93 = icmp eq i8 %.fr7292, 0
-  br i1 %.not93, label %._crit_edge.thread, label %.outer, !llvm.loop !660
+  %.fr91 = freeze i8 %39
+  %.not92 = icmp eq i8 %.fr91, 0
+  br i1 %.not92, label %._crit_edge.thread, label %.outer, !llvm.loop !660
 
 ._crit_edge:                                      ; preds = %32
   %40 = icmp eq i32 %.255, 0
@@ -28339,8 +28339,8 @@ define dso_local range(i32 0, 2) i32 @loadModuleConfigs(ptr noundef captures(non
   br i1 %.not2437, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %.fr41 = freeze i32 %7
-  %9 = and i32 %.fr41, 1
+  %.fr = freeze i32 %7
+  %9 = and i32 %.fr, 1
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -28811,23 +28811,23 @@ define dso_local range(i32 0, 2) i32 @moduleConfigValidityCheck(ptr noundef read
 
 53:                                               ; preds = %20
   %54 = load i8, ptr %1, align 1, !tbaa !60
-  %.fr3943.i = freeze i8 %54
-  %55 = icmp eq i8 %.fr3943.i, 0
+  %.fr42.i = freeze i8 %54
+  %55 = icmp eq i8 %.fr42.i, 0
   br i1 %55, label %68, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %64
-  %.fr3946.i = phi i8 [ %.fr39.i, %64 ], [ %.fr3943.i, %53 ]
-  %.03445.i = phi i64 [ %65, %64 ], [ 0, %53 ]
-  %56 = and i8 %.fr3946.i, -33
+  %.fr45.i = phi i8 [ %.fr.i, %64 ], [ %.fr42.i, %53 ]
+  %.03444.i = phi i64 [ %65, %64 ], [ 0, %53 ]
+  %56 = and i8 %.fr45.i, -33
   %57 = add i8 %56, -65
   %or.cond36.i = icmp ult i8 %57, 26
-  %58 = add i8 %.fr3946.i, -48
+  %58 = add i8 %.fr45.i, -48
   %or.cond8.i = icmp ult i8 %58, 10
   %or.cond.i35 = or i1 %or.cond8.i, %or.cond36.i
   br i1 %or.cond.i35, label %64, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
-  switch i8 %.fr3946.i, label %59 [
+  switch i8 %.fr45.i, label %59 [
     i8 95, label %64
     i8 45, label %64
   ]
@@ -28838,16 +28838,16 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   br i1 %61, label %68, label %62
 
 62:                                               ; preds = %59
-  %63 = sext i8 %.fr3946.i to i32
+  %63 = sext i8 %.fr45.i to i32
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.151, i32 noundef %63, ptr noundef nonnull %1) #35
   br label %68
 
 64:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %65 = add i64 %.03445.i, 1
+  %65 = add i64 %.03444.i, 1
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %65
   %67 = load i8, ptr %66, align 1, !tbaa !60
-  %.fr39.i = freeze i8 %67
-  %.not.not.i = icmp eq i8 %.fr39.i, 0
+  %.fr.i = freeze i8 %67
+  %.not.not.i = icmp eq i8 %.fr.i, 0
   br i1 %.not.not.i, label %moduleVerifyResourceName.exit, label %.lr.ph.i, !llvm.loop !179
 
 68:                                               ; preds = %53, %59, %62

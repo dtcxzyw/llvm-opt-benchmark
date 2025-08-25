@@ -269,17 +269,17 @@ jsmn_alloc_token.exit.i:                          ; preds = %87
 109:                                              ; preds = %105
   %110 = getelementptr i8, ptr %1, i64 %107
   %111 = load i8, ptr %110, align 1
-  %.fr85.i = freeze i8 %111
-  %.not71.i = icmp eq i8 %.fr85.i, 0
+  %.fr.i = freeze i8 %111
+  %.not71.i = icmp eq i8 %.fr.i, 0
   br i1 %.not71.i, label %.critedge3.i, label %112
 
 112:                                              ; preds = %109
-  %113 = add i8 %.fr85.i, -48
+  %113 = add i8 %.fr.i, -48
   %or.cond.i = icmp ult i8 %113, 10
   br i1 %or.cond.i, label %114, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %112
-  switch i8 %.fr85.i, label %jsmn_alloc_token.exit.thread.sink.split [
+  switch i8 %.fr.i, label %jsmn_alloc_token.exit.thread.sink.split [
     i8 102, label %114
     i8 101, label %114
     i8 100, label %114

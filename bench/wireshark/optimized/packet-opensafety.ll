@@ -1832,18 +1832,19 @@ findFrame1Position.exit.thread:                   ; preds = %findFrame1Position.
   %133 = add nuw nsw i32 %116, 4
   %134 = add nuw nsw i32 %133, %120
   %135 = call zeroext i16 @tvb_get_letohs(ptr noundef %.0226, i32 noundef %134)
+  %.fr.i = freeze i16 %135
   %136 = load ptr, ptr %39, align 8
   %137 = zext nneg i32 %133 to i64
   %138 = call ptr @tvb_memdup(ptr noundef %136, ptr noundef %.0226, i32 noundef %120, i64 noundef %137)
   %139 = call zeroext i16 @crc16_0x755B(ptr noundef %138, i32 noundef %133, i16 noundef zeroext 0)
-  %.not.i = icmp eq i16 %135, %139
+  %.not.i = icmp eq i16 %.fr.i, %139
   br i1 %.not.i, label %.thread.i, label %140
 
 140:                                              ; preds = %132
   %141 = call zeroext i16 @crc16_0x5935(ptr noundef %138, i32 noundef %133, i16 noundef zeroext 0)
-  %142 = icmp eq i16 %135, %141
-  %cond.fr.i = freeze i1 %142
-  br i1 %cond.fr.i, label %.thread.i, label %._crit_edge.i
+  %.fr53.i = freeze i16 %141
+  %142 = icmp eq i16 %.fr.i, %.fr53.i
+  br i1 %142, label %.thread.i, label %._crit_edge.i
 
 .thread.i:                                        ; preds = %140, %132
   br label %._crit_edge.i
@@ -1946,7 +1947,7 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   br i1 %189, label %197, label %190, !llvm.loop !13
 
 190:                                              ; preds = %181
-  br i1 %174, label %191, label %.thread376
+  br i1 %174, label %191, label %.thread375
 
 191:                                              ; preds = %190
   %192 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %183)
@@ -1955,7 +1956,7 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %195 = call zeroext i8 @tvb_get_uint8(ptr noundef %.0226, i32 noundef %194)
   %196 = xor i8 %195, %192
   %.not267 = icmp ult i8 %196, 4
-  br i1 %.not267, label %.thread376, label %197, !llvm.loop !13
+  br i1 %.not267, label %.thread375, label %197, !llvm.loop !13
 
 197:                                              ; preds = %191, %181
   %storemerge = add i32 %57, 2
@@ -1973,7 +1974,7 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %.loopexit, label %211
 
-.thread376:                                       ; preds = %191, %190
+.thread375:                                       ; preds = %191, %190
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %205 = zext nneg i16 %.1228 to i32
   %206 = icmp samesign ugt i16 %.1228, %.1230
@@ -1983,7 +1984,7 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %.loopexit, label %._crit_edge360
 
-._crit_edge360:                                   ; preds = %.thread376
+._crit_edge360:                                   ; preds = %.thread375
   %.pre363 = add nuw nsw i32 %96, %182
   %.pre365 = add nuw nsw i32 %.pre363, 1
   br label %225
@@ -2043,8 +2044,8 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %244 = load i8, ptr @global_display_intergap_data, align 1, !range !6, !noundef !7
   %245 = trunc nuw i8 %244 to i1
   %.not270 = icmp ne i32 %.0233332, %57
-  %or.cond382.not = select i1 %245, i1 %.not270, i1 false
-  br i1 %or.cond382.not, label %246, label %251
+  %or.cond381.not = select i1 %245, i1 %.not270, i1 false
+  br i1 %or.cond381.not, label %246, label %251
 
 246:                                              ; preds = %.thread297
   %247 = sub i32 %57, %.0233332
@@ -2189,8 +2190,8 @@ findFrame1Position.exit286:                       ; preds = %._crit_edge.i, %144
   %312 = zext nneg i8 %.0250.lcssa.ph to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %198, %.thread376, %24, %9, %311
-  %.0 = phi i32 [ %312, %311 ], [ 0, %9 ], [ 0, %24 ], [ 0, %.thread376 ], [ 0, %198 ]
+.loopexit:                                        ; preds = %198, %.thread375, %24, %9, %311
+  %.0 = phi i32 [ %312, %311 ], [ 0, %9 ], [ 0, %24 ], [ 0, %.thread375 ], [ 0, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %.0

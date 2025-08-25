@@ -6211,200 +6211,183 @@ define internal fastcc { i64, i64 } @_ZN12polars_arrow20temporal_conversions24ut
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.05.0.copyload = load i32, ptr %6, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 5
-  %.sroa.8.sroa.0.0.copyload = load i24, ptr %.sroa.8.0..sroa_idx, align 1
+  %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %40 = zext i32 %.sroa.6.0.copyload to i64
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.8.sroa.5.0.copyload = load i32, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %40 = load i8, ptr %3, align 1, !range !1274, !noalias !1275, !noundef !3
-  %41 = ashr i32 %.sroa.05.0.copyload, 13
-  %42 = add nsw i32 %41, -1
-  %43 = icmp slt i32 %41, 1
-  switch i8 %40, label %default.unreachable [
-    i8 0, label %44
-    i8 1, label %64
-    i8 2, label %88
-    i8 3, label %112
+  %41 = load i8, ptr %3, align 1, !range !1274, !noalias !1275, !noundef !3
+  %42 = ashr i32 %.sroa.05.0.copyload, 13
+  %43 = add nsw i32 %42, -1
+  %44 = icmp slt i32 %42, 1
+  switch i8 %41, label %default.unreachable [
+    i8 0, label %45
+    i8 1, label %65
+    i8 2, label %89
+    i8 3, label %113
   ]
 
 default.unreachable:                              ; preds = %39
   unreachable
 
-44:                                               ; preds = %39
-  br i1 %43, label %45, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
+45:                                               ; preds = %39
+  br i1 %44, label %46, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
 
-45:                                               ; preds = %44
-  %46 = sub nsw i32 1, %41
-  %47 = udiv i32 %46, 400
-  %48 = add nuw nsw i32 %47, 1
-  %49 = mul nuw nsw i32 %48, 400
-  %50 = add nsw i32 %49, %42
-  %.neg.i.i = mul nsw i32 %48, -146097
+46:                                               ; preds = %45
+  %47 = sub nsw i32 1, %42
+  %48 = udiv i32 %47, 400
+  %49 = add nuw nsw i32 %48, 1
+  %50 = mul nuw nsw i32 %49, 400
+  %51 = add nsw i32 %50, %43
+  %.neg.i.i = mul nsw i32 %49, -146097
   br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i
 
-_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i: ; preds = %45, %44
-  %.sroa.05.0.i.i = phi i32 [ %.neg.i.i, %45 ], [ 0, %44 ]
-  %.sroa.0.0.i.i = phi i32 [ %50, %45 ], [ %42, %44 ]
-  %51 = sdiv i32 %.sroa.0.0.i.i, 100
-  %52 = mul nsw i32 %.sroa.0.0.i.i, 1461
-  %53 = ashr i32 %52, 2
-  %54 = ashr i32 %51, 2
-  %55 = lshr i32 %.sroa.05.0.copyload, 4
-  %56 = and i32 %55, 511
-  %.sroa.4.sroa.7.0.insert.ext24 = zext i24 %.sroa.8.sroa.0.0.copyload to i64
-  %.sroa.4.sroa.7.0.insert.shift25 = shl nuw nsw i64 %.sroa.4.sroa.7.0.insert.ext24, 8
-  %.sroa.4.sroa.0.0.insert.ext13 = zext i8 %.sroa.6.0.copyload to i64
-  %.sroa.4.sroa.0.0.insert.insert15 = or disjoint i64 %.sroa.4.sroa.7.0.insert.shift25, %.sroa.4.sroa.0.0.insert.ext13
-  %57 = add nuw nsw i32 %56, -719163
-  %58 = add nsw i32 %57, %.sroa.05.0.i.i
-  %59 = sub nsw i32 %58, %51
-  %60 = add nsw i32 %59, %53
-  %narrow5.i = add nsw i32 %60, %54
-  %61 = sext i32 %narrow5.i to i64
-  %62 = mul nsw i64 %61, 86400
-  %63 = add nsw i64 %62, %.sroa.4.sroa.0.0.insert.insert15
+_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i: ; preds = %46, %45
+  %.sroa.05.0.i.i = phi i32 [ %.neg.i.i, %46 ], [ 0, %45 ]
+  %.sroa.0.0.i.i = phi i32 [ %51, %46 ], [ %43, %45 ]
+  %52 = sdiv i32 %.sroa.0.0.i.i, 100
+  %53 = mul nsw i32 %.sroa.0.0.i.i, 1461
+  %54 = ashr i32 %53, 2
+  %55 = ashr i32 %52, 2
+  %56 = lshr i32 %.sroa.05.0.copyload, 4
+  %57 = and i32 %56, 511
+  %58 = add nuw nsw i32 %57, -719163
+  %59 = add nsw i32 %58, %.sroa.05.0.i.i
+  %60 = sub nsw i32 %59, %52
+  %61 = add nsw i32 %60, %54
+  %narrow5.i = add nsw i32 %61, %55
+  %62 = sext i32 %narrow5.i to i64
+  %63 = mul nsw i64 %62, 86400
+  %64 = add nsw i64 %63, %40
   br label %"_ZN12polars_arrow20temporal_conversions24utf8_to_timestamp_scalar28_$u7b$$u7b$closure$u7d$$u7d$17hb1d3382bc172affaE.exit"
 
-64:                                               ; preds = %39
-  br i1 %43, label %65, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i
+65:                                               ; preds = %39
+  br i1 %44, label %66, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i
 
-65:                                               ; preds = %64
-  %66 = sub nsw i32 1, %41
-  %67 = udiv i32 %66, 400
-  %68 = add nuw nsw i32 %67, 1
-  %69 = mul nuw nsw i32 %68, 400
-  %70 = add nsw i32 %69, %42
-  %.neg.i10.i = mul nsw i32 %68, -146097
+66:                                               ; preds = %65
+  %67 = sub nsw i32 1, %42
+  %68 = udiv i32 %67, 400
+  %69 = add nuw nsw i32 %68, 1
+  %70 = mul nuw nsw i32 %69, 400
+  %71 = add nsw i32 %70, %43
+  %.neg.i10.i = mul nsw i32 %69, -146097
   br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i
 
-_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i: ; preds = %65, %64
-  %.sroa.05.0.i8.i = phi i32 [ %.neg.i10.i, %65 ], [ 0, %64 ]
-  %.sroa.0.0.i9.i = phi i32 [ %70, %65 ], [ %42, %64 ]
-  %71 = sdiv i32 %.sroa.0.0.i9.i, 100
-  %72 = mul nsw i32 %.sroa.0.0.i9.i, 1461
-  %73 = ashr i32 %72, 2
-  %74 = ashr i32 %71, 2
-  %75 = lshr i32 %.sroa.05.0.copyload, 4
-  %76 = and i32 %75, 511
-  %.sroa.4.sroa.7.0.insert.ext20 = zext i24 %.sroa.8.sroa.0.0.copyload to i64
-  %.sroa.4.sroa.7.0.insert.shift21 = shl nuw nsw i64 %.sroa.4.sroa.7.0.insert.ext20, 8
-  %.sroa.4.sroa.0.0.insert.ext10 = zext i8 %.sroa.6.0.copyload to i64
-  %.sroa.4.sroa.0.0.insert.insert12 = or disjoint i64 %.sroa.4.sroa.7.0.insert.shift21, %.sroa.4.sroa.0.0.insert.ext10
-  %77 = add nuw nsw i32 %76, -719163
-  %78 = add nsw i32 %77, %.sroa.05.0.i8.i
-  %79 = sub nsw i32 %78, %71
-  %80 = add nsw i32 %79, %73
-  %narrow4.i = add nsw i32 %80, %74
-  %81 = sext i32 %narrow4.i to i64
-  %82 = mul nsw i64 %81, 86400
-  %83 = add nsw i64 %82, %.sroa.4.sroa.0.0.insert.insert12
-  %84 = mul nsw i64 %83, 1000
-  %85 = udiv i32 %.sroa.8.sroa.5.0.copyload, 1000000
-  %86 = zext nneg i32 %85 to i64
-  %87 = add nsw i64 %84, %86
+_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i: ; preds = %66, %65
+  %.sroa.05.0.i8.i = phi i32 [ %.neg.i10.i, %66 ], [ 0, %65 ]
+  %.sroa.0.0.i9.i = phi i32 [ %71, %66 ], [ %43, %65 ]
+  %72 = sdiv i32 %.sroa.0.0.i9.i, 100
+  %73 = mul nsw i32 %.sroa.0.0.i9.i, 1461
+  %74 = ashr i32 %73, 2
+  %75 = ashr i32 %72, 2
+  %76 = lshr i32 %.sroa.05.0.copyload, 4
+  %77 = and i32 %76, 511
+  %78 = add nuw nsw i32 %77, -719163
+  %79 = add nsw i32 %78, %.sroa.05.0.i8.i
+  %80 = sub nsw i32 %79, %72
+  %81 = add nsw i32 %80, %74
+  %narrow4.i = add nsw i32 %81, %75
+  %82 = sext i32 %narrow4.i to i64
+  %83 = mul nsw i64 %82, 86400
+  %84 = add nsw i64 %83, %40
+  %85 = mul nsw i64 %84, 1000
+  %86 = udiv i32 %.sroa.8.sroa.5.0.copyload, 1000000
+  %87 = zext nneg i32 %86 to i64
+  %88 = add nsw i64 %85, %87
   br label %"_ZN12polars_arrow20temporal_conversions24utf8_to_timestamp_scalar28_$u7b$$u7b$closure$u7d$$u7d$17hb1d3382bc172affaE.exit"
 
-88:                                               ; preds = %39
-  br i1 %43, label %89, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i
+89:                                               ; preds = %39
+  br i1 %44, label %90, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i
 
-89:                                               ; preds = %88
-  %90 = sub nsw i32 1, %41
-  %91 = udiv i32 %90, 400
-  %92 = add nuw nsw i32 %91, 1
-  %93 = mul nuw nsw i32 %92, 400
-  %94 = add nsw i32 %93, %42
-  %.neg.i14.i = mul nsw i32 %92, -146097
+90:                                               ; preds = %89
+  %91 = sub nsw i32 1, %42
+  %92 = udiv i32 %91, 400
+  %93 = add nuw nsw i32 %92, 1
+  %94 = mul nuw nsw i32 %93, 400
+  %95 = add nsw i32 %94, %43
+  %.neg.i14.i = mul nsw i32 %93, -146097
   br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i
 
-_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i: ; preds = %89, %88
-  %.sroa.05.0.i12.i = phi i32 [ %.neg.i14.i, %89 ], [ 0, %88 ]
-  %.sroa.0.0.i13.i = phi i32 [ %94, %89 ], [ %42, %88 ]
-  %95 = sdiv i32 %.sroa.0.0.i13.i, 100
-  %96 = mul nsw i32 %.sroa.0.0.i13.i, 1461
-  %97 = ashr i32 %96, 2
-  %98 = ashr i32 %95, 2
-  %99 = lshr i32 %.sroa.05.0.copyload, 4
-  %100 = and i32 %99, 511
-  %.sroa.4.sroa.7.0.insert.ext16 = zext i24 %.sroa.8.sroa.0.0.copyload to i64
-  %.sroa.4.sroa.7.0.insert.shift17 = shl nuw nsw i64 %.sroa.4.sroa.7.0.insert.ext16, 8
-  %.sroa.4.sroa.0.0.insert.ext7 = zext i8 %.sroa.6.0.copyload to i64
-  %.sroa.4.sroa.0.0.insert.insert9 = or disjoint i64 %.sroa.4.sroa.7.0.insert.shift17, %.sroa.4.sroa.0.0.insert.ext7
-  %101 = add nuw nsw i32 %100, -719163
-  %102 = add nsw i32 %101, %.sroa.05.0.i12.i
-  %103 = sub nsw i32 %102, %95
-  %104 = add nsw i32 %103, %97
-  %narrow.i = add nsw i32 %104, %98
-  %105 = sext i32 %narrow.i to i64
-  %106 = mul nsw i64 %105, 86400
-  %107 = add nsw i64 %106, %.sroa.4.sroa.0.0.insert.insert9
-  %108 = mul i64 %107, 1000000
-  %109 = udiv i32 %.sroa.8.sroa.5.0.copyload, 1000
-  %110 = zext nneg i32 %109 to i64
-  %111 = add i64 %108, %110
+_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i: ; preds = %90, %89
+  %.sroa.05.0.i12.i = phi i32 [ %.neg.i14.i, %90 ], [ 0, %89 ]
+  %.sroa.0.0.i13.i = phi i32 [ %95, %90 ], [ %43, %89 ]
+  %96 = sdiv i32 %.sroa.0.0.i13.i, 100
+  %97 = mul nsw i32 %.sroa.0.0.i13.i, 1461
+  %98 = ashr i32 %97, 2
+  %99 = ashr i32 %96, 2
+  %100 = lshr i32 %.sroa.05.0.copyload, 4
+  %101 = and i32 %100, 511
+  %102 = add nuw nsw i32 %101, -719163
+  %103 = add nsw i32 %102, %.sroa.05.0.i12.i
+  %104 = sub nsw i32 %103, %96
+  %105 = add nsw i32 %104, %98
+  %narrow.i = add nsw i32 %105, %99
+  %106 = sext i32 %narrow.i to i64
+  %107 = mul nsw i64 %106, 86400
+  %108 = add nsw i64 %107, %40
+  %109 = mul i64 %108, 1000000
+  %110 = udiv i32 %.sroa.8.sroa.5.0.copyload, 1000
+  %111 = zext nneg i32 %110 to i64
+  %112 = add i64 %109, %111
   br label %"_ZN12polars_arrow20temporal_conversions24utf8_to_timestamp_scalar28_$u7b$$u7b$closure$u7d$$u7d$17hb1d3382bc172affaE.exit"
 
-112:                                              ; preds = %39
-  br i1 %43, label %113, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i
+113:                                              ; preds = %39
+  br i1 %44, label %114, label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i
 
-113:                                              ; preds = %112
-  %114 = sub nsw i32 1, %41
-  %115 = udiv i32 %114, 400
-  %116 = add nuw nsw i32 %115, 1
-  %117 = mul nuw nsw i32 %116, 400
-  %118 = add nsw i32 %117, %42
-  %.neg.i.i.i = mul nsw i32 %116, -146097
+114:                                              ; preds = %113
+  %115 = sub nsw i32 1, %42
+  %116 = udiv i32 %115, 400
+  %117 = add nuw nsw i32 %116, 1
+  %118 = mul nuw nsw i32 %117, 400
+  %119 = add nsw i32 %118, %43
+  %.neg.i.i.i = mul nsw i32 %117, -146097
   br label %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i
 
-_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i: ; preds = %113, %112
-  %.sroa.05.0.i.i.i = phi i32 [ %.neg.i.i.i, %113 ], [ 0, %112 ]
-  %.sroa.0.0.i.i.i = phi i32 [ %118, %113 ], [ %42, %112 ]
-  %119 = sdiv i32 %.sroa.0.0.i.i.i, 100
-  %120 = mul nsw i32 %.sroa.0.0.i.i.i, 1461
-  %121 = ashr i32 %120, 2
-  %122 = ashr i32 %119, 2
-  %123 = lshr i32 %.sroa.05.0.copyload, 4
-  %124 = and i32 %123, 511
-  %.sroa.4.sroa.7.0.insert.ext = zext i24 %.sroa.8.sroa.0.0.copyload to i64
-  %.sroa.4.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.4.sroa.7.0.insert.ext, 8
-  %.sroa.4.sroa.0.0.insert.ext = zext i8 %.sroa.6.0.copyload to i64
-  %.sroa.4.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.sroa.7.0.insert.shift, %.sroa.4.sroa.0.0.insert.ext
-  %125 = add nuw nsw i32 %124, -719163
-  %126 = add nsw i32 %125, %.sroa.05.0.i.i.i
-  %127 = sub nsw i32 %126, %119
-  %128 = add nsw i32 %127, %121
-  %narrow.i.i = add nsw i32 %128, %122
-  %129 = sext i32 %narrow.i.i to i64
-  %130 = mul nsw i64 %129, 86400
-  %131 = add nsw i64 %130, %.sroa.4.sroa.0.0.insert.insert
-  %.lobit.i.i = lshr i64 %131, 63
-  %.sroa.03.0.i.i = add nsw i64 %.lobit.i.i, %131
-  %132 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.03.0.i.i, i64 1000000000)
-  %133 = extractvalue { i64, i1 } %132, 1
-  br i1 %133, label %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.thread.i", label %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i", !prof !1090
+_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i: ; preds = %114, %113
+  %.sroa.05.0.i.i.i = phi i32 [ %.neg.i.i.i, %114 ], [ 0, %113 ]
+  %.sroa.0.0.i.i.i = phi i32 [ %119, %114 ], [ %43, %113 ]
+  %120 = sdiv i32 %.sroa.0.0.i.i.i, 100
+  %121 = mul nsw i32 %.sroa.0.0.i.i.i, 1461
+  %122 = ashr i32 %121, 2
+  %123 = ashr i32 %120, 2
+  %124 = lshr i32 %.sroa.05.0.copyload, 4
+  %125 = and i32 %124, 511
+  %126 = add nuw nsw i32 %125, -719163
+  %127 = add nsw i32 %126, %.sroa.05.0.i.i.i
+  %128 = sub nsw i32 %127, %120
+  %129 = add nsw i32 %128, %122
+  %narrow.i.i = add nsw i32 %129, %123
+  %130 = sext i32 %narrow.i.i to i64
+  %131 = mul nsw i64 %130, 86400
+  %132 = add nsw i64 %131, %40
+  %.lobit.i.i = lshr i64 %132, 63
+  %.sroa.03.0.i.i = add nsw i64 %.lobit.i.i, %132
+  %133 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.03.0.i.i, i64 1000000000)
+  %134 = extractvalue { i64, i1 } %133, 1
+  br i1 %134, label %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.thread.i", label %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i", !prof !1090
 
 "_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i": ; preds = %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i
-  %134 = icmp slt i64 %131, 0
-  %135 = zext i32 %.sroa.8.sroa.5.0.copyload to i64
-  %136 = add nsw i64 %135, -1000000000
-  %.sroa.06.0.i.i = select i1 %134, i64 %136, i64 %135
-  %137 = extractvalue { i64, i1 } %132, 0
-  %138 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %137, i64 %.sroa.06.0.i.i)
-  %139 = extractvalue { i64, i1 } %138, 1
-  %140 = extractvalue { i64, i1 } %138, 0
-  br i1 %139, label %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.thread.i", label %"_ZN12polars_arrow20temporal_conversions24utf8_to_timestamp_scalar28_$u7b$$u7b$closure$u7d$$u7d$17hb1d3382bc172affaE.exit", !prof !1278
+  %135 = icmp slt i64 %132, 0
+  %136 = zext i32 %.sroa.8.sroa.5.0.copyload to i64
+  %137 = add nsw i64 %136, -1000000000
+  %.sroa.06.0.i.i = select i1 %135, i64 %137, i64 %136
+  %138 = extractvalue { i64, i1 } %133, 0
+  %139 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %138, i64 %.sroa.06.0.i.i)
+  %140 = extractvalue { i64, i1 } %139, 1
+  %141 = extractvalue { i64, i1 } %139, 0
+  br i1 %140, label %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.thread.i", label %"_ZN12polars_arrow20temporal_conversions24utf8_to_timestamp_scalar28_$u7b$$u7b$closure$u7d$$u7d$17hb1d3382bc172affaE.exit", !prof !1278
 
 "_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.thread.i": ; preds = %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i", %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b7d2a92fe5cb8fd11164454df1df1491.5) #19, !noalias !1275
   unreachable
 
 "_ZN12polars_arrow20temporal_conversions24utf8_to_timestamp_scalar28_$u7b$$u7b$closure$u7d$$u7d$17hb1d3382bc172affaE.exit": ; preds = %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i", %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i, %38, %4
-  %.sroa.4.0 = phi i64 [ undef, %4 ], [ undef, %38 ], [ %63, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i ], [ %87, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i ], [ %111, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i ], [ %140, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i" ]
+  %.sroa.4.0 = phi i64 [ undef, %4 ], [ undef, %38 ], [ %64, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i ], [ %88, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i ], [ %112, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i ], [ %141, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i" ]
   %.sroa.0.0 = phi i64 [ 0, %4 ], [ 0, %38 ], [ 1, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit.i ], [ 1, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit11.i ], [ 1, %_ZN6chrono5naive4date9NaiveDate16num_days_from_ce17h22b004717051d314E.exit15.i ], [ 1, %"_ZN6chrono8datetime18DateTime$LT$Tz$GT$19timestamp_nanos_opt17ha0398bd7f12cce58E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %141 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %142 = insertvalue { i64, i64 } %141, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %142
+  %142 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %143 = insertvalue { i64, i64 } %142, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %143
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

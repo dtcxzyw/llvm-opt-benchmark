@@ -11206,7 +11206,8 @@ define dso_local void @_ZN5clang5Lexer24codeCompleteIncludedFileEPKcS2_b(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !279
   %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, 32
+  %.fr47 = freeze i64 %12
+  %13 = and i64 %.fr47, 32
   %.not = icmp eq i64 %13, 0
   %14 = select i1 %.not, ptr @.str.28, ptr @.str.27
   %15 = select i1 %.not, i64 1, i64 2
@@ -11261,13 +11262,13 @@ _ZNK4llvm9StringRef8containsEc.exit.thread:       ; preds = %_ZNK4llvm9StringRef
 
 _ZNK4llvm9StringRef8containsEc.exit:              ; preds = %39
   %42 = call ptr @memchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef %40, i64 noundef %15) #28
-  %.not.i.i.i.i = icmp ne ptr %42, null
-  %43 = ptrtoint ptr %42 to i64
+  %.fr = freeze ptr %42
+  %.not.i.i.i.i = icmp ne ptr %.fr, null
+  %43 = ptrtoint ptr %.fr to i64
   %44 = sub i64 %43, %34
   %45 = icmp ne i64 %44, -1
-  %46 = select i1 %.not.i.i.i.i, i1 %45, i1 false
-  %cond.fr = freeze i1 %46
-  br i1 %cond.fr, label %.thread, label %_ZNK4llvm9StringRef8containsEc.exit.thread
+  %46 = and i1 %.not.i.i.i.i, %45
+  br i1 %46, label %.thread, label %_ZNK4llvm9StringRef8containsEc.exit.thread
 
 .thread:                                          ; preds = %_ZNK4llvm9StringRef8containsEc.exit, %39, %36, %36, %36, %_ZNK4llvm9StringRef8containsEc.exit.thread
   %.1 = phi ptr [ %.0, %_ZNK4llvm9StringRef8containsEc.exit.thread ], [ %37, %39 ], [ %.0, %36 ], [ %.0, %36 ], [ %.0, %36 ], [ %37, %_ZNK4llvm9StringRef8containsEc.exit ]
@@ -11419,10 +11420,10 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %59, %56, %_ZNSt7__c
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !406
-  %.fr152 = freeze i16 %78
-  %79 = and i16 %.fr152, 1000
-  %.not153 = icmp eq i16 %79, 0
-  br i1 %.not153, label %.critedge.split.loop.exit205, label %switch.early.test
+  %.fr = freeze i16 %78
+  %79 = and i16 %.fr, 1000
+  %.not152 = icmp eq i16 %79, 0
+  br i1 %.not152, label %.critedge.split.loop.exit204, label %switch.early.test
 
 switch.early.test:                                ; preds = %73
   switch i8 %75, label %80 [
@@ -11555,13 +11556,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit81:          ; preds = %_ZNSt7__cxx1112basi
   %125 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.split.loop.exit205:                     ; preds = %73
+.critedge.split.loop.exit204:                     ; preds = %73
   %126 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %124, %.critedge.split.loop.exit205, %.critedge.split.loop.exit
-  %.061.lcssa = phi i32 [ %125, %.critedge.split.loop.exit ], [ %126, %.critedge.split.loop.exit205 ], [ 16, %124 ]
-  %.not.lcssa = phi i1 [ false, %.critedge.split.loop.exit ], [ false, %.critedge.split.loop.exit205 ], [ true, %124 ]
+.critedge:                                        ; preds = %124, %.critedge.split.loop.exit204, %.critedge.split.loop.exit
+  %.061.lcssa = phi i32 [ %125, %.critedge.split.loop.exit ], [ %126, %.critedge.split.loop.exit204 ], [ 16, %124 ]
+  %.not.lcssa = phi i1 [ false, %.critedge.split.loop.exit ], [ false, %.critedge.split.loop.exit204 ], [ true, %124 ]
   %127 = zext i32 %.061.lcssa to i64
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !381
@@ -11827,20 +11828,20 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit91:          ; preds = %215, %212, %_ZNSt7_
   %257 = load ptr, ptr %256, align 8
   br label %258
 
-258:                                              ; preds = %.backedge218, %_ZN5clang17DiagnosticBuilderD2Ev.exit91
-  %.057 = phi ptr [ %2, %_ZN5clang17DiagnosticBuilderD2Ev.exit91 ], [ %259, %.backedge218 ]
+258:                                              ; preds = %.backedge217, %_ZN5clang17DiagnosticBuilderD2Ev.exit91
+  %.057 = phi ptr [ %2, %_ZN5clang17DiagnosticBuilderD2Ev.exit91 ], [ %259, %.backedge217 ]
   %259 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   %260 = load i8, ptr %.057, align 1, !tbaa !381
-  switch i8 %260, label %.backedge218 [
+  switch i8 %260, label %.backedge217 [
     i8 34, label %263
     i8 0, label %261
   ]
 
 261:                                              ; preds = %258
   %262 = icmp eq ptr %.057, %257
-  br i1 %262, label %263, label %.backedge218
+  br i1 %262, label %263, label %.backedge217
 
-.backedge218:                                     ; preds = %261, %258
+.backedge217:                                     ; preds = %261, %258
   br label %258
 
 263:                                              ; preds = %258, %261

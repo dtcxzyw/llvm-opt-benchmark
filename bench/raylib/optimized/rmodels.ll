@@ -50486,17 +50486,17 @@ jsmn_parse_string.exit.thread151:                 ; preds = %76
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 %90
   %93 = load i8, ptr %92, align 1
-  %.fr87.i = freeze i8 %93
-  %.not73.i = icmp eq i8 %.fr87.i, 0
+  %.fr.i = freeze i8 %93
+  %.not73.i = icmp eq i8 %.fr.i, 0
   br i1 %.not73.i, label %.critedge3.i, label %94
 
 94:                                               ; preds = %91
-  %95 = add i8 %.fr87.i, -48
+  %95 = add i8 %.fr.i, -48
   %or.cond.i = icmp ult i8 %95, 10
   br i1 %or.cond.i, label %96, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %94
-  switch i8 %.fr87.i, label %.thread163.sink.split [
+  switch i8 %.fr.i, label %.thread163.sink.split [
     i8 102, label %96
     i8 101, label %96
     i8 100, label %96
@@ -50515,8 +50515,8 @@ switch.early.test.i:                              ; preds = %94
   %97 = add i64 %90, 1
   store i64 %97, ptr %0, align 8
   %98 = add nuw nsw i32 %.081.i, 1
-  %exitcond88.not.i = icmp eq i32 %98, 4
-  br i1 %exitcond88.not.i, label %.critedge3.i, label %89
+  %exitcond87.not.i = icmp eq i32 %98, 4
+  br i1 %exitcond87.not.i, label %.critedge3.i, label %89
 
 .critedge3.i:                                     ; preds = %96, %91, %89
   %.promoted83.i = phi i64 [ %2, %89 ], [ %97, %96 ], [ %90, %91 ]
@@ -54046,10 +54046,10 @@ cgltf_parse_json_array.exit.i383:                 ; preds = %1661
   %1674 = getelementptr inbounds nuw i8, ptr %1671, i64 24
   %1675 = load i32, ptr %1674, align 8
   %1676 = add nuw nsw i32 %.02351.i, 1
-  %.not143253.i.i = icmp sgt i32 %1675, 0
-  br i1 %.not143253.i.i, label %.lr.ph256.i.i, label %cgltf_parse_json_buffer_view.exit.thread33.i
+  %.not143252.i.i = icmp sgt i32 %1675, 0
+  br i1 %.not143252.i.i, label %.lr.ph255.i.i, label %cgltf_parse_json_buffer_view.exit.thread33.i
 
-.lr.ph256.i.i:                                    ; preds = %1673
+.lr.ph255.i.i:                                    ; preds = %1673
   %1677 = getelementptr inbounds nuw i8, ptr %1669, i64 144
   %1678 = getelementptr inbounds nuw i8, ptr %1669, i64 136
   %1679 = getelementptr inbounds nuw i8, ptr %1669, i64 56
@@ -54070,10 +54070,10 @@ cgltf_parse_json_array.exit.i383:                 ; preds = %1661
   %1694 = getelementptr inbounds nuw i8, ptr %1669, i64 8
   br label %1695
 
-1695:                                             ; preds = %cgltf_parse_json_string.exit.thread230.i.i, %.lr.ph256.i.i
-  %.0129255.i.i = phi i32 [ 0, %.lr.ph256.i.i ], [ %2115, %cgltf_parse_json_string.exit.thread230.i.i ]
-  %.0130254.i.i = phi i32 [ %1676, %.lr.ph256.i.i ], [ %.2132233.i.i, %cgltf_parse_json_string.exit.thread230.i.i ]
-  %1696 = zext nneg i32 %.0130254.i.i to i64
+1695:                                             ; preds = %cgltf_parse_json_string.exit.thread230.i.i, %.lr.ph255.i.i
+  %.0129254.i.i = phi i32 [ 0, %.lr.ph255.i.i ], [ %2115, %cgltf_parse_json_string.exit.thread230.i.i ]
+  %.0130253.i.i = phi i32 [ %1676, %.lr.ph255.i.i ], [ %.2132233.i.i, %cgltf_parse_json_string.exit.thread230.i.i ]
+  %1696 = zext nneg i32 %.0130253.i.i to i64
   %1697 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1696
   %1698 = load i32, ptr %1697, align 8
   %.not137.i.i387 = icmp eq i32 %1698, 3
@@ -54137,7 +54137,7 @@ cgltf_json_strcmp.exit.i.i417:                    ; preds = %1703
   %1733 = getelementptr inbounds i8, ptr %1727, i64 %1731
   store i8 0, ptr %1733, align 1
   store ptr %1727, ptr %1669, align 8
-  %1734 = add nuw nsw i32 %.0130254.i.i, 2
+  %1734 = add nuw nsw i32 %.0130253.i.i, 2
   br label %cgltf_parse_json_string.exit.thread230.i.i
 
 cgltf_json_strcmp.exit150.i.i:                    ; preds = %1703
@@ -54175,7 +54175,7 @@ cgltf_json_strcmp.exit150.i.i:                    ; preds = %1703
 cgltf_json_to_int.exit.i.i414:                    ; preds = %1741, %1738
   %.0.i152.i.i = phi ptr [ %1753, %1741 ], [ null, %1738 ]
   store ptr %.0.i152.i.i, ptr %1694, align 8
-  %1754 = add nuw nsw i32 %.0130254.i.i, 2
+  %1754 = add nuw nsw i32 %.0130253.i.i, 2
   br label %cgltf_parse_json_string.exit.i.i393
 
 cgltf_json_strcmp.exit155.i.i:                    ; preds = %1703
@@ -54210,7 +54210,7 @@ cgltf_json_strcmp.exit155.i.i:                    ; preds = %1703
 cgltf_json_to_size.exit.i.i408:                   ; preds = %1761, %1758
   %.0.i157.i.i = phi i64 [ %1771, %1761 ], [ 0, %1758 ]
   store i64 %.0.i157.i.i, ptr %1693, align 8
-  %1772 = add nuw nsw i32 %.0130254.i.i, 2
+  %1772 = add nuw nsw i32 %.0130253.i.i, 2
   br label %cgltf_parse_json_string.exit.i.i393
 
 cgltf_json_strcmp.exit161.i.i:                    ; preds = %cgltf_json_strcmp.exit155.i.i
@@ -54244,7 +54244,7 @@ cgltf_json_strcmp.exit161.i.i:                    ; preds = %cgltf_json_strcmp.e
 cgltf_json_to_size.exit165.i.i:                   ; preds = %1778, %1775
   %.0.i163.i.i = phi i64 [ %1788, %1778 ], [ 0, %1775 ]
   store i64 %.0.i163.i.i, ptr %1692, align 8
-  %1789 = add nuw nsw i32 %.0130254.i.i, 2
+  %1789 = add nuw nsw i32 %.0130253.i.i, 2
   br label %cgltf_parse_json_string.exit.i.i393
 
 cgltf_json_strcmp.exit168.i.i:                    ; preds = %cgltf_json_strcmp.exit161.i.i
@@ -54278,7 +54278,7 @@ cgltf_json_strcmp.exit168.i.i:                    ; preds = %cgltf_json_strcmp.e
 cgltf_json_to_size.exit172.i.i:                   ; preds = %1795, %1792
   %.0.i170.i.i = phi i64 [ %1805, %1795 ], [ 0, %1792 ]
   store i64 %.0.i170.i.i, ptr %1691, align 8
-  %1806 = add nuw nsw i32 %.0130254.i.i, 2
+  %1806 = add nuw nsw i32 %.0130253.i.i, 2
   br label %cgltf_parse_json_string.exit.i.i393
 
 cgltf_json_strcmp.exit175.i.i:                    ; preds = %cgltf_json_strcmp.exit150.i.i
@@ -54305,8 +54305,8 @@ cgltf_json_to_int.exit179.i.i:                    ; preds = %1809
   %1819 = getelementptr inbounds nuw [128 x i8], ptr %43, i64 0, i64 %spec.select.i178.i.i
   store i8 0, ptr %1819, align 1
   %1820 = call i64 @strtol(ptr noundef nonnull captures(none) %43, ptr noundef null, i32 noundef 10) #58
-  %.fr237.i.i = freeze i64 %1820
-  %1821 = trunc i64 %.fr237.i.i to i32
+  %.fr.i.i = freeze i64 %1820
+  %1821 = trunc i64 %.fr.i.i to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %switch.selectcmp.i.i = icmp eq i32 %1821, 34963
   %spec.select235.i.i = zext i1 %switch.selectcmp.i.i to i32
@@ -54317,7 +54317,7 @@ cgltf_json_to_int.exit179.i.i:                    ; preds = %1809
 .thread.i.i:                                      ; preds = %cgltf_json_to_int.exit179.i.i, %1809
   %1822 = phi i32 [ 0, %1809 ], [ %spec.select236.i.i, %cgltf_json_to_int.exit179.i.i ]
   store i32 %1822, ptr %1690, align 8
-  %1823 = add nuw nsw i32 %.0130254.i.i, 2
+  %1823 = add nuw nsw i32 %.0130253.i.i, 2
   br label %cgltf_parse_json_string.exit.i.i393
 
 cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.exit175.i.i
@@ -54331,7 +54331,7 @@ cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.e
   br i1 %.not.i183.i.i, label %1828, label %cgltf_parse_json_asset.exit.thread
 
 1828:                                             ; preds = %1826
-  %1829 = add nuw nsw i32 %.0130254.i.i, 1
+  %1829 = add nuw nsw i32 %.0130253.i.i, 1
   %1830 = zext nneg i32 %1829 to i64
   %1831 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1830
   %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 8
@@ -54356,7 +54356,7 @@ cgltf_json_strcmp.exit182.i.i:                    ; preds = %cgltf_json_strcmp.e
   %1845 = load ptr, ptr %1687, align 8
   %1846 = getelementptr inbounds nuw i8, ptr %1845, i64 %1837
   store i8 0, ptr %1846, align 1
-  %1847 = add nuw nsw i32 %.0130254.i.i, 2
+  %1847 = add nuw nsw i32 %.0130253.i.i, 2
   br label %1848
 
 1848:                                             ; preds = %1860, %1842
@@ -54434,14 +54434,14 @@ cgltf_calloc.exit.thread.i.i406:                  ; preds = %1874, %1871
 1880:                                             ; preds = %1874
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %1879, i8 0, i64 %1878, i1 false)
   store ptr %1879, ptr %1677, align 8
-  %1881 = add nuw nsw i32 %.0130254.i.i, 2
-  %.not142.not250.not.i.i = icmp eq i32 %1873, 0
-  br i1 %.not142.not250.not.i.i, label %cgltf_parse_json_string.exit.thread230.i.i, label %.lr.ph.i.i396
+  %1881 = add nuw nsw i32 %.0130253.i.i, 2
+  %.not142.not249.not.i.i = icmp eq i32 %1873, 0
+  br i1 %.not142.not249.not.i.i, label %cgltf_parse_json_string.exit.thread230.i.i, label %.lr.ph.i.i396
 
 .lr.ph.i.i396:                                    ; preds = %1880, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i
-  %.0252.i.i = phi i32 [ %2094, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ], [ 0, %1880 ]
-  %.4134251.i.i = phi i32 [ %.6136221.i.i, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ], [ %1881, %1880 ]
-  %1882 = zext nneg i32 %.4134251.i.i to i64
+  %.0251.i.i = phi i32 [ %2094, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ], [ 0, %1880 ]
+  %.4134250.i.i = phi i32 [ %.6136221.i.i, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ], [ %1881, %1880 ]
+  %1882 = zext nneg i32 %.4134250.i.i to i64
   %1883 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1882
   %1884 = load i32, ptr %1883, align 8
   %.not141.i.i = icmp eq i32 %1884, 3
@@ -54478,7 +54478,7 @@ cgltf_json_strcmp.exit192.i.i:                    ; preds = %1889
 1902:                                             ; preds = %1899
   %1903 = getelementptr inbounds nuw i8, ptr %1883, i64 56
   %1904 = load i32, ptr %1903, align 8
-  %1905 = add nuw nsw i32 %.4134251.i.i, 2
+  %1905 = add nuw nsw i32 %.4134250.i.i, 2
   %.not10729.i.i.i = icmp sgt i32 %1904, 0
   br i1 %.not10729.i.i.i, label %.lr.ph.i.i.i398, label %cgltf_parse_json_meshopt_compression.exit.thread219.i.i
 
@@ -54860,7 +54860,7 @@ cgltf_json_strcmp.exit192.thread.i.i:             ; preds = %cgltf_json_strcmp.e
   %2090 = add i64 %2089, 1
   store i64 %2090, ptr %1678, align 8
   %2091 = getelementptr inbounds nuw %struct.cgltf_extension, ptr %2088, i64 %2089
-  %2092 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.4134251.i.i, ptr noundef readonly %2, ptr noundef %2091)
+  %2092 = call fastcc i32 @cgltf_parse_json_unprocessed_extension(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, i32 noundef %.4134250.i.i, ptr noundef readonly %2, ptr noundef %2091)
   br label %cgltf_parse_json_meshopt_compression.exit.i.i
 
 cgltf_parse_json_meshopt_compression.exit.i.i:    ; preds = %cgltf_skip_json.exit.thread.i.i.i400, %cgltf_json_strcmp.exit192.thread.i.i
@@ -54870,13 +54870,13 @@ cgltf_parse_json_meshopt_compression.exit.i.i:    ; preds = %cgltf_skip_json.exi
 
 cgltf_parse_json_meshopt_compression.exit.thread219.i.i: ; preds = %cgltf_parse_json_meshopt_compression.exit.i.i, %1902
   %.6136221.i.i = phi i32 [ %.6136.i.i, %cgltf_parse_json_meshopt_compression.exit.i.i ], [ %1905, %1902 ]
-  %2094 = add nuw nsw i32 %.0252.i.i, 1
+  %2094 = add nuw nsw i32 %.0251.i.i, 1
   %exitcond.not.i.i397 = icmp eq i32 %2094, %1873
   br i1 %exitcond.not.i.i397, label %cgltf_parse_json_string.exit.thread230.i.i, label %.lr.ph.i.i396
 
 cgltf_json_strcmp.exit187.thread.i.i:             ; preds = %cgltf_json_strcmp.exit187.i.i, %cgltf_json_strcmp.exit182.i.i, %cgltf_json_strcmp.exit.i.i417, %1703
-  %2095 = add nuw nsw i32 %.0130254.i.i, 1
-  %2096 = add nuw nsw i32 %.0130254.i.i, 2
+  %2095 = add nuw nsw i32 %.0130253.i.i, 1
+  %2096 = add nuw nsw i32 %.0130253.i.i, 2
   %2097 = zext nneg i32 %2095 to i64
   br label %2098
 
@@ -54923,9 +54923,9 @@ cgltf_parse_json_string.exit.i.i393:              ; preds = %.split.loop.exit.i.
 
 cgltf_parse_json_string.exit.thread230.i.i:       ; preds = %cgltf_parse_json_meshopt_compression.exit.thread219.i.i, %cgltf_parse_json_string.exit.i.i393, %1880, %1728
   %.2132233.i.i = phi i32 [ %.2132.i.i, %cgltf_parse_json_string.exit.i.i393 ], [ %1734, %1728 ], [ %1881, %1880 ], [ %.6136221.i.i, %cgltf_parse_json_meshopt_compression.exit.thread219.i.i ]
-  %2115 = add nuw nsw i32 %.0129255.i.i, 1
-  %exitcond283.not.i.i = icmp eq i32 %2115, %1675
-  br i1 %exitcond283.not.i.i, label %cgltf_parse_json_buffer_view.exit.cgltf_parse_json_buffer_view.exit.thread33_crit_edge.i, label %1695
+  %2115 = add nuw nsw i32 %.0129254.i.i, 1
+  %exitcond282.not.i.i = icmp eq i32 %2115, %1675
+  br i1 %exitcond282.not.i.i, label %cgltf_parse_json_buffer_view.exit.cgltf_parse_json_buffer_view.exit.thread33_crit_edge.i, label %1695
 
 cgltf_parse_json_buffer_view.exit.cgltf_parse_json_buffer_view.exit.thread33_crit_edge.i: ; preds = %cgltf_parse_json_string.exit.thread230.i.i
   %.pre.i394 = load i64, ptr %93, align 8

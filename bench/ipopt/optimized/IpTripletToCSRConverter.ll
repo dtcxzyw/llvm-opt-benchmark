@@ -763,7 +763,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %.1185332 = phi i32 [ %.0184341, %.lr.ph337 ], [ %.2186.lcssa, %322 ]
   %266 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv408
   %267 = load i32, ptr %266, align 4, !tbaa !28
-  %268 = add nsw i32 %267, -1
+  %.fr = freeze i32 %267
+  %268 = add i32 %.fr, -1
   %269 = add nsw i32 %268, %252
   %270 = load i32, ptr %261, align 4, !tbaa !28
   %271 = sext i32 %270 to i64
@@ -779,12 +780,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 .lr.ph323:                                        ; preds = %265
   %.not234 = icmp eq i64 %indvars.iv411, %277
-  %278 = sext i32 %267 to i64
+  %278 = sext i32 %.fr to i64
   %279 = getelementptr inbounds i32, ptr %218, i64 %278
-  %.not234.fr = freeze i1 %.not234
   %280 = sext i32 %.1333 to i64
   %281 = sext i32 %.1185332 to i64
-  br i1 %.not234.fr, label %.lr.ph323.split.us.preheader, label %.lr.ph323.split.preheader
+  br i1 %.not234, label %.lr.ph323.split.us.preheader, label %.lr.ph323.split.preheader
 
 .lr.ph323.split.preheader:                        ; preds = %.lr.ph323
   %282 = add i32 %254, %.1333
@@ -805,7 +805,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %289 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv402
   %290 = load i32, ptr %289, align 4, !tbaa !28
   %291 = icmp eq i32 %290, %288
-  br i1 %291, label %292, label %.critedge.loopexit.split.loop.exit471
+  br i1 %291, label %292, label %.critedge.loopexit.split.loop.exit473
 
 292:                                              ; preds = %.lr.ph323.split.us
   %293 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv402
@@ -825,7 +825,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %297 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv394
   %298 = load i32, ptr %297, align 4, !tbaa !28
   %299 = icmp eq i32 %298, %285
-  br i1 %299, label %300, label %.critedge.loopexit464.split.loop.exit468
+  br i1 %299, label %300, label %.critedge.loopexit466.split.loop.exit470
 
 300:                                              ; preds = %.lr.ph323.split
   %301 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv394
@@ -845,26 +845,26 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %exitcond399.not = icmp eq i64 %indvars.iv.next395, %253
   br i1 %exitcond399.not, label %.critedge, label %.lr.ph323.split, !llvm.loop !42
 
-.critedge.loopexit.split.loop.exit471:            ; preds = %.lr.ph323.split.us
+.critedge.loopexit.split.loop.exit473:            ; preds = %.lr.ph323.split.us
   %309 = trunc nsw i64 %indvars.iv400 to i32
   %310 = trunc nsw i64 %indvars.iv402 to i32
   br label %.critedge
 
-.critedge.loopexit464.split.loop.exit468:         ; preds = %.lr.ph323.split
+.critedge.loopexit466.split.loop.exit470:         ; preds = %.lr.ph323.split
   %311 = trunc nsw i64 %indvars.iv392 to i32
   %312 = trunc nsw i64 %indvars.iv394 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %300, %292, %.critedge.loopexit464.split.loop.exit468, %.critedge.loopexit.split.loop.exit471, %265
-  %.2186.lcssa = phi i32 [ %.1185332, %265 ], [ %310, %.critedge.loopexit.split.loop.exit471 ], [ %312, %.critedge.loopexit464.split.loop.exit468 ], [ %.0209.lcssa, %292 ], [ %.0209.lcssa, %300 ]
-  %.2.lcssa = phi i32 [ %.1333, %265 ], [ %309, %.critedge.loopexit.split.loop.exit471 ], [ %311, %.critedge.loopexit464.split.loop.exit468 ], [ %287, %292 ], [ %284, %300 ]
+.critedge:                                        ; preds = %300, %292, %.critedge.loopexit466.split.loop.exit470, %.critedge.loopexit.split.loop.exit473, %265
+  %.2186.lcssa = phi i32 [ %.1185332, %265 ], [ %310, %.critedge.loopexit.split.loop.exit473 ], [ %312, %.critedge.loopexit466.split.loop.exit470 ], [ %.0209.lcssa, %292 ], [ %.0209.lcssa, %300 ]
+  %.2.lcssa = phi i32 [ %.1333, %265 ], [ %309, %.critedge.loopexit.split.loop.exit473 ], [ %311, %.critedge.loopexit466.split.loop.exit470 ], [ %287, %292 ], [ %284, %300 ]
   %313 = add nsw i32 %270, 1
   store i32 %313, ptr %261, align 4, !tbaa !28
   %.not233 = icmp eq i64 %indvars.iv411, %277
   br i1 %.not233, label %322, label %314
 
 314:                                              ; preds = %.critedge
-  %315 = sext i32 %267 to i64
+  %315 = sext i32 %.fr to i64
   %316 = getelementptr inbounds i32, ptr %218, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !28
   %318 = sext i32 %317 to i64
@@ -1383,8 +1383,8 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5Ip
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i
-  %.044.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i ], [ 0, %.lr.ph ]
-  %15 = shl i64 %.044.i.i, 1
+  %.045.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i ], [ 0, %.lr.ph ]
+  %15 = shl i64 %.045.i.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %16
   %18 = or disjoint i64 %15, 1
@@ -1403,9 +1403,10 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
   %26 = load i32, ptr %25, align 4, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !33
-  %29 = icmp slt i32 %26, %28
-  %cond.fr.i.i = freeze i1 %29
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i
+  %.fr.i.i = freeze i32 %26
+  %.fr44.i.i = freeze i32 %28
+  %29 = icmp slt i32 %.fr.i.i, %.fr44.i.i
+  br i1 %29, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i, %.lr.ph.i.i
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i
@@ -1413,7 +1414,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i, %23
   %30 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i ], [ %16, %23 ]
   %31 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %30
-  %32 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.044.i.i
+  %32 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.045.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !27
   %33 = icmp slt i64 %30, %13
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !56
@@ -1516,8 +1517,8 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5Ip
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i
-  %.044.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i ], [ %.011, %20 ]
-  %23 = shl i64 %.044.i, 1
+  %.045.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i ], [ %.011, %20 ]
+  %23 = shl i64 %.045.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
@@ -1536,9 +1537,10 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
   %34 = load i32, ptr %33, align 4, !tbaa !33
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !33
-  %37 = icmp slt i32 %34, %36
-  %cond.fr.i = freeze i1 %37
-  br i1 %cond.fr.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i
+  %.fr.i = freeze i32 %34
+  %.fr44.i = freeze i32 %36
+  %37 = icmp slt i32 %.fr.i, %.fr44.i
+  br i1 %37, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i, %.lr.ph.i
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i
@@ -1546,7 +1548,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i, %31
   %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i ], [ %24, %31 ]
   %39 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.044.i
+  %40 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.045.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false), !tbaa.struct !27
   %41 = icmp slt i64 %38, %13
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !56

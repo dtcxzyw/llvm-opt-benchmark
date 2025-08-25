@@ -642,13 +642,13 @@ _.exit:                                           ; preds = %14, %17
   br label %20
 
 20:                                               ; preds = %_.exit, %11
-  %.not34 = icmp eq i64 %6, 4095
-  br i1 %.not34, label %.critedge, label %.lr.ph
+  %.not33 = icmp eq i64 %6, 4095
+  br i1 %.not33, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %28
-  %.0.ptr36 = phi ptr [ %.0.ptr, %28 ], [ %.ptr26, %20 ]
-  %.0.idx35 = phi i64 [ %.0.add, %28 ], [ %6, %20 ]
-  %21 = load i8, ptr %.0.ptr36, align 1, !tbaa !14
+  %.0.ptr35 = phi ptr [ %.0.ptr, %28 ], [ %.ptr26, %20 ]
+  %.0.idx34 = phi i64 [ %.0.add, %28 ], [ %6, %20 ]
+  %21 = load i8, ptr %.0.ptr35, align 1, !tbaa !14
   %.not27 = icmp eq i8 %21, 0
   br i1 %.not27, label %.critedge.loopexit, label %22
 
@@ -656,8 +656,8 @@ _.exit:                                           ; preds = %14, %17
   %23 = zext i8 %21 to i64
   %24 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !14
-  %.fr32 = freeze i8 %25
-  %26 = and i8 %.fr32, 64
+  %.fr = freeze i8 %25
+  %26 = and i8 %.fr, 64
   %.not28 = icmp eq i8 %26, 0
   %.off = add i8 %21, -9
   %switch = icmp ult i8 %.off, 2
@@ -665,18 +665,18 @@ _.exit:                                           ; preds = %14, %17
   br i1 %or.cond, label %28, label %27
 
 27:                                               ; preds = %22
-  store i8 63, ptr %.0.ptr36, align 1, !tbaa !14
+  store i8 63, ptr %.0.ptr35, align 1, !tbaa !14
   br label %28
 
 28:                                               ; preds = %22, %27
-  %.0.add = add nuw nsw i64 %.0.idx35, 1
+  %.0.add = add nuw nsw i64 %.0.idx34, 1
   %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.add
   %.not = icmp eq i64 %.0.add, 4095
   br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !17
 
 .critedge.loopexit:                               ; preds = %28, %.lr.ph
-  %.0.idx.lcssa.ph = phi i64 [ %.0.idx35, %.lr.ph ], [ 4095, %28 ]
-  %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr36, %.lr.ph ], [ %.0.ptr, %28 ]
+  %.0.idx.lcssa.ph = phi i64 [ %.0.idx34, %.lr.ph ], [ 4095, %28 ]
+  %.0.ptr.lcssa.ph = phi ptr [ %.0.ptr35, %.lr.ph ], [ %.0.ptr, %28 ]
   %29 = add nuw nsw i64 %.0.idx.lcssa.ph, 1
   br label %.critedge
 

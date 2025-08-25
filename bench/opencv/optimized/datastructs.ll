@@ -1449,10 +1449,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
   %46 = shl i32 %0, 2
   %47 = and i32 %46, 28
   %48 = lshr i32 675553809, %47
-  %.fr53 = freeze i32 %48
-  %49 = and i32 %.fr53, 15
-  %.not54 = icmp eq i32 %49, 0
-  br i1 %.not54, label %70, label %switch.early.test
+  %.fr = freeze i32 %48
+  %49 = and i32 %.fr, 15
+  %.not53 = icmp eq i32 %49, 0
+  br i1 %.not53, label %70, label %switch.early.test
 
 switch.early.test:                                ; preds = %40
   %50 = and i32 %0, 4095

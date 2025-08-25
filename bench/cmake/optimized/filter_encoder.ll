@@ -173,10 +173,10 @@ define dso_local i64 @lzma_mt_block_size(ptr noundef readonly captures(address_i
   %.not47 = icmp eq i64 %3, -1
   br i1 %.not47, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.preheader40, %18
-  %4 = phi i64 [ %21, %18 ], [ %3, %.preheader40 ]
-  %.01949 = phi i64 [ %.221.ph, %18 ], [ 0, %.preheader40 ]
-  %.02648 = phi i64 [ %19, %18 ], [ 0, %.preheader40 ]
+.preheader:                                       ; preds = %.preheader40, %17
+  %4 = phi i64 [ %20, %17 ], [ %3, %.preheader40 ]
+  %.01949 = phi i64 [ %.221.ph, %17 ], [ 0, %.preheader40 ]
+  %.02648 = phi i64 [ %18, %17 ], [ 0, %.preheader40 ]
   br label %5
 
 5:                                                ; preds = %.preheader, %9
@@ -195,27 +195,27 @@ encoder_find.exit:                                ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %.not32 = icmp eq ptr %12, null
-  br i1 %.not32, label %18, label %13
+  br i1 %.not32, label %17, label %13
 
 13:                                               ; preds = %encoder_find.exit
   %14 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %.02648, i32 1
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = tail call i64 %12(ptr noundef %15) #9
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %16, i64 %.01949)
-  %17 = freeze i64 %spec.select
-  br label %18
+  %.fr = freeze i64 %16
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.fr, i64 %.01949)
+  br label %17
 
-18:                                               ; preds = %13, %encoder_find.exit
-  %.221.ph = phi i64 [ %.01949, %encoder_find.exit ], [ %17, %13 ]
-  %19 = add i64 %.02648, 1
-  %20 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !21
-  %.not = icmp eq i64 %21, -1
+17:                                               ; preds = %13, %encoder_find.exit
+  %.221.ph = phi i64 [ %.01949, %encoder_find.exit ], [ %spec.select, %13 ]
+  %18 = add i64 %.02648, 1
+  %19 = getelementptr inbounds nuw %struct.lzma_filter, ptr %0, i64 %18
+  %20 = load i64, ptr %19, align 8, !tbaa !21
+  %.not = icmp eq i64 %20, -1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !33
 
-.loopexit:                                        ; preds = %18
-  %22 = icmp eq i64 %.221.ph, 0
-  %spec.select76 = select i1 %22, i64 -1, i64 %.221.ph
+.loopexit:                                        ; preds = %17
+  %21 = icmp eq i64 %.221.ph, 0
+  %spec.select76 = select i1 %21, i64 -1, i64 %.221.ph
   br label %.thread
 
 .thread:                                          ; preds = %9, %.loopexit, %.preheader40, %1

@@ -8311,8 +8311,8 @@ test_poll_event_r.exit.thread130:                 ; preds = %39, %53
 test_poll_event_r.exit:                           ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.27.0, i64 136
   %58 = load i8, ptr %57, align 8
-  %.fr149 = freeze i8 %58
-  %59 = and i8 %.fr149, 1
+  %.fr = freeze i8 %58
+  %59 = and i8 %.fr, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not42.not = icmp eq i8 %59, 0
@@ -8347,8 +8347,8 @@ test_poll_event_r.exit:                           ; preds = %55
 test_poll_event_er.exit:                          ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.27.0, i64 136
   %74 = load i8, ptr %73, align 8
-  %.fr150 = freeze i8 %74
-  %75 = and i8 %.fr150, 1
+  %.fr149 = freeze i8 %74
+  %75 = and i8 %.fr149, 1
   %.not44.not = icmp eq i8 %75, 0
   %76 = or disjoint i64 %.2, 16
   br i1 %.not44.not, label %77, label %test_poll_event_er.exit.thread
@@ -8415,8 +8415,8 @@ test_poll_event_er.exit.thread:                   ; preds = %63, %68, %test_poll
 test_poll_event_w.exit:                           ; preds = %105
   %109 = load ptr, ptr %106, align 8, !tbaa !113
   %110 = call i32 @ossl_quic_channel_is_active(ptr noundef %109) #12
-  %.fr = freeze i32 %110
-  %.not6.i.i.not = icmp eq i32 %.fr, 0
+  %.fr150 = freeze i32 %110
+  %.not6.i.i.not = icmp eq i32 %.fr150, 0
   %111 = or i64 %.3, 128
   br i1 %.not6.i.i.not, label %test_poll_event_w.exit.thread, label %112
 
@@ -8453,8 +8453,8 @@ test_poll_event_ew.exit:                          ; preds = %120
   %125 = load ptr, ptr %124, align 8, !tbaa !136
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 336
   %127 = load i16, ptr %126, align 8
-  %.fr152 = freeze i16 %127
-  %128 = and i16 %.fr152, 32
+  %.fr151 = freeze i16 %127
+  %128 = and i16 %.fr151, 32
   %.not6.i94.not = icmp eq i16 %128, 0
   %129 = or i64 %.4, 32
   br i1 %.not6.i94.not, label %130, label %test_poll_event_ew.exit.thread
@@ -8559,8 +8559,8 @@ test_poll_event_ew.exit.thread:                   ; preds = %114, %120, %test_po
 test_poll_event_os.exit:                          ; preds = %169
   %172 = load ptr, ptr %166, align 8, !tbaa !113
   %173 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %172, i32 noundef 0) #12
-  %.fr153 = freeze i64 %173
-  %.not = icmp eq i64 %.fr153, 0
+  %.fr152 = freeze i64 %173
+  %.not = icmp eq i64 %.fr152, 0
   %174 = or i64 %.9, 2048
   br i1 %.not, label %test_poll_event_os.exit.thread, label %175
 
@@ -8596,10 +8596,10 @@ test_poll_event_os.exit.thread:                   ; preds = %169, %161, %165, %t
 test_poll_event_os.exit102:                       ; preds = %185
   %188 = load ptr, ptr %182, align 8, !tbaa !113
   %189 = call i64 @ossl_quic_channel_get_local_stream_count_avail(ptr noundef %188, i32 noundef 1) #12
-  %.fr155 = freeze i64 %189
-  %.not154 = icmp eq i64 %.fr155, 0
+  %.fr154 = freeze i64 %189
+  %.not153 = icmp eq i64 %.fr154, 0
   %190 = or i64 %.10, 4096
-  br i1 %.not154, label %test_poll_event_os.exit102.thread, label %191
+  br i1 %.not153, label %test_poll_event_os.exit102.thread, label %191
 
 test_poll_event_os.exit102.thread:                ; preds = %185, %177, %181, %test_poll_event_os.exit102
   br label %191
@@ -8632,9 +8632,9 @@ test_poll_event_os.exit102.thread:                ; preds = %185, %177, %181, %t
   %201 = getelementptr i8, ptr %.sroa.13.0, i64 136
   %.val85 = load ptr, ptr %201, align 8, !tbaa !139
   %202 = call i64 @ossl_quic_port_get_num_incoming_channels(ptr noundef %.val85) #12
-  %.not156 = icmp eq i64 %202, 0
+  %.not155 = icmp eq i64 %202, 0
   %203 = or i64 %.11, 256
-  %spec.select77 = select i1 %.not156, i64 %.11, i64 %203
+  %spec.select77 = select i1 %.not155, i64 %.11, i64 %203
   br label %204
 
 204:                                              ; preds = %200, %30, %191, %198

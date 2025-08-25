@@ -2686,7 +2686,8 @@ define dso_local void @_quicklistInsert(ptr noundef captures(none) %0, ptr nound
   %6 = load ptr, ptr %0, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i64, ptr %7, align 8
-  %9 = shl i64 %8, 48
+  %.fr371 = freeze i64 %8
+  %9 = shl i64 %.fr371, 48
   %10 = ashr exact i64 %9, 48
   %11 = trunc nsw i64 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2700,8 +2701,8 @@ define dso_local void @_quicklistInsert(ptr noundef captures(none) %0, ptr nound
   br i1 %.not.i, label %17, label %16, !prof !26
 
 16:                                               ; preds = %14
-  %.not370 = icmp ult i64 %3, %15
-  br i1 %.not370, label %28, label %25, !prof !26
+  %.not378 = icmp ult i64 %3, %15
+  br i1 %.not378, label %28, label %25, !prof !26
 
 17:                                               ; preds = %14
   %18 = icmp sgt i64 %10, -1
@@ -2902,7 +2903,8 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %63, %70, %73, %isLa
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %115 = load i32, ptr %114, align 8
-  %116 = and i32 %115, 786432
+  %.fr375 = freeze i32 %115
+  %116 = and i32 %.fr375, 786432
   %117 = icmp eq i32 %116, 262144
   br i1 %117, label %_quicklistNodeAllowInsert.exit294.thread, label %118, !prof !24
 
@@ -2965,19 +2967,20 @@ isLargeElement.exit.i289:                         ; preds = %121
 quicklistNodeLimit.exit.i.i281:                   ; preds = %.quicklistNodeLimit.exit.i_crit_edge.i277, %.thread13.i292
   %143 = phi i64 [ %.pre341, %.quicklistNodeLimit.exit.i_crit_edge.i277 ], [ %131, %.thread13.i292 ]
   %144 = phi i64 [ %141, %.quicklistNodeLimit.exit.i_crit_edge.i277 ], [ %136, %.thread13.i292 ]
-  %145 = icmp ugt i64 %144, %143
-  %cond.fr367 = freeze i1 %145
-  br i1 %cond.fr367, label %_quicklistNodeAllowInsert.exit294.thread, label %.thread
+  %.fr373 = freeze i64 %144
+  %.fr374 = freeze i64 %143
+  %145 = icmp ugt i64 %.fr373, %.fr374
+  br i1 %145, label %_quicklistNodeAllowInsert.exit294.thread, label %.thread
 
 _quicklistNodeAllowInsert.exit294:                ; preds = %.thread.i293, %137
   %146 = phi i64 [ %128, %.thread.i293 ], [ %141, %137 ]
-  %.in.i287 = and i32 %115, 65535
+  %.in.i287 = and i32 %.fr375, 65535
   %147 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
-  %148 = icmp ugt i64 %146, 8192
-  %149 = icmp samesign uge i32 %.in.i287, %147
+  %.fr376 = freeze i64 %146
+  %148 = icmp ugt i64 %.fr376, 8192
+  %149 = icmp uge i32 %.in.i287, %147
   %spec.select.i.i288 = or i1 %149, %148
-  %cond.fr = freeze i1 %spec.select.i.i288
-  br i1 %cond.fr, label %_quicklistNodeAllowInsert.exit294.thread, label %.thread
+  br i1 %spec.select.i.i288, label %_quicklistNodeAllowInsert.exit294.thread, label %.thread
 
 _quicklistNodeAllowInsert.exit294.thread:         ; preds = %quicklistNodeLimit.exit.i.i281, %123, %120, %113, %isLargeElement.exit.i289, %110, %_quicklistNodeAllowInsert.exit294
   br label %.thread
@@ -3000,7 +3003,8 @@ _quicklistNodeAllowInsert.exit294.thread:         ; preds = %quicklistNodeLimit.
 158:                                              ; preds = %156
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %160 = load i32, ptr %159, align 8
-  %161 = and i32 %160, 786432
+  %.fr370 = freeze i32 %160
+  %161 = and i32 %.fr370, 786432
   %162 = icmp eq i32 %161, 262144
   br i1 %162, label %_quicklistNodeAllowInsert.exit316.thread, label %163, !prof !24
 
@@ -3063,19 +3067,20 @@ isLargeElement.exit.i311:                         ; preds = %166
 quicklistNodeLimit.exit.i.i303:                   ; preds = %.quicklistNodeLimit.exit.i_crit_edge.i299, %.thread13.i314
   %188 = phi i64 [ %.pre339, %.quicklistNodeLimit.exit.i_crit_edge.i299 ], [ %176, %.thread13.i314 ]
   %189 = phi i64 [ %186, %.quicklistNodeLimit.exit.i_crit_edge.i299 ], [ %181, %.thread13.i314 ]
-  %190 = icmp ugt i64 %189, %188
-  %cond.fr333368 = freeze i1 %190
-  br i1 %cond.fr333368, label %_quicklistNodeAllowInsert.exit316.thread, label %.thread
+  %.fr = freeze i64 %189
+  %.fr369 = freeze i64 %188
+  %190 = icmp ugt i64 %.fr, %.fr369
+  br i1 %190, label %_quicklistNodeAllowInsert.exit316.thread, label %.thread
 
 _quicklistNodeAllowInsert.exit316:                ; preds = %.thread.i315, %182
   %191 = phi i64 [ %173, %.thread.i315 ], [ %186, %182 ]
-  %.in.i309 = and i32 %160, 65535
+  %.in.i309 = and i32 %.fr370, 65535
   %192 = tail call i32 @llvm.umax.i32(i32 %11, i32 1)
-  %193 = icmp ugt i64 %191, 8192
-  %194 = icmp samesign uge i32 %.in.i309, %192
+  %.fr372 = freeze i64 %191
+  %193 = icmp ugt i64 %.fr372, 8192
+  %194 = icmp uge i32 %.in.i309, %192
   %spec.select.i.i310 = or i1 %194, %193
-  %cond.fr333 = freeze i1 %spec.select.i.i310
-  br i1 %cond.fr333, label %_quicklistNodeAllowInsert.exit316.thread, label %.thread
+  br i1 %spec.select.i.i310, label %_quicklistNodeAllowInsert.exit316.thread, label %.thread
 
 _quicklistNodeAllowInsert.exit316.thread:         ; preds = %quicklistNodeLimit.exit.i.i303, %168, %165, %158, %isLargeElement.exit.i311, %156, %_quicklistNodeAllowInsert.exit316
   br label %.thread
@@ -3092,8 +3097,8 @@ _quicklistNodeAllowInsert.exit316.thread:         ; preds = %quicklistNodeLimit.
   br i1 %.not.i317, label %203, label %202, !prof !26
 
 202:                                              ; preds = %.thread
-  %.not369 = icmp ult i64 %3, %201
-  br i1 %.not369, label %227, label %211, !prof !26
+  %.not377 = icmp ult i64 %3, %201
+  br i1 %.not377, label %227, label %211, !prof !26
 
 203:                                              ; preds = %.thread
   %204 = icmp sgt i64 %10, -1

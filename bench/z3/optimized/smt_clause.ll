@@ -276,13 +276,13 @@ _Z7deallocIN3smt13justificationEEvPT_.exit:       ; preds = %_ZNK3smt6clause17ge
   %38 = load ptr, ptr %37, align 8
   tail call void %38(ptr noundef nonnull align 8 dereferenceable(9) %33) #17
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %33)
-  %.pre35 = load i32, ptr %3, align 4
+  %.pre34 = load i32, ptr %3, align 4
   br label %39
 
 39:                                               ; preds = %_ZNK3smt6clause17get_justificationEv.exit, %_Z7deallocIN3smt13justificationEEvPT_.exit, %_ZNK3smt6clause10get_del_ehEv.exit.thread
-  %40 = phi i32 [ %21, %_ZNK3smt6clause17get_justificationEv.exit ], [ %.pre35, %_Z7deallocIN3smt13justificationEEvPT_.exit ], [ %21, %_ZNK3smt6clause10get_del_ehEv.exit.thread ]
-  %.fr33 = freeze i32 %40
-  %41 = and i32 %.fr33, 134217728
+  %40 = phi i32 [ %21, %_ZNK3smt6clause17get_justificationEv.exit ], [ %.pre34, %_Z7deallocIN3smt13justificationEEvPT_.exit ], [ %21, %_ZNK3smt6clause10get_del_ehEv.exit.thread ]
+  %.fr = freeze i32 %40
+  %41 = and i32 %.fr, 134217728
   %.not.i20 = icmp ne i32 %41, 0
   %42 = load i32, ptr %0, align 4
   %43 = icmp ne i32 %42, 0
@@ -295,11 +295,11 @@ _Z7deallocIN3smt13justificationEEvPT_.exit:       ; preds = %_ZNK3smt6clause17ge
   br label %.lr.ph.split
 
 ._crit_edge.loopexit:                             ; preds = %_ZN11ast_manager7dec_refEP3ast.exit
-  %.pre36 = load i32, ptr %3, align 4
+  %.pre35 = load i32, ptr %3, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
-  %46 = phi i32 [ %.pre36, %._crit_edge.loopexit ], [ %.fr33, %39 ]
+  %46 = phi i32 [ %.pre35, %._crit_edge.loopexit ], [ %.fr, %39 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = and i32 %46, 16777215
   %49 = and i32 %46, 268435456
@@ -378,8 +378,8 @@ declare void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull al
 define hidden void @_ZN3smt6clause13release_atomsER11ast_manager(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(976) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %.fr13 = freeze i32 %4
-  %5 = and i32 %.fr13, 134217728
+  %.fr = freeze i32 %4
+  %5 = and i32 %.fr, 134217728
   %.not.i = icmp ne i32 %5, 0
   %6 = load i32, ptr %0, align 4
   %7 = icmp ne i32 %6, 0

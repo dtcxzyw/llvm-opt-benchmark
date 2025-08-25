@@ -1713,15 +1713,15 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4, !tbaa !91
-  %20 = icmp sgt i32 %19, 1
+  %.fr353 = freeze i32 %19
+  %20 = icmp sgt i32 %.fr353, 1
   %21 = select i1 %20, i32 16, i32 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %22 = select i1 %20, i32 4, i32 1
-  %23 = add i32 %19, -1
+  %23 = add i32 %.fr353, -1
   %24 = add i32 %23, %22
-  %.fr353 = freeze i32 %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !88
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1758,11 +1758,11 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %53 = zext nneg i32 %22 to i64
   %54 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %17, i64 0, i64 %53
   %55 = add nsw i32 %45, %21
-  %56 = shl nsw i32 %.fr353, 6
+  %56 = shl nsw i32 %24, 6
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %60 = icmp sgt i32 %.fr353, 0
+  %60 = icmp sgt i32 %24, 0
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br i1 %60, label %.lr.ph.us, label %.loopexit314
 
@@ -1810,7 +1810,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %93 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %90
   store i32 %92, ptr %93, align 4, !tbaa !49
   %94 = add nuw nsw i32 %.0143324.us, 1
-  %exitcond.not = icmp eq i32 %94, %.fr353
+  %exitcond.not = icmp eq i32 %94, %24
   br i1 %exitcond.not, label %..loopexit314_crit_edge.us, label %77, !llvm.loop !141
 
 ..loopexit314_crit_edge.us:                       ; preds = %77
@@ -1857,11 +1857,11 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %122 = zext nneg i32 %22 to i64
   %123 = getelementptr inbounds nuw [6 x [64 x i16]], ptr %17, i64 0, i64 %122
-  %124 = shl nsw i32 %.fr353, 6
+  %124 = shl nsw i32 %24, 6
   %125 = sext i32 %124 to i64
   %126 = shl nsw i64 %125, 1
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %128 = icmp sgt i32 %.fr353, 0
+  %128 = icmp sgt i32 %24, 0
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1872,7 +1872,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
 .loopexit313:                                     ; preds = %._crit_edge335, %.preheader312.lr.ph, %_ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit
   %134 = load i32, ptr %114, align 4, !tbaa !143
   %135 = sext i32 %134 to i64
-  %136 = icmp slt i64 %indvars.iv.next361, %135
+  %136 = icmp slt i64 %indvars.iv.next362, %135
   br i1 %136, label %137, label %._crit_edge, !llvm.loop !144
 
 ._crit_edge:                                      ; preds = %.loopexit313, %.loopexit315
@@ -1882,7 +1882,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   ret void
 
 137:                                              ; preds = %.lr.ph, %.loopexit313
-  %indvars.iv360 = phi i64 [ %133, %.lr.ph ], [ %indvars.iv.next361, %.loopexit313 ]
+  %indvars.iv361 = phi i64 [ %133, %.lr.ph ], [ %indvars.iv.next362, %.loopexit313 ]
   %138 = load ptr, ptr %117, align 8, !tbaa !145
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !65, !noalias !146
@@ -1894,7 +1894,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   %146 = ptrtoint ptr %142 to i64
   %147 = sub i64 %145, %146
   %148 = sdiv exact i64 %147, 40
-  %149 = add nsw i64 %148, %indvars.iv360
+  %149 = add nsw i64 %148, %indvars.iv361
   %150 = icmp sgt i64 %149, -1
   br i1 %150, label %151, label %157
 
@@ -1903,7 +1903,7 @@ define linkonce_odr hidden void @_ZNK2cv5mjpeg12MjpegEncoderclERKNS_5RangeE(ptr 
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %151
-  %154 = getelementptr inbounds %"class.cv::mjpeg::mjpeg_buffer", ptr %140, i64 %indvars.iv360
+  %154 = getelementptr inbounds %"class.cv::mjpeg::mjpeg_buffer", ptr %140, i64 %indvars.iv361
   br label %_ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit
 
 155:                                              ; preds = %151
@@ -1930,17 +1930,17 @@ _ZN2cv5mjpeg19mjpeg_buffer_keeperixEi.exit:       ; preds = %153, %161
   %167 = load ptr, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !108
   store i32 0, ptr %167, align 4, !tbaa !49
   %168 = load i32, ptr %118, align 8, !tbaa !96
-  %169 = trunc i64 %indvars.iv360 to i32
+  %169 = trunc i64 %indvars.iv361 to i32
   %170 = mul i32 %35, %169
   %171 = sdiv i32 %170, %168
   %172 = shl i32 %171, %119
-  %indvars.iv.next361 = add nsw i64 %indvars.iv360, 1
-  %173 = trunc i64 %indvars.iv.next361 to i32
+  %indvars.iv.next362 = add nsw i64 %indvars.iv361, 1
+  %173 = trunc i64 %indvars.iv.next362 to i32
   %174 = mul i32 %35, %173
   %175 = sdiv i32 %174, %168
   %176 = shl i32 %175, %119
   %177 = add nsw i32 %168, -1
-  %178 = trunc nsw i64 %indvars.iv360 to i32
+  %178 = trunc nsw i64 %indvars.iv361 to i32
   %179 = icmp eq i32 %177, %178
   %180 = load i32, ptr %27, align 8
   %spec.select160 = select i1 %179, i32 %180, i32 %176
@@ -2555,8 +2555,8 @@ _ZN2cv5mjpeg12mjpeg_buffer6resizeEi.exit.i233.us: ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit238.us: ; preds = %496, %487, %421
   %512 = add nuw nsw i32 %.1144330.us, 1
-  %exitcond359.not = icmp eq i32 %512, %.fr353
-  br i1 %exitcond359.not, label %..loopexit_crit_edge.us, label %209, !llvm.loop !152
+  %exitcond360.not = icmp eq i32 %512, %24
+  br i1 %exitcond360.not, label %..loopexit_crit_edge.us, label %209, !llvm.loop !152
 
 513:                                              ; preds = %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit173.us, %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us
   %514 = phi ptr [ %834, %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit173.us ], [ %388, %_ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit.us ]
@@ -3145,8 +3145,8 @@ _ZN2cv5mjpeg12mjpeg_buffer8put_bitsEji.exit173.us: ; preds = %832, %710, %701
   %838 = phi ptr [ %518, %832 ], [ %693, %710 ], [ %693, %701 ]
   %.2.us = phi i32 [ %833, %832 ], [ 0, %710 ], [ 0, %701 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond358.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond358.not, label %421, label %513, !llvm.loop !154
+  %exitcond359.not = icmp eq i64 %indvars.iv.next, 64
+  br i1 %exitcond359.not, label %421, label %513, !llvm.loop !154
 
 .preheader.us:                                    ; preds = %513
   %839 = icmp sgt i32 %.0146328.us, 15

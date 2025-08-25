@@ -9111,13 +9111,14 @@ _ZNK11ast_manager6is_xorEPK4expr.exit.thread:     ; preds = %69, %74
 
 _ZNK11ast_manager6is_xorEPK4expr.exit:            ; preds = %74
   %79 = load i32, ptr %78, align 8, !tbaa !170
-  %80 = icmp eq i32 %79, 0
+  %.fr = freeze i32 %79
+  %80 = icmp eq i32 %.fr, 0
   %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %82, 7
-  %84 = select i1 %80, i1 %83, i1 false
-  %cond.fr = freeze i1 %84
-  %85 = xor i1 %3, %cond.fr
+  %.fr138 = freeze i32 %82
+  %83 = icmp eq i32 %.fr138, 7
+  %84 = and i1 %80, %83
+  %85 = xor i1 %3, %84
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %_ZNK11ast_manager6is_xorEPK4expr.exit, %_ZNK11ast_manager6is_xorEPK4expr.exit.thread

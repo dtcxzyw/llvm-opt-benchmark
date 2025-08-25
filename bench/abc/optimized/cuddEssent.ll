@@ -998,21 +998,21 @@ define range(i32 0, 2) i32 @Cudd_PrintTwoLiteralClauses(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %5, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !37
-  %.fr123 = freeze ptr %16
+  %.fr129 = freeze ptr %16
   %17 = load i32, ptr %14, align 4, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !36
   %20 = or i32 %19, %17
-  %.not106 = icmp eq i32 %20, 0
-  br i1 %.not106, label %._crit_edge, label %.lr.ph
+  %.not112 = icmp eq i32 %20, 0
+  br i1 %.not112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %.not54 = icmp eq ptr %2, null
-  %21 = icmp eq ptr %.fr123, null
+  %21 = icmp eq ptr %.fr129, null
   br i1 %.not54, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
-  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %50 ], [ 0, %.lr.ph ]
+  %indvars.iv144 = phi i64 [ %indvars.iv.next145, %50 ], [ 0, %.lr.ph ]
   %22 = phi i32 [ %54, %50 ], [ %19, %.lr.ph ]
   %23 = phi i32 [ %52, %50 ], [ %17, %.lr.ph ]
   %24 = icmp eq i32 %22, 2147483647
@@ -1022,21 +1022,22 @@ define range(i32 0, 2) i32 @Cudd_PrintTwoLiteralClauses(ptr noundef %0, ptr noun
   br i1 %21, label %bitVectorRead.exit70.thread.us, label %bitVectorRead.exit68.us
 
 bitVectorRead.exit68.us:                          ; preds = %25
-  %26 = lshr i64 %indvars.iv138, 6
-  %27 = and i64 %indvars.iv138, 62
+  %26 = lshr i64 %indvars.iv144, 6
+  %27 = and i64 %indvars.iv144, 62
   %28 = and i64 %26, 67108863
-  %29 = getelementptr inbounds nuw i64, ptr %.fr123, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %.fr129, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !44
-  %31 = and i64 %indvars.iv138, 62
+  %31 = and i64 %indvars.iv144, 62
   %32 = shl nuw nsw i64 1, %31
-  %33 = and i64 %30, %32
-  %.fr103.us = freeze i64 %33
-  %.not55.us = icmp eq i64 %.fr103.us, 0
+  %.fr106.us = freeze i64 %30
+  %.fr107.us = freeze i64 %32
+  %33 = and i64 %.fr106.us, %.fr107.us
+  %.not55.us = icmp eq i64 %33, 0
   %spec.select97.us = select i1 %.not55.us, ptr @.str.2, ptr @.str.1
   %34 = shl nuw i64 2, %27
-  %35 = and i64 %30, %34
-  %.fr104.us = freeze i64 %35
-  %.not56.us = icmp eq i64 %.fr104.us, 0
+  %.fr109.us = freeze i64 %34
+  %35 = and i64 %.fr106.us, %.fr109.us
+  %.not56.us = icmp eq i64 %35, 0
   %spec.select98.us = select i1 %.not56.us, ptr @.str.2, ptr @.str.1
   br label %bitVectorRead.exit70.thread.us
 
@@ -1050,15 +1051,16 @@ bitVectorRead.exit70.thread.us:                   ; preds = %bitVectorRead.exit6
   br i1 %21, label %bitVectorRead.exit66.thread.us, label %bitVectorRead.exit66.us
 
 bitVectorRead.exit66.us:                          ; preds = %39
-  %40 = lshr i64 %indvars.iv138, 6
-  %41 = and i64 %indvars.iv138, 62
+  %40 = lshr i64 %indvars.iv144, 6
+  %41 = and i64 %indvars.iv144, 62
   %42 = and i64 %40, 67108863
-  %43 = getelementptr inbounds nuw i64, ptr %.fr123, i64 %42
+  %43 = getelementptr inbounds nuw i64, ptr %.fr129, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !44
   %45 = shl nuw nsw i64 1, %41
-  %46 = and i64 %44, %45
-  %.fr105.us = freeze i64 %46
-  %.not57.us = icmp eq i64 %.fr105.us, 0
+  %.fr110.us = freeze i64 %44
+  %.fr111.us = freeze i64 %45
+  %46 = and i64 %.fr110.us, %.fr111.us
+  %.not57.us = icmp eq i64 %46, 0
   br i1 %.not57.us, label %bitVectorRead.exit66.thread.us, label %47
 
 bitVectorRead.exit66.thread.us:                   ; preds = %bitVectorRead.exit66.us, %39
@@ -1070,8 +1072,8 @@ bitVectorRead.exit66.thread.us:                   ; preds = %bitVectorRead.exit6
   br label %50
 
 50:                                               ; preds = %47, %bitVectorRead.exit70.thread.us
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 2
-  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next139
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 2
+  %51 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next145
   %52 = load i32, ptr %51, align 4, !tbaa !36
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !36
@@ -1083,7 +1085,7 @@ bitVectorRead.exit66.thread.us:                   ; preds = %bitVectorRead.exit6
   br i1 %21, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split, %67
-  %indvars.iv135 = phi i64 [ %indvars.iv.next136, %67 ], [ 0, %.lr.ph.split ]
+  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %67 ], [ 0, %.lr.ph.split ]
   %56 = phi i32 [ %71, %67 ], [ %19, %.lr.ph.split ]
   %57 = phi i32 [ %69, %67 ], [ %17, %.lr.ph.split ]
   %58 = icmp eq i32 %56, 2147483647
@@ -1104,14 +1106,14 @@ bitVectorRead.exit.thread.us.us:                  ; preds = %.lr.ph.split.split.
   br label %67
 
 67:                                               ; preds = %bitVectorRead.exit.thread.us.us, %bitVectorRead.exit64.thread.us.us
-  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 2
-  %68 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next136
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 2
+  %68 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next142
   %69 = load i32, ptr %68, align 4, !tbaa !36
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !36
   %72 = or i32 %71, %69
-  %.not.us112.us = icmp eq i32 %72, 0
-  br i1 %.not.us112.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !46
+  %.not.us118.us = icmp eq i32 %72, 0
+  br i1 %.not.us118.us, label %._crit_edge, label %.lr.ph.split.split.us.split.us, !llvm.loop !46
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %97
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph.split ]
@@ -1121,37 +1123,38 @@ bitVectorRead.exit.thread.us.us:                  ; preds = %.lr.ph.split.split.
   %76 = lshr i64 %indvars.iv, 6
   %77 = and i64 %indvars.iv, 62
   %78 = and i64 %76, 67108863
-  %79 = getelementptr inbounds nuw i64, ptr %.fr123, i64 %78
+  %79 = getelementptr inbounds nuw i64, ptr %.fr129, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !44
+  %.fr = freeze i64 %80
   br i1 %75, label %bitVectorRead.exit, label %bitVectorRead.exit62
 
 bitVectorRead.exit:                               ; preds = %.lr.ph.split.split.split
   %81 = shl nuw nsw i64 1, %77
-  %82 = and i64 %80, %81
-  %.fr102 = freeze i64 %82
-  %.not60 = icmp eq i64 %.fr102, 0
-  %spec.select122 = select i1 %.not60, ptr @.str.2, ptr @.str.1
+  %.fr105 = freeze i64 %81
+  %82 = and i64 %.fr, %.fr105
+  %.not60 = icmp eq i64 %82, 0
+  %spec.select128 = select i1 %.not60, ptr @.str.2, ptr @.str.1
   %83 = zext i32 %74 to i64
   %84 = getelementptr inbounds nuw ptr, ptr %2, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !47
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select122, ptr noundef %85) #12
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef nonnull %spec.select128, ptr noundef %85) #12
   br label %97
 
 bitVectorRead.exit62:                             ; preds = %.lr.ph.split.split.split
   %87 = and i64 %indvars.iv, 62
   %88 = shl nuw nsw i64 1, %87
-  %89 = and i64 %80, %88
-  %.fr = freeze i64 %89
-  %.not58 = icmp eq i64 %.fr, 0
+  %.fr99 = freeze i64 %88
+  %89 = and i64 %.fr, %.fr99
+  %.not58 = icmp eq i64 %89, 0
   %.str.2..str.1 = select i1 %.not58, ptr @.str.2, ptr @.str.1
   %90 = shl nuw i64 2, %77
-  %91 = and i64 %80, %90
-  %.fr99 = freeze i64 %91
-  %.not59 = icmp eq i64 %.fr99, 0
+  %.fr101 = freeze i64 %90
+  %91 = and i64 %.fr, %.fr101
+  %.not59 = icmp eq i64 %91, 0
   %spec.select = select i1 %.not59, ptr @.str.2, ptr @.str.1
-  %.pn101 = zext i32 %74 to i64
-  %.in100 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pn101
-  %92 = load ptr, ptr %.in100, align 8, !tbaa !47
+  %.pn103 = zext i32 %74 to i64
+  %.in102 = getelementptr inbounds nuw ptr, ptr %2, i64 %.pn103
+  %92 = load ptr, ptr %.in102, align 8, !tbaa !47
   %93 = zext i32 %73 to i64
   %94 = getelementptr inbounds nuw ptr, ptr %2, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !47

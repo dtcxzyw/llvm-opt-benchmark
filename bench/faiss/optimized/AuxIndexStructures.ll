@@ -175,8 +175,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %43 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !15
   store i64 %.01419, ptr %43, align 8, !tbaa !15
-  %.fr34 = freeze i64 %44
-  %45 = add i64 %.fr34, %.01419
+  %.fr = freeze i64 %44
+  %45 = add i64 %.fr, %.01419
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i64, ptr %10, align 8, !tbaa !13
   %47 = icmp ugt i64 %46, %indvars.iv.next

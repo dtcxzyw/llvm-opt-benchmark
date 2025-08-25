@@ -4530,8 +4530,8 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 240:                                              ; preds = %235
   %241 = getelementptr inbounds nuw i8, ptr %48, i64 176
   %242 = load i64, ptr %241, align 8
-  %.fr126 = freeze i64 %242
-  %243 = and i64 %.fr126, 1
+  %.fr = freeze i64 %242
+  %243 = and i64 %.fr, 1
   %244 = icmp ne i64 %243, 0
   %245 = icmp eq ptr %5, @ip_generic_getfrag
   %246 = and i1 %245, %244
@@ -4544,7 +4544,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %250 = phi i1 [ %42, %231 ], [ %248, %240 ], [ true, %180 ], [ %42, %.critedge ], [ %42, %227 ], [ %42, %181 ], [ true, %.thread33 ]
   %251 = phi i1 [ false, %231 ], [ false, %240 ], [ true, %180 ], [ false, %.critedge ], [ false, %227 ], [ false, %181 ], [ true, %.thread33 ]
   %252 = phi ptr [ null, %231 ], [ null, %240 ], [ %157, %180 ], [ null, %.critedge ], [ %219, %227 ], [ null, %181 ], [ %219, %.thread33 ]
-  %.fr = phi i32 [ %9, %231 ], [ %249, %240 ], [ %9, %180 ], [ %9, %.critedge ], [ %9, %227 ], [ %9, %181 ], [ %9, %.thread33 ]
+  %.fr122 = phi i32 [ %9, %231 ], [ %249, %240 ], [ %9, %180 ], [ %9, %.critedge ], [ %9, %227 ], [ %9, %181 ], [ %9, %.thread33 ]
   %253 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %254 = load i8, ptr %253, align 8
   %255 = and i8 %254, 75
@@ -4594,7 +4594,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %286 = getelementptr inbounds nuw i8, ptr %278, i64 184
   %287 = getelementptr inbounds nuw i8, ptr %278, i64 200
   %288 = getelementptr inbounds nuw i8, ptr %278, i64 192
-  %289 = and i32 %.fr, 134217728
+  %289 = and i32 %.fr122, 134217728
   %290 = icmp eq i32 %289, 0
   %291 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %292 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4693,18 +4693,18 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %358, label %359, label %..critedge31.us_crit_edge
 
 ..critedge31.us_crit_edge:                        ; preds = %350
-  %.pre186 = load i32, ptr %285, align 4
+  %.pre182 = load i32, ptr %285, align 4
   br label %.critedge31.us
 
 359:                                              ; preds = %350
   %360 = load i32, ptr %284, align 4
   %361 = icmp eq i32 %360, 0
-  %.pre187 = load i32, ptr %285, align 4
+  %.pre183 = load i32, ptr %285, align 4
   br i1 %361, label %362, label %.critedge31.us
 
 362:                                              ; preds = %359
   %363 = load i32, ptr %286, align 8
-  %364 = sub i32 %.pre187, %363
+  %364 = sub i32 %.pre183, %363
   %365 = icmp slt i32 %364, %353
   br i1 %365, label %.critedge31.us, label %366
 
@@ -4715,7 +4715,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %369, label %.split84.us, label %.thread43.us
 
 .critedge31.us:                                   ; preds = %..critedge31.us_crit_edge, %362, %359
-  %370 = phi i32 [ %.pre186, %..critedge31.us_crit_edge ], [ %.pre187, %362 ], [ %.pre187, %359 ]
+  %370 = phi i32 [ %.pre182, %..critedge31.us_crit_edge ], [ %.pre183, %362 ], [ %.pre183, %359 ]
   %371 = load ptr, ptr %288, align 8
   %372 = zext i32 %370 to i64
   %373 = getelementptr i8, ptr %371, i64 %372
@@ -4738,20 +4738,20 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 
 386:                                              ; preds = %378
   call void @__skb_zcopy_downgrade_managed(ptr noundef nonnull %278) #13
-  %.pre188 = load ptr, ptr %288, align 8
-  %.pre189 = load i32, ptr %285, align 4
-  %.phi.trans.insert190 = zext i32 %.pre189 to i64
-  %.phi.trans.insert191 = getelementptr i8, ptr %.pre188, i64 %.phi.trans.insert190
-  %.pre192 = load i8, ptr %.phi.trans.insert191, align 8
+  %.pre184 = load ptr, ptr %288, align 8
+  %.pre185 = load i32, ptr %285, align 4
+  %.phi.trans.insert186 = zext i32 %.pre185 to i64
+  %.phi.trans.insert187 = getelementptr i8, ptr %.pre184, i64 %.phi.trans.insert186
+  %.pre188 = load i8, ptr %.phi.trans.insert187, align 8
   br label %387
 
 387:                                              ; preds = %386, %378
-  %.pre-phi200 = phi i64 [ %.phi.trans.insert190, %386 ], [ %381, %378 ]
-  %388 = phi i8 [ %.pre192, %386 ], [ %383, %378 ]
-  %389 = phi ptr [ %.pre188, %386 ], [ %379, %378 ]
+  %.pre-phi196 = phi i64 [ %.phi.trans.insert186, %386 ], [ %381, %378 ]
+  %388 = phi i8 [ %.pre188, %386 ], [ %383, %378 ]
+  %389 = phi ptr [ %.pre184, %386 ], [ %379, %378 ]
   %390 = load ptr, ptr %4, align 8
   %391 = load i32, ptr %294, align 8
-  %392 = getelementptr i8, ptr %389, i64 %.pre-phi200
+  %392 = getelementptr i8, ptr %389, i64 %.pre-phi196
   %393 = and i8 %388, 1
   %394 = icmp eq i8 %393, 0
   br i1 %394, label %399, label %395
@@ -4803,13 +4803,13 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   store i8 %421, ptr %426, align 2
   %427 = load ptr, ptr %4, align 8
   call fastcc void @get_page(ptr noundef %427)
-  %.pre193 = load i32, ptr %294, align 8
-  %.pre194 = load ptr, ptr %4, align 8
+  %.pre189 = load i32, ptr %294, align 8
+  %.pre190 = load ptr, ptr %4, align 8
   br label %428
 
 428:                                              ; preds = %419, %410
-  %429 = phi ptr [ %390, %410 ], [ %.pre194, %419 ]
-  %430 = phi i32 [ %391, %410 ], [ %.pre193, %419 ]
+  %429 = phi ptr [ %390, %410 ], [ %.pre190, %419 ]
+  %430 = phi i32 [ %391, %410 ], [ %.pre189, %419 ]
   %431 = phi i32 [ %376, %410 ], [ %420, %419 ]
   %432 = load i32, ptr %295, align 4
   %433 = sub i32 %432, %430
@@ -4923,16 +4923,16 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %513 = load i16, ptr %512, align 4
   %514 = zext i16 %513 to i32
   %515 = sub i32 %47, %514
-  %.pre195 = sub i32 %515, %71
-  %.pre196 = and i32 %.pre195, -8
+  %.pre191 = sub i32 %515, %71
+  %.pre192 = and i32 %.pre191, -8
   br label %516
 
 516:                                              ; preds = %502, %511
-  %.pre-phi197 = phi i32 [ %77, %502 ], [ %.pre196, %511 ]
+  %.pre-phi193 = phi i32 [ %77, %502 ], [ %.pre192, %511 ]
   %517 = phi i32 [ %501, %502 ], [ 0, %511 ]
   %518 = phi i32 [ %47, %502 ], [ %515, %511 ]
   %519 = add nsw i32 %71, -8
-  %520 = add i32 %519, %.pre-phi197
+  %520 = add i32 %519, %.pre-phi193
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread38, %516, %502, %498
@@ -4956,7 +4956,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %538 = add nuw nsw i32 %56, 24
   %539 = add nsw i32 %538, %491
   %540 = add nsw i32 %539, %533
-  %541 = and i32 %.fr, 32768
+  %541 = and i32 %.fr122, 32768
   %542 = icmp eq i32 %541, 0
   br i1 %542, label %549, label %543
 
@@ -5002,7 +5002,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   %572 = sub i32 %569, %571
   %573 = add i32 %572, %564
   %574 = icmp slt i32 %573, 0
-  %575 = and i32 %.fr, 134217728
+  %575 = and i32 %.fr122, 134217728
   %576 = icmp eq i32 %575, 0
   %577 = and i1 %576, %574
   br i1 %577, label %578, label %579
@@ -5038,7 +5038,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 
 594:                                              ; preds = %579
   %595 = zext i32 %565 to i64
-  %596 = and i32 %.fr, 64
+  %596 = and i32 %.fr122, 64
   %597 = call ptr @sock_alloc_send_pskb(ptr noundef %0, i64 noundef %595, i64 noundef 0, i32 noundef %596, ptr noundef nonnull %12, i32 noundef 0) #13
   %598 = icmp eq ptr %597, null
   br i1 %598, label %.thread44, label %.thread42
@@ -5236,7 +5236,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
   br label %728
 
 728:                                              ; preds = %714, %696, %670
-  %729 = and i32 %.fr, 2048
+  %729 = and i32 %.fr122, 2048
   %730 = icmp eq i32 %729, 0
   %731 = or i1 %730, %497
   br i1 %731, label %735, label %732

@@ -1375,7 +1375,7 @@ Of_ManPrepareCuts.exit263:                        ; preds = %._crit_edge.i240, %
   br i1 %.not.i264, label %Gia_ObjFaninC2.exit, label %321
 
 321:                                              ; preds = %Of_ManPrepareCuts.exit263.thread, %Of_ManPrepareCuts.exit263
-  %.1.i243794 = phi i32 [ 1, %Of_ManPrepareCuts.exit263.thread ], [ %.1.i243, %Of_ManPrepareCuts.exit263 ]
+  %.1.i243793 = phi i32 [ 1, %Of_ManPrepareCuts.exit263.thread ], [ %.1.i243, %Of_ManPrepareCuts.exit263 ]
   %322 = phi ptr [ %260, %Of_ManPrepareCuts.exit263.thread ], [ %320, %Of_ManPrepareCuts.exit263 ]
   %323 = phi ptr [ %.val173, %Of_ManPrepareCuts.exit263.thread ], [ %319, %Of_ManPrepareCuts.exit263 ]
   %324 = getelementptr i8, ptr %322, i64 32
@@ -1392,13 +1392,13 @@ Of_ManPrepareCuts.exit263:                        ; preds = %._crit_edge.i240, %
   br label %Gia_ObjFaninC2.exit
 
 Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.exit263, %321
-  %.1.i243795 = phi i32 [ %.1.i243, %Of_ManPrepareCuts.exit263 ], [ %.1.i243794, %321 ]
+  %.1.i243794 = phi i32 [ %.1.i243, %Of_ManPrepareCuts.exit263 ], [ %.1.i243793, %321 ]
   %333 = phi i32 [ 0, %Of_ManPrepareCuts.exit263 ], [ %332, %321 ]
-  %334 = sext i32 %.1.i243795 to i64
+  %334 = sext i32 %.1.i243794 to i64
   %.idx582 = mul nsw i64 %334, 48
   %335 = getelementptr inbounds i8, ptr %10, i64 %.idx582
   %336 = mul nsw i32 %.1.i183, %.1.i
-  %337 = mul nsw i32 %336, %.1.i243795
+  %337 = mul nsw i32 %336, %.1.i243794
   %338 = sitofp i32 %337 to double
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %340 = load double, ptr %339, align 8, !tbaa !98
@@ -1417,7 +1417,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.e
   %349 = getelementptr i8, ptr %0, i64 64
   %350 = call i32 @llvm.umax.i32(i32 %18, i32 1)
   %351 = add nsw i32 %23, -1
-  %352 = icmp sgt i32 %.1.i243795, 0
+  %352 = icmp sgt i32 %.1.i243794, 0
   %or.cond = select i1 %343, i1 %352, i1 false
   br i1 %or.cond, label %.preheader498.us.us, label %._crit_edge561
 

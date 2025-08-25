@@ -2664,8 +2664,8 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %31
 php_dom_follow_spec_doc_ref.exit54:               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 44
   %46 = load i16, ptr %45, align 4
-  %.fr58 = freeze i16 %46
-  %47 = and i16 %.fr58, 255
+  %.fr = freeze i16 %46
+  %47 = and i16 %.fr, 255
   %48 = icmp eq i16 %47, 2
   %spec.select = select i1 %48, i32 %41, i32 14
   br label %php_dom_follow_spec_doc_ref.exit54.thread

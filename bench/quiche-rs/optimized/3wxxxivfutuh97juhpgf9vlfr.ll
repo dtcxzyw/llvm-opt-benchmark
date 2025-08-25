@@ -7212,10 +7212,10 @@ define void @_ZN6quiche4path7PathMap11insert_path17h0396e24e10270a1eE(ptr dead_o
   %or.cond.i.not.i.i = select i1 %32, i1 %.not.i.i.i.i, i1 false
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %36 = load i64, ptr %35, align 8, !range !75, !alias.scope !469, !noalias !466
-  %.fr6.i.i.i = freeze i64 %36
-  %.not1.i.i.i.i = icmp ne i64 %.fr6.i.i.i, 0
+  %.fr.i.i.i = freeze i64 %36
+  %.not1.i.i.i.i = icmp ne i64 %.fr.i.i.i, 0
   %or.cond5.i.not.i.i = and i1 %or.cond.i.not.i.i, %.not1.i.i.i.i
-  %37 = trunc i64 %.fr6.i.i.i to i1
+  %37 = trunc i64 %.fr.i.i.i to i1
   %.not.i9.i.i = or i1 %or.cond5.i.not.i.i, %37
   br i1 %.not.i9.i.i, label %26, label %38
 

@@ -10278,8 +10278,8 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
 
 273:                                              ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit
   %274 = load i64, ptr %272, align 8
-  %.fr956 = freeze i64 %274
-  %275 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr956, i64 12)
+  %.fr955 = freeze i64 %274
+  %275 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr955, i64 12)
   %276 = extractvalue { i64, i1 } %275, 1
   %277 = extractvalue { i64, i1 } %275, 0
   %278 = select i1 %276, i64 -1, i64 %277
@@ -10287,7 +10287,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
           to label %280 unwind label %.loopexit707
 
 280:                                              ; preds = %273
-  %281 = icmp eq i64 %.fr956, 0
+  %281 = icmp eq i64 %.fr955, 0
   br i1 %281, label %.loopexit705, label %.loopexit705.loopexit
 
 .loopexit705.loopexit:                            ; preds = %280
@@ -10306,8 +10306,8 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
 
 288:                                              ; preds = %.loopexit705
   %289 = load i64, ptr %287, align 8
-  %.fr = freeze i64 %289
-  %290 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr, i64 12)
+  %.fr956 = freeze i64 %289
+  %290 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.fr956, i64 12)
   %291 = extractvalue { i64, i1 } %290, 1
   %292 = extractvalue { i64, i1 } %290, 0
   %293 = select i1 %291, i64 -1, i64 %292
@@ -10315,11 +10315,11 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
           to label %295 unwind label %.loopexit707
 
 295:                                              ; preds = %288
-  %296 = icmp eq i64 %.fr, 0
+  %296 = icmp eq i64 %.fr956, 0
   br i1 %296, label %.loopexit704, label %.loopexit704.loopexit
 
 .loopexit704.loopexit:                            ; preds = %295
-  %297 = mul i64 %.fr, 12
+  %297 = mul i64 %.fr956, 12
   %298 = add i64 %297, -12
   %299 = urem i64 %298, 12
   %300 = sub nuw i64 %298, %299
@@ -11050,9 +11050,9 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   br label %663
 
 663:                                              ; preds = %638, %639
-  %.sink973 = phi i32 [ 8, %639 ], [ 4, %638 ]
+  %.sink972 = phi i32 [ 8, %639 ], [ 4, %638 ]
   %664 = load i32, ptr %499, align 8
-  %665 = or i32 %664, %.sink973
+  %665 = or i32 %664, %.sink972
   store i32 %665, ptr %499, align 8
   %indvars.iv.next840 = add nuw nsw i64 %indvars.iv839, 1
   %666 = load i32, ptr %47, align 8
@@ -11360,9 +11360,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %829
 
 829:                                              ; preds = %._crit_edge750, %._crit_edge750.thread
-  %.sink974 = phi i32 [ 8, %._crit_edge750.thread ], [ 4, %._crit_edge750 ]
+  %.sink973 = phi i32 [ 8, %._crit_edge750.thread ], [ 4, %._crit_edge750 ]
   %830 = load i32, ptr %709, align 8
-  %831 = or i32 %830, %.sink974
+  %831 = or i32 %830, %.sink973
   store i32 %831, ptr %709, align 8
   %indvars.iv.next846 = add nuw nsw i64 %indvars.iv845, 1
   %832 = load i32, ptr %117, align 8
@@ -11846,7 +11846,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr @.str, ptr %10, align 8
   invoke void @_ZN17DeadlyImportErrorC2IJPKcRA71_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1003, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(71) @.str.87)
-          to label %.invoke975 unwind label %1004
+          to label %.invoke974 unwind label %1004
 
 1004:                                             ; preds = %1002
   %1005 = landingpad { ptr, i32 }
@@ -11855,7 +11855,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   call void @__cxa_free_exception(ptr nonnull %1003) #26
   br label %.body549
 
-1006:                                             ; preds = %.invoke975
+1006:                                             ; preds = %.invoke974
   %1007 = landingpad { ptr, i32 }
           cleanup
   br label %.body549
@@ -12371,7 +12371,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr @.str, ptr %9, align 8
   invoke void @_ZN17DeadlyImportErrorC2IJPKcRA68_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1255, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(68) @.str.88)
-          to label %.invoke975 unwind label %1256
+          to label %.invoke974 unwind label %1256
 
 1256:                                             ; preds = %1254
   %1257 = landingpad { ptr, i32 }
@@ -12543,14 +12543,14 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @.str, ptr %8, align 8
   invoke void @_ZN17DeadlyImportErrorC2IJPKcRA66_S1_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %1348, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(66) @.str.89)
-          to label %.invoke975 unwind label %1350
+          to label %.invoke974 unwind label %1350
 
-.invoke975:                                       ; preds = %1002, %1347, %1254
+.invoke974:                                       ; preds = %1002, %1347, %1254
   %1349 = phi ptr [ %1255, %1254 ], [ %1348, %1347 ], [ %1003, %1002 ]
   invoke void @__cxa_throw(ptr nonnull %1349, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %.cont976 unwind label %1006
+          to label %.cont975 unwind label %1006
 
-.cont976:                                         ; preds = %.invoke975
+.cont975:                                         ; preds = %.invoke974
   unreachable
 
 1350:                                             ; preds = %1347

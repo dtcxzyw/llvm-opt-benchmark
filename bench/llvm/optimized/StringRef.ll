@@ -296,8 +296,8 @@ define dso_local noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr nound
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %.041
   %30 = load i8, ptr %29, align 1, !tbaa !13
-  %.fr123 = freeze i8 %30
-  %31 = add i8 %.fr123, -48
+  %.fr = freeze i8 %30
+  %31 = add i8 %.fr, -48
   %32 = icmp ult i8 %31, 10
   %33 = zext i1 %32 to i32
   %.not46 = icmp eq i32 %26, %33
@@ -326,8 +326,8 @@ define dso_local noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr nound
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %37
   %39 = sub i64 %.041.lcssa, %.034132
   %40 = tail call i32 @memcmp(ptr noundef nonnull %9, ptr noundef nonnull %13, i64 noundef %39) #20
-  %.fr = freeze i32 %40
-  %.not47 = icmp eq i32 %.fr, 0
+  %.fr123 = freeze i32 %40
+  %.not47 = icmp eq i32 %.fr123, 0
   br i1 %.not47, label %.thread99, label %.thread112.loopexit125
 
 ._crit_edge:                                      ; preds = %8
@@ -356,7 +356,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit:   ; preds = %37
   br label %.thread112
 
 .thread112.loopexit125:                           ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit
-  %.inv.le = icmp sgt i32 %.fr, -1
+  %.inv.le = icmp sgt i32 %.fr123, -1
   %..le = select i1 %.inv.le, i32 1, i32 -1
   br label %.thread112
 

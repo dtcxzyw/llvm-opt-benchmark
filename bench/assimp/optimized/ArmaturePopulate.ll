@@ -154,11 +154,12 @@ define void @_ZN6Assimp16ArmaturePopulate7ExecuteEP7aiScene(ptr nonnull readnone
 
 .lr.ph:                                           ; preds = %24
   %.val.i = load ptr, ptr %4, align 8
+  %.val.i.fr = freeze ptr %.val.i
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val8.i = load ptr, ptr %26, align 8
-  %.not5.not.i.i = icmp eq ptr %.val.i, %.val8.i
-  %.not5.not.i.i.fr = freeze i1 %.not5.not.i.i
-  br i1 %.not5.not.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %.val8.i.fr = freeze ptr %.val8.i
+  %.not5.not.i.i = icmp eq ptr %.val.i.fr, %.val8.i.fr
+  br i1 %.not5.not.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6vectorIP6aiBoneSaIS5_EE.exit.us
   %.sroa.028.033.us = phi ptr [ %40, %_ZN6Assimp16ArmaturePopulate15GetArmatureRootEP6aiNodeRSt6vectorIP6aiBoneSaIS5_EE.exit.us ], [ %25, %.lr.ph ]
@@ -314,7 +315,7 @@ _ZNSt6vectorIP6aiBoneSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIP6aiNo
   br label %77
 
 77:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i, %.lr.ph.i.i
-  %.sroa.01.06.i.i = phi ptr [ %.val.i, %.lr.ph.i.i ], [ %83, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
+  %.sroa.01.06.i.i = phi ptr [ %.val.i.fr, %.lr.ph.i.i ], [ %83, %_ZNK8aiStringeqERKS_.exit.thread.i.i ]
   %78 = load ptr, ptr %.sroa.01.06.i.i, align 8
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %74
@@ -328,7 +329,7 @@ _ZNK8aiStringeqERKS_.exit.i.i:                    ; preds = %77
 
 _ZNK8aiStringeqERKS_.exit.thread.i.i:             ; preds = %_ZNK8aiStringeqERKS_.exit.i.i, %77
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i, i64 8
-  %.not.not.i.i = icmp eq ptr %83, %.val8.i
+  %.not.not.i.i = icmp eq ptr %83, %.val8.i.fr
   br i1 %.not.not.i.i, label %.loopexit.i.loopexit, label %77
 
 .loopexit.i.loopexit:                             ; preds = %_ZNK8aiStringeqERKS_.exit.thread.i.i

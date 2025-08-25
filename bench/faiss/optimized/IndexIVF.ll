@@ -2717,10 +2717,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !36
-  %.fr = freeze i32 %36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !36
-  %39 = icmp eq i32 %.fr, %38
+  %.fr = freeze i32 %38
+  %39 = icmp eq i32 %36, %.fr
   br i1 %39, label %62, label %40
 
 40:                                               ; preds = %34
@@ -3145,8 +3145,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   br i1 %221, label %222, label %_ZNSt6vectorIfSaIfEED2Ev.exit91
 
 222:                                              ; preds = %219
-  %223 = sext i32 %.fr to i64
-  %224 = icmp slt i32 %.fr, 0
+  %223 = sext i32 %36 to i64
+  %224 = icmp slt i32 %36, 0
   br i1 %224, label %.noexc, label %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
 
 .noexc:                                           ; preds = %222
@@ -3154,7 +3154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   unreachable
 
 _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %222
-  %.not.i.i.i.i = icmp eq i32 %.fr, 0
+  %.not.i.i.i.i = icmp eq i32 %36, 0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit89, label %.noexc80
 
 .noexc80:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i

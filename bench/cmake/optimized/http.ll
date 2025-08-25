@@ -1564,8 +1564,8 @@ define dso_local i32 @Curl_http_output_auth(ptr noundef %0, ptr noundef readonly
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 3328
   %66 = load i8, ptr %65, align 8
-  %.fr70 = freeze i8 %66
-  %67 = and i8 %.fr70, 3
+  %.fr = freeze i8 %66
+  %67 = and i8 %.fr, 3
   %or.cond = icmp eq i8 %67, 2
   br i1 %or.cond, label %switch.early.test, label %73
 

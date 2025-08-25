@@ -1615,7 +1615,7 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %290, %.prehead
   call void @_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_(ptr noundef nonnull align 8 dereferenceable(136) %0, double noundef %.0128, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
   %379 = load ptr, ptr %217, align 8, !tbaa !28
   %380 = load double, ptr %32, align 8, !tbaa !29
-  %.fr = freeze double %380
+  %.fr316 = freeze double %380
   %381 = load ptr, ptr %220, align 8
   %382 = ptrtoint ptr %381 to i64
   %383 = ptrtoint ptr %379 to i64
@@ -1629,7 +1629,7 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %290, %.prehead
   br i1 %389, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %378
-  %390 = fmul double %.fr, 0.000000e+00
+  %390 = fmul double %.fr316, 0.000000e+00
   %391 = fcmp ogt double %390, 0.000000e+00
   br i1 %391, label %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us, label %.split.us.split.us
 
@@ -1746,7 +1746,7 @@ _ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit: ; preds = %.lr.ph.i201, %.sp
   %467 = fneg double %.0140.lcssa.i
   %468 = fmul double %.0141.lcssa.i, %467
   %469 = call double @llvm.fmuladd.f64(double %.0143.lcssa.i, double %.0142.lcssa.i, double %468)
-  %470 = fmul double %469, %.fr
+  %470 = fmul double %469, %.fr316
   %471 = fcmp ogt double %470, 0.000000e+00
   %472 = fcmp ogt double %396, %376
   %or.cond = select i1 %471, i1 %472, i1 false

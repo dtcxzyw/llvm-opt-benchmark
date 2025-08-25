@@ -96909,8 +96909,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2231751)
   %conv4.i = fptosi double %101 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i261)
   %conv.i275 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i265)
@@ -96918,8 +96920,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i269)
   %conv4.i279 = fptosi double %104 to i32
   %add.i.i292 = add i32 %conv.i275, 1
-  %add4.i.i = add i32 %conv2.i277, 1
-  %add7.i.i = add nsw i32 %conv4.i279, 1
+  %conv2.i277.fr = freeze i32 %conv2.i277
+  %add4.i.i = add i32 %conv2.i277.fr, 1
+  %conv4.i279.fr = freeze i32 %conv4.i279
+  %add7.i.i = add i32 %conv4.i279.fr, 1
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -96989,8 +96993,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i994 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i995 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1768.fr = freeze i1 %cmp79.not1768
-  br i1 %cmp79.not1768.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1768, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -97025,8 +97028,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1766 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1766.fr = freeze i1 %cmp91.not1766
-  br i1 %cmp91.not1766.fr, label %for.body70.us1771.preheader, label %for.body70
+  br i1 %cmp91.not1766, label %for.body70.us1771.preheader, label %for.body70
 
 for.body70.us1771.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = tail call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -97079,8 +97081,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1826, %_ZNKSt8functionIFbvEEclEv.exit313.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1780 ]
   %inc106.us.us1781 = add nsw i32 %119, 1
   store i32 %inc106.us.us1781, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1782 = icmp sgt i32 %119, %conv2.i277
-  br i1 %cmp79.not.us.us1782, label %for.inc108.us1777, label %for.body80.us.us1780thread-pre-split, !llvm.loop !1221
+  %cmp79.not.us.us1782.not = icmp slt i32 %119, %add4.i.i
+  br i1 %cmp79.not.us.us1782.not, label %for.body80.us.us1780thread-pre-split, label %for.inc108.us1777, !llvm.loop !1221
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1771, %if.end.us1775
   store i32 %111, ptr %arrayinit.element.i, align 4
@@ -98321,15 +98323,15 @@ for.inc102:                                       ; preds = %if.end.i959, %if.th
   %330 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %330, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %330, %conv4.i279
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !1228
+  %cmp91.not.not = icmp slt i32 %330, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1228
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %331 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %331, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %331, %conv2.i277
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !1229
+  %cmp79.not.not = icmp slt i32 %331, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1229
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit313, %for.cond89.for.inc105_crit_edge
   %332 = load i32, ptr %outXYZ, align 4
@@ -99843,8 +99845,8 @@ for.inc161:                                       ; preds = %if.end.i1283, %if.t
   %add.i = fadd double %sub.i.i541, %inXYZ147.sroa.0.01795
   %add5.i = fadd double %sub5.i.i544, %inXYZ147.sroa.4.01791
   %add9.i = fadd double %sub9.i.i547, %inXYZ147.sroa.8.01787
-  %cmp151.not = icmp sgt i32 %618, %conv4.i279
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !1255
+  %cmp151.not.not = icmp slt i32 %618, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1255
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %619 = load i32, ptr %arrayinit.element.i586, align 4
@@ -99853,8 +99855,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i872 = fadd double %sub.i.i497, %inStartY.sroa.0.01799
   %add5.i875 = fadd double %sub5.i.i500, %inStartY.sroa.4.01798
   %add9.i878 = fadd double %sub9.i.i503, %inStartY.sroa.7.01797
-  %cmp140.not = icmp sgt i32 %619, %conv2.i277
-  br i1 %cmp140.not, label %for.inc169, label %for.body141, !llvm.loop !1256
+  %cmp140.not.not = icmp slt i32 %619, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !1256
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit609, %for.inc165, %if.end136
   %620 = load i32, ptr %outXYZ120, align 4
@@ -103424,8 +103426,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2221704)
   %conv4.i = fptosi double %101 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i260)
   %conv.i274 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i264)
@@ -103433,8 +103437,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i268)
   %conv4.i278 = fptosi double %104 to i32
   %add.i.i291 = add i32 %conv.i274, 1
-  %add4.i.i = add i32 %conv2.i276, 1
-  %add7.i.i = add nsw i32 %conv4.i278, 1
+  %conv2.i276.fr = freeze i32 %conv2.i276
+  %add4.i.i = add i32 %conv2.i276.fr, 1
+  %conv4.i278.fr = freeze i32 %conv4.i278
+  %add7.i.i = add i32 %conv4.i278.fr, 1
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -103496,8 +103502,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i951 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i952 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1721.fr = freeze i1 %cmp79.not1721
-  br i1 %cmp79.not1721.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1721, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -103532,8 +103537,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1719 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1719.fr = freeze i1 %cmp91.not1719
-  br i1 %cmp91.not1719.fr, label %for.body70.us1724.preheader, label %for.body70
+  br i1 %cmp91.not1719, label %for.body70.us1724.preheader, label %for.body70
 
 for.body70.us1724.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = tail call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -103586,8 +103590,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1773, %_ZNKSt8functionIFbvEEclEv.exit312.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1733 ]
   %inc106.us.us1734 = add nsw i32 %119, 1
   store i32 %inc106.us.us1734, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1735 = icmp sgt i32 %119, %conv2.i276
-  br i1 %cmp79.not.us.us1735, label %for.inc108.us1730, label %for.body80.us.us1733thread-pre-split, !llvm.loop !1291
+  %cmp79.not.us.us1735.not = icmp slt i32 %119, %add4.i.i
+  br i1 %cmp79.not.us.us1735.not, label %for.body80.us.us1733thread-pre-split, label %for.inc108.us1730, !llvm.loop !1291
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1724, %if.end.us1728
   store i32 %111, ptr %arrayinit.element.i, align 4
@@ -104775,15 +104779,15 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %318 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %318, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %318, %conv4.i278
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !1297
+  %cmp91.not.not = icmp slt i32 %318, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1297
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %319 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %319, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %319, %conv2.i276
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !1298
+  %cmp79.not.not = icmp slt i32 %319, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1298
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit312, %for.cond89.for.inc105_crit_edge
   %320 = load i32, ptr %outXYZ, align 4
@@ -106236,8 +106240,8 @@ for.inc161:                                       ; preds = %if.end.i1239, %if.t
   %add.i = fadd double %sub.i.i539, %inXYZ147.sroa.0.01742
   %add5.i = fadd double %sub5.i.i542, %inXYZ147.sroa.4.01741
   %add9.i = fadd double %sub9.i.i545, %inXYZ147.sroa.7.01740
-  %cmp151.not = icmp sgt i32 %594, %conv4.i278
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !1324
+  %cmp151.not.not = icmp slt i32 %594, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1324
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %595 = load i32, ptr %arrayinit.element.i584, align 4
@@ -106246,8 +106250,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i833 = fadd double %sub.i.i495, %inStartY.sroa.0.01746
   %add5.i836 = fadd double %sub5.i.i498, %inStartY.sroa.4.01745
   %add9.i839 = fadd double %sub9.i.i501, %inStartY.sroa.7.01744
-  %cmp140.not = icmp sgt i32 %595, %conv2.i276
-  br i1 %cmp140.not, label %for.inc169, label %for.body141, !llvm.loop !1325
+  %cmp140.not.not = icmp slt i32 %595, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !1325
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit605, %for.inc165, %if.end136
   %596 = load i32, ptr %outXYZ120, align 4
@@ -109585,8 +109589,10 @@ for.end:                                          ; preds = %for.body
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i110)
   %conv4.i = fptosi double %62 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i120)
   %conv.i134 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i124)
@@ -109594,8 +109600,10 @@ for.end:                                          ; preds = %for.body
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i128)
   %conv4.i138 = fptosi double %65 to i32
   %add.i.i = add i32 %conv.i134, 1
-  %add4.i.i = add i32 %conv2.i136, 1
-  %add7.i.i = add nsw i32 %conv4.i138, 1
+  %conv2.i136.fr = freeze i32 %conv2.i136
+  %add4.i.i = add i32 %conv2.i136.fr, 1
+  %conv4.i138.fr = freeze i32 %conv4.i138
+  %add7.i.i = add i32 %conv4.i138.fr, 1
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -109649,8 +109657,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i674 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i675 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1421.fr = freeze i1 %cmp79.not1421
-  br i1 %cmp79.not1421.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1421, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -109685,8 +109692,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1419 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1419.fr = freeze i1 %cmp91.not1419
-  br i1 %cmp91.not1419.fr, label %for.body70.us1424.preheader, label %for.body70
+  br i1 %cmp91.not1419, label %for.body70.us1424.preheader, label %for.body70
 
 for.body70.us1424.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -109741,8 +109747,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1465, %_ZNKSt8functionIFbvEEclEv.exit170.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1433 ]
   %inc106.us.us1434 = add nsw i32 %82, 1
   store i32 %inc106.us.us1434, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1435 = icmp sgt i32 %82, %conv2.i136
-  br i1 %cmp79.not.us.us1435, label %for.inc108.us1430.loopexit, label %for.body80.us.us1433, !llvm.loop !1410
+  %cmp79.not.us.us1435.not = icmp slt i32 %82, %add4.i.i
+  br i1 %cmp79.not.us.us1435.not, label %for.body80.us.us1433, label %for.inc108.us1430.loopexit, !llvm.loop !1410
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1424, %if.end.us1428
   %83 = phi i32 [ %.pre1463, %if.end.us1428 ], [ %74, %for.body70.us1424 ]
@@ -110959,15 +110965,15 @@ for.inc102:                                       ; preds = %if.end.i639, %if.th
   %276 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %276, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %276, %conv4.i138
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !1420
+  %cmp91.not.not = icmp slt i32 %276, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1420
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %277 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %277, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %277, %conv2.i136
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !1421
+  %cmp79.not.not = icmp slt i32 %277, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1421
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit170, %for.cond89.for.inc105_crit_edge
   %278 = load i32, ptr %outXYZ, align 4
@@ -112330,8 +112336,8 @@ for.inc161:                                       ; preds = %if.end.i963, %if.th
   %add.i = fadd double %sub.i.i251, %inXYZ147.sroa.0.01448
   %add5.i = fadd double %sub5.i.i254, %inXYZ147.sroa.4.01444
   %add9.i = fadd double %sub9.i.i257, %inXYZ147.sroa.8.01440
-  %cmp151.not = icmp sgt i32 %500, %conv4.i138
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !1476
+  %cmp151.not.not = icmp slt i32 %500, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1476
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %501 = load i32, ptr %arrayinit.element.i267, align 4
@@ -112340,8 +112346,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i553 = fadd double %sub.i.i236, %inStartY.sroa.0.01452
   %add5.i556 = fadd double %sub5.i.i239, %inStartY.sroa.4.01451
   %add9.i559 = fadd double %sub9.i.i242, %inStartY.sroa.7.01450
-  %cmp140.not = icmp sgt i32 %501, %conv2.i136
-  br i1 %cmp140.not, label %for.inc169.loopexit, label %for.body141, !llvm.loop !1477
+  %cmp140.not.not = icmp slt i32 %501, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !1477
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit290
   %.pre1472 = load double, ptr %inStartX, align 8
@@ -113230,8 +113236,10 @@ for.end:                                          ; preds = %for.body
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i109)
   %conv4.i = fptosi double %62 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i119)
   %conv.i133 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i123)
@@ -113239,8 +113247,10 @@ for.end:                                          ; preds = %for.body
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i127)
   %conv4.i137 = fptosi double %65 to i32
   %add.i.i = add i32 %conv.i133, 1
-  %add4.i.i = add i32 %conv2.i135, 1
-  %add7.i.i = add nsw i32 %conv4.i137, 1
+  %conv2.i135.fr = freeze i32 %conv2.i135
+  %add4.i.i = add i32 %conv2.i135.fr, 1
+  %conv4.i137.fr = freeze i32 %conv4.i137
+  %add7.i.i = add i32 %conv4.i137.fr, 1
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -113286,8 +113296,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i628 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i629 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1371.fr = freeze i1 %cmp79.not1371
-  br i1 %cmp79.not1371.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1371, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -113322,8 +113331,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1369 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1369.fr = freeze i1 %cmp91.not1369
-  br i1 %cmp91.not1369.fr, label %for.body70.us1374.preheader, label %for.body70
+  br i1 %cmp91.not1369, label %for.body70.us1374.preheader, label %for.body70
 
 for.body70.us1374.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -113378,8 +113386,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1409, %_ZNKSt8functionIFbvEEclEv.exit169.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1383 ]
   %inc106.us.us1384 = add nsw i32 %82, 1
   store i32 %inc106.us.us1384, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1385 = icmp sgt i32 %82, %conv2.i135
-  br i1 %cmp79.not.us.us1385, label %for.inc108.us1380.loopexit, label %for.body80.us.us1383, !llvm.loop !1550
+  %cmp79.not.us.us1385.not = icmp slt i32 %82, %add4.i.i
+  br i1 %cmp79.not.us.us1385.not, label %for.body80.us.us1383, label %for.inc108.us1380.loopexit, !llvm.loop !1550
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1374, %if.end.us1378
   %83 = phi i32 [ %.pre1407, %if.end.us1378 ], [ %74, %for.body70.us1374 ]
@@ -114543,15 +114551,15 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %264 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %264, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %264, %conv4.i137
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !1560
+  %cmp91.not.not = icmp slt i32 %264, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1560
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %265 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %265, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %265, %conv2.i135
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !1561
+  %cmp79.not.not = icmp slt i32 %265, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1561
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169, %for.cond89.for.inc105_crit_edge
   %266 = load i32, ptr %outXYZ, align 4
@@ -115853,8 +115861,8 @@ for.inc161:                                       ; preds = %if.end.i916, %if.th
   %add.i = fadd double %sub.i.i246, %inXYZ147.sroa.0.01392
   %add5.i = fadd double %sub5.i.i249, %inXYZ147.sroa.4.01391
   %add9.i = fadd double %sub9.i.i252, %inXYZ147.sroa.7.01390
-  %cmp151.not = icmp sgt i32 %476, %conv4.i137
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !1616
+  %cmp151.not.not = icmp slt i32 %476, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1616
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %477 = load i32, ptr %arrayinit.element.i262, align 4
@@ -115863,8 +115871,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i511 = fadd double %sub.i.i231, %inStartY.sroa.0.01396
   %add5.i514 = fadd double %sub5.i.i234, %inStartY.sroa.4.01395
   %add9.i517 = fadd double %sub9.i.i237, %inStartY.sroa.7.01394
-  %cmp140.not = icmp sgt i32 %477, %conv2.i135
-  br i1 %cmp140.not, label %for.inc169.loopexit, label %for.body141, !llvm.loop !1617
+  %cmp140.not.not = icmp slt i32 %477, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !1617
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit283
   %.pre1416 = load double, ptr %inStartX, align 8
@@ -119048,14 +119056,18 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %conv.i = fptosi double %99 to i32
   %100 = tail call double @llvm.floor.f64(double %.sroa.speculated12.i2181609)
   %conv2.i = fptosi double %100 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2221610)
   %conv4.i = fptosi double %101 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i260)
   %conv.i274 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i264)
   %conv2.i276 = fptosi double %103 to i32
+  %conv2.i276.fr = freeze i32 %conv2.i276
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i268)
   %conv4.i278 = fptosi double %104 to i32
+  %conv4.i278.fr = freeze i32 %conv4.i278
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -119077,7 +119089,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1627 = icmp sgt i32 %conv2.i, %conv2.i276
+  %cmp79.not1627 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
   %arrayidx.i.i317 = getelementptr inbounds nuw i8, ptr %xform, i64 152
   %arrayidx4.i.i319 = getelementptr inbounds nuw i8, ptr %xform, i64 184
   %arrayidx8.i.i322 = getelementptr inbounds nuw i8, ptr %xform, i64 216
@@ -119110,8 +119122,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i892 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i893 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1627.fr = freeze i1 %cmp79.not1627
-  br i1 %cmp79.not1627.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1627, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -119145,12 +119156,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !1648
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1625 = icmp sgt i32 %conv4.i, %conv4.i278
-  %cmp91.not1625.fr = freeze i1 %cmp91.not1625
-  br i1 %cmp91.not1625.fr, label %for.body70.us1630.preheader, label %for.body70
+  %cmp91.not1625 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
+  br i1 %cmp91.not1625, label %for.body70.us1630.preheader, label %for.body70
 
 for.body70.us1630.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276, i32 %conv2.i)
+  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276.fr, i32 %conv2.i.fr)
   %111 = add i32 %smax, 1
   br label %for.body70.us1630
 
@@ -119167,7 +119177,7 @@ _ZNKSt8functionIFbvEEclEv.exit.us1632:            ; preds = %for.body70.us1630
 if.end.us1634:                                    ; preds = %_ZNKSt8functionIFbvEEclEv.exit.us1632
   %.pre1678 = load ptr, ptr %_M_manager.i.i, align 8
   %114 = icmp eq ptr %.pre1678, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %114, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1639
 
 for.inc108.us1636:                                ; preds = %if.end85.us.us, %_ZNKSt8functionIFbvEEclEv.exit312.us.us, %for.body80.lr.ph.split.us.split.us.us
@@ -119183,7 +119193,7 @@ for.body80.us.us1639thread-pre-split:             ; preds = %if.end85.us.us
 
 for.body80.us.us1639:                             ; preds = %if.end.us1634, %for.body80.us.us1639thread-pre-split
   %116 = phi ptr [ %.pr1705, %for.body80.us.us1639thread-pre-split ], [ %.pre1678, %if.end.us1634 ]
-  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i, %if.end.us1634 ]
+  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i.fr, %if.end.us1634 ]
   %tobool.not.i.i306.not.us.us = icmp eq ptr %116, null
   br i1 %tobool.not.i.i306.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit312.us.us
 
@@ -119200,7 +119210,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1679, %_ZNKSt8functionIFbvEEclEv.exit312.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1639 ]
   %inc106.us.us1640 = add nsw i32 %119, 1
   store i32 %inc106.us.us1640, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276
+  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276.fr
   br i1 %cmp79.not.us.us1641.not, label %for.body80.us.us1639thread-pre-split, label %for.inc108.us1636, !llvm.loop !1650
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1630, %if.end.us1634
@@ -119225,11 +119235,11 @@ _ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge:  ; preds = %_ZNKSt8functionIFbv
 if.end:                                           ; preds = %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge, %for.body70
   %123 = phi i32 [ %.pre1672, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %120, %for.body70 ]
   %conv74 = sitofp i32 %123 to double
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %124 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %124 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %125 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i306.not = icmp eq ptr %125, null
   br i1 %tobool.not.i.i306.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit312
@@ -119246,11 +119256,11 @@ _ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge: ; preds = %_ZNKSt8function
 if.end85:                                         ; preds = %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge, %for.body80
   %127 = phi i32 [ %.pre1673, %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge ], [ %124, %for.body80 ]
   %conv86 = sitofp i32 %127 to double
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511626 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511626 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511626 to double
   %128 = load double, ptr %arrayidx.i.i317, align 8, !noalias !1651
   %129 = load double, ptr %arrayidx4.i.i319, align 8, !noalias !1651
@@ -120298,14 +120308,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %307 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %307, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %307, %conv4.i278
+  %cmp91.not.not = icmp slt i32 %307, %conv4.i278.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1656
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %308 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %308, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %308, %conv2.i276
+  %cmp79.not.not = icmp slt i32 %308, %conv2.i276.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1657
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit312, %for.cond89.for.inc105_crit_edge
@@ -120539,8 +120549,8 @@ _ZNK7openvdb5v11_05tools15GridTransformer15MatrixTransform12invTransformERKNS0_4
   %sub5.i.i537 = fsub double %div38.sink.i.i531, %div38.sink.i.i410
   %sub9.i.i540 = fsub double %div52.sink.i.i532, %div52.sink.i.i411
   %conv.i541 = sitofp i32 %conv.i to double
-  %conv3.i = sitofp i32 %conv2.i to double
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %mul5.i.i547 = fmul double %311, %conv3.i
   %393 = tail call double @llvm.fmuladd.f64(double %conv.i541, double %310, double %mul5.i.i547)
   %394 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %313, double %393)
@@ -120621,8 +120631,8 @@ for.body131.lr.ph:                                ; preds = %_ZNK7openvdb5v11_05
   %add.ptr.i.i.i.i.i.i1185 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i1223 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i1224 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1649 = icmp sgt i32 %conv2.i, %conv2.i276
-  %cmp151.not1645 = icmp sgt i32 %conv4.i, %conv4.i278
+  %cmp140.not1649 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
+  %cmp151.not1645 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -120639,7 +120649,7 @@ _ZNKSt8functionIFbvEEclEv.exit590:                ; preds = %for.body131
   br i1 %call2.i588, label %if.end173, label %if.end136
 
 if.end136:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit590, %for.body131
-  store i32 %conv2.i, ptr %arrayinit.element.i579, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i579, align 4
   br i1 %cmp140.not1649, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -120656,7 +120666,7 @@ _ZNKSt8functionIFbvEEclEv.exit600:                ; preds = %for.body141
   br i1 %call2.i598, label %for.inc169, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i580, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i580, align 4
   br i1 %cmp151.not1645, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -121661,7 +121671,7 @@ for.inc161:                                       ; preds = %if.end.i1146, %if.t
   %add.i = fadd double %sub.i.i534, %inXYZ147.sroa.0.01648
   %add5.i = fadd double %sub5.i.i537, %inXYZ147.sroa.4.01647
   %add9.i = fadd double %sub9.i.i540, %inXYZ147.sroa.7.01646
-  %cmp151.not.not = icmp slt i32 %569, %conv4.i278
+  %cmp151.not.not = icmp slt i32 %569, %conv4.i278.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1683
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -121671,7 +121681,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i778 = fadd double %sub.i.i490, %inStartY.sroa.0.01652
   %add5.i781 = fadd double %sub5.i.i493, %inStartY.sroa.4.01651
   %add9.i784 = fadd double %sub9.i.i496, %inStartY.sroa.7.01650
-  %cmp140.not.not = icmp slt i32 %570, %conv2.i276
+  %cmp140.not.not = icmp slt i32 %570, %conv2.i276.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !1684
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.inc165, %if.end136
@@ -122655,14 +122665,18 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %conv.i = fptosi double %99 to i32
   %100 = tail call double @llvm.floor.f64(double %.sroa.speculated12.i2181609)
   %conv2.i = fptosi double %100 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2221610)
   %conv4.i = fptosi double %101 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i260)
   %conv.i274 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i264)
   %conv2.i276 = fptosi double %103 to i32
+  %conv2.i276.fr = freeze i32 %conv2.i276
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i268)
   %conv4.i278 = fptosi double %104 to i32
+  %conv4.i278.fr = freeze i32 %conv4.i278
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -122684,7 +122698,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1627 = icmp sgt i32 %conv2.i, %conv2.i276
+  %cmp79.not1627 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
   %arrayidx.i.i317 = getelementptr inbounds nuw i8, ptr %xform, i64 152
   %arrayidx4.i.i319 = getelementptr inbounds nuw i8, ptr %xform, i64 184
   %arrayidx8.i.i322 = getelementptr inbounds nuw i8, ptr %xform, i64 216
@@ -122717,8 +122731,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i892 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i893 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1627.fr = freeze i1 %cmp79.not1627
-  br i1 %cmp79.not1627.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1627, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -122752,12 +122765,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !1709
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1625 = icmp sgt i32 %conv4.i, %conv4.i278
-  %cmp91.not1625.fr = freeze i1 %cmp91.not1625
-  br i1 %cmp91.not1625.fr, label %for.body70.us1630.preheader, label %for.body70
+  %cmp91.not1625 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
+  br i1 %cmp91.not1625, label %for.body70.us1630.preheader, label %for.body70
 
 for.body70.us1630.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276, i32 %conv2.i)
+  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276.fr, i32 %conv2.i.fr)
   %111 = add i32 %smax, 1
   br label %for.body70.us1630
 
@@ -122774,7 +122786,7 @@ _ZNKSt8functionIFbvEEclEv.exit.us1632:            ; preds = %for.body70.us1630
 if.end.us1634:                                    ; preds = %_ZNKSt8functionIFbvEEclEv.exit.us1632
   %.pre1678 = load ptr, ptr %_M_manager.i.i, align 8
   %114 = icmp eq ptr %.pre1678, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %114, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1639
 
 for.inc108.us1636:                                ; preds = %if.end85.us.us, %_ZNKSt8functionIFbvEEclEv.exit312.us.us, %for.body80.lr.ph.split.us.split.us.us
@@ -122790,7 +122802,7 @@ for.body80.us.us1639thread-pre-split:             ; preds = %if.end85.us.us
 
 for.body80.us.us1639:                             ; preds = %if.end.us1634, %for.body80.us.us1639thread-pre-split
   %116 = phi ptr [ %.pr1705, %for.body80.us.us1639thread-pre-split ], [ %.pre1678, %if.end.us1634 ]
-  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i, %if.end.us1634 ]
+  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i.fr, %if.end.us1634 ]
   %tobool.not.i.i306.not.us.us = icmp eq ptr %116, null
   br i1 %tobool.not.i.i306.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit312.us.us
 
@@ -122807,7 +122819,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1679, %_ZNKSt8functionIFbvEEclEv.exit312.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1639 ]
   %inc106.us.us1640 = add nsw i32 %119, 1
   store i32 %inc106.us.us1640, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276
+  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276.fr
   br i1 %cmp79.not.us.us1641.not, label %for.body80.us.us1639thread-pre-split, label %for.inc108.us1636, !llvm.loop !1711
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1630, %if.end.us1634
@@ -122832,11 +122844,11 @@ _ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge:  ; preds = %_ZNKSt8functionIFbv
 if.end:                                           ; preds = %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge, %for.body70
   %123 = phi i32 [ %.pre1672, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %120, %for.body70 ]
   %conv74 = sitofp i32 %123 to double
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %124 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %124 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %125 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i306.not = icmp eq ptr %125, null
   br i1 %tobool.not.i.i306.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit312
@@ -122853,11 +122865,11 @@ _ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge: ; preds = %_ZNKSt8function
 if.end85:                                         ; preds = %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge, %for.body80
   %127 = phi i32 [ %.pre1673, %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge ], [ %124, %for.body80 ]
   %conv86 = sitofp i32 %127 to double
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511626 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511626 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511626 to double
   %128 = load double, ptr %arrayidx.i.i317, align 8, !noalias !1712
   %129 = load double, ptr %arrayidx4.i.i319, align 8, !noalias !1712
@@ -123905,14 +123917,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %307 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %307, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %307, %conv4.i278
+  %cmp91.not.not = icmp slt i32 %307, %conv4.i278.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1717
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %308 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %308, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %308, %conv2.i276
+  %cmp79.not.not = icmp slt i32 %308, %conv2.i276.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1718
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit312, %for.cond89.for.inc105_crit_edge
@@ -124146,8 +124158,8 @@ _ZNK7openvdb5v11_05tools15GridTransformer15MatrixTransform12invTransformERKNS0_4
   %sub5.i.i537 = fsub double %div38.sink.i.i531, %div38.sink.i.i410
   %sub9.i.i540 = fsub double %div52.sink.i.i532, %div52.sink.i.i411
   %conv.i541 = sitofp i32 %conv.i to double
-  %conv3.i = sitofp i32 %conv2.i to double
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %mul5.i.i547 = fmul double %311, %conv3.i
   %393 = tail call double @llvm.fmuladd.f64(double %conv.i541, double %310, double %mul5.i.i547)
   %394 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %313, double %393)
@@ -124228,8 +124240,8 @@ for.body131.lr.ph:                                ; preds = %_ZNK7openvdb5v11_05
   %add.ptr.i.i.i.i.i.i1185 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i1223 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i1224 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1649 = icmp sgt i32 %conv2.i, %conv2.i276
-  %cmp151.not1645 = icmp sgt i32 %conv4.i, %conv4.i278
+  %cmp140.not1649 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
+  %cmp151.not1645 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -124246,7 +124258,7 @@ _ZNKSt8functionIFbvEEclEv.exit590:                ; preds = %for.body131
   br i1 %call2.i588, label %if.end173, label %if.end136
 
 if.end136:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit590, %for.body131
-  store i32 %conv2.i, ptr %arrayinit.element.i579, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i579, align 4
   br i1 %cmp140.not1649, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -124263,7 +124275,7 @@ _ZNKSt8functionIFbvEEclEv.exit600:                ; preds = %for.body141
   br i1 %call2.i598, label %for.inc169, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i580, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i580, align 4
   br i1 %cmp151.not1645, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -125268,7 +125280,7 @@ for.inc161:                                       ; preds = %if.end.i1146, %if.t
   %add.i = fadd double %sub.i.i534, %inXYZ147.sroa.0.01648
   %add5.i = fadd double %sub5.i.i537, %inXYZ147.sroa.4.01647
   %add9.i = fadd double %sub9.i.i540, %inXYZ147.sroa.7.01646
-  %cmp151.not.not = icmp slt i32 %569, %conv4.i278
+  %cmp151.not.not = icmp slt i32 %569, %conv4.i278.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1744
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -125278,7 +125290,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i778 = fadd double %sub.i.i490, %inStartY.sroa.0.01652
   %add5.i781 = fadd double %sub5.i.i493, %inStartY.sroa.4.01651
   %add9.i784 = fadd double %sub9.i.i496, %inStartY.sroa.7.01650
-  %cmp140.not.not = icmp slt i32 %570, %conv2.i276
+  %cmp140.not.not = icmp slt i32 %570, %conv2.i276.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !1745
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.inc165, %if.end136
@@ -128343,14 +128355,18 @@ for.end:                                          ; preds = %for.body
   %conv.i = fptosi double %60 to i32
   %61 = call double @llvm.floor.f64(double %.sroa.speculated12.i105)
   %conv2.i = fptosi double %61 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i109)
   %conv4.i = fptosi double %62 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i119)
   %conv.i133 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i123)
   %conv2.i135 = fptosi double %64 to i32
+  %conv2.i135.fr = freeze i32 %conv2.i135
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i127)
   %conv4.i137 = fptosi double %65 to i32
+  %conv4.i137.fr = freeze i32 %conv4.i137
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -128368,7 +128384,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1279 = icmp sgt i32 %conv2.i, %conv2.i135
+  %cmp79.not1279 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
   %arrayidx.i170 = getelementptr inbounds nuw i8, ptr %xyz, i64 8
   %arrayidx.i173 = getelementptr inbounds nuw i8, ptr %xyz, i64 16
   %inXYZ.sroa.2.0.ref.tmp95.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 8
@@ -128389,8 +128405,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i571 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i572 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1279.fr = freeze i1 %cmp79.not1279
-  br i1 %cmp79.not1279.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1279, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -128424,12 +128439,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !1822
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1277 = icmp sgt i32 %conv4.i, %conv4.i137
-  %cmp91.not1277.fr = freeze i1 %cmp91.not1277
-  br i1 %cmp91.not1277.fr, label %for.body70.us1282.preheader, label %for.body70
+  %cmp91.not1277 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
+  br i1 %cmp91.not1277, label %for.body70.us1282.preheader, label %for.body70
 
 for.body70.us1282.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135, i32 %conv2.i)
+  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135.fr, i32 %conv2.i.fr)
   %73 = add i32 %smax, 1
   br label %for.body70.us1282
 
@@ -128448,7 +128462,7 @@ if.end.us1286:                                    ; preds = %_ZNKSt8functionIFbv
   %.pre1315 = load i32, ptr %outXYZ, align 4
   %.pre1316 = load ptr, ptr %_M_manager.i.i, align 8
   %77 = icmp eq ptr %.pre1316, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %77, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1291
 
 for.inc108.us1288.loopexit:                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169.us.us, %if.end85.us.us
@@ -128463,7 +128477,7 @@ for.inc108.us1288:                                ; preds = %for.inc108.us1288.l
   br i1 %cmp69.not.us1290.not, label %for.body70.us1282, label %if.end173, !llvm.loop !1823
 
 for.body80.us.us1291:                             ; preds = %if.end.us1286, %if.end85.us.us
-  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i, %if.end.us1286 ]
+  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i.fr, %if.end.us1286 ]
   %80 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not.us.us = icmp eq ptr %80, null
   br i1 %tobool.not.i.i163.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit169.us.us
@@ -128481,7 +128495,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1317, %_ZNKSt8functionIFbvEEclEv.exit169.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1291 ]
   %inc106.us.us1292 = add nsw i32 %82, 1
   store i32 %inc106.us.us1292, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135
+  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135.fr
   br i1 %cmp79.not.us.us1293.not, label %for.body80.us.us1291, label %for.inc108.us1288.loopexit, !llvm.loop !1824
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1282, %if.end.us1286
@@ -128508,11 +128522,11 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbv
   %87 = phi i32 [ %.pre, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %84, %for.body70 ]
   %conv74 = sitofp i32 %87 to double
   store double %conv74, ptr %xyz, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %88 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %88 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %89 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not = icmp eq ptr %89, null
   br i1 %tobool.not.i.i163.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit169
@@ -128530,11 +128544,11 @@ if.end85:                                         ; preds = %_ZNKSt8functionIFbv
   %91 = phi i32 [ %.pre1310, %_ZNKSt8functionIFbvEEclEv.exit169.if.end85_crit_edge ], [ %88, %for.body80 ]
   %conv86 = sitofp i32 %91 to double
   store double %conv86, ptr %arrayidx.i170, align 8
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511278 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511278 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511278 to double
   store double %conv93, ptr %arrayidx.i173, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i174)
@@ -129555,14 +129569,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %250 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %250, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %250, %conv4.i137
+  %cmp91.not.not = icmp slt i32 %250, %conv4.i137.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1834
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %251 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %251, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %251, %conv2.i135
+  %cmp79.not.not = icmp slt i32 %251, %conv2.i135.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1835
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169, %for.cond89.for.inc105_crit_edge
@@ -129678,10 +129692,10 @@ if.else111:                                       ; preds = %for.end
   %sub9.i.i250 = fsub double %deltaZ.sroa.7.0.copyload, %285
   %conv.i251 = sitofp i32 %conv.i to double
   store double %conv.i251, ptr %ref.tmp119, align 8
-  %conv3.i = sitofp i32 %conv2.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
   %arrayidx5.i253 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 8
   store double %conv3.i, ptr %arrayidx5.i253, align 8
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 16
   store double %conv7.i, ptr %arrayidx9.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i254)
@@ -129727,8 +129741,8 @@ for.body131.lr.ph:                                ; preds = %if.else111
   %add.ptr.i.i.i.i.i.i864 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i902 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i903 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1301 = icmp sgt i32 %conv2.i, %conv2.i135
-  %cmp151.not1297 = icmp sgt i32 %conv4.i, %conv4.i137
+  %cmp140.not1301 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
+  %cmp151.not1297 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -129745,7 +129759,7 @@ if.end136:                                        ; preds = %_ZNKSt8functionIFbv
   %inStartY.sroa.0.0.copyload = load double, ptr %inStartX, align 8
   %inStartY.sroa.4.0.copyload = load double, ptr %inStartY.sroa.4.0.inStartX.sroa_idx, align 8
   %inStartY.sroa.7.0.copyload = load double, ptr %inStartY.sroa.7.0.inStartX.sroa_idx, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i260, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i260, align 4
   br i1 %cmp140.not1301, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -129762,7 +129776,7 @@ _ZNKSt8functionIFbvEEclEv.exit281:                ; preds = %for.body141
   br i1 %call2.i279, label %for.inc169.loopexit, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit281, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i261, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i261, align 4
   br i1 %cmp151.not1297, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -130767,7 +130781,7 @@ for.inc161:                                       ; preds = %if.end.i825, %if.th
   %add.i = fadd double %sub.i.i244, %inXYZ147.sroa.0.01300
   %add5.i = fadd double %sub5.i.i247, %inXYZ147.sroa.4.01299
   %add9.i = fadd double %sub9.i.i250, %inXYZ147.sroa.7.01298
-  %cmp151.not.not = icmp slt i32 %448, %conv4.i137
+  %cmp151.not.not = icmp slt i32 %448, %conv4.i137.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !1890
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -130777,7 +130791,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i459 = fadd double %sub.i.i229, %inStartY.sroa.0.01304
   %add5.i462 = fadd double %sub5.i.i232, %inStartY.sroa.4.01303
   %add9.i465 = fadd double %sub9.i.i235, %inStartY.sroa.7.01302
-  %cmp140.not.not = icmp slt i32 %449, %conv2.i135
+  %cmp140.not.not = icmp slt i32 %449, %conv2.i135.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !1891
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit281
@@ -131662,14 +131676,18 @@ for.end:                                          ; preds = %for.body
   %conv.i = fptosi double %60 to i32
   %61 = call double @llvm.floor.f64(double %.sroa.speculated12.i105)
   %conv2.i = fptosi double %61 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i109)
   %conv4.i = fptosi double %62 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i119)
   %conv.i133 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i123)
   %conv2.i135 = fptosi double %64 to i32
+  %conv2.i135.fr = freeze i32 %conv2.i135
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i127)
   %conv4.i137 = fptosi double %65 to i32
+  %conv4.i137.fr = freeze i32 %conv4.i137
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -131687,7 +131705,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1279 = icmp sgt i32 %conv2.i, %conv2.i135
+  %cmp79.not1279 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
   %arrayidx.i170 = getelementptr inbounds nuw i8, ptr %xyz, i64 8
   %arrayidx.i173 = getelementptr inbounds nuw i8, ptr %xyz, i64 16
   %inXYZ.sroa.2.0.ref.tmp95.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 8
@@ -131708,8 +131726,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i571 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i572 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1279.fr = freeze i1 %cmp79.not1279
-  br i1 %cmp79.not1279.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1279, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -131743,12 +131760,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !1962
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1277 = icmp sgt i32 %conv4.i, %conv4.i137
-  %cmp91.not1277.fr = freeze i1 %cmp91.not1277
-  br i1 %cmp91.not1277.fr, label %for.body70.us1282.preheader, label %for.body70
+  %cmp91.not1277 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
+  br i1 %cmp91.not1277, label %for.body70.us1282.preheader, label %for.body70
 
 for.body70.us1282.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135, i32 %conv2.i)
+  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135.fr, i32 %conv2.i.fr)
   %73 = add i32 %smax, 1
   br label %for.body70.us1282
 
@@ -131767,7 +131783,7 @@ if.end.us1286:                                    ; preds = %_ZNKSt8functionIFbv
   %.pre1315 = load i32, ptr %outXYZ, align 4
   %.pre1316 = load ptr, ptr %_M_manager.i.i, align 8
   %77 = icmp eq ptr %.pre1316, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %77, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1291
 
 for.inc108.us1288.loopexit:                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169.us.us, %if.end85.us.us
@@ -131782,7 +131798,7 @@ for.inc108.us1288:                                ; preds = %for.inc108.us1288.l
   br i1 %cmp69.not.us1290.not, label %for.body70.us1282, label %if.end173, !llvm.loop !1963
 
 for.body80.us.us1291:                             ; preds = %if.end.us1286, %if.end85.us.us
-  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i, %if.end.us1286 ]
+  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i.fr, %if.end.us1286 ]
   %80 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not.us.us = icmp eq ptr %80, null
   br i1 %tobool.not.i.i163.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit169.us.us
@@ -131800,7 +131816,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1317, %_ZNKSt8functionIFbvEEclEv.exit169.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1291 ]
   %inc106.us.us1292 = add nsw i32 %82, 1
   store i32 %inc106.us.us1292, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135
+  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135.fr
   br i1 %cmp79.not.us.us1293.not, label %for.body80.us.us1291, label %for.inc108.us1288.loopexit, !llvm.loop !1964
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1282, %if.end.us1286
@@ -131827,11 +131843,11 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbv
   %87 = phi i32 [ %.pre, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %84, %for.body70 ]
   %conv74 = sitofp i32 %87 to double
   store double %conv74, ptr %xyz, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %88 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %88 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %89 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not = icmp eq ptr %89, null
   br i1 %tobool.not.i.i163.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit169
@@ -131849,11 +131865,11 @@ if.end85:                                         ; preds = %_ZNKSt8functionIFbv
   %91 = phi i32 [ %.pre1310, %_ZNKSt8functionIFbvEEclEv.exit169.if.end85_crit_edge ], [ %88, %for.body80 ]
   %conv86 = sitofp i32 %91 to double
   store double %conv86, ptr %arrayidx.i170, align 8
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511278 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511278 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511278 to double
   store double %conv93, ptr %arrayidx.i173, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i174)
@@ -132874,14 +132890,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %250 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %250, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %250, %conv4.i137
+  %cmp91.not.not = icmp slt i32 %250, %conv4.i137.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !1974
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %251 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %251, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %251, %conv2.i135
+  %cmp79.not.not = icmp slt i32 %251, %conv2.i135.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !1975
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169, %for.cond89.for.inc105_crit_edge
@@ -132997,10 +133013,10 @@ if.else111:                                       ; preds = %for.end
   %sub9.i.i250 = fsub double %deltaZ.sroa.7.0.copyload, %285
   %conv.i251 = sitofp i32 %conv.i to double
   store double %conv.i251, ptr %ref.tmp119, align 8
-  %conv3.i = sitofp i32 %conv2.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
   %arrayidx5.i253 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 8
   store double %conv3.i, ptr %arrayidx5.i253, align 8
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 16
   store double %conv7.i, ptr %arrayidx9.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i254)
@@ -133046,8 +133062,8 @@ for.body131.lr.ph:                                ; preds = %if.else111
   %add.ptr.i.i.i.i.i.i864 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i902 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i903 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1301 = icmp sgt i32 %conv2.i, %conv2.i135
-  %cmp151.not1297 = icmp sgt i32 %conv4.i, %conv4.i137
+  %cmp140.not1301 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
+  %cmp151.not1297 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -133064,7 +133080,7 @@ if.end136:                                        ; preds = %_ZNKSt8functionIFbv
   %inStartY.sroa.0.0.copyload = load double, ptr %inStartX, align 8
   %inStartY.sroa.4.0.copyload = load double, ptr %inStartY.sroa.4.0.inStartX.sroa_idx, align 8
   %inStartY.sroa.7.0.copyload = load double, ptr %inStartY.sroa.7.0.inStartX.sroa_idx, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i260, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i260, align 4
   br i1 %cmp140.not1301, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -133081,7 +133097,7 @@ _ZNKSt8functionIFbvEEclEv.exit281:                ; preds = %for.body141
   br i1 %call2.i279, label %for.inc169.loopexit, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit281, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i261, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i261, align 4
   br i1 %cmp151.not1297, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -134086,7 +134102,7 @@ for.inc161:                                       ; preds = %if.end.i825, %if.th
   %add.i = fadd double %sub.i.i244, %inXYZ147.sroa.0.01300
   %add5.i = fadd double %sub5.i.i247, %inXYZ147.sroa.4.01299
   %add9.i = fadd double %sub9.i.i250, %inXYZ147.sroa.7.01298
-  %cmp151.not.not = icmp slt i32 %448, %conv4.i137
+  %cmp151.not.not = icmp slt i32 %448, %conv4.i137.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !2030
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -134096,7 +134112,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i459 = fadd double %sub.i.i229, %inStartY.sroa.0.01304
   %add5.i462 = fadd double %sub5.i.i232, %inStartY.sroa.4.01303
   %add9.i465 = fadd double %sub9.i.i235, %inStartY.sroa.7.01302
-  %cmp140.not.not = icmp slt i32 %449, %conv2.i135
+  %cmp140.not.not = icmp slt i32 %449, %conv2.i135.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !2031
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit281
@@ -215693,8 +215709,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2231737)
   %conv4.i = fptosi double %101 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i261)
   %conv.i275 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i265)
@@ -215702,8 +215720,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i269)
   %conv4.i279 = fptosi double %104 to i32
   %add.i.i292 = add i32 %conv.i275, 1
-  %add4.i.i = add i32 %conv2.i277, 1
-  %add7.i.i = add nsw i32 %conv4.i279, 1
+  %conv2.i277.fr = freeze i32 %conv2.i277
+  %add4.i.i = add i32 %conv2.i277.fr, 1
+  %conv4.i279.fr = freeze i32 %conv4.i279
+  %add7.i.i = add i32 %conv4.i279.fr, 1
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -215773,8 +215793,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i980 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i981 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1754.fr = freeze i1 %cmp79.not1754
-  br i1 %cmp79.not1754.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1754, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -215809,8 +215828,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1752 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1752.fr = freeze i1 %cmp91.not1752
-  br i1 %cmp91.not1752.fr, label %for.body70.us1757.preheader, label %for.body70
+  br i1 %cmp91.not1752, label %for.body70.us1757.preheader, label %for.body70
 
 for.body70.us1757.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = tail call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -215863,8 +215881,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1812, %_ZNKSt8functionIFbvEEclEv.exit313.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1766 ]
   %inc106.us.us1767 = add nsw i32 %119, 1
   store i32 %inc106.us.us1767, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1768 = icmp sgt i32 %119, %conv2.i277
-  br i1 %cmp79.not.us.us1768, label %for.inc108.us1763, label %for.body80.us.us1766thread-pre-split, !llvm.loop !3112
+  %cmp79.not.us.us1768.not = icmp slt i32 %119, %add4.i.i
+  br i1 %cmp79.not.us.us1768.not, label %for.body80.us.us1766thread-pre-split, label %for.inc108.us1763, !llvm.loop !3112
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1757, %if.end.us1761
   store i32 %111, ptr %arrayinit.element.i, align 4
@@ -217091,15 +217109,15 @@ for.inc102:                                       ; preds = %if.end.i945, %if.th
   %330 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %330, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %330, %conv4.i279
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !3119
+  %cmp91.not.not = icmp slt i32 %330, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3119
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %331 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %331, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %331, %conv2.i277
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !3120
+  %cmp79.not.not = icmp slt i32 %331, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3120
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit313, %for.cond89.for.inc105_crit_edge
   %332 = load i32, ptr %outXYZ, align 4
@@ -218599,8 +218617,8 @@ for.inc161:                                       ; preds = %if.end.i1269, %if.t
   %add.i = fadd double %sub.i.i541, %inXYZ147.sroa.0.01781
   %add5.i = fadd double %sub5.i.i544, %inXYZ147.sroa.4.01777
   %add9.i = fadd double %sub9.i.i547, %inXYZ147.sroa.8.01773
-  %cmp151.not = icmp sgt i32 %618, %conv4.i279
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !3146
+  %cmp151.not.not = icmp slt i32 %618, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3146
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %619 = load i32, ptr %arrayinit.element.i586, align 4
@@ -218609,8 +218627,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i858 = fadd double %sub.i.i497, %inStartY.sroa.0.01785
   %add5.i861 = fadd double %sub5.i.i500, %inStartY.sroa.4.01784
   %add9.i864 = fadd double %sub9.i.i503, %inStartY.sroa.7.01783
-  %cmp140.not = icmp sgt i32 %619, %conv2.i277
-  br i1 %cmp140.not, label %for.inc169, label %for.body141, !llvm.loop !3147
+  %cmp140.not.not = icmp slt i32 %619, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !3147
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit609, %for.inc165, %if.end136
   %620 = load i32, ptr %outXYZ120, align 4
@@ -222177,8 +222195,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2221690)
   %conv4.i = fptosi double %101 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i260)
   %conv.i274 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i264)
@@ -222186,8 +222206,10 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i268)
   %conv4.i278 = fptosi double %104 to i32
   %add.i.i291 = add i32 %conv.i274, 1
-  %add4.i.i = add i32 %conv2.i276, 1
-  %add7.i.i = add nsw i32 %conv4.i278, 1
+  %conv2.i276.fr = freeze i32 %conv2.i276
+  %add4.i.i = add i32 %conv2.i276.fr, 1
+  %conv4.i278.fr = freeze i32 %conv4.i278
+  %add7.i.i = add i32 %conv4.i278.fr, 1
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -222249,8 +222271,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i937 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i938 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1707.fr = freeze i1 %cmp79.not1707
-  br i1 %cmp79.not1707.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1707, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -222285,8 +222306,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1705 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1705.fr = freeze i1 %cmp91.not1705
-  br i1 %cmp91.not1705.fr, label %for.body70.us1710.preheader, label %for.body70
+  br i1 %cmp91.not1705, label %for.body70.us1710.preheader, label %for.body70
 
 for.body70.us1710.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = tail call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -222339,8 +222359,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1759, %_ZNKSt8functionIFbvEEclEv.exit312.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1719 ]
   %inc106.us.us1720 = add nsw i32 %119, 1
   store i32 %inc106.us.us1720, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1721 = icmp sgt i32 %119, %conv2.i276
-  br i1 %cmp79.not.us.us1721, label %for.inc108.us1716, label %for.body80.us.us1719thread-pre-split, !llvm.loop !3182
+  %cmp79.not.us.us1721.not = icmp slt i32 %119, %add4.i.i
+  br i1 %cmp79.not.us.us1721.not, label %for.body80.us.us1719thread-pre-split, label %for.inc108.us1716, !llvm.loop !3182
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1710, %if.end.us1714
   store i32 %111, ptr %arrayinit.element.i, align 4
@@ -223514,15 +223534,15 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %318 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %318, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %318, %conv4.i278
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !3188
+  %cmp91.not.not = icmp slt i32 %318, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3188
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %319 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %319, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %319, %conv2.i276
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !3189
+  %cmp79.not.not = icmp slt i32 %319, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3189
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit312, %for.cond89.for.inc105_crit_edge
   %320 = load i32, ptr %outXYZ, align 4
@@ -224961,8 +224981,8 @@ for.inc161:                                       ; preds = %if.end.i1225, %if.t
   %add.i = fadd double %sub.i.i539, %inXYZ147.sroa.0.01728
   %add5.i = fadd double %sub5.i.i542, %inXYZ147.sroa.4.01727
   %add9.i = fadd double %sub9.i.i545, %inXYZ147.sroa.7.01726
-  %cmp151.not = icmp sgt i32 %594, %conv4.i278
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !3215
+  %cmp151.not.not = icmp slt i32 %594, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3215
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %595 = load i32, ptr %arrayinit.element.i584, align 4
@@ -224971,8 +224991,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i819 = fadd double %sub.i.i495, %inStartY.sroa.0.01732
   %add5.i822 = fadd double %sub5.i.i498, %inStartY.sroa.4.01731
   %add9.i825 = fadd double %sub9.i.i501, %inStartY.sroa.7.01730
-  %cmp140.not = icmp sgt i32 %595, %conv2.i276
-  br i1 %cmp140.not, label %for.inc169, label %for.body141, !llvm.loop !3216
+  %cmp140.not.not = icmp slt i32 %595, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !3216
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit605, %for.inc165, %if.end136
   %596 = load i32, ptr %outXYZ120, align 4
@@ -228310,8 +228330,10 @@ for.end:                                          ; preds = %for.body
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i110)
   %conv4.i = fptosi double %62 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i120)
   %conv.i134 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i124)
@@ -228319,8 +228341,10 @@ for.end:                                          ; preds = %for.body
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i128)
   %conv4.i138 = fptosi double %65 to i32
   %add.i.i = add i32 %conv.i134, 1
-  %add4.i.i = add i32 %conv2.i136, 1
-  %add7.i.i = add nsw i32 %conv4.i138, 1
+  %conv2.i136.fr = freeze i32 %conv2.i136
+  %add4.i.i = add i32 %conv2.i136.fr, 1
+  %conv4.i138.fr = freeze i32 %conv4.i138
+  %add7.i.i = add i32 %conv4.i138.fr, 1
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -228374,8 +228398,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i660 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i661 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1407.fr = freeze i1 %cmp79.not1407
-  br i1 %cmp79.not1407.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1407, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -228410,8 +228433,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1405 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1405.fr = freeze i1 %cmp91.not1405
-  br i1 %cmp91.not1405.fr, label %for.body70.us1410.preheader, label %for.body70
+  br i1 %cmp91.not1405, label %for.body70.us1410.preheader, label %for.body70
 
 for.body70.us1410.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -228466,8 +228488,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1451, %_ZNKSt8functionIFbvEEclEv.exit170.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1419 ]
   %inc106.us.us1420 = add nsw i32 %82, 1
   store i32 %inc106.us.us1420, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1421 = icmp sgt i32 %82, %conv2.i136
-  br i1 %cmp79.not.us.us1421, label %for.inc108.us1416.loopexit, label %for.body80.us.us1419, !llvm.loop !3301
+  %cmp79.not.us.us1421.not = icmp slt i32 %82, %add4.i.i
+  br i1 %cmp79.not.us.us1421.not, label %for.body80.us.us1419, label %for.inc108.us1416.loopexit, !llvm.loop !3301
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1410, %if.end.us1414
   %83 = phi i32 [ %.pre1449, %if.end.us1414 ], [ %74, %for.body70.us1410 ]
@@ -229670,15 +229692,15 @@ for.inc102:                                       ; preds = %if.end.i625, %if.th
   %276 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %276, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %276, %conv4.i138
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !3311
+  %cmp91.not.not = icmp slt i32 %276, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3311
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %277 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %277, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %277, %conv2.i136
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !3312
+  %cmp79.not.not = icmp slt i32 %277, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3312
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit170, %for.cond89.for.inc105_crit_edge
   %278 = load i32, ptr %outXYZ, align 4
@@ -231027,8 +231049,8 @@ for.inc161:                                       ; preds = %if.end.i949, %if.th
   %add.i = fadd double %sub.i.i251, %inXYZ147.sroa.0.01434
   %add5.i = fadd double %sub5.i.i254, %inXYZ147.sroa.4.01430
   %add9.i = fadd double %sub9.i.i257, %inXYZ147.sroa.8.01426
-  %cmp151.not = icmp sgt i32 %500, %conv4.i138
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !3367
+  %cmp151.not.not = icmp slt i32 %500, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3367
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %501 = load i32, ptr %arrayinit.element.i267, align 4
@@ -231037,8 +231059,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i539 = fadd double %sub.i.i236, %inStartY.sroa.0.01438
   %add5.i542 = fadd double %sub5.i.i239, %inStartY.sroa.4.01437
   %add9.i545 = fadd double %sub9.i.i242, %inStartY.sroa.7.01436
-  %cmp140.not = icmp sgt i32 %501, %conv2.i136
-  br i1 %cmp140.not, label %for.inc169.loopexit, label %for.body141, !llvm.loop !3368
+  %cmp140.not.not = icmp slt i32 %501, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !3368
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit290
   %.pre1458 = load double, ptr %inStartX, align 8
@@ -231927,8 +231949,10 @@ for.end:                                          ; preds = %for.body
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i109)
   %conv4.i = fptosi double %62 to i32
   %sub.i.i = add nsw i32 %conv.i, -1
-  %sub4.i.i = add nsw i32 %conv2.i, -1
-  %sub7.i.i = add nsw i32 %conv4.i, -1
+  %conv2.i.fr = freeze i32 %conv2.i
+  %sub4.i.i = add i32 %conv2.i.fr, -1
+  %conv4.i.fr = freeze i32 %conv4.i
+  %sub7.i.i = add i32 %conv4.i.fr, -1
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i119)
   %conv.i133 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i123)
@@ -231936,8 +231960,10 @@ for.end:                                          ; preds = %for.body
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i127)
   %conv4.i137 = fptosi double %65 to i32
   %add.i.i = add i32 %conv.i133, 1
-  %add4.i.i = add i32 %conv2.i135, 1
-  %add7.i.i = add nsw i32 %conv4.i137, 1
+  %conv2.i135.fr = freeze i32 %conv2.i135
+  %add4.i.i = add i32 %conv2.i135.fr, 1
+  %conv4.i137.fr = freeze i32 %conv4.i137
+  %add7.i.i = add i32 %conv4.i137.fr, 1
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -231983,8 +232009,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i614 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i615 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1357.fr = freeze i1 %cmp79.not1357
-  br i1 %cmp79.not1357.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1357, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -232019,8 +232044,7 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
   %cmp91.not1355 = icmp sgt i32 %sub7.i.i, %add7.i.i
-  %cmp91.not1355.fr = freeze i1 %cmp91.not1355
-  br i1 %cmp91.not1355.fr, label %for.body70.us1360.preheader, label %for.body70
+  br i1 %cmp91.not1355, label %for.body70.us1360.preheader, label %for.body70
 
 for.body70.us1360.preheader:                      ; preds = %for.body70.lr.ph.split
   %smax = call i32 @llvm.smax.i32(i32 %sub4.i.i, i32 %add4.i.i)
@@ -232075,8 +232099,8 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1395, %_ZNKSt8functionIFbvEEclEv.exit169.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1369 ]
   %inc106.us.us1370 = add nsw i32 %82, 1
   store i32 %inc106.us.us1370, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1371 = icmp sgt i32 %82, %conv2.i135
-  br i1 %cmp79.not.us.us1371, label %for.inc108.us1366.loopexit, label %for.body80.us.us1369, !llvm.loop !3441
+  %cmp79.not.us.us1371.not = icmp slt i32 %82, %add4.i.i
+  br i1 %cmp79.not.us.us1371.not, label %for.body80.us.us1369, label %for.inc108.us1366.loopexit, !llvm.loop !3441
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1360, %if.end.us1364
   %83 = phi i32 [ %.pre1393, %if.end.us1364 ], [ %74, %for.body70.us1360 ]
@@ -233226,15 +233250,15 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %264 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %264, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not = icmp sgt i32 %264, %conv4.i137
-  br i1 %cmp91.not, label %for.cond89.for.inc105_crit_edge, label %for.body92, !llvm.loop !3451
+  %cmp91.not.not = icmp slt i32 %264, %add7.i.i
+  br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3451
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %265 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %265, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not = icmp sgt i32 %265, %conv2.i135
-  br i1 %cmp79.not, label %for.inc108, label %for.body80, !llvm.loop !3452
+  %cmp79.not.not = icmp slt i32 %265, %add4.i.i
+  br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3452
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169, %for.cond89.for.inc105_crit_edge
   %266 = load i32, ptr %outXYZ, align 4
@@ -234522,8 +234546,8 @@ for.inc161:                                       ; preds = %if.end.i902, %if.th
   %add.i = fadd double %sub.i.i246, %inXYZ147.sroa.0.01378
   %add5.i = fadd double %sub5.i.i249, %inXYZ147.sroa.4.01377
   %add9.i = fadd double %sub9.i.i252, %inXYZ147.sroa.7.01376
-  %cmp151.not = icmp sgt i32 %476, %conv4.i137
-  br i1 %cmp151.not, label %for.inc165, label %for.body152, !llvm.loop !3507
+  %cmp151.not.not = icmp slt i32 %476, %add7.i.i
+  br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3507
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
   %477 = load i32, ptr %arrayinit.element.i262, align 4
@@ -234532,8 +234556,8 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i497 = fadd double %sub.i.i231, %inStartY.sroa.0.01382
   %add5.i500 = fadd double %sub5.i.i234, %inStartY.sroa.4.01381
   %add9.i503 = fadd double %sub9.i.i237, %inStartY.sroa.7.01380
-  %cmp140.not = icmp sgt i32 %477, %conv2.i135
-  br i1 %cmp140.not, label %for.inc169.loopexit, label %for.body141, !llvm.loop !3508
+  %cmp140.not.not = icmp slt i32 %477, %add4.i.i
+  br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !3508
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit283
   %.pre1402 = load double, ptr %inStartX, align 8
@@ -237717,14 +237741,18 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %conv.i = fptosi double %99 to i32
   %100 = tail call double @llvm.floor.f64(double %.sroa.speculated12.i2181609)
   %conv2.i = fptosi double %100 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2221610)
   %conv4.i = fptosi double %101 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i260)
   %conv.i274 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i264)
   %conv2.i276 = fptosi double %103 to i32
+  %conv2.i276.fr = freeze i32 %conv2.i276
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i268)
   %conv4.i278 = fptosi double %104 to i32
+  %conv4.i278.fr = freeze i32 %conv4.i278
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -237746,7 +237774,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1627 = icmp sgt i32 %conv2.i, %conv2.i276
+  %cmp79.not1627 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
   %arrayidx.i.i317 = getelementptr inbounds nuw i8, ptr %xform, i64 152
   %arrayidx4.i.i319 = getelementptr inbounds nuw i8, ptr %xform, i64 184
   %arrayidx8.i.i322 = getelementptr inbounds nuw i8, ptr %xform, i64 216
@@ -237779,8 +237807,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i892 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i893 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1627.fr = freeze i1 %cmp79.not1627
-  br i1 %cmp79.not1627.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1627, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -237814,12 +237841,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !3539
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1625 = icmp sgt i32 %conv4.i, %conv4.i278
-  %cmp91.not1625.fr = freeze i1 %cmp91.not1625
-  br i1 %cmp91.not1625.fr, label %for.body70.us1630.preheader, label %for.body70
+  %cmp91.not1625 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
+  br i1 %cmp91.not1625, label %for.body70.us1630.preheader, label %for.body70
 
 for.body70.us1630.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276, i32 %conv2.i)
+  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276.fr, i32 %conv2.i.fr)
   %111 = add i32 %smax, 1
   br label %for.body70.us1630
 
@@ -237836,7 +237862,7 @@ _ZNKSt8functionIFbvEEclEv.exit.us1632:            ; preds = %for.body70.us1630
 if.end.us1634:                                    ; preds = %_ZNKSt8functionIFbvEEclEv.exit.us1632
   %.pre1678 = load ptr, ptr %_M_manager.i.i, align 8
   %114 = icmp eq ptr %.pre1678, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %114, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1639
 
 for.inc108.us1636:                                ; preds = %if.end85.us.us, %_ZNKSt8functionIFbvEEclEv.exit312.us.us, %for.body80.lr.ph.split.us.split.us.us
@@ -237852,7 +237878,7 @@ for.body80.us.us1639thread-pre-split:             ; preds = %if.end85.us.us
 
 for.body80.us.us1639:                             ; preds = %if.end.us1634, %for.body80.us.us1639thread-pre-split
   %116 = phi ptr [ %.pr1705, %for.body80.us.us1639thread-pre-split ], [ %.pre1678, %if.end.us1634 ]
-  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i, %if.end.us1634 ]
+  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i.fr, %if.end.us1634 ]
   %tobool.not.i.i306.not.us.us = icmp eq ptr %116, null
   br i1 %tobool.not.i.i306.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit312.us.us
 
@@ -237869,7 +237895,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1679, %_ZNKSt8functionIFbvEEclEv.exit312.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1639 ]
   %inc106.us.us1640 = add nsw i32 %119, 1
   store i32 %inc106.us.us1640, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276
+  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276.fr
   br i1 %cmp79.not.us.us1641.not, label %for.body80.us.us1639thread-pre-split, label %for.inc108.us1636, !llvm.loop !3541
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1630, %if.end.us1634
@@ -237894,11 +237920,11 @@ _ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge:  ; preds = %_ZNKSt8functionIFbv
 if.end:                                           ; preds = %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge, %for.body70
   %123 = phi i32 [ %.pre1672, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %120, %for.body70 ]
   %conv74 = sitofp i32 %123 to double
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %124 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %124 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %125 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i306.not = icmp eq ptr %125, null
   br i1 %tobool.not.i.i306.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit312
@@ -237915,11 +237941,11 @@ _ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge: ; preds = %_ZNKSt8function
 if.end85:                                         ; preds = %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge, %for.body80
   %127 = phi i32 [ %.pre1673, %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge ], [ %124, %for.body80 ]
   %conv86 = sitofp i32 %127 to double
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511626 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511626 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511626 to double
   %128 = load double, ptr %arrayidx.i.i317, align 8, !noalias !3542
   %129 = load double, ptr %arrayidx4.i.i319, align 8, !noalias !3542
@@ -238967,14 +238993,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %307 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %307, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %307, %conv4.i278
+  %cmp91.not.not = icmp slt i32 %307, %conv4.i278.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3547
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %308 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %308, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %308, %conv2.i276
+  %cmp79.not.not = icmp slt i32 %308, %conv2.i276.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3548
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit312, %for.cond89.for.inc105_crit_edge
@@ -239208,8 +239234,8 @@ _ZNK7openvdb5v11_05tools15GridTransformer15MatrixTransform12invTransformERKNS0_4
   %sub5.i.i537 = fsub double %div38.sink.i.i531, %div38.sink.i.i410
   %sub9.i.i540 = fsub double %div52.sink.i.i532, %div52.sink.i.i411
   %conv.i541 = sitofp i32 %conv.i to double
-  %conv3.i = sitofp i32 %conv2.i to double
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %mul5.i.i547 = fmul double %311, %conv3.i
   %393 = tail call double @llvm.fmuladd.f64(double %conv.i541, double %310, double %mul5.i.i547)
   %394 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %313, double %393)
@@ -239290,8 +239316,8 @@ for.body131.lr.ph:                                ; preds = %_ZNK7openvdb5v11_05
   %add.ptr.i.i.i.i.i.i1185 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i1223 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i1224 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1649 = icmp sgt i32 %conv2.i, %conv2.i276
-  %cmp151.not1645 = icmp sgt i32 %conv4.i, %conv4.i278
+  %cmp140.not1649 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
+  %cmp151.not1645 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -239308,7 +239334,7 @@ _ZNKSt8functionIFbvEEclEv.exit590:                ; preds = %for.body131
   br i1 %call2.i588, label %if.end173, label %if.end136
 
 if.end136:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit590, %for.body131
-  store i32 %conv2.i, ptr %arrayinit.element.i579, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i579, align 4
   br i1 %cmp140.not1649, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -239325,7 +239351,7 @@ _ZNKSt8functionIFbvEEclEv.exit600:                ; preds = %for.body141
   br i1 %call2.i598, label %for.inc169, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i580, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i580, align 4
   br i1 %cmp151.not1645, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -240330,7 +240356,7 @@ for.inc161:                                       ; preds = %if.end.i1146, %if.t
   %add.i = fadd double %sub.i.i534, %inXYZ147.sroa.0.01648
   %add5.i = fadd double %sub5.i.i537, %inXYZ147.sroa.4.01647
   %add9.i = fadd double %sub9.i.i540, %inXYZ147.sroa.7.01646
-  %cmp151.not.not = icmp slt i32 %569, %conv4.i278
+  %cmp151.not.not = icmp slt i32 %569, %conv4.i278.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3574
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -240340,7 +240366,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i778 = fadd double %sub.i.i490, %inStartY.sroa.0.01652
   %add5.i781 = fadd double %sub5.i.i493, %inStartY.sroa.4.01651
   %add9.i784 = fadd double %sub9.i.i496, %inStartY.sroa.7.01650
-  %cmp140.not.not = icmp slt i32 %570, %conv2.i276
+  %cmp140.not.not = icmp slt i32 %570, %conv2.i276.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !3575
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.inc165, %if.end136
@@ -241321,14 +241347,18 @@ for.end:                                          ; preds = %_ZNK7openvdb5v11_05
   %conv.i = fptosi double %99 to i32
   %100 = tail call double @llvm.floor.f64(double %.sroa.speculated12.i2181609)
   %conv2.i = fptosi double %100 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %101 = tail call double @llvm.floor.f64(double %.sroa.speculated.i2221610)
   %conv4.i = fptosi double %101 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %102 = tail call double @llvm.ceil.f64(double %.sroa.speculated13.i260)
   %conv.i274 = fptosi double %102 to i32
   %103 = tail call double @llvm.ceil.f64(double %.sroa.speculated12.i264)
   %conv2.i276 = fptosi double %103 to i32
+  %conv2.i276.fr = freeze i32 %conv2.i276
   %104 = tail call double @llvm.ceil.f64(double %.sroa.speculated.i268)
   %conv4.i278 = fptosi double %104 to i32
+  %conv4.i278.fr = freeze i32 %conv4.i278
   %cmp.i.i.i.i = fcmp oeq double %6, 0.000000e+00
   %cmp.i8.i.i.i = fcmp oeq double %7, 0.000000e+00
   %or.cond.i.i = select i1 %cmp.i.i.i.i, i1 %cmp.i8.i.i.i, i1 false
@@ -241350,7 +241380,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1627 = icmp sgt i32 %conv2.i, %conv2.i276
+  %cmp79.not1627 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
   %arrayidx.i.i317 = getelementptr inbounds nuw i8, ptr %xform, i64 152
   %arrayidx4.i.i319 = getelementptr inbounds nuw i8, ptr %xform, i64 184
   %arrayidx8.i.i322 = getelementptr inbounds nuw i8, ptr %xform, i64 216
@@ -241383,8 +241413,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i892 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i893 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1627.fr = freeze i1 %cmp79.not1627
-  br i1 %cmp79.not1627.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1627, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %105 = load ptr, ptr %_M_manager.i.i, align 8
@@ -241418,12 +241447,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !3600
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1625 = icmp sgt i32 %conv4.i, %conv4.i278
-  %cmp91.not1625.fr = freeze i1 %cmp91.not1625
-  br i1 %cmp91.not1625.fr, label %for.body70.us1630.preheader, label %for.body70
+  %cmp91.not1625 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
+  br i1 %cmp91.not1625, label %for.body70.us1630.preheader, label %for.body70
 
 for.body70.us1630.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276, i32 %conv2.i)
+  %smax = tail call i32 @llvm.smax.i32(i32 %conv2.i276.fr, i32 %conv2.i.fr)
   %111 = add i32 %smax, 1
   br label %for.body70.us1630
 
@@ -241440,7 +241468,7 @@ _ZNKSt8functionIFbvEEclEv.exit.us1632:            ; preds = %for.body70.us1630
 if.end.us1634:                                    ; preds = %_ZNKSt8functionIFbvEEclEv.exit.us1632
   %.pre1678 = load ptr, ptr %_M_manager.i.i, align 8
   %114 = icmp eq ptr %.pre1678, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %114, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1639
 
 for.inc108.us1636:                                ; preds = %if.end85.us.us, %_ZNKSt8functionIFbvEEclEv.exit312.us.us, %for.body80.lr.ph.split.us.split.us.us
@@ -241456,7 +241484,7 @@ for.body80.us.us1639thread-pre-split:             ; preds = %if.end85.us.us
 
 for.body80.us.us1639:                             ; preds = %if.end.us1634, %for.body80.us.us1639thread-pre-split
   %116 = phi ptr [ %.pr1705, %for.body80.us.us1639thread-pre-split ], [ %.pre1678, %if.end.us1634 ]
-  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i, %if.end.us1634 ]
+  %117 = phi i32 [ %inc106.us.us1640, %for.body80.us.us1639thread-pre-split ], [ %conv2.i.fr, %if.end.us1634 ]
   %tobool.not.i.i306.not.us.us = icmp eq ptr %116, null
   br i1 %tobool.not.i.i306.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit312.us.us
 
@@ -241473,7 +241501,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %119 = phi i32 [ %.pre1679, %_ZNKSt8functionIFbvEEclEv.exit312.us.us.if.end85.us.us_crit_edge ], [ %117, %for.body80.us.us1639 ]
   %inc106.us.us1640 = add nsw i32 %119, 1
   store i32 %inc106.us.us1640, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276
+  %cmp79.not.us.us1641.not = icmp slt i32 %119, %conv2.i276.fr
   br i1 %cmp79.not.us.us1641.not, label %for.body80.us.us1639thread-pre-split, label %for.inc108.us1636, !llvm.loop !3602
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1630, %if.end.us1634
@@ -241498,11 +241526,11 @@ _ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge:  ; preds = %_ZNKSt8functionIFbv
 if.end:                                           ; preds = %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge, %for.body70
   %123 = phi i32 [ %.pre1672, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %120, %for.body70 ]
   %conv74 = sitofp i32 %123 to double
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %124 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %124 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %125 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i306.not = icmp eq ptr %125, null
   br i1 %tobool.not.i.i306.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit312
@@ -241519,11 +241547,11 @@ _ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge: ; preds = %_ZNKSt8function
 if.end85:                                         ; preds = %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge, %for.body80
   %127 = phi i32 [ %.pre1673, %_ZNKSt8functionIFbvEEclEv.exit312.if.end85_crit_edge ], [ %124, %for.body80 ]
   %conv86 = sitofp i32 %127 to double
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511626 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511626 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511626 to double
   %128 = load double, ptr %arrayidx.i.i317, align 8, !noalias !3603
   %129 = load double, ptr %arrayidx4.i.i319, align 8, !noalias !3603
@@ -242571,14 +242599,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %307 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %307, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %307, %conv4.i278
+  %cmp91.not.not = icmp slt i32 %307, %conv4.i278.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3608
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %308 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %308, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %308, %conv2.i276
+  %cmp79.not.not = icmp slt i32 %308, %conv2.i276.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3609
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit312, %for.cond89.for.inc105_crit_edge
@@ -242812,8 +242840,8 @@ _ZNK7openvdb5v11_05tools15GridTransformer15MatrixTransform12invTransformERKNS0_4
   %sub5.i.i537 = fsub double %div38.sink.i.i531, %div38.sink.i.i410
   %sub9.i.i540 = fsub double %div52.sink.i.i532, %div52.sink.i.i411
   %conv.i541 = sitofp i32 %conv.i to double
-  %conv3.i = sitofp i32 %conv2.i to double
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %mul5.i.i547 = fmul double %311, %conv3.i
   %393 = tail call double @llvm.fmuladd.f64(double %conv.i541, double %310, double %mul5.i.i547)
   %394 = tail call double @llvm.fmuladd.f64(double %conv7.i, double %313, double %393)
@@ -242894,8 +242922,8 @@ for.body131.lr.ph:                                ; preds = %_ZNK7openvdb5v11_05
   %add.ptr.i.i.i.i.i.i1185 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i1223 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i1224 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1649 = icmp sgt i32 %conv2.i, %conv2.i276
-  %cmp151.not1645 = icmp sgt i32 %conv4.i, %conv4.i278
+  %cmp140.not1649 = icmp sgt i32 %conv2.i.fr, %conv2.i276.fr
+  %cmp151.not1645 = icmp sgt i32 %conv4.i.fr, %conv4.i278.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -242912,7 +242940,7 @@ _ZNKSt8functionIFbvEEclEv.exit590:                ; preds = %for.body131
   br i1 %call2.i588, label %if.end173, label %if.end136
 
 if.end136:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit590, %for.body131
-  store i32 %conv2.i, ptr %arrayinit.element.i579, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i579, align 4
   br i1 %cmp140.not1649, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -242929,7 +242957,7 @@ _ZNKSt8functionIFbvEEclEv.exit600:                ; preds = %for.body141
   br i1 %call2.i598, label %for.inc169, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i580, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i580, align 4
   br i1 %cmp151.not1645, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -243934,7 +243962,7 @@ for.inc161:                                       ; preds = %if.end.i1146, %if.t
   %add.i = fadd double %sub.i.i534, %inXYZ147.sroa.0.01648
   %add5.i = fadd double %sub5.i.i537, %inXYZ147.sroa.4.01647
   %add9.i = fadd double %sub9.i.i540, %inXYZ147.sroa.7.01646
-  %cmp151.not.not = icmp slt i32 %569, %conv4.i278
+  %cmp151.not.not = icmp slt i32 %569, %conv4.i278.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3635
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -243944,7 +243972,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i778 = fadd double %sub.i.i490, %inStartY.sroa.0.01652
   %add5.i781 = fadd double %sub5.i.i493, %inStartY.sroa.4.01651
   %add9.i784 = fadd double %sub9.i.i496, %inStartY.sroa.7.01650
-  %cmp140.not.not = icmp slt i32 %570, %conv2.i276
+  %cmp140.not.not = icmp slt i32 %570, %conv2.i276.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169, !llvm.loop !3636
 
 for.inc169:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit600, %for.inc165, %if.end136
@@ -247009,14 +247037,18 @@ for.end:                                          ; preds = %for.body
   %conv.i = fptosi double %60 to i32
   %61 = call double @llvm.floor.f64(double %.sroa.speculated12.i105)
   %conv2.i = fptosi double %61 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i109)
   %conv4.i = fptosi double %62 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i119)
   %conv.i133 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i123)
   %conv2.i135 = fptosi double %64 to i32
+  %conv2.i135.fr = freeze i32 %conv2.i135
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i127)
   %conv4.i137 = fptosi double %65 to i32
+  %conv4.i137.fr = freeze i32 %conv4.i137
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -247034,7 +247066,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1279 = icmp sgt i32 %conv2.i, %conv2.i135
+  %cmp79.not1279 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
   %arrayidx.i170 = getelementptr inbounds nuw i8, ptr %xyz, i64 8
   %arrayidx.i173 = getelementptr inbounds nuw i8, ptr %xyz, i64 16
   %inXYZ.sroa.2.0.ref.tmp95.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 8
@@ -247055,8 +247087,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i571 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i572 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1279.fr = freeze i1 %cmp79.not1279
-  br i1 %cmp79.not1279.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1279, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -247090,12 +247121,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !3713
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1277 = icmp sgt i32 %conv4.i, %conv4.i137
-  %cmp91.not1277.fr = freeze i1 %cmp91.not1277
-  br i1 %cmp91.not1277.fr, label %for.body70.us1282.preheader, label %for.body70
+  %cmp91.not1277 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
+  br i1 %cmp91.not1277, label %for.body70.us1282.preheader, label %for.body70
 
 for.body70.us1282.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135, i32 %conv2.i)
+  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135.fr, i32 %conv2.i.fr)
   %73 = add i32 %smax, 1
   br label %for.body70.us1282
 
@@ -247114,7 +247144,7 @@ if.end.us1286:                                    ; preds = %_ZNKSt8functionIFbv
   %.pre1315 = load i32, ptr %outXYZ, align 4
   %.pre1316 = load ptr, ptr %_M_manager.i.i, align 8
   %77 = icmp eq ptr %.pre1316, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %77, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1291
 
 for.inc108.us1288.loopexit:                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169.us.us, %if.end85.us.us
@@ -247129,7 +247159,7 @@ for.inc108.us1288:                                ; preds = %for.inc108.us1288.l
   br i1 %cmp69.not.us1290.not, label %for.body70.us1282, label %if.end173, !llvm.loop !3714
 
 for.body80.us.us1291:                             ; preds = %if.end.us1286, %if.end85.us.us
-  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i, %if.end.us1286 ]
+  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i.fr, %if.end.us1286 ]
   %80 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not.us.us = icmp eq ptr %80, null
   br i1 %tobool.not.i.i163.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit169.us.us
@@ -247147,7 +247177,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1317, %_ZNKSt8functionIFbvEEclEv.exit169.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1291 ]
   %inc106.us.us1292 = add nsw i32 %82, 1
   store i32 %inc106.us.us1292, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135
+  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135.fr
   br i1 %cmp79.not.us.us1293.not, label %for.body80.us.us1291, label %for.inc108.us1288.loopexit, !llvm.loop !3715
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1282, %if.end.us1286
@@ -247174,11 +247204,11 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbv
   %87 = phi i32 [ %.pre, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %84, %for.body70 ]
   %conv74 = sitofp i32 %87 to double
   store double %conv74, ptr %xyz, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %88 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %88 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %89 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not = icmp eq ptr %89, null
   br i1 %tobool.not.i.i163.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit169
@@ -247196,11 +247226,11 @@ if.end85:                                         ; preds = %_ZNKSt8functionIFbv
   %91 = phi i32 [ %.pre1310, %_ZNKSt8functionIFbvEEclEv.exit169.if.end85_crit_edge ], [ %88, %for.body80 ]
   %conv86 = sitofp i32 %91 to double
   store double %conv86, ptr %arrayidx.i170, align 8
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511278 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511278 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511278 to double
   store double %conv93, ptr %arrayidx.i173, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i174)
@@ -248221,14 +248251,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %250 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %250, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %250, %conv4.i137
+  %cmp91.not.not = icmp slt i32 %250, %conv4.i137.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3725
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %251 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %251, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %251, %conv2.i135
+  %cmp79.not.not = icmp slt i32 %251, %conv2.i135.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3726
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169, %for.cond89.for.inc105_crit_edge
@@ -248344,10 +248374,10 @@ if.else111:                                       ; preds = %for.end
   %sub9.i.i250 = fsub double %deltaZ.sroa.7.0.copyload, %285
   %conv.i251 = sitofp i32 %conv.i to double
   store double %conv.i251, ptr %ref.tmp119, align 8
-  %conv3.i = sitofp i32 %conv2.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
   %arrayidx5.i253 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 8
   store double %conv3.i, ptr %arrayidx5.i253, align 8
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 16
   store double %conv7.i, ptr %arrayidx9.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i254)
@@ -248393,8 +248423,8 @@ for.body131.lr.ph:                                ; preds = %if.else111
   %add.ptr.i.i.i.i.i.i864 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i902 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i903 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1301 = icmp sgt i32 %conv2.i, %conv2.i135
-  %cmp151.not1297 = icmp sgt i32 %conv4.i, %conv4.i137
+  %cmp140.not1301 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
+  %cmp151.not1297 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -248411,7 +248441,7 @@ if.end136:                                        ; preds = %_ZNKSt8functionIFbv
   %inStartY.sroa.0.0.copyload = load double, ptr %inStartX, align 8
   %inStartY.sroa.4.0.copyload = load double, ptr %inStartY.sroa.4.0.inStartX.sroa_idx, align 8
   %inStartY.sroa.7.0.copyload = load double, ptr %inStartY.sroa.7.0.inStartX.sroa_idx, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i260, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i260, align 4
   br i1 %cmp140.not1301, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -248428,7 +248458,7 @@ _ZNKSt8functionIFbvEEclEv.exit281:                ; preds = %for.body141
   br i1 %call2.i279, label %for.inc169.loopexit, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit281, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i261, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i261, align 4
   br i1 %cmp151.not1297, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -249433,7 +249463,7 @@ for.inc161:                                       ; preds = %if.end.i825, %if.th
   %add.i = fadd double %sub.i.i244, %inXYZ147.sroa.0.01300
   %add5.i = fadd double %sub5.i.i247, %inXYZ147.sroa.4.01299
   %add9.i = fadd double %sub9.i.i250, %inXYZ147.sroa.7.01298
-  %cmp151.not.not = icmp slt i32 %448, %conv4.i137
+  %cmp151.not.not = icmp slt i32 %448, %conv4.i137.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3781
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -249443,7 +249473,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i459 = fadd double %sub.i.i229, %inStartY.sroa.0.01304
   %add5.i462 = fadd double %sub5.i.i232, %inStartY.sroa.4.01303
   %add9.i465 = fadd double %sub9.i.i235, %inStartY.sroa.7.01302
-  %cmp140.not.not = icmp slt i32 %449, %conv2.i135
+  %cmp140.not.not = icmp slt i32 %449, %conv2.i135.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !3782
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit281
@@ -250328,14 +250358,18 @@ for.end:                                          ; preds = %for.body
   %conv.i = fptosi double %60 to i32
   %61 = call double @llvm.floor.f64(double %.sroa.speculated12.i105)
   %conv2.i = fptosi double %61 to i32
+  %conv2.i.fr = freeze i32 %conv2.i
   %62 = call double @llvm.floor.f64(double %.sroa.speculated.i109)
   %conv4.i = fptosi double %62 to i32
+  %conv4.i.fr = freeze i32 %conv4.i
   %63 = call double @llvm.ceil.f64(double %.sroa.speculated13.i119)
   %conv.i133 = fptosi double %63 to i32
   %64 = call double @llvm.ceil.f64(double %.sroa.speculated12.i123)
   %conv2.i135 = fptosi double %64 to i32
+  %conv2.i135.fr = freeze i32 %conv2.i135
   %65 = call double @llvm.ceil.f64(double %.sroa.speculated.i127)
   %conv4.i137 = fptosi double %65 to i32
+  %conv4.i137.fr = freeze i32 %conv4.i137
   %mIsAffine.i = getelementptr inbounds nuw i8, ptr %xform, i64 16
   %66 = load i8, ptr %mIsAffine.i, align 8
   %tobool.i = trunc i8 %66 to i1
@@ -250353,7 +250387,7 @@ if.then:                                          ; preds = %for.end
 for.body70.lr.ph:                                 ; preds = %if.then
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %interrupt, i64 24
-  %cmp79.not1279 = icmp sgt i32 %conv2.i, %conv2.i135
+  %cmp79.not1279 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
   %arrayidx.i170 = getelementptr inbounds nuw i8, ptr %xyz, i64 8
   %arrayidx.i173 = getelementptr inbounds nuw i8, ptr %xyz, i64 16
   %inXYZ.sroa.2.0.ref.tmp95.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp95, i64 8
@@ -250374,8 +250408,7 @@ for.body70.lr.ph:                                 ; preds = %if.then
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i571 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i572 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp79.not1279.fr = freeze i1 %cmp79.not1279
-  br i1 %cmp79.not1279.fr, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
+  br i1 %cmp79.not1279, label %for.body70.lr.ph.split.us, label %for.body70.lr.ph.split
 
 for.body70.lr.ph.split.us:                        ; preds = %for.body70.lr.ph
   %67 = load ptr, ptr %_M_manager.i.i, align 8
@@ -250409,12 +250442,11 @@ if.end.us:                                        ; preds = %_ZNKSt8functionIFbv
   br i1 %cmp69.not.us.not, label %for.body70.usthread-pre-split, label %if.end173, !llvm.loop !3853
 
 for.body70.lr.ph.split:                           ; preds = %for.body70.lr.ph
-  %cmp91.not1277 = icmp sgt i32 %conv4.i, %conv4.i137
-  %cmp91.not1277.fr = freeze i1 %cmp91.not1277
-  br i1 %cmp91.not1277.fr, label %for.body70.us1282.preheader, label %for.body70
+  %cmp91.not1277 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
+  br i1 %cmp91.not1277, label %for.body70.us1282.preheader, label %for.body70
 
 for.body70.us1282.preheader:                      ; preds = %for.body70.lr.ph.split
-  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135, i32 %conv2.i)
+  %smax = call i32 @llvm.smax.i32(i32 %conv2.i135.fr, i32 %conv2.i.fr)
   %73 = add i32 %smax, 1
   br label %for.body70.us1282
 
@@ -250433,7 +250465,7 @@ if.end.us1286:                                    ; preds = %_ZNKSt8functionIFbv
   %.pre1315 = load i32, ptr %outXYZ, align 4
   %.pre1316 = load ptr, ptr %_M_manager.i.i, align 8
   %77 = icmp eq ptr %.pre1316, null
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br i1 %77, label %for.body80.lr.ph.split.us.split.us.us, label %for.body80.us.us1291
 
 for.inc108.us1288.loopexit:                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169.us.us, %if.end85.us.us
@@ -250448,7 +250480,7 @@ for.inc108.us1288:                                ; preds = %for.inc108.us1288.l
   br i1 %cmp69.not.us1290.not, label %for.body70.us1282, label %if.end173, !llvm.loop !3854
 
 for.body80.us.us1291:                             ; preds = %if.end.us1286, %if.end85.us.us
-  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i, %if.end.us1286 ]
+  %79 = phi i32 [ %inc106.us.us1292, %if.end85.us.us ], [ %conv2.i.fr, %if.end.us1286 ]
   %80 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not.us.us = icmp eq ptr %80, null
   br i1 %tobool.not.i.i163.not.us.us, label %if.end85.us.us, label %_ZNKSt8functionIFbvEEclEv.exit169.us.us
@@ -250466,7 +250498,7 @@ if.end85.us.us:                                   ; preds = %_ZNKSt8functionIFbv
   %82 = phi i32 [ %.pre1317, %_ZNKSt8functionIFbvEEclEv.exit169.us.us.if.end85.us.us_crit_edge ], [ %79, %for.body80.us.us1291 ]
   %inc106.us.us1292 = add nsw i32 %82, 1
   store i32 %inc106.us.us1292, ptr %arrayinit.element.i, align 4
-  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135
+  %cmp79.not.us.us1293.not = icmp slt i32 %82, %conv2.i135.fr
   br i1 %cmp79.not.us.us1293.not, label %for.body80.us.us1291, label %for.inc108.us1288.loopexit, !llvm.loop !3855
 
 for.body80.lr.ph.split.us.split.us.us:            ; preds = %for.body70.us1282, %if.end.us1286
@@ -250493,11 +250525,11 @@ if.end:                                           ; preds = %_ZNKSt8functionIFbv
   %87 = phi i32 [ %.pre, %_ZNKSt8functionIFbvEEclEv.exit.if.end_crit_edge ], [ %84, %for.body70 ]
   %conv74 = sitofp i32 %87 to double
   store double %conv74, ptr %xyz, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i, align 4
   br label %for.body80
 
 for.body80:                                       ; preds = %if.end, %for.cond89.for.inc105_crit_edge
-  %88 = phi i32 [ %conv2.i, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
+  %88 = phi i32 [ %conv2.i.fr, %if.end ], [ %inc106, %for.cond89.for.inc105_crit_edge ]
   %89 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i163.not = icmp eq ptr %89, null
   br i1 %tobool.not.i.i163.not, label %if.end85, label %_ZNKSt8functionIFbvEEclEv.exit169
@@ -250515,11 +250547,11 @@ if.end85:                                         ; preds = %_ZNKSt8functionIFbv
   %91 = phi i32 [ %.pre1310, %_ZNKSt8functionIFbvEEclEv.exit169.if.end85_crit_edge ], [ %88, %for.body80 ]
   %conv86 = sitofp i32 %91 to double
   store double %conv86, ptr %arrayidx.i170, align 8
-  store i32 %conv4.i, ptr %arrayinit.element2.i, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i, align 4
   br label %for.body92
 
 for.body92:                                       ; preds = %if.end85, %for.inc102
-  %storemerge511278 = phi i32 [ %conv4.i, %if.end85 ], [ %inc103, %for.inc102 ]
+  %storemerge511278 = phi i32 [ %conv4.i.fr, %if.end85 ], [ %inc103, %for.inc102 ]
   %conv93 = sitofp i32 %storemerge511278 to double
   store double %conv93, ptr %arrayidx.i173, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i174)
@@ -251540,14 +251572,14 @@ for.inc102:                                       ; preds = %if.end.i, %if.then.
   %250 = load i32, ptr %arrayinit.element2.i, align 4
   %inc103 = add nsw i32 %250, 1
   store i32 %inc103, ptr %arrayinit.element2.i, align 4
-  %cmp91.not.not = icmp slt i32 %250, %conv4.i137
+  %cmp91.not.not = icmp slt i32 %250, %conv4.i137.fr
   br i1 %cmp91.not.not, label %for.body92, label %for.cond89.for.inc105_crit_edge, !llvm.loop !3865
 
 for.cond89.for.inc105_crit_edge:                  ; preds = %for.inc102
   %251 = load i32, ptr %arrayinit.element.i, align 4
   %inc106 = add nsw i32 %251, 1
   store i32 %inc106, ptr %arrayinit.element.i, align 4
-  %cmp79.not.not = icmp slt i32 %251, %conv2.i135
+  %cmp79.not.not = icmp slt i32 %251, %conv2.i135.fr
   br i1 %cmp79.not.not, label %for.body80, label %for.inc108, !llvm.loop !3866
 
 for.inc108:                                       ; preds = %_ZNKSt8functionIFbvEEclEv.exit169, %for.cond89.for.inc105_crit_edge
@@ -251663,10 +251695,10 @@ if.else111:                                       ; preds = %for.end
   %sub9.i.i250 = fsub double %deltaZ.sroa.7.0.copyload, %285
   %conv.i251 = sitofp i32 %conv.i to double
   store double %conv.i251, ptr %ref.tmp119, align 8
-  %conv3.i = sitofp i32 %conv2.i to double
+  %conv3.i = sitofp i32 %conv2.i.fr to double
   %arrayidx5.i253 = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 8
   store double %conv3.i, ptr %arrayidx5.i253, align 8
-  %conv7.i = sitofp i32 %conv4.i to double
+  %conv7.i = sitofp i32 %conv4.i.fr to double
   %arrayidx9.i = getelementptr inbounds nuw i8, ptr %ref.tmp119, i64 16
   store double %conv7.i, ptr %arrayidx9.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i254)
@@ -251712,8 +251744,8 @@ for.body131.lr.ph:                                ; preds = %if.else111
   %add.ptr.i.i.i.i.i.i864 = getelementptr inbounds nuw i8, ptr %outTree, i64 80
   %add.ptr.i.i.i.i.i902 = getelementptr inbounds nuw i8, ptr %outTree, i64 88
   %add.ptr.i.i903 = getelementptr inbounds nuw i8, ptr %outTree, i64 16
-  %cmp140.not1301 = icmp sgt i32 %conv2.i, %conv2.i135
-  %cmp151.not1297 = icmp sgt i32 %conv4.i, %conv4.i137
+  %cmp140.not1301 = icmp sgt i32 %conv2.i.fr, %conv2.i135.fr
+  %cmp151.not1297 = icmp sgt i32 %conv4.i.fr, %conv4.i137.fr
   br label %for.body131
 
 for.body131:                                      ; preds = %for.body131.lr.ph, %for.inc169
@@ -251730,7 +251762,7 @@ if.end136:                                        ; preds = %_ZNKSt8functionIFbv
   %inStartY.sroa.0.0.copyload = load double, ptr %inStartX, align 8
   %inStartY.sroa.4.0.copyload = load double, ptr %inStartY.sroa.4.0.inStartX.sroa_idx, align 8
   %inStartY.sroa.7.0.copyload = load double, ptr %inStartY.sroa.7.0.inStartX.sroa_idx, align 8
-  store i32 %conv2.i, ptr %arrayinit.element.i260, align 4
+  store i32 %conv2.i.fr, ptr %arrayinit.element.i260, align 4
   br i1 %cmp140.not1301, label %for.inc169, label %for.body141
 
 for.body141:                                      ; preds = %if.end136, %for.inc165
@@ -251747,7 +251779,7 @@ _ZNKSt8functionIFbvEEclEv.exit281:                ; preds = %for.body141
   br i1 %call2.i279, label %for.inc169.loopexit, label %if.end146
 
 if.end146:                                        ; preds = %_ZNKSt8functionIFbvEEclEv.exit281, %for.body141
-  store i32 %conv4.i, ptr %arrayinit.element2.i261, align 4
+  store i32 %conv4.i.fr, ptr %arrayinit.element2.i261, align 4
   br i1 %cmp151.not1297, label %for.inc165, label %for.body152
 
 for.body152:                                      ; preds = %if.end146, %for.inc161
@@ -252752,7 +252784,7 @@ for.inc161:                                       ; preds = %if.end.i825, %if.th
   %add.i = fadd double %sub.i.i244, %inXYZ147.sroa.0.01300
   %add5.i = fadd double %sub5.i.i247, %inXYZ147.sroa.4.01299
   %add9.i = fadd double %sub9.i.i250, %inXYZ147.sroa.7.01298
-  %cmp151.not.not = icmp slt i32 %448, %conv4.i137
+  %cmp151.not.not = icmp slt i32 %448, %conv4.i137.fr
   br i1 %cmp151.not.not, label %for.body152, label %for.inc165, !llvm.loop !3921
 
 for.inc165:                                       ; preds = %for.inc161, %if.end146
@@ -252762,7 +252794,7 @@ for.inc165:                                       ; preds = %for.inc161, %if.end
   %add.i459 = fadd double %sub.i.i229, %inStartY.sroa.0.01304
   %add5.i462 = fadd double %sub5.i.i232, %inStartY.sroa.4.01303
   %add9.i465 = fadd double %sub9.i.i235, %inStartY.sroa.7.01302
-  %cmp140.not.not = icmp slt i32 %449, %conv2.i135
+  %cmp140.not.not = icmp slt i32 %449, %conv2.i135.fr
   br i1 %cmp140.not.not, label %for.body141, label %for.inc169.loopexit, !llvm.loop !3922
 
 for.inc169.loopexit:                              ; preds = %for.inc165, %_ZNKSt8functionIFbvEEclEv.exit281

@@ -1207,14 +1207,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %33 = load ptr, ptr %23, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8
-  %.fr533 = freeze i32 %35
-  %36 = zext i32 %.fr533 to i64
+  %.fr532 = freeze i32 %35
+  %36 = zext i32 %.fr532 to i64
   %37 = mul nuw nsw i64 %36, 24
   %38 = add nuw nsw i64 %37, 8
   %39 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %38) #31
   store i64 %36, ptr %39, align 16
   %.ptr284.ptr = getelementptr i8, ptr %39, i64 8
-  %40 = icmp eq i32 %.fr533, 0
+  %40 = icmp eq i32 %.fr532, 0
   br i1 %40, label %.loopexit329, label %.loopexit329.loopexit
 
 .loopexit329.loopexit:                            ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit
@@ -2154,7 +2154,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRfEEERS1_DpOT_.exit: ; preds =
   br i1 %490, label %426, label %._crit_edge384, !llvm.loop !31
 
 ._crit_edge384.thread:                            ; preds = %.preheader, %._crit_edge384
-  %.0145.lcssa535 = phi float [ %.1146, %._crit_edge384 ], [ 0.000000e+00, %.preheader ]
+  %.0145.lcssa534 = phi float [ %.1146, %._crit_edge384 ], [ 0.000000e+00, %.preheader ]
   %491 = getelementptr inbounds nuw i8, ptr %413, i64 36
   %492 = load i32, ptr %491, align 4
   %.not170 = icmp eq i32 %492, -1
@@ -2180,11 +2180,11 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRfEEERS1_DpOT_.exit: ; preds =
           to label %504 unwind label %510
 
 504:                                              ; preds = %503
-  %505 = fcmp une float %.0145.lcssa535, 0.000000e+00
+  %505 = fcmp une float %.0145.lcssa534, 0.000000e+00
   br i1 %505, label %506, label %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit
 
 506:                                              ; preds = %504
-  %507 = fdiv float 1.000000e+00, %.0145.lcssa535
+  %507 = fdiv float 1.000000e+00, %.0145.lcssa534
   %508 = load ptr, ptr %414, align 8
   %509 = load ptr, ptr %415, align 8
   %.not293389 = icmp eq ptr %508, %509
@@ -2226,7 +2226,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRfEEERS1_DpOT_.exit: ; preds =
 
 529:                                              ; preds = %493
   %530 = getelementptr inbounds nuw %"class.std::vector.45", ptr %.ptr291.ptr, i64 %494
-  %531 = fsub float 1.000000e+00, %.0145.lcssa535
+  %531 = fsub float 1.000000e+00, %.0145.lcssa534
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 8
   %533 = load ptr, ptr %532, align 8
   %534 = getelementptr inbounds nuw i8, ptr %530, i64 16

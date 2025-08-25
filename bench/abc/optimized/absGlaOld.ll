@@ -9837,10 +9837,10 @@ Vec_IntReverseOrder.exit:                         ; preds = %77, %1, %.critedge,
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define void @Gla_ManExplorePPis(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %3 = load i32, ptr @Gla_ManExplorePPis.Round, align 4, !tbaa !22
-  %.fr = freeze i32 %3
-  %4 = add nsw i32 %.fr, 1
+  %.fr38 = freeze i32 %3
+  %4 = add nsw i32 %.fr38, 1
   store i32 %4, ptr @Gla_ManExplorePPis.Round, align 4, !tbaa !22
-  %5 = srem i32 %.fr, 5
+  %5 = srem i32 %.fr38, 5
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %66, label %.preheader
 
@@ -9854,7 +9854,7 @@ define void @Gla_ManExplorePPis(ptr noundef readonly captures(none) %0, ptr noun
   %9 = getelementptr i8, ptr %1, i64 8
   %.val27 = load ptr, ptr %9, align 8, !tbaa !11
   %10 = getelementptr i8, ptr %0, i64 40
-  %11 = and i32 %.fr, 1
+  %11 = and i32 %.fr38, 1
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.lr.ph.split.preheader, label %.lr.ph.split.us
 

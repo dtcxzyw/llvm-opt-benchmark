@@ -30748,8 +30748,8 @@ define void @"_ZN83_$LT$uv_python..discovery..VersionRequest$u20$as$u20$core..st
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08798685f70fd852E.exit": ; preds = %47
   %49 = getelementptr i8, ptr %1, i64 %2
   %50 = getelementptr i8, ptr %49, i64 -2
-  %rhsc185 = load i8, ptr %50, align 1
-  %51 = icmp eq i8 %rhsc185, 116
+  %rhsc184 = load i8, ptr %50, align 1
+  %51 = icmp eq i8 %rhsc184, 116
   br i1 %51, label %52, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08798685f70fd852E.exit.thread"
 
 52:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h08798685f70fd852E.exit"
@@ -31740,16 +31740,16 @@ common.resume:                                    ; preds = %306, %304, %310, %2
   br label %494
 
 418:                                              ; preds = %.noexc126
-  %.sroa.0.0.copyload196 = load i64, ptr %8, align 8, !noalias !7352
-  %.sroa.7.0..sroa_idx197 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx197, i64 16, i1 false), !noalias !7352
+  %.sroa.0.0.copyload193 = load i64, ptr %8, align 8, !noalias !7352
+  %.sroa.7.0..sroa_idx194 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx194, i64 16, i1 false), !noalias !7352
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !7324
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !7324
-  %419 = icmp eq i64 %.sroa.0.0.copyload196, -9223372036854775808
+  %419 = icmp eq i64 %.sroa.0.0.copyload193, -9223372036854775808
   br i1 %419, label %494, label %420
 
 420:                                              ; preds = %418
-  store i64 %.sroa.0.0.copyload196, ptr %35, align 8
+  store i64 %.sroa.0.0.copyload193, ptr %35, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
@@ -31838,8 +31838,8 @@ common.resume:                                    ; preds = %306, %304, %310, %2
           to label %483 unwind label %311
 
 451:                                              ; preds = %484, %468, %459, %446
-  %.sink222 = phi i64 [ 49, %484 ], [ 51, %468 ], [ 51, %459 ], [ 51, %446 ]
-  store i64 %.sink222, ptr %0, align 8
+  %.sink219 = phi i64 [ 49, %484 ], [ 51, %468 ], [ 51, %459 ], [ 51, %446 ]
+  store i64 %.sink219, ptr %0, align 8
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17he0bd227e0c4b42ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35)
           to label %485 unwind label %311
 

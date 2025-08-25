@@ -1334,9 +1334,10 @@ define internal void @dissect_osd_list(ptr noundef %0, ptr noundef %1, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = load i16, ptr %15, align 4
-  %17 = and i16 %16, -129
+  %.fr = freeze i16 %16
+  %17 = and i16 %.fr, -129
   %18 = icmp eq i16 %17, -30697
-  %19 = and i16 %16, 128
+  %19 = and i16 %.fr, 128
   %20 = icmp ne i16 %19, 0
   %21 = zext i1 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1605,12 +1606,12 @@ select.unfold:                                    ; preds = %150, %153, %154
   br i1 %164, label %.lr.ph270, label %.critedge246
 
 .lr.ph270:                                        ; preds = %.critedge
-  %165 = and i8 %.1227, 2
+  %.1227.fr = freeze i8 %.1227
+  %165 = and i8 %.1227.fr, 2
   %.not238 = icmp ne i8 %165, 0
   %or.cond244.not = and i1 %20, %.not238
   %166 = add nuw nsw i64 %spec.select239, 8
-  %or.cond244.not.fr = freeze i1 %or.cond244.not
-  br i1 %or.cond244.not.fr, label %.lr.ph270.split.us, label %.lr.ph270.split
+  br i1 %or.cond244.not, label %.lr.ph270.split.us, label %.lr.ph270.split
 
 .lr.ph270.split.us:                               ; preds = %.lr.ph270, %.loopexit.us
   %.2269.us = phi i32 [ %190, %.loopexit.us ], [ %162, %.lr.ph270 ]

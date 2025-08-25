@@ -29874,22 +29874,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i: ; preds = %
   %376 = icmp slt i32 %361, %364
   %spec.store.select.i = select i1 %376, i32 -1, i32 1
   %377 = load i32, ptr %7, align 8
-  %.fr135.i = freeze i32 %377
-  %378 = and i32 %.fr135.i, 16384
+  %.fr.i = freeze i32 %377
+  %378 = and i32 %.fr.i, 16384
   %.not.i.i187 = icmp eq i32 %378, 0
   %379 = load ptr, ptr %207, align 8
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 4
   %381 = load i32, ptr %197, align 4
   %382 = load ptr, ptr %208, align 8
   %383 = load ptr, ptr %209, align 8
-  %smax141.i = sext i32 %364 to i64
+  %smax140.i = sext i32 %364 to i64
   %384 = sext i32 %spec.store.select.i to i64
   br i1 %.not.i.i187, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %368, %_ZN2cv3Mat2atIhEERT_i.exit.us.i
-  %indvars.iv142.i = phi i64 [ %indvars.iv.next143.i, %_ZN2cv3Mat2atIhEERT_i.exit.us.i ], [ %smax141.i, %368 ]
-  %indvars.iv.next143.i = add nsw i64 %indvars.iv142.i, %384
-  %385 = trunc nsw i64 %indvars.iv.next143.i to i32
+  %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %_ZN2cv3Mat2atIhEERT_i.exit.us.i ], [ %smax140.i, %368 ]
+  %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, %384
+  %385 = trunc nsw i64 %indvars.iv.next142.i to i32
   %.not.us.i = icmp eq i32 %361, %385
   br i1 %.not.us.i, label %.split130.us.i, label %386
 
@@ -29907,7 +29907,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i: ; preds = %
   %393 = sdiv i32 %385, %381
   %394 = mul nsw i32 %393, %381
   %395 = sext i32 %394 to i64
-  %396 = sub nsw i64 %indvars.iv.next143.i, %395
+  %396 = sub nsw i64 %indvars.iv.next142.i, %395
   %397 = load i64, ptr %383, align 8, !tbaa !120
   %398 = sext i32 %393 to i64
   %399 = mul i64 %397, %398
@@ -29917,12 +29917,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105.i: ; preds = %
 
 402:                                              ; preds = %389
   %403 = load i64, ptr %383, align 8, !tbaa !120
-  %404 = mul i64 %403, %indvars.iv.next143.i
+  %404 = mul i64 %403, %indvars.iv.next142.i
   %405 = getelementptr inbounds nuw i8, ptr %382, i64 %404
   br label %_ZN2cv3Mat2atIhEERT_i.exit.us.i
 
 406:                                              ; preds = %386
-  %407 = getelementptr inbounds i8, ptr %382, i64 %indvars.iv.next143.i
+  %407 = getelementptr inbounds i8, ptr %382, i64 %indvars.iv.next142.i
   br label %_ZN2cv3Mat2atIhEERT_i.exit.us.i
 
 _ZN2cv3Mat2atIhEERT_i.exit.us.i:                  ; preds = %406, %402, %392
@@ -29933,7 +29933,7 @@ _ZN2cv3Mat2atIhEERT_i.exit.us.i:                  ; preds = %406, %402, %392
   br i1 %410, label %.split.us.i, label %.split130.us.i, !llvm.loop !711
 
 .split.i:                                         ; preds = %368, %_ZN2cv3Mat2atIhEERT_i.exit.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN2cv3Mat2atIhEERT_i.exit.i ], [ %smax141.i, %368 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN2cv3Mat2atIhEERT_i.exit.i ], [ %smax140.i, %368 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %384
   %411 = trunc nsw i64 %indvars.iv.next.i to i32
   %.not.i = icmp eq i32 %361, %411

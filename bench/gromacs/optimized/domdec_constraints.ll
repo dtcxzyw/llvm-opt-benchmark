@@ -1494,8 +1494,8 @@ define internal void @_Z25dd_make_local_constraintsP12gmx_domdec_tiRK10gmx_mtop_
   %28 = call i32 @llvm.smin.i32(i32 %27, i32 %25)
   store i32 %28, ptr %17, align 4, !tbaa !41
   %29 = load i32, ptr %16, align 4, !tbaa !41
-  %.not4466 = icmp sgt i32 %29, %28
-  br i1 %.not4466, label %._crit_edge, label %.lr.ph
+  %.not4465 = icmp sgt i32 %29, %28
+  br i1 %.not4465, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1600,9 +1600,9 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %72, %77
   %90 = getelementptr inbounds nuw i8, ptr %51, i64 904
   %91 = load ptr, ptr %90, align 8, !tbaa !192
   %92 = icmp slt i32 %61, %64
-  br i1 %92, label %.lr.ph101.i, label %_ZL16atoms_to_settlesP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKiEENS5_IKSt6vectorIiSaIiEEEEiiP15InteractionListPSA_.exit
+  br i1 %92, label %.lr.ph102.i, label %_ZL16atoms_to_settlesP12gmx_domdec_tRK10gmx_mtop_tN3gmx8ArrayRefIKiEENS5_IKSt6vectorIiSaIiEEEEiiP15InteractionListPSA_.exit
 
-.lr.ph101.i:                                      ; preds = %87
+.lr.ph102.i:                                      ; preds = %87
   %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 2064), align 16, !tbaa !185
   %94 = getelementptr inbounds nuw i8, ptr %51, i64 880
   %95 = icmp sgt i32 %93, 0
@@ -1616,9 +1616,9 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %72, %77
   %wide.trip.count.i = zext nneg i32 %93 to i64
   br label %103
 
-103:                                              ; preds = %296, %.lr.ph101.i
-  %indvars.iv113.i = phi i64 [ %102, %.lr.ph101.i ], [ %indvars.iv.next114.i, %296 ]
-  %.08098.i = phi i32 [ 0, %.lr.ph101.i ], [ %.181.i, %296 ]
+103:                                              ; preds = %296, %.lr.ph102.i
+  %indvars.iv113.i = phi i64 [ %102, %.lr.ph102.i ], [ %indvars.iv.next114.i, %296 ]
+  %.08099.i = phi i32 [ 0, %.lr.ph102.i ], [ %.181.i, %296 ]
   %104 = getelementptr inbounds i32, ptr %88, i64 %indvars.iv113.i
   %105 = load i32, ptr %104, align 4, !tbaa !41
   %106 = and i32 %105, 4096
@@ -1629,6 +1629,7 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %72, %77
   %108 = load ptr, ptr %94, align 8, !tbaa !264
   %109 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv113.i
   %110 = load i32, ptr %109, align 4, !tbaa !41
+  %.fr86.i = freeze i32 %110
   %111 = load ptr, ptr %32, align 8, !tbaa !265
   %112 = load ptr, ptr %31, align 8, !tbaa !268
   %113 = ptrtoint ptr %111 to i64
@@ -1640,20 +1641,21 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %72, %77
   br label %119
 
 119:                                              ; preds = %128, %107
-  %.282.i = phi i32 [ %.08098.i, %107 ], [ %131, %128 ]
+  %.282.i = phi i32 [ %.08099.i, %107 ], [ %131, %128 ]
   %.026.i.i = phi i32 [ %117, %107 ], [ %.127.i.i, %128 ]
   %.0.i.i = phi i32 [ -1, %107 ], [ %.1.i.i, %128 ]
   %120 = sext i32 %.282.i to i64
   %121 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4, !tbaa !272
-  %124 = icmp slt i32 %110, %123
+  %.fr87.i = freeze i32 %123
+  %124 = icmp slt i32 %.fr86.i, %.fr87.i
   br i1 %124, label %128, label %125
 
 125:                                              ; preds = %119
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %127 = load i32, ptr %126, align 4, !tbaa !274
-  %.not.i.i47 = icmp slt i32 %110, %127
+  %.not.i.i47 = icmp slt i32 %.fr86.i, %127
   br i1 %.not.i.i47, label %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, label %128
 
 128:                                              ; preds = %125, %119
@@ -1665,10 +1667,9 @@ _ZN15InteractionList5clearEv.exit:                ; preds = %72, %77
   br label %119, !llvm.loop !275
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %125
-  %132 = sub nsw i32 %110, %123
-  %.fr.i = freeze i32 %132
+  %132 = sub i32 %.fr86.i, %.fr87.i
   %133 = load i32, ptr %121, align 4, !tbaa !276
-  %134 = srem i32 %.fr.i, %133
+  %134 = srem i32 %132, %133
   %135 = getelementptr inbounds nuw %struct.gmx_molblock_t, ptr %112, i64 %120
   %136 = load i32, ptr %135, align 8, !tbaa !277
   %137 = sext i32 %136 to i64
@@ -1681,7 +1682,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %125
   br i1 %143, label %144, label %296
 
 144:                                              ; preds = %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i
-  %145 = sub nsw i32 %110, %134
+  %145 = sub nsw i32 %.fr86.i, %134
   %146 = load ptr, ptr %34, align 8, !tbaa !283
   %147 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %146, i64 %137, i32 2, i32 0, i64 64
   %148 = load ptr, ptr %147, align 8, !tbaa !11
@@ -1697,12 +1698,12 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %125
   br label %153
 
 ._crit_edge.i:                                    ; preds = %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i
-  br i1 %.1.i, label %.lr.ph96.preheader.i, label %.critedge.i
+  br i1 %.1.i, label %.lr.ph97.preheader.i, label %.critedge.i
 
 153:                                              ; preds = %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i ]
-  %.04993.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i ]
-  %.05191.i = phi i32 [ 0, %.lr.ph.i ], [ %.152.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i ]
+  %.04994.i = phi i1 [ false, %.lr.ph.i ], [ %.1.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i ]
+  %.05192.i = phi i32 [ 0, %.lr.ph.i ], [ %.152.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i ]
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i
   %154 = getelementptr inbounds nuw i8, ptr %gep.i, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !41
@@ -1772,29 +1773,29 @@ _ZNK11gmx_ga2la_t4findEi.exit.i.i:                ; preds = %181, %166
   br i1 %187, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.i, label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit.i:              ; preds = %_ZNK11gmx_ga2la_t4findEi.exit.i.i
-  %188 = icmp eq i32 %.05191.i, 0
-  %189 = icmp eq i32 %110, %156
+  %188 = icmp eq i32 %.05192.i, 0
+  %189 = icmp eq i32 %.fr86.i, %156
   %or.cond.i = and i1 %188, %189
-  %.2.i = select i1 %or.cond.i, i1 true, i1 %.04993.i
-  %190 = add nsw i32 %.05191.i, 1
+  %.2.i = select i1 %or.cond.i, i1 true, i1 %.04994.i
+  %190 = add nsw i32 %.05192.i, 1
   br label %_ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i
 
 _ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i:       ; preds = %182, %_ZNK11gmx_ga2la_t8findHomeEi.exit.i, %_ZNK11gmx_ga2la_t4findEi.exit.i.i, %166
-  %.152.i = phi i32 [ %190, %_ZNK11gmx_ga2la_t8findHomeEi.exit.i ], [ %.05191.i, %_ZNK11gmx_ga2la_t4findEi.exit.i.i ], [ %.05191.i, %166 ], [ %.05191.i, %182 ]
-  %.1.i = phi i1 [ %.2.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.i ], [ %.04993.i, %_ZNK11gmx_ga2la_t4findEi.exit.i.i ], [ %.04993.i, %166 ], [ %.04993.i, %182 ]
+  %.152.i = phi i32 [ %190, %_ZNK11gmx_ga2la_t8findHomeEi.exit.i ], [ %.05192.i, %_ZNK11gmx_ga2la_t4findEi.exit.i.i ], [ %.05192.i, %166 ], [ %.05192.i, %182 ]
+  %.1.i = phi i1 [ %.2.i, %_ZNK11gmx_ga2la_t8findHomeEi.exit.i ], [ %.04994.i, %_ZNK11gmx_ga2la_t4findEi.exit.i.i ], [ %.04994.i, %166 ], [ %.04994.i, %182 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %153, !llvm.loop !313
 
-.lr.ph96.preheader.i:                             ; preds = %._crit_edge.i
+.lr.ph97.preheader.i:                             ; preds = %._crit_edge.i
   %191 = shl nsw i32 %142, 2
   %192 = zext nneg i32 %191 to i64
   %193 = getelementptr inbounds nuw i32, ptr %148, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  br label %.lr.ph96.i
+  br label %.lr.ph97.i
 
-._crit_edge97.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
+._crit_edge98.i:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
   %195 = load ptr, ptr %75, align 8, !tbaa !14
   %196 = load ptr, ptr %73, align 8, !tbaa !11
   %197 = ptrtoint ptr %195 to i64
@@ -1803,7 +1804,7 @@ _ZNK11gmx_ga2la_t8findHomeEi.exit.thread.i:       ; preds = %182, %_ZNK11gmx_ga2
   %200 = icmp ult i64 %199, -16
   br i1 %200, label %201, label %225
 
-201:                                              ; preds = %._crit_edge97.i
+201:                                              ; preds = %._crit_edge98.i
   %202 = ashr exact i64 %199, 2
   %203 = load ptr, ptr %101, align 8, !tbaa !307
   %204 = ptrtoint ptr %203 to i64
@@ -1862,7 +1863,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36.i.i: ; preds = %221, %_ZNS
   store ptr %224, ptr %101, align 8, !tbaa !307
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
 
-225:                                              ; preds = %._crit_edge97.i
+225:                                              ; preds = %._crit_edge98.i
   %226 = getelementptr i8, ptr %196, i64 %199
   %227 = getelementptr i8, ptr %226, i64 16
   %.not.i.i.i.i = icmp eq ptr %195, %227
@@ -1881,17 +1882,17 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i:           ; preds = %228, %225, %_ZNSt12
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge.i
 
-.lr.ph96.i:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %.lr.ph96.preheader.i
-  %indvars.iv108.i = phi i64 [ 0, %.lr.ph96.preheader.i ], [ %indvars.iv.next109.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
+.lr.ph97.i:                                       ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i, %.lr.ph97.preheader.i
+  %indvars.iv108.i = phi i64 [ 0, %.lr.ph97.preheader.i ], [ %indvars.iv.next109.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i ]
   %232 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv108.i
   %233 = load i32, ptr %232, align 4, !tbaa !41
   %234 = load i8, ptr %97, align 8, !tbaa !286
   br label %235
 
-235:                                              ; preds = %241, %.lr.ph96.i
-  %.not.i.i.i.i.i60.i = phi i1 [ true, %.lr.ph96.i ], [ false, %241 ]
-  %.0813.i.i.i.i.i61.i = phi i64 [ 0, %.lr.ph96.i ], [ 1, %241 ]
-  %.0912.i.i.i.i.i62.i = phi i64 [ 2, %.lr.ph96.i ], [ %.1.i.i.i.i.i63.i, %241 ]
+235:                                              ; preds = %241, %.lr.ph97.i
+  %.not.i.i.i.i.i60.i = phi i1 [ true, %.lr.ph97.i ], [ false, %241 ]
+  %.0813.i.i.i.i.i61.i = phi i64 [ 0, %.lr.ph97.i ], [ 1, %241 ]
+  %.0912.i.i.i.i.i62.i = phi i64 [ 2, %.lr.ph97.i ], [ %.1.i.i.i.i.i63.i, %241 ]
   %236 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packISt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEJS4_N3gmx9HashedMapIS2_EEEEmv.__found, i64 0, i64 %.0813.i.i.i.i.i61.i
   %237 = load i8, ptr %236, align 1, !tbaa !288, !range !150, !noundef !151
   %238 = trunc nuw i8 %237 to i1
@@ -2031,14 +2032,14 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %274, %_ZNK11gmx_ga2la_t8findHomeEi.exit72.i
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %exitcond112.not.i = icmp eq i64 %indvars.iv.next109.i, %wide.trip.count.i
-  br i1 %exitcond112.not.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !314
+  br i1 %exitcond112.not.i, label %._crit_edge98.i, label %.lr.ph97.i, !llvm.loop !314
 
 .critedge.i:                                      ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i, %._crit_edge.i, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %296
 
 296:                                              ; preds = %.critedge.i, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i, %103
-  %.181.i = phi i32 [ %.08098.i, %103 ], [ %.282.i, %.critedge.i ], [ %.282.i, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i ]
+  %.181.i = phi i32 [ %.08099.i, %103 ], [ %.282.i, %.critedge.i ], [ %.282.i, %_ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i ]
   %indvars.iv.next114.i = add nsw i64 %indvars.iv113.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next114.i to i32
   %exitcond116.not.i = icmp eq i32 %64, %lftr.wideiv.i

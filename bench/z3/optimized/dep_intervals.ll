@@ -9304,10 +9304,10 @@ _Z3addI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_.e
 
 61:                                               ; preds = %_Z3addI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_.exit25
   %62 = load i8, ptr %10, align 8
-  %.fr31 = freeze i8 %62
-  %63 = and i8 %.fr31, 2
-  %.not32 = icmp eq i8 %63, 0
-  br i1 %.not32, label %64, label %.thread
+  %.fr = freeze i8 %62
+  %63 = and i8 %.fr, 2
+  %.not31 = icmp eq i8 %63, 0
+  br i1 %.not31, label %64, label %.thread
 
 .thread:                                          ; preds = %_Z3addI11mpq_managerILb0EEEvRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_RS4_RS7_.exit25, %61
   br label %64
@@ -9399,10 +9399,10 @@ define weak_odr hidden void @_ZN16interval_managerIN13dep_intervals9im_configEE3
 
 50:                                               ; preds = %4
   %51 = load i8, ptr %14, align 8
-  %.fr23 = freeze i8 %51
-  %52 = and i8 %.fr23, 1
-  %.not24 = icmp eq i8 %52, 0
-  br i1 %.not24, label %53, label %.thread
+  %.fr = freeze i8 %51
+  %52 = and i8 %.fr, 1
+  %.not23 = icmp eq i8 %52, 0
+  br i1 %.not23, label %53, label %.thread
 
 .thread:                                          ; preds = %4, %50
   br label %53
@@ -9817,7 +9817,8 @@ define weak_odr hidden void @_ZN16interval_managerIN13dep_intervals9im_configEE3
   %10 = alloca i32, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %12 = load i8, ptr %11, align 8
-  %13 = and i8 %12, 4
+  %.fr280 = freeze i8 %12
+  %13 = and i8 %.fr280, 4
   %.not.i.i.i = icmp eq i8 %13, 0
   %14 = load i32, ptr %1, align 8
   %15 = icmp eq i32 %14, 0
@@ -9826,7 +9827,7 @@ define weak_odr hidden void @_ZN16interval_managerIN13dep_intervals9im_configEE3
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit: ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = and i8 %12, 8
+  %18 = and i8 %.fr280, 8
   %.not.i.i3.i = icmp eq i8 %18, 0
   %19 = load i32, ptr %17, align 8
   %20 = icmp eq i32 %19, 0
@@ -9840,20 +9841,22 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exi
 _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread: ; preds = %4, %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %24 = load i8, ptr %23, align 8
-  %25 = and i8 %24, 4
+  %.fr = freeze i8 %24
+  %25 = and i8 %.fr, 4
   %.not.i.i.i236 = icmp eq i8 %25, 0
   %26 = load i32, ptr %2, align 8
-  %27 = icmp eq i32 %26, 0
-  %28 = select i1 %.not.i.i.i236, i1 %27, i1 false
+  %.fr285 = freeze i32 %26
+  %27 = icmp eq i32 %.fr285, 0
+  %28 = and i1 %.not.i.i.i236, %27
   br i1 %28, label %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238, label %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread._ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread_crit_edge
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread._ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread_crit_edge: ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread
-  %.pre286 = and i8 %24, 8
+  %.pre290 = and i8 %.fr, 8
   br label %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238: ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %30 = and i8 %24, 8
+  %30 = and i8 %.fr, 8
   %.not.i.i3.i237 = icmp eq i8 %30, 0
   %31 = load i32, ptr %29, align 8
   %32 = icmp eq i32 %31, 0
@@ -9865,20 +9868,20 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exi
   br label %396
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread: ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread._ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread_crit_edge, %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238
-  %.pre-phi = phi i8 [ %.pre286, %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread._ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread_crit_edge ], [ %30, %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238 ]
+  %.pre-phi = phi i8 [ %.pre290, %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit.thread._ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238.thread_crit_edge ], [ %30, %_ZNK16interval_managerIN13dep_intervals9im_configEE7is_zeroERKNS1_8intervalE.exit238 ]
   %35 = zext i1 %.not.i.i.i to i32
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %37 = and i8 %12, 8
+  %37 = and i8 %.fr280, 8
   %.not.i239 = icmp eq i8 %37, 0
   %38 = select i1 %.not.i239, i32 1, i32 2
   %39 = zext i1 %.not.i.i.i236 to i32
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.not.i241 = icmp eq i8 %.pre-phi, 0
   %41 = select i1 %.not.i241, i32 1, i32 2
-  %42 = and i8 %12, 1
-  %43 = and i8 %12, 2
-  %44 = and i8 %24, 1
-  %45 = and i8 %24, 2
+  %42 = and i8 %.fr280, 1
+  %43 = and i8 %.fr280, 2
+  %44 = and i8 %.fr, 1
+  %45 = and i8 %.fr, 2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9901,27 +9904,27 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit24
   br i1 %54, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread._crit_edge, label %55
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread._crit_edge: ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread
-  %.pre287 = or i8 %24, %12
+  %.pre291 = or i8 %.fr, %.fr280
   br label %62
 
 55:                                               ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread
   %56 = icmp ne i32 %50, 0
   %57 = icmp ne i8 %45, 0
-  %.not284 = select i1 %57, i1 true, i1 %56
-  %58 = or i8 %24, %12
+  %.not288 = select i1 %57, i1 true, i1 %56
+  %58 = or i8 %.fr, %.fr280
   %59 = and i8 %58, 2
   %60 = icmp ne i8 %59, 0
-  %spec.select = and i1 %60, %.not284
+  %spec.select = and i1 %60, %.not288
   %61 = zext i1 %spec.select to i8
   br label %62
 
 62:                                               ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread._crit_edge, %55
-  %.pre-phi288 = phi i8 [ %.pre287, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread._crit_edge ], [ %58, %55 ]
+  %.pre-phi292 = phi i8 [ %.pre291, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread._crit_edge ], [ %58, %55 ]
   %63 = phi i8 [ 0, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit244.thread._crit_edge ], [ %61, %55 ]
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %65 = load i8, ptr %64, align 8
   %66 = and i8 %65, -4
-  %67 = shl i8 %.pre-phi288, 1
+  %67 = shl i8 %.pre-phi292, 1
   %68 = and i8 %67, 2
   %69 = or disjoint i8 %63, %68
   %70 = or disjoint i8 %69, %66
@@ -9935,8 +9938,8 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit24
 
 74:                                               ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit.thread
   %.not.i.i.i245 = icmp ne i8 %25, 0
-  %75 = icmp slt i32 %26, 0
-  %76 = select i1 %.not.i.i.i245, i1 true, i1 %75
+  %75 = icmp slt i32 %.fr285, 0
+  %76 = or i1 %.not.i.i.i245, %75
   br i1 %76, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit.thread
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit: ; preds = %74
@@ -9952,7 +9955,7 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit: 
   %83 = zext i1 %81 to i8
   %84 = load i8, ptr %82, align 8
   %85 = and i8 %84, -4
-  %86 = or i8 %24, %12
+  %86 = or i8 %.fr, %.fr280
   %87 = shl i8 %86, 1
   %88 = and i8 %87, 2
   %89 = or disjoint i8 %88, %83
@@ -9972,15 +9975,13 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit.t
   br i1 %96, label %.thread, label %97
 
 97:                                               ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit.thread
-  %98 = and i8 %24, 5
+  %98 = and i8 %.fr, 5
   %99 = icmp eq i8 %98, 0
-  %100 = select i1 %99, i1 %27, i1 false
+  %100 = and i1 %99, %27
   %101 = or disjoint i8 %44, %43
-  %102 = icmp ne i8 %101, 0
-  %not.281 = xor i1 %100, true
-  %spec.select233 = select i1 %not.281, i1 %102, i1 false
-  %cond.fr = freeze i1 %spec.select233
-  %spec.select267 = select i1 %cond.fr, i8 2, i8 0
+  %102 = icmp eq i8 %101, 0
+  %spec.select233.not = or i1 %102, %100
+  %spec.select267 = select i1 %spec.select233.not, i8 0, i8 2
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit.thread, %97
@@ -10015,11 +10016,11 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit24
   %.not.i.i3.i248 = icmp ne i8 %37, 0
   %118 = icmp sgt i32 %48, 0
   %119 = select i1 %.not.i.i3.i248, i1 true, i1 %118
-  %.pre285 = load i32, ptr %40, align 8
+  %.pre289 = load i32, ptr %40, align 8
   br i1 %119, label %120, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread
 
 120:                                              ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249
-  %121 = icmp slt i32 %.pre285, 1
+  %121 = icmp slt i32 %.pre289, 1
   %or.cond269 = select i1 %.not.i241, i1 %121, i1 false
   br i1 %or.cond269, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit251.thread, label %136
 
@@ -10030,7 +10031,7 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit25
   %125 = zext i1 %123 to i8
   %126 = load i8, ptr %124, align 8
   %127 = and i8 %126, -4
-  %128 = or i8 %24, %12
+  %128 = or i8 %.fr, %.fr280
   %129 = shl i8 %128, 1
   %130 = and i8 %129, 2
   %131 = or disjoint i8 %130, %125
@@ -10045,13 +10046,13 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit25
 
 136:                                              ; preds = %120
   %.not.i.i.i252 = icmp ne i8 %25, 0
-  %137 = icmp slt i32 %26, 0
-  %138 = select i1 %.not.i.i.i252, i1 true, i1 %137
+  %137 = icmp slt i32 %.fr285, 0
+  %138 = or i1 %.not.i.i.i252, %137
   br i1 %138, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit254, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit254.thread
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit254: ; preds = %136
   %.not.i.i3.i253 = icmp ne i8 %.pre-phi, 0
-  %139 = icmp sgt i32 %.pre285, 0
+  %139 = icmp sgt i32 %.pre289, 0
   %140 = select i1 %.not.i.i3.i253, i1 true, i1 %139
   br i1 %140, label %141, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit254.thread
 
@@ -10068,7 +10069,7 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   %147 = icmp ne i8 %146, 0
   %148 = or disjoint i8 %44, %43
   %149 = icmp ne i8 %148, 0
-  %150 = or i8 %24, %12
+  %150 = or i8 %.fr, %.fr280
   %151 = and i8 %150, 2
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %153 = load ptr, ptr %152, align 8, !tbaa !3
@@ -10099,12 +10100,12 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   br label %167
 
 167:                                              ; preds = %141, %161, %166
-  %.sink300 = phi ptr [ %143, %166 ], [ %142, %161 ], [ %142, %141 ]
-  %.sink298 = phi ptr [ %8, %166 ], [ %7, %161 ], [ %7, %141 ]
+  %.sink303 = phi ptr [ %143, %166 ], [ %142, %161 ], [ %142, %141 ]
+  %.sink301 = phi ptr [ %8, %166 ], [ %7, %161 ], [ %7, %141 ]
   %.sink = phi i1 [ %149, %166 ], [ %147, %161 ], [ %147, %141 ]
   %168 = load ptr, ptr %152, align 8, !tbaa !3
-  call void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %168, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.sink300) #22
-  %169 = load i32, ptr %.sink298, align 4, !tbaa !70
+  call void @_ZN11mpq_managerILb0EE4swapER3mpqS2_(ptr noundef nonnull align 8 dereferenceable(728) %168, ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(32) %.sink303) #22
+  %169 = load i32, ptr %.sink301, align 4, !tbaa !70
   store i32 %169, ptr %5, align 4, !tbaa !70
   %170 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %171 = zext i1 %.sink to i8
@@ -10168,7 +10169,7 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   %206 = zext i1 %204 to i8
   %207 = load i8, ptr %205, align 8
   %208 = and i8 %207, -4
-  %209 = or i8 %24, %12
+  %209 = or i8 %.fr, %.fr280
   %210 = and i8 %209, 2
   %211 = or disjoint i8 %210, %206
   %212 = or disjoint i8 %211, %208
@@ -10181,26 +10182,26 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   br label %279
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread: ; preds = %._ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread_crit_edge, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249
-  %216 = phi i32 [ %.pre, %._ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread_crit_edge ], [ %.pre285, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249 ]
-  %217 = icmp slt i32 %216, 1
-  %or.cond271 = select i1 %.not.i241, i1 %217, i1 false
+  %216 = phi i32 [ %.pre, %._ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread_crit_edge ], [ %.pre289, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249 ]
+  %.fr279 = freeze i32 %216
+  %217 = icmp slt i32 %.fr279, 1
+  %or.cond271 = and i1 %.not.i241, %217
   br i1 %or.cond271, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit256.thread, label %238
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit256.thread: ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread
-  %218 = and i8 %12, 5
+  %218 = and i8 %.fr280, 5
   %219 = icmp eq i8 %218, 0
   %220 = select i1 %219, i1 %15, i1 false
   br i1 %220, label %.thread262, label %221
 
 221:                                              ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit256.thread
-  %222 = icmp ne i32 %216, 0
+  %222 = icmp ne i32 %.fr279, 0
   %223 = icmp ne i8 %45, 0
-  %.not278 = select i1 %223, i1 true, i1 %222
+  %.not278 = or i1 %223, %222
   %224 = or disjoint i8 %45, %42
   %225 = icmp ne i8 %224, 0
-  %spec.select234 = select i1 %.not278, i1 %225, i1 false
-  %cond.fr261 = freeze i1 %spec.select234
-  %spec.select272 = select i1 %cond.fr261, i8 2, i8 0
+  %spec.select234 = and i1 %225, %.not278
+  %spec.select272 = select i1 %spec.select234, i8 2, i8 0
   br label %.thread262
 
 .thread262:                                       ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit256.thread, %221
@@ -10223,14 +10224,14 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_NERKNS1_8intervalE.exit25
 
 238:                                              ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit249.thread
   %.not.i.i.i257 = icmp ne i8 %25, 0
-  %239 = icmp slt i32 %26, 0
-  %240 = select i1 %.not.i.i.i257, i1 true, i1 %239
+  %239 = icmp slt i32 %.fr285, 0
+  %240 = or i1 %.not.i.i.i257, %239
   br i1 %240, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259: ; preds = %238
   %.not.i.i3.i258 = icmp ne i8 %.pre-phi, 0
-  %241 = icmp sgt i32 %216, 0
-  %242 = select i1 %.not.i.i3.i258, i1 true, i1 %241
+  %241 = icmp sgt i32 %.fr279, 0
+  %242 = or i1 %.not.i.i3.i258, %241
   br i1 %242, label %243, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread
 
 243:                                              ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259
@@ -10240,7 +10241,7 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   %247 = zext i1 %245 to i8
   %248 = load i8, ptr %246, align 8
   %249 = and i8 %248, -4
-  %250 = or i8 %24, %12
+  %250 = or i8 %.fr, %.fr280
   %251 = and i8 %250, 2
   %252 = or disjoint i8 %251, %247
   %253 = or disjoint i8 %252, %249
@@ -10253,20 +10254,20 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   br label %279
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread: ; preds = %238, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259
-  %257 = and i8 %12, 5
+  %257 = and i8 %.fr280, 5
   %258 = icmp eq i8 %257, 0
   %259 = select i1 %258, i1 %15, i1 false
   br i1 %259, label %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread._crit_edge, label %260
 
 _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread._crit_edge: ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread
-  %.pre289 = or i8 %24, %12
+  %.pre293 = or i8 %.fr, %.fr280
   br label %268
 
 260:                                              ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread
-  %261 = and i8 %24, 5
+  %261 = and i8 %.fr, 5
   %262 = icmp eq i8 %261, 0
-  %263 = select i1 %262, i1 %27, i1 false
-  %264 = or i8 %24, %12
+  %263 = and i1 %262, %27
+  %264 = or i8 %.fr, %.fr280
   %265 = and i8 %264, 1
   %266 = icmp ne i8 %265, 0
   %not. = xor i1 %263, true
@@ -10275,12 +10276,12 @@ _ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit25
   br label %268
 
 268:                                              ; preds = %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread._crit_edge, %260
-  %.pre-phi290 = phi i8 [ %.pre289, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread._crit_edge ], [ %264, %260 ]
+  %.pre-phi294 = phi i8 [ %.pre293, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread._crit_edge ], [ %264, %260 ]
   %269 = phi i8 [ 0, %_ZNK16interval_managerIN13dep_intervals9im_configEE4is_MERKNS1_8intervalE.exit259.thread._crit_edge ], [ %267, %260 ]
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %271 = load i8, ptr %270, align 8
   %272 = and i8 %271, -4
-  %273 = and i8 %.pre-phi290, 2
+  %273 = and i8 %.pre-phi294, 2
   %274 = or disjoint i8 %269, %273
   %275 = or disjoint i8 %274, %272
   store i8 %275, ptr %270, align 8
@@ -11582,10 +11583,11 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i35._ZN11mpq_managerILb0EE2eqERK3mpqS3_
 148:                                              ; preds = %143
   %149 = load i32, ptr %137, align 8, !tbaa !10
   %150 = load i32, ptr %138, align 8, !tbaa !10
-  %151 = icmp eq i32 %149, %150
+  %.fr = freeze i32 %149
+  %.fr44 = freeze i32 %150
+  %151 = icmp eq i32 %.fr, %.fr44
   %152 = load i8, ptr %113, align 8
-  %cond.fr40 = freeze i1 %151
-  br i1 %cond.fr40, label %156, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit36.thread
+  br i1 %151, label %156, label %_ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit36.thread
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit36:       ; preds = %136, %143
   %153 = tail call noundef i32 @_ZN11mpz_managerILb0EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %120, ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %138)
@@ -11775,14 +11777,15 @@ _ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i:       ; preds = %43, %36
 66:                                               ; preds = %61
   %67 = load i32, ptr %55, align 8, !tbaa !10
   %68 = load i32, ptr %56, align 8, !tbaa !10
-  %69 = icmp eq i32 %67, %68
-  %cond.fr29 = freeze i1 %69
+  %.fr = freeze i32 %67
+  %.fr31 = freeze i32 %68
+  %69 = icmp eq i32 %.fr, %.fr31
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %71 = load i8, ptr %70, align 8
-  %72 = zext i1 %cond.fr29 to i8
+  %72 = zext i1 %69 to i8
   %73 = and i8 %71, -14
   %74 = or disjoint i8 %73, %72
-  br i1 %cond.fr29, label %85, label %88
+  br i1 %69, label %85, label %88
 
 _ZN11mpq_managerILb0EE2eqERK3mpqS3_.exit.thread:  ; preds = %30, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i, %48
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 64

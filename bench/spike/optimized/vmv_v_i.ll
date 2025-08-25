@@ -257,8 +257,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_vmv_v_iP11
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -645,8 +645,8 @@ define noundef i64 @_Z18fast_rv64i_vmv_v_iP11processor_t6insn_tm(ptr noundef %0,
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -913,8 +913,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32i_vmv_v_iP
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -1183,8 +1183,8 @@ define noundef i64 @_Z20logged_rv64i_vmv_v_iP11processor_t6insn_tm(ptr noundef %
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -1451,8 +1451,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_vmv_v_iP11
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -1721,8 +1721,8 @@ define noundef i64 @_Z18fast_rv64e_vmv_v_iP11processor_t6insn_tm(ptr noundef %0,
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -1989,8 +1989,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20logged_rv32e_vmv_v_iP
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59
@@ -2259,8 +2259,8 @@ define noundef i64 @_Z20logged_rv64e_vmv_v_iP11processor_t6insn_tm(ptr noundef %
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %.fr = freeze i64 %97
-  %109 = add i64 %.fr, -8
+  %.fr112 = freeze i64 %97
+  %109 = add i64 %.fr112, -8
   %110 = call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 61)
   %111 = shl i64 %1, 44
   %112 = ashr i64 %111, 59

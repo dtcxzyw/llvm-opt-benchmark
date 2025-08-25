@@ -2780,15 +2780,15 @@ _ZNK4llvm22SparseBitVectorElementILj128EE10find_firstEv.exit: ; preds = %55
   %59 = trunc nuw nsw i64 %indvars.iv.i to i32
   %60 = shl nuw nsw i32 %59, 6
   %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %58, i1 true)
-  %62 = trunc nuw nsw i64 %61 to i32
-  %63 = or disjoint i32 %60, %62
-  %.frozen = freeze i32 %63
-  %64 = or disjoint i32 %.frozen, %53
+  %.fr = freeze i64 %61
+  %62 = trunc i64 %.fr to i32
+  %63 = or i32 %60, %62
+  %64 = or disjoint i32 %63, %53
   store i32 %64, ptr %17, align 8, !tbaa !99
   store i32 %59, ptr %45, align 4, !tbaa !100
-  %.urem = add i32 %.frozen, -64
-  %.cmp = icmp ult i32 %.frozen, 64
-  %65 = select i1 %.cmp, i32 %.frozen, i32 %.urem
+  %.urem = add i32 %63, -64
+  %.cmp = icmp ult i32 %63, 64
+  %65 = select i1 %.cmp, i32 %63, i32 %.urem
   %66 = zext nneg i32 %65 to i64
   %67 = lshr i64 %58, %66
   store i64 %67, ptr %4, align 8, !tbaa !101

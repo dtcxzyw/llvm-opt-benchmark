@@ -44122,9 +44122,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %20 = load i32, ptr %19, align 4, !alias.scope !11935, !noalias !11936
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %22 = load i32, ptr %21, align 4, !alias.scope !11936, !noalias !11935
-  %23 = icmp eq i32 %20, %22
-  %.fr = freeze i1 %23
-  %.0.shrunk.i.i.i.i = and i1 %18, %.fr
+  %.fr = freeze i32 %20
+  %.fr7 = freeze i32 %22
+  %23 = icmp eq i32 %.fr, %.fr7
+  %.0.shrunk.i.i.i.i = and i1 %18, %23
   %spec.select = zext i1 %.0.shrunk.i.i.i.i to i64
   br label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h9956d59d4bd9e1a1E.llvm.4351852226057355877.exit.thread"
 
@@ -44808,9 +44809,11 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %.val.i.i = load i8, ptr %20, align 4, !range !1715, !alias.scope !12239, !noalias !12240, !noundef !9
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %.val4.i.i = load i8, ptr %22, align 1, !alias.scope !12239, !noalias !12240
+  %.val4.i.i.fr = freeze i8 %.val4.i.i
   %.val5.i.i = load i8, ptr %21, align 1, !range !1715, !alias.scope !12240, !noalias !12239, !noundef !9
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %.val6.i.i = load i8, ptr %23, align 1, !alias.scope !12240, !noalias !12239
+  %.val6.i.i.fr = freeze i8 %.val6.i.i
   %24 = icmp eq i8 %.val.i.i, %.val5.i.i
   br i1 %24, label %25, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
@@ -44822,14 +44825,12 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   ]
 
 26:                                               ; preds = %25
-  %27 = icmp eq i8 %.val4.i.i, %.val6.i.i
-  %cond.fr12 = freeze i1 %27
-  br i1 %cond.fr12, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
+  %27 = icmp eq i8 %.val4.i.i.fr, %.val6.i.i.fr
+  br i1 %27, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
 28:                                               ; preds = %25
-  %29 = icmp eq i8 %.val4.i.i, %.val6.i.i
-  %cond.fr13 = freeze i1 %29
-  br i1 %cond.fr13, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
+  %29 = icmp eq i8 %.val4.i.i.fr, %.val6.i.i.fr
+  br i1 %29, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
 30:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12241)
@@ -44839,9 +44840,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %33 = load i32, ptr %32, align 4, !alias.scope !12246, !noalias !12247
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %35 = load i32, ptr %34, align 4, !alias.scope !12247, !noalias !12246
-  %36 = icmp eq i32 %33, %35
-  %.fr = freeze i1 %36
-  %.0.shrunk.i7.i.i = and i1 %31, %.fr
+  %.fr = freeze i32 %33
+  %.fr14 = freeze i32 %35
+  %36 = icmp eq i32 %.fr, %.fr14
+  %.0.shrunk.i7.i.i = and i1 %31, %36
   br i1 %.0.shrunk.i7.i.i, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
 37:                                               ; preds = %17
@@ -44853,9 +44855,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   br i1 %42, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit": ; preds = %25
-  %43 = icmp eq i8 %.val4.i.i, %.val6.i.i
-  %cond.fr = freeze i1 %43
-  br i1 %cond.fr, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
+  %43 = icmp eq i8 %.val4.i.i.fr, %.val6.i.i.fr
+  br i1 %43, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread8": ; preds = %25, %28, %26, %37, %30, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit"
   br label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h73f49ce69ce8c0adE.llvm.4351852226057355877.exit.thread"
@@ -45118,9 +45119,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %28 = load i32, ptr %27, align 4, !alias.scope !12378, !noalias !12379
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %30 = load i32, ptr %29, align 4, !alias.scope !12379, !noalias !12378
-  %31 = icmp eq i32 %28, %30
-  %.fr = freeze i1 %31
-  %.0.shrunk.i.i.i = and i1 %26, %.fr
+  %.fr = freeze i32 %28
+  %.fr9 = freeze i32 %30
+  %31 = icmp eq i32 %.fr, %.fr9
+  %.0.shrunk.i.i.i = and i1 %26, %31
   br i1 %.0.shrunk.i.i.i, label %67, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0459c57671da3aa8E.llvm.4351852226057355877.exit.thread"
 
 32:                                               ; preds = %17
@@ -45668,9 +45670,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %28 = load i32, ptr %27, align 4, !alias.scope !12630, !noalias !12631
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %30 = load i32, ptr %29, align 4, !alias.scope !12631, !noalias !12630
-  %31 = icmp eq i32 %28, %30
-  %.fr = freeze i1 %31
-  %.0.shrunk.i.i.i = and i1 %26, %.fr
+  %.fr = freeze i32 %28
+  %.fr9 = freeze i32 %30
+  %31 = icmp eq i32 %.fr, %.fr9
+  %.0.shrunk.i.i.i = and i1 %26, %31
   br i1 %.0.shrunk.i.i.i, label %67, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0459c57671da3aa8E.llvm.4351852226057355877.exit.thread"
 
 32:                                               ; preds = %17
@@ -46224,9 +46227,11 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %.val.i.i.i = load i8, ptr %34, align 4, !range !2361, !alias.scope !12876, !noalias !12877, !noundef !9
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %.val4.i.i.i = load i8, ptr %36, align 1, !alias.scope !12876, !noalias !12877
+  %.val4.i.i.i.fr = freeze i8 %.val4.i.i.i
   %.val5.i.i.i = load i8, ptr %35, align 1, !range !2361, !alias.scope !12877, !noalias !12876, !noundef !9
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 25
   %.val6.i.i.i = load i8, ptr %37, align 1, !alias.scope !12877, !noalias !12876
+  %.val6.i.i.i.fr = freeze i8 %.val6.i.i.i
   %38 = icmp eq i8 %.val.i.i.i, %.val5.i.i.i
   br i1 %38, label %39, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
@@ -46238,14 +46243,12 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   ]
 
 40:                                               ; preds = %39
-  %41 = icmp eq i8 %.val4.i.i.i, %.val6.i.i.i
-  %cond.fr14 = freeze i1 %41
-  br i1 %cond.fr14, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
+  %41 = icmp eq i8 %.val4.i.i.i.fr, %.val6.i.i.i.fr
+  br i1 %41, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
 42:                                               ; preds = %39
-  %43 = icmp eq i8 %.val4.i.i.i, %.val6.i.i.i
-  %cond.fr15 = freeze i1 %43
-  br i1 %cond.fr15, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
+  %43 = icmp eq i8 %.val4.i.i.i.fr, %.val6.i.i.i.fr
+  br i1 %43, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
 44:                                               ; preds = %26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12878)
@@ -46255,9 +46258,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %47 = load i32, ptr %46, align 4, !alias.scope !12883, !noalias !12884
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %49 = load i32, ptr %48, align 4, !alias.scope !12884, !noalias !12883
-  %50 = icmp eq i32 %47, %49
-  %.fr = freeze i1 %50
-  %.0.shrunk.i7.i.i.i = and i1 %45, %.fr
+  %.fr = freeze i32 %47
+  %.fr16 = freeze i32 %49
+  %50 = icmp eq i32 %.fr, %.fr16
+  %.0.shrunk.i7.i.i.i = and i1 %45, %50
   br i1 %.0.shrunk.i7.i.i.i, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
 51:                                               ; preds = %26
@@ -46285,9 +46289,8 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   br i1 %68, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit": ; preds = %39
-  %69 = icmp eq i8 %.val4.i.i.i, %.val6.i.i.i
-  %cond.fr = freeze i1 %69
-  br i1 %cond.fr, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
+  %69 = icmp eq i8 %.val4.i.i.i.fr, %.val6.i.i.i.fr
+  br i1 %69, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10", label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
 
 "_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread10": ; preds = %39, %26, %42, %40, %63, %57, %51, %44, %27, %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit"
   br label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17ha0b10f5e6c4c7c01E.llvm.4351852226057355877.exit.thread"
@@ -46638,9 +46641,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %29 = load i32, ptr %28, align 4, !alias.scope !13004, !noalias !13005
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %31 = load i32, ptr %30, align 4, !alias.scope !13005, !noalias !13004
-  %32 = icmp eq i32 %29, %31
-  %.fr = freeze i1 %32
-  %.0.shrunk.i.i.i = and i1 %27, %.fr
+  %.fr = freeze i32 %29
+  %.fr8 = freeze i32 %31
+  %32 = icmp eq i32 %.fr, %.fr8
+  %.0.shrunk.i.i.i = and i1 %27, %32
   br i1 %.0.shrunk.i.i.i, label %62, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17hd87a9235283e4219E.llvm.4351852226057355877.exit.thread"
 
 33:                                               ; preds = %24
@@ -47444,9 +47448,10 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %28 = load i32, ptr %27, align 4, !alias.scope !13468, !noalias !13469
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %30 = load i32, ptr %29, align 4, !alias.scope !13469, !noalias !13468
-  %31 = icmp eq i32 %28, %30
-  %.fr = freeze i1 %31
-  %.0.shrunk.i.i.i = and i1 %26, %.fr
+  %.fr = freeze i32 %28
+  %.fr9 = freeze i32 %30
+  %31 = icmp eq i32 %.fr, %.fr9
+  %.0.shrunk.i.i.i = and i1 %26, %31
   br i1 %.0.shrunk.i.i.i, label %67, label %"_ZN53_$LT$Q$u20$as$u20$equivalent..Equivalent$LT$K$GT$$GT$10equivalent17h0459c57671da3aa8E.llvm.4351852226057355877.exit.thread"
 
 32:                                               ; preds = %17

@@ -951,16 +951,17 @@ define internal fastcc noundef range(i32 -28, 1) i32 @ep_insert(ptr noundef %0, 
   %116 = load i32, ptr %39, align 8
   %117 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %118 = load i32, ptr %117, align 1
-  %119 = sub i32 %116, %118
-  %.fr = freeze i32 %119
-  %120 = icmp sgt i32 %.fr, 0
+  %.fr = freeze i32 %116
+  %.fr36 = freeze i32 %118
+  %119 = sub i32 %.fr, %.fr36
+  %120 = icmp sgt i32 %119, 0
   %spec.select = select i1 %120, i8 0, i8 %109
-  %spec.select36 = select i1 %120, i64 8, i64 16
+  %spec.select37 = select i1 %120, i64 8, i64 16
   br label %.thread29
 
 .thread29:                                        ; preds = %115, %107, %113
   %121 = phi i8 [ %109, %113 ], [ 0, %107 ], [ %spec.select, %115 ]
-  %122 = phi i64 [ 16, %113 ], [ 8, %107 ], [ %spec.select36, %115 ]
+  %122 = phi i64 [ 16, %113 ], [ 8, %107 ], [ %spec.select37, %115 ]
   %123 = getelementptr inbounds nuw i8, ptr %108, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null

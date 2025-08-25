@@ -6823,10 +6823,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optI6UseBFILb0ENS0_6p
   %11 = load ptr, ptr %10, align 8, !tbaa !617
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !619
-  %.not25.i = icmp eq i64 %13, 0
+  %.fr15 = freeze i64 %13
+  %.not25.i = icmp eq i64 %.fr15, 0
   %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
-  %spec.select24.i = select i1 %.not25.i, i64 %3, i64 %5
-  %spec.select24.i.fr = freeze i64 %spec.select24.i
+  %.fr16 = freeze i64 %3
+  %.fr17 = freeze i64 %5
+  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
   %16 = zext i32 %15 to i64
@@ -6836,7 +6838,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optI6UseBFILb0ENS0_6p
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select24.i.fr, 0
+  %19 = icmp eq i64 %spec.select24.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
@@ -6856,12 +6858,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
   %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<UseBFI>::OptionInfo", ptr %18, i64 %.01527.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !45
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i.fr
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !44
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN4llvm2cl6parserI6UseBFIE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
@@ -6888,7 +6890,7 @@ _ZN4llvm2cl6parserI6UseBFIE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit: ; pre
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select.i, ptr %29, align 8, !tbaa !355, !alias.scope !624
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i.fr, ptr %30, align 8, !tbaa !355, !alias.scope !624
+  store i64 %spec.select24.i, ptr %30, align 8, !tbaa !355, !alias.scope !624
   store ptr %8, ptr %7, align 8, !alias.scope !628
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.46, ptr %31, align 8, !alias.scope !628
@@ -12514,21 +12516,21 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjiLj4ENS_12DenseMapInfoIjvEENS_6detai
   %568 = load ptr, ptr %567, align 8
   %.not37.i = xor i1 %.0.i51, true
   %569 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL15HoistCheapInsts, i64 120), align 8, !range !50
-  %.fr57.i = freeze i8 %569
-  %570 = trunc i8 %.fr57.i to i1
+  %.fr.i = freeze i8 %569
+  %570 = trunc i8 %.fr.i to i1
   %or.cond.i109 = or i1 %.not37.i, %570
   %571 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %572 = load ptr, ptr %571, align 8
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %574 = load i32, ptr %573, align 8
-  %.fr.i = freeze i32 %574
-  %575 = zext i32 %.fr.i to i64
+  %.fr57.i = freeze i32 %574
+  %575 = zext i32 %.fr57.i to i64
   %.idx.i = mul nuw nsw i64 %575, 48
   %576 = getelementptr inbounds nuw i8, ptr %572, i64 %.idx.i
   br i1 %or.cond.i109, label %.lr.ph48.split.us.i, label %.lr.ph48.split.i
 
 .lr.ph48.split.us.i:                              ; preds = %.lr.ph48.i
-  %.not43.i = icmp eq i32 %.fr.i, 0
+  %.not43.i = icmp eq i32 %.fr57.i, 0
   br i1 %.not43.i, label %.loopexit, label %.lr.ph48.split.us.split.i
 
 .lr.ph48.split.us.split.i:                        ; preds = %.lr.ph48.split.us.i, %_ZN4llvm16DenseMapIteratorIjiNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjiEELb1EEppEv.exit.us.i
@@ -13879,11 +13881,11 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjiLj4ENS_12DenseMapInfoIjvEENS_6detai
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %40, i64 608
   %85 = load i32, ptr %84, align 8
-  %.fr.i.i.i.i.i.i.i.i = freeze i32 %85
-  %86 = zext i32 %.fr.i.i.i.i.i.i.i.i to i64
+  %.fr57.i.i.i.i.i.i.i.i = freeze i32 %85
+  %86 = zext i32 %.fr57.i.i.i.i.i.i.i.i to i64
   %.idx.i.i.i.i.i.i.i.i = mul nuw nsw i64 %86, 48
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i.i.i.i.i.i
-  %.not43.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i, 0
+  %.not43.i.i.i.i.i.i.i.i = icmp eq i32 %.fr57.i.i.i.i.i.i.i.i, 0
   br i1 %.not43.i.i.i.i.i.i.i.i, label %"_ZSt9__find_ifIN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EEEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115MachineLICMImpl19IsProfitableToHoistERNS0_12MachineInstrEPNS0_11MachineLoopEE3$_1EEET_SF_SF_T0_St18input_iterator_tag.exit.i.i.i.i", label %.lr.ph48.split.us.split.i.i.i.i.i.i.i.i
 
 .lr.ph48.split.us.split.i.i.i.i.i.i.i.i:          ; preds = %.lr.ph48.i.i.i.i.i.i.i.i, %_ZN4llvm16DenseMapIteratorIjiNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjiEELb1EEppEv.exit.us.i.i.i.i.i.i.i.i

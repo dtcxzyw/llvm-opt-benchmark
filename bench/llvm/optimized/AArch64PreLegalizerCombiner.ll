@@ -9896,13 +9896,13 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit41.i: ; preds = %.l
   %90 = load ptr, ptr %89, align 8, !tbaa !790
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i32, ptr %91, align 8
-  %.fr8.i.i = freeze i32 %92
-  %93 = and i32 %.fr8.i.i, 255
+  %.fr.i.i = freeze i32 %92
+  %93 = and i32 %.fr.i.i, 255
   %94 = icmp eq i32 %93, 12
   br i1 %94, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %95
 
 95:                                               ; preds = %88
-  %trunc.i.i.i.i = trunc i32 %.fr8.i.i to i8
+  %trunc.i.i.i.i = trunc i32 %.fr.i.i to i8
   switch i8 %trunc.i.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
@@ -9912,7 +9912,7 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit41.i: ; preds = %.l
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %95
-  %96 = and i32 %.fr8.i.i, 253
+  %96 = and i32 %.fr.i.i, 253
   %spec.select.i.i.i = icmp eq i32 %96, 4
   br i1 %spec.select.i.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %switch.early.test.i.i
 
@@ -19912,12 +19912,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64Pre
   %4294 = zext i32 %4293 to i64
   %.idx.i = shl nuw nsw i64 %4294, 4
   %4295 = getelementptr inbounds nuw i8, ptr %4292, i64 %.idx.i
-  %.not18.i = icmp eq i32 %4293, 0
-  br i1 %.not18.i, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i
+  %.not17.i = icmp eq i32 %4293, 0
+  br i1 %.not17.i, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4291, %4333
-  %.0819.i = phi ptr [ %4334, %4333 ], [ %4292, %4291 ]
-  %.sroa.3.0..08.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0819.i, i64 8
+  %.0818.i = phi ptr [ %4334, %4333 ], [ %4292, %4291 ]
+  %.sroa.3.0..08.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0818.i, i64 8
   %.sroa.3.0.copyload.i = load ptr, ptr %.sroa.3.0..08.sroa_idx.i, align 8, !tbaa !579
   br i1 %.not737, label %4296, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i
 
@@ -19950,8 +19950,8 @@ _ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i: ; pre
 
 _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i: ; preds = %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i, %4303
   %4310 = phi i32 [ %.pre.i.i2251, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i ], [ %4298, %4303 ]
-  %.fr17.i = freeze i32 %4310
-  %4311 = trunc i32 %.fr17.i to i16
+  %.fr.i = freeze i32 %4310
+  %4311 = trunc i32 %.fr.i to i16
   %4312 = and i16 %4311, 16384
   %4313 = xor i16 %4312, 16384
   %spec.select.i = or i16 %4313, %49
@@ -19990,7 +19990,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i: ; preds = %_ZNK4ll
   br label %4333
 
 4333:                                             ; preds = %.thread697, %4320
-  %4334 = getelementptr inbounds nuw i8, ptr %.0819.i, i64 16
+  %4334 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 16
   %.not.i2250 = icmp eq ptr %4334, %4295
   br i1 %.not.i2250, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i
 
@@ -20481,12 +20481,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64Pre
   %4628 = zext i32 %4627 to i64
   %.idx.i2312 = shl nuw nsw i64 %4628, 4
   %4629 = getelementptr inbounds nuw i8, ptr %4626, i64 %.idx.i2312
-  %.not18.i2313 = icmp eq i32 %4627, 0
-  br i1 %.not18.i2313, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i2314
+  %.not17.i2313 = icmp eq i32 %4627, 0
+  br i1 %.not17.i2313, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i2314
 
 .lr.ph.i2314:                                     ; preds = %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit2311, %4667
-  %.0819.i2315 = phi ptr [ %4668, %4667 ], [ %4626, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit2311 ]
-  %.sroa.3.0..08.sroa_idx.i2316 = getelementptr inbounds nuw i8, ptr %.0819.i2315, i64 8
+  %.0818.i2315 = phi ptr [ %4668, %4667 ], [ %4626, %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlPSK_E_clES1J_.exit2311 ]
+  %.sroa.3.0..08.sroa_idx.i2316 = getelementptr inbounds nuw i8, ptr %.0818.i2315, i64 8
   %.sroa.3.0.copyload.i2317 = load ptr, ptr %.sroa.3.0..08.sroa_idx.i2316, align 8, !tbaa !579
   br i1 %.not737, label %4630, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2318
 
@@ -20519,8 +20519,8 @@ _ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i2325: ;
 
 _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i2327: ; preds = %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i2325, %4637
   %4644 = phi i32 [ %.pre.i.i2326, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i2325 ], [ %4632, %4637 ]
-  %.fr17.i2328 = freeze i32 %4644
-  %4645 = trunc i32 %.fr17.i2328 to i16
+  %.fr.i2328 = freeze i32 %4644
+  %4645 = trunc i32 %.fr.i2328 to i16
   %4646 = and i16 %4645, 16384
   %4647 = xor i16 %4646, 16384
   %spec.select.i2329 = or i16 %4647, %49
@@ -20559,7 +20559,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2318: ; preds = %_ZN
   br label %4667
 
 4667:                                             ; preds = %.thread706, %4654
-  %4668 = getelementptr inbounds nuw i8, ptr %.0819.i2315, i64 16
+  %4668 = getelementptr inbounds nuw i8, ptr %.0818.i2315, i64 16
   %.not.i2322 = icmp eq ptr %4668, %4629
   br i1 %.not.i2322, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i2314
 
@@ -20894,12 +20894,12 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64Pre
   %4872 = zext i32 %4871 to i64
   %.idx.i2376 = shl nuw nsw i64 %4872, 4
   %4873 = getelementptr inbounds nuw i8, ptr %4870, i64 %.idx.i2376
-  %.not18.i2377 = icmp eq i32 %4871, 0
-  br i1 %.not18.i2377, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i2378
+  %.not17.i2377 = icmp eq i32 %4871, 0
+  br i1 %.not17.i2377, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i2378
 
 .lr.ph.i2378:                                     ; preds = %4869, %4911
-  %.0819.i2379 = phi ptr [ %4912, %4911 ], [ %4870, %4869 ]
-  %.sroa.3.0..08.sroa_idx.i2380 = getelementptr inbounds nuw i8, ptr %.0819.i2379, i64 8
+  %.0818.i2379 = phi ptr [ %4912, %4911 ], [ %4870, %4869 ]
+  %.sroa.3.0..08.sroa_idx.i2380 = getelementptr inbounds nuw i8, ptr %.0818.i2379, i64 8
   %.sroa.3.0.copyload.i2381 = load ptr, ptr %.sroa.3.0..08.sroa_idx.i2380, align 8, !tbaa !579
   br i1 %.not737, label %4874, label %_ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2382
 
@@ -20932,8 +20932,8 @@ _ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i2389: ;
 
 _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.i2391: ; preds = %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i2389, %4881
   %4888 = phi i32 [ %.pre.i.i2390, %_ZNK4llvm12MachineInstr11hasPropertyEjNS0_9QueryTypeE.exit._crit_edge.i.i2389 ], [ %4876, %4881 ]
-  %.fr17.i2392 = freeze i32 %4888
-  %4889 = trunc i32 %.fr17.i2392 to i16
+  %.fr.i2392 = freeze i32 %4888
+  %4889 = trunc i32 %.fr.i2392 to i16
   %4890 = and i16 %4889, 16384
   %4891 = xor i16 %4890, 16384
   %spec.select.i2393 = or i16 %4891, %49
@@ -20972,7 +20972,7 @@ _ZNK4llvm12MachineInstr19mayRaiseFPExceptionEv.exit.thread.i2382: ; preds = %_ZN
   br label %4911
 
 4911:                                             ; preds = %.thread709, %4898
-  %4912 = getelementptr inbounds nuw i8, ptr %.0819.i2379, i64 16
+  %4912 = getelementptr inbounds nuw i8, ptr %.0818.i2379, i64 16
   %.not.i2386 = icmp eq ptr %4912, %4873
   br i1 %.not.i2386, label %_ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_131AArch64PreLegalizerCombinerImplENS_6BitsetILj1EEEMS3_KFSt8optionalINS_11SmallVectorISt8functionIFvRNS_19MachineInstrBuilderEEELj4EEEERNS_14MachineOperandEEMS3_KFvSB_RKNS_12MachineInstrEiEEEbRT_RNS0_12MatcherStateERKNS0_10ExecInfoTyIT0_T1_T2_EERNS_16MachineIRBuilderEPKhRKNS_15TargetInstrInfoERNS_19MachineRegisterInfoERKNS_18TargetRegisterInfoERKNS_16RegisterBankInfoERKSU_PNS_15CodeGenCoverageEENKUlvE_clEv.exit, label %.lr.ph.i2378
 

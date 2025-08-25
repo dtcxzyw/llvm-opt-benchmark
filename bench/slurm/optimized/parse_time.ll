@@ -156,8 +156,8 @@ define dso_local range(i64 0, -1) i64 @parse_time(ptr noundef %0, i32 noundef %1
   %49 = sext i8 %45 to i64
   %50 = getelementptr inbounds i16, ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2
-  %.fr148 = freeze i16 %51
-  %52 = and i16 %.fr148, 1
+  %.fr = freeze i16 %51
+  %52 = and i16 %.fr, 1
   %.not74.not = icmp eq i16 %52, 0
   br i1 %.not74.not, label %switch.early.test, label %234
 
@@ -289,7 +289,7 @@ switch.early.test:                                ; preds = %46
   br i1 %.not85, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %98
-  %.pre193 = load i64, ptr %13, align 8
+  %.pre192 = load i64, ptr %13, align 8
   br label %123
 
 102:                                              ; preds = %95
@@ -343,7 +343,7 @@ switch.early.test:                                ; preds = %46
   br label %.loopexit
 
 123:                                              ; preds = %._crit_edge, %106, %117
-  %124 = phi i64 [ %.pre193, %._crit_edge ], [ %108, %106 ], [ 0, %117 ]
+  %124 = phi i64 [ %.pre192, %._crit_edge ], [ %108, %106 ], [ 0, %117 ]
   %125 = load i64, ptr %3, align 8
   %126 = add nsw i64 %124, %125
   store i64 %126, ptr %14, align 8
@@ -372,12 +372,12 @@ switch.early.test:                                ; preds = %46
   %138 = getelementptr i8, ptr %44, i64 1
   %139 = load i8, ptr %138, align 1
   %140 = icmp eq i8 %139, 58
-  br i1 %140, label %.thread206, label %143
+  br i1 %140, label %.thread205, label %143
 
-.thread206:                                       ; preds = %137
+.thread205:                                       ; preds = %137
   %141 = add nsw i32 %storemerge, 1
-  %narrow.i207 = add nsw i8 %135, -48
-  %142 = zext nneg i8 %narrow.i207 to i32
+  %narrow.i206 = add nsw i8 %135, -48
+  %142 = zext nneg i8 %narrow.i206 to i32
   br label %.thread.thread.i
 
 143:                                              ; preds = %137
@@ -409,9 +409,9 @@ switch.early.test:                                ; preds = %46
   %157 = icmp eq i8 %.pre.i, 58
   br i1 %157, label %.thread.thread.i, label %_get_time.exit
 
-.thread.thread.i:                                 ; preds = %.thread206, %.thread.i
-  %.079107121.i = phi i32 [ %155, %.thread.i ], [ %142, %.thread206 ]
-  %.1108120.i = phi i32 [ %156, %.thread.i ], [ %141, %.thread206 ]
+.thread.thread.i:                                 ; preds = %.thread205, %.thread.i
+  %.079107121.i = phi i32 [ %155, %.thread.i ], [ %142, %.thread205 ]
+  %.1108120.i = phi i32 [ %156, %.thread.i ], [ %141, %.thread205 ]
   %158 = add nsw i32 %.1108120.i, 1
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %0, i64 %159
@@ -647,18 +647,18 @@ thread-pre-split:                                 ; preds = %242, %240
 
 272:                                              ; preds = %258
   %.not72 = icmp eq i32 %1, 0
-  %.pre192 = load i32, ptr %39, align 8
+  %.pre191 = load i32, ptr %39, align 8
   br i1 %.not72, label %.thread127, label %273
 
 273:                                              ; preds = %272
-  %274 = icmp sgt i32 %259, %.pre192
+  %274 = icmp sgt i32 %259, %.pre191
   %275 = load i32, ptr %41, align 4
   %276 = sext i1 %274 to i32
   %spec.select = add nsw i32 %275, %276
   br label %301
 
 .thread127:                                       ; preds = %.thread120..thread127_crit_edge, %272
-  %277 = phi i32 [ %.pre192, %272 ], [ %.pre, %.thread120..thread127_crit_edge ]
+  %277 = phi i32 [ %.pre191, %272 ], [ %.pre, %.thread120..thread127_crit_edge ]
   %278 = phi i32 [ %259, %272 ], [ %266, %.thread120..thread127_crit_edge ]
   %.3109124132 = phi i32 [ %.3109, %272 ], [ %.0106, %.thread120..thread127_crit_edge ]
   %.3105126131 = phi i32 [ %.3105, %272 ], [ %.0102, %.thread120..thread127_crit_edge ]

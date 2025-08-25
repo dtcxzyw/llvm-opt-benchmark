@@ -1042,8 +1042,8 @@ Bal_ManPrepareSet.exit115:                        ; preds = %341, %327, %337, %.
   %346 = icmp sgt i32 %.019.i92, 0
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %348 = icmp sgt i32 %.019.i105, 0
-  %or.cond568 = select i1 %346, i1 %348, i1 false
-  br i1 %or.cond568, label %.preheader251.us.us, label %.loopexit.thread
+  %or.cond567 = select i1 %346, i1 %348, i1 false
+  br i1 %or.cond567, label %.preheader251.us.us, label %.loopexit.thread
 
 .preheader251.us.us:                              ; preds = %.preheader251.lr.ph, %._crit_edge327.split.us.us.us
   %.075332.us.us = phi ptr [ %576, %._crit_edge327.split.us.us.us ], [ %.0228, %.preheader251.lr.ph ]

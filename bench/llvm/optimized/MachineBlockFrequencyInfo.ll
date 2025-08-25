@@ -2717,10 +2717,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_9GVDAGTypeELb0
   %11 = load ptr, ptr %10, align 8, !tbaa !353
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !355
-  %.not25.i = icmp eq i64 %13, 0
+  %.fr15 = freeze i64 %13
+  %.not25.i = icmp eq i64 %.fr15, 0
   %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
-  %spec.select24.i = select i1 %.not25.i, i64 %3, i64 %5
-  %spec.select24.i.fr = freeze i64 %spec.select24.i
+  %.fr16 = freeze i64 %3
+  %.fr17 = freeze i64 %5
+  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
   %16 = zext i32 %15 to i64
@@ -2730,7 +2732,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_9GVDAGTypeELb0
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select24.i.fr, 0
+  %19 = icmp eq i64 %spec.select24.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
@@ -2750,12 +2752,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
   %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::GVDAGType>::OptionInfo", ptr %18, i64 %.01527.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !50
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i.fr
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !49
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN4llvm2cl6parserINS_9GVDAGTypeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
@@ -2782,7 +2784,7 @@ _ZN4llvm2cl6parserINS_9GVDAGTypeEE5parseERNS0_6OptionENS_9StringRefES6_RS2_.exit
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select.i, ptr %29, align 8, !tbaa !74, !alias.scope !357
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i.fr, ptr %30, align 8, !tbaa !74, !alias.scope !357
+  store i64 %spec.select24.i, ptr %30, align 8, !tbaa !74, !alias.scope !357
   store ptr %8, ptr %7, align 8, !alias.scope !360
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.20, ptr %31, align 8, !alias.scope !360
@@ -5456,7 +5458,7 @@ define linkonce_odr void @_ZN4llvm22BlockFrequencyInfoImplINS_17MachineBasicBloc
   br i1 %.not59, label %._crit_edge63, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %._crit_edge
-  %.not.i13.i = icmp eq i64 %.sroa.042.0.lcssa.fr, 0
+  %.not.i13.i = icmp eq i64 %spec.select, 0
   br i1 %.not.i13.i, label %.lr.ph62.split.us, label %.lr.ph62.split
 
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %_ZN4llvm12ScaledNumberImEdVERKS1_.exit.us
@@ -5480,7 +5482,7 @@ _ZN4llvm12ScaledNumberImEdVERKS1_.exit.us:        ; preds = %31, %.lr.ph62.split
   %34 = phi ptr [ %12, %.lr.ph ], [ %108, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ]
   %.02257 = phi i64 [ 0, %.lr.ph ], [ %106, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ]
   %.sroa.7.056 = phi i16 [ 0, %.lr.ph ], [ %spec.select47, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ]
-  %.sroa.042.055 = phi i64 [ 0, %.lr.ph ], [ %.sroa.042.0.lcssa.fr, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ]
+  %.sroa.042.055 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %_ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.02257
   %36 = load ptr, ptr %35, align 8, !tbaa !170
@@ -5629,20 +5631,22 @@ _ZN4llvm13ScaledNumbers6getSumImEESt4pairIT_sES3_sS3_s.exit.i: ; preds = %100, %
   %.0..0..i.i = phi i64 [ %.0..0..0..0..0..0..0..pre.i.i, %100 ], [ %70, %76 ], [ %70, %78 ]
   %.0..0.12.i.i = phi i64 [ %.0..0..0..0..0..0..0.12.pre.i.i, %100 ], [ %.sroa.042.055, %76 ], [ %.sroa.042.055, %78 ]
   %.0.i.i.i = phi i16 [ %.1.i.i.i, %100 ], [ %74, %76 ], [ %73, %78 ]
-  %101 = add i64 %.0..0.12.i.i, %.0..0..i.i
-  %.not.i.i = icmp ult i64 %101, %.0..0..i.i
+  %.0..0..i.i.fr = freeze i64 %.0..0..i.i
+  %.0..0.12.i.i.fr = freeze i64 %.0..0.12.i.i
+  %101 = add i64 %.0..0.12.i.i.fr, %.0..0..i.i.fr
+  %.not.i.i = icmp ult i64 %101, %.0..0..i.i.fr
   %102 = lshr i64 %101, 1
   %103 = or disjoint i64 %102, -9223372036854775808
   %.sroa.013.0.i.i = select i1 %.not.i.i, i64 %103, i64 %101
   %104 = zext i1 %.not.i.i to i16
-  %.sroa.3.0.i.i = add i16 %.0.i.i.i, %104
+  %.0.i.i.i.fr = freeze i16 %.0.i.i.i
+  %.sroa.3.0.i.i = add i16 %.0.i.i.i.fr, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %105 = icmp sgt i16 %.sroa.3.0.i.i, 16383
   %spec.select = select i1 %105, i64 -1, i64 %.sroa.013.0.i.i
-  %.sroa.042.0.lcssa.fr = freeze i64 %spec.select
   %spec.select47 = call i16 @llvm.smin.i16(i16 %.sroa.3.0.i.i, i16 16383)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %106 = add nuw i64 %.02257, 1
@@ -5687,7 +5691,7 @@ _ZN4llvm12ScaledNumberImE11getQuotientEmm.exit.i: ; preds = %.lr.ph62.split
   %125 = getelementptr inbounds nuw i8, ptr %.sroa.039.060, i64 8
   %126 = load i16, ptr %125, align 8, !tbaa !561
   %127 = sub i16 %126, %spec.select47
-  %128 = call { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %124, i64 noundef %.sroa.042.0.lcssa.fr) #24
+  %128 = call { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %124, i64 noundef %spec.select) #24
   %.fca.0.extract.i.i.i = extractvalue { i64, i16 } %128, 0
   %.fca.1.extract.i.i.i = extractvalue { i64, i16 } %128, 1
   store i64 %.fca.0.extract.i.i.i, ptr %.sroa.039.060, align 8
@@ -5773,11 +5777,11 @@ _ZNSt6vectorIN4llvm12ScaledNumberImEESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorI
   br label %221
 
 .lr.ph70.splitthread-pre-split:                   ; preds = %_ZNK4llvm22BlockFrequencyInfoImplINS_17MachineBasicBlockEE7getNodeEPKS1_.exit.thread
-  %.pr113 = load i32, ptr %119, align 8, !tbaa !167
+  %.pr114 = load i32, ptr %119, align 8, !tbaa !167
   br label %.lr.ph70.split
 
 .lr.ph70.split:                                   ; preds = %.lr.ph70, %.lr.ph70.splitthread-pre-split
-  %160 = phi i32 [ %.pr113, %.lr.ph70.splitthread-pre-split ], [ %122, %.lr.ph70 ]
+  %160 = phi i32 [ %.pr114, %.lr.ph70.splitthread-pre-split ], [ %122, %.lr.ph70 ]
   %.sroa.035.066 = phi ptr [ %.sroa.035.0, %.lr.ph70.splitthread-pre-split ], [ %.sroa.035.064, %.lr.ph70 ]
   %161 = load ptr, ptr %118, align 8, !tbaa !168
   %162 = icmp eq i32 %160, 0

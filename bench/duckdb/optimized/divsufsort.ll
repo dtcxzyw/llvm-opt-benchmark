@@ -504,10 +504,10 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %.not318 = icmp eq i32 %129, %93
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %spec.select.i = select i1 %.not318, ptr %130, ptr %126
-  br i1 %112, label %131, label %._crit_edge208.i
+  br i1 %112, label %131, label %._crit_edge209.i
 
-._crit_edge208.i:                                 ; preds = %124
-  %.pre209.i = ptrtoint ptr %spec.select.i to i64
+._crit_edge209.i:                                 ; preds = %124
+  %.pre210.i = ptrtoint ptr %spec.select.i to i64
   br label %217
 
 131:                                              ; preds = %124
@@ -645,12 +645,12 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
   %216 = icmp eq i32 %.0.i131.i, 0
   br label %217
 
-217:                                              ; preds = %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i, %131, %._crit_edge208.i
-  %.pre-phi.i = phi i64 [ %.pre209.i, %._crit_edge208.i ], [ %133, %131 ], [ %133, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %133, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
-  %.0111.i = phi i32 [ %111, %._crit_edge208.i ], [ %111, %131 ], [ %111, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %spec.store.select.i, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
-  %.0110.i = phi ptr [ %74, %._crit_edge208.i ], [ %74, %131 ], [ %74, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %215, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
-  %.0105.i = phi ptr [ %128, %._crit_edge208.i ], [ %128, %131 ], [ %128, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %215, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
-  %.099.i = phi i1 [ true, %._crit_edge208.i ], [ true, %131 ], [ true, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %216, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
+217:                                              ; preds = %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i, %131, %._crit_edge209.i
+  %.pre-phi.i = phi i64 [ %.pre210.i, %._crit_edge209.i ], [ %133, %131 ], [ %133, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %133, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
+  %.0111.i = phi i32 [ %111, %._crit_edge209.i ], [ %111, %131 ], [ %111, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %spec.store.select.i, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
+  %.0110.i = phi ptr [ %74, %._crit_edge209.i ], [ %74, %131 ], [ %74, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %215, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
+  %.0105.i = phi ptr [ %128, %._crit_edge209.i ], [ %128, %131 ], [ %128, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %215, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
+  %.099.i = phi i1 [ true, %._crit_edge209.i ], [ true, %131 ], [ true, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i ], [ %216, %_ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i ]
   %218 = ptrtoint ptr %.0105.i to i64
   %219 = sub i64 %218, %.pre-phi.i
   %220 = icmp sgt i64 %219, 4096
@@ -1011,11 +1011,11 @@ _ZN11duckdb_zstdL15ss_inplacemergeEPKhPKiPiS4_S4_i.exit.i: ; preds = %.loopexit.
   %365 = sext i32 %364 to i64
   %366 = getelementptr inbounds i32, ptr %73, i64 %365
   %367 = load i32, ptr %366, align 4, !tbaa !3
-  %368 = sext i32 %367 to i64
+  %.fr179.i = freeze i32 %367
+  %368 = sext i32 %.fr179.i to i64
   %369 = getelementptr inbounds i8, ptr %114, i64 %368
   %370 = icmp sgt i64 %invariant.op, %368
-  %.fr.i = freeze i1 %370
-  br i1 %.fr.i, label %.lr.ph173.split.i, label %.lr.ph173.split.us.i
+  br i1 %370, label %.lr.ph173.split.i, label %.lr.ph173.split.us.i
 
 .lr.ph173.split.us.i:                             ; preds = %.lr.ph173.i, %.critedge2.us.i
   %.3171.us.i = phi ptr [ %374, %.critedge2.us.i ], [ %130, %.lr.ph173.i ]
@@ -1076,13 +1076,13 @@ _ZN11duckdb_zstdL15ss_inplacemergeEPKhPKiPiS4_S4_i.exit.i: ; preds = %.loopexit.
   br i1 %395, label %._ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit_crit_edge.i, label %.critedge2.i
 
 ._ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit_crit_edge.i: ; preds = %396
-  %.pre207.i = load i8, ptr %392, align 1, !tbaa !7
+  %.pre208.i = load i8, ptr %392, align 1, !tbaa !7
   %.pre = load i8, ptr %393, align 1, !tbaa !7
   br label %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i
 
 _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i:  ; preds = %.lr.ph.i129.i, %._ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit_crit_edge.i
   %397 = phi i8 [ %.pre, %._ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit_crit_edge.i ], [ %389, %.lr.ph.i129.i ]
-  %398 = phi i8 [ %.pre207.i, %._ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit_crit_edge.i ], [ %388, %.lr.ph.i129.i ]
+  %398 = phi i8 [ %.pre208.i, %._ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit_crit_edge.i ], [ %388, %.lr.ph.i129.i ]
   %399 = icmp ugt i8 %398, %397
   br i1 %399, label %.critedge2.i, label %.critedge.i
 

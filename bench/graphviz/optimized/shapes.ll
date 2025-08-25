@@ -6778,6 +6778,7 @@ define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0
 118:                                              ; preds = %111, %109
   %.0157 = phi ptr [ %37, %109 ], [ %115, %111 ]
   %.0156 = phi i64 [ %39, %109 ], [ %117, %111 ]
+  %.0156.fr = freeze i64 %.0156
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %120 = load double, ptr %119, align 8, !tbaa !81
   %121 = fmul double %17, %120
@@ -6798,7 +6799,7 @@ define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0
   br i1 %133, label %238, label %134
 
 134:                                              ; preds = %129
-  %135 = icmp ult i64 %.0156, 3
+  %135 = icmp ult i64 %.0156.fr, 3
   br i1 %135, label %136, label %141
 
 136:                                              ; preds = %134
@@ -6811,14 +6812,14 @@ define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0
 141:                                              ; preds = %134
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %143 = load i64, ptr %142, align 8, !tbaa !81
-  %144 = urem i64 %143, %.0156
-  %.fr = freeze i64 %144
-  %145 = add i64 %.fr, 1
-  %146 = icmp eq i64 %145, %.0156
+  %.fr = freeze i64 %143
+  %144 = urem i64 %.fr, %.0156.fr
+  %145 = add nuw i64 %144, 1
+  %146 = icmp eq i64 %145, %.0156.fr
   %147 = select i1 %146, i64 0, i64 %145
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %149 = load i64, ptr %148, align 8, !tbaa !81
-  %150 = getelementptr %struct.pointf_s, ptr %.0157, i64 %.fr
+  %150 = getelementptr %struct.pointf_s, ptr %.0157, i64 %144
   %151 = getelementptr %struct.pointf_s, ptr %150, i64 %149
   %.sroa.056.0.copyload = load double, ptr %151, align 8, !tbaa !4
   %.sroa.659.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -6882,16 +6883,16 @@ define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0
 
 .lr.ph.split.us.preheader:                        ; preds = %167
   %invariant.gep207 = getelementptr %struct.pointf_s, ptr %.0157, i64 %149
-  %193 = add i64 %.0156, -1
+  %193 = add i64 %.0156.fr, -1
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %214
   %194 = phi double [ %200, %214 ], [ %.sroa.659.0.copyload, %.lr.ph.split.us.preheader ]
   %195 = phi double [ %198, %214 ], [ %.sroa.056.0.copyload, %.lr.ph.split.us.preheader ]
   %.0187.us = phi i64 [ %215, %214 ], [ 1, %.lr.ph.split.us.preheader ]
-  %.0141185.us = phi i64 [ %197, %214 ], [ %.fr, %.lr.ph.split.us.preheader ]
+  %.0141185.us = phi i64 [ %197, %214 ], [ %144, %.lr.ph.split.us.preheader ]
   %196 = add i64 %193, %.0141185.us
-  %197 = urem i64 %196, %.0156
+  %197 = urem i64 %196, %.0156.fr
   %gep.us = getelementptr %struct.pointf_s, ptr %invariant.gep207, i64 %197
   %198 = load double, ptr %gep.us, align 8
   %199 = getelementptr inbounds nuw i8, ptr %gep.us, i64 8
@@ -6914,12 +6915,12 @@ define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0
 
 214:                                              ; preds = %.lr.ph.split.us
   %215 = add nuw i64 %.0187.us, 1
-  %exitcond194.not = icmp eq i64 %215, %.0156
+  %exitcond194.not = icmp eq i64 %215, %.0156.fr
   br i1 %exitcond194.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !175
 
 216:                                              ; preds = %.lr.ph.split
   %217 = add nuw i64 %.0187, 1
-  %exitcond.not = icmp eq i64 %217, %.0156
+  %exitcond.not = icmp eq i64 %217, %.0156.fr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !175
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %216
@@ -6928,7 +6929,7 @@ define internal zeroext i1 @poly_inside(ptr noundef captures(address_is_null) %0
   %.0187 = phi i64 [ %217, %216 ], [ 1, %.lr.ph.split.preheader ]
   %.0140186 = phi i64 [ %221, %216 ], [ %147, %.lr.ph.split.preheader ]
   %220 = add nuw i64 %.0140186, 1
-  %221 = urem i64 %220, %.0156
+  %221 = urem i64 %220, %.0156.fr
   %gep183 = getelementptr %struct.pointf_s, ptr %invariant.gep, i64 %221
   %222 = load double, ptr %gep183, align 8
   %223 = getelementptr inbounds nuw i8, ptr %gep183, i64 8

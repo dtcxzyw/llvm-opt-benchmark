@@ -6809,7 +6809,8 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   %16 = load i32, ptr %1, align 4, !tbaa !12
   store i32 %16, ptr %14, align 4, !tbaa !12
   %17 = load i32, ptr %2, align 4, !tbaa !12
-  store i32 %17, ptr %15, align 4, !tbaa !12
+  %.fr42 = freeze i32 %17
+  store i32 %.fr42, ptr %15, align 4, !tbaa !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -6879,12 +6880,13 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
 45:                                               ; preds = %43, %41, %38
   %46 = and i32 %16, 2147483647
   %47 = icmp eq i32 %46, 2139095040
-  %48 = and i32 %17, 2147483647
+  %48 = and i32 %.fr42, 2147483647
   %49 = icmp eq i32 %48, 2139095040
   %50 = icmp samesign ugt i32 %46, 2139095040
   %51 = icmp samesign ugt i32 %48, 2139095040
   %52 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !tbaa !12, !noalias !385
-  %53 = zext i32 %52 to i64
+  %.fr = freeze i32 %52
+  %53 = zext i32 %.fr to i64
   %54 = and i64 %53, 2139095040
   %55 = icmp eq i64 %54, 2139095040
   %56 = and i64 %53, 8388607
@@ -6893,7 +6895,7 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br i1 %or.cond.i.i.i.not41, label %_ZNK2cv9softfloatgtERKS0_.exit.i, label %57
 
 57:                                               ; preds = %45
-  %58 = zext i32 %17 to i64
+  %58 = zext i32 %.fr42 to i64
   %59 = and i64 %58, 2139095040
   %60 = icmp ne i64 %59, 2139095040
   %61 = and i64 %58, 8388607
@@ -6902,27 +6904,27 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   br i1 %or.cond23.i.i.i, label %62, label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
 62:                                               ; preds = %57
-  %.not21.unshifted.i.i.i = xor i32 %52, %17
+  %.not21.unshifted.i.i.i = xor i32 %.fr, %.fr42
   %.not21.i.i.i = icmp sgt i32 %.not21.unshifted.i.i.i, -1
   br i1 %.not21.i.i.i, label %68, label %63
 
 63:                                               ; preds = %62
-  %64 = icmp slt i32 %52, 0
+  %64 = icmp slt i32 %.fr, 0
   br i1 %64, label %65, label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
 65:                                               ; preds = %63
-  %66 = or i32 %52, %17
+  %66 = or i32 %.fr, %.fr42
   %.mask.i.i.i = and i32 %66, 2147483647
   %67 = icmp ne i32 %.mask.i.i.i, 0
   br label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
 68:                                               ; preds = %62
-  %.not22.i.i.i = icmp eq i32 %52, %17
+  %.not22.i.i.i = icmp eq i32 %.fr, %.fr42
   br i1 %.not22.i.i.i, label %_ZNK2cv9softfloatgtERKS0_.exit.i, label %69
 
 69:                                               ; preds = %68
-  %70 = icmp ult i32 %52, %17
-  %71 = icmp slt i32 %52, 0
+  %70 = icmp ult i32 %.fr, %.fr42
+  %71 = icmp slt i32 %.fr, 0
   %72 = xor i1 %71, %70
   br label %_ZNK2cv9softfloatgtERKS0_.exit.i
 
@@ -7010,7 +7012,7 @@ _ZNK2cv9softfloateqERKS0_.exit.i:                 ; preds = %99, %94
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
 106:                                              ; preds = %93
-  %107 = zext i32 %17 to i64
+  %107 = zext i32 %.fr42 to i64
   %108 = and i64 %107, 2139095040
   %109 = icmp ne i64 %108, 2139095040
   %110 = and i64 %107, 8388607
@@ -7022,11 +7024,11 @@ _ZNK2cv9softfloateqERKS0_.exit.i:                 ; preds = %99, %94
   br i1 %or.cond.i.i.i.not41, label %.thread69.i, label %_ZNK2cv9softfloateqERKS0_.exit38.i
 
 _ZNK2cv9softfloateqERKS0_.exit38.i:               ; preds = %111
-  %112 = icmp eq i32 %17, %52
-  %113 = or i32 %52, %17
+  %112 = icmp eq i32 %.fr42, %.fr
+  %113 = or i32 %.fr, %.fr42
   %.mask.i.i36.i = and i32 %113, 2147483647
   %.not15.i.i37.i = icmp eq i32 %.mask.i.i36.i, 0
-  %114 = select i1 %112, i1 true, i1 %.not15.i.i37.i
+  %114 = or i1 %112, %.not15.i.i37.i
   br i1 %114, label %115, label %.thread69.i
 
 115:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit38.i
@@ -7041,11 +7043,11 @@ _ZNK2cv9softfloateqERKS0_.exit38.i:               ; preds = %111
   br i1 %or.cond.i.i16.not74.i, label %_ZNK2cv9softfloateqERKS0_.exit48.thread.i, label %_ZNK2cv9softfloateqERKS0_.exit48.i
 
 _ZNK2cv9softfloateqERKS0_.exit48.i:               ; preds = %.thread69.i
-  %117 = icmp eq i32 %17, %73
-  %118 = or i32 %73, %17
+  %117 = icmp eq i32 %.fr42, %73
+  %118 = or i32 %73, %.fr42
   %.mask.i.i46.i = and i32 %118, 2147483647
   %.not15.i.i47.i = icmp eq i32 %.mask.i.i46.i, 0
-  %119 = select i1 %117, i1 true, i1 %.not15.i.i47.i
+  %119 = or i1 %117, %.not15.i.i47.i
   br i1 %119, label %120, label %_ZNK2cv9softfloateqERKS0_.exit48.thread.i
 
 120:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit48.i
@@ -7073,31 +7075,29 @@ _ZNK2cv9softfloateqERKS0_.exit48.thread.i:        ; preds = %_ZNK2cv9softfloateq
   br i1 %brmerge, label %_ZNK2cv9softfloatltERKS0_.exit31.thread, label %126
 
 126:                                              ; preds = %125
-  %.not21.unshifted.i.i27 = xor i32 %52, %17
+  %.not21.unshifted.i.i27 = xor i32 %.fr, %.fr42
   %.not21.i.i28 = icmp sgt i32 %.not21.unshifted.i.i27, -1
   br i1 %.not21.i.i28, label %131, label %127
 
 127:                                              ; preds = %126
-  %128 = icmp slt i32 %17, 0
+  %128 = icmp slt i32 %.fr42, 0
   br i1 %128, label %129, label %_ZNK2cv9softfloatltERKS0_.exit31.thread
 
 129:                                              ; preds = %127
-  %130 = or i32 %52, %17
-  %.fr = freeze i32 %130
-  %.mask.i.i29 = and i32 %.fr, 2147483647
-  %.not42 = icmp eq i32 %.mask.i.i29, 0
-  br i1 %.not42, label %_ZNK2cv9softfloatltERKS0_.exit31.thread, label %135
+  %130 = or i32 %.fr, %.fr42
+  %.mask.i.i29 = and i32 %130, 2147483647
+  %.not43 = icmp eq i32 %.mask.i.i29, 0
+  br i1 %.not43, label %_ZNK2cv9softfloatltERKS0_.exit31.thread, label %135
 
 131:                                              ; preds = %126
-  %.not22.i.i30 = icmp eq i32 %17, %52
+  %.not22.i.i30 = icmp eq i32 %.fr42, %.fr
   br i1 %.not22.i.i30, label %_ZNK2cv9softfloatltERKS0_.exit31.thread, label %_ZNK2cv9softfloatltERKS0_.exit31
 
 _ZNK2cv9softfloatltERKS0_.exit31:                 ; preds = %131
-  %132 = icmp ult i32 %17, %52
-  %133 = icmp slt i32 %17, 0
+  %132 = icmp ult i32 %.fr42, %.fr
+  %133 = icmp slt i32 %.fr42, 0
   %134 = xor i1 %133, %132
-  %cond.fr = freeze i1 %134
-  br i1 %cond.fr, label %135, label %_ZNK2cv9softfloatltERKS0_.exit31.thread
+  br i1 %134, label %135, label %_ZNK2cv9softfloatltERKS0_.exit31.thread
 
 135:                                              ; preds = %129, %_ZNK2cv9softfloatltERKS0_.exit31
   br label %_ZNK2cv9softfloatltERKS0_.exit31.thread
@@ -7173,7 +7173,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %151
   br label %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
 
 _ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit:    ; preds = %143, %151, %172
-  %.sink.i = phi i32 [ %173, %172 ], [ %17, %143 ], [ %17, %151 ]
+  %.sink.i = phi i32 [ %173, %172 ], [ %.fr42, %143 ], [ %.fr42, %151 ]
   br i1 %or.cond.i.i32.i, label %174, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
 174:                                              ; preds = %_ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit
@@ -7186,15 +7186,15 @@ _ZN2cvL14f32_roundToIntENS_9softfloatEhb.exit:    ; preds = %143, %151, %172
   br i1 %or.cond18.i.i, label %_ZNK2cv9softfloateqERKS0_.exit, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
 _ZNK2cv9softfloateqERKS0_.exit:                   ; preds = %174
-  %179 = icmp eq i32 %17, %.sink.i
-  %180 = or i32 %.sink.i, %17
+  %179 = icmp eq i32 %.fr42, %.sink.i
+  %180 = or i32 %.sink.i, %.fr42
   %.mask.i.i17 = and i32 %180, 2147483647
   %.not15.i.i = icmp eq i32 %.mask.i.i17, 0
   %181 = select i1 %179, i1 true, i1 %.not15.i.i
   br i1 %181, label %_ZN2cv9softfloataSERKS0_.exit56.i, label %_ZNK2cv9softfloateqERKS0_.exit.thread
 
 _ZN2cv9softfloataSERKS0_.exit56.i:                ; preds = %_ZNK2cv9softfloateqERKS0_.exit
-  %182 = icmp slt i32 %17, 0
+  %182 = icmp slt i32 %.fr42, 0
   %183 = icmp ne i64 %141, 255
   %or.cond.not.i = or i1 %.not.i.i31.i, %183
   %spec.select.i9 = and i1 %182, %or.cond.not.i
@@ -7231,9 +7231,9 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %190, %_ZN2cv9softfl
   br i1 %.not.i.i11, label %200, label %211
 
 200:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %.017.i65 = phi i64 [ %199, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.017.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
-  %201 = add nuw nsw i64 %.017.i65, 2048
-  %202 = and i64 %.017.i65, 4095
+  %.017.i59 = phi i64 [ %199, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.017.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
+  %201 = add nuw nsw i64 %.017.i59, 2048
+  %202 = and i64 %.017.i59, 4095
   %203 = lshr i64 %201, 12
   %.not31.i.i = icmp eq i64 %202, 2048
   %204 = zext i1 %.not31.i.i to i64
@@ -7346,7 +7346,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundT
   br i1 %brmerge39, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %238
 
 238:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread
-  %.not21.unshifted.i.i = xor i32 %52, %16
+  %.not21.unshifted.i.i = xor i32 %.fr, %16
   %.not21.i.i = icmp sgt i32 %.not21.unshifted.i.i, -1
   br i1 %.not21.i.i, label %243, label %239
 
@@ -7355,17 +7355,17 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZN2cvL14f32_roundT
   br i1 %240, label %241, label %_ZNK2cv9softfloatltERKS0_.exit.thread
 
 241:                                              ; preds = %239
-  %242 = or i32 %52, %16
+  %242 = or i32 %.fr, %16
   %.mask.i.i = and i32 %242, 2147483647
   %.not = icmp eq i32 %.mask.i.i, 0
   br i1 %.not, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %247
 
 243:                                              ; preds = %238
-  %.not22.i.i = icmp eq i32 %16, %52
+  %.not22.i.i = icmp eq i32 %16, %.fr
   br i1 %.not22.i.i, label %_ZNK2cv9softfloatltERKS0_.exit.thread, label %_ZNK2cv9softfloatltERKS0_.exit
 
 _ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %243
-  %244 = icmp ult i32 %16, %52
+  %244 = icmp ult i32 %16, %.fr
   %245 = icmp slt i32 %16, 0
   %246 = xor i1 %245, %244
   br i1 %246, label %247, label %_ZNK2cv9softfloatltERKS0_.exit.thread
@@ -7434,7 +7434,8 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   %16 = load i64, ptr %1, align 8, !tbaa !27
   store i64 %16, ptr %14, align 8, !tbaa !27
   %17 = load i64, ptr %2, align 8, !tbaa !27
-  store i64 %17, ptr %15, align 8, !tbaa !27
+  %.fr39 = freeze i64 %17
+  store i64 %.fr39, ptr %15, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -7504,48 +7505,49 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
 45:                                               ; preds = %43, %41, %38
   %46 = and i64 %16, 9223372036854775807
   %47 = icmp eq i64 %46, 9218868437227405312
-  %48 = and i64 %17, 9223372036854775807
+  %48 = and i64 %.fr39, 9223372036854775807
   %49 = icmp eq i64 %48, 9218868437227405312
   %50 = icmp samesign ugt i64 %46, 9218868437227405312
   %51 = icmp samesign ugt i64 %48, 9218868437227405312
   %52 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !tbaa !27, !noalias !422
-  %53 = and i64 %52, 9218868437227405312
+  %.fr = freeze i64 %52
+  %53 = and i64 %.fr, 9218868437227405312
   %54 = icmp eq i64 %53, 9218868437227405312
-  %55 = and i64 %52, 4503599627370495
+  %55 = and i64 %.fr, 4503599627370495
   %.not.i.i.i = icmp ne i64 %55, 0
   %or.cond.i.i.i.not38 = and i1 %54, %.not.i.i.i
   br i1 %or.cond.i.i.i.not38, label %_ZNK2cv10softdoublegtERKS0_.exit.i, label %56
 
 56:                                               ; preds = %45
-  %57 = and i64 %17, 9218868437227405312
+  %57 = and i64 %.fr39, 9218868437227405312
   %58 = icmp ne i64 %57, 9218868437227405312
-  %59 = and i64 %17, 4503599627370495
+  %59 = and i64 %.fr39, 4503599627370495
   %.not19.i.i.i = icmp eq i64 %59, 0
   %or.cond23.i.i.i = or i1 %58, %.not19.i.i.i
   br i1 %or.cond23.i.i.i, label %60, label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
 60:                                               ; preds = %56
-  %.not21.unshifted.i.i.i = xor i64 %52, %17
+  %.not21.unshifted.i.i.i = xor i64 %.fr, %.fr39
   %.not21.i.i.i = icmp sgt i64 %.not21.unshifted.i.i.i, -1
   br i1 %.not21.i.i.i, label %67, label %61
 
 61:                                               ; preds = %60
-  %62 = icmp slt i64 %52, 0
+  %62 = icmp slt i64 %.fr, 0
   br i1 %62, label %63, label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
 63:                                               ; preds = %61
-  %64 = or i64 %52, %17
+  %64 = or i64 %.fr, %.fr39
   %65 = and i64 %64, 9223372036854775807
   %66 = icmp ne i64 %65, 0
   br label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
 67:                                               ; preds = %60
-  %.not22.i.i.i = icmp eq i64 %52, %17
+  %.not22.i.i.i = icmp eq i64 %.fr, %.fr39
   br i1 %.not22.i.i.i, label %_ZNK2cv10softdoublegtERKS0_.exit.i, label %68
 
 68:                                               ; preds = %67
-  %69 = icmp ult i64 %52, %17
-  %70 = icmp slt i64 %52, 0
+  %69 = icmp ult i64 %.fr, %.fr39
+  %70 = icmp slt i64 %.fr, 0
   %71 = xor i1 %70, %69
   br label %_ZNK2cv10softdoublegtERKS0_.exit.i
 
@@ -7630,9 +7632,9 @@ _ZNK2cv10softdoubleeqERKS0_.exit.i:               ; preds = %96, %92
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
 104:                                              ; preds = %91
-  %105 = and i64 %17, 9218868437227405312
+  %105 = and i64 %.fr39, 9218868437227405312
   %106 = icmp ne i64 %105, 9218868437227405312
-  %107 = and i64 %17, 4503599627370495
+  %107 = and i64 %.fr39, 4503599627370495
   %.not.i.i29.i = icmp eq i64 %107, 0
   %or.cond.i.i30.i = or i1 %106, %.not.i.i29.i
   br i1 %or.cond.i.i30.i, label %108, label %_ZNK2cv10softdoubleeqERKS0_.exit44.thread.i
@@ -7641,11 +7643,11 @@ _ZNK2cv10softdoubleeqERKS0_.exit.i:               ; preds = %96, %92
   br i1 %or.cond.i.i.i.not38, label %.thread65.i, label %_ZNK2cv10softdoubleeqERKS0_.exit35.i
 
 _ZNK2cv10softdoubleeqERKS0_.exit35.i:             ; preds = %108
-  %109 = icmp eq i64 %17, %52
-  %110 = or i64 %52, %17
+  %109 = icmp eq i64 %.fr39, %.fr
+  %110 = or i64 %.fr, %.fr39
   %111 = and i64 %110, 9223372036854775807
   %.not15.i.i34.i = icmp eq i64 %111, 0
-  %112 = select i1 %109, i1 true, i1 %.not15.i.i34.i
+  %112 = or i1 %109, %.not15.i.i34.i
   br i1 %112, label %113, label %.thread65.i
 
 113:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit35.i
@@ -7660,11 +7662,11 @@ _ZNK2cv10softdoubleeqERKS0_.exit35.i:             ; preds = %108
   br i1 %or.cond.i.i16.not70.i, label %_ZNK2cv10softdoubleeqERKS0_.exit44.thread.i, label %_ZNK2cv10softdoubleeqERKS0_.exit44.i
 
 _ZNK2cv10softdoubleeqERKS0_.exit44.i:             ; preds = %.thread65.i
-  %115 = icmp eq i64 %17, %72
-  %116 = or i64 %72, %17
+  %115 = icmp eq i64 %.fr39, %72
+  %116 = or i64 %72, %.fr39
   %117 = and i64 %116, 9223372036854775807
   %.not15.i.i43.i = icmp eq i64 %117, 0
-  %118 = select i1 %115, i1 true, i1 %.not15.i.i43.i
+  %118 = or i1 %115, %.not15.i.i43.i
   br i1 %118, label %119, label %_ZNK2cv10softdoubleeqERKS0_.exit44.thread.i
 
 119:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit44.i
@@ -7692,31 +7694,29 @@ _ZNK2cv10softdoubleeqERKS0_.exit44.thread.i:      ; preds = %_ZNK2cv10softdouble
   br i1 %brmerge, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %125
 
 125:                                              ; preds = %124
-  %.not21.unshifted.i.i25 = xor i64 %52, %17
+  %.not21.unshifted.i.i25 = xor i64 %.fr, %.fr39
   %.not21.i.i26 = icmp sgt i64 %.not21.unshifted.i.i25, -1
   br i1 %.not21.i.i26, label %131, label %126
 
 126:                                              ; preds = %125
-  %127 = icmp slt i64 %17, 0
+  %127 = icmp slt i64 %.fr39, 0
   br i1 %127, label %128, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
 
 128:                                              ; preds = %126
-  %129 = or i64 %52, %17
-  %.fr39 = freeze i64 %129
-  %130 = and i64 %.fr39, 9223372036854775807
+  %129 = or i64 %.fr, %.fr39
+  %130 = and i64 %129, 9223372036854775807
   %.not40 = icmp eq i64 %130, 0
   br i1 %.not40, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %135
 
 131:                                              ; preds = %125
-  %.not22.i.i27 = icmp eq i64 %17, %52
+  %.not22.i.i27 = icmp eq i64 %.fr39, %.fr
   br i1 %.not22.i.i27, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread, label %_ZNK2cv10softdoubleltERKS0_.exit28
 
 _ZNK2cv10softdoubleltERKS0_.exit28:               ; preds = %131
-  %132 = icmp ult i64 %17, %52
-  %133 = icmp slt i64 %17, 0
+  %132 = icmp ult i64 %.fr39, %.fr
+  %133 = icmp slt i64 %.fr39, 0
   %134 = xor i1 %133, %132
-  %cond.fr = freeze i1 %134
-  br i1 %cond.fr, label %135, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
+  br i1 %134, label %135, label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
 
 135:                                              ; preds = %128, %_ZNK2cv10softdoubleltERKS0_.exit28
   br label %_ZNK2cv10softdoubleltERKS0_.exit28.thread
@@ -7732,7 +7732,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %124, %131, %126, %1
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
 139:                                              ; preds = %123
-  %140 = lshr i64 %17, 52
+  %140 = lshr i64 %.fr39, 52
   %141 = and i64 %140, 2047
   %142 = icmp samesign ult i64 %141, 1023
   br i1 %142, label %143, label %149
@@ -7742,7 +7742,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %124, %131, %126, %1
   br i1 %.not47.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %144
 
 144:                                              ; preds = %143
-  %145 = and i64 %17, -9223372036854775808
+  %145 = and i64 %.fr39, -9223372036854775808
   %146 = icmp ne i64 %107, 0
   %147 = icmp eq i64 %141, 1022
   %or.cond.i18 = and i1 %146, %147
@@ -7760,14 +7760,14 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %124, %131, %126, %1
   br i1 %or.cond48.i, label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit, label %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
 
 _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %151
-  %153 = and i64 %17, 9221120237041090560
+  %153 = and i64 %.fr39, 9221120237041090560
   %154 = icmp eq i64 %153, 9218868437227405312
-  %155 = and i64 %17, 2251799813685247
+  %155 = and i64 %.fr39, 2251799813685247
   %156 = icmp ne i64 %155, 0
   %157 = and i1 %154, %156
   %.not1.i = icmp eq i64 %105, 9218868437227405312
   %158 = or i1 %.not1.i, %157
-  %159 = or i64 %17, 2251799813685248
+  %159 = or i64 %.fr39, 2251799813685248
   %.0.i.i17 = select i1 %158, i64 %159, i64 2251799813685248
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
@@ -7776,7 +7776,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %151
   %162 = shl nuw nsw i64 1, %161
   %163 = add nsw i64 %162, -1
   %164 = lshr i64 %162, 1
-  %165 = add i64 %164, %17
+  %165 = add i64 %164, %.fr39
   %166 = and i64 %165, %163
   %.not.i16 = icmp eq i64 %166, 0
   %167 = xor i64 %162, -1
@@ -7787,7 +7787,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %151
   br label %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
 
 _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %143, %144, %151, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %160
-  %.0.sink.i = phi i64 [ %17, %143 ], [ %17, %151 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %171, %160 ], [ %spec.select.i19, %144 ]
+  %.0.sink.i = phi i64 [ %.fr39, %143 ], [ %.fr39, %151 ], [ %.0.i.i17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %171, %160 ], [ %spec.select.i19, %144 ]
   br i1 %or.cond.i.i30.i, label %172, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 172:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
@@ -7799,15 +7799,15 @@ _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %143, %144, %151, %_
   br i1 %or.cond18.i.i, label %_ZNK2cv10softdoubleeqERKS0_.exit, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 _ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %172
-  %176 = icmp eq i64 %17, %.0.sink.i
-  %177 = or i64 %.0.sink.i, %17
+  %176 = icmp eq i64 %.fr39, %.0.sink.i
+  %177 = or i64 %.0.sink.i, %.fr39
   %178 = and i64 %177, 9223372036854775807
   %.not15.i.i = icmp eq i64 %178, 0
   %179 = select i1 %176, i1 true, i1 %.not15.i.i
   br i1 %179, label %_ZN2cv10softdoubleaSERKS0_.exit52.i, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 _ZN2cv10softdoubleaSERKS0_.exit52.i:              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit
-  %180 = icmp slt i64 %17, 0
+  %180 = icmp slt i64 %.fr39, 0
   %181 = icmp ne i64 %141, 2047
   %or.cond.not.i = or i1 %.not.i.i29.i, %181
   %spec.select.i8 = and i1 %180, %or.cond.not.i
@@ -7843,9 +7843,9 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i:     ; preds = %186, %_ZN2cv10softd
   br i1 %.not.i.i10, label %196, label %207
 
 196:                                              ; preds = %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i
-  %.1.i63 = phi i64 [ %195, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.1.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
-  %197 = add nuw nsw i64 %.1.i63, 2048
-  %198 = and i64 %.1.i63, 4095
+  %.1.i56 = phi i64 [ %195, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.thread ], [ %.1.i, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i ]
+  %197 = add nuw nsw i64 %.1.i56, 2048
+  %198 = and i64 %.1.i56, 4095
   %199 = lshr i64 %197, 12
   %.not31.i.i = icmp eq i64 %198, 2048
   %200 = zext i1 %.not31.i.i to i64
@@ -7956,7 +7956,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundT
   br i1 %brmerge36, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %232
 
 232:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
-  %.not21.unshifted.i.i = xor i64 %52, %16
+  %.not21.unshifted.i.i = xor i64 %.fr, %16
   %.not21.i.i = icmp sgt i64 %.not21.unshifted.i.i, -1
   br i1 %.not21.i.i, label %238, label %233
 
@@ -7965,17 +7965,17 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZN2cvL14f64_roundT
   br i1 %234, label %235, label %_ZNK2cv10softdoubleltERKS0_.exit.thread
 
 235:                                              ; preds = %233
-  %236 = or i64 %52, %16
+  %236 = or i64 %.fr, %16
   %237 = and i64 %236, 9223372036854775807
   %.not = icmp eq i64 %237, 0
   br i1 %.not, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %242
 
 238:                                              ; preds = %232
-  %.not22.i.i = icmp eq i64 %16, %52
+  %.not22.i.i = icmp eq i64 %16, %.fr
   br i1 %.not22.i.i, label %_ZNK2cv10softdoubleltERKS0_.exit.thread, label %_ZNK2cv10softdoubleltERKS0_.exit
 
 _ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %238
-  %239 = icmp ult i64 %16, %52
+  %239 = icmp ult i64 %16, %.fr
   %240 = icmp slt i64 %16, 0
   %241 = xor i1 %240, %239
   br i1 %241, label %242, label %_ZNK2cv10softdoubleltERKS0_.exit.thread

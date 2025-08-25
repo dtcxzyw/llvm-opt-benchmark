@@ -1284,8 +1284,8 @@ _ZN5draco7OptionsD2Ev.exit:                       ; preds = %175
   %.053133 = phi i32 [ 0, %.lr.ph.preheader ], [ %188, %.lr.ph ]
   %186 = getelementptr inbounds nuw i32, ptr %.sroa.097.0, i64 %indvars.iv
   %187 = load i32, ptr %186, align 4, !tbaa !94
-  %.fr163 = freeze i32 %187
-  %188 = or i32 %.fr163, %.053133
+  %.fr = freeze i32 %187
+  %188 = or i32 %.fr, %.053133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144

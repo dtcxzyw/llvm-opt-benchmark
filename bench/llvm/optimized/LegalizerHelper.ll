@@ -56696,7 +56696,8 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper32fewerEl
   %11 = alloca %"class.llvm::SrcOp", align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i24, ptr %12, align 8
-  %14 = zext i24 %13 to i32
+  %.fr = freeze i24 %13
+  %14 = zext i24 %.fr to i32
   %15 = add nsw i32 %14, -1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !189
@@ -56935,11 +56936,11 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load i24, ptr %120, align 8
-  %122 = zext i24 %121 to i32
+  %.fr110 = freeze i24 %121
+  %122 = zext i24 %.fr110 to i32
   %123 = add nsw i32 %122, -1
   %124 = sdiv i32 %15, %123
-  %.fr = freeze i32 %124
-  %.not46105 = icmp eq i32 %.fr, 0
+  %.not46105 = icmp eq i32 %124, 0
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -56950,8 +56951,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   br i1 %.not46105, label %.split.us.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %115
-  %132 = zext i32 %.fr to i64
-  %133 = zext i32 %.fr to i64
+  %132 = zext i32 %124 to i64
+  %133 = zext i32 %124 to i64
   %zext = zext i32 %123 to i64
   br label %.lr.ph
 
@@ -56960,7 +56961,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
-  %indvars.iv115 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next116, %.split.us ]
+  %indvars.iv116 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next117, %.split.us ]
   %135 = load ptr, ptr %0, align 8, !tbaa !139
   %136 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %135, i32 noundef 74) #19
   %137 = extractvalue { ptr, ptr } %136, 0
@@ -56969,7 +56970,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   %140 = extractvalue { ptr, ptr } %139, 0
   %141 = extractvalue { ptr, ptr } %139, 1
   %142 = load ptr, ptr %128, align 8, !tbaa !189
-  %143 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %142, i64 %indvars.iv115, i32 1
+  %143 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %142, i64 %indvars.iv116, i32 1
   %144 = load i32, ptr %143, align 4, !tbaa !173
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %129, align 8, !tbaa !278, !alias.scope !832
@@ -56978,8 +56979,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   store i32 0, ptr %6, align 8, !alias.scope !832
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %141, ptr noundef nonnull align 8 dereferenceable(1065) %140, ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %.not45.us = icmp eq i64 %indvars.iv.next116, %134
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %.not45.us = icmp eq i64 %indvars.iv.next117, %134
   br i1 %.not45.us, label %.split109.us, label %.split.us, !llvm.loop !835
 
 .split109.us:                                     ; preds = %._crit_edge, %.split.us
@@ -56987,7 +56988,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   br label %163
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
-  %indvars.iv112 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next113, %._crit_edge ]
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next114, %._crit_edge ]
   %145 = load ptr, ptr %0, align 8, !tbaa !139
   %146 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder18buildInstrNoInsertEj(ptr noundef nonnull align 8 dereferenceable(88) %145, i32 noundef 74) #19
   %147 = extractvalue { ptr, ptr } %146, 0
@@ -56995,12 +56996,12 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   %149 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder11insertInstrENS_19MachineInstrBuilderE(ptr noundef nonnull align 8 dereferenceable(88) %145, ptr %147, ptr %148) #19
   %150 = extractvalue { ptr, ptr } %149, 0
   %151 = extractvalue { ptr, ptr } %149, 1
-  %152 = mul i64 %indvars.iv112, %133
+  %152 = mul i64 %indvars.iv113, %133
   br label %157
 
 ._crit_edge:                                      ; preds = %157
   %153 = load ptr, ptr %128, align 8, !tbaa !189
-  %154 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %153, i64 %indvars.iv112, i32 1
+  %154 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %153, i64 %indvars.iv113, i32 1
   %155 = load i32, ptr %154, align 4, !tbaa !173
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %129, align 8, !tbaa !278, !alias.scope !832
@@ -57009,8 +57010,8 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit93:            ; preds = %103, %105
   store i32 0, ptr %6, align 8, !alias.scope !832
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %151, ptr noundef nonnull align 8 dereferenceable(1065) %150, ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %156 = icmp eq i64 %indvars.iv.next113, %zext
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %156 = icmp eq i64 %indvars.iv.next114, %zext
   br i1 %156, label %.split109.us, label %.lr.ph, !llvm.loop !835
 
 157:                                              ; preds = %.lr.ph, %157

@@ -4760,7 +4760,8 @@ select.unfold:                                    ; preds = %29, %19, %23, %26
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %40 = load ptr, ptr %39, align 8
-  %.not11.i = icmp ne ptr %40, null
+  %.fr162 = freeze ptr %40
+  %.not11.i = icmp ne ptr %.fr162, null
   %41 = zext i1 %.not11.i to i64
   br label %42
 
@@ -5102,9 +5103,8 @@ _ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i70:
   %169 = add nsw i64 %168, -12
   %170 = mul i64 %168, %indvar
   %171 = add i64 %170, %169
-  %.fr = freeze i64 %171
-  %172 = urem i64 %.fr, 12
-  %173 = sub nuw i64 %.fr, %172
+  %172 = urem i64 %171, 12
+  %173 = sub i64 %171, %172
   %174 = add i64 %173, 12
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %164, i8 0, i64 %174, i1 false)
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 552
@@ -5153,9 +5153,9 @@ default.unreachable161:                           ; preds = %_ZN6Assimp7OpenGEXL
   unreachable
 
 _ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit.sink.split: ; preds = %165, %85
-  %.sink168 = phi i64 [ 456, %85 ], [ 552, %165 ]
+  %.sink169 = phi i64 [ 456, %85 ], [ 552, %165 ]
   %.sink = phi ptr [ %84, %85 ], [ %164, %165 ]
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink168
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink169
   store ptr %.sink, ptr %192, align 8
   br label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit
 

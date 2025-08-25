@@ -29154,7 +29154,7 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config10file_lines9FileLi
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hce160ee7ee41c4e5E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hce160ee7ee41c4e5E.exit": ; preds = %"_ZN15rustfmt_nightly6config10file_lines9FileLines14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hbd7105297981cd75E.exit.i", %.split.i, %.split.us.i, %.thread, %45, %4
-  %.0 = phi i1 [ true, %4 ], [ false, %45 ], [ false, %.thread ], [ %.not12.i, %.split.us.i ], [ %.not.not.i.not.not, %.split.i ], [ %.not.not.i.not.not, %"_ZN15rustfmt_nightly6config10file_lines9FileLines14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hbd7105297981cd75E.exit.i" ]
+  %.0 = phi i1 [ true, %4 ], [ false, %45 ], [ false, %.thread ], [ %.not14.i, %.split.us.i ], [ %.not.not.i.not.not, %.split.i ], [ %.not.not.i.not.not, %"_ZN15rustfmt_nightly6config10file_lines9FileLines14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hbd7105297981cd75E.exit.i" ]
   ret i1 %.0
 
 27:                                               ; preds = %11, %26
@@ -29223,13 +29223,14 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config10file_lines9FileLi
   call void @llvm.experimental.noalias.scope.decl(metadata !6521)
   call void @llvm.experimental.noalias.scope.decl(metadata !6524)
   %53 = load i64, ptr %2, align 8, !alias.scope !6521, !noalias !6526
+  %.fr12.i = freeze i64 %53
   %54 = load i64, ptr %3, align 8, !alias.scope !6524, !noalias !6528
-  %55 = icmp ugt i64 %53, %54
-  %.fr.i = freeze i1 %55
-  br i1 %.fr.i, label %.split.us.i, label %.split.i
+  %.fr13.i = freeze i64 %54
+  %55 = icmp ugt i64 %.fr12.i, %.fr13.i
+  br i1 %55, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %47
-  %.not12.i = icmp ne i64 %51, 0
+  %.not14.i = icmp ne i64 %51, 0
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hce160ee7ee41c4e5E.exit"
 
 .split.i:                                         ; preds = %47, %"_ZN15rustfmt_nightly6config10file_lines9FileLines14contains_range28_$u7b$$u7b$closure$u7d$$u7d$17hbd7105297981cd75E.exit.i"
@@ -29243,9 +29244,9 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config10file_lines9FileLi
   %.val5.i = load i64, ptr %58, align 8, !noalias !6529, !noundef !4
   %.val4.i = load i64, ptr %56, align 8, !noalias !6529, !noundef !4
   %59 = icmp ule i64 %.val4.i, %.val5.i
-  %60 = icmp ule i64 %.val4.i, %53
+  %60 = icmp ule i64 %.val4.i, %.fr12.i
   %or.cond.not.not.i.i.i = and i1 %59, %60
-  %61 = icmp uge i64 %.val5.i, %54
+  %61 = icmp uge i64 %.val5.i, %.fr13.i
   %spec.select.i.i.i = and i1 %61, %or.cond.not.not.i.i.i
   br i1 %spec.select.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hce160ee7ee41c4e5E.exit", label %.split.i
 }

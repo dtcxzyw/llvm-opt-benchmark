@@ -2378,8 +2378,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   %32 = load ptr, ptr %31, align 8, !tbaa !125
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !212
-  %.fr97 = freeze i32 %34
-  %35 = zext i32 %.fr97 to i64
+  %.fr93 = freeze i32 %34
+  %35 = zext i32 %.fr93 to i64
   %.idx.i.i = shl nuw nsw i64 %35, 3
   %gepdiff.i.i = add nsw i64 %.idx.i.i, -8
   %36 = ashr exact i64 %gepdiff.i.i, 3
@@ -2397,10 +2397,10 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
 
 .lr.ph83:                                         ; preds = %_ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 %.sroa.45.0.i
-  %.not93 = icmp eq i64 %.sroa.45.0.i, 0
+  %.not92 = icmp eq i64 %.sroa.45.0.i, 0
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.not5277 = icmp eq i64 %37, 0
-  br i1 %.not93, label %.lr.ph83.split.us, label %.lr.ph83.split
+  br i1 %.not92, label %.lr.ph83.split.us, label %.lr.ph83.split
 
 .lr.ph83.split.us:                                ; preds = %.lr.ph83
   br i1 %.not5277, label %.lr.ph83.split.us.split.us, label %.lr.ph83.split.us.split
@@ -2428,8 +2428,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   %60 = sub nsw i64 0, %59
   %61 = getelementptr inbounds %"class.llvm::Use", ptr %47, i64 %60
   %62 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %47)
-  %.not99 = icmp eq ptr %61, %62
-  br i1 %.not99, label %63, label %.split86.us
+  %.not95 = icmp eq ptr %61, %62
+  br i1 %.not95, label %63, label %.split86.us
 
 63:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2437,8 +2437,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   %65 = load ptr, ptr %64, align 8, !tbaa !249
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 8
-  %trunc164 = trunc i32 %67 to i8
-  switch i8 %trunc164, label %.split88.us [
+  %trunc160 = trunc i32 %67 to i8
+  switch i8 %trunc160, label %.split88.us [
     i8 7, label %.preheader.us.us
     i8 15, label %68
   ]
@@ -2478,8 +2478,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   %86 = sub nsw i64 0, %85
   %87 = getelementptr inbounds %"class.llvm::Use", ptr %73, i64 %86
   %88 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %73)
-  %.not98 = icmp eq ptr %87, %88
-  br i1 %.not98, label %89, label %.split86.us
+  %.not94 = icmp eq ptr %87, %88
+  br i1 %.not94, label %89, label %.split86.us
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2488,8 +2488,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   store ptr %91, ptr %3, align 8, !tbaa !111
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 8
-  %trunc163 = trunc i32 %93 to i8
-  switch i8 %trunc163, label %.fold.split [
+  %trunc159 = trunc i32 %93 to i8
+  switch i8 %trunc159, label %.fold.split [
     i8 7, label %100
     i8 15, label %94
   ]
@@ -2561,8 +2561,8 @@ _ZNK4llvm4coro5Shape20getRetconResultTypesEv.exit: ; preds = %1, %17
   %121 = sub nsw i64 0, %120
   %122 = getelementptr inbounds %"class.llvm::Use", ptr %108, i64 %121
   %123 = call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %108)
-  %.not100 = icmp eq ptr %122, %123
-  br i1 %.not100, label %.split86.us, label %.lr.ph
+  %.not96 = icmp eq ptr %122, %123
+  br i1 %.not96, label %.split86.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %116
   %124 = getelementptr inbounds nuw i8, ptr %108, i64 24
@@ -2656,7 +2656,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %144, %148
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8
   %trunc = trunc i32 %163 to i8
-  switch i8 %trunc, label %.fold.split162 [
+  switch i8 %trunc, label %.fold.split158 [
     i8 7, label %170
     i8 15, label %164
   ]
@@ -2669,12 +2669,12 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %144, %148
   %169 = zext i32 %168 to i64
   br label %170
 
-.fold.split162:                                   ; preds = %159
+.fold.split158:                                   ; preds = %159
   br label %170
 
-170:                                              ; preds = %159, %.fold.split162, %164
-  %.sroa.6.1 = phi i64 [ 0, %159 ], [ %169, %164 ], [ 1, %.fold.split162 ]
-  %.sroa.062.1 = phi ptr [ null, %159 ], [ %166, %164 ], [ %3, %.fold.split162 ]
+170:                                              ; preds = %159, %.fold.split158, %164
+  %.sroa.6.1 = phi i64 [ 0, %159 ], [ %169, %164 ], [ 1, %.fold.split158 ]
+  %.sroa.062.1 = phi ptr [ null, %159 ], [ %166, %164 ], [ %3, %.fold.split158 ]
   %.not51 = icmp eq i64 %.sroa.6.1, %37
   br i1 %.not51, label %.preheader, label %.split88.us
 

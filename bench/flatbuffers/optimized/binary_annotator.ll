@@ -42150,10 +42150,10 @@ _ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276: ; preds = %_ZNKSt7__cxx1112ba
   br label %828
 
 828:                                              ; preds = %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit
-  %.sink1427 = phi i64 [ %111, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276 ], [ %557, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit ]
+  %.sink1425 = phi i64 [ %111, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit276 ], [ %557, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit ]
   %829 = load ptr, ptr %546, align 8, !tbaa !645
   %830 = load i64, ptr %829, align 8, !tbaa !36
-  %831 = add i64 %830, %.sink1427
+  %831 = add i64 %830, %.sink1425
   store i64 %831, ptr %829, align 8, !tbaa !36
   %832 = load ptr, ptr %141, align 8, !tbaa !72
   %833 = icmp eq ptr %832, %142
@@ -42837,8 +42837,8 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i356: ; preds = %_ZNK10
   %1131 = zext i16 %1129 to i64
   %1132 = getelementptr inbounds nuw i8, ptr %1121, i64 %1131
   %1133 = load i8, ptr %1132, align 1, !tbaa !60
-  %.fr1071 = freeze i8 %1133
-  %1134 = sext i8 %.fr1071 to i32
+  %.fr1069 = freeze i8 %1133
+  %1134 = sext i8 %.fr1069 to i32
   %1135 = add nsw i32 %1134, -1
   %1136 = icmp ult i32 %1135, 12
   br label %_ZNK10reflection4Type7elementEv.exit
@@ -42925,18 +42925,18 @@ _ZNK10reflection4Type7elementEv.exit369:          ; preds = %_ZNK11flatbuffers5T
   %1180 = zext i16 %1179 to i64
   %1181 = getelementptr inbounds nuw i8, ptr %1171, i64 %1180
   %1182 = load i8, ptr %1181, align 1, !tbaa !60
-  %switch.tableidx1443 = add i8 %1182, -1
-  %1183 = icmp ult i8 %switch.tableidx1443, 12
-  br i1 %1183, label %switch.lookup1442, label %_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371
+  %switch.tableidx1441 = add i8 %1182, -1
+  %1183 = icmp ult i8 %switch.tableidx1441, 12
+  br i1 %1183, label %switch.lookup1440, label %_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371
 
-switch.lookup1442:                                ; preds = %_ZNK10reflection4Type7elementEv.exit369
-  %1184 = zext nneg i8 %switch.tableidx1443 to i64
-  %switch.gep1444 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZZN11flatbuffers15BinaryAnnotator11BuildStructEmRSt6vectorINS_12BinaryRegionESaIS2_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN10reflection6ObjectEENK3$_0clEPKNSC_5FieldE.26", i64 0, i64 %1184
-  %switch.load1445 = load i32, ptr %switch.gep1444, align 4
+switch.lookup1440:                                ; preds = %_ZNK10reflection4Type7elementEv.exit369
+  %1184 = zext nneg i8 %switch.tableidx1441 to i64
+  %switch.gep1442 = getelementptr inbounds nuw [12 x i32], ptr @"switch.table._ZZN11flatbuffers15BinaryAnnotator11BuildStructEmRSt6vectorINS_12BinaryRegionESaIS2_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN10reflection6ObjectEENK3$_0clEPKNSC_5FieldE.26", i64 0, i64 %1184
+  %switch.load1443 = load i32, ptr %switch.gep1442, align 4
   br label %_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371
 
-_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367, %_ZNK10reflection5Field4typeEv.exit366, %_ZNK10reflection4Type7elementEv.exit369, %switch.lookup1442
-  %.0.i370 = phi i32 [ %switch.load1445, %switch.lookup1442 ], [ 0, %_ZNK10reflection4Type7elementEv.exit369 ], [ 0, %_ZNK10reflection5Field4typeEv.exit366 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367 ]
+_ZN11flatbuffersL13GetRegionTypeEN10reflection8BaseTypeE.exit371: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367, %_ZNK10reflection5Field4typeEv.exit366, %_ZNK10reflection4Type7elementEv.exit369, %switch.lookup1440
+  %.0.i370 = phi i32 [ %switch.load1443, %switch.lookup1440 ], [ 0, %_ZNK10reflection4Type7elementEv.exit369 ], [ 0, %_ZNK10reflection5Field4typeEv.exit366 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i367 ]
   %1185 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1186 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1187 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -43625,28 +43625,28 @@ _ZNK10reflection5Field4typeEv.exit450.us:         ; preds = %1507, %_ZNK11flatbu
   %1517 = getelementptr inbounds i8, ptr %1513, i64 %1516
   %1518 = load i16, ptr %1517, align 2, !tbaa !76
   %1519 = icmp ugt i16 %1518, 6
-  br i1 %1519, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us, label %.sink.split1428
+  br i1 %1519, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us, label %.sink.split1426
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us: ; preds = %_ZNK10reflection5Field4typeEv.exit450.us
   %1520 = getelementptr inbounds nuw i8, ptr %1517, i64 6
   %1521 = load i16, ptr %1520, align 2, !tbaa !76
   %.not.i.i452.us = icmp eq i16 %1521, 0
-  br i1 %.not.i.i452.us, label %.sink.split1428, label %_ZNK10reflection4Type7elementEv.exit453.us
+  br i1 %.not.i.i452.us, label %.sink.split1426, label %_ZNK10reflection4Type7elementEv.exit453.us
 
 _ZNK10reflection4Type7elementEv.exit453.us:       ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us
   %1522 = zext i16 %1521 to i64
   %1523 = getelementptr inbounds nuw i8, ptr %1513, i64 %1522
   %1524 = load i8, ptr %1523, align 1, !tbaa !60
   %1525 = icmp ugt i8 %1524, 19
-  br i1 %1525, label %.sink.split1428, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us
+  br i1 %1525, label %.sink.split1426, label %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us
 
 _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us: ; preds = %_ZNK10reflection4Type7elementEv.exit453.us
   %1526 = zext nneg i8 %1524 to i64
   %1527 = getelementptr inbounds nuw ptr, ptr @_ZZN10reflection17EnumNamesBaseTypeEvE5names, i64 %1526
   %1528 = load ptr, ptr %1527, align 8, !tbaa !204
-  br label %.sink.split1428
+  br label %.sink.split1426
 
-.sink.split1428:                                  ; preds = %_ZNK10reflection4Type7elementEv.exit453.us, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us, %_ZNK10reflection5Field4typeEv.exit450.us, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us
+.sink.split1426:                                  ; preds = %_ZNK10reflection4Type7elementEv.exit453.us, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us, %_ZNK10reflection5Field4typeEv.exit450.us, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us
   %.0.i454692.us = phi ptr [ %1528, %_ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us ], [ @.str, %_ZNK10reflection4Type7elementEv.exit453.us ], [ @.str.26, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i451.us ], [ @.str.26, %_ZNK10reflection5Field4typeEv.exit450.us ]
   store ptr %1218, ptr %42, align 8, !tbaa !58
   %1529 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i454692.us) #33
@@ -43655,7 +43655,7 @@ _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us: ; preds = %_ZNK10ref
   %1530 = icmp ugt i64 %1529, 15
   br i1 %1530, label %.noexc.i457.us, label %._crit_edge.i.i456.us
 
-.noexc.i457.us:                                   ; preds = %.sink.split1428
+.noexc.i457.us:                                   ; preds = %.sink.split1426
   %1531 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
           to label %.noexc459.us unwind label %.loopexit714.split.us
 
@@ -43665,8 +43665,8 @@ _ZN10reflection16EnumNameBaseTypeENS_8BaseTypeE.exit455.us: ; preds = %_ZNK10ref
   store i64 %1532, ptr %1218, align 8, !tbaa !60
   br label %._crit_edge.i.i456.us
 
-._crit_edge.i.i456.us:                            ; preds = %.noexc459.us, %.sink.split1428
-  %1533 = phi ptr [ %1531, %.noexc459.us ], [ %1218, %.sink.split1428 ]
+._crit_edge.i.i456.us:                            ; preds = %.noexc459.us, %.sink.split1426
+  %1533 = phi ptr [ %1531, %.noexc459.us ], [ %1218, %.sink.split1426 ]
   switch i64 %1529, label %1536 [
     i64 1, label %1534
     i64 0, label %1537
@@ -44424,10 +44424,10 @@ _ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us: ; preds = %_ZNKSt7__cxx111
   br label %1809
 
 1809:                                             ; preds = %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit546.us
-  %.sink1431 = phi i64 [ %1162, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us ], [ %1671, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit546.us ]
+  %.sink1429 = phi i64 [ %1162, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit590.us ], [ %1671, %_ZN11flatbuffers19BinaryRegionCommentD2Ev.exit546.us ]
   %1810 = load ptr, ptr %1185, align 8, !tbaa !645
   %1811 = load i64, ptr %1810, align 8, !tbaa !36
-  %1812 = add i64 %1811, %.sink1431
+  %1812 = add i64 %1811, %.sink1429
   store i64 %1812, ptr %1810, align 8, !tbaa !36
   %1813 = load ptr, ptr %1201, align 8, !tbaa !72
   %1814 = icmp eq ptr %1813, %1202

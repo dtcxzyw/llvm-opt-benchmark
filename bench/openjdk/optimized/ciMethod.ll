@@ -1840,7 +1840,8 @@ define hidden void @_ZN8ciMethod19call_profile_at_bciEi(ptr dead_on_unwind noali
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
-  %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %42, i64 -2147483648)
+  %.fr = freeze i64 %42
+  %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %.fr, i64 -2147483648)
   %.04.i = tail call i64 @llvm.smin.i64(i64 %spec.store.select.i, i64 2147483647)
   %.0.i = trunc nsw i64 %.04.i to i32
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -1900,22 +1901,22 @@ _ZN8ciMethod16java_code_at_bciEi.exit:            ; preds = %_ZN8ciMethod4codeEv
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds [1 x i64], ptr %67, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
-  %74 = icmp ne i64 %73, 0
+  %.fr101 = freeze i64 %73
+  %74 = icmp ne i64 %.fr101, 0
   %75 = zext i1 %74 to i32
-  %spec.select = add nuw nsw i32 %.04664, %75
+  %spec.select = add i32 %.04664, %75
   %76 = add nuw i32 %.04863, 1
   %exitcond.not = icmp eq i32 %76, %65
   br i1 %exitcond.not, label %.lr.ph69, label %68, !llvm.loop !17
 
 .lr.ph69:                                         ; preds = %68
   %77 = icmp eq i32 %spec.select, 1
-  %78 = icmp ne i64 %42, 0
+  %78 = icmp ne i64 %.fr, 0
   %or.cond = and i1 %78, %77
-  %cond.fr98 = freeze i1 %or.cond
   %79 = load ptr, ptr %39, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = zext nneg i32 %53 to i64
-  %82 = select i1 %cond.fr98, i64 %81, i64 0
+  %82 = select i1 %or.cond, i64 %81, i64 0
   br label %83
 
 83:                                               ; preds = %.lr.ph69, %_ZN13ciCallProfile12add_receiverEP7ciKlassi.exit
@@ -2005,19 +2006,20 @@ _ZN13ciCallProfile12add_receiverEP7ciKlassi.exit: ; preds = %118, %.critedge.i, 
 
 125:                                              ; preds = %124
   %126 = icmp eq i32 %spec.select, 2
-  %127 = icmp eq i64 %42, 0
+  %127 = icmp eq i64 %.fr, 0
   %or.cond3 = and i1 %127, %126
   br i1 %or.cond3, label %128, label %130
 
 128:                                              ; preds = %125, %124
   store i32 %spec.select, ptr %16, align 4
   %129 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
-  br i1 %cond.fr98, label %132, label %.thread
+  br i1 %or.cond, label %132, label %.thread
 
 130:                                              ; preds = %._crit_edge70, %125
-  %or.cond8893 = phi i1 [ %cond.fr98, %._crit_edge70 ], [ false, %125 ]
+  %or.cond8893 = phi i1 [ %or.cond, %._crit_edge70 ], [ false, %125 ]
   %131 = tail call i32 @llvm.sadd.sat.i32(i32 %53, i32 %.143)
-  br i1 %or.cond8893, label %132, label %.thread
+  %cond.fr = freeze i1 %or.cond8893
+  br i1 %cond.fr, label %132, label %.thread
 
 132:                                              ; preds = %128, %130
   br label %.thread

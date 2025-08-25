@@ -12,10 +12,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %9 = load i8, ptr %8, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4179
   %11 = load i8, ptr %10, align 1
-  %.fr811 = freeze i8 %11
-  %12 = and i8 %.fr811, 2
-  %13 = and i8 %.fr811, 4
-  %14 = and i8 %.fr811, 1
+  %.fr = freeze i8 %11
+  %12 = and i8 %.fr, 2
+  %13 = and i8 %.fr, 4
+  %14 = and i8 %.fr, 1
   %15 = getelementptr inbounds i8, ptr %2, i64 %3
   %.not.i = icmp eq i8 %12, 0
   %.not79.i = icmp eq i8 %13, 0
@@ -192,10 +192,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .thread.thread:                                   ; preds = %88
   %123 = and i8 %67, 16
-  %.not193.i1051 = icmp eq i8 %123, 0
-  br i1 %.not193.i1051, label %.thread330, label %.thread1054
+  %.not193.i1050 = icmp eq i8 %123, 0
+  br i1 %.not193.i1050, label %.thread330, label %.thread1053
 
-.thread1054:                                      ; preds = %.thread.thread
+.thread1053:                                      ; preds = %.thread.thread
   %124 = getelementptr inbounds nuw i8, ptr %51, i64 %16
   %125 = ptrtoint ptr %124 to i64
   %126 = sub i64 %125, %46
@@ -207,10 +207,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %130 = sub i64 %129, %46
   br i1 %.not192.i, label %136, label %131
 
-131:                                              ; preds = %.thread1054, %127
-  %132 = phi i64 [ %126, %.thread1054 ], [ %130, %127 ]
-  %.623410521058 = phi i8 [ %.2230707, %.thread1054 ], [ %.6234, %127 ]
-  %.622410531057 = phi i32 [ %.2220708, %.thread1054 ], [ %.6224, %127 ]
+131:                                              ; preds = %.thread1053, %127
+  %132 = phi i64 [ %126, %.thread1053 ], [ %130, %127 ]
+  %.623410511057 = phi i8 [ %.2230707, %.thread1053 ], [ %.6234, %127 ]
+  %.622410521056 = phi i32 [ %.2220708, %.thread1053 ], [ %.6224, %127 ]
   %133 = load i32, ptr %47, align 4
   %134 = tail call i32 %4(i64 noundef 0, i64 noundef %132, i32 noundef %133, ptr noundef %5) #11
   %135 = icmp eq i32 %134, 0
@@ -245,7 +245,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph700:                                        ; preds = %141
   %154 = getelementptr inbounds i8, ptr %151, i64 -60
-  %wide.trip.count896 = zext i32 %153 to i64
+  %wide.trip.count895 = zext i32 %153 to i64
   br label %161
 
 155:                                              ; preds = %141
@@ -256,21 +256,21 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %159, label %runShengCb.exit.thread, label %.thread330
 
 160:                                              ; preds = %161
-  %indvars.iv.next894 = add nuw nsw i64 %indvars.iv893, 1
-  %exitcond897.not = icmp eq i64 %indvars.iv.next894, %wide.trip.count896
-  br i1 %exitcond897.not, label %.thread330, label %161
+  %indvars.iv.next893 = add nuw nsw i64 %indvars.iv892, 1
+  %exitcond896.not = icmp eq i64 %indvars.iv.next893, %wide.trip.count895
+  br i1 %exitcond896.not, label %.thread330, label %161
 
 161:                                              ; preds = %.lr.ph700, %160
-  %indvars.iv893 = phi i64 [ 0, %.lr.ph700 ], [ %indvars.iv.next894, %160 ]
-  %162 = getelementptr inbounds nuw [0 x i32], ptr %154, i64 0, i64 %indvars.iv893
+  %indvars.iv892 = phi i64 [ 0, %.lr.ph700 ], [ %indvars.iv.next893, %160 ]
+  %162 = getelementptr inbounds nuw [0 x i32], ptr %154, i64 0, i64 %indvars.iv892
   %163 = load i32, ptr %162, align 4
   %164 = tail call i32 %4(i64 noundef 0, i64 noundef %130, i32 noundef %163, ptr noundef %5) #11
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %runShengCb.exit.thread, label %160
 
 .thread330:                                       ; preds = %160, %141, %.thread.thread, %131, %155, %138, %.thread
-  %.9237 = phi i8 [ %.6234, %.thread ], [ %67, %155 ], [ %67, %138 ], [ %.623410521058, %131 ], [ %.2230707, %.thread.thread ], [ %.6234, %141 ], [ %.6234, %160 ]
-  %.9227 = phi i32 [ %.6224, %.thread ], [ %157, %155 ], [ %.6224, %138 ], [ %.622410531057, %131 ], [ %.2220708, %.thread.thread ], [ %.6224, %141 ], [ %.6224, %160 ]
+  %.9237 = phi i8 [ %.6234, %.thread ], [ %67, %155 ], [ %67, %138 ], [ %.623410511057, %131 ], [ %.2230707, %.thread.thread ], [ %.6234, %141 ], [ %.6234, %160 ]
+  %.9227 = phi i32 [ %.6224, %.thread ], [ %157, %155 ], [ %.6224, %138 ], [ %.622410521056, %131 ], [ %.2220708, %.thread.thread ], [ %.6224, %141 ], [ %.6224, %160 ]
   %166 = and i8 %72, 16
   %.not195.i = icmp eq i8 %166, 0
   br i1 %.not195.i, label %.thread342, label %167
@@ -316,7 +316,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph703:                                        ; preds = %180
   %193 = getelementptr inbounds i8, ptr %190, i64 -60
-  %wide.trip.count901 = zext i32 %192 to i64
+  %wide.trip.count900 = zext i32 %192 to i64
   br label %200
 
 194:                                              ; preds = %180
@@ -327,13 +327,13 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %198, label %runShengCb.exit.thread, label %.thread342
 
 199:                                              ; preds = %200
-  %indvars.iv.next899 = add nuw nsw i64 %indvars.iv898, 1
-  %exitcond902.not = icmp eq i64 %indvars.iv.next899, %wide.trip.count901
-  br i1 %exitcond902.not, label %.thread342, label %200
+  %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 1
+  %exitcond901.not = icmp eq i64 %indvars.iv.next898, %wide.trip.count900
+  br i1 %exitcond901.not, label %.thread342, label %200
 
 200:                                              ; preds = %.lr.ph703, %199
-  %indvars.iv898 = phi i64 [ 0, %.lr.ph703 ], [ %indvars.iv.next899, %199 ]
-  %201 = getelementptr inbounds nuw [0 x i32], ptr %193, i64 0, i64 %indvars.iv898
+  %indvars.iv897 = phi i64 [ 0, %.lr.ph703 ], [ %indvars.iv.next898, %199 ]
+  %201 = getelementptr inbounds nuw [0 x i32], ptr %193, i64 0, i64 %indvars.iv897
   %202 = load i32, ptr %201, align 4
   %203 = tail call i32 %4(i64 noundef 0, i64 noundef %170, i32 noundef %202, ptr noundef %5) #11
   %204 = icmp eq i32 %203, 0
@@ -348,10 +348,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .thread342.thread:                                ; preds = %171
   %206 = and i8 %77, 16
-  %.not197.i1061 = icmp eq i8 %206, 0
-  br i1 %.not197.i1061, label %.thread354, label %.thread1064
+  %.not197.i1060 = icmp eq i8 %206, 0
+  br i1 %.not197.i1060, label %.thread354, label %.thread1063
 
-.thread1064:                                      ; preds = %.thread342.thread
+.thread1063:                                      ; preds = %.thread342.thread
   %207 = getelementptr inbounds nuw i8, ptr %53, i64 %16
   %208 = ptrtoint ptr %207 to i64
   %209 = sub i64 %208, %46
@@ -363,10 +363,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %213 = sub i64 %212, %46
   br i1 %.not192.i, label %219, label %214
 
-214:                                              ; preds = %.thread1064, %210
-  %215 = phi i64 [ %209, %.thread1064 ], [ %213, %210 ]
-  %.1224010621068 = phi i8 [ %.9237, %.thread1064 ], [ %.12240, %210 ]
-  %.1210631067 = phi i32 [ %.9227, %.thread1064 ], [ %.12, %210 ]
+214:                                              ; preds = %.thread1063, %210
+  %215 = phi i64 [ %209, %.thread1063 ], [ %213, %210 ]
+  %.1224010611067 = phi i8 [ %.9237, %.thread1063 ], [ %.12240, %210 ]
+  %.1210621066 = phi i32 [ %.9227, %.thread1063 ], [ %.12, %210 ]
   %216 = load i32, ptr %47, align 4
   %217 = tail call i32 %4(i64 noundef 0, i64 noundef %215, i32 noundef %216, ptr noundef %5) #11
   %218 = icmp eq i32 %217, 0
@@ -401,7 +401,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph706:                                        ; preds = %224
   %237 = getelementptr inbounds i8, ptr %234, i64 -60
-  %wide.trip.count906 = zext i32 %236 to i64
+  %wide.trip.count905 = zext i32 %236 to i64
   br label %244
 
 238:                                              ; preds = %224
@@ -412,21 +412,21 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %242, label %runShengCb.exit.thread, label %.thread354
 
 243:                                              ; preds = %244
-  %indvars.iv.next904 = add nuw nsw i64 %indvars.iv903, 1
-  %exitcond907.not = icmp eq i64 %indvars.iv.next904, %wide.trip.count906
-  br i1 %exitcond907.not, label %.thread354, label %244
+  %indvars.iv.next903 = add nuw nsw i64 %indvars.iv902, 1
+  %exitcond906.not = icmp eq i64 %indvars.iv.next903, %wide.trip.count905
+  br i1 %exitcond906.not, label %.thread354, label %244
 
 244:                                              ; preds = %.lr.ph706, %243
-  %indvars.iv903 = phi i64 [ 0, %.lr.ph706 ], [ %indvars.iv.next904, %243 ]
-  %245 = getelementptr inbounds nuw [0 x i32], ptr %237, i64 0, i64 %indvars.iv903
+  %indvars.iv902 = phi i64 [ 0, %.lr.ph706 ], [ %indvars.iv.next903, %243 ]
+  %245 = getelementptr inbounds nuw [0 x i32], ptr %237, i64 0, i64 %indvars.iv902
   %246 = load i32, ptr %245, align 4
   %247 = tail call i32 %4(i64 noundef 0, i64 noundef %213, i32 noundef %246, ptr noundef %5) #11
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %runShengCb.exit.thread, label %243
 
 .thread354:                                       ; preds = %243, %224, %.thread342.thread, %214, %238, %221, %.thread342
-  %.15243 = phi i8 [ %.12240, %.thread342 ], [ %77, %238 ], [ %77, %221 ], [ %.1224010621068, %214 ], [ %.9237, %.thread342.thread ], [ %.12240, %224 ], [ %.12240, %243 ]
-  %.15 = phi i32 [ %.12, %.thread342 ], [ %240, %238 ], [ %.12, %221 ], [ %.1210631067, %214 ], [ %.9227, %.thread342.thread ], [ %.12, %224 ], [ %.12, %243 ]
+  %.15243 = phi i8 [ %.12240, %.thread342 ], [ %77, %238 ], [ %77, %221 ], [ %.1224010611067, %214 ], [ %.9237, %.thread342.thread ], [ %.12240, %224 ], [ %.12240, %243 ]
+  %.15 = phi i32 [ %.12, %.thread342 ], [ %240, %238 ], [ %.12, %221 ], [ %.1210621066, %214 ], [ %.9227, %.thread342.thread ], [ %.12, %224 ], [ %.12, %243 ]
   %249 = and i8 %77, 32
   %.not199.i = icmp eq i8 %249, 0
   br i1 %.not199.i, label %250, label %sheng4_coda.exit.thread
@@ -579,7 +579,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph717:                                        ; preds = %334
   %347 = getelementptr inbounds i8, ptr %344, i64 -60
-  %wide.trip.count911 = zext i32 %346 to i64
+  %wide.trip.count910 = zext i32 %346 to i64
   br label %354
 
 348:                                              ; preds = %334
@@ -590,13 +590,13 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %352, label %runShengCb.exit.thread, label %.thread376
 
 353:                                              ; preds = %354
-  %indvars.iv.next909 = add nuw nsw i64 %indvars.iv908, 1
-  %exitcond912.not = icmp eq i64 %indvars.iv.next909, %wide.trip.count911
-  br i1 %exitcond912.not, label %.thread376, label %354
+  %indvars.iv.next908 = add nuw nsw i64 %indvars.iv907, 1
+  %exitcond911.not = icmp eq i64 %indvars.iv.next908, %wide.trip.count910
+  br i1 %exitcond911.not, label %.thread376, label %354
 
 354:                                              ; preds = %.lr.ph717, %353
-  %indvars.iv908 = phi i64 [ 0, %.lr.ph717 ], [ %indvars.iv.next909, %353 ]
-  %355 = getelementptr inbounds nuw [0 x i32], ptr %347, i64 0, i64 %indvars.iv908
+  %indvars.iv907 = phi i64 [ 0, %.lr.ph717 ], [ %indvars.iv.next908, %353 ]
+  %355 = getelementptr inbounds nuw [0 x i32], ptr %347, i64 0, i64 %indvars.iv907
   %356 = load i32, ptr %355, align 4
   %357 = tail call i32 %4(i64 noundef 0, i64 noundef %324, i32 noundef %356, ptr noundef %5) #11
   %358 = icmp eq i32 %357, 0
@@ -611,10 +611,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .thread376.thread:                                ; preds = %325
   %360 = and i8 %304, 16
-  %.not192.i431071 = icmp eq i8 %360, 0
-  br i1 %.not192.i431071, label %.thread388, label %.thread1074
+  %.not192.i431070 = icmp eq i8 %360, 0
+  br i1 %.not192.i431070, label %.thread388, label %.thread1073
 
-.thread1074:                                      ; preds = %.thread376.thread
+.thread1073:                                      ; preds = %.thread376.thread
   %361 = getelementptr inbounds nuw i8, ptr %288, i64 %16
   %362 = ptrtoint ptr %361 to i64
   %363 = sub i64 %362, %283
@@ -626,10 +626,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %367 = sub i64 %366, %283
   br i1 %.not191.i35, label %373, label %368
 
-368:                                              ; preds = %.thread1074, %364
-  %369 = phi i64 [ %363, %.thread1074 ], [ %367, %364 ]
-  %.2625410721078 = phi i8 [ %.22250727, %.thread1074 ], [ %.26254, %364 ]
-  %.2610731077 = phi i32 [ %.22728, %.thread1074 ], [ %.26, %364 ]
+368:                                              ; preds = %.thread1073, %364
+  %369 = phi i64 [ %363, %.thread1073 ], [ %367, %364 ]
+  %.2625410711077 = phi i8 [ %.22250727, %.thread1073 ], [ %.26254, %364 ]
+  %.2610721076 = phi i32 [ %.22728, %.thread1073 ], [ %.26, %364 ]
   %370 = load i32, ptr %284, align 4
   %371 = tail call i32 %4(i64 noundef 0, i64 noundef %369, i32 noundef %370, ptr noundef %5) #11
   %372 = icmp eq i32 %371, 0
@@ -664,7 +664,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph720:                                        ; preds = %378
   %391 = getelementptr inbounds i8, ptr %388, i64 -60
-  %wide.trip.count916 = zext i32 %390 to i64
+  %wide.trip.count915 = zext i32 %390 to i64
   br label %398
 
 392:                                              ; preds = %378
@@ -675,21 +675,21 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %396, label %runShengCb.exit.thread, label %.thread388
 
 397:                                              ; preds = %398
-  %indvars.iv.next914 = add nuw nsw i64 %indvars.iv913, 1
-  %exitcond917.not = icmp eq i64 %indvars.iv.next914, %wide.trip.count916
-  br i1 %exitcond917.not, label %.thread388, label %398
+  %indvars.iv.next913 = add nuw nsw i64 %indvars.iv912, 1
+  %exitcond916.not = icmp eq i64 %indvars.iv.next913, %wide.trip.count915
+  br i1 %exitcond916.not, label %.thread388, label %398
 
 398:                                              ; preds = %.lr.ph720, %397
-  %indvars.iv913 = phi i64 [ 0, %.lr.ph720 ], [ %indvars.iv.next914, %397 ]
-  %399 = getelementptr inbounds nuw [0 x i32], ptr %391, i64 0, i64 %indvars.iv913
+  %indvars.iv912 = phi i64 [ 0, %.lr.ph720 ], [ %indvars.iv.next913, %397 ]
+  %399 = getelementptr inbounds nuw [0 x i32], ptr %391, i64 0, i64 %indvars.iv912
   %400 = load i32, ptr %399, align 4
   %401 = tail call i32 %4(i64 noundef 0, i64 noundef %367, i32 noundef %400, ptr noundef %5) #11
   %402 = icmp eq i32 %401, 0
   br i1 %402, label %runShengCb.exit.thread, label %397
 
 .thread388:                                       ; preds = %397, %378, %.thread376.thread, %368, %392, %375, %.thread376
-  %.29257 = phi i8 [ %.26254, %.thread376 ], [ %304, %392 ], [ %304, %375 ], [ %.2625410721078, %368 ], [ %.22250727, %.thread376.thread ], [ %.26254, %378 ], [ %.26254, %397 ]
-  %.29 = phi i32 [ %.26, %.thread376 ], [ %394, %392 ], [ %.26, %375 ], [ %.2610731077, %368 ], [ %.22728, %.thread376.thread ], [ %.26, %378 ], [ %.26, %397 ]
+  %.29257 = phi i8 [ %.26254, %.thread376 ], [ %304, %392 ], [ %304, %375 ], [ %.2625410711077, %368 ], [ %.22250727, %.thread376.thread ], [ %.26254, %378 ], [ %.26254, %397 ]
+  %.29 = phi i32 [ %.26, %.thread376 ], [ %394, %392 ], [ %.26, %375 ], [ %.2610721076, %368 ], [ %.22728, %.thread376.thread ], [ %.26, %378 ], [ %.26, %397 ]
   %403 = and i8 %309, 16
   %.not194.i49 = icmp eq i8 %403, 0
   br i1 %.not194.i49, label %.thread400, label %404
@@ -735,7 +735,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph723:                                        ; preds = %417
   %430 = getelementptr inbounds i8, ptr %427, i64 -60
-  %wide.trip.count921 = zext i32 %429 to i64
+  %wide.trip.count920 = zext i32 %429 to i64
   br label %437
 
 431:                                              ; preds = %417
@@ -746,13 +746,13 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %435, label %runShengCb.exit.thread, label %.thread400
 
 436:                                              ; preds = %437
-  %indvars.iv.next919 = add nuw nsw i64 %indvars.iv918, 1
-  %exitcond922.not = icmp eq i64 %indvars.iv.next919, %wide.trip.count921
-  br i1 %exitcond922.not, label %.thread400, label %437
+  %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
+  %exitcond921.not = icmp eq i64 %indvars.iv.next918, %wide.trip.count920
+  br i1 %exitcond921.not, label %.thread400, label %437
 
 437:                                              ; preds = %.lr.ph723, %436
-  %indvars.iv918 = phi i64 [ 0, %.lr.ph723 ], [ %indvars.iv.next919, %436 ]
-  %438 = getelementptr inbounds nuw [0 x i32], ptr %430, i64 0, i64 %indvars.iv918
+  %indvars.iv917 = phi i64 [ 0, %.lr.ph723 ], [ %indvars.iv.next918, %436 ]
+  %438 = getelementptr inbounds nuw [0 x i32], ptr %430, i64 0, i64 %indvars.iv917
   %439 = load i32, ptr %438, align 4
   %440 = tail call i32 %4(i64 noundef 0, i64 noundef %407, i32 noundef %439, ptr noundef %5) #11
   %441 = icmp eq i32 %440, 0
@@ -767,10 +767,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .thread400.thread:                                ; preds = %408
   %443 = and i8 %314, 16
-  %.not196.i551081 = icmp eq i8 %443, 0
-  br i1 %.not196.i551081, label %.thread412, label %.thread1084
+  %.not196.i551080 = icmp eq i8 %443, 0
+  br i1 %.not196.i551080, label %.thread412, label %.thread1083
 
-.thread1084:                                      ; preds = %.thread400.thread
+.thread1083:                                      ; preds = %.thread400.thread
   %444 = getelementptr inbounds nuw i8, ptr %290, i64 %16
   %445 = ptrtoint ptr %444 to i64
   %446 = sub i64 %445, %283
@@ -782,10 +782,10 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   %450 = sub i64 %449, %283
   br i1 %.not191.i35, label %456, label %451
 
-451:                                              ; preds = %.thread1084, %447
-  %452 = phi i64 [ %446, %.thread1084 ], [ %450, %447 ]
-  %.3226010821088 = phi i8 [ %.29257, %.thread1084 ], [ %.32260, %447 ]
-  %.3210831087 = phi i32 [ %.29, %.thread1084 ], [ %.32, %447 ]
+451:                                              ; preds = %.thread1083, %447
+  %452 = phi i64 [ %446, %.thread1083 ], [ %450, %447 ]
+  %.3226010811087 = phi i8 [ %.29257, %.thread1083 ], [ %.32260, %447 ]
+  %.3210821086 = phi i32 [ %.29, %.thread1083 ], [ %.32, %447 ]
   %453 = load i32, ptr %284, align 4
   %454 = tail call i32 %4(i64 noundef 0, i64 noundef %452, i32 noundef %453, ptr noundef %5) #11
   %455 = icmp eq i32 %454, 0
@@ -820,7 +820,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
 
 .lr.ph726:                                        ; preds = %461
   %474 = getelementptr inbounds i8, ptr %471, i64 -60
-  %wide.trip.count926 = zext i32 %473 to i64
+  %wide.trip.count925 = zext i32 %473 to i64
   br label %481
 
 475:                                              ; preds = %461
@@ -831,21 +831,21 @@ define hidden signext range(i8 0, 2) i8 @nfaExecSheng_B(ptr noundef %0, i64 noun
   br i1 %479, label %runShengCb.exit.thread, label %.thread412
 
 480:                                              ; preds = %481
-  %indvars.iv.next924 = add nuw nsw i64 %indvars.iv923, 1
-  %exitcond927.not = icmp eq i64 %indvars.iv.next924, %wide.trip.count926
-  br i1 %exitcond927.not, label %.thread412, label %481
+  %indvars.iv.next923 = add nuw nsw i64 %indvars.iv922, 1
+  %exitcond926.not = icmp eq i64 %indvars.iv.next923, %wide.trip.count925
+  br i1 %exitcond926.not, label %.thread412, label %481
 
 481:                                              ; preds = %.lr.ph726, %480
-  %indvars.iv923 = phi i64 [ 0, %.lr.ph726 ], [ %indvars.iv.next924, %480 ]
-  %482 = getelementptr inbounds nuw [0 x i32], ptr %474, i64 0, i64 %indvars.iv923
+  %indvars.iv922 = phi i64 [ 0, %.lr.ph726 ], [ %indvars.iv.next923, %480 ]
+  %482 = getelementptr inbounds nuw [0 x i32], ptr %474, i64 0, i64 %indvars.iv922
   %483 = load i32, ptr %482, align 4
   %484 = tail call i32 %4(i64 noundef 0, i64 noundef %450, i32 noundef %483, ptr noundef %5) #11
   %485 = icmp eq i32 %484, 0
   br i1 %485, label %runShengCb.exit.thread, label %480
 
 .thread412:                                       ; preds = %480, %461, %.thread400.thread, %451, %475, %458, %.thread400
-  %.35263 = phi i8 [ %.32260, %.thread400 ], [ %314, %475 ], [ %314, %458 ], [ %.3226010821088, %451 ], [ %.29257, %.thread400.thread ], [ %.32260, %461 ], [ %.32260, %480 ]
-  %.35 = phi i32 [ %.32, %.thread400 ], [ %477, %475 ], [ %.32, %458 ], [ %.3210831087, %451 ], [ %.29, %.thread400.thread ], [ %.32, %461 ], [ %.32, %480 ]
+  %.35263 = phi i8 [ %.32260, %.thread400 ], [ %314, %475 ], [ %314, %458 ], [ %.3226010811087, %451 ], [ %.29257, %.thread400.thread ], [ %.32260, %461 ], [ %.32260, %480 ]
+  %.35 = phi i32 [ %.32, %.thread400 ], [ %477, %475 ], [ %.32, %458 ], [ %.3210821086, %451 ], [ %.29, %.thread400.thread ], [ %.32, %461 ], [ %.32, %480 ]
   %486 = and i8 %314, 32
   %.not198.i60 = icmp eq i8 %486, 0
   br i1 %.not198.i60, label %487, label %sheng4_coda.exit.thread
@@ -867,8 +867,8 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %492 = and i8 %.0300432, 32
   %.not.i69 = icmp ne i8 %492, 0
   %.not43.i740 = icmp eq ptr %.0217435, %15
-  %or.cond1250 = select i1 %.not.i69, i1 true, i1 %.not43.i740
-  br i1 %or.cond1250, label %runShengCb.exit, label %.lr.ph746, !prof !8
+  %or.cond1249 = select i1 %.not.i69, i1 true, i1 %.not43.i740
+  br i1 %or.cond1249, label %runShengCb.exit, label %.lr.ph746, !prof !8
 
 .lr.ph746:                                        ; preds = %sheng4_coda.exit.thread
   %493 = insertelement <16 x i8> poison, i8 %.0300432, i64 0
@@ -921,13 +921,13 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   ]
 
 524:                                              ; preds = %525
-  %indvars.iv.next929 = add nuw nsw i64 %indvars.iv928, 1
-  %exitcond932.not = icmp eq i64 %indvars.iv.next929, %wide.trip.count931
-  br i1 %exitcond932.not, label %.critedge.i.us, label %525
+  %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 1
+  %exitcond931.not = icmp eq i64 %indvars.iv.next928, %wide.trip.count930
+  br i1 %exitcond931.not, label %.critedge.i.us, label %525
 
 525:                                              ; preds = %.lr.ph739.us, %524
-  %indvars.iv928 = phi i64 [ 0, %.lr.ph739.us ], [ %indvars.iv.next929, %524 ]
-  %526 = getelementptr inbounds nuw [0 x i32], ptr %539, i64 0, i64 %indvars.iv928
+  %indvars.iv927 = phi i64 [ 0, %.lr.ph739.us ], [ %indvars.iv.next928, %524 ]
+  %526 = getelementptr inbounds nuw [0 x i32], ptr %539, i64 0, i64 %indvars.iv927
   %527 = load i32, ptr %526, align 4
   %528 = tail call i32 %4(i64 noundef 0, i64 noundef %509, i32 noundef %527, ptr noundef %5) #11
   %529 = icmp eq i32 %528, 0
@@ -954,7 +954,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph739.us:                                     ; preds = %511
   %539 = getelementptr inbounds i8, ptr %521, i64 -60
-  %wide.trip.count931 = zext i32 %523 to i64
+  %wide.trip.count930 = zext i32 %523 to i64
   br label %525
 
 .lr.ph746.split:                                  ; preds = %.lr.ph746, %.critedge.i
@@ -1116,7 +1116,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph751:                                        ; preds = %632
   %645 = getelementptr inbounds i8, ptr %642, i64 -60
-  %wide.trip.count936 = zext i32 %644 to i64
+  %wide.trip.count935 = zext i32 %644 to i64
   br label %652
 
 646:                                              ; preds = %632
@@ -1127,13 +1127,13 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %650, label %runShengCb.exit.thread, label %.critedge.i88
 
 651:                                              ; preds = %652
-  %indvars.iv.next934 = add nuw nsw i64 %indvars.iv933, 1
-  %exitcond937.not = icmp eq i64 %indvars.iv.next934, %wide.trip.count936
-  br i1 %exitcond937.not, label %.critedge.i88, label %652
+  %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
+  %exitcond936.not = icmp eq i64 %indvars.iv.next933, %wide.trip.count935
+  br i1 %exitcond936.not, label %.critedge.i88, label %652
 
 652:                                              ; preds = %.lr.ph751, %651
-  %indvars.iv933 = phi i64 [ 0, %.lr.ph751 ], [ %indvars.iv.next934, %651 ]
-  %653 = getelementptr inbounds nuw [0 x i32], ptr %645, i64 0, i64 %indvars.iv933
+  %indvars.iv932 = phi i64 [ 0, %.lr.ph751 ], [ %indvars.iv.next933, %651 ]
+  %653 = getelementptr inbounds nuw [0 x i32], ptr %645, i64 0, i64 %indvars.iv932
   %654 = load i32, ptr %653, align 4
   %655 = tail call i32 %4(i64 noundef 0, i64 noundef %622, i32 noundef %654, ptr noundef %5) #11
   %656 = icmp eq i32 %655, 0
@@ -1148,10 +1148,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .critedge.i88.thread:                             ; preds = %623
   %658 = and i8 %602, 16
-  %.not192.i891091 = icmp eq i8 %658, 0
-  br i1 %.not192.i891091, label %.critedge200.i, label %.thread1094
+  %.not192.i891090 = icmp eq i8 %658, 0
+  br i1 %.not192.i891090, label %.critedge200.i, label %.thread1093
 
-.thread1094:                                      ; preds = %.critedge.i88.thread
+.thread1093:                                      ; preds = %.critedge.i88.thread
   %659 = getelementptr inbounds nuw i8, ptr %586, i64 %16
   %660 = ptrtoint ptr %659 to i64
   %661 = sub i64 %660, %581
@@ -1163,10 +1163,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %665 = sub i64 %664, %581
   br i1 %.not191.i87, label %671, label %666
 
-666:                                              ; preds = %.thread1094, %662
-  %667 = phi i64 [ %661, %.thread1094 ], [ %665, %662 ]
-  %.4627410921098 = phi i8 [ %.45273761, %.thread1094 ], [ %.46274, %662 ]
-  %.4610931097 = phi i32 [ %.45762, %.thread1094 ], [ %.46, %662 ]
+666:                                              ; preds = %.thread1093, %662
+  %667 = phi i64 [ %661, %.thread1093 ], [ %665, %662 ]
+  %.4627410911097 = phi i8 [ %.45273761, %.thread1093 ], [ %.46274, %662 ]
+  %.4610921096 = phi i32 [ %.45762, %.thread1093 ], [ %.46, %662 ]
   %668 = load i32, ptr %582, align 4
   %669 = tail call i32 %4(i64 noundef 0, i64 noundef %667, i32 noundef %668, ptr noundef %5) #11
   %670 = icmp eq i32 %669, 0
@@ -1201,7 +1201,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph754:                                        ; preds = %676
   %689 = getelementptr inbounds i8, ptr %686, i64 -60
-  %wide.trip.count941 = zext i32 %688 to i64
+  %wide.trip.count940 = zext i32 %688 to i64
   br label %696
 
 690:                                              ; preds = %676
@@ -1212,21 +1212,21 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %694, label %runShengCb.exit.thread, label %.critedge200.i
 
 695:                                              ; preds = %696
-  %indvars.iv.next939 = add nuw nsw i64 %indvars.iv938, 1
-  %exitcond942.not = icmp eq i64 %indvars.iv.next939, %wide.trip.count941
-  br i1 %exitcond942.not, label %.critedge200.i, label %696
+  %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
+  %exitcond941.not = icmp eq i64 %indvars.iv.next938, %wide.trip.count940
+  br i1 %exitcond941.not, label %.critedge200.i, label %696
 
 696:                                              ; preds = %.lr.ph754, %695
-  %indvars.iv938 = phi i64 [ 0, %.lr.ph754 ], [ %indvars.iv.next939, %695 ]
-  %697 = getelementptr inbounds nuw [0 x i32], ptr %689, i64 0, i64 %indvars.iv938
+  %indvars.iv937 = phi i64 [ 0, %.lr.ph754 ], [ %indvars.iv.next938, %695 ]
+  %697 = getelementptr inbounds nuw [0 x i32], ptr %689, i64 0, i64 %indvars.iv937
   %698 = load i32, ptr %697, align 4
   %699 = tail call i32 %4(i64 noundef 0, i64 noundef %665, i32 noundef %698, ptr noundef %5) #11
   %700 = icmp eq i32 %699, 0
   br i1 %700, label %runShengCb.exit.thread, label %695
 
 .critedge200.i:                                   ; preds = %695, %676, %.critedge.i88.thread, %673, %690, %666, %.critedge.i88
-  %.47275 = phi i8 [ %.46274, %.critedge.i88 ], [ %.4627410921098, %666 ], [ %602, %673 ], [ %602, %690 ], [ %.45273761, %.critedge.i88.thread ], [ %.46274, %676 ], [ %.46274, %695 ]
-  %.47 = phi i32 [ %.46, %.critedge.i88 ], [ %.4610931097, %666 ], [ %.46, %673 ], [ %692, %690 ], [ %.45762, %.critedge.i88.thread ], [ %.46, %676 ], [ %.46, %695 ]
+  %.47275 = phi i8 [ %.46274, %.critedge.i88 ], [ %.4627410911097, %666 ], [ %602, %673 ], [ %602, %690 ], [ %.45273761, %.critedge.i88.thread ], [ %.46274, %676 ], [ %.46274, %695 ]
+  %.47 = phi i32 [ %.46, %.critedge.i88 ], [ %.4610921096, %666 ], [ %.46, %673 ], [ %692, %690 ], [ %.45762, %.critedge.i88.thread ], [ %.46, %676 ], [ %.46, %695 ]
   %701 = and i8 %607, 16
   %.not194.i91 = icmp eq i8 %701, 0
   br i1 %.not194.i91, label %.critedge202.i, label %702
@@ -1272,7 +1272,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph757:                                        ; preds = %715
   %728 = getelementptr inbounds i8, ptr %725, i64 -60
-  %wide.trip.count946 = zext i32 %727 to i64
+  %wide.trip.count945 = zext i32 %727 to i64
   br label %735
 
 729:                                              ; preds = %715
@@ -1283,13 +1283,13 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %733, label %runShengCb.exit.thread, label %.critedge202.i
 
 734:                                              ; preds = %735
-  %indvars.iv.next944 = add nuw nsw i64 %indvars.iv943, 1
-  %exitcond947.not = icmp eq i64 %indvars.iv.next944, %wide.trip.count946
-  br i1 %exitcond947.not, label %.critedge202.i, label %735
+  %indvars.iv.next943 = add nuw nsw i64 %indvars.iv942, 1
+  %exitcond946.not = icmp eq i64 %indvars.iv.next943, %wide.trip.count945
+  br i1 %exitcond946.not, label %.critedge202.i, label %735
 
 735:                                              ; preds = %.lr.ph757, %734
-  %indvars.iv943 = phi i64 [ 0, %.lr.ph757 ], [ %indvars.iv.next944, %734 ]
-  %736 = getelementptr inbounds nuw [0 x i32], ptr %728, i64 0, i64 %indvars.iv943
+  %indvars.iv942 = phi i64 [ 0, %.lr.ph757 ], [ %indvars.iv.next943, %734 ]
+  %736 = getelementptr inbounds nuw [0 x i32], ptr %728, i64 0, i64 %indvars.iv942
   %737 = load i32, ptr %736, align 4
   %738 = tail call i32 %4(i64 noundef 0, i64 noundef %705, i32 noundef %737, ptr noundef %5) #11
   %739 = icmp eq i32 %738, 0
@@ -1304,10 +1304,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .critedge202.i.thread:                            ; preds = %706
   %741 = and i8 %612, 16
-  %.not196.i931101 = icmp eq i8 %741, 0
-  br i1 %.not196.i931101, label %.critedge204.i, label %.thread1104
+  %.not196.i931100 = icmp eq i8 %741, 0
+  br i1 %.not196.i931100, label %.critedge204.i, label %.thread1103
 
-.thread1104:                                      ; preds = %.critedge202.i.thread
+.thread1103:                                      ; preds = %.critedge202.i.thread
   %742 = getelementptr inbounds nuw i8, ptr %588, i64 %16
   %743 = ptrtoint ptr %742 to i64
   %744 = sub i64 %743, %581
@@ -1319,10 +1319,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %748 = sub i64 %747, %581
   br i1 %.not191.i87, label %754, label %749
 
-749:                                              ; preds = %.thread1104, %745
-  %750 = phi i64 [ %744, %.thread1104 ], [ %748, %745 ]
-  %.4827611021108 = phi i8 [ %.47275, %.thread1104 ], [ %.48276, %745 ]
-  %.4811031107 = phi i32 [ %.47, %.thread1104 ], [ %.48, %745 ]
+749:                                              ; preds = %.thread1103, %745
+  %750 = phi i64 [ %744, %.thread1103 ], [ %748, %745 ]
+  %.4827611011107 = phi i8 [ %.47275, %.thread1103 ], [ %.48276, %745 ]
+  %.4811021106 = phi i32 [ %.47, %.thread1103 ], [ %.48, %745 ]
   %751 = load i32, ptr %582, align 4
   %752 = tail call i32 %4(i64 noundef 0, i64 noundef %750, i32 noundef %751, ptr noundef %5) #11
   %753 = icmp eq i32 %752, 0
@@ -1357,7 +1357,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph760:                                        ; preds = %759
   %772 = getelementptr inbounds i8, ptr %769, i64 -60
-  %wide.trip.count951 = zext i32 %771 to i64
+  %wide.trip.count950 = zext i32 %771 to i64
   br label %779
 
 773:                                              ; preds = %759
@@ -1368,21 +1368,21 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %777, label %runShengCb.exit.thread, label %.critedge204.i
 
 778:                                              ; preds = %779
-  %indvars.iv.next949 = add nuw nsw i64 %indvars.iv948, 1
-  %exitcond952.not = icmp eq i64 %indvars.iv.next949, %wide.trip.count951
-  br i1 %exitcond952.not, label %.critedge204.i, label %779
+  %indvars.iv.next948 = add nuw nsw i64 %indvars.iv947, 1
+  %exitcond951.not = icmp eq i64 %indvars.iv.next948, %wide.trip.count950
+  br i1 %exitcond951.not, label %.critedge204.i, label %779
 
 779:                                              ; preds = %.lr.ph760, %778
-  %indvars.iv948 = phi i64 [ 0, %.lr.ph760 ], [ %indvars.iv.next949, %778 ]
-  %780 = getelementptr inbounds nuw [0 x i32], ptr %772, i64 0, i64 %indvars.iv948
+  %indvars.iv947 = phi i64 [ 0, %.lr.ph760 ], [ %indvars.iv.next948, %778 ]
+  %780 = getelementptr inbounds nuw [0 x i32], ptr %772, i64 0, i64 %indvars.iv947
   %781 = load i32, ptr %780, align 4
   %782 = tail call i32 %4(i64 noundef 0, i64 noundef %748, i32 noundef %781, ptr noundef %5) #11
   %783 = icmp eq i32 %782, 0
   br i1 %783, label %runShengCb.exit.thread, label %778
 
 .critedge204.i:                                   ; preds = %778, %759, %.critedge202.i.thread, %756, %773, %749, %.critedge202.i
-  %.49277 = phi i8 [ %.48276, %.critedge202.i ], [ %.4827611021108, %749 ], [ %612, %756 ], [ %612, %773 ], [ %.47275, %.critedge202.i.thread ], [ %.48276, %759 ], [ %.48276, %778 ]
-  %.49 = phi i32 [ %.48, %.critedge202.i ], [ %.4811031107, %749 ], [ %.48, %756 ], [ %775, %773 ], [ %.47, %.critedge202.i.thread ], [ %.48, %759 ], [ %.48, %778 ]
+  %.49277 = phi i8 [ %.48276, %.critedge202.i ], [ %.4827611011107, %749 ], [ %612, %756 ], [ %612, %773 ], [ %.47275, %.critedge202.i.thread ], [ %.48276, %759 ], [ %.48276, %778 ]
+  %.49 = phi i32 [ %.48, %.critedge202.i ], [ %.4811021106, %749 ], [ %.48, %756 ], [ %775, %773 ], [ %.47, %.critedge202.i.thread ], [ %.48, %759 ], [ %.48, %778 ]
   %784 = icmp ule ptr %.1169.i84764, %.2173.i83763
   %785 = and i8 %612, 64
   %.not198.i98 = icmp eq i8 %785, 0
@@ -1525,7 +1525,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph774:                                        ; preds = %865
   %878 = getelementptr inbounds i8, ptr %875, i64 -60
-  %wide.trip.count956 = zext i32 %877 to i64
+  %wide.trip.count955 = zext i32 %877 to i64
   br label %885
 
 879:                                              ; preds = %865
@@ -1536,13 +1536,13 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %883, label %runShengCb.exit.thread, label %.critedge.i115
 
 884:                                              ; preds = %885
-  %indvars.iv.next954 = add nuw nsw i64 %indvars.iv953, 1
-  %exitcond957.not = icmp eq i64 %indvars.iv.next954, %wide.trip.count956
-  br i1 %exitcond957.not, label %.critedge.i115, label %885
+  %indvars.iv.next953 = add nuw nsw i64 %indvars.iv952, 1
+  %exitcond956.not = icmp eq i64 %indvars.iv.next953, %wide.trip.count955
+  br i1 %exitcond956.not, label %.critedge.i115, label %885
 
 885:                                              ; preds = %.lr.ph774, %884
-  %indvars.iv953 = phi i64 [ 0, %.lr.ph774 ], [ %indvars.iv.next954, %884 ]
-  %886 = getelementptr inbounds nuw [0 x i32], ptr %878, i64 0, i64 %indvars.iv953
+  %indvars.iv952 = phi i64 [ 0, %.lr.ph774 ], [ %indvars.iv.next953, %884 ]
+  %886 = getelementptr inbounds nuw [0 x i32], ptr %878, i64 0, i64 %indvars.iv952
   %887 = load i32, ptr %886, align 4
   %888 = tail call i32 %4(i64 noundef 0, i64 noundef %855, i32 noundef %887, ptr noundef %5) #11
   %889 = icmp eq i32 %888, 0
@@ -1557,10 +1557,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .critedge.i115.thread:                            ; preds = %856
   %891 = and i8 %835, 16
-  %.not191.i1161111 = icmp eq i8 %891, 0
-  br i1 %.not191.i1161111, label %.critedge198.i, label %.thread1114
+  %.not191.i1161110 = icmp eq i8 %891, 0
+  br i1 %.not191.i1161110, label %.critedge198.i, label %.thread1113
 
-.thread1114:                                      ; preds = %.critedge.i115.thread
+.thread1113:                                      ; preds = %.critedge.i115.thread
   %892 = getelementptr inbounds nuw i8, ptr %819, i64 %16
   %893 = ptrtoint ptr %892 to i64
   %894 = sub i64 %893, %814
@@ -1572,10 +1572,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %898 = sub i64 %897, %814
   br i1 %.not190.i113, label %904, label %899
 
-899:                                              ; preds = %.thread1114, %895
-  %900 = phi i64 [ %894, %.thread1114 ], [ %898, %895 ]
-  %.5828611121118 = phi i8 [ %.57285784, %.thread1114 ], [ %.58286, %895 ]
-  %.5811131117 = phi i32 [ %.57785, %.thread1114 ], [ %.58, %895 ]
+899:                                              ; preds = %.thread1113, %895
+  %900 = phi i64 [ %894, %.thread1113 ], [ %898, %895 ]
+  %.5828611111117 = phi i8 [ %.57285784, %.thread1113 ], [ %.58286, %895 ]
+  %.5811121116 = phi i32 [ %.57785, %.thread1113 ], [ %.58, %895 ]
   %901 = load i32, ptr %815, align 4
   %902 = tail call i32 %4(i64 noundef 0, i64 noundef %900, i32 noundef %901, ptr noundef %5) #11
   %903 = icmp eq i32 %902, 0
@@ -1610,7 +1610,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph777:                                        ; preds = %909
   %922 = getelementptr inbounds i8, ptr %919, i64 -60
-  %wide.trip.count961 = zext i32 %921 to i64
+  %wide.trip.count960 = zext i32 %921 to i64
   br label %929
 
 923:                                              ; preds = %909
@@ -1621,21 +1621,21 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %927, label %runShengCb.exit.thread, label %.critedge198.i
 
 928:                                              ; preds = %929
-  %indvars.iv.next959 = add nuw nsw i64 %indvars.iv958, 1
-  %exitcond962.not = icmp eq i64 %indvars.iv.next959, %wide.trip.count961
-  br i1 %exitcond962.not, label %.critedge198.i, label %929
+  %indvars.iv.next958 = add nuw nsw i64 %indvars.iv957, 1
+  %exitcond961.not = icmp eq i64 %indvars.iv.next958, %wide.trip.count960
+  br i1 %exitcond961.not, label %.critedge198.i, label %929
 
 929:                                              ; preds = %.lr.ph777, %928
-  %indvars.iv958 = phi i64 [ 0, %.lr.ph777 ], [ %indvars.iv.next959, %928 ]
-  %930 = getelementptr inbounds nuw [0 x i32], ptr %922, i64 0, i64 %indvars.iv958
+  %indvars.iv957 = phi i64 [ 0, %.lr.ph777 ], [ %indvars.iv.next958, %928 ]
+  %930 = getelementptr inbounds nuw [0 x i32], ptr %922, i64 0, i64 %indvars.iv957
   %931 = load i32, ptr %930, align 4
   %932 = tail call i32 %4(i64 noundef 0, i64 noundef %898, i32 noundef %931, ptr noundef %5) #11
   %933 = icmp eq i32 %932, 0
   br i1 %933, label %runShengCb.exit.thread, label %928
 
 .critedge198.i:                                   ; preds = %928, %909, %.critedge.i115.thread, %906, %923, %899, %.critedge.i115
-  %.59287 = phi i8 [ %.58286, %.critedge.i115 ], [ %.5828611121118, %899 ], [ %835, %906 ], [ %835, %923 ], [ %.57285784, %.critedge.i115.thread ], [ %.58286, %909 ], [ %.58286, %928 ]
-  %.59 = phi i32 [ %.58, %.critedge.i115 ], [ %.5811131117, %899 ], [ %.58, %906 ], [ %925, %923 ], [ %.57785, %.critedge.i115.thread ], [ %.58, %909 ], [ %.58, %928 ]
+  %.59287 = phi i8 [ %.58286, %.critedge.i115 ], [ %.5828611111117, %899 ], [ %835, %906 ], [ %835, %923 ], [ %.57285784, %.critedge.i115.thread ], [ %.58286, %909 ], [ %.58286, %928 ]
+  %.59 = phi i32 [ %.58, %.critedge.i115 ], [ %.5811121116, %899 ], [ %.58, %906 ], [ %925, %923 ], [ %.57785, %.critedge.i115.thread ], [ %.58, %909 ], [ %.58, %928 ]
   %934 = and i8 %840, 16
   %.not193.i119 = icmp eq i8 %934, 0
   br i1 %.not193.i119, label %.critedge200.i122, label %935
@@ -1681,7 +1681,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph780:                                        ; preds = %948
   %961 = getelementptr inbounds i8, ptr %958, i64 -60
-  %wide.trip.count966 = zext i32 %960 to i64
+  %wide.trip.count965 = zext i32 %960 to i64
   br label %968
 
 962:                                              ; preds = %948
@@ -1692,13 +1692,13 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %966, label %runShengCb.exit.thread, label %.critedge200.i122
 
 967:                                              ; preds = %968
-  %indvars.iv.next964 = add nuw nsw i64 %indvars.iv963, 1
-  %exitcond967.not = icmp eq i64 %indvars.iv.next964, %wide.trip.count966
-  br i1 %exitcond967.not, label %.critedge200.i122, label %968
+  %indvars.iv.next963 = add nuw nsw i64 %indvars.iv962, 1
+  %exitcond966.not = icmp eq i64 %indvars.iv.next963, %wide.trip.count965
+  br i1 %exitcond966.not, label %.critedge200.i122, label %968
 
 968:                                              ; preds = %.lr.ph780, %967
-  %indvars.iv963 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next964, %967 ]
-  %969 = getelementptr inbounds nuw [0 x i32], ptr %961, i64 0, i64 %indvars.iv963
+  %indvars.iv962 = phi i64 [ 0, %.lr.ph780 ], [ %indvars.iv.next963, %967 ]
+  %969 = getelementptr inbounds nuw [0 x i32], ptr %961, i64 0, i64 %indvars.iv962
   %970 = load i32, ptr %969, align 4
   %971 = tail call i32 %4(i64 noundef 0, i64 noundef %938, i32 noundef %970, ptr noundef %5) #11
   %972 = icmp eq i32 %971, 0
@@ -1713,10 +1713,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .critedge200.i122.thread:                         ; preds = %939
   %974 = and i8 %845, 16
-  %.not195.i1231121 = icmp eq i8 %974, 0
-  br i1 %.not195.i1231121, label %.critedge202.i126, label %.thread1124
+  %.not195.i1231120 = icmp eq i8 %974, 0
+  br i1 %.not195.i1231120, label %.critedge202.i126, label %.thread1123
 
-.thread1124:                                      ; preds = %.critedge200.i122.thread
+.thread1123:                                      ; preds = %.critedge200.i122.thread
   %975 = getelementptr inbounds nuw i8, ptr %821, i64 %16
   %976 = ptrtoint ptr %975 to i64
   %977 = sub i64 %976, %814
@@ -1728,10 +1728,10 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   %981 = sub i64 %980, %814
   br i1 %.not190.i113, label %987, label %982
 
-982:                                              ; preds = %.thread1124, %978
-  %983 = phi i64 [ %977, %.thread1124 ], [ %981, %978 ]
-  %.6028811221128 = phi i8 [ %.59287, %.thread1124 ], [ %.60288, %978 ]
-  %.6011231127 = phi i32 [ %.59, %.thread1124 ], [ %.60, %978 ]
+982:                                              ; preds = %.thread1123, %978
+  %983 = phi i64 [ %977, %.thread1123 ], [ %981, %978 ]
+  %.6028811211127 = phi i8 [ %.59287, %.thread1123 ], [ %.60288, %978 ]
+  %.6011221126 = phi i32 [ %.59, %.thread1123 ], [ %.60, %978 ]
   %984 = load i32, ptr %815, align 4
   %985 = tail call i32 %4(i64 noundef 0, i64 noundef %983, i32 noundef %984, ptr noundef %5) #11
   %986 = icmp eq i32 %985, 0
@@ -1766,7 +1766,7 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
 
 .lr.ph783:                                        ; preds = %992
   %1005 = getelementptr inbounds i8, ptr %1002, i64 -60
-  %wide.trip.count971 = zext i32 %1004 to i64
+  %wide.trip.count970 = zext i32 %1004 to i64
   br label %1012
 
 1006:                                             ; preds = %992
@@ -1777,21 +1777,21 @@ sheng4_coda.exit.thread:                          ; preds = %.thread354, %272, %
   br i1 %1010, label %runShengCb.exit.thread, label %.critedge202.i126
 
 1011:                                             ; preds = %1012
-  %indvars.iv.next969 = add nuw nsw i64 %indvars.iv968, 1
-  %exitcond972.not = icmp eq i64 %indvars.iv.next969, %wide.trip.count971
-  br i1 %exitcond972.not, label %.critedge202.i126, label %1012
+  %indvars.iv.next968 = add nuw nsw i64 %indvars.iv967, 1
+  %exitcond971.not = icmp eq i64 %indvars.iv.next968, %wide.trip.count970
+  br i1 %exitcond971.not, label %.critedge202.i126, label %1012
 
 1012:                                             ; preds = %.lr.ph783, %1011
-  %indvars.iv968 = phi i64 [ 0, %.lr.ph783 ], [ %indvars.iv.next969, %1011 ]
-  %1013 = getelementptr inbounds nuw [0 x i32], ptr %1005, i64 0, i64 %indvars.iv968
+  %indvars.iv967 = phi i64 [ 0, %.lr.ph783 ], [ %indvars.iv.next968, %1011 ]
+  %1013 = getelementptr inbounds nuw [0 x i32], ptr %1005, i64 0, i64 %indvars.iv967
   %1014 = load i32, ptr %1013, align 4
   %1015 = tail call i32 %4(i64 noundef 0, i64 noundef %981, i32 noundef %1014, ptr noundef %5) #11
   %1016 = icmp eq i32 %1015, 0
   br i1 %1016, label %runShengCb.exit.thread, label %1011
 
 .critedge202.i126:                                ; preds = %1011, %992, %.critedge200.i122.thread, %817, %989, %1006, %982, %.critedge200.i122
-  %.62290 = phi i8 [ %.57285784, %817 ], [ %.60288, %.critedge200.i122 ], [ %.6028811221128, %982 ], [ %845, %989 ], [ %845, %1006 ], [ %.59287, %.critedge200.i122.thread ], [ %.60288, %992 ], [ %.60288, %1011 ]
-  %.62 = phi i32 [ %.57785, %817 ], [ %.60, %.critedge200.i122 ], [ %.6011231127, %982 ], [ %.60, %989 ], [ %1008, %1006 ], [ %.59, %.critedge200.i122.thread ], [ %.60, %992 ], [ %.60, %1011 ]
+  %.62290 = phi i8 [ %.57285784, %817 ], [ %.60288, %.critedge200.i122 ], [ %.6028811211127, %982 ], [ %845, %989 ], [ %845, %1006 ], [ %.59287, %.critedge200.i122.thread ], [ %.60288, %992 ], [ %.60288, %1011 ]
+  %.62 = phi i32 [ %.57785, %817 ], [ %.60, %.critedge200.i122 ], [ %.6011221126, %982 ], [ %.60, %989 ], [ %1008, %1006 ], [ %.59, %.critedge200.i122.thread ], [ %.60, %992 ], [ %.60, %1011 ]
   %1017 = getelementptr inbounds nuw i8, ptr %.1169.i109786, i64 4
   %1018 = ptrtoint ptr %1017 to i64
   %1019 = sub i64 %810, %1018
@@ -1857,13 +1857,13 @@ sheng4_coa.exit:                                  ; preds = %805, %.critedge202.
   ]
 
 1052:                                             ; preds = %1053
-  %indvars.iv.next974 = add nuw nsw i64 %indvars.iv973, 1
-  %exitcond977.not = icmp eq i64 %indvars.iv.next974, %wide.trip.count976
-  br i1 %exitcond977.not, label %.critedge.i143.us, label %1053
+  %indvars.iv.next973 = add nuw nsw i64 %indvars.iv972, 1
+  %exitcond976.not = icmp eq i64 %indvars.iv.next973, %wide.trip.count975
+  br i1 %exitcond976.not, label %.critedge.i143.us, label %1053
 
 1053:                                             ; preds = %.lr.ph796.us, %1052
-  %indvars.iv973 = phi i64 [ 0, %.lr.ph796.us ], [ %indvars.iv.next974, %1052 ]
-  %1054 = getelementptr inbounds nuw [0 x i32], ptr %1067, i64 0, i64 %indvars.iv973
+  %indvars.iv972 = phi i64 [ 0, %.lr.ph796.us ], [ %indvars.iv.next973, %1052 ]
+  %1054 = getelementptr inbounds nuw [0 x i32], ptr %1067, i64 0, i64 %indvars.iv972
   %1055 = load i32, ptr %1054, align 4
   %1056 = tail call i32 %4(i64 noundef 0, i64 noundef %1037, i32 noundef %1055, ptr noundef %5) #11
   %1057 = icmp eq i32 %1056, 0
@@ -1890,7 +1890,7 @@ sheng4_coa.exit:                                  ; preds = %805, %.critedge202.
 
 .lr.ph796.us:                                     ; preds = %1039
   %1067 = getelementptr inbounds i8, ptr %1049, i64 -60
-  %wide.trip.count976 = zext i32 %1051 to i64
+  %wide.trip.count975 = zext i32 %1051 to i64
   br label %1053
 
 .lr.ph802.split:                                  ; preds = %.lr.ph802, %.critedge.i143
@@ -1945,19 +1945,19 @@ runShengCb.exit:                                  ; preds = %.critedge.i, %.crit
   br i1 %.not38.i806.not, label %fireReports.exit, label %.lr.ph809.preheader
 
 .lr.ph809.preheader:                              ; preds = %1092
-  %wide.trip.count981 = zext i32 %1097 to i64
+  %wide.trip.count980 = zext i32 %1097 to i64
   br label %.lr.ph809
 
 .lr.ph809:                                        ; preds = %.lr.ph809, %.lr.ph809.preheader
-  %indvars.iv978 = phi i64 [ 0, %.lr.ph809.preheader ], [ %indvars.iv.next979, %.lr.ph809 ]
-  %1099 = getelementptr inbounds nuw [0 x i32], ptr %1098, i64 0, i64 %indvars.iv978
+  %indvars.iv977 = phi i64 [ 0, %.lr.ph809.preheader ], [ %indvars.iv.next978, %.lr.ph809 ]
+  %1099 = getelementptr inbounds nuw [0 x i32], ptr %1098, i64 0, i64 %indvars.iv977
   %1100 = load i32, ptr %1099, align 4
   %1101 = tail call i32 %4(i64 noundef 0, i64 noundef %1093, i32 noundef %1100, ptr noundef %5) #11
   %1102 = icmp eq i32 %1101, 0
-  %indvars.iv.next979 = add nuw nsw i64 %indvars.iv978, 1
-  %exitcond982.not = icmp eq i64 %indvars.iv.next979, %wide.trip.count981
-  %or.cond1189 = select i1 %1102, i1 true, i1 %exitcond982.not
-  br i1 %or.cond1189, label %fireReports.exit, label %.lr.ph809
+  %indvars.iv.next978 = add nuw nsw i64 %indvars.iv977, 1
+  %exitcond981.not = icmp eq i64 %indvars.iv.next978, %wide.trip.count980
+  %or.cond1188 = select i1 %1102, i1 true, i1 %exitcond981.not
+  br i1 %or.cond1188, label %fireReports.exit, label %.lr.ph809
 
 fireReports.exit:                                 ; preds = %.lr.ph809, %1092, %runShengCb.exit
   %1103 = lshr i8 %.3303, 5

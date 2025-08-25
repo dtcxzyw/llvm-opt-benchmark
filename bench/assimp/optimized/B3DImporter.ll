@@ -1772,8 +1772,8 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE5clearEv.exit176:    ; preds = %._crit_edge447, %23
   %258 = load ptr, ptr %257, align 8
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i32, ptr %259, align 8
-  %.fr = freeze i32 %260
-  %261 = mul i32 %.fr, 3
+  %.fr615 = freeze i32 %260
+  %261 = mul i32 %.fr615, 3
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 4
   store i32 %261, ptr %262, align 4
   %263 = sext i32 %261 to i64
@@ -1785,7 +1785,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EE5clearEv.exit176:    ; preds = %._crit_edge447, %23
           to label %269 unwind label %288
 
 269:                                              ; preds = %251
-  %270 = icmp eq i32 %.fr, 0
+  %270 = icmp eq i32 %.fr615, 0
   br i1 %270, label %.loopexit311, label %.loopexit311.loopexit
 
 .loopexit311.loopexit:                            ; preds = %269
@@ -1903,7 +1903,7 @@ _ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EEC2EmRKS3_.exit: ; preds = %.noex
   %.sroa.0289.2 = phi ptr [ %315, %.noexc178 ], [ null, %_ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %.sink.i = phi i64 [ %317, %.noexc178 ], [ 0, %_ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %.noexc178 ], [ null, %_ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ]
-  %318 = icmp sgt i32 %.fr, 0
+  %318 = icmp sgt i32 %.fr615, 0
   br i1 %318, label %.preheader, label %.preheader303
 
 .preheader303:                                    ; preds = %326, %_ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EEC2EmRKS3_.exit

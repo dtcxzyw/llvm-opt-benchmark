@@ -1927,7 +1927,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
-  %.2841.fr1978 = freeze i32 %28
+  %.2841.fr1976 = freeze i32 %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1944,32 +1944,32 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
     i32 1, label %46
     i32 2, label %54
     i32 36, label %1006
-    i32 3, label %.preheader2162
+    i32 3, label %.preheader2160
     i32 5, label %101
-    i32 6, label %.preheader2048
+    i32 6, label %.preheader2046
     i32 7, label %140
     i32 39, label %1006
-    i32 51, label %.preheader2056
+    i32 51, label %.preheader2054
     i32 52, label %186
     i32 9, label %192
     i32 38, label %193
     i32 10, label %1006
-    i32 11, label %.preheader2072
-    i32 14, label %.preheader2083
+    i32 11, label %.preheader2070
+    i32 14, label %.preheader2081
     i32 35, label %1006
     i32 16, label %427
     i32 17, label %1006
-    i32 18, label %.preheader2091
+    i32 18, label %.preheader2089
     i32 21, label %1006
     i32 23, label %585
     i32 24, label %639
-    i32 25, label %.preheader2124
+    i32 25, label %.preheader2122
     i32 26, label %778
-    i32 27, label %.preheader2113
+    i32 27, label %.preheader2111
     i32 37, label %1006
     i32 53, label %874
     i32 32, label %939
-    i32 41, label %.preheader2064
+    i32 41, label %.preheader2062
     i32 42, label %992
     i32 34, label %1005
   ]
@@ -1992,7 +1992,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.11005 = phi i32 [ 0, %40 ], [ %36, %26 ]
   %.1922 = phi i32 [ 0, %40 ], [ %34, %26 ]
   %.1843 = phi i32 [ 0, %40 ], [ %32, %26 ]
-  %.1840 = phi i32 [ 0, %40 ], [ %.2841.fr1978, %26 ]
+  %.1840 = phi i32 [ 0, %40 ], [ %.2841.fr1976, %26 ]
   %.not1558 = icmp sgt i64 %11, 0
   br i1 %.not1558, label %49, label %47
 
@@ -2017,7 +2017,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.31007 = phi i32 [ %.11005, %49 ], [ %36, %26 ]
   %.3924 = phi i32 [ %.1922, %49 ], [ %34, %26 ]
   %.3845 = phi i32 [ %.1843, %49 ], [ %32, %26 ]
-  %.3 = phi i32 [ %.1840, %49 ], [ %.2841.fr1978, %26 ]
+  %.3 = phi i32 [ %.1840, %49 ], [ %.2841.fr1976, %26 ]
   %.not1559 = icmp ult ptr %.21176, %12
   br i1 %.not1559, label %57, label %55
 
@@ -2070,9 +2070,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.5847 = phi i32 [ %.68910, %935 ], [ %.3845, %71 ], [ %.3845, %78 ], [ 0, %40 ]
   %.5 = phi i32 [ %.72, %935 ], [ %.3, %71 ], [ %.3, %78 ], [ 0, %40 ]
   %80 = icmp ult i32 %.5, 3
-  br i1 %80, label %.preheader2162, label %.loopexit2163
+  br i1 %80, label %.preheader2160, label %.loopexit2161
 
-.preheader2162:                                   ; preds = %26, %79
+.preheader2160:                                   ; preds = %26, %79
   %.41363.ph = phi i64 [ %.11360, %79 ], [ %38, %26 ]
   %.41271.ph = phi ptr [ %.11268, %79 ], [ %4, %26 ]
   %.71181.ph = phi ptr [ %.41178, %79 ], [ %1, %26 ]
@@ -2080,13 +2080,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.81012.ph = phi i32 [ %.51009, %79 ], [ %36, %26 ]
   %.9930.ph = phi i32 [ %.6927, %79 ], [ %34, %26 ]
   %.8850.ph = phi i32 [ %.5847, %79 ], [ %32, %26 ]
-  %.8.ph = phi i32 [ %.5, %79 ], [ %.2841.fr1978, %26 ]
+  %.8.ph = phi i32 [ %.5, %79 ], [ %.2841.fr1976, %26 ]
   br label %81
 
-81:                                               ; preds = %.preheader2162, %84
-  %.71181 = phi ptr [ %85, %84 ], [ %.71181.ph, %.preheader2162 ]
-  %.81099 = phi i64 [ %90, %84 ], [ %.81099.ph, %.preheader2162 ]
-  %.8 = phi i32 [ %91, %84 ], [ %.8.ph, %.preheader2162 ]
+81:                                               ; preds = %.preheader2160, %84
+  %.71181 = phi ptr [ %85, %84 ], [ %.71181.ph, %.preheader2160 ]
+  %.81099 = phi i64 [ %90, %84 ], [ %.81099.ph, %.preheader2160 ]
+  %.8 = phi i32 [ %91, %84 ], [ %.8.ph, %.preheader2160 ]
   %.not1563 = icmp ult ptr %.71181, %12
   br i1 %.not1563, label %84, label %82
 
@@ -2106,9 +2106,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %90 = or i64 %89, %.81099
   %91 = add i32 %.8, 8
   %92 = icmp ult i32 %91, 3
-  br i1 %92, label %81, label %.loopexit2163
+  br i1 %92, label %81, label %.loopexit2161
 
-.loopexit2163:                                    ; preds = %84, %79
+.loopexit2161:                                    ; preds = %84, %79
   %.21361 = phi i64 [ %.11360, %79 ], [ %.41363.ph, %84 ]
   %.21269 = phi ptr [ %.11268, %79 ], [ %.41271.ph, %84 ]
   %.51179 = phi ptr [ %.41178, %79 ], [ %85, %84 ]
@@ -2144,20 +2144,20 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %106 = load i8, ptr %1, align 1
   %107 = zext i8 %106 to i64
-  %108 = zext nneg i32 %.2841.fr1978 to i64
+  %108 = zext nneg i32 %.2841.fr1976 to i64
   %109 = shl i64 %107, %108
   %110 = or i64 %109, %30
-  %111 = add i32 %.2841.fr1978, 8
+  %111 = add i32 %.2841.fr1976, 8
   br label %112
 
-112:                                              ; preds = %.loopexit2163, %104
-  %.51364 = phi i64 [ %38, %104 ], [ %.21361, %.loopexit2163 ]
-  %.51272 = phi ptr [ %4, %104 ], [ %.21269, %.loopexit2163 ]
-  %.81182 = phi ptr [ %105, %104 ], [ %.51179, %.loopexit2163 ]
-  %.91100 = phi i64 [ %110, %104 ], [ %96, %.loopexit2163 ]
-  %.91013 = phi i32 [ %36, %104 ], [ %.61010, %.loopexit2163 ]
-  %.9851 = phi i32 [ %32, %104 ], [ %.6848, %.loopexit2163 ]
-  %.9 = phi i32 [ %111, %104 ], [ %97, %.loopexit2163 ]
+112:                                              ; preds = %.loopexit2161, %104
+  %.51364 = phi i64 [ %38, %104 ], [ %.21361, %.loopexit2161 ]
+  %.51272 = phi ptr [ %4, %104 ], [ %.21269, %.loopexit2161 ]
+  %.81182 = phi ptr [ %105, %104 ], [ %.51179, %.loopexit2161 ]
+  %.91100 = phi i64 [ %110, %104 ], [ %96, %.loopexit2161 ]
+  %.91013 = phi i32 [ %36, %104 ], [ %.61010, %.loopexit2161 ]
+  %.9851 = phi i32 [ %32, %104 ], [ %.6848, %.loopexit2161 ]
+  %.9 = phi i32 [ %111, %104 ], [ %97, %.loopexit2161 ]
   %113 = and i32 %.9, 7
   %114 = zext nneg i32 %113 to i64
   %115 = lshr i64 %.91100, %114
@@ -2182,9 +2182,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 120:                                              ; preds = %119
   %121 = icmp ult i32 %.12, 8
-  br i1 %121, label %.preheader2048, label %.loopexit2049
+  br i1 %121, label %.preheader2046, label %.loopexit2047
 
-.preheader2048:                                   ; preds = %26, %120
+.preheader2046:                                   ; preds = %26, %120
   %.111370.ph = phi i64 [ %.81367, %120 ], [ %38, %26 ]
   %.111278.ph = phi ptr [ %.81275, %120 ], [ %4, %26 ]
   %.141188.ph = phi ptr [ %.111185, %120 ], [ %1, %26 ]
@@ -2192,13 +2192,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.151019.ph = phi i32 [ %.121016, %120 ], [ %36, %26 ]
   %.15936.ph = phi i32 [ %.12933, %120 ], [ %34, %26 ]
   %.15857.ph = phi i32 [ %.12854, %120 ], [ %32, %26 ]
-  %.15.ph = phi i32 [ %.12, %120 ], [ %.2841.fr1978, %26 ]
+  %.15.ph = phi i32 [ %.12, %120 ], [ %.2841.fr1976, %26 ]
   br label %122
 
-122:                                              ; preds = %.preheader2048, %125
-  %.141188 = phi ptr [ %126, %125 ], [ %.141188.ph, %.preheader2048 ]
-  %.151106 = phi i64 [ %131, %125 ], [ %.151106.ph, %.preheader2048 ]
-  %.15 = phi i32 [ %132, %125 ], [ %.15.ph, %.preheader2048 ]
+122:                                              ; preds = %.preheader2046, %125
+  %.141188 = phi ptr [ %126, %125 ], [ %.141188.ph, %.preheader2046 ]
+  %.151106 = phi i64 [ %131, %125 ], [ %.151106.ph, %.preheader2046 ]
+  %.15 = phi i32 [ %132, %125 ], [ %.15.ph, %.preheader2046 ]
   %.not1623 = icmp ult ptr %.141188, %12
   br i1 %.not1623, label %125, label %123
 
@@ -2218,9 +2218,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %131 = or i64 %130, %.151106
   %132 = add i32 %.15, 8
   %133 = icmp ugt i32 %.15, -9
-  br i1 %133, label %122, label %.loopexit2049
+  br i1 %133, label %122, label %.loopexit2047
 
-.loopexit2049:                                    ; preds = %125, %120
+.loopexit2047:                                    ; preds = %125, %120
   %.91368 = phi i64 [ %.81367, %120 ], [ %.111370.ph, %125 ]
   %.91276 = phi ptr [ %.81275, %120 ], [ %.111278.ph, %125 ]
   %.121186 = phi ptr [ %.111185, %120 ], [ %126, %125 ]
@@ -2246,7 +2246,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.161020 = phi i32 [ %.121016, %119 ], [ %36, %26 ]
   %.16937 = phi i32 [ %.12933, %119 ], [ %34, %26 ]
   %.16858 = phi i32 [ %.12854, %119 ], [ %32, %26 ]
-  %.16 = phi i32 [ 0, %119 ], [ %.2841.fr1978, %26 ]
+  %.16 = phi i32 [ 0, %119 ], [ %.2841.fr1976, %26 ]
   %.not1621 = icmp ult ptr %.151189, %12
   br i1 %.not1621, label %143, label %141
 
@@ -2266,15 +2266,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   store i8 %145, ptr %148, align 1
   br label %149
 
-149:                                              ; preds = %.loopexit2049, %143
-  %.131372 = phi i64 [ %.91368, %.loopexit2049 ], [ %.121371, %143 ]
-  %.131280 = phi ptr [ %.91276, %.loopexit2049 ], [ %.121279, %143 ]
-  %.161190 = phi ptr [ %.121186, %.loopexit2049 ], [ %144, %143 ]
-  %.171108 = phi i64 [ %138, %.loopexit2049 ], [ %.161107, %143 ]
-  %.171021 = phi i32 [ %.131017, %.loopexit2049 ], [ %.161020, %143 ]
-  %.17938 = phi i32 [ %.13934, %.loopexit2049 ], [ %.16937, %143 ]
-  %.17859 = phi i32 [ %.13855, %.loopexit2049 ], [ %.16858, %143 ]
-  %.17 = phi i32 [ %139, %.loopexit2049 ], [ %.16, %143 ]
+149:                                              ; preds = %.loopexit2047, %143
+  %.131372 = phi i64 [ %.91368, %.loopexit2047 ], [ %.121371, %143 ]
+  %.131280 = phi ptr [ %.91276, %.loopexit2047 ], [ %.121279, %143 ]
+  %.161190 = phi ptr [ %.121186, %.loopexit2047 ], [ %144, %143 ]
+  %.171108 = phi i64 [ %138, %.loopexit2047 ], [ %.161107, %143 ]
+  %.171021 = phi i32 [ %.131017, %.loopexit2047 ], [ %.161020, %143 ]
+  %.17938 = phi i32 [ %.13934, %.loopexit2047 ], [ %.16937, %143 ]
+  %.17859 = phi i32 [ %.13855, %.loopexit2047 ], [ %.16858, %143 ]
+  %.17 = phi i32 [ %139, %.loopexit2047 ], [ %.16, %143 ]
   %150 = add i32 %.17938, 1
   br label %117
 
@@ -2310,9 +2310,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 168:                                              ; preds = %164
   %169 = icmp ult i32 %.19, 8
-  br i1 %169, label %.preheader2056, label %.loopexit2057
+  br i1 %169, label %.preheader2054, label %.loopexit2055
 
-.preheader2056:                                   ; preds = %26, %168
+.preheader2054:                                   ; preds = %26, %168
   %.181377.ph = phi i64 [ %.151374, %168 ], [ %38, %26 ]
   %.181285.ph = phi ptr [ %.151282, %168 ], [ %4, %26 ]
   %.211195.ph = phi ptr [ %.181192, %168 ], [ %1, %26 ]
@@ -2320,13 +2320,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.221026.ph = phi i32 [ %.191023, %168 ], [ %36, %26 ]
   %.22943.ph = phi i32 [ %.19940, %168 ], [ %34, %26 ]
   %.21863.ph = phi i32 [ %.19861, %168 ], [ %32, %26 ]
-  %.22.ph = phi i32 [ %.19, %168 ], [ %.2841.fr1978, %26 ]
+  %.22.ph = phi i32 [ %.19, %168 ], [ %.2841.fr1976, %26 ]
   br label %170
 
-170:                                              ; preds = %.preheader2056, %173
-  %.211195 = phi ptr [ %174, %173 ], [ %.211195.ph, %.preheader2056 ]
-  %.221113 = phi i64 [ %179, %173 ], [ %.221113.ph, %.preheader2056 ]
-  %.22 = phi i32 [ %180, %173 ], [ %.22.ph, %.preheader2056 ]
+170:                                              ; preds = %.preheader2054, %173
+  %.211195 = phi ptr [ %174, %173 ], [ %.211195.ph, %.preheader2054 ]
+  %.221113 = phi i64 [ %179, %173 ], [ %.221113.ph, %.preheader2054 ]
+  %.22 = phi i32 [ %180, %173 ], [ %.22.ph, %.preheader2054 ]
   %.not1617 = icmp ult ptr %.211195, %12
   br i1 %.not1617, label %173, label %171
 
@@ -2346,9 +2346,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %179 = or i64 %178, %.221113
   %180 = add i32 %.22, 8
   %181 = icmp ugt i32 %.22, -9
-  br i1 %181, label %170, label %.loopexit2057
+  br i1 %181, label %170, label %.loopexit2055
 
-.loopexit2057:                                    ; preds = %173, %168
+.loopexit2055:                                    ; preds = %173, %168
   %.161375 = phi i64 [ %.151374, %168 ], [ %.181377.ph, %173 ]
   %.161283 = phi ptr [ %.151282, %168 ], [ %.181285.ph, %173 ]
   %.191193 = phi ptr [ %.181192, %168 ], [ %174, %173 ]
@@ -2362,15 +2362,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %185 = add i32 %.20, -8
   br label %186
 
-186:                                              ; preds = %26, %.loopexit2057
-  %.191378 = phi i64 [ %.161375, %.loopexit2057 ], [ %38, %26 ]
-  %.191286 = phi ptr [ %.161283, %.loopexit2057 ], [ %4, %26 ]
-  %.221196 = phi ptr [ %.191193, %.loopexit2057 ], [ %1, %26 ]
-  %.231114 = phi i64 [ %184, %.loopexit2057 ], [ %30, %26 ]
-  %.231027 = phi i32 [ %.201024, %.loopexit2057 ], [ %36, %26 ]
-  %.23944 = phi i32 [ %.20941, %.loopexit2057 ], [ %34, %26 ]
-  %.22864 = phi i32 [ %183, %.loopexit2057 ], [ %32, %26 ]
-  %.23 = phi i32 [ %185, %.loopexit2057 ], [ %.2841.fr1978, %26 ]
+186:                                              ; preds = %26, %.loopexit2055
+  %.191378 = phi i64 [ %.161375, %.loopexit2055 ], [ %38, %26 ]
+  %.191286 = phi ptr [ %.161283, %.loopexit2055 ], [ %4, %26 ]
+  %.221196 = phi ptr [ %.191193, %.loopexit2055 ], [ %1, %26 ]
+  %.231114 = phi i64 [ %184, %.loopexit2055 ], [ %30, %26 ]
+  %.231027 = phi i32 [ %.201024, %.loopexit2055 ], [ %36, %26 ]
+  %.23944 = phi i32 [ %.20941, %.loopexit2055 ], [ %34, %26 ]
+  %.22864 = phi i32 [ %183, %.loopexit2055 ], [ %32, %26 ]
+  %.23 = phi i32 [ %185, %.loopexit2055 ], [ %.2841.fr1976, %26 ]
   %.not1618 = icmp ult ptr %.191286, %14
   br i1 %.not1618, label %187, label %1006
 
@@ -2401,7 +2401,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.251029 = phi i32 [ %.241028, %191 ], [ %36, %26 ]
   %.25946 = phi i32 [ %.24945, %191 ], [ %34, %26 ]
   %.24866 = phi i32 [ %.23865, %191 ], [ %32, %26 ]
-  %.25 = phi i32 [ %.24, %191 ], [ %.2841.fr1978, %26 ]
+  %.25 = phi i32 [ %.24, %191 ], [ %.2841.fr1976, %26 ]
   %.not1614 = icmp ult ptr %.211288, %14
   br i1 %.not1614, label %193, label %1006
 
@@ -2413,7 +2413,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.261030 = phi i32 [ %.251029, %192 ], [ %36, %26 ]
   %.26947 = phi i32 [ %.25946, %192 ], [ %34, %26 ]
   %.25867 = phi i32 [ %.24866, %192 ], [ %32, %26 ]
-  %.26 = phi i32 [ %.25, %192 ], [ %.2841.fr1978, %26 ]
+  %.26 = phi i32 [ %.25, %192 ], [ %.2841.fr1976, %26 ]
   %.not1615 = icmp ult ptr %.251199, %12
   br i1 %.not1615, label %196, label %194
 
@@ -2441,7 +2441,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %208 = sub i32 %.26947, %207
   br label %191
 
-209:                                              ; preds = %.loopexit2163
+209:                                              ; preds = %.loopexit2161
   switch i32 %98, label %214 [
     i32 3, label %1006
     i32 1, label %.lr.ph1769.preheader
@@ -2464,15 +2464,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   store i64 578721382704613384, ptr %scevgep1883, align 4
   br label %.loopexit1735
 
-214:                                              ; preds = %209, %.loopexit2073
-  %.251384 = phi i64 [ %.261385, %.loopexit2073 ], [ %.21361, %209 ]
-  %.251292 = phi ptr [ %.261293, %.loopexit2073 ], [ %.21269, %209 ]
-  %.281202 = phi ptr [ %.291203, %.loopexit2073 ], [ %.51179, %209 ]
-  %.291120 = phi i64 [ %246, %.loopexit2073 ], [ %96, %209 ]
-  %.291033 = phi i32 [ %.301034, %.loopexit2073 ], [ %.61010, %209 ]
-  %.29950 = phi i32 [ %251, %.loopexit2073 ], [ 0, %209 ]
-  %.28870 = phi i32 [ %.29871, %.loopexit2073 ], [ %.6848, %209 ]
-  %.29 = phi i32 [ %247, %.loopexit2073 ], [ %97, %209 ]
+214:                                              ; preds = %209, %.loopexit2071
+  %.251384 = phi i64 [ %.261385, %.loopexit2071 ], [ %.21361, %209 ]
+  %.251292 = phi ptr [ %.261293, %.loopexit2071 ], [ %.21269, %209 ]
+  %.281202 = phi ptr [ %.291203, %.loopexit2071 ], [ %.51179, %209 ]
+  %.291120 = phi i64 [ %246, %.loopexit2071 ], [ %96, %209 ]
+  %.291033 = phi i32 [ %.301034, %.loopexit2071 ], [ %.61010, %209 ]
+  %.29950 = phi i32 [ %251, %.loopexit2071 ], [ 0, %209 ]
+  %.28870 = phi i32 [ %.29871, %.loopexit2071 ], [ %.6848, %209 ]
+  %.29 = phi i32 [ %247, %.loopexit2071 ], [ %97, %209 ]
   %215 = icmp ult i32 %.29950, 3
   br i1 %215, label %216, label %252
 
@@ -2482,9 +2482,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %219 = load i8, ptr %218, align 1
   %220 = sext i8 %219 to i32
   %221 = icmp ult i32 %.29, %220
-  br i1 %221, label %.preheader2072, label %.loopexit2073
+  br i1 %221, label %.preheader2070, label %.loopexit2071
 
-.preheader2072:                                   ; preds = %26, %216
+.preheader2070:                                   ; preds = %26, %216
   %.281387.ph = phi i64 [ %.251384, %216 ], [ %38, %26 ]
   %.281295.ph = phi ptr [ %.251292, %216 ], [ %4, %26 ]
   %.311205.ph = phi ptr [ %.281202, %216 ], [ %1, %26 ]
@@ -2492,15 +2492,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.321036.ph = phi i32 [ %.291033, %216 ], [ %36, %26 ]
   %.32953.ph = phi i32 [ %.29950, %216 ], [ %34, %26 ]
   %.31873.ph = phi i32 [ %.28870, %216 ], [ %32, %26 ]
-  %.32.ph = phi i32 [ %.29, %216 ], [ %.2841.fr1978, %26 ]
+  %.32.ph = phi i32 [ %.29, %216 ], [ %.2841.fr1976, %26 ]
   %222 = zext i32 %.32953.ph to i64
   %223 = getelementptr inbounds nuw [4 x i8], ptr @.str.12, i64 0, i64 %222
   br label %224
 
-224:                                              ; preds = %.preheader2072, %227
-  %.311205 = phi ptr [ %228, %227 ], [ %.311205.ph, %.preheader2072 ]
-  %.321123 = phi i64 [ %233, %227 ], [ %.321123.ph, %.preheader2072 ]
-  %.32 = phi i32 [ %234, %227 ], [ %.32.ph, %.preheader2072 ]
+224:                                              ; preds = %.preheader2070, %227
+  %.311205 = phi ptr [ %228, %227 ], [ %.311205.ph, %.preheader2070 ]
+  %.321123 = phi i64 [ %233, %227 ], [ %.321123.ph, %.preheader2070 ]
+  %.32 = phi i32 [ %234, %227 ], [ %.32.ph, %.preheader2070 ]
   %.not1566 = icmp ult ptr %.311205, %12
   br i1 %.not1566, label %227, label %225
 
@@ -2522,9 +2522,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %235 = load i8, ptr %223, align 1
   %236 = sext i8 %235 to i32
   %237 = icmp ult i32 %234, %236
-  br i1 %237, label %224, label %.loopexit2073
+  br i1 %237, label %224, label %.loopexit2071
 
-.loopexit2073:                                    ; preds = %227, %216
+.loopexit2071:                                    ; preds = %227, %216
   %.pre-phi1909 = phi i32 [ %220, %216 ], [ %236, %227 ]
   %238 = phi i8 [ %219, %216 ], [ %235, %227 ]
   %.pre-phi = phi i64 [ %217, %216 ], [ %222, %227 ]
@@ -2558,15 +2558,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %253, i8 0, i64 288, i1 false)
   br label %254
 
-254:                                              ; preds = %.loopexit2084, %252
-  %.291388 = phi i64 [ %.251384, %252 ], [ %.301389, %.loopexit2084 ]
-  %.291296 = phi ptr [ %.251292, %252 ], [ %.301297, %.loopexit2084 ]
-  %.321206 = phi ptr [ %.281202, %252 ], [ %.331207, %.loopexit2084 ]
-  %.331124 = phi i64 [ %.291120, %252 ], [ %274, %.loopexit2084 ]
-  %.331037 = phi i32 [ %.291033, %252 ], [ %.341038, %.loopexit2084 ]
-  %.33954 = phi i32 [ 0, %252 ], [ %282, %.loopexit2084 ]
-  %.32874 = phi i32 [ %.28870, %252 ], [ %.33875, %.loopexit2084 ]
-  %.33 = phi i32 [ %.29, %252 ], [ %275, %.loopexit2084 ]
+254:                                              ; preds = %.loopexit2082, %252
+  %.291388 = phi i64 [ %.251384, %252 ], [ %.301389, %.loopexit2082 ]
+  %.291296 = phi ptr [ %.251292, %252 ], [ %.301297, %.loopexit2082 ]
+  %.321206 = phi ptr [ %.281202, %252 ], [ %.331207, %.loopexit2082 ]
+  %.331124 = phi i64 [ %.291120, %252 ], [ %274, %.loopexit2082 ]
+  %.331037 = phi i32 [ %.291033, %252 ], [ %.341038, %.loopexit2082 ]
+  %.33954 = phi i32 [ 0, %252 ], [ %282, %.loopexit2082 ]
+  %.32874 = phi i32 [ %.28870, %252 ], [ %.33875, %.loopexit2082 ]
+  %.33 = phi i32 [ %.29, %252 ], [ %275, %.loopexit2082 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %256 = load i32, ptr %255, align 4
   %257 = icmp ult i32 %.33954, %256
@@ -2574,9 +2574,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 258:                                              ; preds = %254
   %259 = icmp ult i32 %.33, 3
-  br i1 %259, label %.preheader2083, label %.loopexit2084
+  br i1 %259, label %.preheader2081, label %.loopexit2082
 
-.preheader2083:                                   ; preds = %26, %258
+.preheader2081:                                   ; preds = %26, %258
   %.321391.ph = phi i64 [ %.291388, %258 ], [ %38, %26 ]
   %.321299.ph = phi ptr [ %.291296, %258 ], [ %4, %26 ]
   %.351209.ph = phi ptr [ %.321206, %258 ], [ %1, %26 ]
@@ -2584,13 +2584,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.361040.ph = phi i32 [ %.331037, %258 ], [ %36, %26 ]
   %.36957.ph = phi i32 [ %.33954, %258 ], [ %34, %26 ]
   %.35877.ph = phi i32 [ %.32874, %258 ], [ %32, %26 ]
-  %.36.ph = phi i32 [ %.33, %258 ], [ %.2841.fr1978, %26 ]
+  %.36.ph = phi i32 [ %.33, %258 ], [ %.2841.fr1976, %26 ]
   br label %260
 
-260:                                              ; preds = %.preheader2083, %263
-  %.351209 = phi ptr [ %264, %263 ], [ %.351209.ph, %.preheader2083 ]
-  %.361127 = phi i64 [ %269, %263 ], [ %.361127.ph, %.preheader2083 ]
-  %.36 = phi i32 [ %270, %263 ], [ %.36.ph, %.preheader2083 ]
+260:                                              ; preds = %.preheader2081, %263
+  %.351209 = phi ptr [ %264, %263 ], [ %.351209.ph, %.preheader2081 ]
+  %.361127 = phi i64 [ %269, %263 ], [ %.361127.ph, %.preheader2081 ]
+  %.36 = phi i32 [ %270, %263 ], [ %.36.ph, %.preheader2081 ]
   %.not1564 = icmp ult ptr %.351209, %12
   br i1 %.not1564, label %263, label %261
 
@@ -2610,9 +2610,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %269 = or i64 %268, %.361127
   %270 = add i32 %.36, 8
   %271 = icmp ult i32 %270, 3
-  br i1 %271, label %260, label %.loopexit2084
+  br i1 %271, label %260, label %.loopexit2082
 
-.loopexit2084:                                    ; preds = %263, %258
+.loopexit2082:                                    ; preds = %263, %258
   %.301389 = phi i64 [ %.291388, %258 ], [ %.321391.ph, %263 ]
   %.301297 = phi ptr [ %.291296, %258 ], [ %.321299.ph, %263 ]
   %.331207 = phi ptr [ %.321206, %258 ], [ %264, %263 ]
@@ -2653,7 +2653,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.37 = phi i32 [ %.48, %541 ], [ %.33, %283 ], [ %97, %.lr.ph1769.preheader ]
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %286 = icmp sgt i32 %284, -1
-  br i1 %286, label %287, label %.preheader2135
+  br i1 %286, label %287, label %.preheader2133
 
 287:                                              ; preds = %.loopexit1735
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2950,7 +2950,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.421046 = phi i32 [ %.411045, %405 ], [ %.411045, %425 ], [ %.411045, %407 ], [ %36, %26 ]
   %.42963 = phi i32 [ %.41962, %405 ], [ %.41962, %425 ], [ %.41962, %407 ], [ %34, %26 ]
   %.40882 = phi i32 [ %.39881, %405 ], [ %.39881, %425 ], [ %.39881, %407 ], [ %32, %26 ]
-  %.42 = phi i32 [ %.41, %405 ], [ %.41, %425 ], [ %.41, %407 ], [ %.2841.fr1978, %26 ]
+  %.42 = phi i32 [ %.41, %405 ], [ %.41, %425 ], [ %.41, %407 ], [ %.2841.fr1976, %26 ]
   %.not1594 = icmp ult ptr %.411215, %12
   br i1 %.not1594, label %430, label %428
 
@@ -3061,9 +3061,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %494 = load i8, ptr %493, align 1
   %495 = sext i8 %494 to i32
   %496 = icmp ult i32 %479, %495
-  br i1 %496, label %.preheader2091, label %509
+  br i1 %496, label %.preheader2089, label %509
 
-.preheader2091:                                   ; preds = %26, %490
+.preheader2089:                                   ; preds = %26, %490
   %.421401.ph = phi i64 [ %.361395, %490 ], [ %38, %26 ]
   %.421309.ph = phi ptr [ %.361303, %490 ], [ %4, %26 ]
   %.451219.ph = phi ptr [ %.391213, %490 ], [ %1, %26 ]
@@ -3071,13 +3071,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.461050.ph = phi i32 [ %495, %490 ], [ %36, %26 ]
   %.46967.ph = phi i32 [ %.40961, %490 ], [ %34, %26 ]
   %.44886.ph = phi i32 [ %.11443, %490 ], [ %32, %26 ]
-  %.46.ph = phi i32 [ %479, %490 ], [ %.2841.fr1978, %26 ]
+  %.46.ph = phi i32 [ %479, %490 ], [ %.2841.fr1976, %26 ]
   br label %497
 
-497:                                              ; preds = %.preheader2091, %500
-  %.451219 = phi ptr [ %501, %500 ], [ %.451219.ph, %.preheader2091 ]
-  %.461137 = phi i64 [ %506, %500 ], [ %.461137.ph, %.preheader2091 ]
-  %.46 = phi i32 [ %507, %500 ], [ %.46.ph, %.preheader2091 ]
+497:                                              ; preds = %.preheader2089, %500
+  %.451219 = phi ptr [ %501, %500 ], [ %.451219.ph, %.preheader2089 ]
+  %.461137 = phi i64 [ %506, %500 ], [ %.461137.ph, %.preheader2089 ]
+  %.46 = phi i32 [ %507, %500 ], [ %.46.ph, %.preheader2089 ]
   %.not1596 = icmp ult ptr %.451219, %12
   br i1 %.not1596, label %500, label %498
 
@@ -3177,12 +3177,12 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   store i32 %544, ptr %543, align 8
   br label %.loopexit1735
 
-545:                                              ; preds = %.preheader2135, %707
-  %.461313 = phi ptr [ %710, %707 ], [ %.461313.ph, %.preheader2135 ]
-  %.491223 = phi ptr [ %.561230, %707 ], [ %.491223.ph, %.preheader2135 ]
-  %.501141 = phi i64 [ %701, %707 ], [ %.501141.ph, %.preheader2135 ]
-  %.50971 = phi i32 [ %.01263, %707 ], [ %.50971.ph, %.preheader2135 ]
-  %.50 = phi i32 [ %702, %707 ], [ %.50.ph, %.preheader2135 ]
+545:                                              ; preds = %.preheader2133, %707
+  %.461313 = phi ptr [ %710, %707 ], [ %.461313.ph, %.preheader2133 ]
+  %.491223 = phi ptr [ %.561230, %707 ], [ %.491223.ph, %.preheader2133 ]
+  %.501141 = phi i64 [ %701, %707 ], [ %.501141.ph, %.preheader2133 ]
+  %.50971 = phi i32 [ %.01263, %707 ], [ %.50971.ph, %.preheader2133 ]
+  %.50 = phi i32 [ %702, %707 ], [ %.50.ph, %.preheader2133 ]
   %546 = ptrtoint ptr %.491223 to i64
   %547 = sub i64 %643, %546
   %548 = icmp slt i64 %547, 4
@@ -3263,7 +3263,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.531057 = phi i32 [ %.521056, %563 ], [ %.521056, %583 ], [ %.521056, %565 ], [ %36, %26 ]
   %.52973 = phi i32 [ %.51972, %563 ], [ %.51972, %583 ], [ %.51972, %565 ], [ %34, %26 ]
   %.51893 = phi i32 [ %.50892, %563 ], [ %.50892, %583 ], [ %.50892, %565 ], [ %32, %26 ]
-  %.53 = phi i32 [ %.52, %563 ], [ %.52, %583 ], [ %.52, %565 ], [ %.2841.fr1978, %26 ]
+  %.53 = phi i32 [ %.52, %563 ], [ %.52, %583 ], [ %.52, %565 ], [ %.2841.fr1976, %26 ]
   %.not1572 = icmp ult ptr %.521226, %12
   br i1 %.not1572, label %588, label %586
 
@@ -3350,7 +3350,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %636 = lshr i64 %.511142, %635
   %637 = sub i32 %.51, %.11351
   %638 = icmp ugt i32 %.11354, 255
-  br i1 %638, label %.loopexit2136, label %639
+  br i1 %638, label %.loopexit2134, label %639
 
 639:                                              ; preds = %26, %.loopexit1728
   %.511410 = phi i64 [ %.471406, %.loopexit1728 ], [ %38, %26 ]
@@ -3360,7 +3360,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.551059 = phi i32 [ %.511055, %.loopexit1728 ], [ %36, %26 ]
   %.54975 = phi i32 [ %.11354, %.loopexit1728 ], [ %34, %26 ]
   %.53895 = phi i32 [ %.49891, %.loopexit1728 ], [ %32, %26 ]
-  %.55 = phi i32 [ %637, %.loopexit1728 ], [ %.2841.fr1978, %26 ]
+  %.55 = phi i32 [ %637, %.loopexit1728 ], [ %.2841.fr1976, %26 ]
   %.not1574 = icmp ult ptr %.511318, %14
   br i1 %.not1574, label %640, label %1006
 
@@ -3368,9 +3368,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %641 = trunc i32 %.54975 to i8
   %642 = getelementptr inbounds nuw i8, ptr %.511318, i64 1
   store i8 %641, ptr %.511318, align 1
-  br label %.preheader2135
+  br label %.preheader2133
 
-.preheader2135:                                   ; preds = %872, %.loopexit1735, %640, %908, %900, %932, %923
+.preheader2133:                                   ; preds = %872, %.loopexit1735, %640, %908, %900, %932, %923
   %.461405.ph = phi i64 [ %860, %923 ], [ %860, %932 ], [ %860, %900 ], [ %860, %908 ], [ %.511410, %640 ], [ %.631422, %872 ], [ %.331392, %.loopexit1735 ]
   %.461313.ph = phi ptr [ %919, %923 ], [ %934, %932 ], [ %894, %900 ], [ %910, %908 ], [ %642, %640 ], [ %.651332, %872 ], [ %.331300, %.loopexit1735 ]
   %.491223.ph = phi ptr [ %.641238, %923 ], [ %.641238, %932 ], [ %.641238, %900 ], [ %.641238, %908 ], [ %.541228, %640 ], [ %.691243, %872 ], [ %.361210, %.loopexit1735 ]
@@ -3439,7 +3439,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %679 = sub i32 %.57, %.01259
   %680 = and i32 %.01263, 256
   %.not1568 = icmp eq i32 %680, 0
-  br i1 %.not1568, label %681, label %.loopexit2136
+  br i1 %.not1568, label %681, label %.loopexit2134
 
 681:                                              ; preds = %.loopexit1733
   %682 = and i64 %678, 1023
@@ -3483,7 +3483,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 705:                                              ; preds = %.loopexit1731
   %706 = getelementptr inbounds nuw i8, ptr %.461313, i64 1
-  br label %.loopexit2136
+  br label %.loopexit2134
 
 707:                                              ; preds = %.loopexit1731
   %708 = trunc i32 %.21265 to i8
@@ -3492,7 +3492,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %710 = getelementptr inbounds nuw i8, ptr %.461313, i64 2
   br label %545
 
-.loopexit2136:                                    ; preds = %.loopexit1733, %.loopexit1728, %705
+.loopexit2134:                                    ; preds = %.loopexit1733, %.loopexit1728, %705
   %.501409 = phi i64 [ %.471406, %.loopexit1728 ], [ %.461405.ph, %705 ], [ %.461405.ph, %.loopexit1733 ]
   %.501317 = phi ptr [ %.471314, %.loopexit1728 ], [ %706, %705 ], [ %.461313, %.loopexit1733 ]
   %.531227 = phi ptr [ %.501224, %.loopexit1728 ], [ %.561230, %705 ], [ %.561230, %.loopexit1733 ]
@@ -3505,7 +3505,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %712 = icmp eq i32 %711, 256
   br i1 %712, label %935, label %713
 
-713:                                              ; preds = %.loopexit2136
+713:                                              ; preds = %.loopexit2134
   %714 = add nsw i32 %711, -257
   %715 = zext i32 %714 to i64
   %716 = getelementptr inbounds nuw [31 x i32], ptr @tinfl_decompress.s_length_base, i64 0, i64 %715
@@ -3518,9 +3518,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %720 = getelementptr inbounds nuw [31 x i32], ptr @tinfl_decompress.s_length_extra, i64 0, i64 %715
   %721 = load i32, ptr %720, align 4
   %722 = icmp ult i32 %.54, %721
-  br i1 %722, label %.preheader2124, label %.loopexit2125
+  br i1 %722, label %.preheader2122, label %.loopexit2123
 
-.preheader2124:                                   ; preds = %26, %719
+.preheader2122:                                   ; preds = %26, %719
   %.551414.ph = phi i64 [ %.501409, %719 ], [ %38, %26 ]
   %.551322.ph = phi ptr [ %.501317, %719 ], [ %4, %26 ]
   %.591233.ph = phi ptr [ %.531227, %719 ], [ %1, %26 ]
@@ -3528,13 +3528,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.591063.ph = phi i32 [ %721, %719 ], [ %36, %26 ]
   %.58979.ph = phi i32 [ %717, %719 ], [ %34, %26 ]
   %.57899.ph = phi i32 [ %.52894, %719 ], [ %32, %26 ]
-  %.60.ph = phi i32 [ %.54, %719 ], [ %.2841.fr1978, %26 ]
+  %.60.ph = phi i32 [ %.54, %719 ], [ %.2841.fr1976, %26 ]
   br label %723
 
-723:                                              ; preds = %.preheader2124, %726
-  %.591233 = phi ptr [ %727, %726 ], [ %.591233.ph, %.preheader2124 ]
-  %.601151 = phi i64 [ %732, %726 ], [ %.601151.ph, %.preheader2124 ]
-  %.60 = phi i32 [ %733, %726 ], [ %.60.ph, %.preheader2124 ]
+723:                                              ; preds = %.preheader2122, %726
+  %.591233 = phi ptr [ %727, %726 ], [ %.591233.ph, %.preheader2122 ]
+  %.601151 = phi i64 [ %732, %726 ], [ %.601151.ph, %.preheader2122 ]
+  %.60 = phi i32 [ %733, %726 ], [ %.60.ph, %.preheader2122 ]
   %.not1576 = icmp ult ptr %.591233, %12
   br i1 %.not1576, label %726, label %724
 
@@ -3554,9 +3554,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %732 = or i64 %731, %.601151
   %733 = add i32 %.60, 8
   %734 = icmp ult i32 %733, %.591063.ph
-  br i1 %734, label %723, label %.loopexit2125
+  br i1 %734, label %723, label %.loopexit2123
 
-.loopexit2125:                                    ; preds = %726, %719
+.loopexit2123:                                    ; preds = %726, %719
   %.531412 = phi i64 [ %.501409, %719 ], [ %.551414.ph, %726 ]
   %.531320 = phi ptr [ %.501317, %719 ], [ %.551322.ph, %726 ]
   %.571231 = phi ptr [ %.531227, %719 ], [ %727, %726 ]
@@ -3575,15 +3575,15 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %741 = add i32 %737, %.56977
   br label %742
 
-742:                                              ; preds = %713, %.loopexit2125
-  %.561415 = phi i64 [ %.531412, %.loopexit2125 ], [ %.501409, %713 ]
-  %.561323 = phi ptr [ %.531320, %.loopexit2125 ], [ %.501317, %713 ]
-  %.601234 = phi ptr [ %.571231, %.loopexit2125 ], [ %.531227, %713 ]
-  %.611152 = phi i64 [ %739, %.loopexit2125 ], [ %.541145, %713 ]
-  %.601064 = phi i32 [ %.571061, %.loopexit2125 ], [ 0, %713 ]
-  %.59980 = phi i32 [ %741, %.loopexit2125 ], [ %717, %713 ]
-  %.58900 = phi i32 [ %.55897, %.loopexit2125 ], [ %.52894, %713 ]
-  %.61 = phi i32 [ %740, %.loopexit2125 ], [ %.54, %713 ]
+742:                                              ; preds = %713, %.loopexit2123
+  %.561415 = phi i64 [ %.531412, %.loopexit2123 ], [ %.501409, %713 ]
+  %.561323 = phi ptr [ %.531320, %.loopexit2123 ], [ %.501317, %713 ]
+  %.601234 = phi ptr [ %.571231, %.loopexit2123 ], [ %.531227, %713 ]
+  %.611152 = phi i64 [ %739, %.loopexit2123 ], [ %.541145, %713 ]
+  %.601064 = phi i32 [ %.571061, %.loopexit2123 ], [ 0, %713 ]
+  %.59980 = phi i32 [ %741, %.loopexit2123 ], [ %717, %713 ]
+  %.58900 = phi i32 [ %.55897, %.loopexit2123 ], [ %.52894, %713 ]
+  %.61 = phi i32 [ %740, %.loopexit2123 ], [ %.54, %713 ]
   %743 = icmp ult i32 %.61, 15
   br i1 %743, label %744, label %805
 
@@ -3657,7 +3657,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.621066 = phi i32 [ %.611065, %756 ], [ %.611065, %776 ], [ %.611065, %758 ], [ %36, %26 ]
   %.62983 = phi i32 [ %.61982, %756 ], [ %.61982, %776 ], [ %.61982, %758 ], [ %34, %26 ]
   %.60902 = phi i32 [ %.59901, %756 ], [ %.59901, %776 ], [ %.59901, %758 ], [ %32, %26 ]
-  %.64 = phi i32 [ %.63, %756 ], [ %.63, %776 ], [ %.63, %758 ], [ %.2841.fr1978, %26 ]
+  %.64 = phi i32 [ %.63, %756 ], [ %.63, %776 ], [ %.63, %758 ], [ %.2841.fr1976, %26 ]
   %.not1580 = icmp ult ptr %.631237, %12
   br i1 %.not1580, label %781, label %779
 
@@ -3753,9 +3753,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %836 = getelementptr inbounds nuw [32 x i32], ptr @tinfl_decompress.s_dist_extra, i64 0, i64 %831
   %837 = load i32, ptr %836, align 4
   %838 = icmp ult i32 %830, %837
-  br i1 %838, label %.preheader2113, label %.loopexit2114
+  br i1 %838, label %.preheader2111, label %.loopexit2112
 
-.preheader2113:                                   ; preds = %26, %835
+.preheader2111:                                   ; preds = %26, %835
   %.611420.ph = phi i64 [ %.571416, %835 ], [ %38, %26 ]
   %.631330.ph = phi ptr [ %.571324, %835 ], [ %4, %26 ]
   %.671241.ph = phi ptr [ %.611235, %835 ], [ %1, %26 ]
@@ -3763,13 +3763,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.661070.ph = phi i32 [ %837, %835 ], [ %36, %26 ]
   %.66987.ph = phi i32 [ %.60981, %835 ], [ %34, %26 ]
   %.64906.ph = phi i32 [ %833, %835 ], [ %32, %26 ]
-  %.68.ph = phi i32 [ %830, %835 ], [ %.2841.fr1978, %26 ]
+  %.68.ph = phi i32 [ %830, %835 ], [ %.2841.fr1976, %26 ]
   br label %839
 
-839:                                              ; preds = %.preheader2113, %842
-  %.671241 = phi ptr [ %843, %842 ], [ %.671241.ph, %.preheader2113 ]
-  %.681159 = phi i64 [ %848, %842 ], [ %.681159.ph, %.preheader2113 ]
-  %.68 = phi i32 [ %849, %842 ], [ %.68.ph, %.preheader2113 ]
+839:                                              ; preds = %.preheader2111, %842
+  %.671241 = phi ptr [ %843, %842 ], [ %.671241.ph, %.preheader2111 ]
+  %.681159 = phi i64 [ %848, %842 ], [ %.681159.ph, %.preheader2111 ]
+  %.68 = phi i32 [ %849, %842 ], [ %.68.ph, %.preheader2111 ]
   %.not1583 = icmp ult ptr %.671241, %12
   br i1 %.not1583, label %842, label %840
 
@@ -3789,9 +3789,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %848 = or i64 %847, %.681159
   %849 = add i32 %.68, 8
   %850 = icmp ult i32 %849, %.661070.ph
-  br i1 %850, label %839, label %.loopexit2114
+  br i1 %850, label %839, label %.loopexit2112
 
-.loopexit2114:                                    ; preds = %842, %835
+.loopexit2112:                                    ; preds = %842, %835
   %.611328 = phi ptr [ %.571324, %835 ], [ %.631330.ph, %842 ]
   %.651239 = phi ptr [ %.611235, %835 ], [ %843, %842 ]
   %.661157 = phi i64 [ %829, %835 ], [ %848, %842 ]
@@ -3809,14 +3809,14 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %857 = add i32 %.62904, %853
   br label %858
 
-858:                                              ; preds = %.loopexit2114, %.loopexit1725
-  %.601327 = phi ptr [ %.611328, %.loopexit2114 ], [ %.571324, %.loopexit1725 ]
-  %.641238 = phi ptr [ %.651239, %.loopexit2114 ], [ %.611235, %.loopexit1725 ]
-  %.651156 = phi i64 [ %855, %.loopexit2114 ], [ %829, %.loopexit1725 ]
-  %.631067 = phi i32 [ %.641068, %.loopexit2114 ], [ 0, %.loopexit1725 ]
-  %.63984 = phi i32 [ %.64985, %.loopexit2114 ], [ %.60981, %.loopexit1725 ]
-  %.61903 = phi i32 [ %857, %.loopexit2114 ], [ %833, %.loopexit1725 ]
-  %.65 = phi i32 [ %856, %.loopexit2114 ], [ %830, %.loopexit1725 ]
+858:                                              ; preds = %.loopexit2112, %.loopexit1725
+  %.601327 = phi ptr [ %.611328, %.loopexit2112 ], [ %.571324, %.loopexit1725 ]
+  %.641238 = phi ptr [ %.651239, %.loopexit2112 ], [ %.611235, %.loopexit1725 ]
+  %.651156 = phi i64 [ %855, %.loopexit2112 ], [ %829, %.loopexit1725 ]
+  %.631067 = phi i32 [ %.641068, %.loopexit2112 ], [ 0, %.loopexit1725 ]
+  %.63984 = phi i32 [ %.64985, %.loopexit2112 ], [ %.60981, %.loopexit1725 ]
+  %.61903 = phi i32 [ %857, %.loopexit2112 ], [ %833, %.loopexit1725 ]
+  %.65 = phi i32 [ %856, %.loopexit2112 ], [ %830, %.loopexit1725 ]
   %859 = ptrtoint ptr %.601327 to i64
   %860 = sub i64 %859, %17
   %861 = zext i32 %.61903 to i64
@@ -3846,7 +3846,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.70 = phi i32 [ %.65, %863 ], [ %.71, %875 ]
   %873 = add i32 %.68989, -1
   %.not1587 = icmp eq i32 %.68989, 0
-  br i1 %.not1587, label %.preheader2135, label %874
+  br i1 %.not1587, label %.preheader2133, label %874
 
 874:                                              ; preds = %26, %872
   %.641423 = phi i64 [ %.631422, %872 ], [ %38, %26 ]
@@ -3856,7 +3856,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.691073 = phi i32 [ %.681072, %872 ], [ %36, %26 ]
   %.69990 = phi i32 [ %873, %872 ], [ %34, %26 ]
   %.67909 = phi i32 [ %.66908, %872 ], [ %32, %26 ]
-  %.71 = phi i32 [ %.70, %872 ], [ %.2841.fr1978, %26 ]
+  %.71 = phi i32 [ %.70, %872 ], [ %.2841.fr1976, %26 ]
   %.not1588 = icmp ult ptr %.661333, %14
   br i1 %.not1588, label %875, label %1006
 
@@ -3875,7 +3875,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %884 = icmp ult i32 %.63984, 9
   %.not1585 = icmp ugt i32 %.63984, %.61903
   %or.cond1643 = or i1 %884, %.not1585
-  br i1 %or.cond1643, label %.preheader2107, label %885
+  br i1 %or.cond1643, label %.preheader2105, label %885
 
 885:                                              ; preds = %883
   %886 = and i32 %.63984, -8
@@ -3900,9 +3900,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 897:                                              ; preds = %889
   %898 = and i32 %.63984, 7
   %899 = icmp samesign ult i32 %898, 3
-  br i1 %899, label %900, label %.preheader2107
+  br i1 %899, label %900, label %.preheader2105
 
-.preheader2107:                                   ; preds = %883, %897
+.preheader2105:                                   ; preds = %883, %897
   %.21358.ph = phi ptr [ %866, %883 ], [ %895, %897 ]
   %.701337.ph = phi ptr [ %.601327, %883 ], [ %894, %897 ]
   %.71992.ph = phi i32 [ %.63984, %883 ], [ %898, %897 ]
@@ -3910,7 +3910,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 900:                                              ; preds = %897
   %.not1586 = icmp eq i32 %898, 0
-  br i1 %.not1586, label %.preheader2135, label %901
+  br i1 %.not1586, label %.preheader2133, label %901
 
 901:                                              ; preds = %900
   %902 = load i8, ptr %895, align 1
@@ -3928,12 +3928,12 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 908:                                              ; preds = %904, %901
   %909 = zext nneg i32 %898 to i64
   %910 = getelementptr inbounds nuw i8, ptr %894, i64 %909
-  br label %.preheader2135
+  br label %.preheader2133
 
-911:                                              ; preds = %.preheader2107, %911
-  %.21358 = phi ptr [ %920, %911 ], [ %.21358.ph, %.preheader2107 ]
-  %.701337 = phi ptr [ %919, %911 ], [ %.701337.ph, %.preheader2107 ]
-  %.71992 = phi i32 [ %921, %911 ], [ %.71992.ph, %.preheader2107 ]
+911:                                              ; preds = %.preheader2105, %911
+  %.21358 = phi ptr [ %920, %911 ], [ %.21358.ph, %.preheader2105 ]
+  %.701337 = phi ptr [ %919, %911 ], [ %.701337.ph, %.preheader2105 ]
+  %.71992 = phi i32 [ %921, %911 ], [ %.71992.ph, %.preheader2105 ]
   %912 = load i8, ptr %.21358, align 1
   store i8 %912, ptr %.701337, align 1
   %913 = getelementptr inbounds nuw i8, ptr %.21358, i64 1
@@ -3952,7 +3952,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 923:                                              ; preds = %911
   %924 = icmp sgt i32 %921, 0
-  br i1 %924, label %925, label %.preheader2135
+  br i1 %924, label %925, label %.preheader2133
 
 925:                                              ; preds = %923
   %926 = load i8, ptr %920, align 1
@@ -3970,17 +3970,17 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 932:                                              ; preds = %928, %925
   %933 = zext nneg i32 %921 to i64
   %934 = getelementptr inbounds nuw i8, ptr %919, i64 %933
-  br label %.preheader2135
+  br label %.preheader2133
 
-935:                                              ; preds = %191, %.loopexit2136
-  %.651424 = phi i64 [ %.201379, %191 ], [ %.501409, %.loopexit2136 ]
-  %.721339 = phi ptr [ %.201287, %191 ], [ %.501317, %.loopexit2136 ]
-  %.711245 = phi ptr [ %.231197, %191 ], [ %.531227, %.loopexit2136 ]
-  %.721163 = phi i64 [ %.241115, %191 ], [ %.541145, %.loopexit2136 ]
-  %.701074 = phi i32 [ %.241028, %191 ], [ %.541058, %.loopexit2136 ]
-  %.72993 = phi i32 [ 0, %191 ], [ 256, %.loopexit2136 ]
-  %.68910 = phi i32 [ %.23865, %191 ], [ %.52894, %.loopexit2136 ]
-  %.72 = phi i32 [ %.24, %191 ], [ %.54, %.loopexit2136 ]
+935:                                              ; preds = %191, %.loopexit2134
+  %.651424 = phi i64 [ %.201379, %191 ], [ %.501409, %.loopexit2134 ]
+  %.721339 = phi ptr [ %.201287, %191 ], [ %.501317, %.loopexit2134 ]
+  %.711245 = phi ptr [ %.231197, %191 ], [ %.531227, %.loopexit2134 ]
+  %.721163 = phi i64 [ %.241115, %191 ], [ %.541145, %.loopexit2134 ]
+  %.701074 = phi i32 [ %.241028, %191 ], [ %.541058, %.loopexit2134 ]
+  %.72993 = phi i32 [ 0, %191 ], [ 256, %.loopexit2134 ]
+  %.68910 = phi i32 [ %.23865, %191 ], [ %.52894, %.loopexit2134 ]
+  %.72 = phi i32 [ %.24, %191 ], [ %.54, %.loopexit2134 ]
   %936 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %937 = load i32, ptr %936, align 4
   %938 = and i32 %937, 1
@@ -4002,10 +4002,10 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %943 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %944 = load i8, ptr %1, align 1
   %945 = zext i8 %944 to i64
-  %946 = zext nneg i32 %.2841.fr1978 to i64
+  %946 = zext nneg i32 %.2841.fr1976 to i64
   %947 = shl i64 %945, %946
   %948 = or i64 %947, %30
-  %949 = add i32 %.2841.fr1978, 8
+  %949 = add i32 %.2841.fr1976, 8
   br label %950
 
 950:                                              ; preds = %935, %942
@@ -4071,9 +4071,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
 
 974:                                              ; preds = %973
   %975 = icmp ult i32 %.77, 8
-  br i1 %975, label %.preheader2064, label %.loopexit2065
+  br i1 %975, label %.preheader2062, label %.loopexit2063
 
-.preheader2064:                                   ; preds = %26, %974
+.preheader2062:                                   ; preds = %26, %974
   %.721431.ph = phi i64 [ %.691428, %974 ], [ %38, %26 ]
   %.791346.ph = phi ptr [ %.761343, %974 ], [ %4, %26 ]
   %.791253.ph = phi ptr [ %.761250, %974 ], [ %1, %26 ]
@@ -4081,13 +4081,13 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.771081.ph = phi i32 [ %.741078, %974 ], [ %36, %26 ]
   %.791000.ph = phi i32 [ %.76997, %974 ], [ %34, %26 ]
   %.75917.ph = phi i32 [ %.72914, %974 ], [ %32, %26 ]
-  %.80.ph = phi i32 [ %.77, %974 ], [ %.2841.fr1978, %26 ]
+  %.80.ph = phi i32 [ %.77, %974 ], [ %.2841.fr1976, %26 ]
   br label %976
 
-976:                                              ; preds = %.preheader2064, %979
-  %.791253 = phi ptr [ %980, %979 ], [ %.791253.ph, %.preheader2064 ]
-  %.791170 = phi i64 [ %985, %979 ], [ %.791170.ph, %.preheader2064 ]
-  %.80 = phi i32 [ %986, %979 ], [ %.80.ph, %.preheader2064 ]
+976:                                              ; preds = %.preheader2062, %979
+  %.791253 = phi ptr [ %980, %979 ], [ %.791253.ph, %.preheader2062 ]
+  %.791170 = phi i64 [ %985, %979 ], [ %.791170.ph, %.preheader2062 ]
+  %.80 = phi i32 [ %986, %979 ], [ %.80.ph, %.preheader2062 ]
   %.not1612 = icmp ult ptr %.791253, %12
   br i1 %.not1612, label %979, label %977
 
@@ -4107,9 +4107,9 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %985 = or i64 %984, %.791170
   %986 = add i32 %.80, 8
   %987 = icmp ugt i32 %.80, -9
-  br i1 %987, label %976, label %.loopexit2065
+  br i1 %987, label %976, label %.loopexit2063
 
-.loopexit2065:                                    ; preds = %979, %974
+.loopexit2063:                                    ; preds = %979, %974
   %.701429 = phi i64 [ %.691428, %974 ], [ %.721431.ph, %979 ]
   %.771344 = phi ptr [ %.761343, %974 ], [ %.791346.ph, %979 ]
   %.771251 = phi ptr [ %.761250, %974 ], [ %980, %979 ]
@@ -4132,7 +4132,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.791083 = phi i32 [ %.741078, %973 ], [ %36, %26 ]
   %.811002 = phi i32 [ %.76997, %973 ], [ %34, %26 ]
   %.77919 = phi i32 [ %.72914, %973 ], [ %32, %26 ]
-  %.82 = phi i32 [ 0, %973 ], [ %.2841.fr1978, %26 ]
+  %.82 = phi i32 [ 0, %973 ], [ %.2841.fr1976, %26 ]
   %.not1610 = icmp ult ptr %.811255, %12
   br i1 %.not1610, label %995, label %993
 
@@ -4149,16 +4149,16 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %998 = zext i8 %997 to i32
   br label %999
 
-999:                                              ; preds = %995, %.loopexit2065
-  %.731432 = phi i64 [ %.701429, %.loopexit2065 ], [ %.741433, %995 ]
-  %.801347 = phi ptr [ %.771344, %.loopexit2065 ], [ %.811348, %995 ]
-  %.801254 = phi ptr [ %.771251, %.loopexit2065 ], [ %996, %995 ]
-  %.801171 = phi i64 [ %990, %.loopexit2065 ], [ %.811172, %995 ]
-  %.781082 = phi i32 [ %.751079, %.loopexit2065 ], [ %.791083, %995 ]
-  %.801001 = phi i32 [ %.77998, %.loopexit2065 ], [ %.811002, %995 ]
-  %.76918 = phi i32 [ %.73915, %.loopexit2065 ], [ %.77919, %995 ]
-  %.81 = phi i32 [ %991, %.loopexit2065 ], [ %.82, %995 ]
-  %.0836 = phi i32 [ %989, %.loopexit2065 ], [ %998, %995 ]
+999:                                              ; preds = %995, %.loopexit2063
+  %.731432 = phi i64 [ %.701429, %.loopexit2063 ], [ %.741433, %995 ]
+  %.801347 = phi ptr [ %.771344, %.loopexit2063 ], [ %.811348, %995 ]
+  %.801254 = phi ptr [ %.771251, %.loopexit2063 ], [ %996, %995 ]
+  %.801171 = phi i64 [ %990, %.loopexit2063 ], [ %.811172, %995 ]
+  %.781082 = phi i32 [ %.751079, %.loopexit2063 ], [ %.791083, %995 ]
+  %.801001 = phi i32 [ %.77998, %.loopexit2063 ], [ %.811002, %995 ]
+  %.76918 = phi i32 [ %.73915, %.loopexit2063 ], [ %.77919, %995 ]
+  %.81 = phi i32 [ %991, %.loopexit2063 ], [ %.82, %995 ]
+  %.0836 = phi i32 [ %989, %.loopexit2063 ], [ %998, %995 ]
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1001 = load i32, ptr %1000, align 8
   %1002 = shl i32 %1001, 8
@@ -4179,7 +4179,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.21006 = phi i32 [ %.31007, %71 ], [ %36, %26 ], [ %.31007, %78 ], [ %.121016, %151 ], [ %.231027, %186 ], [ %.251029, %192 ], [ %.61010, %209 ], [ %.371041, %310 ], [ %.401044, %487 ], [ %.391043, %533 ], [ %.551059, %639 ], [ %.631067, %858 ], [ %.691073, %874 ], [ %.711075, %._crit_edge1801 ], [ %.741078, %971 ], [ %36, %1005 ], [ %36, %26 ], [ %36, %26 ], [ %36, %26 ], [ %36, %26 ], [ %36, %26 ], [ %36, %26 ]
   %.2923 = phi i32 [ 1, %71 ], [ %34, %26 ], [ 1, %78 ], [ %159, %151 ], [ %.23944, %186 ], [ %.25946, %192 ], [ %.7928, %209 ], [ %.37958, %310 ], [ 0, %487 ], [ %.39960, %533 ], [ %.54975, %639 ], [ %.63984, %858 ], [ %.69990, %874 ], [ %.73994, %._crit_edge1801 ], [ %.76997, %971 ], [ %34, %1005 ], [ %34, %26 ], [ %34, %26 ], [ %34, %26 ], [ %34, %26 ], [ %34, %26 ], [ %34, %26 ]
   %.2844 = phi i32 [ %.3845, %71 ], [ %32, %26 ], [ %.3845, %78 ], [ %.12854, %151 ], [ %.22864, %186 ], [ %.24866, %192 ], [ %.6848, %209 ], [ %.36878, %310 ], [ 16, %487 ], [ %.38880, %533 ], [ %.53895, %639 ], [ %.61903, %858 ], [ %.67909, %874 ], [ %.69911, %._crit_edge1801 ], [ %.72914, %971 ], [ %32, %1005 ], [ %32, %26 ], [ %32, %26 ], [ %32, %26 ], [ %32, %26 ], [ %32, %26 ], [ %32, %26 ]
-  %.2841 = phi i32 [ %.3, %71 ], [ %.2841.fr1978, %26 ], [ %.3, %78 ], [ %.12, %151 ], [ %.23, %186 ], [ %.25, %192 ], [ %97, %209 ], [ %.37, %310 ], [ %479, %487 ], [ %.39, %533 ], [ %.55, %639 ], [ %.65, %858 ], [ %.71, %874 ], [ %.76.lcssa, %._crit_edge1801 ], [ %.77, %971 ], [ %.2841.fr1978, %1005 ], [ %.2841.fr1978, %26 ], [ %.2841.fr1978, %26 ], [ %.2841.fr1978, %26 ], [ %.2841.fr1978, %26 ], [ %.2841.fr1978, %26 ], [ %.2841.fr1978, %26 ]
+  %.2841 = phi i32 [ %.3, %71 ], [ %.2841.fr1976, %26 ], [ %.3, %78 ], [ %.12, %151 ], [ %.23, %186 ], [ %.25, %192 ], [ %97, %209 ], [ %.37, %310 ], [ %479, %487 ], [ %.39, %533 ], [ %.55, %639 ], [ %.65, %858 ], [ %.71, %874 ], [ %.76.lcssa, %._crit_edge1801 ], [ %.77, %971 ], [ %.2841.fr1976, %1005 ], [ %.2841.fr1976, %26 ], [ %.2841.fr1976, %26 ], [ %.2841.fr1976, %26 ], [ %.2841.fr1976, %26 ], [ %.2841.fr1976, %26 ], [ %.2841.fr1976, %26 ]
   %.0837 = phi i32 [ -1, %71 ], [ -1, %26 ], [ -1, %78 ], [ -1, %151 ], [ 2, %186 ], [ 2, %192 ], [ -1, %209 ], [ -1, %310 ], [ -1, %487 ], [ -1, %533 ], [ 2, %639 ], [ -1, %858 ], [ 2, %874 ], [ 0, %._crit_edge1801 ], [ 0, %971 ], [ 0, %1005 ], [ -1, %26 ], [ -1, %26 ], [ -1, %26 ], [ -1, %26 ], [ -1, %26 ], [ -1, %26 ]
   store i32 %.sink, ptr %0, align 8
   %.2841.fr = freeze i32 %.2841
@@ -4212,7 +4212,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %.012671672 = phi ptr [ %4, %47 ], [ %4, %55 ], [ %.41271.ph, %82 ], [ %4, %102 ], [ %.111278.ph, %123 ], [ %.121279, %141 ], [ %.181285.ph, %171 ], [ %.221289, %194 ], [ %4, %940 ], [ %.791346.ph, %977 ], [ %.811348, %993 ], [ %.421309.ph, %498 ], [ %.381305, %428 ], [ %.551322.ph, %724 ], [ %.631330.ph, %840 ], [ %.591326, %779 ], [ %.491316, %586 ], [ %.281295.ph, %225 ], [ %.321299.ph, %261 ], [ %.01267, %1006 ], [ %.01267, %.lr.ph1807.preheader ], [ %4, %26 ]
   %.013591671 = phi i64 [ %38, %47 ], [ %38, %55 ], [ %.41363.ph, %82 ], [ %38, %102 ], [ %.111370.ph, %123 ], [ %.121371, %141 ], [ %.181377.ph, %171 ], [ %.221381, %194 ], [ %38, %940 ], [ %.721431.ph, %977 ], [ %.741433, %993 ], [ %.421401.ph, %498 ], [ %.381397, %428 ], [ %.551414.ph, %724 ], [ %.611420.ph, %840 ], [ %.591418, %779 ], [ %.491408, %586 ], [ %.281387.ph, %225 ], [ %.321391.ph, %261 ], [ %.01359, %1006 ], [ %.01359, %.lr.ph1807.preheader ], [ %38, %26 ]
   %.831257 = phi ptr [ %1, %47 ], [ %.21176, %55 ], [ %.71181, %82 ], [ %1, %102 ], [ %.141188, %123 ], [ %.151189, %141 ], [ %.211195, %171 ], [ %.251199, %194 ], [ %1, %940 ], [ %.791253, %977 ], [ %.811255, %993 ], [ %.451219, %498 ], [ %.411215, %428 ], [ %.591233, %724 ], [ %.671241, %840 ], [ %.631237, %779 ], [ %.521226, %586 ], [ %.311205, %225 ], [ %.351209, %261 ], [ %.11175, %1006 ], [ %scevgep1899, %.lr.ph1807.preheader ], [ %1, %26 ]
-  %.84 = phi i32 [ %.1840, %47 ], [ %.3, %55 ], [ %.8, %82 ], [ %.2841.fr1978, %102 ], [ %.15, %123 ], [ %.16, %141 ], [ %.22, %171 ], [ %.26, %194 ], [ %.2841.fr1978, %940 ], [ %.80, %977 ], [ %.82, %993 ], [ %.46, %498 ], [ %.42, %428 ], [ %.60, %724 ], [ %.68, %840 ], [ %.64, %779 ], [ %.53, %586 ], [ %.32, %225 ], [ %.36, %261 ], [ %.2841.fr, %1006 ], [ %1018, %.lr.ph1807.preheader ], [ %.2841.fr1978, %26 ]
+  %.84 = phi i32 [ %.1840, %47 ], [ %.3, %55 ], [ %.8, %82 ], [ %.2841.fr1976, %102 ], [ %.15, %123 ], [ %.16, %141 ], [ %.22, %171 ], [ %.26, %194 ], [ %.2841.fr1976, %940 ], [ %.80, %977 ], [ %.82, %993 ], [ %.46, %498 ], [ %.42, %428 ], [ %.60, %724 ], [ %.68, %840 ], [ %.64, %779 ], [ %.53, %586 ], [ %.32, %225 ], [ %.36, %261 ], [ %.2841.fr, %1006 ], [ %1018, %.lr.ph1807.preheader ], [ %.2841.fr1976, %26 ]
   store i32 %.84, ptr %27, align 4
   %1019 = zext nneg i32 %.84 to i64
   %notmask1628 = shl nsw i64 -1, %1019

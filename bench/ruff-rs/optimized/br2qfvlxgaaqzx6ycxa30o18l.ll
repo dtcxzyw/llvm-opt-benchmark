@@ -79657,8 +79657,8 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %44, label %46, label %29
 
 46:                                               ; preds = %70, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit", %45
-  %storemerge231 = phi i64 [ -9223372036854775808, %45 ], [ -9223372036854775808, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit" ], [ -9223372036854775807, %70 ]
-  store i64 %storemerge231, ptr %0, align 8
+  %storemerge230 = phi i64 [ -9223372036854775808, %45 ], [ -9223372036854775808, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h1dc0b55c815feaa3E.exit" ], [ -9223372036854775807, %70 ]
+  store i64 %storemerge230, ptr %0, align 8
   %47 = load i64, ptr %20, align 8, !range !11, !alias.scope !5967, !noundef !3
   %48 = icmp eq i64 %47, -9223372036854775808
   br i1 %48, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hfe217e9a0acd61c2E.exit48", label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hfe217e9a0acd61c2E.exit48.sink.split"
@@ -79749,7 +79749,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #28
           to label %31 unwind label %400
 
-82:                                               ; preds = %.split48.us.i.i.i.invoke, %319, %.loopexit, %.split133.us.i.i, %85, %391, %.loopexit97, %217, %79, %75
+82:                                               ; preds = %.split48.us.i.i.i.invoke, %319, %.loopexit, %.split132.us.i.i, %85, %391, %.loopexit97, %217, %79, %75
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %81
@@ -79768,20 +79768,21 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   %87 = trunc nuw i64 %86 to i1
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %89 = load i64, ptr %88, align 8, !alias.scope !5973, !noalias !5982
+  %.fr.i.i.i = freeze i64 %89
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %91 = load ptr, ptr %90, align 8, !alias.scope !5973, !noalias !5982, !nonnull !3, !align !2756
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %93 = load i64, ptr %92, align 8, !alias.scope !5973, !noalias !5982
-  %94 = icmp eq i64 %89, 0
-  %.not.i.i.i.i = icmp ult i64 %89, %93
-  %95 = icmp eq i64 %89, %93
-  %96 = getelementptr inbounds nuw i8, ptr %91, i64 %89
+  %94 = icmp eq i64 %.fr.i.i.i, 0
+  %.not.i.i.i.i = icmp ult i64 %.fr.i.i.i, %93
+  %95 = icmp eq i64 %.fr.i.i.i, %93
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 %.fr.i.i.i
   %97 = getelementptr inbounds i8, ptr %96, i64 -1
-  %98 = icmp ne i64 %89, 1
+  %98 = icmp ne i64 %.fr.i.i.i, 1
   %99 = getelementptr inbounds i8, ptr %96, i64 -2
-  %100 = icmp ne i64 %89, 2
+  %100 = icmp ne i64 %.fr.i.i.i, 2
   %101 = getelementptr inbounds i8, ptr %96, i64 -3
-  %102 = icmp ne i64 %89, 3
+  %102 = icmp ne i64 %.fr.i.i.i, 3
   %103 = getelementptr inbounds i8, ptr %96, i64 -4
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -79796,20 +79797,20 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.promoted.i.i = load i64, ptr %104, align 8, !alias.scope !5973, !noalias !5982
-  %.promoted91.i.i = load i64, ptr %114, align 8, !alias.scope !5973, !noalias !5982
+  %.promoted90.i.i = load i64, ptr %114, align 8, !alias.scope !5973, !noalias !5982
   br i1 %87, label %.split.us.i.i, label %.split.i.i
 
 .split.us.i.i:                                    ; preds = %.noexc50
   %116 = icmp eq i64 %.promoted.i.i, 0
-  br i1 %116, label %.loopexit98, label %.lr.ph149.i.i
+  br i1 %116, label %.loopexit98, label %.lr.ph148.i.i
 
-.lr.ph149.i.i:                                    ; preds = %.split.us.i.i
+.lr.ph148.i.i:                                    ; preds = %.split.us.i.i
   %117 = load i64, ptr %115, align 8, !alias.scope !5973, !noalias !5982
   br label %118
 
-118:                                              ; preds = %148, %.lr.ph149.i.i
-  %.lcssa6982.i = phi i64 [ %.promoted.i.i, %.lr.ph149.i.i ], [ %125, %148 ]
-  %.sink109.i.i95.us148.i.i = phi i64 [ %.promoted91.i.i, %.lr.ph149.i.i ], [ %spec.select97.i, %148 ]
+118:                                              ; preds = %148, %.lr.ph148.i.i
+  %.lcssa6982.i = phi i64 [ %.promoted.i.i, %.lr.ph148.i.i ], [ %125, %148 ]
+  %.sink109.i.i94.us147.i.i = phi i64 [ %.promoted90.i.i, %.lr.ph148.i.i ], [ %spec.select97.i, %148 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5984)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5987)
@@ -79819,14 +79820,15 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
 
 .lr.ph.i.i.us.i.i:                                ; preds = %118
   %121 = sub i64 %.lcssa6982.i, %117
-  %.neg.i.i.us.i.i = sub i64 %.lcssa6982.i, %89
+  %.neg.i.i.us.i.i = sub i64 %.lcssa6982.i, %.fr.i.i.i
   br label %122
 
 122:                                              ; preds = %163, %.lr.ph.i.i.us.i.i
   %123 = phi i64 [ %.lcssa6982.i, %.lr.ph.i.i.us.i.i ], [ %165, %163 ]
-  %.sink109.i.i94.us.i.i = phi i64 [ %.sink109.i.i95.us148.i.i, %.lr.ph.i.i.us.i.i ], [ %.sink109.i.i93.us.i.i, %163 ]
-  %124 = phi i64 [ %.sink109.i.i95.us148.i.i, %.lr.ph.i.i.us.i.i ], [ %164, %163 ]
+  %.sink109.i.i93.us.i.i = phi i64 [ %.sink109.i.i94.us147.i.i, %.lr.ph.i.i.us.i.i ], [ %.sink109.i.i92.us.i.i, %163 ]
+  %124 = phi i64 [ %.sink109.i.i94.us147.i.i, %.lr.ph.i.i.us.i.i ], [ %164, %163 ]
   %125 = phi i64 [ %119, %.lr.ph.i.i.us.i.i ], [ %166, %163 ]
+  %.fr57.i.us.i.i = freeze i64 %124
   %.not.i14.i.us.i.i = icmp eq i64 %.lcssa6982.i, %123
   br i1 %.not.i14.i.us.i.i, label %126, label %.loopexit98
 
@@ -79841,19 +79843,18 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %133, label %162, label %134
 
 134:                                              ; preds = %126
-  %.sroa.0.0.sroa.speculated.i.i.i.us.i.i = tail call i64 @llvm.umin.i64(i64 %124, i64 %89)
-  %.sroa.03.0.i.i.us.i.i = select i1 %107, i64 %89, i64 %.sroa.0.0.sroa.speculated.i.i.i.us.i.i
-  %.sroa.03.0.i.fr.i.us.i.i = freeze i64 %.sroa.03.0.i.i.us.i.i
-  %135 = add i64 %.sroa.03.0.i.fr.i.us.i.i, -1
+  %.sroa.0.0.sroa.speculated.i.i.i.us.i.i = tail call i64 @llvm.umin.i64(i64 %.fr57.i.us.i.i, i64 %.fr.i.i.i)
+  %.sroa.03.0.i.i.us.i.i = select i1 %107, i64 %.fr.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.us.i.i
+  %135 = add i64 %.sroa.03.0.i.i.us.i.i, -1
   %.first_iter.i.i.us.i.i = icmp ult i64 %135, %111
   br i1 %.first_iter.i.i.us.i.i, label %.split44.us.i.us.i.i, label %.split44.i.us.i.i
 
 .split44.i.us.i.i:                                ; preds = %134
-  %.not24.i.i.us.i.i = icmp eq i64 %.sroa.03.0.i.fr.i.us.i.i, 0
+  %.not24.i.i.us.i.i = icmp eq i64 %.sroa.03.0.i.i.us.i.i, 0
   br i1 %.not24.i.i.us.i.i, label %.split46.us.i.us.i.i, label %.split48.us.i.i.i.invoke
 
 .split44.us.i.us.i.i:                             ; preds = %134, %140
-  %.sroa.5.0.i.us.i.us.i.i = phi i64 [ %137, %140 ], [ %.sroa.03.0.i.fr.i.us.i.i, %134 ]
+  %.sroa.5.0.i.us.i.us.i.i = phi i64 [ %137, %140 ], [ %.sroa.03.0.i.i.us.i.i, %134 ]
   %.not24.i.us.i.us.i.i = icmp eq i64 %.sroa.5.0.i.us.i.us.i.i, 0
   br i1 %.not24.i.us.i.us.i.i, label %.split46.us.i.us.i.i, label %136
 
@@ -79876,28 +79877,28 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %107, label %163, label %.sink.split.i.i.us.i.i
 
 .split46.us.i.us.i.i:                             ; preds = %.split44.us.i.us.i.i, %.split44.i.us.i.i
-  %.sroa.09.0.i.i.us.i.i = select i1 %107, i64 %111, i64 %124
+  %.sroa.09.0.i.i.us.i.i = select i1 %107, i64 %111, i64 %.fr57.i.us.i.i
   br label %146
 
 146:                                              ; preds = %156, %.split46.us.i.us.i.i
-  %.sroa.010.0.i.i.us.i.i = phi i64 [ %89, %.split46.us.i.us.i.i ], [ %151, %156 ]
+  %.sroa.010.0.i.i.us.i.i = phi i64 [ %.fr.i.i.i, %.split46.us.i.us.i.i ], [ %151, %156 ]
   %147 = icmp ult i64 %.sroa.010.0.i.i.us.i.i, %.sroa.09.0.i.i.us.i.i
   br i1 %147, label %150, label %148
 
 148:                                              ; preds = %146
-  %spec.select97.i = select i1 %107, i64 %.sink109.i.i94.us.i.i, i64 %111
+  %spec.select97.i = select i1 %107, i64 %.sink109.i.i93.us.i.i, i64 %111
   %149 = icmp eq i64 %125, 0
   br i1 %149, label %.loopexit98, label %118
 
 150:                                              ; preds = %146
   %151 = add nuw i64 %.sroa.010.0.i.i.us.i.i, 1
   %152 = icmp ult i64 %.sroa.010.0.i.i.us.i.i, %111
-  br i1 %152, label %153, label %.split115.us.i.i
+  br i1 %152, label %153, label %.split114.us.i.i
 
 153:                                              ; preds = %150
   %154 = add i64 %.sroa.010.0.i.i.us.i.i, %125
   %155 = icmp ult i64 %154, %93
-  br i1 %155, label %156, label %.split119.us.i.i
+  br i1 %155, label %156, label %.split118.us.i.i
 
 156:                                              ; preds = %153
   %157 = getelementptr inbounds nuw i8, ptr %109, i64 %.sroa.010.0.i.i.us.i.i
@@ -79919,8 +79920,8 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br label %163
 
 163:                                              ; preds = %.sink.split.i.i.us.i.i, %162, %161, %.split50.us.i.us.i.i
-  %.sink109.i.i93.us.i.i = phi i64 [ %.sink109.i.i94.us.i.i, %.split50.us.i.us.i.i ], [ %.sink109.i.i94.us.i.i, %161 ], [ %.sink109.i.i94.us.i.i, %162 ], [ %.sink109.i.i.us.i.i, %.sink.split.i.i.us.i.i ]
-  %164 = phi i64 [ %124, %.split50.us.i.us.i.i ], [ %124, %161 ], [ %124, %162 ], [ %.sink109.i.i.us.i.i, %.sink.split.i.i.us.i.i ]
+  %.sink109.i.i92.us.i.i = phi i64 [ %.sink109.i.i93.us.i.i, %.split50.us.i.us.i.i ], [ %.sink109.i.i93.us.i.i, %161 ], [ %.sink109.i.i93.us.i.i, %162 ], [ %.sink109.i.i.us.i.i, %.sink.split.i.i.us.i.i ]
+  %164 = phi i64 [ %.fr57.i.us.i.i, %.split50.us.i.us.i.i ], [ %.fr57.i.us.i.i, %161 ], [ %.fr57.i.us.i.i, %162 ], [ %.sink109.i.i.us.i.i, %.sink.split.i.i.us.i.i ]
   %165 = phi i64 [ %145, %.split50.us.i.us.i.i ], [ %121, %161 ], [ %125, %162 ], [ %.ph108.i.i.us.i.i, %.sink.split.i.i.us.i.i ]
   %166 = sub i64 %165, %111
   %167 = icmp ult i64 %166, %93
@@ -79931,7 +79932,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   %169 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %170 = load i8, ptr %169, align 2, !range !2769, !alias.scope !5973, !noalias !5982
   %171 = trunc nuw i8 %170 to i1
-  %.promoted125.i.i = load i8, ptr %168, align 1, !alias.scope !5973, !noalias !5982
+  %.promoted124.i.i = load i8, ptr %168, align 1, !alias.scope !5973, !noalias !5982
   br i1 %171, label %.loopexit98, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split.i.i
@@ -79943,7 +79944,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
 .lr.ph.split.split.i.preheader.split.us.i:        ; preds = %.lr.ph.split.split.i.preheader.i
   %172 = load i8, ptr %96, align 1, !alias.scope !5993, !noalias !5996, !noundef !3
   %173 = icmp sgt i8 %172, -65
-  br i1 %173, label %.lr.ph.split.split.i.preheader.split.us.split.us.i, label %.split133.us.i.i
+  br i1 %173, label %.lr.ph.split.split.i.preheader.split.us.split.us.i, label %.split132.us.i.i
 
 .lr.ph.split.split.i.preheader.split.us.split.us.i: ; preds = %.lr.ph.split.split.i.preheader.split.us.i
   %174 = load i8, ptr %97, align 1, !noalias !5997, !noundef !3
@@ -79951,7 +79952,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %175, label %.lr.ph.split.split.i.us.us.us.preheader.i, label %.lr.ph.split.split.i.preheader.split.us.split.us.split.i
 
 .lr.ph.split.split.i.us.us.us.preheader.i:        ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.i
-  %176 = trunc nuw i8 %.promoted125.i.i to i1
+  %176 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %176, label %.loopexit98.sink.split, label %.loopexit98
 
@@ -79979,22 +79980,22 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   %188 = or disjoint i32 %186, %187
   %189 = icmp samesign ult i32 %188, 17408
   tail call void @llvm.assume(i1 %189)
-  %190 = trunc nuw i8 %.promoted125.i.i to i1
+  %190 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %190, label %.loopexit98.sink.split, label %.loopexit98
 
 .lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.i
-  %191 = trunc nuw i8 %.promoted125.i.i to i1
+  %191 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %191, label %.loopexit98.sink.split, label %.loopexit98
 
 .lr.ph.split.split.i.preheader.split.us.split.us.split.split.i: ; preds = %.lr.ph.split.split.i.preheader.split.us.split.us.split.i
-  %192 = trunc nuw i8 %.promoted125.i.i to i1
+  %192 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %192, label %.loopexit98.sink.split, label %.loopexit98
 
 .lr.ph.split.split.i.preheader.split.i:           ; preds = %.lr.ph.split.split.i.preheader.i
-  br i1 %95, label %.lr.ph.split.split.i.preheader.split.split.us.i, label %.split133.us.i.i
+  br i1 %95, label %.lr.ph.split.split.i.preheader.split.split.us.i, label %.split132.us.i.i
 
 .lr.ph.split.split.i.preheader.split.split.us.i:  ; preds = %.lr.ph.split.split.i.preheader.split.i
   %193 = load i8, ptr %97, align 1, !noalias !5997, !noundef !3
@@ -80002,7 +80003,7 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   br i1 %194, label %.lr.ph.split.split.i.us46.us.preheader.i, label %.lr.ph.split.split.i.preheader.split.split.us.split.i
 
 .lr.ph.split.split.i.us46.us.preheader.i:         ; preds = %.lr.ph.split.split.i.preheader.split.split.us.i
-  %195 = trunc nuw i8 %.promoted125.i.i to i1
+  %195 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %195, label %.loopexit98.sink.split, label %.loopexit98
 
@@ -80030,45 +80031,45 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   %207 = or disjoint i32 %205, %206
   %208 = icmp samesign ult i32 %207, 17408
   tail call void @llvm.assume(i1 %208)
-  %209 = trunc nuw i8 %.promoted125.i.i to i1
+  %209 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %209, label %.loopexit98.sink.split, label %.loopexit98
 
 .lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.i
-  %210 = trunc nuw i8 %.promoted125.i.i to i1
+  %210 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %210, label %.loopexit98.sink.split, label %.loopexit98
 
 .lr.ph.split.split.i.preheader.split.split.us.split.split.i: ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.i
-  %211 = trunc nuw i8 %.promoted125.i.i to i1
+  %211 = trunc nuw i8 %.promoted124.i.i to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br i1 %211, label %.loopexit98.sink.split, label %.loopexit98
 
 .lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.i.i
-  %212 = trunc nuw i8 %.promoted125.i.i to i1
+  %212 = trunc nuw i8 %.promoted124.i.i to i1
   br i1 %212, label %.loopexit98.sink.split, label %.loopexit98
 
-.split133.us.i.i:                                 ; preds = %.lr.ph.split.split.i.preheader.split.i, %.lr.ph.split.split.i.preheader.split.us.i
+.split132.us.i.i:                                 ; preds = %.lr.ph.split.split.i.preheader.split.i, %.lr.ph.split.split.i.preheader.split.us.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
-  invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %91, i64 noundef %93, i64 noundef 0, i64 noundef %89, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2c495ddacebcdc817b8afa243018a6f2.758) #27
+  invoke void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %91, i64 noundef %93, i64 noundef 0, i64 noundef %.fr.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2c495ddacebcdc817b8afa243018a6f2.758) #27
           to label %.noexc51 unwind label %82
 
-.noexc51:                                         ; preds = %.split133.us.i.i
+.noexc51:                                         ; preds = %.split132.us.i.i
   unreachable
 
-.split115.us.i.i:                                 ; preds = %150
-  %umax.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %89, i64 %111)
+.split114.us.i.i:                                 ; preds = %150
+  %umax.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %.fr.i.i.i, i64 %111)
   br label %.split48.us.i.i.i.invoke
 
-.split119.us.i.i:                                 ; preds = %153
-  %213 = add i64 %125, %89
+.split118.us.i.i:                                 ; preds = %153
+  %213 = add i64 %125, %.fr.i.i.i
   %umax78.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %93, i64 %213)
   br label %.split48.us.i.i.i.invoke
 
-.split48.us.i.i.i.invoke:                         ; preds = %.split44.i.us.i.i, %136, %.split115.us.i.i, %.split119.us.i.i
-  %214 = phi i64 [ %umax78.i.i.i.i, %.split119.us.i.i ], [ %umax.i.i.i.i, %.split115.us.i.i ], [ %138, %136 ], [ %135, %.split44.i.us.i.i ]
-  %215 = phi i64 [ %93, %.split119.us.i.i ], [ %111, %.split115.us.i.i ], [ %93, %136 ], [ %111, %.split44.i.us.i.i ]
-  %216 = phi ptr [ @anon.2c495ddacebcdc817b8afa243018a6f2.347, %.split119.us.i.i ], [ @anon.2c495ddacebcdc817b8afa243018a6f2.346, %.split115.us.i.i ], [ @anon.2c495ddacebcdc817b8afa243018a6f2.349, %136 ], [ @anon.2c495ddacebcdc817b8afa243018a6f2.348, %.split44.i.us.i.i ]
+.split48.us.i.i.i.invoke:                         ; preds = %.split44.i.us.i.i, %136, %.split114.us.i.i, %.split118.us.i.i
+  %214 = phi i64 [ %umax78.i.i.i.i, %.split118.us.i.i ], [ %umax.i.i.i.i, %.split114.us.i.i ], [ %138, %136 ], [ %135, %.split44.i.us.i.i ]
+  %215 = phi i64 [ %93, %.split118.us.i.i ], [ %111, %.split114.us.i.i ], [ %93, %136 ], [ %111, %.split44.i.us.i.i ]
+  %216 = phi ptr [ @anon.2c495ddacebcdc817b8afa243018a6f2.347, %.split118.us.i.i ], [ @anon.2c495ddacebcdc817b8afa243018a6f2.346, %.split114.us.i.i ], [ @anon.2c495ddacebcdc817b8afa243018a6f2.349, %136 ], [ @anon.2c495ddacebcdc817b8afa243018a6f2.348, %.split44.i.us.i.i ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h1a9bf3d94de0fc80E(i64 noundef %214, i64 noundef %215, ptr noalias noundef readonly align 8 dereferenceable(24) %216) #27
           to label %.split48.us.i.i.i.cont unwind label %82
 
@@ -80076,12 +80077,12 @@ define internal fastcc void @_ZN11ruff_server6server3api8requests6format20format
   unreachable
 
 .loopexit98.sink.split:                           ; preds = %.lr.ph.split.split.i.preheader.split.split.us.split.split.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us.i, %.lr.ph.split.split.i.us46.us.preheader.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us.i, %.lr.ph.split.split.i.us.us.us.preheader.i, %.lr.ph.split.us.split.i.i
-  %.sroa.0.0.i.ph = phi i64 [ 0, %.lr.ph.split.us.split.i.i ], [ %89, %.lr.ph.split.split.i.us.us.us.preheader.i ], [ %89, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us.i ], [ %89, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i ], [ %89, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.i ], [ %89, %.lr.ph.split.split.i.us46.us.preheader.i ], [ %89, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us.i ], [ %89, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i ], [ %89, %.lr.ph.split.split.i.preheader.split.split.us.split.split.i ]
+  %.sroa.0.0.i.ph = phi i64 [ 0, %.lr.ph.split.us.split.i.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.us.us.us.preheader.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.us46.us.preheader.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5983)
   br label %.loopexit98
 
 .loopexit98:                                      ; preds = %148, %118, %163, %122, %.loopexit98.sink.split, %.lr.ph.split.split.i.preheader.split.split.us.split.split.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us.i, %.lr.ph.split.split.i.us46.us.preheader.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us.i, %.lr.ph.split.split.i.us.us.us.preheader.i, %.lr.ph.split.us.split.i.i, %.split.i.i, %.split.us.i.i
-  %.sroa.0.0.i = phi i64 [ 0, %.split.i.i ], [ 0, %.split.us.i.i ], [ 0, %.lr.ph.split.us.split.i.i ], [ %89, %.lr.ph.split.split.i.us.us.us.preheader.i ], [ %89, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us.i ], [ %89, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i ], [ %89, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.i ], [ %89, %.lr.ph.split.split.i.us46.us.preheader.i ], [ %89, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us.i ], [ %89, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i ], [ %89, %.lr.ph.split.split.i.preheader.split.split.us.split.split.i ], [ %.sroa.0.0.i.ph, %.loopexit98.sink.split ], [ %.lcssa6982.i, %122 ], [ %.lcssa6982.i, %163 ], [ 0, %148 ], [ %.lcssa6982.i, %118 ]
+  %.sroa.0.0.i = phi i64 [ 0, %.split.i.i ], [ 0, %.split.us.i.i ], [ 0, %.lr.ph.split.us.split.i.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.us.us.us.preheader.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.us.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.us.split.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.us.split.us.split.split.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.us46.us.preheader.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.us.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.us.split.i ], [ %.fr.i.i.i, %.lr.ph.split.split.i.preheader.split.split.us.split.split.i ], [ %.sroa.0.0.i.ph, %.loopexit98.sink.split ], [ %.lcssa6982.i, %122 ], [ %.lcssa6982.i, %163 ], [ 0, %148 ], [ %.lcssa6982.i, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !5970
   br label %217
 

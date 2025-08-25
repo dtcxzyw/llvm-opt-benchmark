@@ -8298,7 +8298,7 @@ is_numeric_string_ex.exit34:                      ; preds = %15
 38:                                               ; preds = %35
   %39 = load i64, ptr %5, align 8, !tbaa !70
   %40 = sitofp i64 %39 to double
-  %.pre50 = load double, ptr %8, align 8, !tbaa !71
+  %.pre53 = load double, ptr %8, align 8, !tbaa !71
   br label %52
 
 41:                                               ; preds = %34
@@ -8324,7 +8324,7 @@ is_numeric_string_ex.exit34:                      ; preds = %15
   br i1 %or.cond32, label %is_numeric_string_ex.exit.thread, label %52
 
 52:                                               ; preds = %43, %46, %38
-  %53 = phi double [ %45, %43 ], [ %48, %46 ], [ %.pre50, %38 ]
+  %53 = phi double [ %45, %43 ], [ %48, %46 ], [ %.pre53, %38 ]
   %54 = phi double [ %.pre, %43 ], [ %47, %46 ], [ %40, %38 ]
   %55 = fsub double %54, %53
   %56 = fcmp une double %55, 0.000000e+00
@@ -8347,15 +8347,17 @@ zend_binary_strcmp.exit:                          ; preds = %is_numeric_string_e
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !10
+  %.fr51 = freeze i64 %67
   %68 = load i64, ptr %10, align 8, !tbaa !10
-  %69 = call i64 @llvm.umin.i64(i64 %68, i64 %67)
+  %.fr50 = freeze i64 %68
+  %69 = call i64 @llvm.umin.i64(i64 %.fr50, i64 %.fr51)
   %70 = call i32 @memcmp(ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %65, i64 noundef %69) #29
-  %.not.i = icmp eq i32 %70, 0
-  %71 = call i32 @llvm.ucmp.i32.i64(i64 %68, i64 %67)
-  %.0.i35 = select i1 %.not.i, i32 %71, i32 %70
-  %.0.i35.fr = freeze i32 %.0.i35
-  %.not28 = icmp eq i32 %.0.i35.fr, 0
-  %.inv = icmp sgt i32 %.0.i35.fr, -1
+  %.fr = freeze i32 %70
+  %.not.i = icmp eq i32 %.fr, 0
+  %71 = call i32 @llvm.ucmp.i32.i64(i64 %.fr50, i64 %.fr51)
+  %.0.i35 = select i1 %.not.i, i32 %71, i32 %.fr
+  %.not28 = icmp eq i32 %.0.i35, 0
+  %.inv = icmp sgt i32 %.0.i35, -1
   %. = select i1 %.inv, i32 1, i32 -1
   br i1 %.not28, label %.thread, label %72
 
@@ -9040,14 +9042,14 @@ define dso_local noundef zeroext i1 @zend_string_only_has_ascii_alphanumeric(ptr
 
 7:                                                ; preds = %6
   %8 = load i8, ptr %.019, align 1, !tbaa !4
-  %.fr24 = freeze i8 %8
-  %9 = add i8 %.fr24, -123
+  %.fr = freeze i8 %8
+  %9 = add i8 %.fr, -123
   %or.cond = icmp ult i8 %9, -75
   br i1 %or.cond, label %.critedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 1
-  switch i8 %.fr24, label %6 [
+  switch i8 %.fr, label %6 [
     i8 96, label %.critedge
     i8 95, label %.critedge
     i8 94, label %.critedge
@@ -9233,14 +9235,14 @@ is_numeric_str_function.exit.thread:              ; preds = %is_numeric_str_func
 
 64:                                               ; preds = %63
   %65 = load i8, ptr %.019.i.i, align 1, !tbaa !4
-  %.fr24.i.i = freeze i8 %65
-  %66 = add i8 %.fr24.i.i, -123
+  %.fr.i.i = freeze i8 %65
+  %66 = add i8 %.fr.i.i, -123
   %or.cond.i.i = icmp ult i8 %66, -75
   br i1 %or.cond.i.i, label %68, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 1
-  switch i8 %.fr24.i.i, label %63 [
+  switch i8 %.fr.i.i, label %63 [
     i8 96, label %68
     i8 95, label %68
     i8 94, label %68

@@ -188,14 +188,14 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 64:                                               ; preds = %58
   %65 = call fastcc i32 @hwloc_append_diff_obj_attr_string(ptr noundef nonnull %0, ptr noundef null, i32 noundef 2, ptr noundef nonnull %55, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %3, ptr noundef %5)
   %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.critedge251, label %._crit_edge366
+  br i1 %66, label %.critedge251, label %._crit_edge365
 
-._crit_edge366:                                   ; preds = %64
+._crit_edge365:                                   ; preds = %64
   %.pre = load i32, ptr %45, align 8, !tbaa !40
   br label %67
 
-67:                                               ; preds = %._crit_edge366, %58
-  %68 = phi i32 [ %.pre, %._crit_edge366 ], [ %50, %58 ]
+67:                                               ; preds = %._crit_edge365, %58
+  %68 = phi i32 [ %.pre, %._crit_edge365 ], [ %50, %58 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = zext i32 %68 to i64
   %70 = icmp samesign ult i64 %indvars.iv.next, %69
@@ -282,17 +282,17 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br label %113
 
 112:                                              ; preds = %113
-  %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count
+  %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge312, label %113, !llvm.loop !57
 
 113:                                              ; preds = %.lr.ph311, %112
-  %indvars.iv349 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next350, %112 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv349
+  %indvars.iv348 = phi i64 [ 0, %.lr.ph311 ], [ %indvars.iv.next349, %112 ]
+  %114 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv348
   %115 = load ptr, ptr %114, align 8, !tbaa !58
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 52
   %117 = load i32, ptr %116, align 4, !tbaa !60
-  %118 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv349
+  %118 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv348
   %119 = load ptr, ptr %118, align 8, !tbaa !58
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 52
   %121 = load i32, ptr %120, align 4, !tbaa !60
@@ -344,10 +344,10 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 142:                                              ; preds = %135
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %144 = load i64, ptr %143, align 8, !tbaa !69
-  %.fr333 = freeze i64 %144
+  %.fr = freeze i64 %144
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %146 = load i64, ptr %145, align 8, !tbaa !69
-  %.not230 = icmp eq i64 %.fr333, %146
+  %.not230 = icmp eq i64 %.fr, %146
   br i1 %.not230, label %147, label %.thread279
 
 147:                                              ; preds = %142
@@ -369,7 +369,7 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   %155 = load ptr, ptr %154, align 8, !tbaa !71
   %156 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %157 = load ptr, ptr %156, align 8, !tbaa !71
-  %158 = and i64 %.fr333, 4
+  %158 = and i64 %.fr, 4
   %.not234 = icmp eq i64 %158, 0
   br i1 %.not234, label %.lr.ph322.split.us, label %.lr.ph322.split
 
@@ -405,8 +405,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 
 .thread271.us:                                    ; preds = %173
   %178 = add nuw i32 %.0193321.us, 1
-  %exitcond358.not = icmp eq i32 %178, %149
-  br i1 %exitcond358.not, label %.loopexit, label %.lr.ph322.split.us, !llvm.loop !77
+  %exitcond357.not = icmp eq i32 %178, %149
+  br i1 %exitcond357.not, label %.loopexit, label %.lr.ph322.split.us, !llvm.loop !77
 
 .lr.ph322.split:                                  ; preds = %.lr.ph322, %.thread271.loopexit
   %.0193321 = phi i32 [ %231, %.thread271.loopexit ], [ 0, %.lr.ph322 ]
@@ -433,21 +433,21 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 .preheader291:                                    ; preds = %186
   %193 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %194 = load i32, ptr %193, align 8, !tbaa !78
-  %.not334 = icmp eq i32 %194, 0
-  br i1 %.not334, label %.thread271.loopexit, label %.lr.ph320
+  %.not333 = icmp eq i32 %194, 0
+  br i1 %.not333, label %.thread271.loopexit, label %.lr.ph320
 
 .lr.ph320:                                        ; preds = %.preheader291
   %195 = getelementptr inbounds nuw i8, ptr %180, i64 40
   %196 = load ptr, ptr %195, align 8, !tbaa !79
   %197 = getelementptr inbounds nuw i8, ptr %181, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !79
-  %wide.trip.count355 = zext i32 %194 to i64
+  %wide.trip.count354 = zext i32 %194 to i64
   br label %199
 
 199:                                              ; preds = %.lr.ph320, %230
-  %indvars.iv352 = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next353, %230 ]
-  %200 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %196, i64 %indvars.iv352
-  %201 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %198, i64 %indvars.iv352
+  %indvars.iv351 = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next352, %230 ]
+  %200 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %196, i64 %indvars.iv351
+  %201 = getelementptr inbounds nuw %struct.hwloc_internal_memattr_initiator_s, ptr %198, i64 %indvars.iv351
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %203 = load i64, ptr %202, align 8, !tbaa !80
   %204 = getelementptr inbounds nuw i8, ptr %201, i64 32
@@ -497,19 +497,19 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not239, label %230, label %.thread279
 
 230:                                              ; preds = %209, %221, %210
-  %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
-  %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
-  br i1 %exitcond356.not, label %.thread271.loopexit, label %199, !llvm.loop !84
+  %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
+  %exitcond355.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count354
+  br i1 %exitcond355.not, label %.thread271.loopexit, label %199, !llvm.loop !84
 
 .thread271.loopexit:                              ; preds = %230, %.preheader291
   %231 = add nuw i32 %.0193321, 1
-  %exitcond357.not = icmp eq i32 %231, %149
-  br i1 %exitcond357.not, label %.loopexit, label %.lr.ph322.split, !llvm.loop !77
+  %exitcond356.not = icmp eq i32 %231, %149
+  br i1 %exitcond356.not, label %.loopexit, label %.lr.ph322.split, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.thread271.loopexit, %.thread271.us, %152
   %232 = add nuw i32 %.2181323, 1
-  %exitcond359.not = icmp eq i32 %232, %128
-  br i1 %exitcond359.not, label %.critedge250, label %135, !llvm.loop !85
+  %exitcond358.not = icmp eq i32 %232, %128
+  br i1 %exitcond358.not, label %.critedge250, label %135, !llvm.loop !85
 
 .critedge250:                                     ; preds = %.loopexit, %.preheader295
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -520,8 +520,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not241, label %.preheader289, label %.thread279
 
 .preheader289:                                    ; preds = %.critedge250
-  %.not335 = icmp eq i32 %234, 0
-  br i1 %.not335, label %.critedge251, label %.lr.ph328
+  %.not334 = icmp eq i32 %234, 0
+  br i1 %.not334, label %.critedge251, label %.lr.ph328
 
 .lr.ph328:                                        ; preds = %.preheader289
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -576,24 +576,24 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
   br i1 %.not246, label %.preheader, label %.thread279
 
 .preheader:                                       ; preds = %263
-  %.not336 = icmp eq i32 %266, 0
-  br i1 %.not336, label %.thread287, label %.lr.ph326
+  %.not335 = icmp eq i32 %266, 0
+  br i1 %.not335, label %.thread287, label %.lr.ph326
 
 .lr.ph326:                                        ; preds = %.preheader
   %270 = load ptr, ptr %264, align 8, !tbaa !94
   %271 = load ptr, ptr %267, align 8, !tbaa !94
-  %wide.trip.count363 = zext i32 %266 to i64
+  %wide.trip.count362 = zext i32 %266 to i64
   br label %273
 
 272:                                              ; preds = %279
-  %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %.thread287, label %273, !llvm.loop !95
+  %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
+  %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
+  br i1 %exitcond363.not, label %.thread287, label %273, !llvm.loop !95
 
 273:                                              ; preds = %.lr.ph326, %272
-  %indvars.iv360 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next361, %272 ]
-  %274 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %270, i64 %indvars.iv360
-  %275 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %271, i64 %indvars.iv360
+  %indvars.iv359 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next360, %272 ]
+  %274 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %270, i64 %indvars.iv359
+  %275 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %271, i64 %indvars.iv359
   %276 = load ptr, ptr %274, align 8, !tbaa !42
   %277 = load ptr, ptr %275, align 8, !tbaa !42
   %278 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %276, ptr noundef nonnull dereferenceable(1) %277) #15
@@ -611,8 +611,8 @@ define range(i32 -1, 2) i32 @hwloc_topology_diff_build(ptr noundef %0, ptr nound
 
 .thread287:                                       ; preds = %272, %.preheader
   %285 = add nuw i32 %.3182327, 1
-  %exitcond365.not = icmp eq i32 %285, %234
-  br i1 %exitcond365.not, label %.critedge251, label %241, !llvm.loop !96
+  %exitcond364.not = icmp eq i32 %285, %234
+  br i1 %exitcond364.not, label %.critedge251, label %241, !llvm.loop !96
 
 .thread279:                                       ; preds = %.lr.ph309, %79, %84, %87, %90, %95, %100, %.lr.ph317, %113, %135, %142, %147, %.lr.ph322.split, %186, %173, %166, %.lr.ph322.split.us, %221, %216, %210, %199, %206, %241, %248, %253, %258, %263, %279, %273, %.critedge250, %._crit_edge318, %43, %._crit_edge, %32, %34, %41
   %286 = call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull readonly %0, i32 noundef 0, i32 noundef 0) #15

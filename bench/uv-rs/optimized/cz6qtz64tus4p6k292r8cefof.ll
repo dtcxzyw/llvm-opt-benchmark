@@ -5558,9 +5558,9 @@ _ZN4core3ops8function5FnMut8call_mut17hc0c2ae8380c2ce71E.exit.i38: ; preds = %35
 "_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hdaa360284acaba25E.exit.i": ; preds = %432, %.lr.ph.i59
   %.sroa.0.0.i.i.i.i.in.i = phi i64 [ %spec.store.select.i.i.i23.i.i.i.i.i72, %432 ], [ %spec.store.select.i.i.i.i.i.i.i.i65, %.lr.ph.i59 ]
   %.sroa.0.0.i.i.i.i.in.fr.i = freeze i64 %.sroa.0.0.i.i.i.i.in.i
-  %.sroa.0.0.i.i.i.i.i66 = icmp sgt i64 %.sroa.0.0.i.i.i.i.in.fr.i, -1
+  %.sroa.0.0.i.i.i.i.i66 = icmp slt i64 %.sroa.0.0.i.i.i.i.in.fr.i, 0
   %450 = getelementptr inbounds i8, ptr %.sroa.19.113.i, i64 -64
-  br i1 %.sroa.0.0.i.i.i.i.i66, label %453, label %451
+  br i1 %.sroa.0.0.i.i.i.i.i66, label %451, label %453
 
 451:                                              ; preds = %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hdaa360284acaba25E.exit.i", %443, %440, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hdaa360284acaba25E.exit.thread28.i"
   %452 = phi ptr [ %427, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hdaa360284acaba25E.exit.thread28.i" ], [ %450, %"_ZN4core5slice4sort6stable9quicksort9quicksort28_$u7b$$u7b$closure$u7d$$u7d$17hdaa360284acaba25E.exit.i" ], [ %448, %443 ], [ %441, %440 ]

@@ -654,10 +654,10 @@ define i32 @cli_unzip(ptr noundef %0) local_unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13) #13
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !69
-  %.fr = freeze i64 %10
-  %11 = trunc i64 %.fr to i32
-  %12 = and i64 %.fr, 4294967295
-  %.not = icmp ult i64 %.fr, 4294967296
+  %.fr201 = freeze i64 %10
+  %11 = trunc i64 %.fr201 to i32
+  %12 = and i64 %.fr201, 4294967295
+  %.not = icmp ult i64 %.fr201, 4294967296
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %1

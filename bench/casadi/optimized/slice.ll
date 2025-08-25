@@ -6119,10 +6119,11 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69: ; preds = %.lr.ph.split.
   %135 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 -1, ptr %135, align 8, !tbaa !9
   %136 = load i64, ptr %109, align 8, !tbaa !10
-  store i64 %136, ptr %13, align 8, !tbaa !3
+  %.fr119 = freeze i64 %136
+  store i64 %.fr119, ptr %13, align 8, !tbaa !3
   %137 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %138 = load i64, ptr %137, align 8, !tbaa !10
-  %139 = sub nsw i64 %138, %136
+  %139 = sub nsw i64 %138, %.fr119
   %140 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %139, ptr %140, align 8, !tbaa !9
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -6133,7 +6134,7 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69: ; preds = %.lr.ph.split.
 .lr.ph:                                           ; preds = %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69, %.critedge
   %.02085 = phi i64 [ %147, %.critedge ], [ 2, %_ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69 ]
   %143 = mul nsw i64 %.02085, %139
-  %144 = add nsw i64 %143, %136
+  %144 = add nsw i64 %143, %.fr119
   %145 = getelementptr inbounds nuw i64, ptr %109, i64 %.02085
   %146 = load i64, ptr %145, align 8, !tbaa !10
   %.not = icmp eq i64 %146, %144
@@ -6152,17 +6153,17 @@ _ZN6casadi8is_sliceERKSt6vectorIxSaIxEEb.exit.thread69: ; preds = %.lr.ph.split.
   %149 = getelementptr inbounds nuw i64, ptr %109, i64 %.02085
   store i64 %144, ptr %141, align 8, !tbaa !8
   %150 = load i64, ptr %149, align 8, !tbaa !10
-  %151 = sub nsw i64 %150, %136
-  %.fr = freeze i64 %151
-  store i64 %.fr, ptr %135, align 8, !tbaa !9
+  %.fr = freeze i64 %150
+  %151 = sub i64 %.fr, %.fr119
+  store i64 %151, ptr %135, align 8, !tbaa !9
   %152 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.inv = icmp slt i64 %.fr, 1
+  %.inv = icmp slt i64 %151, 1
   %spec.select = select i1 %.inv, i64 -1, i64 1
   br label %153
 
 153:                                              ; preds = %.loopexit, %.loopexit.thread
   %154 = phi ptr [ %148, %.loopexit.thread ], [ %152, %.loopexit ]
-  %155 = phi i64 [ -1, %.loopexit.thread ], [ %.fr, %.loopexit ]
+  %155 = phi i64 [ -1, %.loopexit.thread ], [ %151, %.loopexit ]
   %156 = phi i64 [ -1, %.loopexit.thread ], [ %spec.select, %.loopexit ]
   %.in = getelementptr inbounds i8, ptr %108, i64 -8
   %157 = load i64, ptr %.in, align 8, !tbaa !10

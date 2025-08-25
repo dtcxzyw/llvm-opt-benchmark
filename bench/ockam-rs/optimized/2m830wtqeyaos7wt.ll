@@ -3684,10 +3684,10 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   %846 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %847 = load i64, ptr %846, align 8, !alias.scope !591, !noalias !598, !noundef !5
   %848 = load i64, ptr %708, align 8, !alias.scope !591, !noalias !598
-  %.fr51.i.i = freeze i64 %848
+  %.fr.i.i = freeze i64 %848
   %849 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %850 = load i64, ptr %849, align 8, !alias.scope !591, !noalias !598
-  %851 = add i64 %.fr51.i.i, -1
+  %851 = add i64 %.fr.i.i, -1
   %.first_iter.i.i.i = icmp ult i64 %851, %788
   br label %852
 
@@ -3714,7 +3714,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %.not37.i.i.i.i, label %852, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i"
 
 .preheader64.i.i.i:                               ; preds = %852, %880
-  %.sroa.04.0.i.i.i.i = phi i64 [ %881, %880 ], [ %.fr51.i.i, %852 ]
+  %.sroa.04.0.i.i.i.i = phi i64 [ %881, %880 ], [ %.fr.i.i, %852 ]
   %866 = icmp ult i64 %.sroa.04.0.i.i.i.i, %788
   br i1 %866, label %877, label %.preheader.i.preheader.i.i
 
@@ -3722,7 +3722,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %.first_iter.i.i.i, label %.preheader.i.us.i.i, label %.preheader.i.i.i, !prof !530
 
 .preheader.i.us.i.i:                              ; preds = %.preheader.i.preheader.i.i, %871
-  %.sroa.5.0.i.i.us.i.i = phi i64 [ %868, %871 ], [ %.fr51.i.i, %.preheader.i.preheader.i.i ]
+  %.sroa.5.0.i.i.us.i.i = phi i64 [ %868, %871 ], [ %.fr.i.i, %.preheader.i.preheader.i.i ]
   %.not.i.us.i.i = icmp eq i64 %.sroa.5.0.i.i.us.i.i, 0
   br i1 %.not.i.us.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i", label %867
 
@@ -3745,7 +3745,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br label %.backedge.i.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.preheader.i.i
-  %.not.i.i.i327 = icmp eq i64 %.fr51.i.i, 0
+  %.not.i.i.i327 = icmp eq i64 %.fr.i.i, 0
   br i1 %.not.i.i.i327, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h17c8980bd7de86e7E.exit.i.i.i", label %.invoke.i
 
 877:                                              ; preds = %.preheader64.i.i.i
@@ -3763,7 +3763,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   br i1 %.not.i44.i.i.i, label %.preheader64.i.i.i, label %891
 
 886:                                              ; preds = %877
-  %887 = add i64 %853, %.fr51.i.i
+  %887 = add i64 %853, %.fr.i.i
   %umax.i.i.i.i = call i64 @llvm.umax.i64(i64 %784, i64 %887)
   br label %.invoke.i
 
@@ -3778,7 +3778,7 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   unreachable
 
 891:                                              ; preds = %880
-  %reass.sub707 = sub i64 %853, %.fr51.i.i
+  %reass.sub707 = sub i64 %853, %.fr.i.i
   %892 = add i64 %reass.sub707, 1
   %893 = add i64 %892, %.sroa.04.0.i.i.i.i
   br label %.backedge.i.i.i.i

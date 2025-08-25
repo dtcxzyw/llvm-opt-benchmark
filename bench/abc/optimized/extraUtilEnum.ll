@@ -1575,6 +1575,7 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds [16 x i32], ptr %9, i64 0, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !3
+  %.fr134.i = freeze i32 %214
   %215 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %212
   %216 = load i32, ptr %215, align 4, !tbaa !3
   %217 = getelementptr inbounds i64, ptr %16, i64 %212
@@ -1597,45 +1598,42 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i155, !llvm.loop !53
 
 .preheader.i:                                     ; preds = %222, %.preheader122.i
-  %.not99130.i = icmp sgt i32 %214, -1
+  %.not99130.i = icmp sgt i32 %.fr134.i, -1
   br i1 %.not99130.i, label %.lr.ph133.i, label %Abc_EnumerateFilter.exit
 
 .lr.ph133.i:                                      ; preds = %.preheader.i
   %223 = add i32 %216, 1
   %224 = zext i32 %216 to i64
-  %225 = zext nneg i32 %214 to i64
-  %226 = sext i32 %216 to i64
-  %227 = add nuw i32 %214, 1
-  %wide.trip.count152.i = zext i32 %227 to i64
-  br label %233
+  br label %230
 
 .lr.ph.i155:                                      ; preds = %222, %.lr.ph.preheader.i
   %indvars.iv.i156 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i157, %222 ]
-  %228 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i156
-  %229 = load i64, ptr %228, align 8, !tbaa !33
-  %230 = icmp ne i64 %218, %229
-  %231 = xor i64 %229, %218
-  %232 = icmp ne i64 %231, -1
-  %.not119.i = and i1 %230, %232
+  %225 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv.i156
+  %226 = load i64, ptr %225, align 8, !tbaa !33
+  %227 = icmp ne i64 %218, %226
+  %228 = xor i64 %226, %218
+  %229 = icmp ne i64 %228, -1
+  %.not119.i = and i1 %227, %229
   br i1 %.not119.i, label %222, label %Abc_EnumerateFilter.exit.thread
 
-.loopexit.i:                                      ; preds = %267, %300, %233
-  %indvars.iv.next139.i = add nuw nsw i64 %indvars.iv138.i, 1
-  %exitcond153.not.i = icmp eq i64 %indvars.iv.next150.i, %wide.trip.count152.i
-  br i1 %exitcond153.not.i, label %Abc_EnumerateFilter.exit, label %233, !llvm.loop !54
+.loopexit.i:                                      ; preds = %267, %300, %230
+  %.not99.not.i = icmp sgt i32 %232, %.fr134.i
+  %indvars.iv.next140.i = add i32 %indvars.iv139.i, 1
+  br i1 %.not99.not.i, label %Abc_EnumerateFilter.exit, label %230, !llvm.loop !54
 
-233:                                              ; preds = %.loopexit.i, %.lr.ph133.i
-  %indvars.iv149.i = phi i64 [ 0, %.lr.ph133.i ], [ %indvars.iv.next150.i, %.loopexit.i ]
-  %indvars.iv138.i = phi i64 [ 1, %.lr.ph133.i ], [ %indvars.iv.next139.i, %.loopexit.i ]
-  %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
-  %.not100127.not.i = icmp slt i64 %indvars.iv149.i, %226
+230:                                              ; preds = %.loopexit.i, %.lr.ph133.i
+  %indvars.iv139.i = phi i32 [ 1, %.lr.ph133.i ], [ %indvars.iv.next140.i, %.loopexit.i ]
+  %.094131.i = phi i32 [ 0, %.lr.ph133.i ], [ %232, %.loopexit.i ]
+  %231 = zext i32 %indvars.iv139.i to i64
+  %232 = add i32 %.094131.i, 1
+  %.not100127.not.i = icmp slt i32 %.094131.i, %216
   br i1 %.not100127.not.i, label %.lr.ph129.i, label %.loopexit.i
 
-.lr.ph129.i:                                      ; preds = %233
-  %234 = icmp eq i64 %indvars.iv149.i, %225
-  %235 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv149.i
-  %.fr.i = freeze i1 %234
-  br i1 %.fr.i, label %.lr.ph129.split.i, label %.lr.ph129.split.us.i
+.lr.ph129.i:                                      ; preds = %230
+  %233 = icmp eq i32 %.094131.i, %.fr134.i
+  %234 = zext nneg i32 %.094131.i to i64
+  %235 = getelementptr inbounds nuw i64, ptr %16, i64 %234
+  br i1 %233, label %.lr.ph129.split.i, label %.lr.ph129.split.us.i
 
 .lr.ph129.split.us.i:                             ; preds = %.lr.ph129.i
   %236 = load i64, ptr %235, align 8, !tbaa !33
@@ -1643,8 +1641,8 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   br label %238
 
 238:                                              ; preds = %267, %.lr.ph129.split.us.i
-  %indvars.iv140.i = phi i64 [ %indvars.iv.next141.i, %267 ], [ %indvars.iv138.i, %.lr.ph129.split.us.i ]
-  %239 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv140.i
+  %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %267 ], [ %231, %.lr.ph129.split.us.i ]
+  %239 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv141.i
   %240 = load i64, ptr %239, align 8, !tbaa !33
   %241 = and i64 %240, %236
   %242 = icmp ne i64 %218, %241
@@ -1692,19 +1690,19 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   br i1 %.not117.us.i, label %267, label %Abc_EnumerateFilter.exit.thread
 
 267:                                              ; preds = %262, %260
-  %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next141.i to i32
+  %indvars.iv.next142.i = add nuw nsw i64 %indvars.iv141.i, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next142.i to i32
   %exitcond = icmp eq i32 %223, %lftr.wideiv
   br i1 %exitcond, label %.loopexit.i, label %238, !llvm.loop !55
 
 .lr.ph129.split.i:                                ; preds = %.lr.ph129.i, %300
-  %indvars.iv144.i = phi i64 [ %indvars.iv.next145.i, %300 ], [ %indvars.iv138.i, %.lr.ph129.i ]
-  %268 = icmp eq i64 %indvars.iv144.i, %224
+  %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %300 ], [ %231, %.lr.ph129.i ]
+  %268 = icmp eq i64 %indvars.iv145.i, %224
   br i1 %268, label %300, label %269
 
 269:                                              ; preds = %.lr.ph129.split.i
   %270 = load i64, ptr %235, align 8, !tbaa !33
-  %271 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv144.i
+  %271 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv145.i
   %272 = load i64, ptr %271, align 8, !tbaa !33
   %273 = and i64 %272, %270
   %274 = icmp ne i64 %218, %273
@@ -1753,8 +1751,8 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
   br i1 %.not117.i, label %300, label %Abc_EnumerateFilter.exit.thread
 
 300:                                              ; preds = %295, %293, %.lr.ph129.split.i
-  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %lftr.wideiv185 = trunc i64 %indvars.iv.next145.i to i32
+  %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
+  %lftr.wideiv185 = trunc i64 %indvars.iv.next146.i to i32
   %exitcond186 = icmp eq i32 %223, %lftr.wideiv185
   br i1 %exitcond186, label %.loopexit.i, label %.lr.ph129.split.i, !llvm.loop !55
 

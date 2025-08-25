@@ -13050,8 +13050,8 @@ define internal void @_ZN4absl12_GLOBAL__N_140CordzUpdateTest_AssignUnsampledCor
   call void @_ZN4absl13UnsampledCordIJSt17basic_string_viewIcSt11char_traitsIcEEEEENS_4CordEDpT_(ptr dead_on_unwind nonnull writable sret(%"class.absl::Cord") align 8 %5, i64 %17, ptr %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i8, ptr %19, align 8, !tbaa !24
-  %.fr60 = freeze i8 %20
-  %21 = and i8 %.fr60, 1
+  %.fr = freeze i8 %20
+  %21 = and i8 %.fr, 1
   %.not.i.not = icmp eq i8 %21, 0
   %22 = load i64, ptr %19, align 8
   %23 = add nsw i64 %22, -1
@@ -16179,8 +16179,8 @@ define internal void @_ZN4absl12_GLOBAL__N_168CordzUpdateTest_AssignUnsampledCor
 
 19:                                               ; preds = %1
   %20 = load i8, ptr %6, align 8, !tbaa !24
-  %.fr67 = freeze i8 %20
-  %21 = and i8 %.fr67, 1
+  %.fr = freeze i8 %20
+  %21 = and i8 %.fr, 1
   %.not.i.not = icmp eq i8 %21, 0
   %22 = load i64, ptr %6, align 8
   %23 = add nsw i64 %22, -1
@@ -16765,8 +16765,8 @@ define internal void @_ZN4absl12_GLOBAL__N_165CordzUpdateTest_AssignUnsampledCor
 
 19:                                               ; preds = %1
   %20 = load i8, ptr %6, align 8, !tbaa !24
-  %.fr67 = freeze i8 %20
-  %21 = and i8 %.fr67, 1
+  %.fr = freeze i8 %20
+  %21 = and i8 %.fr, 1
   %.not.i.not = icmp eq i8 %21, 0
   %22 = load i64, ptr %6, align 8
   %23 = add nsw i64 %22, -1
@@ -18930,8 +18930,8 @@ _ZN4absl27CordzSamplingIntervalHelperC2Ei.exit:   ; preds = %.noexc35
 
 24:                                               ; preds = %21
   %25 = load i8, ptr %7, align 8, !tbaa !24
-  %.fr75 = freeze i8 %25
-  %26 = and i8 %.fr75, 1
+  %.fr = freeze i8 %25
+  %26 = and i8 %.fr, 1
   %.not.i.not = icmp eq i8 %26, 0
   %27 = load i64, ptr %7, align 8
   %28 = add nsw i64 %27, -1

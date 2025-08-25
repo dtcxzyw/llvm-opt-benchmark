@@ -3171,21 +3171,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS
   %.pn.i362.i.i.i = phi ptr [ %1126, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIS4_JEEEPSB_SF_OT_DpOT0_.exit.i377.i.i.i ], [ %1074, %1066 ], [ %1088, %1082 ]
   %.0.i363.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i362.i.i.i, i64 8
   %.val288.i.i.i = load i32, ptr %.0.i363.i.i.i, align 8, !tbaa !273
+  %.val288.fr.i.i.i = freeze i32 %.val288.i.i.i
   %1139 = getelementptr i8, ptr %.pn.i362.i.i.i, i64 12
   %.val289.i.i.i = load i32, ptr %1139, align 4
-  %1140 = icmp eq i32 %.val288.i.i.i, -1
-  %1141 = icmp eq i32 %.val289.i.i.i, -1
-  %or.cond.i383.i.i.i = select i1 %1140, i1 true, i1 %1141
+  %.val289.fr.i.i.i = freeze i32 %.val289.i.i.i
+  %1140 = icmp eq i32 %.val288.fr.i.i.i, -1
+  %1141 = icmp eq i32 %.val289.fr.i.i.i, -1
+  %or.cond.i383.i.i.i = or i1 %1140, %1141
   br i1 %or.cond.i383.i.i.i, label %.thread77.i.i.i, label %1142
 
 1142:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixEOS4_.exit382.i.i.i
-  %umul.i384.i.i.i = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val288.i.i.i, i32 %.val289.i.i.i)
-  %umul.i384.fr.i.i.i = freeze { i32, i1 } %umul.i384.i.i.i
-  %1143 = extractvalue { i32, i1 } %umul.i384.fr.i.i.i, 1
+  %umul.i384.i.i.i = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val288.fr.i.i.i, i32 %.val289.fr.i.i.i)
+  %1143 = extractvalue { i32, i1 } %umul.i384.i.i.i, 1
   br i1 %1143, label %.thread77.i.i.i, label %_ZNK12_GLOBAL__N_17BBState27GetAllPathCountWithOverflowERj.exit387.i.i.i
 
 _ZNK12_GLOBAL__N_17BBState27GetAllPathCountWithOverflowERj.exit387.i.i.i: ; preds = %1142
-  %umul.value.i385.i.i.i = extractvalue { i32, i1 } %umul.i384.fr.i.i.i, 0
+  %umul.value.i385.i.i.i = extractvalue { i32, i1 } %umul.i384.i.i.i, 0
   %1144 = icmp eq i32 %umul.value.i385.i.i.i, -1
   br i1 %1144, label %.thread77.i.i.i, label %1145
 
@@ -3949,21 +3950,22 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS
   %.pn.i569.i.i.i = phi ptr [ %1459, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E16InsertIntoBucketIS4_JEEEPSB_SF_OT_DpOT0_.exit.i584.i.i.i ], [ %1407, %1399 ], [ %1421, %1415 ]
   %.0.i570.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i569.i.i.i, i64 8
   %.val292.i.i.i = load i32, ptr %.0.i570.i.i.i, align 8, !tbaa !273
+  %.val292.fr.i.i.i = freeze i32 %.val292.i.i.i
   %1472 = getelementptr i8, ptr %.pn.i569.i.i.i, i64 12
   %.val293.i.i.i = load i32, ptr %1472, align 4
-  %1473 = icmp eq i32 %.val292.i.i.i, -1
-  %1474 = icmp eq i32 %.val293.i.i.i, -1
-  %or.cond.i590.i.i.i = select i1 %1473, i1 true, i1 %1474
+  %.val293.fr.i.i.i = freeze i32 %.val293.i.i.i
+  %1473 = icmp eq i32 %.val292.fr.i.i.i, -1
+  %1474 = icmp eq i32 %.val293.fr.i.i.i, -1
+  %or.cond.i590.i.i.i = or i1 %1473, %1474
   br i1 %or.cond.i590.i.i.i, label %.thread77.i.i.i, label %1475
 
 1475:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_17BBStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixEOS4_.exit589.i.i.i
-  %umul.i591.i.i.i = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val292.i.i.i, i32 %.val293.i.i.i)
-  %umul.i591.fr.i.i.i = freeze { i32, i1 } %umul.i591.i.i.i
-  %1476 = extractvalue { i32, i1 } %umul.i591.fr.i.i.i, 1
+  %umul.i591.i.i.i = call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.val292.fr.i.i.i, i32 %.val293.fr.i.i.i)
+  %1476 = extractvalue { i32, i1 } %umul.i591.i.i.i, 1
   br i1 %1476, label %.thread77.i.i.i, label %_ZNK12_GLOBAL__N_17BBState27GetAllPathCountWithOverflowERj.exit594.i.i.i
 
 _ZNK12_GLOBAL__N_17BBState27GetAllPathCountWithOverflowERj.exit594.i.i.i: ; preds = %1475
-  %umul.value.i592.i.i.i = extractvalue { i32, i1 } %umul.i591.fr.i.i.i, 0
+  %umul.value.i592.i.i.i = extractvalue { i32, i1 } %umul.i591.i.i.i, 0
   %1477 = icmp eq i32 %umul.value.i592.i.i.i, -1
   br i1 %1477, label %.thread77.i.i.i, label %1478
 

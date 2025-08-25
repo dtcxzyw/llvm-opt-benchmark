@@ -4673,8 +4673,8 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager19processRedundantLit
   %11 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %12 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %13 = alloca i8, align 1
-  %.fr.i.i.i = freeze i64 %1
-  store i64 %.fr.i.i.i, ptr %6, align 8
+  %.fr13.i.i.i = freeze i64 %1
+  store i64 %.fr13.i.i.i, ptr %6, align 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !117
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4682,8 +4682,8 @@ define hidden void @_ZN4cvc58internal4prop15SatProofManager19processRedundantLit
   br i1 %.not10.i.i.i, label %43, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %5
-  %17 = lshr i64 %.fr.i.i.i, 1
-  %18 = and i64 %.fr.i.i.i, 1
+  %17 = lshr i64 %.fr13.i.i.i, 1
+  %18 = and i64 %.fr13.i.i.i, 1
   %.not14.i.i.i = icmp eq i64 %18, 0
   br i1 %.not14.i.i.i, label %.lr.ph.split.us.i.i.i, label %.lr.ph.split.i.i.i
 
@@ -4755,7 +4755,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i.i: ; preds = %3
 43:                                               ; preds = %38, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i.i, %_ZNKSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %5
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !6
-  %46 = tail call i32 @_ZN4cvc58internal4prop16MinisatSatSolver12toMinisatLitENS1_10SatLiteralE(i64 %.fr.i.i.i)
+  %46 = tail call i32 @_ZN4cvc58internal4prop16MinisatSatSolver12toMinisatLitENS1_10SatLiteralE(i64 %.fr13.i.i.i)
   %47 = ashr i32 %46, 1
   %48 = tail call noundef i32 @_ZN4cvc58internal7Minisat6Solver6reasonEi(ptr noundef nonnull align 8 dereferenceable(850) %45, i32 noundef %47)
   %49 = load i32, ptr @_ZN4cvc58internal7Minisat6Solver11TCRef_UndefE, align 4, !tbaa !173
@@ -5235,14 +5235,14 @@ _ZNSt6vectorIN4cvc58internal4prop10SatLiteralESaIS3_EE9push_backEOS3_.exit: ; pr
   %indvars.iv349 = phi i64 [ 0, %.lr.ph333 ], [ %indvars.iv.next350, %_ZNKSt3setIN4cvc58internal4prop10SatLiteralESt4lessIS3_ESaIS3_EE5countERKS3_.exit171 ]
   %273 = getelementptr inbounds nuw %"class.cvc5::internal::prop::SatLiteral", ptr %.sroa.0240.0.lcssa, i64 %indvars.iv349
   %274 = load i64, ptr %273, align 8, !tbaa !99
-  %.fr.i.i.i147 = freeze i64 %274
+  %.fr13.i.i.i147 = freeze i64 %274
   %275 = load ptr, ptr %267, align 8, !tbaa !117
   %.not10.i.i.i145 = icmp eq ptr %275, null
   br i1 %.not10.i.i.i145, label %302, label %.lr.ph.i.i.i146
 
 .lr.ph.i.i.i146:                                  ; preds = %272
-  %276 = lshr i64 %.fr.i.i.i147, 1
-  %277 = and i64 %.fr.i.i.i147, 1
+  %276 = lshr i64 %.fr13.i.i.i147, 1
+  %277 = and i64 %.fr13.i.i.i147, 1
   %.not14.i.i.i148 = icmp eq i64 %277, 0
   br i1 %.not14.i.i.i148, label %.lr.ph.split.us.i.i.i162, label %.lr.ph.split.i.i.i149
 
@@ -5312,7 +5312,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i.i159: ; preds =
   br i1 %301, label %302, label %_ZNKSt3setIN4cvc58internal4prop10SatLiteralESt4lessIS3_ESaIS3_EE5countERKS3_.exit171
 
 302:                                              ; preds = %297, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i.i159, %_ZNKSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i157, %272
-  invoke void @_ZN4cvc58internal4prop15SatProofManager19processRedundantLitENS1_10SatLiteralERKSt3setIS3_St4lessIS3_ESaIS3_EERS8_j(ptr noundef nonnull align 8 dereferenceable(1240) %0, i64 %.fr.i.i.i147, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef %4)
+  invoke void @_ZN4cvc58internal4prop15SatProofManager19processRedundantLitENS1_10SatLiteralERKSt3setIS3_St4lessIS3_ESaIS3_EERS8_j(ptr noundef nonnull align 8 dereferenceable(1240) %0, i64 %.fr13.i.i.i147, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef %4)
           to label %_ZNKSt3setIN4cvc58internal4prop10SatLiteralESt4lessIS3_ESaIS3_EE5countERKS3_.exit171 unwind label %303
 
 303:                                              ; preds = %302
@@ -18267,9 +18267,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit: ; preds = %9
 
 .lr.ph.i:                                         ; preds = %24
   %26 = load i64, ptr %2, align 8, !tbaa !112
-  %.fr28.i = freeze i64 %26
-  %27 = lshr i64 %.fr28.i, 1
-  %28 = and i64 %.fr28.i, 1
+  %.fr.i = freeze i64 %26
+  %27 = lshr i64 %.fr.i, 1
+  %28 = and i64 %.fr.i, 1
   %.not.i.i.i = icmp eq i64 %28, 0
   br i1 %.not.i.i.i, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
@@ -18295,8 +18295,8 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit: ; preds = %9
 
 37:                                               ; preds = %.lr.ph.split.i
   %38 = and i64 %34, 1
-  %.not29.i = icmp eq i64 %38, 0
-  br i1 %.not29.i, label %40, label %41
+  %.not28.i = icmp eq i64 %38, 0
+  br i1 %.not28.i, label %40, label %41
 
 _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr.ph.split.i
   %39 = icmp samesign ult i64 %27, %35
@@ -18306,9 +18306,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br label %41
 
 41:                                               ; preds = %40, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i, %37
-  %.sink39.i = phi i64 [ 24, %40 ], [ 16, %37 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
+  %.sink38.i = phi i64 [ 24, %40 ], [ 16, %37 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
   %42 = phi i1 [ false, %40 ], [ true, %37 ], [ true, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
-  %43 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 %.sink39.i
+  %43 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 %.sink38.i
   %.022.i = load ptr, ptr %43, align 8, !tbaa !248
   %.not.i = icmp eq ptr %.022.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !426
@@ -18319,20 +18319,20 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br i1 %.0.lcssa.i, label %._crit_edge.thread.i, label %49
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %24
-  %.021.lcssa37.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %24 ]
+  %.021.lcssa36.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %24 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !118
-  %46 = icmp eq ptr %.021.lcssa37.i, %45
+  %46 = icmp eq ptr %.021.lcssa36.i, %45
   br i1 %46, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %47
 
 47:                                               ; preds = %._crit_edge.thread.i
-  %48 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa37.i) #30
+  %48 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa36.i) #30
   %.pre = load i64, ptr %2, align 8, !tbaa !112
   br label %49
 
 49:                                               ; preds = %47, %._crit_edge.i
-  %50 = phi i64 [ %.pre, %47 ], [ %.fr28.i, %._crit_edge.i ]
-  %.021.lcssa36.i = phi ptr [ %.021.lcssa37.i, %47 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %50 = phi i64 [ %.pre, %47 ], [ %.fr.i, %._crit_edge.i ]
+  %.021.lcssa35.i = phi ptr [ %.021.lcssa36.i, %47 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %48, %47 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 32
   %52 = load i64, ptr %51, align 8, !tbaa !112
@@ -18359,15 +18359,15 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i: ; preds = %49
 63:                                               ; preds = %3
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %65 = load i64, ptr %2, align 8, !tbaa !112
-  %.fr28.i53 = freeze i64 %65
-  %66 = lshr i64 %.fr28.i53, 1
+  %.fr.i53 = freeze i64 %65
+  %66 = lshr i64 %.fr.i53, 1
   %67 = load i64, ptr %64, align 8, !tbaa !112
   %68 = lshr i64 %67, 1
   %69 = icmp eq i64 %66, %68
   br i1 %69, label %70, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit11
 
 70:                                               ; preds = %63
-  %71 = and i64 %.fr28.i53, 1
+  %71 = and i64 %.fr.i53, 1
   %.not.i.i10 = icmp eq i64 %71, 0
   %72 = and i64 %67, 1
   %73 = icmp ne i64 %72, 0
@@ -18395,7 +18395,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit11: ; preds = %63
 86:                                               ; preds = %80
   %87 = and i64 %83, 1
   %.not.i.i12 = icmp eq i64 %87, 0
-  %88 = and i64 %.fr28.i53, 1
+  %88 = and i64 %.fr.i53, 1
   %89 = icmp ne i64 %88, 0
   %90 = and i1 %89, %.not.i.i12
   br i1 %90, label %92, label %96
@@ -18419,7 +18419,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit13: ; preds = %80
   br i1 %.not24.i15, label %._crit_edge.thread.i36, label %.lr.ph.i16
 
 .lr.ph.i16:                                       ; preds = %96
-  %98 = and i64 %.fr28.i53, 1
+  %98 = and i64 %.fr.i53, 1
   %.not.i.i.i18 = icmp eq i64 %98, 0
   br i1 %.not.i.i.i18, label %.lr.ph.split.i38, label %.lr.ph.split.us.i19
 
@@ -18445,8 +18445,8 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit13: ; preds = %80
 
 107:                                              ; preds = %.lr.ph.split.i38
   %108 = and i64 %104, 1
-  %.not29.i44 = icmp eq i64 %108, 0
-  br i1 %.not29.i44, label %110, label %111
+  %.not28.i44 = icmp eq i64 %108, 0
+  br i1 %.not28.i44, label %110, label %111
 
 _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40: ; preds = %.lr.ph.split.i38
   %109 = icmp samesign ult i64 %66, %105
@@ -18456,9 +18456,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40: ; preds = %.
   br label %111
 
 111:                                              ; preds = %110, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40, %107
-  %.sink39.i41 = phi i64 [ 24, %110 ], [ 16, %107 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40 ]
+  %.sink38.i41 = phi i64 [ 24, %110 ], [ 16, %107 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40 ]
   %112 = phi i1 [ false, %110 ], [ true, %107 ], [ true, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.02225.i39, i64 %.sink39.i41
+  %113 = getelementptr inbounds nuw i8, ptr %.02225.i39, i64 %.sink38.i41
   %.022.i42 = load ptr, ptr %113, align 8, !tbaa !248
   %.not.i43 = icmp eq ptr %.022.i42, null
   br i1 %.not.i43, label %._crit_edge.i25, label %.lr.ph.split.i38, !llvm.loop !426
@@ -18469,16 +18469,16 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40: ; preds = %.
   br i1 %.0.lcssa.i27, label %._crit_edge.thread.i36, label %117
 
 ._crit_edge.thread.i36:                           ; preds = %._crit_edge.i25, %96
-  %.021.lcssa37.i37 = phi ptr [ %.021.lcssa.i26, %._crit_edge.i25 ], [ %4, %96 ]
-  %114 = icmp eq ptr %.021.lcssa37.i37, %78
+  %.021.lcssa36.i37 = phi ptr [ %.021.lcssa.i26, %._crit_edge.i25 ], [ %4, %96 ]
+  %114 = icmp eq ptr %.021.lcssa36.i37, %78
   br i1 %114, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %115
 
 115:                                              ; preds = %._crit_edge.thread.i36
-  %116 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa37.i37) #30
+  %116 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa36.i37) #30
   br label %117
 
 117:                                              ; preds = %115, %._crit_edge.i25
-  %.021.lcssa36.i28 = phi ptr [ %.021.lcssa37.i37, %115 ], [ %.021.lcssa.i26, %._crit_edge.i25 ]
+  %.021.lcssa35.i28 = phi ptr [ %.021.lcssa36.i37, %115 ], [ %.021.lcssa.i26, %._crit_edge.i25 ]
   %.sroa.07.0.i29 = phi ptr [ %116, %115 ], [ %.021.lcssa.i26, %._crit_edge.i25 ]
   %118 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i29, i64 32
   %119 = load i64, ptr %118, align 8, !tbaa !112
@@ -18489,7 +18489,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i40: ; preds = %.
 122:                                              ; preds = %117
   %123 = and i64 %119, 1
   %.not.i.i5.i35 = icmp eq i64 %123, 0
-  %124 = and i64 %.fr28.i53, 1
+  %124 = and i64 %.fr.i53, 1
   %125 = icmp ne i64 %124, 0
   %126 = and i1 %125, %.not.i.i5.i35
   br i1 %126, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %128
@@ -18526,7 +18526,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit47: ; preds = %_ZN
   br i1 %142, label %143, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit49
 
 143:                                              ; preds = %137
-  %144 = and i64 %.fr28.i53, 1
+  %144 = and i64 %.fr.i53, 1
   %.not.i.i48 = icmp eq i64 %144, 0
   %145 = and i64 %140, 1
   %146 = icmp ne i64 %145, 0
@@ -18552,7 +18552,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit49: ; preds = %137
   br i1 %.not24.i51, label %._crit_edge.thread.i72, label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %153
-  %155 = and i64 %.fr28.i53, 1
+  %155 = and i64 %.fr.i53, 1
   %.not.i.i.i54 = icmp eq i64 %155, 0
   br i1 %.not.i.i.i54, label %.lr.ph.split.i74, label %.lr.ph.split.us.i55
 
@@ -18578,8 +18578,8 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit49: ; preds = %137
 
 164:                                              ; preds = %.lr.ph.split.i74
   %165 = and i64 %161, 1
-  %.not29.i80 = icmp eq i64 %165, 0
-  br i1 %.not29.i80, label %167, label %168
+  %.not28.i80 = icmp eq i64 %165, 0
+  br i1 %.not28.i80, label %167, label %168
 
 _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76: ; preds = %.lr.ph.split.i74
   %166 = icmp samesign ult i64 %66, %162
@@ -18589,9 +18589,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76: ; preds = %.
   br label %168
 
 168:                                              ; preds = %167, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76, %164
-  %.sink39.i77 = phi i64 [ 24, %167 ], [ 16, %164 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76 ]
+  %.sink38.i77 = phi i64 [ 24, %167 ], [ 16, %164 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76 ]
   %169 = phi i1 [ false, %167 ], [ true, %164 ], [ true, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.02225.i75, i64 %.sink39.i77
+  %170 = getelementptr inbounds nuw i8, ptr %.02225.i75, i64 %.sink38.i77
   %.022.i78 = load ptr, ptr %170, align 8, !tbaa !248
   %.not.i79 = icmp eq ptr %.022.i78, null
   br i1 %.not.i79, label %._crit_edge.i61, label %.lr.ph.split.i74, !llvm.loop !426
@@ -18602,18 +18602,18 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76: ; preds = %.
   br i1 %.0.lcssa.i63, label %._crit_edge.thread.i72, label %176
 
 ._crit_edge.thread.i72:                           ; preds = %._crit_edge.i61, %153
-  %.021.lcssa37.i73 = phi ptr [ %.021.lcssa.i62, %._crit_edge.i61 ], [ %4, %153 ]
+  %.021.lcssa36.i73 = phi ptr [ %.021.lcssa.i62, %._crit_edge.i61 ], [ %4, %153 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %172 = load ptr, ptr %171, align 8, !tbaa !118
-  %173 = icmp eq ptr %.021.lcssa37.i73, %172
+  %173 = icmp eq ptr %.021.lcssa36.i73, %172
   br i1 %173, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %174
 
 174:                                              ; preds = %._crit_edge.thread.i72
-  %175 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa37.i73) #30
+  %175 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa36.i73) #30
   br label %176
 
 176:                                              ; preds = %174, %._crit_edge.i61
-  %.021.lcssa36.i64 = phi ptr [ %.021.lcssa37.i73, %174 ], [ %.021.lcssa.i62, %._crit_edge.i61 ]
+  %.021.lcssa35.i64 = phi ptr [ %.021.lcssa36.i73, %174 ], [ %.021.lcssa.i62, %._crit_edge.i61 ]
   %.sroa.07.0.i65 = phi ptr [ %175, %174 ], [ %.021.lcssa.i62, %._crit_edge.i61 ]
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i65, i64 32
   %178 = load i64, ptr %177, align 8, !tbaa !112
@@ -18624,7 +18624,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i76: ; preds = %.
 181:                                              ; preds = %176
   %182 = and i64 %178, 1
   %.not.i.i5.i71 = icmp eq i64 %182, 0
-  %183 = and i64 %.fr28.i53, 1
+  %183 = and i64 %.fr.i53, 1
   %184 = icmp ne i64 %183, 0
   %185 = and i1 %184, %.not.i.i5.i71
   br i1 %185, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit, label %187
@@ -18638,7 +18638,7 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i66: ; preds = %
 
 _ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE24_M_get_insert_unique_posERKS3_.exit: ; preds = %187, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i66, %181, %._crit_edge.thread.i72, %128, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i30, %122, %._crit_edge.thread.i36, %62, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i, %56, %._crit_edge.thread.i, %149, %92, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit47, %129, %133, %76, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit, %18
   %.sroa.0102.0 = phi ptr [ null, %18 ], [ null, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit ], [ %78, %76 ], [ null, %133 ], [ %1, %129 ], [ %1, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit47 ], [ %spec.select, %92 ], [ %spec.select104, %149 ], [ %.sroa.07.0.i, %62 ], [ null, %._crit_edge.thread.i ], [ null, %56 ], [ null, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ %.sroa.07.0.i29, %128 ], [ null, %._crit_edge.thread.i36 ], [ null, %122 ], [ null, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i30 ], [ %.sroa.07.0.i65, %187 ], [ null, %._crit_edge.thread.i72 ], [ null, %181 ], [ null, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i66 ]
-  %.sroa.12.0 = phi ptr [ %11, %18 ], [ %11, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit ], [ %78, %76 ], [ %135, %133 ], [ null, %129 ], [ null, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit47 ], [ %spec.select103, %92 ], [ %spec.select105, %149 ], [ null, %62 ], [ %.021.lcssa37.i, %._crit_edge.thread.i ], [ %.021.lcssa36.i, %56 ], [ %.021.lcssa36.i, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ null, %128 ], [ %.021.lcssa37.i37, %._crit_edge.thread.i36 ], [ %.021.lcssa36.i28, %122 ], [ %.021.lcssa36.i28, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i30 ], [ null, %187 ], [ %.021.lcssa37.i73, %._crit_edge.thread.i72 ], [ %.021.lcssa36.i64, %181 ], [ %.021.lcssa36.i64, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i66 ]
+  %.sroa.12.0 = phi ptr [ %11, %18 ], [ %11, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit ], [ %78, %76 ], [ %135, %133 ], [ null, %129 ], [ null, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit47 ], [ %spec.select103, %92 ], [ %spec.select105, %149 ], [ null, %62 ], [ %.021.lcssa36.i, %._crit_edge.thread.i ], [ %.021.lcssa35.i, %56 ], [ %.021.lcssa35.i, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ null, %128 ], [ %.021.lcssa36.i37, %._crit_edge.thread.i36 ], [ %.021.lcssa35.i28, %122 ], [ %.021.lcssa35.i28, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i30 ], [ null, %187 ], [ %.021.lcssa36.i73, %._crit_edge.thread.i72 ], [ %.021.lcssa35.i64, %181 ], [ %.021.lcssa35.i64, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i66 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.0102.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -18660,12 +18660,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN4cvc58internal4prop10Sat
   %.02223.i = load ptr, ptr %3, align 8, !tbaa !248
   %.not24.i = icmp eq ptr %.02223.i, null
   %.pre.i.pre.pre = load i64, ptr %1, align 8, !tbaa !99
-  %.fr28.i = freeze i64 %.pre.i.pre.pre
+  %.fr.i = freeze i64 %.pre.i.pre.pre
   br i1 %.not24.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = lshr i64 %.fr28.i, 1
-  %6 = and i64 %.fr28.i, 1
+  %5 = lshr i64 %.fr.i, 1
+  %6 = and i64 %.fr.i, 1
   %.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
@@ -18691,8 +18691,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN4cvc58internal4prop10Sat
 
 15:                                               ; preds = %.lr.ph.split.i
   %16 = and i64 %12, 1
-  %.not29.i = icmp eq i64 %16, 0
-  br i1 %.not29.i, label %18, label %19
+  %.not28.i = icmp eq i64 %16, 0
+  br i1 %.not28.i, label %18, label %19
 
 _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr.ph.split.i
   %17 = icmp samesign ult i64 %5, %13
@@ -18702,9 +18702,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br label %19
 
 19:                                               ; preds = %18, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i, %15
-  %.sink39.i = phi i64 [ 24, %18 ], [ 16, %15 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
+  %.sink38.i = phi i64 [ 24, %18 ], [ 16, %15 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
   %20 = phi i1 [ false, %18 ], [ true, %15 ], [ true, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 %.sink39.i
+  %21 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 %.sink38.i
   %.022.i = load ptr, ptr %21, align 8, !tbaa !248
   %.not.i = icmp eq ptr %.022.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !426
@@ -18715,30 +18715,30 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br i1 %.0.lcssa.i, label %._crit_edge.thread.i, label %27
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.021.lcssa37.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %2 ]
+  %.021.lcssa36.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %2 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !118
-  %24 = icmp eq ptr %.021.lcssa37.i, %23
+  %24 = icmp eq ptr %.021.lcssa36.i, %23
   br i1 %24, label %39, label %25
 
 25:                                               ; preds = %._crit_edge.thread.i
-  %26 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa37.i) #30
+  %26 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa36.i) #30
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i
-  %.021.lcssa36.i = phi ptr [ %.021.lcssa37.i, %25 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %.021.lcssa35.i = phi ptr [ %.021.lcssa36.i, %25 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %26, %25 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !112
   %30 = lshr i64 %29, 1
-  %31 = lshr i64 %.fr28.i, 1
+  %31 = lshr i64 %.fr.i, 1
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i
 
 33:                                               ; preds = %27
   %34 = and i64 %29, 1
   %.not.i.i5.i = icmp eq i64 %34, 0
-  %35 = and i64 %.fr28.i, 1
+  %35 = and i64 %.fr.i, 1
   %36 = icmp ne i64 %35, 0
   %37 = and i1 %.not.i.i5.i, %36
   br i1 %37, label %39, label %60
@@ -18748,20 +18748,20 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i: ; preds = %27
   br i1 %38, label %39, label %60
 
 39:                                               ; preds = %._crit_edge.thread.i, %33, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i
-  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa36.i, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ %.021.lcssa36.i, %33 ], [ %.021.lcssa37.i, %._crit_edge.thread.i ]
+  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa35.i, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ %.021.lcssa35.i, %33 ], [ %.021.lcssa36.i, %._crit_edge.thread.i ]
   %40 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %40, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit, label %41
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %43 = lshr i64 %.fr28.i, 1
+  %43 = lshr i64 %.fr.i, 1
   %44 = load i64, ptr %42, align 8, !tbaa !112
   %45 = lshr i64 %44, 1
   %46 = icmp eq i64 %43, %45
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %41
-  %48 = and i64 %.fr28.i, 1
+  %48 = and i64 %.fr.i, 1
   %.not.i.i.i8 = icmp eq i64 %48, 0
   %49 = and i64 %44, 1
   %50 = icmp ne i64 %49, 0
@@ -18776,7 +18776,7 @@ _ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_E
   %54 = phi i1 [ true, %39 ], [ %51, %47 ], [ %53, %52 ]
   %55 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i64 %.fr28.i, ptr %56, align 8, !tbaa !99
+  store i64 %.fr.i, ptr %56, align 8, !tbaa !99
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %54, ptr noundef nonnull %55, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !120
@@ -20182,12 +20182,12 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN4cvc58internal4prop10Sat
   %.02223.i = load ptr, ptr %3, align 8, !tbaa !248
   %.not24.i = icmp eq ptr %.02223.i, null
   %.pre.i.pre.pre = load i64, ptr %1, align 8, !tbaa !99
-  %.fr28.i = freeze i64 %.pre.i.pre.pre
+  %.fr.i = freeze i64 %.pre.i.pre.pre
   br i1 %.not24.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %5 = lshr i64 %.fr28.i, 1
-  %6 = and i64 %.fr28.i, 1
+  %5 = lshr i64 %.fr.i, 1
+  %6 = and i64 %.fr.i, 1
   %.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
@@ -20213,8 +20213,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt8_Rb_treeIN4cvc58internal4prop10Sat
 
 15:                                               ; preds = %.lr.ph.split.i
   %16 = and i64 %12, 1
-  %.not29.i = icmp eq i64 %16, 0
-  br i1 %.not29.i, label %18, label %19
+  %.not28.i = icmp eq i64 %16, 0
+  br i1 %.not28.i, label %18, label %19
 
 _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr.ph.split.i
   %17 = icmp samesign ult i64 %5, %13
@@ -20224,9 +20224,9 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br label %19
 
 19:                                               ; preds = %18, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i, %15
-  %.sink39.i = phi i64 [ 24, %18 ], [ 16, %15 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
+  %.sink38.i = phi i64 [ 24, %18 ], [ 16, %15 ], [ 16, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
   %20 = phi i1 [ false, %18 ], [ true, %15 ], [ true, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 %.sink39.i
+  %21 = getelementptr inbounds nuw i8, ptr %.02225.i, i64 %.sink38.i
   %.022.i = load ptr, ptr %21, align 8, !tbaa !248
   %.not.i = icmp eq ptr %.022.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !426
@@ -20237,30 +20237,30 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit.i: ; preds = %.lr
   br i1 %.0.lcssa.i, label %._crit_edge.thread.i, label %27
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.021.lcssa37.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %2 ]
+  %.021.lcssa36.i = phi ptr [ %.021.lcssa.i, %._crit_edge.i ], [ %4, %2 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !118
-  %24 = icmp eq ptr %.021.lcssa37.i, %23
+  %24 = icmp eq ptr %.021.lcssa36.i, %23
   br i1 %24, label %39, label %25
 
 25:                                               ; preds = %._crit_edge.thread.i
-  %26 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa37.i) #30
+  %26 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa36.i) #30
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge.i
-  %.021.lcssa36.i = phi ptr [ %.021.lcssa37.i, %25 ], [ %.021.lcssa.i, %._crit_edge.i ]
+  %.021.lcssa35.i = phi ptr [ %.021.lcssa36.i, %25 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %26, %25 ], [ %.021.lcssa.i, %._crit_edge.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !112
   %30 = lshr i64 %29, 1
-  %31 = lshr i64 %.fr28.i, 1
+  %31 = lshr i64 %.fr.i, 1
   %32 = icmp eq i64 %30, %31
   br i1 %32, label %33, label %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i
 
 33:                                               ; preds = %27
   %34 = and i64 %29, 1
   %.not.i.i5.i = icmp eq i64 %34, 0
-  %35 = and i64 %.fr28.i, 1
+  %35 = and i64 %.fr.i, 1
   %36 = icmp ne i64 %35, 0
   %37 = and i1 %.not.i.i5.i, %36
   br i1 %37, label %39, label %60
@@ -20270,20 +20270,20 @@ _ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i: ; preds = %27
   br i1 %38, label %39, label %60
 
 39:                                               ; preds = %._crit_edge.thread.i, %33, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i
-  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa36.i, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ %.021.lcssa36.i, %33 ], [ %.021.lcssa37.i, %._crit_edge.thread.i ]
+  %.sroa.4.0.i.ph = phi ptr [ %.021.lcssa35.i, %_ZNKSt4lessIN4cvc58internal4prop10SatLiteralEEclERKS3_S6_.exit6.i ], [ %.021.lcssa35.i, %33 ], [ %.021.lcssa36.i, %._crit_edge.thread.i ]
   %40 = icmp eq ptr %.sroa.4.0.i.ph, %4
   br i1 %40, label %_ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit, label %41
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph, i64 32
-  %43 = lshr i64 %.fr28.i, 1
+  %43 = lshr i64 %.fr.i, 1
   %44 = load i64, ptr %42, align 8, !tbaa !112
   %45 = lshr i64 %44, 1
   %46 = icmp eq i64 %43, %45
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %41
-  %48 = and i64 %.fr28.i, 1
+  %48 = and i64 %.fr.i, 1
   %.not.i.i.i8 = icmp eq i64 %48, 0
   %49 = and i64 %44, 1
   %50 = icmp ne i64 %49, 0
@@ -20298,7 +20298,7 @@ _ZNSt8_Rb_treeIN4cvc58internal4prop10SatLiteralES3_St9_IdentityIS3_ESt4lessIS3_E
   %54 = phi i1 [ true, %39 ], [ %51, %47 ], [ %53, %52 ]
   %55 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i64 %.fr28.i, ptr %56, align 8, !tbaa !99
+  store i64 %.fr.i, ptr %56, align 8, !tbaa !99
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %54, ptr noundef nonnull %55, ptr noundef nonnull %.sroa.4.0.i.ph, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i64, ptr %57, align 8, !tbaa !120

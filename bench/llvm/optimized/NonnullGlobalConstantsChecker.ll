@@ -643,12 +643,12 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i.i: ; preds = %57, %54
   %65 = and i64 %.sroa.0.0.copyload.i.i.i, -16
   %66 = inttoptr i64 %65 to ptr
   %67 = load ptr, ptr %66, align 16, !tbaa !569
-  %.not4693.i.i = icmp eq ptr %67, null
-  br i1 %.not4693.i.i, label %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i, label %.lr.ph.i.i
+  %.not4692.i.i = icmp eq ptr %67, null
+  br i1 %.not4692.i.i, label %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %100
   %68 = phi ptr [ %103, %100 ], [ %67, %.preheader.i.i ]
-  %.03594.i.i = phi i1 [ %.136.i.i, %100 ], [ %63, %.preheader.i.i ]
+  %.03593.i.i = phi i1 [ %.136.i.i, %100 ], [ %63, %.preheader.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i8, ptr %69, align 16
   switch i8 %70, label %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit.i [
@@ -693,7 +693,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i.i: ; preds = %57, %54
   %.sroa.0.0.i.i.i = load i64, ptr %.sroa.0.0.in.i.i.i, align 8, !tbaa !568
   %91 = and i64 %.sroa.0.0.i.i.i, 1
   %.not.i55.i.i = icmp ne i64 %91, 0
-  %or.cond85.not.i.i = select i1 %.03594.i.i, i1 true, i1 %.not.i55.i.i
+  %or.cond85.not.i.i = select i1 %.03593.i.i, i1 true, i1 %.not.i55.i.i
   br i1 %or.cond85.not.i.i, label %98, label %92
 
 92:                                               ; preds = %84
@@ -714,7 +714,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit.i.i: ; preds = %57, %54
 
 100:                                              ; preds = %98, %74
   %.sroa.058.1.i.i = phi i64 [ %.sroa.0.0.copyload.i51.i.i, %74 ], [ %.sroa.0.0.i.i.i, %98 ]
-  %.136.i.i = phi i1 [ %.03594.i.i, %74 ], [ %.fr.i.i, %98 ]
+  %.136.i.i = phi i1 [ %.03593.i.i, %74 ], [ %.fr.i.i, %98 ]
   %101 = and i64 %.sroa.058.1.i.i, -16
   %102 = inttoptr i64 %101 to ptr
   %103 = load ptr, ptr %102, align 16, !tbaa !569

@@ -1095,196 +1095,196 @@ _ZN12ByteStreamBE6get_u8Ev.exit:                  ; preds = %_ZN12ByteStreamBE7g
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
+  %.fr60 = freeze ptr %26
   %27 = load ptr, ptr %24, align 8
-  %28 = icmp ne ptr %26, %27
-  %.fr = freeze i1 %28
-  br i1 %.fr, label %.lr.ph56.split.us, label %.lr.ph56.split
+  %.fr61 = freeze ptr %27
+  %28 = ptrtoint ptr %.fr60 to i64
+  %29 = ptrtoint ptr %.fr61 to i64
+  %30 = sub i64 %28, %29
+  %31 = sdiv exact i64 %30, 20
+  %.not62 = icmp eq ptr %.fr60, %.fr61
+  br i1 %.not62, label %.lr.ph56.split, label %.lr.ph56.split.us
 
 .lr.ph56.split.us:                                ; preds = %.lr.ph56
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %27 to i64
-  %31 = sub i64 %29, %30
-  %32 = sdiv exact i64 %31, 20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load i8, ptr %33, align 8, !range !55
-  %.fr60 = freeze i8 %34
-  %35 = trunc i8 %.fr60 to i1
-  %umax77 = tail call i64 @llvm.umax.i64(i64 %32, i64 1)
-  %36 = zext i32 %20 to i64
-  %37 = zext i32 %10 to i64
-  br i1 %35, label %.lr.ph56.split.us.split.us, label %.lr.ph56.split.us.split
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = load i8, ptr %32, align 8, !range !55
+  %.fr = freeze i8 %33
+  %34 = trunc i8 %.fr to i1
+  %35 = zext i32 %20 to i64
+  %36 = zext i32 %10 to i64
+  br i1 %34, label %.lr.ph56.split.us.split.us, label %.lr.ph56.split.us.split
 
-.lr.ph56.split.us.split.us:                       ; preds = %.lr.ph56.split.us, %50
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %50 ], [ %36, %.lr.ph56.split.us ]
-  %.03055.us.us = phi i32 [ %55, %50 ], [ 0, %.lr.ph56.split.us ]
-  %.not.i39.us.us = icmp samesign ult i64 %indvars.iv79, %37
+.lr.ph56.split.us.split.us:                       ; preds = %.lr.ph56.split.us, %49
+  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %49 ], [ %35, %.lr.ph56.split.us ]
+  %.03055.us.us = phi i32 [ %54, %49 ], [ 0, %.lr.ph56.split.us ]
+  %.not.i39.us.us = icmp samesign ult i64 %indvars.iv81, %36
   br i1 %.not.i39.us.us, label %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us, label %.split.us
 
 _ZN12ByteStreamBE6get_u8Ev.exit40.us.us:          ; preds = %.lr.ph56.split.us.split.us
-  %38 = add nuw nsw i64 %indvars.iv79, 1
-  %39 = trunc nuw i64 %38 to i32
-  store i32 %39, ptr %6, align 4, !tbaa !6
-  br label %40
+  %37 = add nuw nsw i64 %indvars.iv81, 1
+  %38 = trunc nuw i64 %37 to i32
+  store i32 %38, ptr %6, align 4, !tbaa !6
+  br label %39
 
-40:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us, %44
-  %indvars.iv74 = phi i64 [ 0, %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us ], [ %indvars.iv.next75, %44 ]
-  %41 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %indvars.iv74
-  %42 = load i32, ptr %41, align 4, !tbaa !64
-  %43 = icmp eq i32 %42, %.03055.us.us
-  br i1 %43, label %45, label %44
+39:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us, %43
+  %indvars.iv76 = phi i64 [ 0, %_ZN12ByteStreamBE6get_u8Ev.exit40.us.us ], [ %indvars.iv.next77, %43 ]
+  %40 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %.fr61, i64 %indvars.iv76
+  %41 = load i32, ptr %40, align 4, !tbaa !64
+  %42 = icmp eq i32 %41, %.03055.us.us
+  br i1 %42, label %44, label %43
 
-44:                                               ; preds = %40
-  %indvars.iv.next75 = add nuw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %umax77
-  br i1 %exitcond78.not, label %.critedge, label %40, !llvm.loop !75
+43:                                               ; preds = %39
+  %indvars.iv.next77 = add nuw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %31
+  br i1 %exitcond80.not, label %.critedge, label %39, !llvm.loop !75
 
-45:                                               ; preds = %40
-  %.not.i41.us.us = icmp samesign ult i64 %38, %37
+44:                                               ; preds = %39
+  %.not.i41.us.us = icmp samesign ult i64 %37, %36
   br i1 %.not.i41.us.us, label %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us, label %.split58.us
 
-_ZN12ByteStreamBE6get_u8Ev.exit42.us.us:          ; preds = %45
-  %46 = getelementptr inbounds nuw i8, ptr %14, i64 %38
-  %47 = load i8, ptr %46, align 1, !tbaa !15
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 2
-  %48 = trunc nuw i64 %indvars.iv.next80 to i32
-  store i32 %48, ptr %6, align 4, !tbaa !6
-  %49 = icmp ult i8 %47, 64
-  br i1 %49, label %50, label %.critedge
+_ZN12ByteStreamBE6get_u8Ev.exit42.us.us:          ; preds = %44
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 %37
+  %46 = load i8, ptr %45, align 1, !tbaa !15
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 2
+  %47 = trunc nuw i64 %indvars.iv.next82 to i32
+  store i32 %47, ptr %6, align 4, !tbaa !6
+  %48 = icmp ult i8 %46, 64
+  br i1 %48, label %49, label %.critedge
 
-50:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us
-  %51 = lshr i8 %47, 4
-  %52 = zext nneg i8 %51 to i32
-  %53 = and i64 %indvars.iv74, 4294967295
-  %54 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %53, i32 2
-  store i32 %52, ptr %54, align 4, !tbaa !67
-  %55 = add nuw i32 %.03055.us.us, 1
-  %exitcond82.not = icmp eq i32 %55, %21
-  br i1 %exitcond82.not, label %.critedge38, label %.lr.ph56.split.us.split.us, !llvm.loop !76
+49:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us
+  %50 = lshr i8 %46, 4
+  %51 = zext nneg i8 %50 to i32
+  %52 = and i64 %indvars.iv76, 4294967295
+  %53 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %.fr61, i64 %52, i32 2
+  store i32 %51, ptr %53, align 4, !tbaa !67
+  %54 = add nuw i32 %.03055.us.us, 1
+  %exitcond84.not = icmp eq i32 %54, %21
+  br i1 %exitcond84.not, label %.critedge38, label %.lr.ph56.split.us.split.us, !llvm.loop !76
 
-.lr.ph56.split.us.split:                          ; preds = %.lr.ph56.split.us, %71
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %71 ], [ %36, %.lr.ph56.split.us ]
-  %.03055.us = phi i32 [ %76, %71 ], [ 0, %.lr.ph56.split.us ]
-  %.not.i39.us = icmp samesign ult i64 %indvars.iv70, %37
+.lr.ph56.split.us.split:                          ; preds = %.lr.ph56.split.us, %70
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %70 ], [ %35, %.lr.ph56.split.us ]
+  %.03055.us = phi i32 [ %75, %70 ], [ 0, %.lr.ph56.split.us ]
+  %.not.i39.us = icmp samesign ult i64 %indvars.iv72, %36
   br i1 %.not.i39.us, label %_ZN12ByteStreamBE6get_u8Ev.exit40.us, label %.split.us
 
 _ZN12ByteStreamBE6get_u8Ev.exit40.us:             ; preds = %.lr.ph56.split.us.split
-  %56 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv70
-  %57 = load i8, ptr %56, align 1, !tbaa !15
-  %58 = add nuw nsw i64 %indvars.iv70, 1
-  %59 = trunc nuw i64 %58 to i32
-  store i32 %59, ptr %6, align 4, !tbaa !6
-  %60 = zext i8 %57 to i32
-  br label %61
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv72
+  %56 = load i8, ptr %55, align 1, !tbaa !15
+  %57 = add nuw nsw i64 %indvars.iv72, 1
+  %58 = trunc nuw i64 %57 to i32
+  store i32 %58, ptr %6, align 4, !tbaa !6
+  %59 = zext i8 %56 to i32
+  br label %60
 
-61:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit40.us, %65
-  %indvars.iv = phi i64 [ 0, %_ZN12ByteStreamBE6get_u8Ev.exit40.us ], [ %indvars.iv.next, %65 ]
-  %62 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 4, !tbaa !64
-  %64 = icmp eq i32 %63, %60
-  br i1 %64, label %66, label %65
+60:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit40.us, %64
+  %indvars.iv = phi i64 [ 0, %_ZN12ByteStreamBE6get_u8Ev.exit40.us ], [ %indvars.iv.next, %64 ]
+  %61 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %.fr61, i64 %indvars.iv
+  %62 = load i32, ptr %61, align 4, !tbaa !64
+  %63 = icmp eq i32 %62, %59
+  br i1 %63, label %65, label %64
 
-65:                                               ; preds = %61
+64:                                               ; preds = %60
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %umax77
-  br i1 %exitcond.not, label %.critedge, label %61, !llvm.loop !75
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %31
+  br i1 %exitcond.not, label %.critedge, label %60, !llvm.loop !75
 
-66:                                               ; preds = %61
-  %.not.i41.us = icmp samesign ult i64 %58, %37
+65:                                               ; preds = %60
+  %.not.i41.us = icmp samesign ult i64 %57, %36
   br i1 %.not.i41.us, label %_ZN12ByteStreamBE6get_u8Ev.exit42.us, label %.split58.us
 
-_ZN12ByteStreamBE6get_u8Ev.exit42.us:             ; preds = %66
-  %67 = getelementptr inbounds nuw i8, ptr %14, i64 %58
-  %68 = load i8, ptr %67, align 1, !tbaa !15
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 2
-  %69 = trunc nuw i64 %indvars.iv.next71 to i32
-  store i32 %69, ptr %6, align 4, !tbaa !6
-  %70 = icmp ult i8 %68, 64
-  br i1 %70, label %71, label %.critedge
+_ZN12ByteStreamBE6get_u8Ev.exit42.us:             ; preds = %65
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 %57
+  %67 = load i8, ptr %66, align 1, !tbaa !15
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 2
+  %68 = trunc nuw i64 %indvars.iv.next73 to i32
+  store i32 %68, ptr %6, align 4, !tbaa !6
+  %69 = icmp ult i8 %67, 64
+  br i1 %69, label %70, label %.critedge
 
-71:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us
-  %72 = lshr i8 %68, 4
-  %73 = zext nneg i8 %72 to i32
-  %74 = and i64 %indvars.iv, 4294967295
-  %75 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %27, i64 %74, i32 2
-  store i32 %73, ptr %75, align 4, !tbaa !67
-  %76 = add nuw i32 %.03055.us, 1
-  %exitcond73.not = icmp eq i32 %76, %21
-  br i1 %exitcond73.not, label %.critedge38, label %.lr.ph56.split.us.split, !llvm.loop !76
+70:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us
+  %71 = lshr i8 %67, 4
+  %72 = zext nneg i8 %71 to i32
+  %73 = and i64 %indvars.iv, 4294967295
+  %74 = getelementptr inbounds nuw %struct.LibRaw_JpegComponentInfo, ptr %.fr61, i64 %73, i32 2
+  store i32 %72, ptr %74, align 4, !tbaa !67
+  %75 = add nuw i32 %.03055.us, 1
+  %exitcond75.not = icmp eq i32 %75, %21
+  br i1 %exitcond75.not, label %.critedge38, label %.lr.ph56.split.us.split, !llvm.loop !76
 
 .lr.ph56.split:                                   ; preds = %.lr.ph56
   %.not.i39 = icmp ult i32 %20, %10
   br i1 %.not.i39, label %_ZN12ByteStreamBE6get_u8Ev.exit40, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph56.split.us.split, %.lr.ph56.split.us.split.us, %.lr.ph56.split
-  %77 = tail call ptr @__cxa_allocate_exception(i64 4) #17
-  store i32 1, ptr %77, align 16, !tbaa !36
-  tail call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
+  %76 = tail call ptr @__cxa_allocate_exception(i64 4) #17
+  store i32 1, ptr %76, align 16, !tbaa !36
+  tail call void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
   unreachable
 
 _ZN12ByteStreamBE6get_u8Ev.exit40:                ; preds = %.lr.ph56.split
-  %78 = add i32 %7, 4
-  store i32 %78, ptr %6, align 4, !tbaa !6
+  %77 = add i32 %7, 4
+  store i32 %77, ptr %6, align 4, !tbaa !6
   br label %.critedge
 
-.split58.us:                                      ; preds = %66, %45
-  %79 = tail call ptr @__cxa_allocate_exception(i64 4) #17
-  store i32 1, ptr %79, align 16, !tbaa !36
-  tail call void @__cxa_throw(ptr nonnull %79, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
+.split58.us:                                      ; preds = %65, %44
+  %78 = tail call ptr @__cxa_allocate_exception(i64 4) #17
+  store i32 1, ptr %78, align 16, !tbaa !36
+  tail call void @__cxa_throw(ptr nonnull %78, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
   unreachable
 
-.critedge38:                                      ; preds = %71, %50, %.preheader
-  %80 = load i32, ptr %6, align 4, !tbaa !6
-  %.not.i43 = icmp ult i32 %80, %10
-  br i1 %.not.i43, label %_ZN12ByteStreamBE6get_u8Ev.exit44, label %81
+.critedge38:                                      ; preds = %70, %49, %.preheader
+  %79 = load i32, ptr %6, align 4, !tbaa !6
+  %.not.i43 = icmp ult i32 %79, %10
+  br i1 %.not.i43, label %_ZN12ByteStreamBE6get_u8Ev.exit44, label %80
 
-81:                                               ; preds = %.critedge38
-  %82 = tail call ptr @__cxa_allocate_exception(i64 4) #17
-  store i32 1, ptr %82, align 16, !tbaa !36
-  tail call void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
+80:                                               ; preds = %.critedge38
+  %81 = tail call ptr @__cxa_allocate_exception(i64 4) #17
+  store i32 1, ptr %81, align 16, !tbaa !36
+  tail call void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
   unreachable
 
 _ZN12ByteStreamBE6get_u8Ev.exit44:                ; preds = %.critedge38
-  %83 = zext i32 %80 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %14, i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !15
-  %86 = add nuw i32 %80, 1
-  store i32 %86, ptr %6, align 4, !tbaa !6
-  %.not.i45 = icmp ult i32 %86, %10
-  br i1 %.not.i45, label %_ZN12ByteStreamBE6get_u8Ev.exit46, label %87
+  %82 = zext i32 %79 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 %82
+  %84 = load i8, ptr %83, align 1, !tbaa !15
+  %85 = add nuw i32 %79, 1
+  store i32 %85, ptr %6, align 4, !tbaa !6
+  %.not.i45 = icmp ult i32 %85, %10
+  br i1 %.not.i45, label %_ZN12ByteStreamBE6get_u8Ev.exit46, label %86
 
-87:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit44
-  %88 = tail call ptr @__cxa_allocate_exception(i64 4) #17
-  store i32 1, ptr %88, align 16, !tbaa !36
-  tail call void @__cxa_throw(ptr nonnull %88, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
+86:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit44
+  %87 = tail call ptr @__cxa_allocate_exception(i64 4) #17
+  store i32 1, ptr %87, align 16, !tbaa !36
+  tail call void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
   unreachable
 
 _ZN12ByteStreamBE6get_u8Ev.exit46:                ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit44
-  %89 = add nuw i32 %80, 2
-  store i32 %89, ptr %6, align 4, !tbaa !6
-  %.not.i47 = icmp ult i32 %89, %10
-  br i1 %.not.i47, label %_ZN12ByteStreamBE6get_u8Ev.exit48, label %90
+  %88 = add nuw i32 %79, 2
+  store i32 %88, ptr %6, align 4, !tbaa !6
+  %.not.i47 = icmp ult i32 %88, %10
+  br i1 %.not.i47, label %_ZN12ByteStreamBE6get_u8Ev.exit48, label %89
 
-90:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit46
-  %91 = tail call ptr @__cxa_allocate_exception(i64 4) #17
-  store i32 1, ptr %91, align 16, !tbaa !36
-  tail call void @__cxa_throw(ptr nonnull %91, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
+89:                                               ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit46
+  %90 = tail call ptr @__cxa_allocate_exception(i64 4) #17
+  store i32 1, ptr %90, align 16, !tbaa !36
+  tail call void @__cxa_throw(ptr nonnull %90, ptr nonnull @_ZTIN12ByteStreamBE10ExceptionsE, ptr null) #19
   unreachable
 
 _ZN12ByteStreamBE6get_u8Ev.exit48:                ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit46
-  %92 = zext i32 %89 to i64
-  %93 = getelementptr inbounds nuw i8, ptr %14, i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !15
-  %95 = add nuw i32 %80, 3
-  store i32 %95, ptr %6, align 4, !tbaa !6
-  %96 = and i8 %94, 15
-  %97 = zext i8 %85 to i32
-  %98 = shl nuw nsw i32 %97, 8
-  %99 = zext nneg i8 %96 to i32
-  %100 = or disjoint i32 %98, %99
+  %91 = zext i32 %88 to i64
+  %92 = getelementptr inbounds nuw i8, ptr %14, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !15
+  %94 = add nuw i32 %79, 3
+  store i32 %94, ptr %6, align 4, !tbaa !6
+  %95 = and i8 %93, 15
+  %96 = zext i8 %84 to i32
+  %97 = shl nuw nsw i32 %96, 8
+  %98 = zext nneg i8 %95 to i32
+  %99 = or disjoint i32 %97, %98
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us, %65, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us, %44, %_ZN12ByteStreamBE6get_u8Ev.exit40, %_ZN12ByteStreamBE6get_u8Ev.exit48, %_ZN12ByteStreamBE6get_u8Ev.exit, %2
-  %.0 = phi i32 [ 65536, %2 ], [ %100, %_ZN12ByteStreamBE6get_u8Ev.exit48 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit40 ], [ 65536, %44 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us ], [ 65536, %65 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us ]
+.critedge:                                        ; preds = %_ZN12ByteStreamBE6get_u8Ev.exit42.us, %64, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us, %43, %_ZN12ByteStreamBE6get_u8Ev.exit40, %_ZN12ByteStreamBE6get_u8Ev.exit48, %_ZN12ByteStreamBE6get_u8Ev.exit, %2
+  %.0 = phi i32 [ 65536, %2 ], [ %99, %_ZN12ByteStreamBE6get_u8Ev.exit48 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit40 ], [ 65536, %43 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us.us ], [ 65536, %64 ], [ 65536, %_ZN12ByteStreamBE6get_u8Ev.exit42.us ]
   ret i32 %.0
 }
 

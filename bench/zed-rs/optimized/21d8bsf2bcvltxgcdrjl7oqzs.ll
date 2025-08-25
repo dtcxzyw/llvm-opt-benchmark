@@ -29858,6 +29858,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %.val = load i64, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6732)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6735)
+  %.val4.fr.i = freeze i64 %.val
   %39 = invoke { i64, i64 } @_ZN7channel12channel_chat11ChannelChat23first_loaded_message_id17h980e8e1aeccfbb22E(ptr noalias noundef nonnull align 16 dereferenceable(528) %19)
           to label %.noexc9 unwind label %105
 
@@ -29865,7 +29866,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %40 = extractvalue { i64, i64 } %39, 0
   %switch.i = icmp ne i64 %40, 1
   %41 = extractvalue { i64, i64 } %39, 1
-  %.not.i = icmp ugt i64 %41, %.val
+  %.not.i = icmp ugt i64 %41, %.val4.fr.i
   %or.cond.i = select i1 %switch.i, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %42, label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h4034ffbeb78e165fE.exit.i"
 
@@ -29909,7 +29910,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 681
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6739
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %.val, ptr %56, align 8, !noalias !6739
+  store i64 %.val4.fr.i, ptr %56, align 8, !noalias !6739
   store i64 0, ptr %7, align 8, !noalias !6739
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6750)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6753)
@@ -30022,9 +30023,9 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %101 = getelementptr i8, ptr %100, i64 8
   %.val7.i.i = load i64, ptr %101, align 8, !alias.scope !6771, !noalias !6763
   %102 = icmp eq i64 %.val6.i.i, 0
-  %103 = icmp eq i64 %.val7.i.i, %.val
-  %.fr.i = freeze i1 %103
-  %spec.select.i.i.i = and i1 %102, %.fr.i
+  %.val7.i.fr.i = freeze i64 %.val7.i.i
+  %103 = icmp eq i64 %.val7.i.fr.i, %.val4.fr.i
+  %spec.select.i.i.i = and i1 %102, %103
   %104 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !6739
   %spec.select.i = zext i1 %spec.select.i.i.i to i64
   store i64 %spec.select.i, ptr %.sink20.i.sroa.gep, align 8, !alias.scope !6732, !noalias !6737

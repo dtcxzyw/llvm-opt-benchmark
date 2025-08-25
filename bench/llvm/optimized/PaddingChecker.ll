@@ -3901,17 +3901,17 @@ _ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptim
   store i32 0, ptr %243, align 8, !tbaa !313, !noalias !315
   %244 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 20, ptr %244, align 4, !tbaa !314, !noalias !315
-  %.sroa.040.0.neg54.i = sub i64 0, %241
+  %.sroa.040.0.neg56.i = sub i64 0, %241
   %245 = load i32, ptr %192, align 8, !tbaa !313, !noalias !315
-  %.not.i1955.i = icmp eq i32 %245, 0
-  br i1 %.not.i1955.i, label %._crit_edge.i, label %.lr.ph.preheader.i.i.i.i
+  %.not.i1957.i = icmp eq i32 %245, 0
+  br i1 %.not.i1957.i, label %._crit_edge.i, label %.lr.ph.preheader.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i:                         ; preds = %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i, %325
-  %246 = phi i32 [ %326, %325 ], [ %245, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
-  %.sroa.040.0.neg58.i = phi i64 [ %.sroa.040.0.neg.i, %325 ], [ %.sroa.040.0.neg54.i, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
-  %.sroa.040.057.i = phi i64 [ %.sroa.040.1.i, %325 ], [ %241, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
-  %.sroa.037.056.i = phi i64 [ %.sroa.037.1.i, %325 ], [ 0, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
-  %247 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.040.057.i, i1 false)
+.lr.ph.preheader.i.i.i.i:                         ; preds = %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i, %324
+  %246 = phi i32 [ %325, %324 ], [ %245, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
+  %.sroa.040.0.neg60.i = phi i64 [ %.sroa.040.0.neg.i, %324 ], [ %.sroa.040.0.neg56.i, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
+  %.sroa.040.059.i = phi i64 [ %.sroa.040.1.i, %324 ], [ %241, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
+  %.sroa.037.058.i = phi i64 [ %.sroa.037.1.i, %324 ], [ 0, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ]
+  %247 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.040.059.i, i1 false)
   %248 = trunc nuw nsw i64 %247 to i32
   %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %248, i32 62)
   %249 = zext nneg i32 %.sroa.speculated.i to i64
@@ -3921,12 +3921,13 @@ _ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptim
   br label %252
 
 252:                                              ; preds = %.thread.i, %.lr.ph.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %286, %.thread.i ], [ %.val16.i, %.lr.ph.preheader.i.i.i.i ]
-  %.01115.i.i.i.i = phi i64 [ %285, %.thread.i ], [ %251, %.lr.ph.preheader.i.i.i.i ]
+  %.016.i.i.i.i = phi ptr [ %285, %.thread.i ], [ %.val16.i, %.lr.ph.preheader.i.i.i.i ]
+  %.01115.i.i.i.i = phi i64 [ %284, %.thread.i ], [ %251, %.lr.ph.preheader.i.i.i.i ]
   %253 = lshr i64 %.01115.i.i.i.i, 1
   %254 = getelementptr inbounds nuw %struct.FieldInfo, ptr %.016.i.i.i.i, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load i64, ptr %255, align 8, !tbaa !328, !noalias !315
+  %.fr.i = freeze i64 %256
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %258 = load ptr, ptr %257, align 8, !tbaa !321, !noalias !315
   %.not6.i.i = icmp eq ptr %258, null
@@ -3953,342 +3954,340 @@ _ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i8.i.i: ; preds = %263, %259
 268:                                              ; preds = %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i8.i.i
   call void @_ZNK5clang9FieldDecl19setCachedFieldIndexEv(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i9.i.i) #21, !noalias !315
   %.pre.i10.i.i = load i32, ptr %265, align 4, !noalias !315
-  %269 = icmp ult i32 %.pre.i10.i.i, 16
+  %.pre.i10.i.fr.i = freeze i32 %.pre.i10.i.i
+  %269 = icmp ult i32 %.pre.i10.i.fr.i, 16
   br label %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i
 
 _ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i: ; preds = %268, %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i8.i.i, %252
-  %270 = phi i1 [ false, %252 ], [ %269, %268 ], [ false, %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i8.i.i ]
-  %271 = load i64, ptr %254, align 8, !tbaa !12, !noalias !329
-  %272 = icmp slt i64 %250, %271
-  br i1 %272, label %.thread.i, label %273
+  %.fr54.i = phi i1 [ false, %252 ], [ %269, %268 ], [ false, %_ZNK5clang9FieldDecl16getCanonicalDeclEv.exit.i8.i.i ]
+  %270 = load i64, ptr %254, align 8, !tbaa !12, !noalias !329
+  %271 = icmp slt i64 %250, %270
+  br i1 %271, label %.thread.i, label %272
 
-273:                                              ; preds = %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i
-  %274 = icmp slt i64 %271, %250
-  br i1 %274, label %.thread51.i, label %278
+272:                                              ; preds = %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i
+  %273 = icmp slt i64 %270, %250
+  br i1 %273, label %.thread51.i, label %277
 
-.thread51.i:                                      ; preds = %273
-  %275 = getelementptr inbounds nuw i8, ptr %254, i64 24
-  %276 = xor i64 %253, -1
-  %277 = add nsw i64 %.01115.i.i.i.i, %276
+.thread51.i:                                      ; preds = %272
+  %274 = getelementptr inbounds nuw i8, ptr %254, i64 24
+  %275 = xor i64 %253, -1
+  %276 = add nsw i64 %.01115.i.i.i.i, %275
   br label %.thread.i
 
-278:                                              ; preds = %273
-  %279 = icmp slt i64 %256, 0
-  br i1 %279, label %.thread.i, label %_ZZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutEENK9FieldInfoltERKSB_.exit.i
+277:                                              ; preds = %272
+  %278 = icmp slt i64 %.fr.i, 0
+  %279 = icmp eq i64 %.fr.i, 0
+  %spec.select.i.i31 = and i1 %279, %.fr54.i
+  %or.cond55.i = or i1 %278, %spec.select.i.i31
+  br i1 %or.cond55.i, label %.thread.i, label %280
 
-_ZZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutEENK9FieldInfoltERKSB_.exit.i: ; preds = %278
-  %280 = icmp eq i64 %256, 0
-  %spec.select.i.i31 = select i1 %280, i1 %270, i1 false
-  %cond.fr.i = freeze i1 %spec.select.i.i31
-  br i1 %cond.fr.i, label %.thread.i, label %281
-
-281:                                              ; preds = %_ZZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutEENK9FieldInfoltERKSB_.exit.i
-  %282 = xor i64 %253, -1
-  %283 = add nsw i64 %.01115.i.i.i.i, %282
-  %284 = getelementptr inbounds nuw i8, ptr %254, i64 24
+280:                                              ; preds = %277
+  %281 = xor i64 %253, -1
+  %282 = add nsw i64 %.01115.i.i.i.i, %281
+  %283 = getelementptr inbounds nuw i8, ptr %254, i64 24
   br label %.thread.i
 
-.thread.i:                                        ; preds = %281, %_ZZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutEENK9FieldInfoltERKSB_.exit.i, %278, %.thread51.i, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i
-  %285 = phi i64 [ %277, %.thread51.i ], [ %253, %278 ], [ %253, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i ], [ %253, %_ZZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutEENK9FieldInfoltERKSB_.exit.i ], [ %283, %281 ]
-  %286 = phi ptr [ %275, %.thread51.i ], [ %.016.i.i.i.i, %278 ], [ %.016.i.i.i.i, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i ], [ %.016.i.i.i.i, %_ZZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS1_10ASTContextERKNS1_15ASTRecordLayoutEENK9FieldInfoltERKSB_.exit.i ], [ %284, %281 ]
-  %287 = icmp sgt i64 %285, 0
-  br i1 %287, label %252, label %_ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i, !llvm.loop !332
+.thread.i:                                        ; preds = %280, %277, %.thread51.i, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i
+  %284 = phi i64 [ %276, %.thread51.i ], [ %253, %277 ], [ %253, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i ], [ %282, %280 ]
+  %285 = phi ptr [ %274, %.thread51.i ], [ %.016.i.i.i.i, %277 ], [ %.016.i.i.i.i, %_ZNK5clang9FieldDecl13getFieldIndexEv.exit11.i.i ], [ %283, %280 ]
+  %286 = icmp sgt i64 %284, 0
+  br i1 %286, label %252, label %_ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i, !llvm.loop !332
 
 _ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i: ; preds = %.thread.i
   %.val.i = load ptr, ptr %6, align 8, !tbaa !311, !noalias !315
-  %.not.i32 = icmp eq ptr %286, %.val.i
-  br i1 %.not.i32, label %315, label %288
+  %.not.i32 = icmp eq ptr %285, %.val.i
+  br i1 %.not.i32, label %314, label %287
 
-288:                                              ; preds = %_ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i
-  %289 = getelementptr inbounds i8, ptr %286, i64 -24
-  %290 = getelementptr inbounds i8, ptr %286, i64 -16
-  %291 = load i64, ptr %290, align 8, !tbaa !328, !noalias !315
-  %292 = add nsw i64 %291, %.sroa.040.057.i
-  %293 = getelementptr inbounds i8, ptr %286, i64 -8
-  %294 = load ptr, ptr %293, align 8, !tbaa !321, !noalias !315
-  %295 = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
-  %296 = load i32, ptr %244, align 4, !tbaa !314, !noalias !315
-  %.not.i.i.not.i.i = icmp ult i32 %295, %296
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i, label %297, !prof !203
+287:                                              ; preds = %_ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i
+  %288 = getelementptr inbounds i8, ptr %285, i64 -24
+  %289 = getelementptr inbounds i8, ptr %285, i64 -16
+  %290 = load i64, ptr %289, align 8, !tbaa !328, !noalias !315
+  %291 = add nsw i64 %290, %.sroa.040.059.i
+  %292 = getelementptr inbounds i8, ptr %285, i64 -8
+  %293 = load ptr, ptr %292, align 8, !tbaa !321, !noalias !315
+  %294 = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
+  %295 = load i32, ptr %244, align 4, !tbaa !314, !noalias !315
+  %.not.i.i.not.i.i = icmp ult i32 %294, %295
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i, label %296, !prof !203
 
-297:                                              ; preds = %288
-  %298 = zext i32 %295 to i64
-  %299 = add nuw nsw i64 %298, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %242, i64 noundef %299, i64 noundef 8) #21, !noalias !315
+296:                                              ; preds = %287
+  %297 = zext i32 %294 to i64
+  %298 = add nuw nsw i64 %297, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %242, i64 noundef %298, i64 noundef 8) #21, !noalias !315
   %.pre.i.i33 = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i: ; preds = %297, %288
-  %300 = phi i32 [ %295, %288 ], [ %.pre.i.i33, %297 ]
-  %301 = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
-  %302 = zext i32 %300 to i64
-  %303 = getelementptr inbounds nuw ptr, ptr %301, i64 %302
-  %304 = ptrtoint ptr %294 to i64
-  store i64 %304, ptr %303, align 1, !noalias !315
-  %305 = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
-  %306 = add i32 %305, 1
-  store i32 %306, ptr %243, align 8, !tbaa !313, !noalias !315
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i: ; preds = %296, %287
+  %299 = phi i32 [ %294, %287 ], [ %.pre.i.i33, %296 ]
+  %300 = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
+  %301 = zext i32 %299 to i64
+  %302 = getelementptr inbounds nuw ptr, ptr %300, i64 %301
+  %303 = ptrtoint ptr %293 to i64
+  store i64 %303, ptr %302, align 1, !noalias !315
+  %304 = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
+  %305 = add i32 %304, 1
+  store i32 %305, ptr %243, align 8, !tbaa !313, !noalias !315
   %.val.i.i = load ptr, ptr %6, align 8, !tbaa !311, !noalias !315
   %.val6.i.i = load i32, ptr %192, align 8, !tbaa !313, !noalias !315
-  %307 = zext i32 %.val6.i.i to i64
-  %308 = getelementptr inbounds nuw %struct.FieldInfo, ptr %.val.i.i, i64 %307
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %308, %286
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i, label %309
+  %306 = zext i32 %.val6.i.i to i64
+  %307 = getelementptr inbounds nuw %struct.FieldInfo, ptr %.val.i.i, i64 %306
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %307, %285
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i, label %308
 
-309:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i
-  %310 = ptrtoint ptr %308 to i64
-  %311 = ptrtoint ptr %286 to i64
-  %312 = sub i64 %310, %311
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %289, ptr nonnull align 8 %286, i64 %312, i1 false), !noalias !315
+308:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i
+  %309 = ptrtoint ptr %307 to i64
+  %310 = ptrtoint ptr %285 to i64
+  %311 = sub i64 %309, %310
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %288, ptr nonnull align 8 %285, i64 %311, i1 false), !noalias !315
   %.pre.i22.i = load i32, ptr %192, align 8, !tbaa !313, !noalias !315
   br label %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i
 
-_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i: ; preds = %309, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i
-  %313 = phi i32 [ %.val6.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i ], [ %.pre.i22.i, %309 ]
-  %314 = add i32 %313, -1
-  store i32 %314, ptr %192, align 8, !tbaa !313, !noalias !315
-  br label %325
+_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i: ; preds = %308, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i
+  %312 = phi i32 [ %.val6.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE9push_backES4_.exit.i ], [ %.pre.i22.i, %308 ]
+  %313 = add i32 %312, -1
+  store i32 %313, ptr %192, align 8, !tbaa !313, !noalias !315
+  br label %324
 
-315:                                              ; preds = %_ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i
-  %316 = load i64, ptr %.val.i, align 8, !tbaa !328, !noalias !315
-  %317 = icmp ne i64 %.sroa.040.057.i, 0
-  %318 = zext i1 %317 to i64
-  %319 = sub i64 %.sroa.040.057.i, %318
-  %320 = udiv i64 %319, %316
-  %321 = add i64 %320, %318
-  %322 = mul i64 %321, %316
-  %323 = add i64 %.sroa.037.056.i, %.sroa.040.0.neg58.i
-  %324 = add i64 %323, %322
+314:                                              ; preds = %_ZN4llvm11upper_boundIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEERSE_EEDaOT_OT0_.exit.i
+  %315 = load i64, ptr %.val.i, align 8, !tbaa !328, !noalias !315
+  %316 = icmp ne i64 %.sroa.040.059.i, 0
+  %317 = zext i1 %316 to i64
+  %318 = sub i64 %.sroa.040.059.i, %317
+  %319 = udiv i64 %318, %315
+  %320 = add i64 %319, %317
+  %321 = mul i64 %320, %315
+  %322 = add i64 %.sroa.037.058.i, %.sroa.040.0.neg60.i
+  %323 = add i64 %322, %321
   %.pre.i = load i32, ptr %192, align 8, !tbaa !313, !noalias !315
-  br label %325
+  br label %324
 
-325:                                              ; preds = %315, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i
-  %326 = phi i32 [ %.pre.i, %315 ], [ %314, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i ]
-  %.sroa.037.1.i = phi i64 [ %324, %315 ], [ %.sroa.037.056.i, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i ]
-  %.sroa.040.1.i = phi i64 [ %322, %315 ], [ %292, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i ]
+324:                                              ; preds = %314, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i
+  %325 = phi i32 [ %.pre.i, %314 ], [ %313, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i ]
+  %.sroa.037.1.i = phi i64 [ %323, %314 ], [ %.sroa.037.058.i, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i ]
+  %.sroa.040.1.i = phi i64 [ %321, %314 ], [ %291, %_ZN4llvm15SmallVectorImplIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS3_10ASTContextERKNS3_15ASTRecordLayoutEE9FieldInfoE5eraseEPKSD_.exit.i ]
   %.sroa.040.0.neg.i = sub i64 0, %.sroa.040.1.i
-  %.not.i19.i = icmp eq i32 %326, 0
+  %.not.i19.i = icmp eq i32 %325, 0
   br i1 %.not.i19.i, label %._crit_edge.loopexit.i, label %.lr.ph.preheader.i.i.i.i, !llvm.loop !333
 
-._crit_edge.loopexit.i:                           ; preds = %325
-  %.pre63.i = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
-  %.pre66.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
+._crit_edge.loopexit.i:                           ; preds = %324
+  %.pre65.i = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
+  %.pre68.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i
-  %.pre66.i = phi ptr [ %242, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.pre66.pre.i, %._crit_edge.loopexit.i ]
-  %327 = phi i32 [ 0, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.pre63.i, %._crit_edge.loopexit.i ]
+  %.pre68.i = phi ptr [ %242, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.pre68.pre.i, %._crit_edge.loopexit.i ]
+  %326 = phi i32 [ 0, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.pre65.i, %._crit_edge.loopexit.i ]
   %.sroa.037.0.lcssa.i = phi i64 [ 0, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.sroa.037.1.i, %._crit_edge.loopexit.i ]
   %.sroa.040.0.lcssa.i = phi i64 [ %241, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.sroa.040.1.i, %._crit_edge.loopexit.i ]
-  %.sroa.040.0.neg.lcssa.i = phi i64 [ %.sroa.040.0.neg54.i, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.sroa.040.0.neg.i, %._crit_edge.loopexit.i ]
-  %328 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %.sroa.0.0.copyload.i.i34 = load i64, ptr %328, align 8, !tbaa !12, !noalias !315
-  %329 = icmp ne i64 %.sroa.040.0.lcssa.i, 0
-  %330 = zext i1 %329 to i64
-  %331 = sub i64 %.sroa.040.0.lcssa.i, %330
-  %332 = udiv i64 %331, %.sroa.0.0.copyload.i.i34
-  %333 = add i64 %332, %330
-  %334 = mul i64 %333, %.sroa.0.0.copyload.i.i34
-  %335 = add i64 %.sroa.040.0.neg.lcssa.i, %.sroa.037.0.lcssa.i
-  %336 = add i64 %335, %334
-  store i64 %336, ptr %9, align 8, !tbaa !12, !alias.scope !315
-  %337 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %338 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %338, ptr %337, align 8, !tbaa !311, !alias.scope !315
-  %339 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %339, align 8, !tbaa !313, !alias.scope !315
-  %340 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 20, ptr %340, align 4, !tbaa !314, !alias.scope !315
-  %.not.i.i.i23.i = icmp eq i32 %327, 0
-  br i1 %.not.i.i.i23.i, label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i, label %341
+  %.sroa.040.0.neg.lcssa.i = phi i64 [ %.sroa.040.0.neg56.i, %_ZN4llvm4sortIRNS_11SmallVectorIZN12_GLOBAL__N_114PaddingChecker19calculateOptimalPadEPKN5clang10RecordDeclERKNS4_10ASTContextERKNS4_15ASTRecordLayoutEE9FieldInfoLj20EEEEEvOT_.exit.i ], [ %.sroa.040.0.neg.i, %._crit_edge.loopexit.i ]
+  %327 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %.sroa.0.0.copyload.i.i34 = load i64, ptr %327, align 8, !tbaa !12, !noalias !315
+  %328 = icmp ne i64 %.sroa.040.0.lcssa.i, 0
+  %329 = zext i1 %328 to i64
+  %330 = sub i64 %.sroa.040.0.lcssa.i, %329
+  %331 = udiv i64 %330, %.sroa.0.0.copyload.i.i34
+  %332 = add i64 %331, %329
+  %333 = mul i64 %332, %.sroa.0.0.copyload.i.i34
+  %334 = add i64 %.sroa.040.0.neg.lcssa.i, %.sroa.037.0.lcssa.i
+  %335 = add i64 %334, %333
+  store i64 %335, ptr %9, align 8, !tbaa !12, !alias.scope !315
+  %336 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr %337, ptr %336, align 8, !tbaa !311, !alias.scope !315
+  %338 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 0, ptr %338, align 8, !tbaa !313, !alias.scope !315
+  %339 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  store i32 20, ptr %339, align 4, !tbaa !314, !alias.scope !315
+  %.not.i.i.i23.i = icmp eq i32 %326, 0
+  br i1 %.not.i.i.i23.i, label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i, label %340
 
-341:                                              ; preds = %._crit_edge.i
-  %342 = icmp eq ptr %.pre66.i, %242
-  br i1 %342, label %344, label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.thread.i
+340:                                              ; preds = %._crit_edge.i
+  %341 = icmp eq ptr %.pre68.i, %242
+  br i1 %341, label %343, label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.thread.i
 
-_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.thread.i: ; preds = %341
-  store ptr %.pre66.i, ptr %337, align 8, !tbaa !311, !alias.scope !315
-  store i32 %327, ptr %339, align 8, !tbaa !313, !alias.scope !315
-  %343 = load i32, ptr %244, align 4, !tbaa !314, !noalias !315
-  store i32 %343, ptr %340, align 4, !tbaa !314, !alias.scope !315
+_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.thread.i: ; preds = %340
+  store ptr %.pre68.i, ptr %336, align 8, !tbaa !311, !alias.scope !315
+  store i32 %326, ptr %338, align 8, !tbaa !313, !alias.scope !315
+  %342 = load i32, ptr %244, align 4, !tbaa !314, !noalias !315
+  store i32 %342, ptr %339, align 4, !tbaa !314, !alias.scope !315
   br label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i
 
-344:                                              ; preds = %341
-  %345 = zext i32 %327 to i64
-  %346 = icmp ugt i32 %327, 20
-  br i1 %346, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i
+343:                                              ; preds = %340
+  %344 = zext i32 %326 to i64
+  %345 = icmp ugt i32 %326, 20
+  br i1 %345, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i
 
-_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i: ; preds = %344
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %337, ptr noundef nonnull %338, i64 noundef %345, i64 noundef 8) #21
-  %.pre64.i = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
-  %.pre65.pre68.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
-  %.not.i.i.i27.i = icmp eq i32 %.pre64.i, 0
+_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i: ; preds = %343
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %336, ptr noundef nonnull %337, i64 noundef %344, i64 noundef 8) #21
+  %.pre66.i = load i32, ptr %243, align 8, !tbaa !313, !noalias !315
+  %.pre67.pre70.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
+  %.not.i.i.i27.i = icmp eq i32 %.pre66.i, 0
   br i1 %.not.i.i.i27.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge
 
 _ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge: ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i
-  %.pre71.i = zext i32 %.pre64.i to i64
-  %.pre = load ptr, ptr %337, align 8, !tbaa !311, !alias.scope !315
+  %.pre73.i = zext i32 %.pre66.i to i64
+  %.pre = load ptr, ptr %336, align 8, !tbaa !311, !alias.scope !315
   br label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i
 
-_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i: ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge, %344
-  %347 = phi ptr [ %.pre, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %338, %344 ]
-  %.pre65.pre6893.i = phi ptr [ %.pre65.pre68.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %.pre66.i, %344 ]
-  %.pre-phi92.i = phi i64 [ %.pre71.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %345, %344 ]
-  %gepdiff.i.i = shl nuw nsw i64 %.pre-phi92.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %347, ptr align 8 %.pre65.pre6893.i, i64 %gepdiff.i.i, i1 false)
-  %.pre65.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
+_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i: ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge, %343
+  %346 = phi ptr [ %.pre, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %337, %343 ]
+  %.pre67.pre7094.i = phi ptr [ %.pre67.pre70.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %.pre68.i, %343 ]
+  %.pre-phi93.i = phi i64 [ %.pre73.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i._ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i_crit_edge ], [ %344, %343 ]
+  %gepdiff.i.i = shl nuw nsw i64 %.pre-phi93.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %346, ptr align 8 %.pre67.pre7094.i, i64 %gepdiff.i.i, i1 false)
+  %.pre67.pre.i = load ptr, ptr %7, align 8, !tbaa !311, !noalias !315
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i: ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i
-  %.pre65.i = phi ptr [ %.pre65.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i ], [ %.pre65.pre68.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i ]
-  store i32 %327, ptr %339, align 8, !tbaa !313, !alias.scope !315
+  %.pre67.i = phi ptr [ %.pre67.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.thread.i ], [ %.pre67.pre70.pre.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i.i ]
+  store i32 %326, ptr %338, align 8, !tbaa !313, !alias.scope !315
   store i32 0, ptr %243, align 8, !tbaa !313, !noalias !315
   br label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i
 
 _ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i, %._crit_edge.i
-  %348 = phi ptr [ %.pre65.i, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i ], [ %.pre66.i, %._crit_edge.i ]
-  %349 = icmp eq ptr %348, %242
-  br i1 %349, label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i, label %350
+  %347 = phi ptr [ %.pre67.i, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i ], [ %.pre68.i, %._crit_edge.i ]
+  %348 = icmp eq ptr %347, %242
+  br i1 %348, label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i, label %349
 
-350:                                              ; preds = %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i
-  call void @free(ptr noundef %348) #21
+349:                                              ; preds = %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i
+  call void @free(ptr noundef %347) #21
   br label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i: ; preds = %350, %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i, %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.thread.i
+_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i: ; preds = %349, %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.i, %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEEC2IRS1_S7_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISC_SD_EEEbE4typeELb1EEEOSC_OSD_.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !315
-  %351 = load ptr, ptr %6, align 8, !tbaa !311, !noalias !315
-  %352 = icmp eq ptr %351, %191
-  br i1 %352, label %354, label %353
+  %350 = load ptr, ptr %6, align 8, !tbaa !311, !noalias !315
+  %351 = icmp eq ptr %350, %191
+  br i1 %351, label %353, label %352
 
-353:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i
-  call void @free(ptr noundef %351) #21
-  br label %354
+352:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i
+  call void @free(ptr noundef %350) #21
+  br label %353
 
-354:                                              ; preds = %353, %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i
+353:                                              ; preds = %352, %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !315
-  %355 = load i64, ptr %9, align 8, !tbaa !12
-  %356 = load ptr, ptr %337, align 8, !tbaa !311
-  %357 = icmp eq ptr %356, %338
-  br i1 %357, label %365, label %358
+  %354 = load i64, ptr %9, align 8, !tbaa !12
+  %355 = load ptr, ptr %336, align 8, !tbaa !311
+  %356 = icmp eq ptr %355, %337
+  br i1 %356, label %364, label %357
 
-358:                                              ; preds = %354
-  %359 = load ptr, ptr %8, align 8, !tbaa !311
-  %360 = icmp eq ptr %359, %188
-  br i1 %360, label %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEE12assignRemoteEOS5_.exit.i, label %361
+357:                                              ; preds = %353
+  %358 = load ptr, ptr %8, align 8, !tbaa !311
+  %359 = icmp eq ptr %358, %188
+  br i1 %359, label %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEE12assignRemoteEOS5_.exit.i, label %360
 
-361:                                              ; preds = %358
-  call void @free(ptr noundef %359) #21
-  %.pre.i36 = load ptr, ptr %337, align 8, !tbaa !311
+360:                                              ; preds = %357
+  call void @free(ptr noundef %358) #21
+  %.pre.i36 = load ptr, ptr %336, align 8, !tbaa !311
   br label %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEE12assignRemoteEOS5_.exit.i
 
-_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEE12assignRemoteEOS5_.exit.i: ; preds = %361, %358
-  %362 = phi ptr [ %356, %358 ], [ %.pre.i36, %361 ]
-  store ptr %362, ptr %8, align 8, !tbaa !311
-  %363 = load i32, ptr %339, align 8, !tbaa !313
-  store i32 %363, ptr %189, align 8, !tbaa !313
-  %364 = load i32, ptr %340, align 4, !tbaa !314
-  store i32 %364, ptr %190, align 4, !tbaa !314
-  store ptr %338, ptr %337, align 8, !tbaa !311
-  store i32 0, ptr %340, align 4, !tbaa !314
+_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEE12assignRemoteEOS5_.exit.i: ; preds = %360, %357
+  %361 = phi ptr [ %355, %357 ], [ %.pre.i36, %360 ]
+  store ptr %361, ptr %8, align 8, !tbaa !311
+  %362 = load i32, ptr %338, align 8, !tbaa !313
+  store i32 %362, ptr %189, align 8, !tbaa !313
+  %363 = load i32, ptr %339, align 4, !tbaa !314
+  store i32 %363, ptr %190, align 4, !tbaa !314
+  store ptr %337, ptr %336, align 8, !tbaa !311
+  store i32 0, ptr %339, align 4, !tbaa !314
   br label %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit
 
-365:                                              ; preds = %354
-  %366 = load i32, ptr %339, align 8, !tbaa !313
-  %367 = zext i32 %366 to i64
-  %368 = load i32, ptr %189, align 8, !tbaa !313
-  %369 = zext i32 %368 to i64
-  %.not.i37 = icmp ult i32 %368, %366
-  br i1 %.not.i37, label %373, label %370
+364:                                              ; preds = %353
+  %365 = load i32, ptr %338, align 8, !tbaa !313
+  %366 = zext i32 %365 to i64
+  %367 = load i32, ptr %189, align 8, !tbaa !313
+  %368 = zext i32 %367 to i64
+  %.not.i37 = icmp ult i32 %367, %365
+  br i1 %.not.i37, label %372, label %369
 
-370:                                              ; preds = %365
-  %.not33.i38 = icmp eq i32 %366, 0
-  br i1 %.not33.i38, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit.i, label %371
+369:                                              ; preds = %364
+  %.not33.i38 = icmp eq i32 %365, 0
+  br i1 %.not33.i38, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit.i, label %370
 
-371:                                              ; preds = %370
-  %372 = load ptr, ptr %8, align 8, !tbaa !311
-  %.idx.i = shl nuw nsw i64 %367, 3
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %372, ptr align 8 %356, i64 %.idx.i, i1 false)
+370:                                              ; preds = %369
+  %371 = load ptr, ptr %8, align 8, !tbaa !311
+  %.idx.i = shl nuw nsw i64 %366, 3
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %371, ptr align 8 %355, i64 %.idx.i, i1 false)
   br label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit.i
 
-_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit.i: ; preds = %371, %370
-  store i32 %366, ptr %189, align 8, !tbaa !313
+_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit.i: ; preds = %370, %369
+  store i32 %365, ptr %189, align 8, !tbaa !313
   br label %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit
 
-373:                                              ; preds = %365
-  %374 = load i32, ptr %190, align 4, !tbaa !314
-  %375 = icmp ult i32 %374, %366
-  br i1 %375, label %376, label %377
+372:                                              ; preds = %364
+  %373 = load i32, ptr %190, align 4, !tbaa !314
+  %374 = icmp ult i32 %373, %365
+  br i1 %374, label %375, label %376
 
-376:                                              ; preds = %373
+375:                                              ; preds = %372
   store i32 0, ptr %189, align 8, !tbaa !313
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull %188, i64 noundef %367, i64 noundef 8) #21
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr noundef nonnull %188, i64 noundef %366, i64 noundef 8) #21
   br label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i
 
-377:                                              ; preds = %373
-  %.not32.i = icmp eq i32 %368, 0
-  br i1 %.not32.i, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i, label %378
+376:                                              ; preds = %372
+  %.not32.i = icmp eq i32 %367, 0
+  br i1 %.not32.i, label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i, label %377
 
-378:                                              ; preds = %377
-  %.idx37.i = shl nuw nsw i64 %369, 3
-  %379 = load ptr, ptr %8, align 8, !tbaa !311
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %379, ptr align 8 %356, i64 %.idx37.i, i1 false)
+377:                                              ; preds = %376
+  %.idx37.i = shl nuw nsw i64 %368, 3
+  %378 = load ptr, ptr %8, align 8, !tbaa !311
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %378, ptr align 8 %355, i64 %.idx37.i, i1 false)
   br label %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i
 
-_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i: ; preds = %378, %377, %376
-  %.026.i = phi i64 [ 0, %376 ], [ 0, %377 ], [ %369, %378 ]
-  %380 = load i32, ptr %339, align 8, !tbaa !313
-  %381 = zext i32 %380 to i64
-  %.not.i.i.i39 = icmp samesign eq i64 %.026.i, %381
-  br i1 %.not.i.i.i39, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i, label %382
+_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i: ; preds = %377, %376, %375
+  %.026.i = phi i64 [ 0, %375 ], [ 0, %376 ], [ %368, %377 ]
+  %379 = load i32, ptr %338, align 8, !tbaa !313
+  %380 = zext i32 %379 to i64
+  %.not.i.i.i39 = icmp samesign eq i64 %.026.i, %380
+  br i1 %.not.i.i.i39, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i, label %381
 
-382:                                              ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i
-  %383 = load ptr, ptr %337, align 8, !tbaa !311
+381:                                              ; preds = %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i
+  %382 = load ptr, ptr %336, align 8, !tbaa !311
   %.idx40.i = shl nuw nsw i64 %.026.i, 3
-  %384 = getelementptr inbounds nuw i8, ptr %383, i64 %.idx40.i
-  %385 = load ptr, ptr %8, align 8, !tbaa !311
-  %386 = getelementptr inbounds nuw ptr, ptr %385, i64 %.026.i
-  %387 = sub nsw i64 %381, %.026.i
-  %gepdiff.i = shl nsw i64 %387, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %386, ptr align 8 %384, i64 %gepdiff.i, i1 false)
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 %.idx40.i
+  %384 = load ptr, ptr %8, align 8, !tbaa !311
+  %385 = getelementptr inbounds nuw ptr, ptr %384, i64 %.026.i
+  %386 = sub nsw i64 %380, %.026.i
+  %gepdiff.i = shl nsw i64 %386, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %385, ptr align 8 %383, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i: ; preds = %382, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i
-  store i32 %366, ptr %189, align 8, !tbaa !313
+_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i: ; preds = %381, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit35.i
+  store i32 %365, ptr %189, align 8, !tbaa !313
   br label %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit
 
 _ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEE12assignRemoteEOS5_.exit.i, %_ZSt4moveIPPKN5clang9FieldDeclES4_ET0_T_S6_S5_.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang9FieldDeclELb1EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i
-  store i32 0, ptr %339, align 8, !tbaa !313
-  %388 = load ptr, ptr %337, align 8, !tbaa !311
-  %389 = icmp eq ptr %388, %338
-  br i1 %389, label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit, label %390
+  store i32 0, ptr %338, align 8, !tbaa !313
+  %387 = load ptr, ptr %336, align 8, !tbaa !311
+  %388 = icmp eq ptr %387, %337
+  br i1 %388, label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit, label %389
 
-390:                                              ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit
-  call void @free(ptr noundef %388) #21
+389:                                              ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit
+  call void @free(ptr noundef %387) #21
   br label %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit
 
-_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit: ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit, %390
+_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit: ; preds = %_ZN4llvm15SmallVectorImplIPKN5clang9FieldDeclEEaSEOS5_.exit, %389
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %391 = sub nsw i64 %185, %355
-  %392 = mul nsw i64 %391, %2
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %394 = load i64, ptr %393, align 8, !tbaa !194
-  %.not24 = icmp sgt i64 %392, %394
-  br i1 %.not24, label %395, label %396
+  %390 = sub nsw i64 %185, %354
+  %391 = mul nsw i64 %390, %2
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %393 = load i64, ptr %392, align 8, !tbaa !194
+  %.not24 = icmp sgt i64 %391, %393
+  br i1 %.not24, label %394, label %395
 
-395:                                              ; preds = %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit
-  call fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker12reportRecordEPKN5clang10RecordDeclENS1_9CharUnitsES5_RKN4llvm11SmallVectorIPKNS1_9FieldDeclELj20EEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %102, i64 %185, i64 %355, ptr noundef nonnull align 8 dereferenceable(176) %8)
-  br label %396
+394:                                              ; preds = %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit
+  call fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker12reportRecordEPKN5clang10RecordDeclENS1_9CharUnitsES5_RKN4llvm11SmallVectorIPKNS1_9FieldDeclELj20EEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %102, i64 %185, i64 %354, ptr noundef nonnull align 8 dereferenceable(176) %8)
+  br label %395
 
-396:                                              ; preds = %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit, %395
-  %397 = load ptr, ptr %8, align 8, !tbaa !311
-  %398 = icmp eq ptr %397, %188
-  br i1 %398, label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit, label %399
+395:                                              ; preds = %_ZNSt4pairIN5clang9CharUnitsEN4llvm11SmallVectorIPKNS0_9FieldDeclELj20EEEED2Ev.exit, %394
+  %396 = load ptr, ptr %8, align 8, !tbaa !311
+  %397 = icmp eq ptr %396, %188
+  br i1 %397, label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit, label %398
 
-399:                                              ; preds = %396
-  call void @free(ptr noundef %397) #21
+398:                                              ; preds = %395
+  call void @free(ptr noundef %396) #21
   br label %_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit: ; preds = %396, %399
+_ZN4llvm11SmallVectorIPKN5clang9FieldDeclELj20EED2Ev.exit: ; preds = %395, %398
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread
 

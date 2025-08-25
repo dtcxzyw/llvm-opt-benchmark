@@ -1929,10 +1929,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ShapeVisitor
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !52
   %17 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4, !tbaa !4
-  %18 = icmp ne i32 %16, %17
-  %.not.not47.i = icmp eq ptr %14, null
-  %.not.not.i = or i1 %.not.not47.i, %18
-  br i1 %.not.not.i, label %19, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread10
+  %.fr45.i = freeze i32 %17
+  %18 = icmp ne i32 %16, %.fr45.i
+  %.not.not49.i = icmp eq ptr %14, null
+  %.not.not.i = or i1 %.not.not49.i, %18
+  br i1 %.not.not.i, label %19, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit
 
 19:                                               ; preds = %11
   %20 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4, !tbaa !4
@@ -1972,34 +1973,33 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ShapeVisitor
 _ZNK4Luau7AstNameeqEPKc.exit.i:                   ; preds = %37
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(13) @.str) #13
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
+  br i1 %41, label %42, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
 
-_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit: ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.i
-  %42 = load ptr, ptr %26, align 8, !tbaa !61
-  %43 = load ptr, ptr %42, align 8, !tbaa !50
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !52
-  %46 = icmp eq i32 %45, %17
-  %..i32.i = select i1 %46, ptr %43, ptr null
-  %..i32.fr.i = freeze ptr %..i32.i
-  %.not = icmp eq ptr %..i32.fr.i, null
-  br i1 %.not, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread10
+42:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.i
+  %43 = load ptr, ptr %26, align 8, !tbaa !61
+  %44 = load ptr, ptr %43, align 8, !tbaa !50
+  %.fr46.i = freeze ptr %44
+  %45 = getelementptr inbounds nuw i8, ptr %.fr46.i, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !52
+  %.fr.i = freeze i32 %46
+  %47 = icmp eq i32 %.fr.i, %.fr45.i
+  br i1 %47, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
 
-_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread10: ; preds = %11, %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit
-  %.1.i13 = phi ptr [ %..i32.fr.i, %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit ], [ %14, %11 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.1.i13, i64 40
-  %48 = load i64, ptr %47, align 8, !tbaa !62
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
+_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit: ; preds = %42, %11
+  %.1.i = phi ptr [ %14, %11 ], [ %.fr46.i, %42 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
+  %49 = load i64, ptr %48, align 8, !tbaa !62
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %51, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
 
-50:                                               ; preds = %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread10
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %52 = load ptr, ptr %3, align 8, !tbaa !66
-  %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(8) %52)
-  store ptr %.1.i13, ptr %53, align 8, !tbaa !67
+51:                                               ; preds = %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load ptr, ptr %3, align 8, !tbaa !66
+  %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalEPNS_12AstExprTableENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(8) %53)
+  store ptr %.1.i, ptr %54, align 8, !tbaa !67
   br label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
 
-_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread: ; preds = %37, %30, %_ZNK4Luau7AstNameeqEPKc.exit.i, %19, %21, %25, %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit, %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread10, %50, %7, %2
+_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread: ; preds = %42, %37, %30, %_ZNK4Luau7AstNameeqEPKc.exit.i, %19, %21, %25, %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit, %51, %7, %2
   ret i1 true
 }
 

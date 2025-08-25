@@ -2086,13 +2086,14 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %172, %170, %168, %1
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.pre = load ptr, ptr %59, align 8, !tbaa !80
+  %.pre.fr = freeze ptr %.pre
   %.pre197 = load ptr, ptr %61, align 8, !tbaa !80
-  %181 = icmp eq ptr %.pre, %.pre197
+  %.pre197.fr = freeze ptr %.pre197
+  %181 = icmp eq ptr %.pre.fr, %.pre197.fr
   %182 = load ptr, ptr %12, align 8
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 160
-  %184 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %cond.fr = freeze i1 %181
-  %spec.select245 = select i1 %cond.fr, ptr %183, ptr %184
+  %184 = getelementptr inbounds nuw i8, ptr %.pre.fr, i64 64
+  %spec.select245 = select i1 %181, ptr %183, ptr %184
   br label %185
 
 185:                                              ; preds = %180, %.thread

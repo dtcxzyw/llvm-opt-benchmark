@@ -81366,10 +81366,10 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %14 = zext i16 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i16, ptr %15, align 1, !tbaa !40
-  %.fr = freeze i16 %16
-  %.mask.i = and i16 %.fr, 128
+  %.fr74 = freeze i16 %16
+  %.mask.i = and i16 %.fr74, 128
   %17 = icmp ne i16 %.mask.i, 0
-  %18 = and i16 %.fr, -129
+  %18 = and i16 %.fr74, -129
   %19 = tail call i16 @llvm.bswap.i16(i16 %18)
   %20 = zext nneg i16 %19 to i32
   %21 = select i1 %17, i32 %14, i32 %20
@@ -81378,7 +81378,7 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = add nuw nsw i32 %20, %14
-  %.mask.i.i = lshr i16 %.fr, 7
+  %.mask.i.i = lshr i16 %.fr74, 7
   %.mask.i.lobit.i = and i16 %.mask.i.i, 1
   %27 = zext nneg i16 %.mask.i.lobit.i to i32
   %28 = shl nuw nsw i32 %26, %27
@@ -81404,7 +81404,7 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
 .lr.ph65:                                         ; preds = %.preheader54
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %37 = zext nneg i32 %.049.lcssa to i64
-  %wide.trip.count84 = zext nneg i32 %21 to i64
+  %wide.trip.count85 = zext nneg i32 %21 to i64
   br label %51
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
@@ -81435,14 +81435,14 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
 .lr.ph72:                                         ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %50 = zext nneg i32 %.150.lcssa to i64
-  %wide.trip.count89 = zext i16 %13 to i64
+  %wide.trip.count90 = zext i16 %13 to i64
   br label %62
 
 51:                                               ; preds = %.lr.ph65, %51
-  %indvars.iv81 = phi i64 [ %37, %.lr.ph65 ], [ %indvars.iv.next82, %51 ]
+  %indvars.iv82 = phi i64 [ %37, %.lr.ph65 ], [ %indvars.iv.next83, %51 ]
   %.164 = phi float [ %.047.lcssa, %.lr.ph65 ], [ %61, %51 ]
   %.04863 = phi ptr [ %.052.lcssa, %.lr.ph65 ], [ %57, %51 ]
-  %52 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.3"], ptr %36, i64 0, i64 %indvars.iv81
+  %52 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.3"], ptr %36, i64 0, i64 %indvars.iv82
   %53 = load i16, ptr %52, align 1, !tbaa !40
   %54 = tail call noundef i16 @llvm.bswap.i16(i16 %53)
   %55 = zext i16 %54 to i32
@@ -81452,15 +81452,15 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %59 = tail call noundef i16 @llvm.bswap.i16(i16 %58)
   %60 = sitofp i16 %59 to float
   %61 = tail call float @llvm.fmuladd.f32(float %56, float %60, float %.164)
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %.preheader, label %51, !llvm.loop !1368
+  %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
+  %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
+  br i1 %exitcond86.not, label %.preheader, label %51, !llvm.loop !1368
 
 62:                                               ; preds = %.lr.ph72, %62
-  %indvars.iv86 = phi i64 [ %50, %.lr.ph72 ], [ %indvars.iv.next87, %62 ]
+  %indvars.iv87 = phi i64 [ %50, %.lr.ph72 ], [ %indvars.iv.next88, %62 ]
   %.04671 = phi ptr [ %.048.lcssa, %.lr.ph72 ], [ %68, %62 ]
   %.270 = phi float [ %.1.lcssa, %.lr.ph72 ], [ %71, %62 ]
-  %63 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.3"], ptr %49, i64 0, i64 %indvars.iv86
+  %63 = getelementptr inbounds nuw [1 x %"struct.OT::IntType.3"], ptr %49, i64 0, i64 %indvars.iv87
   %64 = load i16, ptr %63, align 1, !tbaa !40
   %65 = tail call noundef i16 @llvm.bswap.i16(i16 %64)
   %66 = zext i16 %65 to i32
@@ -81469,9 +81469,9 @@ define linkonce_odr dso_local noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS
   %69 = load i8, ptr %.04671, align 1, !tbaa !1369
   %70 = sitofp i8 %69 to float
   %71 = tail call float @llvm.fmuladd.f32(float %67, float %70, float %.270)
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %62, !llvm.loop !1371
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
+  br i1 %exitcond91.not, label %.loopexit, label %62, !llvm.loop !1371
 
 .loopexit:                                        ; preds = %62, %.preheader, %6
   %.0 = phi float [ 0.000000e+00, %6 ], [ %.1.lcssa, %.preheader ], [ %71, %62 ]

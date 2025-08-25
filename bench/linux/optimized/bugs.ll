@@ -2176,15 +2176,15 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
 
 44:                                               ; preds = %43
   %45 = load i32, ptr @spectre_v2_user_ibpb, align 4
-  %.fr3.i = freeze i32 %45
-  %46 = icmp eq i32 %.fr3.i, 0
+  %.fr2.i = freeze i32 %45
+  %46 = icmp eq i32 %.fr2.i, 0
   %47 = load i32, ptr @spectre_v2_user_stibp, align 4
   %48 = icmp eq i32 %47, 0
   %49 = select i1 %46, i1 %48, i1 false
   br i1 %49, label %ssb_prctl_set.exit, label %50
 
 50:                                               ; preds = %44
-  %51 = add i32 %.fr3.i, -3
+  %51 = add i32 %.fr2.i, -3
   %52 = icmp ult i32 %51, 2
   %.off.i = add i32 %47, -3
   %switch.i = icmp ult i32 %.off.i, 2
@@ -2213,20 +2213,20 @@ define dso_local noundef range(i32 -34, 1) i32 @arch_prctl_spec_ctrl_set(ptr nou
 
 64:                                               ; preds = %43, %43
   %65 = load i32, ptr @spectre_v2_user_ibpb, align 4
-  %.fr2.i = freeze i32 %65
-  %66 = icmp eq i32 %.fr2.i, 0
+  %.fr.i = freeze i32 %65
+  %66 = icmp eq i32 %.fr.i, 0
   %67 = load i32, ptr @spectre_v2_user_stibp, align 4
   %68 = icmp eq i32 %67, 0
   %69 = select i1 %66, i1 %68, i1 false
   br i1 %69, label %ssb_prctl_set.exit, label %70
 
 70:                                               ; preds = %64
-  %71 = add i32 %.fr2.i, -3
+  %71 = add i32 %.fr.i, -3
   %72 = icmp ult i32 %71, 2
-  %.off4.i = add i32 %67, -3
-  %switch5.i = icmp ult i32 %.off4.i, 2
-  %or.cond6.i = select i1 %72, i1 true, i1 %switch5.i
-  br i1 %or.cond6.i, label %73, label %ssb_prctl_set.exit
+  %.off3.i = add i32 %67, -3
+  %switch4.i = icmp ult i32 %.off3.i, 2
+  %or.cond5.i = select i1 %72, i1 true, i1 %switch4.i
+  br i1 %or.cond5.i, label %73, label %ssb_prctl_set.exit
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1256
@@ -2304,21 +2304,21 @@ define dso_local void @arch_seccomp_spec_mitigate(ptr noundef %0) local_unnamed_
 
 11:                                               ; preds = %10, %4, %1
   %12 = load i32, ptr @spectre_v2_user_ibpb, align 4
-  %.fr1 = freeze i32 %12
-  %13 = icmp eq i32 %.fr1, 4
+  %.fr = freeze i32 %12
+  %13 = icmp eq i32 %.fr, 4
   %14 = load i32, ptr @spectre_v2_user_stibp, align 4
   %15 = icmp eq i32 %14, 4
   %16 = select i1 %13, i1 true, i1 %15
   br i1 %16, label %17, label %35
 
 17:                                               ; preds = %11
-  %18 = icmp eq i32 %.fr1, 0
+  %18 = icmp eq i32 %.fr, 0
   %19 = icmp eq i32 %14, 0
   %20 = select i1 %18, i1 %19, i1 false
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %17
-  %22 = add i32 %.fr1, -3
+  %22 = add i32 %.fr, -3
   %23 = icmp ult i32 %22, 2
   %.off = add i32 %14, -3
   %switch = icmp ult i32 %.off, 2
@@ -2404,15 +2404,15 @@ default.unreachable:                              ; preds = %3
 
 28:                                               ; preds = %24
   %29 = load i32, ptr @spectre_v2_user_ibpb, align 4
-  %.fr1 = freeze i32 %29
-  %30 = icmp eq i32 %.fr1, 0
+  %.fr = freeze i32 %29
+  %30 = icmp eq i32 %.fr, 0
   %31 = load i32, ptr @spectre_v2_user_stibp, align 4
   %32 = icmp eq i32 %31, 0
   %33 = select i1 %30, i1 %32, i1 false
   br i1 %33, label %59, label %34
 
 34:                                               ; preds = %28
-  %35 = add i32 %.fr1, -3
+  %35 = add i32 %.fr, -3
   %36 = icmp ult i32 %35, 2
   %.off = add i32 %31, -3
   %switch = icmp ult i32 %.off, 2
@@ -2434,7 +2434,7 @@ default.unreachable:                              ; preds = %3
   br label %59
 
 47:                                               ; preds = %34
-  %48 = icmp eq i32 %.fr1, 1
+  %48 = icmp eq i32 %.fr, 1
   %49 = add i32 %31, -1
   %50 = icmp ult i32 %49, 2
   %51 = select i1 %48, i1 true, i1 %50

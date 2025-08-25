@@ -8274,7 +8274,8 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser21countAggrega
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = and i32 %11, 1
+  %.fr = freeze i32 %11
+  %12 = and i32 %.fr, 1
   %13 = icmp ne i32 %12, 0
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -8290,209 +8291,209 @@ define linkonce_odr noundef i32 @_ZN7glslang20TReflectionTraverser21countAggrega
   %23 = tail call noundef nonnull align 8 dereferenceable(80) ptr %22(ptr noundef nonnull align 8 dereferenceable(152) %1) #19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 127
+  %.fr30 = freeze i64 %25
+  %26 = and i64 %.fr30, 127
   %27 = icmp eq i64 %26, 6
   br label %28
 
 28:                                               ; preds = %19, %7
-  %29 = phi i1 [ false, %7 ], [ %27, %19 ]
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %32, align 8
-  %.not28 = icmp eq ptr %34, %35
+  %.fr29 = phi i1 [ false, %7 ], [ %27, %19 ]
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %31, align 8
+  %.not28 = icmp eq ptr %33, %34
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
-  %or.cond = select i1 %13, i1 %29, i1 false
-  %or.cond.fr = freeze i1 %or.cond
-  br i1 %or.cond.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %or.cond = and i1 %13, %.fr29
+  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us
-  %36 = phi ptr [ %73, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ %35, %.lr.ph ]
-  %.02327.us = phi i64 [ %71, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ 0, %.lr.ph ]
-  %.02426.us = phi i32 [ %70, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ 0, %.lr.ph ]
-  %37 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %36, i64 %.02327.us
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef i32 @_ZN7glslang20TReflectionTraverser21countAggregateMembersERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %38)
-  %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(152) %38) #19
-  br i1 %43, label %44, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us
+  %35 = phi ptr [ %72, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ %34, %.lr.ph ]
+  %.02327.us = phi i64 [ %70, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ 0, %.lr.ph ]
+  %.02426.us = phi i32 [ %69, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ 0, %.lr.ph ]
+  %36 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %35, i64 %.02327.us
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i32 @_ZN7glslang20TReflectionTraverser21countAggregateMembersERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %37)
+  %39 = load ptr, ptr %37, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 232
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(152) %37) #19
+  br i1 %42, label %43, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us
 
-44:                                               ; preds = %.lr.ph.split.us
-  %45 = load ptr, ptr %38, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 152
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef ptr %47(ptr noundef nonnull align 8 dereferenceable(152) %38) #19
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %52, align 8
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us, label %.split.i.i.us
+43:                                               ; preds = %.lr.ph.split.us
+  %44 = load ptr, ptr %37, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 152
+  %46 = load ptr, ptr %45, align 8
+  %47 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(152) %37) #19
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us, label %.split.i.i.us
 
-.split.i.i.us:                                    ; preds = %44
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %52 to i64
-  %59 = sub i64 %57, %58
-  %60 = lshr exact i64 %59, 4
-  %61 = trunc i64 %60 to i32
-  %smax.i.i.us = tail call i32 @llvm.smax.i32(i32 %61, i32 1)
+.split.i.i.us:                                    ; preds = %43
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %51 to i64
+  %58 = sub i64 %56, %57
+  %59 = lshr exact i64 %58, 4
+  %60 = trunc i64 %59 to i32
+  %smax.i.i.us = tail call i32 @llvm.smax.i32(i32 %60, i32 1)
   %wide.trip.count.i.i.us = zext nneg i32 %smax.i.i.us to i64
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us
 
-_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us: ; preds = %62, %.split.i.i.us
-  %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %62 ], [ 1, %.split.i.i.us ]
+_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us: ; preds = %61, %.split.i.i.us
+  %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %61 ], [ 1, %.split.i.i.us ]
   %exitcond.not.not.i.not.i.us = icmp eq i64 %indvars.iv.i.i.us, %wide.trip.count.i.i.us
-  br i1 %exitcond.not.not.i.not.i.us, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.us, label %62
+  br i1 %exitcond.not.not.i.not.i.us, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.us, label %61
 
-62:                                               ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us
-  %63 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %52, i64 %indvars.iv.i.i.us
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp eq i32 %64, 0
+61:                                               ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us
+  %62 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %51, i64 %indvars.iv.i.i.us
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp eq i32 %63, 0
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
-  br i1 %65, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us, !llvm.loop !125
+  br i1 %64, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us, !llvm.loop !125
 
 _ZNK7glslang11TArraySizes10hasUnsizedEv.exit.us:  ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i.us
-  %66 = load ptr, ptr %38, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 296
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(152) %38) #19
+  %65 = load ptr, ptr %37, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 296
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(152) %37) #19
   br label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us
 
-_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us: ; preds = %62, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.us, %44, %.lr.ph.split.us
-  %70 = add nsw i32 %39, %.02426.us
-  %71 = add nuw i64 %.02327.us, 1
-  %72 = load ptr, ptr %33, align 8
-  %73 = load ptr, ptr %32, align 8
+_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us: ; preds = %61, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.us, %43, %.lr.ph.split.us
+  %69 = add nsw i32 %38, %.02426.us
+  %70 = add nuw i64 %.02327.us, 1
+  %71 = load ptr, ptr %32, align 8
+  %72 = load ptr, ptr %31, align 8
+  %73 = ptrtoint ptr %71 to i64
   %74 = ptrtoint ptr %72 to i64
-  %75 = ptrtoint ptr %73 to i64
-  %76 = sub i64 %74, %75
-  %77 = ashr exact i64 %76, 5
-  %78 = icmp ult i64 %71, %77
-  br i1 %78, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !126
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 5
+  %77 = icmp ult i64 %70, %76
+  br i1 %77, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !126
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
-  %79 = phi ptr [ %138, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ], [ %35, %.lr.ph ]
-  %.02327 = phi i64 [ %136, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ], [ 0, %.lr.ph ]
-  %.02426 = phi i32 [ %135, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ], [ 0, %.lr.ph ]
-  %80 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %79, i64 %.02327
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call noundef i32 @_ZN7glslang20TReflectionTraverser21countAggregateMembersERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %81)
-  %83 = load ptr, ptr %81, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 232
-  %85 = load ptr, ptr %84, align 8
-  %86 = tail call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(152) %81) #19
-  br i1 %86, label %87, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
+  %78 = phi ptr [ %137, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ], [ %34, %.lr.ph ]
+  %.02327 = phi i64 [ %135, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ], [ 0, %.lr.ph ]
+  %.02426 = phi i32 [ %134, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ], [ 0, %.lr.ph ]
+  %79 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %78, i64 %.02327
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call noundef i32 @_ZN7glslang20TReflectionTraverser21countAggregateMembersERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(152) %80)
+  %82 = load ptr, ptr %80, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 232
+  %84 = load ptr, ptr %83, align 8
+  %85 = tail call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(152) %80) #19
+  br i1 %85, label %86, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
 
-87:                                               ; preds = %.lr.ph.split
-  %88 = load ptr, ptr %81, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 152
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call noundef ptr %90(ptr noundef nonnull align 8 dereferenceable(152) %81) #19
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  %95 = load ptr, ptr %94, align 8
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 0
-  br i1 %97, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, label %.split.i.i
+86:                                               ; preds = %.lr.ph.split
+  %87 = load ptr, ptr %80, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 152
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call noundef ptr %89(ptr noundef nonnull align 8 dereferenceable(152) %80) #19
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %94 = load ptr, ptr %93, align 8
+  %95 = load i32, ptr %94, align 8
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, label %.split.i.i
 
-.split.i.i:                                       ; preds = %87
-  %98 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %100 = ptrtoint ptr %99 to i64
-  %101 = ptrtoint ptr %95 to i64
-  %102 = sub i64 %100, %101
-  %103 = lshr exact i64 %102, 4
-  %104 = trunc i64 %103 to i32
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %104, i32 1)
+.split.i.i:                                       ; preds = %86
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %99 = ptrtoint ptr %98 to i64
+  %100 = ptrtoint ptr %94 to i64
+  %101 = sub i64 %99, %100
+  %102 = lshr exact i64 %101, 4
+  %103 = trunc i64 %102 to i32
+  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %103, i32 1)
   %wide.trip.count.i.i = zext nneg i32 %smax.i.i to i64
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i
 
-_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i:  ; preds = %105, %.split.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %105 ], [ 1, %.split.i.i ]
+_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i:  ; preds = %104, %.split.i.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %104 ], [ 1, %.split.i.i ]
   %exitcond.not.not.i.not.i = icmp eq i64 %indvars.iv.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.not.i.not.i, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, label %105
+  br i1 %exitcond.not.not.i.not.i, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, label %104
 
-105:                                              ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i
-  %106 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %95, i64 %indvars.iv.i.i
-  %107 = load i32, ptr %106, align 8
-  %108 = icmp eq i32 %107, 0
+104:                                              ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i
+  %105 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %94, i64 %indvars.iv.i.i
+  %106 = load i32, ptr %105, align 8
+  %107 = icmp eq i32 %106, 0
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br i1 %108, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i, !llvm.loop !125
+  br i1 %107, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i, !llvm.loop !125
 
 _ZNK7glslang11TArraySizes10hasUnsizedEv.exit:     ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i.i
-  %109 = load ptr, ptr %81, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 296
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef zeroext i1 %111(ptr noundef nonnull align 8 dereferenceable(152) %81) #19
-  br i1 %112, label %113, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
+  %108 = load ptr, ptr %80, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 296
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(152) %80) #19
+  br i1 %111, label %112, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
 
-113:                                              ; preds = %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit
-  %114 = load ptr, ptr %81, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 152
-  %116 = load ptr, ptr %115, align 8
-  %117 = tail call noundef ptr %116(ptr noundef nonnull align 8 dereferenceable(152) %81) #19
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
+112:                                              ; preds = %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit
+  %113 = load ptr, ptr %80, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 152
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call noundef ptr %115(ptr noundef nonnull align 8 dereferenceable(152) %80) #19
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
 
-_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %113
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %124 = load ptr, ptr %121, align 8
+_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %112
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %120, align 8
+  %124 = ptrtoint ptr %122 to i64
   %125 = ptrtoint ptr %123 to i64
-  %126 = ptrtoint ptr %124 to i64
-  %127 = sub i64 %125, %126
-  %128 = lshr exact i64 %127, 4
-  %129 = trunc i64 %128 to i32
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
+  %126 = sub i64 %124, %125
+  %127 = lshr exact i64 %126, 4
+  %128 = trunc i64 %127 to i32
+  %129 = icmp sgt i32 %128, 0
+  br i1 %129, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
 .lr.ph.i:                                         ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %wide.trip.count.i = and i64 %128, 2147483647
+  %wide.trip.count.i = and i64 %127, 2147483647
   br label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %.05611.i = phi i32 [ 1, %.lr.ph.i ], [ %133, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %131 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %124, i64 %indvars.iv.i
-  %132 = load i32, ptr %131, align 8
-  %133 = mul i32 %132, %.05611.i
+  %.05611.i = phi i32 [ 1, %.lr.ph.i ], [ %132, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
+  %130 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %123, i64 %indvars.iv.i
+  %131 = load i32, ptr %130, align 8
+  %132 = mul i32 %131, %.05611.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
-_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %113, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %.05.lcssa.i = phi i32 [ 1, %113 ], [ 1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %133, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %134 = mul nsw i32 %.05.lcssa.i, %82
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %112, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
+  %.05.lcssa.i = phi i32 [ 1, %112 ], [ 1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %132, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
+  %133 = mul nsw i32 %.05.lcssa.i, %81
   br label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
 
-_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread: ; preds = %105, %87, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, %.lr.ph.split
-  %.0 = phi i32 [ %134, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit ], [ %82, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit ], [ %82, %.lr.ph.split ], [ %82, %87 ], [ %82, %105 ]
-  %135 = add nsw i32 %.0, %.02426
-  %136 = add nuw i64 %.02327, 1
-  %137 = load ptr, ptr %33, align 8
-  %138 = load ptr, ptr %32, align 8
+_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread: ; preds = %104, %86, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, %.lr.ph.split
+  %.0 = phi i32 [ %133, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit ], [ %81, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit ], [ %81, %.lr.ph.split ], [ %81, %86 ], [ %81, %104 ]
+  %134 = add nsw i32 %.0, %.02426
+  %135 = add nuw i64 %.02327, 1
+  %136 = load ptr, ptr %32, align 8
+  %137 = load ptr, ptr %31, align 8
+  %138 = ptrtoint ptr %136 to i64
   %139 = ptrtoint ptr %137 to i64
-  %140 = ptrtoint ptr %138 to i64
-  %141 = sub i64 %139, %140
-  %142 = ashr exact i64 %141, 5
-  %143 = icmp ult i64 %136, %142
-  br i1 %143, label %.lr.ph.split, label %.loopexit, !llvm.loop !126
+  %140 = sub i64 %138, %139
+  %141 = ashr exact i64 %140, 5
+  %142 = icmp ult i64 %135, %141
+  br i1 %142, label %.lr.ph.split, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us, %28, %2
-  %.022 = phi i32 [ 1, %2 ], [ 0, %28 ], [ %70, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ %135, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
+  %.022 = phi i32 [ 1, %2 ], [ 0, %28 ], [ %69, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread.us ], [ %134, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread ]
   ret i32 %.022
 }
 

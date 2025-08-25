@@ -6934,8 +6934,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_Z
 
 ._crit_edge.us:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us
   %76 = add nuw i32 %.01929.us, 1
-  %exitcond52.not = icmp eq i32 %76, %2
-  br i1 %exitcond52.not, label %._crit_edge33, label %.lr.ph32.split.us, !llvm.loop !242
+  %exitcond51.not = icmp eq i32 %76, %2
+  br i1 %exitcond51.not, label %._crit_edge33, label %.lr.ph32.split.us, !llvm.loop !242
 
 .loopexit.split.us:                               ; preds = %.noexc.i.i.i.us, %39
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -6971,8 +6971,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %78
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %.lr.ph32.split
   %84 = add nuw i32 %.01929, 1
-  %exitcond53.not = icmp eq i32 %84, %2
-  br i1 %exitcond53.not, label %._crit_edge33, label %.lr.ph32.split, !llvm.loop !242
+  %exitcond52.not = icmp eq i32 %84, %2
+  br i1 %exitcond52.not, label %._crit_edge33, label %.lr.ph32.split, !llvm.loop !242
 
 .split35.us:                                      ; preds = %35
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #33
@@ -7231,8 +7231,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us: ; preds = %_Z
 
 ._crit_edge.us:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.us
   %76 = add nuw i32 %.01929.us, 1
-  %exitcond52.not = icmp eq i32 %76, %2
-  br i1 %exitcond52.not, label %._crit_edge33, label %.lr.ph32.split.us, !llvm.loop !254
+  %exitcond51.not = icmp eq i32 %76, %2
+  br i1 %exitcond51.not, label %._crit_edge33, label %.lr.ph32.split.us, !llvm.loop !254
 
 .loopexit.split.us:                               ; preds = %.noexc.i.i.i.us, %39
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -7268,8 +7268,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %78
 
 83:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %.lr.ph32.split
   %84 = add nuw i32 %.01929, 1
-  %exitcond53.not = icmp eq i32 %84, %2
-  br i1 %exitcond53.not, label %._crit_edge33, label %.lr.ph32.split, !llvm.loop !254
+  %exitcond52.not = icmp eq i32 %84, %2
+  br i1 %exitcond52.not, label %._crit_edge33, label %.lr.ph32.split, !llvm.loop !254
 
 .split35.us:                                      ; preds = %35
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.67) #33
@@ -7622,12 +7622,13 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZN11OpenImageIO6v3_1_03p
 define ptr @_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #12 align 2 {
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
-  %.sroa.026.0.extract.trunc = trunc i64 %2 to i8
-  %.sroa.5.0.extract.shift = lshr i64 %2, 8
+  %.fr85 = freeze i64 %2
+  %.sroa.026.0.extract.trunc = trunc i64 %.fr85 to i8
+  %.sroa.5.0.extract.shift = lshr i64 %.fr85, 8
   %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i8
-  %.sroa.9.0.extract.shift = lshr i64 %2, 16
+  %.sroa.9.0.extract.shift = lshr i64 %.fr85, 16
   %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i8
-  %.sroa.1134.0.extract.shift = lshr i64 %2, 32
+  %.sroa.1134.0.extract.shift = lshr i64 %.fr85, 32
   %7 = load ptr, ptr %0, align 8, !tbaa !255
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !255
@@ -7638,14 +7639,11 @@ define ptr @_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8Type
   br i1 %.not6079, label %.critedge2, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %10
-  %11 = and i64 %2, 255
-  %12 = icmp eq i64 %11, 0
-  %13 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
-  %or.cond.i = select i1 %12, i1 %13, i1 false
-  %.not.i = icmp ult i64 %2, 4294967296
-  %14 = select i1 %or.cond.i, i1 %.not.i, i1 false
-  %.fr83 = freeze i1 %14
-  br i1 %.fr83, label %.lr.ph81.split.us, label %.lr.ph81.split
+  %11 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
+  %12 = and i64 %.fr85, -4294967041
+  %13 = icmp eq i64 %12, 0
+  %14 = and i1 %13, %11
+  br i1 %14, label %.lr.ph81.split.us, label %.lr.ph81.split
 
 .lr.ph81.split.us:                                ; preds = %.lr.ph81, %.critedge.us
   %.sroa.040.080.us = phi ptr [ %17, %.critedge.us ], [ %7, %.lr.ph81 ]
@@ -7675,11 +7673,11 @@ define ptr @_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8Type
   %.sroa.824.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %22 = icmp eq i8 %.sroa.026.0.extract.trunc, %.sroa.020.0.extract.trunc
   %23 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.621.0.extract.trunc
-  %or.cond = select i1 %22, i1 %23, i1 false
+  %or.cond = and i1 %22, %23
   %24 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.722.0.extract.trunc
-  %or.cond55 = select i1 %or.cond, i1 %24, i1 false
+  %or.cond55 = and i1 %or.cond, %24
   %25 = icmp eq i64 %.sroa.1134.0.extract.shift, %.sroa.824.0.extract.shift
-  %or.cond56 = select i1 %or.cond55, i1 %25, i1 false
+  %or.cond56 = and i1 %or.cond55, %25
   br i1 %or.cond56, label %.critedge2.thread, label %.critedge
 
 .critedge:                                        ; preds = %20, %.lr.ph81.split
@@ -7695,14 +7693,11 @@ define ptr @_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8Type
   %.not.i.i11 = icmp eq ptr %1, null
   %29 = getelementptr inbounds i8, ptr %1, i64 -24
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = and i64 %2, 255
-  %32 = icmp eq i64 %31, 0
-  %33 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
-  %or.cond.i14 = select i1 %32, i1 %33, i1 false
-  %.not.i15 = icmp ult i64 %2, 4294967296
-  %34 = select i1 %or.cond.i14, i1 %.not.i15, i1 false
-  %.fr = freeze i1 %34
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %31 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
+  %32 = and i64 %.fr85, -4294967041
+  %33 = icmp eq i64 %32, 0
+  %34 = and i1 %33, %31
+  br i1 %34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not.i.i11, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
@@ -7796,11 +7791,11 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   %.sroa.818.0.extract.shift.us = lshr i64 %.sroa.0.0.copyload.i16.us, 32
   %55 = icmp eq i8 %.sroa.026.0.extract.trunc, %.sroa.0.0.extract.trunc.us
   %56 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.6.0.extract.trunc.us
-  %or.cond57.us = select i1 %55, i1 %56, i1 false
+  %or.cond57.us = and i1 %55, %56
   %57 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.7.0.extract.trunc.us
-  %or.cond58.us = select i1 %or.cond57.us, i1 %57, i1 false
+  %or.cond58.us = and i1 %or.cond57.us, %57
   %58 = icmp eq i64 %.sroa.1134.0.extract.shift, %.sroa.818.0.extract.shift.us
-  %or.cond59.us = select i1 %or.cond58.us, i1 %58, i1 false
+  %or.cond59.us = and i1 %or.cond58.us, %58
   br i1 %or.cond59.us, label %.critedge2.thread, label %.critedge4.us74
 
 .critedge4.us74:                                  ; preds = %53, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us70
@@ -7842,11 +7837,11 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   %.sroa.818.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i16, 32
   %68 = icmp eq i8 %.sroa.026.0.extract.trunc, %.sroa.0.0.extract.trunc
   %69 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %or.cond57 = select i1 %68, i1 %69, i1 false
+  %or.cond57 = and i1 %68, %69
   %70 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.7.0.extract.trunc
-  %or.cond58 = select i1 %or.cond57, i1 %70, i1 false
+  %or.cond58 = and i1 %or.cond57, %70
   %71 = icmp eq i64 %.sroa.1134.0.extract.shift, %.sroa.818.0.extract.shift
-  %or.cond59 = select i1 %or.cond58, i1 %71, i1 false
+  %or.cond59 = and i1 %or.cond58, %71
   br i1 %or.cond59, label %.critedge2.thread, label %.critedge4
 
 .critedge4:                                       ; preds = %66, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
@@ -7871,11 +7866,12 @@ define ptr @_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_17basic_string_vie
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
-  %.sroa.013.0.extract.trunc = trunc i64 %2 to i8
-  %.sroa.4.0.extract.shift = lshr i64 %2, 8
+  %.fr85.i = freeze i64 %2
+  %.sroa.012.0.extract.trunc = trunc i64 %.fr85.i to i8
+  %.sroa.4.0.extract.shift = lshr i64 %.fr85.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.616.0.extract.shift = lshr i64 %2, 16
-  %.sroa.616.0.extract.trunc = trunc i64 %.sroa.616.0.extract.shift to i8
+  %.sroa.615.0.extract.shift = lshr i64 %.fr85.i, 16
+  %.sroa.615.0.extract.trunc = trunc i64 %.sroa.615.0.extract.shift to i8
   br i1 %3, label %8, label %35
 
 8:                                                ; preds = %4
@@ -7903,14 +7899,11 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   br i1 %.not6079.i, label %_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.lr.ph81.i
 
 .lr.ph81.i:                                       ; preds = %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit
-  %19 = and i64 %2, 255
-  %20 = icmp eq i64 %19, 0
-  %21 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
-  %or.cond.i.i = select i1 %20, i1 %21, i1 false
-  %.not.i.i = icmp ult i64 %2, 4294967296
-  %22 = select i1 %or.cond.i.i, i1 %.not.i.i, i1 false
-  %.fr83.i = freeze i1 %22
-  br i1 %.fr83.i, label %.lr.ph81.split.us.i, label %.lr.ph81.split.i
+  %19 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
+  %20 = and i64 %.fr85.i, -4294967041
+  %21 = icmp eq i64 %20, 0
+  %22 = and i1 %21, %19
+  br i1 %22, label %.lr.ph81.split.us.i, label %.lr.ph81.split.i
 
 .lr.ph81.split.us.i:                              ; preds = %.lr.ph81.i, %.critedge.us.i
   %.sroa.040.080.us.i = phi ptr [ %25, %.critedge.us.i ], [ %16, %.lr.ph81.i ]
@@ -7937,14 +7930,14 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   %.sroa.621.0.extract.trunc.i = trunc i64 %.sroa.621.0.extract.shift.i to i8
   %.sroa.722.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 16
   %.sroa.722.0.extract.trunc.i = trunc i64 %.sroa.722.0.extract.shift.i to i8
-  %30 = icmp eq i8 %.sroa.013.0.extract.trunc, %.sroa.020.0.extract.trunc.i
+  %30 = icmp eq i8 %.sroa.012.0.extract.trunc, %.sroa.020.0.extract.trunc.i
   %31 = icmp eq i8 %.sroa.4.0.extract.trunc, %.sroa.621.0.extract.trunc.i
-  %or.cond.i = select i1 %30, i1 %31, i1 false
-  %32 = icmp eq i8 %.sroa.616.0.extract.trunc, %.sroa.722.0.extract.trunc.i
-  %or.cond55.i = select i1 %or.cond.i, i1 %32, i1 false
-  %.unshifted30 = xor i64 %.sroa.0.0.copyload.i.i, %2
-  %33 = icmp ult i64 %.unshifted30, 4294967296
-  %or.cond56.i = select i1 %or.cond55.i, i1 %33, i1 false
+  %or.cond.i = and i1 %30, %31
+  %32 = icmp eq i8 %.sroa.615.0.extract.trunc, %.sroa.722.0.extract.trunc.i
+  %or.cond55.i = and i1 %32, %or.cond.i
+  %.unshifted29 = xor i64 %.sroa.0.0.copyload.i.i, %.fr85.i
+  %33 = icmp ult i64 %.unshifted29, 4294967296
+  %or.cond56.i = and i1 %33, %or.cond55.i
   br i1 %or.cond56.i, label %_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %28, %.lr.ph81.split.i
@@ -7956,28 +7949,25 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   %36 = load ptr, ptr %0, align 8, !tbaa !255
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !255
-  %.not35 = icmp eq ptr %36, %38
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %36, %38
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = and i64 %2, 255
-  %43 = icmp eq i64 %42, 0
-  %44 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
-  %or.cond.i7 = select i1 %43, i1 %44, i1 false
-  %.not.i8 = icmp ult i64 %2, 4294967296
-  %45 = select i1 %or.cond.i7, i1 %.not.i8, i1 false
-  %.fr = freeze i1 %45
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %42 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
+  %43 = and i64 %.fr85.i, -4294967041
+  %44 = icmp eq i64 %43, 0
+  %45 = and i1 %44, %42
+  br i1 %45, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %.sroa.020.136.us = phi ptr [ %53, %.critedge.us ], [ %36, %.lr.ph ]
+  %.sroa.019.135.us = phi ptr [ %53, %.critedge.us ], [ %36, %.lr.ph ]
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %46 = load ptr, ptr %.sroa.020.136.us, align 8, !tbaa !21, !noalias !266
-  %.not.i.i6.us = icmp eq ptr %46, null
-  br i1 %.not.i.i6.us, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us, label %47
+  %46 = load ptr, ptr %.sroa.019.135.us, align 8, !tbaa !21, !noalias !266
+  %.not.i.i.us = icmp eq ptr %46, null
+  br i1 %.not.i.i.us, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us, label %47
 
 47:                                               ; preds = %.lr.ph.split.us
   %48 = getelementptr inbounds i8, ptr %46, i64 -24
@@ -7996,16 +7986,16 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   br i1 %52, label %_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge.us
 
 .critedge.us:                                     ; preds = %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.020.136.us, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.019.135.us, i64 40
   %.not.us = icmp eq ptr %53, %38
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !269
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.sroa.020.136 = phi ptr [ %67, %.critedge ], [ %36, %.lr.ph ]
+  %.sroa.019.135 = phi ptr [ %67, %.critedge ], [ %36, %.lr.ph ]
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %54 = load ptr, ptr %.sroa.020.136, align 8, !tbaa !21, !noalias !266
-  %.not.i.i6 = icmp eq ptr %54, null
-  br i1 %.not.i.i6, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit, label %55
+  %54 = load ptr, ptr %.sroa.019.135, align 8, !tbaa !21, !noalias !266
+  %.not.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit, label %55
 
 55:                                               ; preds = %.lr.ph.split
   %56 = getelementptr inbounds i8, ptr %54, i64 -24
@@ -8024,25 +8014,25 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.020.136, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.019.135, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %62, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i8
   %.sroa.6.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 8
   %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
   %.sroa.7.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 16
   %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
-  %63 = icmp eq i8 %.sroa.013.0.extract.trunc, %.sroa.0.0.extract.trunc
+  %63 = icmp eq i8 %.sroa.012.0.extract.trunc, %.sroa.0.0.extract.trunc
   %64 = icmp eq i8 %.sroa.4.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %or.cond = select i1 %63, i1 %64, i1 false
-  %65 = icmp eq i8 %.sroa.616.0.extract.trunc, %.sroa.7.0.extract.trunc
-  %or.cond28 = select i1 %or.cond, i1 %65, i1 false
-  %.unshifted = xor i64 %.sroa.0.0.copyload.i, %2
+  %or.cond = and i1 %63, %64
+  %65 = icmp eq i8 %.sroa.615.0.extract.trunc, %.sroa.7.0.extract.trunc
+  %or.cond27 = and i1 %or.cond, %65
+  %.unshifted = xor i64 %.sroa.0.0.copyload.i, %.fr85.i
   %66 = icmp ult i64 %.unshifted, 4294967296
-  %or.cond29 = select i1 %or.cond28, i1 %66, i1 false
-  br i1 %or.cond29, label %_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge
+  %or.cond28 = and i1 %or.cond27, %66
+  br i1 %or.cond28, label %_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge
 
 .critedge:                                        ; preds = %61, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.020.136, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.019.135, i64 40
   %.not = icmp eq ptr %67, %38
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !269
 
@@ -8051,20 +8041,21 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   br label %_ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit
 
 _ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit: ; preds = %61, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us, %28, %.critedge.i, %.lr.ph81.split.us.i, %.critedge.us.i, %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit, %._crit_edge
-  %.sroa.020.0 = phi ptr [ %68, %._crit_edge ], [ %18, %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit ], [ %18, %.critedge.us.i ], [ %.sroa.040.080.us.i, %.lr.ph81.split.us.i ], [ %18, %.critedge.i ], [ %.sroa.040.080.i, %28 ], [ %.sroa.020.136.us, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us ], [ %.sroa.020.136, %61 ]
-  ret ptr %.sroa.020.0
+  %.sroa.019.0 = phi ptr [ %68, %._crit_edge ], [ %18, %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit ], [ %18, %.critedge.us.i ], [ %.sroa.040.080.us.i, %.lr.ph81.split.us.i ], [ %18, %.critedge.i ], [ %.sroa.040.080.i, %28 ], [ %.sroa.019.135.us, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us ], [ %.sroa.019.135, %61 ]
+  ret ptr %.sroa.019.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define ptr @_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #12 align 2 {
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
-  %.sroa.026.0.extract.trunc = trunc i64 %2 to i8
-  %.sroa.5.0.extract.shift = lshr i64 %2, 8
+  %.fr85 = freeze i64 %2
+  %.sroa.026.0.extract.trunc = trunc i64 %.fr85 to i8
+  %.sroa.5.0.extract.shift = lshr i64 %.fr85, 8
   %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i8
-  %.sroa.9.0.extract.shift = lshr i64 %2, 16
+  %.sroa.9.0.extract.shift = lshr i64 %.fr85, 16
   %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i8
-  %.sroa.1134.0.extract.shift = lshr i64 %2, 32
+  %.sroa.1134.0.extract.shift = lshr i64 %.fr85, 32
   %7 = load ptr, ptr %0, align 8, !tbaa !255
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !255
@@ -8075,14 +8066,11 @@ define ptr @_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeD
   br i1 %.not6079, label %.critedge2, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %10
-  %11 = and i64 %2, 255
-  %12 = icmp eq i64 %11, 0
-  %13 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
-  %or.cond.i = select i1 %12, i1 %13, i1 false
-  %.not.i = icmp ult i64 %2, 4294967296
-  %14 = select i1 %or.cond.i, i1 %.not.i, i1 false
-  %.fr83 = freeze i1 %14
-  br i1 %.fr83, label %.lr.ph81.split.us, label %.lr.ph81.split
+  %11 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
+  %12 = and i64 %.fr85, -4294967041
+  %13 = icmp eq i64 %12, 0
+  %14 = and i1 %13, %11
+  br i1 %14, label %.lr.ph81.split.us, label %.lr.ph81.split
 
 .lr.ph81.split.us:                                ; preds = %.lr.ph81, %.critedge.us
   %.sroa.040.080.us = phi ptr [ %17, %.critedge.us ], [ %7, %.lr.ph81 ]
@@ -8112,11 +8100,11 @@ define ptr @_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeD
   %.sroa.824.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %22 = icmp eq i8 %.sroa.026.0.extract.trunc, %.sroa.020.0.extract.trunc
   %23 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.621.0.extract.trunc
-  %or.cond = select i1 %22, i1 %23, i1 false
+  %or.cond = and i1 %22, %23
   %24 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.722.0.extract.trunc
-  %or.cond55 = select i1 %or.cond, i1 %24, i1 false
+  %or.cond55 = and i1 %or.cond, %24
   %25 = icmp eq i64 %.sroa.1134.0.extract.shift, %.sroa.824.0.extract.shift
-  %or.cond56 = select i1 %or.cond55, i1 %25, i1 false
+  %or.cond56 = and i1 %or.cond55, %25
   br i1 %or.cond56, label %.critedge2.thread, label %.critedge
 
 .critedge:                                        ; preds = %20, %.lr.ph81.split
@@ -8132,14 +8120,11 @@ define ptr @_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeD
   %.not.i.i11 = icmp eq ptr %1, null
   %29 = getelementptr inbounds i8, ptr %1, i64 -24
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = and i64 %2, 255
-  %32 = icmp eq i64 %31, 0
-  %33 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
-  %or.cond.i14 = select i1 %32, i1 %33, i1 false
-  %.not.i15 = icmp ult i64 %2, 4294967296
-  %34 = select i1 %or.cond.i14, i1 %.not.i15, i1 false
-  %.fr = freeze i1 %34
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %31 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
+  %32 = and i64 %.fr85, -4294967041
+  %33 = icmp eq i64 %32, 0
+  %34 = and i1 %33, %31
+  br i1 %34, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not.i.i11, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
@@ -8233,11 +8218,11 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   %.sroa.818.0.extract.shift.us = lshr i64 %.sroa.0.0.copyload.i16.us, 32
   %55 = icmp eq i8 %.sroa.026.0.extract.trunc, %.sroa.0.0.extract.trunc.us
   %56 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.6.0.extract.trunc.us
-  %or.cond57.us = select i1 %55, i1 %56, i1 false
+  %or.cond57.us = and i1 %55, %56
   %57 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.7.0.extract.trunc.us
-  %or.cond58.us = select i1 %or.cond57.us, i1 %57, i1 false
+  %or.cond58.us = and i1 %or.cond57.us, %57
   %58 = icmp eq i64 %.sroa.1134.0.extract.shift, %.sroa.818.0.extract.shift.us
-  %or.cond59.us = select i1 %or.cond58.us, i1 %58, i1 false
+  %or.cond59.us = and i1 %or.cond58.us, %58
   br i1 %or.cond59.us, label %.critedge2.thread, label %.critedge4.us74
 
 .critedge4.us74:                                  ; preds = %53, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us70
@@ -8279,11 +8264,11 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   %.sroa.818.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i16, 32
   %68 = icmp eq i8 %.sroa.026.0.extract.trunc, %.sroa.0.0.extract.trunc
   %69 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %or.cond57 = select i1 %68, i1 %69, i1 false
+  %or.cond57 = and i1 %68, %69
   %70 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.7.0.extract.trunc
-  %or.cond58 = select i1 %or.cond57, i1 %70, i1 false
+  %or.cond58 = and i1 %or.cond57, %70
   %71 = icmp eq i64 %.sroa.1134.0.extract.shift, %.sroa.818.0.extract.shift
-  %or.cond59 = select i1 %or.cond58, i1 %71, i1 false
+  %or.cond59 = and i1 %or.cond58, %71
   br i1 %or.cond59, label %.critedge2.thread, label %.critedge4
 
 .critedge4:                                       ; preds = %66, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
@@ -8306,11 +8291,12 @@ define ptr @_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_17basic_string_view
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
-  %.sroa.013.0.extract.trunc = trunc i64 %2 to i8
-  %.sroa.4.0.extract.shift = lshr i64 %2, 8
+  %.fr85.i = freeze i64 %2
+  %.sroa.012.0.extract.trunc = trunc i64 %.fr85.i to i8
+  %.sroa.4.0.extract.shift = lshr i64 %.fr85.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.616.0.extract.shift = lshr i64 %2, 16
-  %.sroa.616.0.extract.trunc = trunc i64 %.sroa.616.0.extract.shift to i8
+  %.sroa.615.0.extract.shift = lshr i64 %.fr85.i, 16
+  %.sroa.615.0.extract.trunc = trunc i64 %.sroa.615.0.extract.shift to i8
   br i1 %3, label %8, label %35
 
 8:                                                ; preds = %4
@@ -8338,14 +8324,11 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   br i1 %.not6079.i, label %_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.lr.ph81.i
 
 .lr.ph81.i:                                       ; preds = %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit
-  %19 = and i64 %2, 255
-  %20 = icmp eq i64 %19, 0
-  %21 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
-  %or.cond.i.i = select i1 %20, i1 %21, i1 false
-  %.not.i.i = icmp ult i64 %2, 4294967296
-  %22 = select i1 %or.cond.i.i, i1 %.not.i.i, i1 false
-  %.fr83.i = freeze i1 %22
-  br i1 %.fr83.i, label %.lr.ph81.split.us.i, label %.lr.ph81.split.i
+  %19 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
+  %20 = and i64 %.fr85.i, -4294967041
+  %21 = icmp eq i64 %20, 0
+  %22 = and i1 %21, %19
+  br i1 %22, label %.lr.ph81.split.us.i, label %.lr.ph81.split.i
 
 .lr.ph81.split.us.i:                              ; preds = %.lr.ph81.i, %.critedge.us.i
   %.sroa.040.080.us.i = phi ptr [ %25, %.critedge.us.i ], [ %16, %.lr.ph81.i ]
@@ -8372,14 +8355,14 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   %.sroa.621.0.extract.trunc.i = trunc i64 %.sroa.621.0.extract.shift.i to i8
   %.sroa.722.0.extract.shift.i = lshr i64 %.sroa.0.0.copyload.i.i, 16
   %.sroa.722.0.extract.trunc.i = trunc i64 %.sroa.722.0.extract.shift.i to i8
-  %30 = icmp eq i8 %.sroa.013.0.extract.trunc, %.sroa.020.0.extract.trunc.i
+  %30 = icmp eq i8 %.sroa.012.0.extract.trunc, %.sroa.020.0.extract.trunc.i
   %31 = icmp eq i8 %.sroa.4.0.extract.trunc, %.sroa.621.0.extract.trunc.i
-  %or.cond.i = select i1 %30, i1 %31, i1 false
-  %32 = icmp eq i8 %.sroa.616.0.extract.trunc, %.sroa.722.0.extract.trunc.i
-  %or.cond55.i = select i1 %or.cond.i, i1 %32, i1 false
-  %.unshifted30 = xor i64 %.sroa.0.0.copyload.i.i, %2
-  %33 = icmp ult i64 %.unshifted30, 4294967296
-  %or.cond56.i = select i1 %or.cond55.i, i1 %33, i1 false
+  %or.cond.i = and i1 %30, %31
+  %32 = icmp eq i8 %.sroa.615.0.extract.trunc, %.sroa.722.0.extract.trunc.i
+  %or.cond55.i = and i1 %32, %or.cond.i
+  %.unshifted29 = xor i64 %.sroa.0.0.copyload.i.i, %.fr85.i
+  %33 = icmp ult i64 %.unshifted29, 4294967296
+  %or.cond56.i = and i1 %33, %or.cond55.i
   br i1 %or.cond56.i, label %_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %28, %.lr.ph81.split.i
@@ -8391,28 +8374,25 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   %36 = load ptr, ptr %0, align 8, !tbaa !255
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !255
-  %.not35 = icmp eq ptr %36, %38
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %36, %38
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = and i64 %2, 255
-  %43 = icmp eq i64 %42, 0
-  %44 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
-  %or.cond.i7 = select i1 %43, i1 %44, i1 false
-  %.not.i8 = icmp ult i64 %2, 4294967296
-  %45 = select i1 %or.cond.i7, i1 %.not.i8, i1 false
-  %.fr = freeze i1 %45
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %42 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
+  %43 = and i64 %.fr85.i, -4294967041
+  %44 = icmp eq i64 %43, 0
+  %45 = and i1 %44, %42
+  br i1 %45, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %.sroa.020.136.us = phi ptr [ %53, %.critedge.us ], [ %36, %.lr.ph ]
+  %.sroa.019.135.us = phi ptr [ %53, %.critedge.us ], [ %36, %.lr.ph ]
   call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  %46 = load ptr, ptr %.sroa.020.136.us, align 8, !tbaa !21, !noalias !278
-  %.not.i.i6.us = icmp eq ptr %46, null
-  br i1 %.not.i.i6.us, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us, label %47
+  %46 = load ptr, ptr %.sroa.019.135.us, align 8, !tbaa !21, !noalias !278
+  %.not.i.i.us = icmp eq ptr %46, null
+  br i1 %.not.i.i.us, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us, label %47
 
 47:                                               ; preds = %.lr.ph.split.us
   %48 = getelementptr inbounds i8, ptr %46, i64 -24
@@ -8431,16 +8411,16 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   br i1 %52, label %_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge.us
 
 .critedge.us:                                     ; preds = %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.020.136.us, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.019.135.us, i64 40
   %.not.us = icmp eq ptr %53, %38
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !281
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.sroa.020.136 = phi ptr [ %67, %.critedge ], [ %36, %.lr.ph ]
+  %.sroa.019.135 = phi ptr [ %67, %.critedge ], [ %36, %.lr.ph ]
   call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  %54 = load ptr, ptr %.sroa.020.136, align 8, !tbaa !21, !noalias !278
-  %.not.i.i6 = icmp eq ptr %54, null
-  br i1 %.not.i.i6, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit, label %55
+  %54 = load ptr, ptr %.sroa.019.135, align 8, !tbaa !21, !noalias !278
+  %.not.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i, label %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit, label %55
 
 55:                                               ; preds = %.lr.ph.split
   %56 = getelementptr inbounds i8, ptr %54, i64 -24
@@ -8459,25 +8439,25 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   br i1 %60, label %61, label %.critedge
 
 61:                                               ; preds = %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.020.136, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.019.135, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %62, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i to i8
   %.sroa.6.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 8
   %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
   %.sroa.7.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 16
   %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
-  %63 = icmp eq i8 %.sroa.013.0.extract.trunc, %.sroa.0.0.extract.trunc
+  %63 = icmp eq i8 %.sroa.012.0.extract.trunc, %.sroa.0.0.extract.trunc
   %64 = icmp eq i8 %.sroa.4.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %or.cond = select i1 %63, i1 %64, i1 false
-  %65 = icmp eq i8 %.sroa.616.0.extract.trunc, %.sroa.7.0.extract.trunc
-  %or.cond28 = select i1 %or.cond, i1 %65, i1 false
-  %.unshifted = xor i64 %.sroa.0.0.copyload.i, %2
+  %or.cond = and i1 %63, %64
+  %65 = icmp eq i8 %.sroa.615.0.extract.trunc, %.sroa.7.0.extract.trunc
+  %or.cond27 = and i1 %or.cond, %65
+  %.unshifted = xor i64 %.sroa.0.0.copyload.i, %.fr85.i
   %66 = icmp ult i64 %.unshifted, 4294967296
-  %or.cond29 = select i1 %or.cond28, i1 %66, i1 false
-  br i1 %or.cond29, label %_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge
+  %or.cond28 = and i1 %or.cond27, %66
+  br i1 %or.cond28, label %_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge
 
 .critedge:                                        ; preds = %61, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.020.136, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.019.135, i64 40
   %.not = icmp eq ptr %67, %38
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !281
 
@@ -8486,8 +8466,8 @@ _ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEE
   br label %_ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit
 
 _ZN11OpenImageIO6v3_1_014ParamValueList4findENS0_7ustringENS0_8TypeDescEb.exit: ; preds = %61, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us, %28, %.critedge.i, %.lr.ph81.split.us.i, %.critedge.us.i, %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit, %._crit_edge
-  %.sroa.020.0 = phi ptr [ %68, %._crit_edge ], [ %18, %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit ], [ %18, %.critedge.us.i ], [ %.sroa.040.080.us.i, %.lr.ph81.split.us.i ], [ %18, %.critedge.i ], [ %.sroa.040.080.i, %28 ], [ %.sroa.020.136.us, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us ], [ %.sroa.020.136, %61 ]
-  ret ptr %.sroa.020.0
+  %.sroa.019.0 = phi ptr [ %68, %._crit_edge ], [ %18, %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit ], [ %18, %.critedge.us.i ], [ %.sroa.040.080.us.i, %.lr.ph81.split.us.i ], [ %18, %.critedge.i ], [ %.sroa.040.080.i, %28 ], [ %.sroa.019.135.us, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us ], [ %.sroa.019.135, %61 ]
+  ret ptr %.sroa.019.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9579,17 +9559,18 @@ _ZNK11OpenImageIO6v3_1_014ParamValueList4findENS0_17basic_string_viewIcSt11char_
 define noundef ptr @_ZNK11OpenImageIO6v3_1_014ParamValueSpan4findENS0_7ustringENS0_8TypeDescEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #12 align 2 {
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
-  %.sroa.042.0.extract.trunc = trunc i64 %2 to i8
-  %.sroa.5.0.extract.shift = lshr i64 %2, 8
+  %.fr = freeze i64 %2
+  %.sroa.042.0.extract.trunc = trunc i64 %.fr to i8
+  %.sroa.5.0.extract.shift = lshr i64 %.fr, 8
   %.sroa.5.0.extract.trunc = trunc i64 %.sroa.5.0.extract.shift to i8
-  %.sroa.9.0.extract.shift = lshr i64 %2, 16
+  %.sroa.9.0.extract.shift = lshr i64 %.fr, 16
   %.sroa.9.0.extract.trunc = trunc i64 %.sroa.9.0.extract.shift to i8
-  %.sroa.1352.0.extract.shift = lshr i64 %2, 32
+  %.sroa.1352.0.extract.shift = lshr i64 %.fr, 32
   %7 = load ptr, ptr %0, align 8, !tbaa !293
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !295
-  %.idx98 = mul nuw nsw i64 %9, 40
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx98
+  %.idx101 = mul nuw nsw i64 %9, 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx101
   %.not2693 = icmp eq i64 %9, 0
   br i1 %3, label %11, label %27
 
@@ -9597,15 +9578,13 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_014ParamValueSpan4findENS0_7ustringEN
   br i1 %.not2693, label %.critedge2, label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %11
-  %12 = icmp eq i8 %.sroa.042.0.extract.trunc, 0
-  %13 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
-  %or.cond = select i1 %12, i1 %13, i1 false
-  %14 = icmp eq i8 %.sroa.9.0.extract.trunc, 0
-  %or.cond64 = select i1 %or.cond, i1 %14, i1 false
-  %15 = icmp ult i64 %2, 4294967296
-  %or.cond65 = select i1 %or.cond64, i1 %15, i1 false
-  %or.cond65.fr = freeze i1 %or.cond65
-  br i1 %or.cond65.fr, label %.lr.ph95.split.us, label %.lr.ph95.split
+  %12 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
+  %13 = or i8 %.sroa.9.0.extract.trunc, %.sroa.042.0.extract.trunc
+  %14 = icmp eq i8 %13, 0
+  %or.cond64 = and i1 %14, %12
+  %15 = icmp ult i64 %.fr, 4294967296
+  %or.cond65 = and i1 %or.cond64, %15
+  br i1 %or.cond65, label %.lr.ph95.split.us, label %.lr.ph95.split
 
 .lr.ph95.split.us:                                ; preds = %.lr.ph95, %.critedge.us
   %.02594.us = phi ptr [ %18, %.critedge.us ], [ %7, %.lr.ph95 ]
@@ -9635,11 +9614,11 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread: ; preds = %.lr.ph95.split
   %.sroa.841.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %22 = icmp eq i8 %.sroa.042.0.extract.trunc, %.sroa.037.0.extract.trunc
   %23 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.638.0.extract.trunc
-  %or.cond66 = select i1 %22, i1 %23, i1 false
+  %or.cond66 = and i1 %22, %23
   %24 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.739.0.extract.trunc
-  %or.cond67 = select i1 %or.cond66, i1 %24, i1 false
+  %or.cond67 = and i1 %or.cond66, %24
   %25 = icmp eq i64 %.sroa.1352.0.extract.shift, %.sroa.841.0.extract.shift
-  %or.cond68 = select i1 %or.cond67, i1 %25, i1 false
+  %or.cond68 = and i1 %or.cond67, %25
   br i1 %or.cond68, label %.critedge2.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread, %.lr.ph95.split
@@ -9655,15 +9634,13 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread: ; preds = %.lr.ph95.split
   %.not.i.i30 = icmp eq ptr %1, null
   %29 = getelementptr inbounds i8, ptr %1, i64 -24
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = icmp eq i8 %.sroa.042.0.extract.trunc, 0
-  %32 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
-  %or.cond69 = select i1 %31, i1 %32, i1 false
-  %33 = icmp eq i8 %.sroa.9.0.extract.trunc, 0
-  %or.cond70 = select i1 %or.cond69, i1 %33, i1 false
-  %34 = icmp ult i64 %2, 4294967296
-  %or.cond71 = select i1 %or.cond70, i1 %34, i1 false
-  %or.cond71.fr = freeze i1 %or.cond71
-  br i1 %or.cond71.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %31 = icmp eq i8 %.sroa.5.0.extract.trunc, 1
+  %32 = or i8 %.sroa.9.0.extract.trunc, %.sroa.042.0.extract.trunc
+  %33 = icmp eq i8 %32, 0
+  %or.cond70 = and i1 %33, %31
+  %34 = icmp ult i64 %.fr, 4294967296
+  %or.cond71 = and i1 %or.cond70, %34
+  br i1 %or.cond71, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not.i.i30, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
@@ -9757,11 +9734,11 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit33.thread.us: ; preds = %_ZNK11Ope
   %.sroa.836.0.extract.shift.us = lshr i64 %.sroa.0.0.copyload.i34.us, 32
   %54 = icmp eq i8 %.sroa.042.0.extract.trunc, %.sroa.0.0.extract.trunc.us
   %55 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.6.0.extract.trunc.us
-  %or.cond72.us = select i1 %54, i1 %55, i1 false
+  %or.cond72.us = and i1 %54, %55
   %56 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.7.0.extract.trunc.us
-  %or.cond73.us = select i1 %or.cond72.us, i1 %56, i1 false
+  %or.cond73.us = and i1 %or.cond72.us, %56
   %57 = icmp eq i64 %.sroa.1352.0.extract.shift, %.sroa.836.0.extract.shift.us
-  %or.cond74.us = select i1 %or.cond73.us, i1 %57, i1 false
+  %or.cond74.us = and i1 %or.cond73.us, %57
   br i1 %or.cond74.us, label %.critedge2.thread, label %.critedge4.us88
 
 .critedge4.us88:                                  ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit33.thread.us, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit.us84
@@ -9803,11 +9780,11 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit33.thread: ; preds = %_ZNK11OpenIm
   %.sroa.836.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i34, 32
   %66 = icmp eq i8 %.sroa.042.0.extract.trunc, %.sroa.0.0.extract.trunc
   %67 = icmp eq i8 %.sroa.5.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %or.cond72 = select i1 %66, i1 %67, i1 false
+  %or.cond72 = and i1 %66, %67
   %68 = icmp eq i8 %.sroa.9.0.extract.trunc, %.sroa.7.0.extract.trunc
-  %or.cond73 = select i1 %or.cond72, i1 %68, i1 false
+  %or.cond73 = and i1 %or.cond72, %68
   %69 = icmp eq i64 %.sroa.1352.0.extract.shift, %.sroa.836.0.extract.shift
-  %or.cond74 = select i1 %or.cond73, i1 %69, i1 false
+  %or.cond74 = and i1 %or.cond73, %69
   br i1 %or.cond74, label %.critedge2.thread, label %.critedge4
 
 .critedge4:                                       ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit33.thread, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
@@ -9832,10 +9809,11 @@ define noundef ptr @_ZNK11OpenImageIO6v3_1_014ParamValueSpan4findENS0_17basic_st
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
-  %.sroa.019.0.extract.trunc = trunc i64 %2 to i8
-  %.sroa.4.0.extract.shift = lshr i64 %2, 8
+  %.fr.i = freeze i64 %2
+  %.sroa.019.0.extract.trunc = trunc i64 %.fr.i to i8
+  %.sroa.4.0.extract.shift = lshr i64 %.fr.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.622.0.extract.shift = lshr i64 %2, 16
+  %.sroa.622.0.extract.shift = lshr i64 %.fr.i, 16
   %.sroa.622.0.extract.trunc = trunc i64 %.sroa.622.0.extract.shift to i8
   br i1 %3, label %8, label %36
 
@@ -9860,21 +9838,19 @@ _ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.
   %16 = load ptr, ptr %0, align 8, !tbaa !293
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !295
-  %.idx98.i = mul nuw nsw i64 %18, 40
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx98.i
+  %.idx101.i = mul nuw nsw i64 %18, 40
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx101.i
   %.not2693.i = icmp eq i64 %18, 0
   br i1 %.not2693.i, label %.critedge2.i, label %.lr.ph95.i
 
 .lr.ph95.i:                                       ; preds = %_ZN11OpenImageIO6v3_1_07ustringC2ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit
-  %20 = icmp eq i8 %.sroa.019.0.extract.trunc, 0
-  %21 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
-  %or.cond.i = select i1 %20, i1 %21, i1 false
-  %22 = icmp eq i8 %.sroa.622.0.extract.trunc, 0
-  %or.cond64.i = select i1 %or.cond.i, i1 %22, i1 false
-  %23 = icmp ult i64 %2, 4294967296
-  %or.cond65.i = select i1 %or.cond64.i, i1 %23, i1 false
-  %or.cond65.fr.i = freeze i1 %or.cond65.i
-  br i1 %or.cond65.fr.i, label %.lr.ph95.split.us.i, label %.lr.ph95.split.i
+  %20 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
+  %21 = or i8 %.sroa.622.0.extract.trunc, %.sroa.019.0.extract.trunc
+  %22 = icmp eq i8 %21, 0
+  %or.cond64.i = and i1 %20, %22
+  %23 = icmp ult i64 %.fr.i, 4294967296
+  %or.cond65.i = and i1 %23, %or.cond64.i
+  br i1 %or.cond65.i, label %.lr.ph95.split.us.i, label %.lr.ph95.split.i
 
 .lr.ph95.split.us.i:                              ; preds = %.lr.ph95.i, %.critedge.us.i
   %.02594.us.i = phi ptr [ %26, %.critedge.us.i ], [ %16, %.lr.ph95.i ]
@@ -9903,12 +9879,12 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread.i: ; preds = %.lr.ph95.spl
   %.sroa.739.0.extract.trunc.i = trunc i64 %.sroa.739.0.extract.shift.i to i8
   %30 = icmp eq i8 %.sroa.019.0.extract.trunc, %.sroa.037.0.extract.trunc.i
   %31 = icmp eq i8 %.sroa.4.0.extract.trunc, %.sroa.638.0.extract.trunc.i
-  %or.cond66.i = select i1 %30, i1 %31, i1 false
+  %or.cond66.i = and i1 %30, %31
   %32 = icmp eq i8 %.sroa.622.0.extract.trunc, %.sroa.739.0.extract.trunc.i
-  %or.cond67.i = select i1 %or.cond66.i, i1 %32, i1 false
-  %.unshifted35 = xor i64 %.sroa.0.0.copyload.i.i, %2
+  %or.cond67.i = and i1 %32, %or.cond66.i
+  %.unshifted35 = xor i64 %.sroa.0.0.copyload.i.i, %.fr.i
   %33 = icmp ult i64 %.unshifted35, 4294967296
-  %or.cond68.i = select i1 %or.cond67.i, i1 %33, i1 false
+  %or.cond68.i = and i1 %33, %or.cond67.i
   br i1 %or.cond68.i, label %_ZNK11OpenImageIO6v3_1_014ParamValueSpan4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread.i, %.lr.ph95.split.i
@@ -9933,15 +9909,13 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread.i: ; preds = %.lr.ph95.spl
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = icmp eq i8 %.sroa.019.0.extract.trunc, 0
-  %45 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
-  %or.cond = select i1 %44, i1 %45, i1 false
-  %46 = icmp eq i8 %.sroa.622.0.extract.trunc, 0
-  %or.cond30 = select i1 %or.cond, i1 %46, i1 false
-  %47 = icmp ult i64 %2, 4294967296
-  %or.cond31 = select i1 %or.cond30, i1 %47, i1 false
-  %or.cond31.fr = freeze i1 %or.cond31
-  br i1 %or.cond31.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  %44 = icmp eq i8 %.sroa.4.0.extract.trunc, 1
+  %45 = or i8 %.sroa.622.0.extract.trunc, %.sroa.019.0.extract.trunc
+  %46 = icmp eq i8 %45, 0
+  %or.cond30 = and i1 %46, %44
+  %47 = icmp ult i64 %.fr.i, 4294967296
+  %or.cond31 = and i1 %or.cond30, %47
+  br i1 %or.cond31, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
   %.01343.us = phi ptr [ %55, %.critedge.us ], [ %37, %.lr.ph ]
@@ -10004,12 +9978,12 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread: ; preds = %_ZNK11OpenImag
   %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
   %64 = icmp eq i8 %.sroa.019.0.extract.trunc, %.sroa.0.0.extract.trunc
   %65 = icmp eq i8 %.sroa.4.0.extract.trunc, %.sroa.6.0.extract.trunc
-  %or.cond32 = select i1 %64, i1 %65, i1 false
+  %or.cond32 = and i1 %64, %65
   %66 = icmp eq i8 %.sroa.622.0.extract.trunc, %.sroa.7.0.extract.trunc
-  %or.cond33 = select i1 %or.cond32, i1 %66, i1 false
-  %.unshifted = xor i64 %.sroa.0.0.copyload.i, %2
+  %or.cond33 = and i1 %or.cond32, %66
+  %.unshifted = xor i64 %.sroa.0.0.copyload.i, %.fr.i
   %67 = icmp ult i64 %.unshifted, 4294967296
-  %or.cond34 = select i1 %or.cond33, i1 %67, i1 false
+  %or.cond34 = and i1 %or.cond33, %67
   br i1 %or.cond34, label %_ZNK11OpenImageIO6v3_1_014ParamValueSpan4findENS0_7ustringENS0_8TypeDescEb.exit, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.thread, %_ZNK11OpenImageIO6v3_1_07ustringcvNS0_17basic_string_viewIcSt11char_traitsIcEEEEv.exit
@@ -15605,8 +15579,8 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.39, align 8
-  %.fr140 = freeze i64 %3
-  store i64 %.fr140, ptr %7, align 8
+  %.fr139 = freeze i64 %3
+  store i64 %.fr139, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i32, ptr %1, align 4, !tbaa !392
   store i32 %24, ptr %8, align 4, !tbaa !43
@@ -15625,7 +15599,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %35 = lshr i64 %.fr140, 32
+  %35 = lshr i64 %.fr139, 32
   %36 = trunc nuw i64 %35 to i32
   %37 = lshr i32 %36, 8
   %38 = and i32 %37, 255
@@ -15637,7 +15611,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %42 = and i32 %36, 131072
   %.not64 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr140 to i32
+  %43 = trunc i64 %.fr139 to i32
   br i1 %.not64, label %55, label %44
 
 44:                                               ; preds = %5
@@ -16168,11 +16142,11 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %_ZNKSt7__cxx1112bas
 
 271:                                              ; preds = %264
   %272 = and i32 %36, 1048576
-  %.not119 = icmp eq i32 %272, 0
+  %.not118 = icmp eq i32 %272, 0
   %.lobit = lshr exact i32 %272, 20
   %273 = trunc nuw nsw i32 %.lobit to i8
   store i8 %273, ptr %22, align 1, !tbaa !28
-  br i1 %.not119, label %275, label %274
+  br i1 %.not118, label %275, label %274
 
 274:                                              ; preds = %.thread116, %271
   br label %275
@@ -18487,8 +18461,8 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.49, align 8
-  %.fr140 = freeze i64 %3
-  store i64 %.fr140, ptr %7, align 8
+  %.fr139 = freeze i64 %3
+  store i64 %.fr139, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i64, ptr %1, align 8, !tbaa !449
   store i64 %24, ptr %8, align 8, !tbaa !39
@@ -18509,7 +18483,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %36 = lshr i64 %.fr140, 32
+  %36 = lshr i64 %.fr139, 32
   %37 = trunc nuw i64 %36 to i32
   %38 = lshr i32 %37, 8
   %39 = and i32 %38, 255
@@ -18521,7 +18495,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = and i32 %37, 131072
   %.not64 = icmp eq i32 %43, 0
-  %44 = trunc i64 %.fr140 to i32
+  %44 = trunc i64 %.fr139 to i32
   br i1 %.not64, label %56, label %45
 
 45:                                               ; preds = %5
@@ -19052,11 +19026,11 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %_ZNKSt7__cxx1112bas
 
 272:                                              ; preds = %265
   %273 = and i32 %37, 1048576
-  %.not119 = icmp eq i32 %273, 0
+  %.not118 = icmp eq i32 %273, 0
   %.lobit = lshr exact i32 %273, 20
   %274 = trunc nuw nsw i32 %.lobit to i8
   store i8 %274, ptr %22, align 1, !tbaa !28
-  br i1 %.not119, label %276, label %275
+  br i1 %.not118, label %276, label %275
 
 275:                                              ; preds = %.thread116, %272
   br label %276
@@ -24074,8 +24048,8 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.66, align 8
-  %.fr140 = freeze i64 %3
-  store i64 %.fr140, ptr %7, align 8
+  %.fr139 = freeze i64 %3
+  store i64 %.fr139, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load ptr, ptr %1, align 8, !tbaa !493
   store ptr %24, ptr %8, align 8, !tbaa !3
@@ -24086,7 +24060,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = lshr i64 %.fr140, 32
+  %27 = lshr i64 %.fr139, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = lshr i32 %28, 8
   %30 = and i32 %29, 255
@@ -24098,7 +24072,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = and i32 %28, 131072
   %.not64 = icmp eq i32 %34, 0
-  %35 = trunc i64 %.fr140 to i32
+  %35 = trunc i64 %.fr139 to i32
   br i1 %.not64, label %47, label %36
 
 36:                                               ; preds = %5
@@ -24629,11 +24603,11 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %_ZNKSt7__cxx1112bas
 
 263:                                              ; preds = %256
   %264 = and i32 %28, 1048576
-  %.not119 = icmp eq i32 %264, 0
+  %.not118 = icmp eq i32 %264, 0
   %.lobit = lshr exact i32 %264, 20
   %265 = trunc nuw nsw i32 %.lobit to i8
   store i8 %265, ptr %22, align 1, !tbaa !28
-  br i1 %.not119, label %267, label %266
+  br i1 %.not118, label %267, label %266
 
 266:                                              ; preds = %.thread116, %263
   br label %267

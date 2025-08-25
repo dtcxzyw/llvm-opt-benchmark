@@ -9984,17 +9984,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEC2ERKS3_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EE12_InitStorageEm.exit.i
   %325 = load ptr, ptr %295, align 8
+  %.fr = freeze ptr %325
   %326 = load ptr, ptr %9, align 8
-  %327 = ptrtoint ptr %325 to i64
-  %328 = ptrtoint ptr %326 to i64
+  %.fr203 = freeze ptr %326
+  %327 = ptrtoint ptr %.fr to i64
+  %328 = ptrtoint ptr %.fr203 to i64
   %329 = sub i64 %327, %328
-  %.fr = freeze i64 %329
-  %330 = sdiv i64 %.fr, 40
+  %330 = sdiv i64 %329, 40
   %331 = icmp ugt i64 %330, 1
   br i1 %331, label %332, label %.preheader
 
 .preheader:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEC2ERKS3_.exit
-  %.not202242 = icmp eq ptr %326, %325
+  %.not202242 = icmp eq ptr %.fr203, %.fr
   br i1 %.not202242, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EED2Ev.exit, label %.lr.ph244
 
 332:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEC2ERKS3_.exit
@@ -10415,14 +10416,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProcedu
   br label %556
 
 .lr.ph244:                                        ; preds = %.preheader, %533
-  %.sroa.0162.0243 = phi ptr [ %534, %533 ], [ %326, %.preheader ]
+  %.sroa.0162.0243 = phi ptr [ %534, %533 ], [ %.fr203, %.preheader ]
   %531 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0243, i64 8
   %532 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__43HdGpGenerativeProceduralResolvingSceneIndex17_UpdateProceduralERKNS_7SdfPathEbPNS0_8_NoticesEPKNS_14TfDenseHashMapIS1_NS_22HdDataSourceLocatorSetENS_6TfHashESt8equal_toIS1_ELj128EEE(ptr noundef nonnull align 8 dereferenceable(1537) %0, ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0162.0243, i1 noundef zeroext true, ptr noundef nonnull %10, ptr noundef nonnull %531)
           to label %533 unwind label %.loopexit205
 
 533:                                              ; preds = %.lr.ph244
   %534 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0243, i64 40
-  %.not202 = icmp eq ptr %534, %325
+  %.not202 = icmp eq ptr %534, %.fr
   br i1 %.not202, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EED2Ev.exit, label %.lr.ph244
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EED2Ev.exit: ; preds = %533, %.preheader, %529, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorIZNS_43HdGpGenerativeProceduralResolvingSceneIndex13_PrimsDirtiedERKNS_16HdSceneIndexBaseERKNS0_INS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEEE10_CookEntryLj16EE9_DestructEv.exit.i

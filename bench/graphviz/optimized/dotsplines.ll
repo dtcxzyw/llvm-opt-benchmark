@@ -8254,15 +8254,16 @@ cl_vninside.exit.thread:                          ; preds = %75, %64, %71, %cl_v
   %106 = load double, ptr %105, align 8, !tbaa !265
   %107 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %108 = load double, ptr %107, align 8, !tbaa !81
-  %109 = fcmp ugt double %106, %108
+  %.fr = freeze double %108
+  %109 = fcmp ugt double %106, %.fr
   br i1 %109, label %cl_vninside.exit80.thread, label %cl_vninside.exit80
 
 cl_vninside.exit80:                               ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %spec.select74.val, i64 56
   %111 = load double, ptr %110, align 8, !tbaa !266
-  %112 = fcmp ole double %108, %111
-  %cond.fr = freeze i1 %112
-  %spec.select2 = select i1 %cond.fr, ptr %91, ptr null
+  %.fr3 = freeze double %111
+  %112 = fcmp ole double %.fr, %.fr3
+  %spec.select2 = select i1 %112, ptr %91, ptr null
   br label %cl_vninside.exit80.thread
 
 cl_vninside.exit80.thread:                        ; preds = %cl_vninside.exit80, %104, %93, %100, %41, %cl_vninside.exit, %cl_vninside.exit.thread

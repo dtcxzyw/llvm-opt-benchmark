@@ -1595,8 +1595,8 @@ define void @_ZN11CommandData8ParseArgEPw(ptr noundef nonnull align 8 dereferenc
   %57 = icmp eq i32 %54, 82
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 83480
   %59 = load i32, ptr %58, align 8
-  %.fr57 = freeze i32 %59
-  %60 = icmp eq i32 %.fr57, 0
+  %.fr = freeze i32 %59
+  %60 = icmp eq i32 %.fr, 0
   %61 = and i1 %57, %60
   %or.cond = select i1 %.not, i1 true, i1 %56
   br i1 %or.cond, label %64, label %62

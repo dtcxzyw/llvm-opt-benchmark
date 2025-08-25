@@ -9921,6 +9921,8 @@ define hidden noundef zeroext i1 @"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i32, i32 } @_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566(i32 noundef %0, i32 %1, i32 noundef %2, i32 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.fr29 = freeze i32 %3
+  %.fr = freeze i32 %1
   %5 = icmp samesign ult i32 %0, %2
   br i1 %5, label %.thread24, label %6
 
@@ -9930,16 +9932,15 @@ define hidden { i32, i32 } @_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.1422333
 
 _ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit: ; preds = %6
   %.not.i.i = icmp ne i32 %0, 0
-  %8 = icmp ugt i32 %1, %3
-  %.fr = freeze i1 %8
-  %spec.select = and i1 %.not.i.i, %.fr
-  %spec.select29 = select i1 %spec.select, i32 %1, i32 %3
-  %spec.select30 = select i1 %spec.select, i32 %0, i32 %2
+  %8 = icmp ugt i32 %.fr, %.fr29
+  %spec.select = and i1 %.not.i.i, %8
+  %spec.select30 = select i1 %spec.select, i32 %.fr, i32 %.fr29
+  %spec.select31 = select i1 %spec.select, i32 %0, i32 %2
   br label %.thread24
 
 .thread24:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit, %6, %4
-  %9 = phi i32 [ %3, %4 ], [ %1, %6 ], [ %spec.select29, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
-  %10 = phi i32 [ %2, %4 ], [ %0, %6 ], [ %spec.select30, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
+  %9 = phi i32 [ %.fr29, %4 ], [ %.fr, %6 ], [ %spec.select30, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
+  %10 = phi i32 [ %2, %4 ], [ %0, %6 ], [ %spec.select31, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit ]
   %11 = insertvalue { i32, i32 } poison, i32 %10, 0
   %12 = insertvalue { i32, i32 } %11, i32 %9, 1
   ret { i32, i32 } %12
@@ -9947,6 +9948,8 @@ _ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit: ; preds = %6
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566(i64 noundef %0, i64 %1, i64 noundef %2, i64 %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+  %.fr29 = freeze i64 %3
+  %.fr = freeze i64 %1
   %5 = icmp samesign ult i64 %0, %2
   br i1 %5, label %.thread24, label %6
 
@@ -9956,16 +9959,15 @@ define hidden { i64, i64 } @_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.1422333
 
 _ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit: ; preds = %6
   %.not.i.i = icmp ne i64 %0, 0
-  %8 = icmp ugt i64 %1, %3
-  %.fr = freeze i1 %8
-  %spec.select = and i1 %.not.i.i, %.fr
-  %spec.select29 = select i1 %spec.select, i64 %1, i64 %3
-  %spec.select30 = select i1 %spec.select, i64 %0, i64 %2
+  %8 = icmp ugt i64 %.fr, %.fr29
+  %spec.select = and i1 %.not.i.i, %8
+  %spec.select30 = select i1 %spec.select, i64 %.fr, i64 %.fr29
+  %spec.select31 = select i1 %spec.select, i64 %0, i64 %2
   br label %.thread24
 
 .thread24:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit, %6, %4
-  %9 = phi i64 [ %3, %4 ], [ %1, %6 ], [ %spec.select29, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
-  %10 = phi i64 [ %2, %4 ], [ %0, %6 ], [ %spec.select30, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
+  %9 = phi i64 [ %.fr29, %4 ], [ %.fr, %6 ], [ %spec.select30, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
+  %10 = phi i64 [ %2, %4 ], [ %0, %6 ], [ %spec.select31, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit ]
   %11 = insertvalue { i64, i64 } poison, i64 %10, 0
   %12 = insertvalue { i64, i64 } %11, i64 %9, 1
   ret { i64, i64 } %12
@@ -23293,6 +23295,7 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.0253.2395, i64 1
   %73 = load i8, ptr %.sroa.0253.2395, align 1, !alias.scope !4765, !noalias !4769
+  %.fr = freeze i8 %73
   %.not.i.i228 = icmp eq i64 %.sroa.17.2393, 1
   br i1 %.not.i.i228, label %84, label %77
 
@@ -23313,9 +23316,10 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
   %78 = add i64 %.sroa.17.2393, -2
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.0253.2395, i64 2
   %80 = load i8, ptr %72, align 1, !alias.scope !4780, !noalias !4784
+  %.fr494 = freeze i8 %80
   %81 = select i1 %12, i8 16, i8 8
   %82 = add nuw nsw i8 %81, %.sroa.18.sroa.0.0
-  %83 = icmp slt i8 %73, 0
+  %83 = icmp slt i8 %.fr, 0
   br i1 %83, label %.thread478, label %87
 
 84:                                               ; preds = %71
@@ -23332,11 +23336,10 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
   br label %108
 
 87:                                               ; preds = %77
-  %88 = shl nuw i8 %73, 1
-  %89 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %88, i8 %80)
-  %.fr494 = freeze { i8, i1 } %89
-  %90 = extractvalue { i8, i1 } %.fr494, 1
-  %91 = extractvalue { i8, i1 } %.fr494, 0
+  %88 = shl nuw i8 %.fr, 1
+  %89 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %88, i8 %.fr494)
+  %90 = extractvalue { i8, i1 } %89, 1
+  %91 = extractvalue { i8, i1 } %89, 0
   br i1 %90, label %.thread478, label %.thread475
 
 .thread475:                                       ; preds = %87
@@ -23380,13 +23383,13 @@ _ZN5gimli4read6reader6Reader11read_offset17haccfa5cfe0240852E.exit: ; preds = %5
   %.sroa.7101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sroa.5279.7..sroa.5279.7..sroa.5279.8., ptr %.sroa.7101.0..sroa_idx, align 8
   %.sroa.8102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %73, ptr %.sroa.8102.0..sroa_idx, align 8
+  store i8 %.fr, ptr %.sroa.8102.0..sroa_idx, align 8
   %.sroa.9103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
   store i8 %.sroa.18.sroa.0.0, ptr %.sroa.9103.0..sroa_idx, align 1
   %.sroa.10104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 42
   store <2 x i8> %46, ptr %.sroa.10104.0..sroa_idx, align 2
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i8 %80, ptr %.sroa.11.0..sroa_idx, align 4
+  store i8 %.fr494, ptr %.sroa.11.0..sroa_idx, align 4
   br label %108
 
 105:                                              ; preds = %96
@@ -33683,8 +33686,8 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
   br label %165
 
 61:                                               ; preds = %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread", %.thread144
-  %62 = phi ptr [ %.pre173, %.thread144 ], [ %.sroa.054.0.copyload, %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread" ]
-  %63 = phi i64 [ %.pre172, %.thread144 ], [ %42, %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread" ]
+  %62 = phi ptr [ %.pre175, %.thread144 ], [ %.sroa.054.0.copyload, %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread" ]
+  %63 = phi i64 [ %.pre174, %.thread144 ], [ %42, %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread" ]
   %64 = phi ptr [ %.pre, %.thread144 ], [ %19, %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread" ]
   %.0 = phi ptr [ %.sroa.6106.0147, %.thread144 ], [ null, %"_ZN9addr2line8function18Functions$LT$R$GT$12find_address17hc853851bf211f9b3E.exit.thread" ]
   %65 = add i64 %63, 1
@@ -33753,7 +33756,7 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
 
 .lr.ph.i.i.i:                                     ; preds = %84, %97
   %.028.i.i.i = phi i64 [ %100, %97 ], [ %88, %84 ]
-  %.01927.i.i.i = phi i64 [ %.022.i.fr.i.i, %97 ], [ 0, %84 ]
+  %.01927.i.i.i = phi i64 [ %.022.i.i.i, %97 ], [ 0, %84 ]
   %.02026.i.i.i = phi i64 [ %.021.i.i.i, %97 ], [ %88, %84 ]
   %89 = lshr i64 %.028.i.i.i, 1
   %90 = add i64 %89, %.01927.i.i.i
@@ -33765,32 +33768,32 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
   %94 = getelementptr i8, ptr %92, i64 24
   %.val24.i.i.i = load i64, ptr %94, align 8, !alias.scope !6769, !noalias !6772
   %95 = icmp uge i64 %63, %.val23.i.i.i
-  %.not.i.i.i.i102 = icmp uge i64 %63, %.val24.i.i.i
+  %.val24.i.fr.i.i = freeze i64 %.val24.i.i.i
+  %.not.i.i.i.i102 = icmp uge i64 %63, %.val24.i.fr.i.i
   %not..i.i.i = xor i1 %95, true
-  %96 = select i1 %not..i.i.i, i1 true, i1 %.not.i.i.i.i102
+  %96 = or i1 %.not.i.i.i.i102, %not..i.i.i
   br i1 %96, label %97, label %.thread83.i.i
 
 97:                                               ; preds = %.lr.ph.i.i.i
   %.021.i.i.i = select i1 %95, i64 %.02026.i.i.i, i64 %90
-  %98 = select i1 %95, i1 %.not.i.i.i.i102, i1 false
+  %98 = and i1 %95, %.not.i.i.i.i102
   %99 = add nuw i64 %90, 1
   %.022.i.i.i = select i1 %98, i64 %99, i64 %.01927.i.i.i
-  %.022.i.fr.i.i = freeze i64 %.022.i.i.i
-  %100 = sub i64 %.021.i.i.i, %.022.i.fr.i.i
-  %101 = icmp ult i64 %.022.i.fr.i.i, %.021.i.i.i
+  %100 = sub i64 %.021.i.i.i, %.022.i.i.i
+  %101 = icmp ult i64 %.022.i.i.i, %.021.i.i.i
   br i1 %101, label %.lr.ph.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hcdcbdd7b13b7ba63E.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hcdcbdd7b13b7ba63E.exit.i.i": ; preds = %97
-  %102 = icmp ule i64 %.022.i.fr.i.i, %88
+  %102 = icmp ule i64 %.022.i.i.i, %88
   call void @llvm.assume(i1 %102)
-  %103 = icmp eq i64 %.022.i.fr.i.i, 0
+  %103 = icmp eq i64 %.022.i.i.i, 0
   %spec.select.i.i = select i1 %103, i64 0, i64 %88
   br label %.thread83.i.i
 
 .thread83.i.i:                                    ; preds = %.lr.ph.i.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hcdcbdd7b13b7ba63E.exit.i.i", %84
   %104 = phi i64 [ 0, %84 ], [ %spec.select.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hcdcbdd7b13b7ba63E.exit.i.i" ], [ %90, %.lr.ph.i.i.i ]
-  %.not93.i.i = icmp ult i64 %104, %88
-  br i1 %.not93.i.i, label %105, label %.loopexit.i
+  %.not94.i.i = icmp ult i64 %104, %88
+  br i1 %.not94.i.i, label %105, label %.loopexit.i
 
 105:                                              ; preds = %.thread83.i.i
   %106 = getelementptr inbounds { { { { { ptr, i64 } }, {} }, {} }, i64, i64 }, ptr %86, i64 %104
@@ -33806,19 +33809,18 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
   %.02025.i.i.i = phi i64 [ %.021.i54.i.i, %115 ], [ %109, %105 ]
   %110 = lshr i64 %.027.i.i.i, 1
   %111 = add i64 %110, %.01926.i.i.i
-  %.fr94.i.i = freeze i64 %111
-  %112 = icmp ult i64 %.fr94.i.i, %109
+  %112 = icmp ult i64 %111, %109
   call void @llvm.assume(i1 %112)
-  %113 = getelementptr inbounds { i64, i64, i32, i32 }, ptr %107, i64 %.fr94.i.i
+  %113 = getelementptr inbounds { i64, i64, i32, i32 }, ptr %107, i64 %111
   %.val23.i53.i.i = load i64, ptr %113, align 8, !alias.scope !6774, !noalias !6777, !noundef !4
   %114 = icmp eq i64 %.val23.i53.i.i, %63
   br i1 %114, label %.loopexit.i, label %115
 
 115:                                              ; preds = %.lr.ph.i52.i.i
   %116 = icmp ugt i64 %.val23.i53.i.i, %63
-  %.021.i54.i.i = select i1 %116, i64 %.fr94.i.i, i64 %.02025.i.i.i
+  %.021.i54.i.i = select i1 %116, i64 %111, i64 %.02025.i.i.i
   %117 = icmp ult i64 %.val23.i53.i.i, %63
-  %118 = add nuw i64 %.fr94.i.i, 1
+  %118 = add nuw i64 %111, 1
   %.022.i55.i.i = select i1 %117, i64 %118, i64 %.01926.i.i.i
   %119 = sub i64 %.021.i54.i.i, %.022.i55.i.i
   %120 = icmp ult i64 %.022.i55.i.i, %.021.i54.i.i
@@ -33835,7 +33837,7 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i52.i.i, %.thread90.i.i, %121, %.thread83.i.i
-  %.0.i.i103 = phi i64 [ 0, %.thread83.i.i ], [ 0, %.thread90.i.i ], [ %124, %121 ], [ %.fr94.i.i, %.lr.ph.i52.i.i ]
+  %.0.i.i103 = phi i64 [ 0, %.thread83.i.i ], [ 0, %.thread90.i.i ], [ %124, %121 ], [ %111, %.lr.ph.i52.i.i ]
   %125 = ptrtoint ptr %86 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6768
   store ptr %.sroa.761.065.ph.i.i, ptr %9, align 8, !noalias !6768
@@ -33926,8 +33928,8 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
   call void @llvm.assume(i1 %154)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre = load ptr, ptr %1, align 8
-  %.pre172 = load i64, ptr %41, align 8
-  %.pre173 = load ptr, ptr %14, align 8
+  %.pre174 = load i64, ptr %41, align 8
+  %.pre175 = load ptr, ptr %14, align 8
   br label %61
 
 155:                                              ; preds = %151
@@ -38344,6 +38346,8 @@ define hidden void @_ZN8wasmtime7runtime9resources17ResourcesRequired3add17h5734
   %11 = load i64, ptr %1, align 8, !range !778, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
+  %.fr29.i = freeze i64 %13
+  %.fr.i = freeze i64 %10
   %14 = icmp samesign ult i64 %8, %11
   br i1 %14, label %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit, label %15
 
@@ -38353,16 +38357,15 @@ define hidden void @_ZN8wasmtime7runtime9resources17ResourcesRequired3add17h5734
 
 _ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i: ; preds = %15
   %.not.i.i.i = icmp ne i64 %8, 0
-  %17 = icmp ugt i64 %10, %13
-  %.fr.i = freeze i1 %17
-  %spec.select.i = and i1 %.not.i.i.i, %.fr.i
-  %spec.select = select i1 %spec.select.i, i64 %10, i64 %13
-  %spec.select4 = select i1 %spec.select.i, i64 1, i64 %8
+  %17 = icmp ugt i64 %.fr.i, %.fr29.i
+  %spec.select.i = and i1 %.not.i.i.i, %17
+  %spec.select = select i1 %spec.select.i, i64 %.fr.i, i64 %.fr29.i
+  %spec.select5 = select i1 %spec.select.i, i64 1, i64 %8
   br label %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit
 
 _ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i, %2, %15
-  %18 = phi i64 [ %13, %2 ], [ %10, %15 ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
-  %19 = phi i64 [ 1, %2 ], [ %8, %15 ], [ %spec.select4, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
+  %18 = phi i64 [ %.fr29.i, %2 ], [ %.fr.i, %15 ], [ %spec.select, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
+  %19 = phi i64 [ 1, %2 ], [ %8, %15 ], [ %spec.select5, %_ZN4core3ops8function6FnOnce9call_once17h2db66ba10374fa5cE.exit.i ]
   store i64 %19, ptr %0, align 8
   store i64 %18, ptr %9, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -38379,6 +38382,8 @@ _ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit: ; preds 
   %30 = load i32, ptr %29, align 8, !range !380, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
+  %.fr29.i1 = freeze i32 %32
+  %.fr.i2 = freeze i32 %28
   %33 = icmp samesign ult i32 %26, %30
   br i1 %33, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit, label %34
 
@@ -38387,17 +38392,16 @@ _ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit: ; preds 
   br i1 %35, label %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i, label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i: ; preds = %34
-  %.not.i.i.i1 = icmp ne i32 %26, 0
-  %36 = icmp ugt i32 %28, %32
-  %.fr.i2 = freeze i1 %36
-  %spec.select.i3 = and i1 %.not.i.i.i1, %.fr.i2
-  %spec.select5 = select i1 %spec.select.i3, i32 %28, i32 %32
-  %spec.select6 = select i1 %spec.select.i3, i32 1, i32 %26
+  %.not.i.i.i3 = icmp ne i32 %26, 0
+  %36 = icmp ugt i32 %.fr.i2, %.fr29.i1
+  %spec.select.i4 = and i1 %.not.i.i.i3, %36
+  %spec.select6 = select i1 %spec.select.i4, i32 %.fr.i2, i32 %.fr29.i1
+  %spec.select7 = select i1 %spec.select.i4, i32 1, i32 %26
   br label %_ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit
 
 _ZN4core3cmp6max_by17h62a9dd251656d3d0E.llvm.14223331465801898566.exit: ; preds = %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit, %34
-  %37 = phi i32 [ %32, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %28, %34 ], [ %spec.select5, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
-  %38 = phi i32 [ 1, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %26, %34 ], [ %spec.select6, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
+  %37 = phi i32 [ %.fr29.i1, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %.fr.i2, %34 ], [ %spec.select6, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
+  %38 = phi i32 [ 1, %_ZN4core3cmp6max_by17hd1a30ae65b05b102E.llvm.14223331465801898566.exit ], [ %26, %34 ], [ %spec.select7, %_ZN4core3ops8function6FnOnce9call_once17h32eee819a743cfd0E.exit.i ]
   store i32 %38, ptr %25, align 8
   store i32 %37, ptr %27, align 4
   ret void

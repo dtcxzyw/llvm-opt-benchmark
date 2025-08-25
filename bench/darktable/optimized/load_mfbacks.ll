@@ -4245,25 +4245,27 @@ _ZN6LibRaw11ph1_bithuffEiPt.exit111:              ; preds = %121, %.noexc110
   %144 = sub nsw i32 64, %140
   %145 = zext nneg i32 %144 to i64
   %146 = shl i64 %141, %145
+  %.fr217 = freeze i64 %146
   %147 = sub nsw i32 64, %116
   %148 = zext nneg i32 %147 to i64
-  %149 = lshr i64 %146, %148
-  %150 = trunc i64 %149 to i32
+  %149 = lshr i64 %.fr217, %148
+  %.fr218 = freeze i64 %149
+  %150 = trunc i64 %.fr218 to i32
   %151 = sub nsw i32 %140, %116
   store i32 %151, ptr %143, align 8, !tbaa !160
   %152 = or disjoint i64 %indvars.iv166, %indvars.iv169
   %153 = getelementptr inbounds nuw [12 x i32], ptr %4, i64 0, i64 %152
   %154 = icmp sgt i32 %116, 0
-  %155 = icmp sgt i64 %146, -1
-  %or.cond = select i1 %154, i1 %155, i1 false
+  %155 = icmp sgt i64 %.fr217, -1
+  %or.cond = and i1 %154, %155
   %notmask = shl nsw i32 -1, %116
-  %.neg103 = add nuw nsw i32 %notmask, 1
+  %notmask.fr = freeze i32 %notmask
+  %.neg103 = add i32 %notmask.fr, 1
   %156 = select i1 %or.cond, i32 %.neg103, i32 0
   %157 = add i32 %156, %150
-  %.fr212 = freeze i32 %157
-  store i32 %.fr212, ptr %153, align 4, !tbaa !6
-  %158 = icmp eq i32 %.fr212, 65535
-  %spec.select = select i1 %158, i32 -32768, i32 %.fr212
+  store i32 %157, ptr %153, align 4, !tbaa !6
+  %158 = icmp eq i32 %157, 65535
+  %spec.select = select i1 %158, i32 -32768, i32 %157
   br label %159
 
 159:                                              ; preds = %_ZN6LibRaw11ph1_bithuffEiPt.exit111, %.thread206

@@ -2983,8 +2983,8 @@ _ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16rever
   %40 = trunc i64 %30 to i32
   %41 = add i32 %.ph.i, %40
   store i32 %41, ptr %16, align 8, !tbaa !26
-  %.not.i40 = icmp eq i32 %41, 0
-  br i1 %.not.i40, label %.loopexit, label %.lr.ph
+  %.not.i39 = icmp eq i32 %41, 0
+  br i1 %.not.i39, label %.loopexit, label %.lr.ph
 
 thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %59, %59, %59, %52
   %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %48, %59 ], [ %48, %59 ], [ %48, %59 ], [ %48, %52 ]
@@ -3010,8 +3010,8 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %54 = load ptr, ptr %53, align 8, !tbaa !328
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !329
-  %.fr36 = freeze i64 %56
-  %57 = and i64 %.fr36, 1
+  %.fr = freeze i64 %56
+  %57 = and i64 %.fr, 1
   %58 = icmp eq i64 %57, 0
   br i1 %58, label %thread-pre-split, label %switch.early.test
 
@@ -3037,7 +3037,7 @@ switch.early.test:                                ; preds = %52, %59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %thread-pre-split, %21, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, %61
-  %.not.i38 = phi i1 [ false, %61 ], [ true, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ], [ true, %21 ], [ true, %thread-pre-split ]
+  %.not.i37 = phi i1 [ false, %61 ], [ true, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ], [ true, %21 ], [ true, %thread-pre-split ]
   %64 = load ptr, ptr %5, align 8, !tbaa !25
   %65 = icmp eq ptr %64, %15
   br i1 %65, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit, label %66
@@ -3048,7 +3048,7 @@ switch.early.test:                                ; preds = %52, %59
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit: ; preds = %.loopexit, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not.i38, label %20, label %.critedge
+  br i1 %.not.i37, label %20, label %.critedge
 
 .critedge:                                        ; preds = %20, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit
   %67 = load ptr, ptr %3, align 8, !tbaa !25
@@ -4714,10 +4714,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_13RegBankSelec
   %11 = load ptr, ptr %10, align 8, !tbaa !378
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i64, ptr %12, align 8, !tbaa !380
-  %.not25.i = icmp eq i64 %13, 0
+  %.fr15 = freeze i64 %13
+  %.not25.i = icmp eq i64 %.fr15, 0
   %spec.select.i = select i1 %.not25.i, ptr %2, ptr %4
-  %spec.select24.i = select i1 %.not25.i, i64 %3, i64 %5
-  %spec.select24.i.fr = freeze i64 %spec.select24.i
+  %.fr16 = freeze i64 %3
+  %.fr17 = freeze i64 %5
+  %spec.select24.i = select i1 %.not25.i, i64 %.fr16, i64 %.fr17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %15 = load i32, ptr %14, align 8, !tbaa !26
   %16 = zext i32 %15 to i64
@@ -4727,7 +4729,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm2cl3optINS_13RegBankSelec
 .lr.ph.i:                                         ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = icmp eq i64 %spec.select24.i.fr, 0
+  %19 = icmp eq i64 %spec.select24.i, 0
   br i1 %19, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us
@@ -4747,12 +4749,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread22.i.us:  ; preds = %.lr.ph.i.split.us
   %21 = getelementptr inbounds nuw %"class.llvm::cl::parser<llvm::RegBankSelect::Mode>::OptionInfo", ptr %18, i64 %.01527.i
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !48
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i.fr
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %spec.select24.i
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !47
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i.fr)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %spec.select.i, i64 %spec.select24.i)
   %22 = icmp eq i32 %bcmp.i.i, 0
   br i1 %22, label %_ZN4llvm2cl6parserINS_13RegBankSelect4ModeEE5parseERNS0_6OptionENS_9StringRefES7_RS3_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread22.i
 
@@ -4779,7 +4781,7 @@ _ZN4llvm2cl6parserINS_13RegBankSelect4ModeEE5parseERNS0_6OptionENS_9StringRefES7
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %spec.select.i, ptr %29, align 8, !tbaa !241, !alias.scope !385
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %spec.select24.i.fr, ptr %30, align 8, !tbaa !241, !alias.scope !385
+  store i64 %spec.select24.i, ptr %30, align 8, !tbaa !241, !alias.scope !385
   store ptr %8, ptr %7, align 8, !alias.scope !389
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @.str.13, ptr %31, align 8, !alias.scope !389

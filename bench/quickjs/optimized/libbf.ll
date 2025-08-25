@@ -9050,8 +9050,8 @@ bf_set_nan.exit345:                               ; preds = %bf_delete.exit341, 
   br i1 %285, label %286, label %326
 
 286:                                              ; preds = %283
-  %.fr773 = freeze i8 %284
-  %287 = and i8 %.fr773, -33
+  %.fr = freeze i8 %284
+  %287 = and i8 %.fr, -33
   %narrow = icmp ne i8 %287, 80
   %288 = getelementptr inbounds nuw i8, ptr %.8.ph534, i64 1
   %289 = load i8, ptr %288, align 1, !tbaa !88

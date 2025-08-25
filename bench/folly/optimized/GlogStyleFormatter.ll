@@ -759,7 +759,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   %.0.v.i = select i1 %225, i64 112, i64 144
   %.0.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.v.i
   %226 = load ptr, ptr %.0.i, align 8, !tbaa !38
-  %.fr16.i = freeze ptr %226
+  %.fr.i = freeze ptr %226
   %227 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %228 = load i64, ptr %227, align 8, !tbaa !39
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -782,7 +782,7 @@ _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
   br i1 %or.cond173.not, label %237, label %_ZNK5folly5RangeIPKcE4findERS1_m.exit.thread
 
 237:                                              ; preds = %.preheader
-  %238 = getelementptr i8, ptr %.fr16.i, i64 %.034
+  %238 = getelementptr i8, ptr %.fr.i, i64 %.034
   %gepdiff = sub nuw i64 %228, %.034
   %239 = call noundef ptr @memchr(ptr noundef %238, i32 noundef 10, i64 noundef %gepdiff) #23
   %240 = icmp eq ptr %239, null
@@ -906,7 +906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %274
-  %281 = getelementptr inbounds nuw i8, ptr %.fr16.i, i64 %.034
+  %281 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 %.034
   %282 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %281, i64 noundef %.sroa.speculated.i)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit unwind label %.loopexit174
 
@@ -994,7 +994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit101: ; pr
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i102: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit101
-  %317 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.fr16.i, i64 noundef %228)
+  %317 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.fr.i, i64 noundef %228)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit105 unwind label %262
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit105: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i102

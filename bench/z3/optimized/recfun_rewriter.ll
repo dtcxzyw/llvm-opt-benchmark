@@ -615,13 +615,14 @@ _ZNK8datatype4util14is_recognizer0EPK3app.exit.thread.i.i: ; preds = %_ZNK8datat
 
 _ZNK8datatype4util13is_recognizerEPK4expr.exit.i: ; preds = %247
   %252 = load i32, ptr %251, align 8, !tbaa !17
-  %253 = icmp eq i32 %252, %243
+  %.fr.i = freeze i32 %252
+  %253 = icmp eq i32 %.fr.i, %243
   %254 = getelementptr inbounds nuw i8, ptr %251, i64 4
   %255 = load i32, ptr %254, align 4
-  %256 = icmp eq i32 %255, 2
-  %257 = select i1 %253, i1 %256, i1 false
-  %cond.fr.i = freeze i1 %257
-  br i1 %cond.fr.i, label %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i, label %.critedge.i
+  %.fr36.i = freeze i32 %255
+  %256 = icmp eq i32 %.fr36.i, 2
+  %257 = and i1 %253, %256
+  br i1 %257, label %_ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i, label %.critedge.i
 
 _ZNK8datatype4util13is_recognizerEPK4expr.exit.thread34.i: ; preds = %_ZNK8datatype4util13is_recognizerEPK4expr.exit.i, %_ZNK8datatype4util14is_recognizer0EPK3app.exit.i.i
   br label %.critedge.i

@@ -1328,18 +1328,19 @@ _ZNK2cv6hfloatcvfEv.exit:                         ; preds = %1, %29, %31
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN2cv13FormattedImpl4nextEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #3 comdat align 2 {
-  br label %tailrecurse485
+  br label %tailrecurse510
 
-tailrecurse485:                                   ; preds = %87, %1
+tailrecurse510:                                   ; preds = %87, %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.promoted = load i32, ptr %2, align 8, !tbaa !62
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
+  %.fr235 = freeze i32 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 149
   %7 = load i8, ptr %6, align 1, !range !56
-  %.fr235 = freeze i8 %7
-  %8 = trunc nuw i8 %.fr235 to i1
+  %.fr236 = freeze i8 %7
+  %8 = trunc nuw i8 %.fr236 to i1
   %.31 = select i1 %8, i32 2, i32 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -1351,12 +1352,12 @@ tailrecurse485:                                   ; preds = %87, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %16 = load i8, ptr %15, align 4
   %.not21 = icmp eq i8 %16, 0
-  %17 = trunc i8 %.fr235 to i1
+  %17 = trunc i8 %.fr236 to i1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 235
   %20 = load i8, ptr %19, align 1
-  %.fr237 = freeze i8 %20
-  %.not22 = icmp eq i8 %.fr237, 0
+  %.fr238 = freeze i8 %20
+  %.not22 = icmp eq i8 %.fr238, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 233
   %22 = load i8, ptr %21, align 1
   %.fr234 = freeze i8 %22
@@ -1365,28 +1366,29 @@ tailrecurse485:                                   ; preds = %87, %1
   %24 = load i8, ptr %23, align 2
   %.not24 = icmp ne i8 %24, 0
   %.promoted59 = load i32, ptr %3, align 4
+  %.promoted59.fr = freeze i32 %.promoted59
   %.promoted60 = load i32, ptr %9, align 8
   br i1 %.not23, label %tailrecurse.us.preheader, label %.split
 
-tailrecurse.us.preheader:                         ; preds = %tailrecurse485
+tailrecurse.us.preheader:                         ; preds = %tailrecurse510
   %brmerge = select i1 %14, i1 true, i1 %.not21
   %brmerge223 = or i1 %14, %.not22
   br label %tailrecurse.us.outer
 
-tailrecurse.us.outer:                             ; preds = %27, %tailrecurse.us.preheader
-  %.ph = phi i32 [ %28, %27 ], [ %.promoted60, %tailrecurse.us.preheader ]
-  %.ph413 = phi i32 [ %.ph415, %27 ], [ %.promoted59, %tailrecurse.us.preheader ]
-  %.57.us.ph = phi i32 [ %..us, %27 ], [ %.promoted, %tailrecurse.us.preheader ]
-  br label %tailrecurse.us.outer414
+tailrecurse.us.outer:                             ; preds = %32, %tailrecurse.us.preheader
+  %.ph414 = phi i32 [ %.ph417, %32 ], [ %.promoted60, %tailrecurse.us.preheader ]
+  %.ph415 = phi i32 [ %33, %32 ], [ %.promoted59.fr, %tailrecurse.us.preheader ]
+  %.57.us.ph = phi i32 [ 9, %32 ], [ %.promoted, %tailrecurse.us.preheader ]
+  %.not.us = icmp slt i32 %.ph415, %.fr235
+  br label %tailrecurse.us.outer416
 
-tailrecurse.us.outer414:                          ; preds = %tailrecurse.us.outer, %32
-  %.ph415 = phi i32 [ %.ph413, %tailrecurse.us.outer ], [ %33, %32 ]
-  %.57.us.ph416 = phi i32 [ %.57.us.ph, %tailrecurse.us.outer ], [ 9, %32 ]
-  %.not.us = icmp slt i32 %.ph415, %5
+tailrecurse.us.outer416:                          ; preds = %tailrecurse.us.outer, %27
+  %.ph417 = phi i32 [ %.ph414, %tailrecurse.us.outer ], [ %28, %27 ]
+  %.57.us.ph419 = phi i32 [ %.57.us.ph, %tailrecurse.us.outer ], [ %..us, %27 ]
   br label %tailrecurse.us
 
-tailrecurse.us:                                   ; preds = %tailrecurse.us.backedge, %tailrecurse.us.outer414
-  %.57.us = phi i32 [ %.57.us.ph416, %tailrecurse.us.outer414 ], [ %.57.us.be, %tailrecurse.us.backedge ]
+tailrecurse.us:                                   ; preds = %tailrecurse.us.backedge, %tailrecurse.us.outer416
+  %.57.us = phi i32 [ %.57.us.ph419, %tailrecurse.us.outer416 ], [ %.57.us.be, %tailrecurse.us.backedge ]
   switch i32 %.57.us, label %.loopexit37 [
     i32 0, label %.split62.us
     i32 2, label %.split64.us
@@ -1409,12 +1411,12 @@ tailrecurse.us:                                   ; preds = %tailrecurse.us.back
   br label %tailrecurse.us.backedge
 
 27:                                               ; preds = %tailrecurse.us
-  %28 = add nsw i32 %.ph, 1
+  %28 = add nsw i32 %.ph417, 1
   store i32 %28, ptr %9, align 8, !tbaa !66
   %.not19.us = icmp slt i32 %28, %11
   %..us = select i1 %.not19.us, i32 10, i32 4
   store i32 %..us, ptr %2, align 8, !tbaa !62
-  br i1 %brmerge, label %tailrecurse.us.outer, label %.split85.us
+  br i1 %brmerge, label %tailrecurse.us.outer416, label %.split85.us
 
 29:                                               ; preds = %tailrecurse.us
   store i32 7, ptr %2, align 8, !tbaa !62
@@ -1435,14 +1437,13 @@ tailrecurse.us.backedge:                          ; preds = %31, %26
   store i32 9, ptr %2, align 8, !tbaa !62
   %33 = add nsw i32 %.ph415, 1
   store i32 %33, ptr %3, align 4, !tbaa !67
-  %34 = icmp slt i32 %33, %5
+  %34 = icmp slt i32 %33, %.fr235
   %or.cond.us = select i1 %.not24, i1 %34, i1 false
-  br i1 %or.cond.us, label %.split91.us, label %tailrecurse.us.outer414
+  br i1 %or.cond.us, label %.split91.us, label %tailrecurse.us.outer
 
-.split:                                           ; preds = %tailrecurse485
-  %.not = icmp slt i32 %.promoted59, %5
-  %.not.fr = freeze i1 %.not
-  br i1 %.not.fr, label %tailrecurse.us105.preheader, label %.split.split
+.split:                                           ; preds = %tailrecurse510
+  %.not = icmp slt i32 %.promoted59.fr, %.fr235
+  br i1 %.not, label %tailrecurse.us105.preheader, label %.split.split
 
 tailrecurse.us105.preheader:                      ; preds = %.split
   %brmerge225 = select i1 %14, i1 true, i1 %.not21
@@ -1450,7 +1451,7 @@ tailrecurse.us105.preheader:                      ; preds = %.split
   br label %tailrecurse.us105.outer
 
 tailrecurse.us105.outer:                          ; preds = %35, %tailrecurse.us105.preheader
-  %.ph439 = phi i32 [ %36, %35 ], [ %.promoted60, %tailrecurse.us105.preheader ]
+  %.ph453 = phi i32 [ %36, %35 ], [ %.promoted60, %tailrecurse.us105.preheader ]
   %.57.us106.ph = phi i32 [ %..us108, %35 ], [ %.promoted, %tailrecurse.us105.preheader ]
   br label %tailrecurse.us105
 
@@ -1471,7 +1472,7 @@ tailrecurse.us105:                                ; preds = %tailrecurse.us105.o
   ]
 
 35:                                               ; preds = %tailrecurse.us105
-  %36 = add nsw i32 %.ph439, 1
+  %36 = add nsw i32 %.ph453, 1
   store i32 %36, ptr %9, align 8, !tbaa !66
   %.not19.us107 = icmp slt i32 %36, %11
   %..us108 = select i1 %.not19.us107, i32 10, i32 4
@@ -1498,7 +1499,7 @@ tailrecurse.us134.preheader:                      ; preds = %.split.split
   br label %tailrecurse.us134.outer
 
 tailrecurse.us134.outer:                          ; preds = %41, %tailrecurse.us134.preheader
-  %.ph451 = phi i32 [ %42, %41 ], [ %.promoted60, %tailrecurse.us134.preheader ]
+  %.ph465 = phi i32 [ %42, %41 ], [ %.promoted60, %tailrecurse.us134.preheader ]
   %.57.us135.ph = phi i32 [ %..us137, %41 ], [ %.promoted, %tailrecurse.us134.preheader ]
   br label %tailrecurse.us134
 
@@ -1523,7 +1524,7 @@ tailrecurse.us134:                                ; preds = %tailrecurse.us134.b
   br label %tailrecurse.us134.backedge
 
 41:                                               ; preds = %tailrecurse.us134
-  %42 = add nsw i32 %.ph451, 1
+  %42 = add nsw i32 %.ph465, 1
   store i32 %42, ptr %9, align 8, !tbaa !66
   %.not19.us136 = icmp slt i32 %42, %11
   %..us137 = select i1 %.not19.us136, i32 10, i32 4
@@ -1562,7 +1563,7 @@ tailrecurse.us160:                                ; preds = %tailrecurse.us160.b
   br label %tailrecurse.us160.backedge
 
 45:                                               ; preds = %tailrecurse.us160
-  %46 = add nsw i32 %.ph473, 1
+  %46 = add nsw i32 %.ph487, 1
   store i32 %46, ptr %9, align 8, !tbaa !66
   %.not19.us162 = icmp slt i32 %46, %11
   %..us163 = select i1 %.not19.us162, i32 10, i32 4
@@ -1570,7 +1571,7 @@ tailrecurse.us160:                                ; preds = %tailrecurse.us160.b
   br i1 %.not21, label %tailrecurse.us160.outer, label %.split85.us
 
 tailrecurse.us160.outer:                          ; preds = %.split.split.split, %45
-  %.ph473 = phi i32 [ %46, %45 ], [ %.promoted60, %.split.split.split ]
+  %.ph487 = phi i32 [ %46, %45 ], [ %.promoted60, %.split.split.split ]
   %.57.us161.ph = phi i32 [ %..us163, %45 ], [ %.promoted, %.split.split.split ]
   br label %tailrecurse.us160
 
@@ -1605,17 +1606,17 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %49 = tail call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %48)
   %50 = load i8, ptr %6, align 1, !range !56
   %51 = trunc nuw i8 %50 to i1
-  %.358 = select i1 %51, i32 2, i32 3
-  %.sink = select i1 %49, i32 1, i32 %.358
+  %.359 = select i1 %51, i32 2, i32 3
+  %.sink = select i1 %49, i32 1, i32 %.359
   store i32 %.sink, ptr %2, align 8, !tbaa !62
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %53 = load ptr, ptr %52, align 8, !tbaa !49
   br label %.loopexit37
 
 .split64.us:                                      ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105, %tailrecurse.us
-  %54 = phi i32 [ %.ph415, %tailrecurse.us ], [ %.promoted59, %tailrecurse.us105 ], [ %.promoted59, %tailrecurse.us134 ], [ %.promoted59, %tailrecurse ], [ %.promoted59, %tailrecurse.us160 ]
+  %54 = phi i32 [ %.ph415, %tailrecurse.us ], [ %.promoted59.fr, %tailrecurse.us105 ], [ %.promoted59.fr, %tailrecurse.us134 ], [ %.promoted59.fr, %tailrecurse ], [ %.promoted59.fr, %tailrecurse.us160 ]
   store i32 3, ptr %2, align 8, !tbaa !62
-  %.not27 = icmp slt i32 %54, %5
+  %.not27 = icmp slt i32 %54, %.fr235
   br i1 %.not27, label %63, label %55
 
 55:                                               ; preds = %.split64.us
@@ -1651,7 +1652,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit37
 
 .split70.us:                                      ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105, %tailrecurse.us
-  %70 = phi i32 [ %.ph415, %tailrecurse.us ], [ %.promoted59, %tailrecurse.us105 ], [ %.promoted59, %tailrecurse.us134 ], [ %.promoted59, %tailrecurse ], [ %.promoted59, %tailrecurse.us160 ]
+  %70 = phi i32 [ %.ph415, %tailrecurse.us ], [ %.promoted59.fr, %tailrecurse.us105 ], [ %.promoted59.fr, %tailrecurse.us134 ], [ %.promoted59.fr, %tailrecurse ], [ %.promoted59.fr, %tailrecurse.us160 ]
   store i32 0, ptr %9, align 8, !tbaa !66
   store i32 5, ptr %2, align 8, !tbaa !62
   %71 = icmp sgt i32 %70, 0
@@ -1660,8 +1661,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 .preheader:                                       ; preds = %.split70.us
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %73 = load i64, ptr %72, align 8, !tbaa !53
-  %.not238 = icmp eq i64 %73, 0
-  br i1 %.not238, label %.loopexit, label %.lr.ph
+  %.not239 = icmp eq i64 %73, 0
+  br i1 %.not239, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1694,7 +1695,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 87:                                               ; preds = %.loopexit
   %.not26 = icmp eq i64 %.08, 0
-  br i1 %.not26, label %tailrecurse485, label %88
+  br i1 %.not26, label %tailrecurse510, label %88
 
 88:                                               ; preds = %87, %.thread
   %.234 = phi i64 [ %85, %.thread ], [ %.08, %87 ]
@@ -1706,11 +1707,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 .split120.us:                                     ; preds = %tailrecurse.us160, %tailrecurse, %tailrecurse.us134, %tailrecurse.us105
   store i32 9, ptr %2, align 8, !tbaa !62
-  %92 = add nsw i32 %.promoted59, 1
+  %92 = add nsw i32 %.promoted59.fr, 1
   store i32 %92, ptr %3, align 4, !tbaa !67
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.fr234, ptr %93, align 8, !tbaa !28
-  %94 = icmp slt i32 %92, %5
+  %94 = icmp slt i32 %92, %.fr235
   %95 = select i1 %94, i8 44, i8 0
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 %95, ptr %96, align 1, !tbaa !28
@@ -1736,13 +1737,13 @@ tailrecurse.backedge:                             ; preds = %100, %131
 
 .split88.us:                                      ; preds = %47, %43, %39, %31
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.fr237, ptr %101, align 8, !tbaa !28
+  store i8 %.fr238, ptr %101, align 8, !tbaa !28
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 17
   store i8 0, ptr %102, align 1, !tbaa !28
   br label %.loopexit37
 
 103:                                              ; preds = %tailrecurse
-  %104 = add nsw i32 %.ph461, 1
+  %104 = add nsw i32 %.ph475, 1
   store i32 %104, ptr %9, align 8, !tbaa !66
   %.not19 = icmp slt i32 %104, %11
   %. = select i1 %.not19, i32 10, i32 4
@@ -1750,7 +1751,7 @@ tailrecurse.backedge:                             ; preds = %100, %131
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %.split.split.split, %103
-  %.ph461 = phi i32 [ %104, %103 ], [ %.promoted60, %.split.split.split ]
+  %.ph475 = phi i32 [ %104, %103 ], [ %.promoted60, %.split.split.split ]
   %.57.ph = phi i32 [ %., %103 ], [ %.promoted, %.split.split.split ]
   br label %tailrecurse
 

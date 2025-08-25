@@ -3135,16 +3135,16 @@ define noundef range(i32 0, 4) i32 @_ZNK6icu_776number4impl15DecimalQuantity6sig
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(66) %0)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i8, ptr %13, align 4, !tbaa !35
-  %.fr12 = freeze i8 %14
-  %15 = and i8 %.fr12, 1
-  %.not13 = icmp eq i8 %15, 0
-  %. = select i1 %.not13, i32 3, i32 0
-  %spec.select = select i1 %.not13, i32 2, i32 1
-  %spec.select14 = select i1 %12, i32 %., i32 %spec.select
+  %.fr = freeze i8 %14
+  %15 = and i8 %.fr, 1
+  %.not12 = icmp eq i8 %15, 0
+  %. = select i1 %.not12, i32 3, i32 0
+  %spec.select = select i1 %.not12, i32 2, i32 1
+  %spec.select13 = select i1 %12, i32 %., i32 %spec.select
   br label %.thread9
 
 .thread9:                                         ; preds = %8, %.thread
-  %16 = phi i32 [ %.7, %.thread ], [ %spec.select14, %8 ]
+  %16 = phi i32 [ %.7, %.thread ], [ %spec.select13, %8 ]
   ret i32 %16
 }
 

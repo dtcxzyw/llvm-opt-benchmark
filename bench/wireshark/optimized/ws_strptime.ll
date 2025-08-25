@@ -186,11 +186,11 @@ define ptr @ws_strptime(ptr noundef %0, ptr noundef readonly captures(none) %1, 
     i8 121, label %376
     i8 90, label %406
     i8 122, label %406
-    i8 110, label %.preheader1639
-    i8 116, label %.preheader1639
+    i8 110, label %.preheader1638
+    i8 116, label %.preheader1638
   ]
 
-.preheader1639:                                   ; preds = %.preheader616, %.preheader616
+.preheader1638:                                   ; preds = %.preheader616, %.preheader616
   br label %551
 
 .preheader.i392.preheader:                        ; preds = %.preheader616, %.preheader616, %.preheader616
@@ -878,13 +878,13 @@ conv_num.exit520:                                 ; preds = %292, %.preheader.i5
 
 303:                                              ; preds = %.preheader616
   %304 = load i8, ptr %.0277882, align 1
-  %.fr1417 = freeze i8 %304
-  %305 = add i8 %.fr1417, -56
+  %.fr1416 = freeze i8 %304
+  %305 = add i8 %.fr1416, -56
   %or.cond610 = icmp ult i8 %305, -7
   br i1 %or.cond610, label %conv_num.exit532, label %306
 
 306:                                              ; preds = %303
-  %307 = zext nneg i8 %.fr1417 to i32
+  %307 = zext nneg i8 %.fr1416 to i32
   %308 = add nsw i32 %307, -48
   %309 = getelementptr i8, ptr %.0277882, i64 1
   store i32 %308, ptr %5, align 4
@@ -1442,8 +1442,8 @@ thread-pre-split592:                              ; preds = %419, %430, %434, %.
   store ptr null, ptr %11, align 8
   br label %.backedge625
 
-551:                                              ; preds = %.preheader1639, %551
-  %.10 = phi ptr [ %557, %551 ], [ %.0277882, %.preheader1639 ]
+551:                                              ; preds = %.preheader1638, %551
+  %.10 = phi ptr [ %557, %551 ], [ %.0277882, %.preheader1638 ]
   %552 = load i8, ptr %.10, align 1
   %553 = zext i8 %552 to i64
   %554 = getelementptr i16, ptr %9, i64 %553

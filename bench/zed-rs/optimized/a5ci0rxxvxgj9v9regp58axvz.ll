@@ -2886,8 +2886,8 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hdd
   %.sroa.0.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %29, i64 0
   %.sroa.0.15.vec.insert.i.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %33 = load i64, ptr %2, align 8, !range !296, !alias.scope !861, !noalias !875
-  %.fr.i = freeze i64 %33
-  %34 = add i64 %.fr.i, 9223372036854775807
+  %.fr26.i = freeze i64 %33
+  %34 = add i64 %.fr26.i, 9223372036854775807
   %35 = call i64 @llvm.umin.i64(i64 %34, i64 11)
   %36 = icmp ugt i64 %34, 10
   br i1 %36, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf3bf7cbcb17c1040E.exit.split.us.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hf3bf7cbcb17c1040E.exit.split.i"
@@ -3901,8 +3901,8 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %.sroa.0.0.vec.insert.i.i = insertelement <16 x i8> poison, i8 %13, i64 0
   %.sroa.0.15.vec.insert.i.i = shufflevector <16 x i8> %.sroa.0.0.vec.insert.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %17 = load i64, ptr %2, align 8, !range !296
-  %.fr = freeze i64 %17
-  %18 = add i64 %.fr, 9223372036854775807
+  %.fr26 = freeze i64 %17
+  %18 = add i64 %.fr26, 9223372036854775807
   %19 = tail call i64 @llvm.umin.i64(i64 %18, i64 11)
   %20 = icmp ugt i64 %18, 10
   br i1 %20, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h31549018c8580975E.exit.split.us", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h31549018c8580975E.exit.split"

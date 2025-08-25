@@ -26575,18 +26575,18 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 28:                                               ; preds = %18, %13
   %29 = phi i8 [ %16, %13 ], [ %21, %18 ]
-  %.sink91.in.in.in = phi i32 [ %17, %13 ], [ %22, %18 ]
+  %.sink90.in.in.in = phi i32 [ %17, %13 ], [ %22, %18 ]
   %.sink.in.in.in = phi i32 [ %0, %13 ], [ %23, %18 ]
   %30 = phi i64 [ 3, %13 ], [ 4, %18 ]
   %.sink.in.in = trunc i32 %.sink.in.in.in to i8
   %.sink.in = and i8 %.sink.in.in, 63
   %.sink = or disjoint i8 %.sink.in, -128
-  %.sink91.in.in = trunc i32 %.sink91.in.in.in to i8
-  %.sink91.in = and i8 %.sink91.in.in, 63
-  %.sink91 = or disjoint i8 %.sink91.in, -128
+  %.sink90.in.in = trunc i32 %.sink90.in.in.in to i8
+  %.sink90.in = and i8 %.sink90.in.in, 63
+  %.sink90 = or disjoint i8 %.sink90.in, -128
   store i8 %29, ptr %7, align 4, !alias.scope !5948
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %.sink91, ptr %31, align 1, !alias.scope !5948
+  store i8 %.sink90, ptr %31, align 1, !alias.scope !5948
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %.sink, ptr %32, align 2, !alias.scope !5948
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5951)
@@ -26897,10 +26897,10 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %246
   %196 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %197 = load i64, ptr %196, align 8, !alias.scope !5991, !noalias !5998, !noundef !4
   %198 = load i64, ptr %48, align 8, !alias.scope !5991, !noalias !5998
-  %.fr51 = freeze i64 %198
+  %.fr = freeze i64 %198
   %199 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %200 = load i64, ptr %199, align 8, !alias.scope !5991, !noalias !5998
-  %201 = add i64 %.fr51, -1
+  %201 = add i64 %.fr, -1
   %.first_iter.i = icmp ult i64 %201, %133
   br label %202
 
@@ -26927,7 +26927,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %246
   br i1 %217, label %202, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit.i"
 
 .preheader56.i:                                   ; preds = %202, %233
-  %.sroa.04.0.i.i = phi i64 [ %234, %233 ], [ %.fr51, %202 ]
+  %.sroa.04.0.i.i = phi i64 [ %234, %233 ], [ %.fr, %202 ]
   %218 = icmp ult i64 %.sroa.04.0.i.i, %133
   br i1 %218, label %229, label %.preheader.i.preheader
 
@@ -26935,7 +26935,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %246
   br i1 %.first_iter.i, label %.preheader.i.us, label %.preheader.i
 
 .preheader.i.us:                                  ; preds = %.preheader.i.preheader, %223
-  %.sroa.59.0.i.i.us = phi i64 [ %220, %223 ], [ %.fr51, %.preheader.i.preheader ]
+  %.sroa.59.0.i.i.us = phi i64 [ %220, %223 ], [ %.fr, %.preheader.i.preheader ]
   %.not.i.us = icmp eq i64 %.sroa.59.0.i.i.us, 0
   br i1 %.not.i.us, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit.i", label %219
 
@@ -26963,7 +26963,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %246
   br i1 %231, label %233, label %239
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader
-  %.not.i = icmp eq i64 %.fr51, 0
+  %.not.i = icmp eq i64 %.fr, 0
   br i1 %.not.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17he21cac0fa60d7f79E.exit.i", label %232
 
 232:                                              ; preds = %.preheader.i
@@ -26984,14 +26984,14 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %246
   br i1 %.not24.i.i, label %.preheader56.i, label %241
 
 239:                                              ; preds = %229
-  %240 = add i64 %203, %.fr51
+  %240 = add i64 %203, %.fr
   %umax.i.i = call i64 @llvm.umax.i64(i64 %129, i64 %240)
   call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %umax.i.i, i64 noundef %129, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.31c3a3a5b06fbfd60fbab8b6beaa8a95.410) #54, !noalias !6002
   unreachable
 
 241:                                              ; preds = %233
-  %reass.sub52 = sub i64 %203, %.fr51
-  %242 = add i64 %reass.sub52, 1
+  %reass.sub51 = sub i64 %203, %.fr
+  %242 = add i64 %reass.sub51, 1
   %243 = add i64 %242, %.sroa.04.0.i.i
   br label %214
 
@@ -27033,12 +27033,12 @@ _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h8e9579b2c9bc
   br label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf118e4beb0f927cE.exit.i.i"
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf118e4beb0f927cE.exit.i.i": ; preds = %.thread.i.i, %255
-  %.sink170 = phi i8 [ %29, %255 ], [ %36, %.thread.i.i ]
+  %.sink169 = phi i8 [ %29, %255 ], [ %36, %.thread.i.i ]
   %257 = phi i64 [ %245, %255 ], [ 1, %.thread.i.i ]
   %258 = phi i64 [ %30, %255 ], [ 2, %.thread.i.i ]
   %259 = phi <1 x i8> [ %256, %255 ], [ %253, %.thread.i.i ]
   %storemerge111114.i.i = phi i64 [ %248, %255 ], [ 1, %.thread.i.i ]
-  %260 = insertelement <1 x i8> poison, i8 %.sink170, i64 0
+  %260 = insertelement <1 x i8> poison, i8 %.sink169, i64 0
   %261 = shufflevector <1 x i8> %260, <1 x i8> poison, <16 x i32> zeroinitializer
   %262 = shufflevector <1 x i8> %259, <1 x i8> poison, <16 x i32> zeroinitializer
   %263 = getelementptr inbounds nuw i8, ptr %7, i64 1

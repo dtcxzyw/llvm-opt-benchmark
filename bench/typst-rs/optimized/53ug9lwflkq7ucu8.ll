@@ -1260,7 +1260,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = load ptr, ptr %1, align 8, !nonnull !4, !align !26
-  %.not134.not.i = icmp eq i32 %15, 0
+  %.not133.not.i = icmp eq i32 %15, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1080
@@ -1306,13 +1306,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br label %.split.i
 
 .loopexit.i:                                      ; preds = %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i
-  %exitcond173.not.i = icmp eq i64 %indvars.iv.next171.i, 8
-  br i1 %exitcond173.not.i, label %_ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h0f2a1787d9f52929E.exit, label %.split.i
+  %exitcond172.not.i = icmp eq i64 %indvars.iv.next170.i, 8
+  br i1 %exitcond172.not.i, label %_ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h0f2a1787d9f52929E.exit, label %.split.i
 
 .split.i:                                         ; preds = %.loopexit.i, %38
-  %indvars.iv170.i = phi i64 [ 0, %38 ], [ %indvars.iv.next171.i, %.loopexit.i ]
-  %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 1
-  %41 = trunc nuw nsw i64 %indvars.iv170.i to i32
+  %indvars.iv169.i = phi i64 [ 0, %38 ], [ %indvars.iv.next170.i, %.loopexit.i ]
+  %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
+  %41 = trunc nuw nsw i64 %indvars.iv169.i to i32
   %42 = add nuw nsw i32 %.sroa.044.0175, %41
   %43 = icmp ult i32 %42, %11
   %.0.sroa.speculated.i3.i.i = call i32 @llvm.umin.i32(i32 %42, i32 %19)
@@ -1320,11 +1320,11 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %45 = mul nuw i64 %44, %.sink1.i.i.i31
   %46 = zext i32 %42 to i64
   %47 = mul nuw i64 %46, %.sink1.i.i.i31
-  %48 = shl nuw nsw i64 %indvars.iv170.i, 3
+  %48 = shl nuw nsw i64 %indvars.iv169.i, 3
   br i1 %43, label %.split.split.split.i.preheader, label %.split.split.us.split.i
 
 .split.split.split.i.preheader:                   ; preds = %.split.i
-  br i1 %.not134.not.i, label %.split35.us.i, label %.split.split.split.i
+  br i1 %.not133.not.i, label %.split35.us.i, label %.split.split.split.i
 
 .split.split.us.split.i:                          ; preds = %.split.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i ], [ 0, %.split.i ]
@@ -1351,9 +1351,9 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i: ;
   br i1 %exitcond.not.i, label %.loopexit.i, label %.split.split.us.split.i
 
 .split.split.split.i:                             ; preds = %.split.split.split.i.preheader, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i
-  %indvars.iv166.i = phi i64 [ %indvars.iv.next167.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i ], [ 0, %.split.split.split.i.preheader ]
-  %indvars.iv.next167.i = add nuw nsw i64 %indvars.iv166.i, 1
-  %57 = trunc nuw nsw i64 %indvars.iv166.i to i32
+  %indvars.iv165.i = phi i64 [ %indvars.iv.next166.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i ], [ 0, %.split.split.split.i.preheader ]
+  %indvars.iv.next166.i = add nuw nsw i64 %indvars.iv165.i, 1
+  %57 = trunc nuw nsw i64 %indvars.iv165.i to i32
   %58 = add nuw nsw i32 %.sroa.050.0, %57
   %59 = icmp ult i32 %58, %15
   br i1 %59, label %73, label %60
@@ -1415,13 +1415,13 @@ _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.us.i: ;
 
 _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h39234a9c57d836ebE.exit.i: ; preds = %73, %60
   %.sink16.i.i = phi i64 [ %62, %60 ], [ %75, %73 ]
-  %77 = add nuw nsw i64 %indvars.iv166.i, %48
+  %77 = add nuw nsw i64 %indvars.iv165.i, %48
   %78 = getelementptr inbounds i8, ptr %22, i64 %.sink16.i.i
   %.sroa.0.0.i.i = load i8, ptr %78, align 1, !noalias !148
   %79 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %77
   store i8 %.sroa.0.0.i.i, ptr %79, align 1, !alias.scope !145, !noalias !152
-  %exitcond169.not.i = icmp eq i64 %indvars.iv.next167.i, 8
-  br i1 %exitcond169.not.i, label %.loopexit.i, label %.split.split.split.i
+  %exitcond168.not.i = icmp eq i64 %indvars.iv.next166.i, 8
+  br i1 %exitcond168.not.i, label %.loopexit.i, label %.split.split.split.i
 
 _ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h0f2a1787d9f52929E.exit: ; preds = %.loopexit.i
   call void @_ZN5image6codecs4jpeg9transform4fdct17ha312542ca973f5caE(ptr noalias noundef nonnull readonly align 1 dereferenceable(64) %9, ptr noalias noundef nonnull align 4 dereferenceable(256) %8)
@@ -1506,7 +1506,7 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %20 = load ptr, ptr %1, align 8, !nonnull !4, !align !26
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i64, ptr %21, align 8
-  %.not186.not.i = icmp eq i32 %15, 0
+  %.not185.not.i = icmp eq i32 %15, 0
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1080
@@ -1552,13 +1552,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br label %.split.i
 
 .loopexit.i:                                      ; preds = %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i", %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i
-  %exitcond238.not.i = icmp eq i64 %indvars.iv.next236.i, 8
-  br i1 %exitcond238.not.i, label %_ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h73cfc0f00a4129b6E.exit, label %.split.i
+  %exitcond237.not.i = icmp eq i64 %indvars.iv.next235.i, 8
+  br i1 %exitcond237.not.i, label %_ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h73cfc0f00a4129b6E.exit, label %.split.i
 
 .split.i:                                         ; preds = %.loopexit.i, %38
-  %indvars.iv235.i = phi i64 [ 0, %38 ], [ %indvars.iv.next236.i, %.loopexit.i ]
-  %indvars.iv.next236.i = add nuw nsw i64 %indvars.iv235.i, 1
-  %41 = trunc nuw nsw i64 %indvars.iv235.i to i32
+  %indvars.iv234.i = phi i64 [ 0, %38 ], [ %indvars.iv.next235.i, %.loopexit.i ]
+  %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 1
+  %41 = trunc nuw nsw i64 %indvars.iv234.i to i32
   %42 = add nuw nsw i32 %.sroa.044.0209, %41
   %43 = icmp ult i32 %42, %11
   %.0.sroa.speculated.i3.i.i = call i32 @llvm.umin.i32(i32 %42, i32 %19)
@@ -1566,11 +1566,11 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   %45 = mul nuw i64 %44, %.sink1.i.i.i31
   %46 = zext i32 %42 to i64
   %47 = mul nuw i64 %46, %.sink1.i.i.i31
-  %48 = shl nuw nsw i64 %indvars.iv235.i, 3
+  %48 = shl nuw nsw i64 %indvars.iv234.i, 3
   br i1 %43, label %.split.split.split.i.preheader, label %.split.split.us.split.i
 
 .split.split.split.i.preheader:                   ; preds = %.split.i
-  br i1 %.not186.not.i, label %.split48.us.i, label %.split.split.split.i
+  br i1 %.not185.not.i, label %.split48.us.i, label %.split.split.split.i
 
 .split.split.us.split.i:                          ; preds = %.split.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i"
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %"_ZN99_$LT$image..buffer_..ImageBuffer$LT$P$C$Container$GT$$u20$as$u20$image..image..GenericImageView$GT$9get_pixel17hc55c88e887eaf418E.exit15.us.i" ], [ 0, %.split.i ]
@@ -1604,9 +1604,9 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
   br i1 %exitcond.not.i, label %.loopexit.i, label %.split.split.us.split.i
 
 .split.split.split.i:                             ; preds = %.split.split.split.i.preheader, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i
-  %indvars.iv231.i = phi i64 [ %indvars.iv.next232.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i ], [ 0, %.split.split.split.i.preheader ]
-  %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i, 1
-  %62 = trunc nuw nsw i64 %indvars.iv231.i to i32
+  %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %_ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i ], [ 0, %.split.split.split.i.preheader ]
+  %indvars.iv.next231.i = add nuw nsw i64 %indvars.iv230.i, 1
+  %62 = trunc nuw nsw i64 %indvars.iv230.i to i32
   %63 = add nuw nsw i32 %.sroa.050.0, %62
   %64 = icmp ult i32 %63, %15
   br i1 %64, label %82, label %65
@@ -1687,13 +1687,13 @@ define internal fastcc noundef ptr @"_ZN5image6codecs4jpeg7encoder20JpegEncoder$
 _ZN5image6codecs4jpeg7encoder16pixel_at_or_near17h7bd5fc499fd87f4bE.exit.i: ; preds = %87, %79
   %.pn.i = phi i64 [ %68, %79 ], [ %85, %87 ]
   %.sroa.0.0.i.in.i = getelementptr inbounds i8, ptr %20, i64 %.pn.i
-  %90 = add nuw nsw i64 %indvars.iv231.i, %48
+  %90 = add nuw nsw i64 %indvars.iv230.i, %48
   %.sroa.0.0.i.i = load i16, ptr %.sroa.0.0.i.in.i, align 1, !noalias !196
   %.sroa.0.0.extract.trunc.i = trunc i16 %.sroa.0.0.i.i to i8
   %91 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %90
   store i8 %.sroa.0.0.extract.trunc.i, ptr %91, align 1, !alias.scope !193, !noalias !198
-  %exitcond234.not.i = icmp eq i64 %indvars.iv.next232.i, 8
-  br i1 %exitcond234.not.i, label %.loopexit.i, label %.split.split.split.i
+  %exitcond233.not.i = icmp eq i64 %indvars.iv.next231.i, 8
+  br i1 %exitcond233.not.i, label %.loopexit.i, label %.split.split.split.i
 
 _ZN5image6codecs4jpeg7encoder16copy_blocks_gray17h73cfc0f00a4129b6E.exit: ; preds = %.loopexit.i
   call void @_ZN5image6codecs4jpeg9transform4fdct17ha312542ca973f5caE(ptr noalias noundef nonnull readonly align 1 dereferenceable(64) %9, ptr noalias noundef nonnull align 4 dereferenceable(256) %8)

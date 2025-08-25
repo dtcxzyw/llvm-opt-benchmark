@@ -3294,17 +3294,18 @@ define internal fastcc noundef zeroext i1 @_ZN5clang10installapiL9isInlinedEPKNS
 15:                                               ; preds = %11
   %16 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #18
   %17 = load ptr, ptr %16, align 8, !tbaa !526
+  %.fr50 = freeze ptr %17
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !527
-  %20 = zext i32 %19 to i64
+  %.fr51 = freeze i32 %19
+  %20 = zext i32 %.fr51 to i64
   %.idx.i.i = shl nuw nsw i64 %20, 3
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
-  %.fr = freeze ptr %21
-  %.not.i.i = icmp eq i32 %19, 0
+  %21 = getelementptr i8, ptr %.fr50, i64 %.idx.i.i
+  %.not.i.i = icmp eq i32 %.fr51, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us.preheader, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %15, %26
-  %.sroa.07.1.i.i.i.i = phi ptr [ %27, %26 ], [ %17, %15 ]
+  %.sroa.07.1.i.i.i.i = phi ptr [ %27, %26 ], [ %.fr50, %15 ]
   %22 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !528
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i16, ptr %23, align 8
@@ -3313,11 +3314,11 @@ define internal fastcc noundef zeroext i1 @_ZN5clang10installapiL9isInlinedEPKNS
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %27, %.fr
+  %.not.i.i.i.i.i = icmp eq ptr %27, %21
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !573
 
 _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %28 = icmp eq ptr %.sroa.07.1.i.i.i.i, %.fr
+  %28 = icmp eq ptr %.sroa.07.1.i.i.i.i, %21
   br i1 %28, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us.preheader, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.preheader
 
 _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us.preheader: ; preds = %26, %15, %11, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit
@@ -3377,8 +3378,8 @@ _ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35.us: ; preds = %_ZN
   %48 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %.sroa.028.047.us)
   %.not.i27.us = icmp eq ptr %48, %0
   %.not43.us = icmp eq ptr %48, null
-  %or.cond71 = or i1 %.not.i27.us, %.not43.us
-  br i1 %or.cond71, label %.thread40, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us
+  %or.cond73 = or i1 %.not.i27.us, %.not43.us
+  br i1 %or.cond73, label %.thread40, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.us
 
 _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split: ; preds = %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.preheader, %85
   %.01649 = phi i1 [ %.218.ph, %85 ], [ false, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split.preheader ]
@@ -3467,8 +3468,8 @@ _ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35: ; preds = %67, %7
   %86 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull %.sroa.028.047)
   %.not.i27 = icmp eq ptr %86, %0
   %.not43 = icmp eq ptr %86, null
-  %or.cond68 = or i1 %.not.i27, %.not43
-  br i1 %or.cond68, label %.thread40, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split
+  %or.cond70 = or i1 %.not.i27, %.not43
+  br i1 %or.cond70, label %.thread40, label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.split
 
 .thread40:                                        ; preds = %47, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35.us, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.us, %85, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread
   %.us-phi = phi i1 [ %.218.ph, %85 ], [ %.218.ph, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35 ], [ false, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread ], [ %.218.ph.us, %47 ], [ %.218.ph.us, %_ZNK5clang4Decl7hasAttrINS_13GNUInlineAttrEEEbv.exit.thread35.us ], [ false, %_ZNK5clang12FunctionDecl28doesThisDeclarationHaveABodyEv.exit.thread.us ]

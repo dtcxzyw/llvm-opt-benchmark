@@ -1478,8 +1478,8 @@ define internal fastcc range(i32 -2147483648, 255) i32 @usb_string_sub(ptr nound
 .loopexit:                                        ; preds = %23, %60, %45
   %67 = phi i32 [ %35, %45 ], [ %57, %60 ], [ %20, %23 ]
   %68 = load i8, ptr %3, align 1
-  %.fr58 = freeze i8 %68
-  %69 = zext i8 %.fr58 to i32
+  %.fr28 = freeze i8 %68
+  %69 = zext i8 %.fr28 to i32
   %70 = tail call i32 @llvm.umin.i32(i32 %67, i32 %69)
   %71 = and i32 %70, 254
   %72 = icmp eq i32 %71, 0

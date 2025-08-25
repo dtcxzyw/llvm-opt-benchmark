@@ -10492,14 +10492,14 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread: ; preds = %_ZN4llv
   %33 = and i32 %32, 8
   %.not53 = icmp ne i32 %33, 0
   %.pre = load i32, ptr %5, align 8
-  %.fr55 = freeze i32 %.pre
-  %34 = and i32 %.fr55, 67108864
+  %.fr = freeze i32 %.pre
+  %34 = and i32 %.fr, 67108864
   %.not54 = icmp eq i32 %34, 0
   %or.cond = and i1 %.not53, %.not54
-  %35 = and i32 %.fr55, 15
+  %35 = and i32 %.fr, 15
   %36 = icmp eq i32 %35, 10
-  %or.cond57 = or i1 %or.cond, %36
-  br i1 %or.cond57, label %37, label %switch.early.test
+  %or.cond56 = or i1 %or.cond, %36
+  br i1 %or.cond56, label %37, label %switch.early.test
 
 switch.early.test:                                ; preds = %30
   switch i8 %23, label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread [
@@ -10513,8 +10513,8 @@ switch.early.test:                                ; preds = %30
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread.sink.split
 
 _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread.sink.split: ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread, %19, %25, %37
-  %.sink58 = phi ptr [ %38, %37 ], [ %29, %25 ], [ %20, %19 ], [ %13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sink58, i64 152
+  %.sink57 = phi ptr [ %38, %37 ], [ %29, %25 ], [ %20, %19 ], [ %13, %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sink57, i64 152
   %40 = load ptr, ptr %39, align 8, !tbaa !842
   br label %_ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread
 

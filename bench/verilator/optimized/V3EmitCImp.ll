@@ -36364,8 +36364,8 @@ _ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit43: ; preds = %_ZN7Ast
 _ZNK7AstNode6isQuadEv.exit:                       ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 152
   %54 = load i32, ptr %53, align 8, !tbaa !352
-  %.fr129 = freeze i32 %54
-  %55 = add i32 %.fr129, -33
+  %.fr = freeze i32 %54
+  %55 = add i32 %.fr, -33
   %spec.select.i = icmp ult i32 %55, 32
   %spec.select = select i1 %spec.select.i, i64 8, i64 4
   br label %_ZNK7AstNode6isQuadEv.exit.thread
@@ -50940,12 +50940,12 @@ _ZNK7AstNode8isStringEv.exit.thread.i:            ; preds = %_ZNK7AstNode8isStri
 _ZNK7AstNode6isWideEv.exit.i:                     ; preds = %_ZNK7AstNode8isStringEv.exit.thread.i
   %20 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 152
   %21 = load i32, ptr %20, align 8, !tbaa !352
-  %.fr4.i = freeze i32 %21
-  %22 = icmp sgt i32 %.fr4.i, 64
+  %.fr.i = freeze i32 %21
+  %22 = icmp sgt i32 %.fr.i, 64
   br i1 %22, label %_ZNK12AstNodeDType8charIQWNEv.exit, label %_ZNK7AstNode6isQuadEv.exit.i
 
 _ZNK7AstNode6isQuadEv.exit.i:                     ; preds = %_ZNK7AstNode6isWideEv.exit.i
-  %23 = add i32 %.fr4.i, -33
+  %23 = add i32 %.fr.i, -33
   %spec.select.i.i = icmp ult i32 %23, 32
   %spec.select.i = select i1 %spec.select.i.i, ptr @.str.538, ptr @.str.539
   br label %_ZNK12AstNodeDType8charIQWNEv.exit
@@ -94645,12 +94645,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZN
 _ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit.thread: ; preds = %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit
   %.pre = load ptr, ptr %73, align 8, !tbaa !1427
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %.pre289 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !124
-  %.not.i.i96 = icmp eq ptr %.pre289, null
+  %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !124
+  %.not.i.i96 = icmp eq ptr %.pre288, null
   br i1 %.not.i.i96, label %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit.thread, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit.thread.thread
 
 _ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit.thread.thread: ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i, %77, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit.thread
-  %112 = phi ptr [ %.pre289, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit.thread ], [ %76, %77 ], [ %76, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i ]
+  %112 = phi ptr [ %.pre288, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit.thread ], [ %76, %77 ], [ %76, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %.sroa.0.0.copyload.i.i.i.i97 = load i16, ptr %113, align 8, !tbaa !83
   %114 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i97, 320
@@ -95189,8 +95189,8 @@ _ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread283: ; preds = %300
 _ZNK7AstNode6isQuadEv.exit:                       ; preds = %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread283
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 152
   %306 = load i32, ptr %305, align 8, !tbaa !352
-  %.fr288 = freeze i32 %306
-  %307 = add i32 %.fr288, -33
+  %.fr = freeze i32 %306
+  %307 = add i32 %.fr, -33
   %spec.select.i182 = icmp ult i32 %307, 32
   %spec.select = select i1 %spec.select.i182, ptr @.str.883, ptr @.str.884
   br label %_ZNK7AstNode6isQuadEv.exit.thread
@@ -95295,18 +95295,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194: ; preds = %_Z
   br label %455
 
 _ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread: ; preds = %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit
-  %.pre290 = load ptr, ptr %73, align 8, !tbaa !1427
-  %.phi.trans.insert291 = getelementptr inbounds nuw i8, ptr %.pre290, i64 24
-  %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !124
-  %.not.i.i195 = icmp eq ptr %.pre292, null
+  %.pre289 = load ptr, ptr %73, align 8, !tbaa !1427
+  %.phi.trans.insert290 = getelementptr inbounds nuw i8, ptr %.pre289, i64 24
+  %.pre291 = load ptr, ptr %.phi.trans.insert290, align 8, !tbaa !124
+  %.not.i.i195 = icmp eq ptr %.pre291, null
   br i1 %.not.i.i195, label %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218.thread, label %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread
 
 _ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread: ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i179, %292, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread
-  %341 = phi ptr [ %.pre292, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread ], [ %291, %292 ], [ %291, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i179 ]
+  %341 = phi ptr [ %.pre291, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread ], [ %291, %292 ], [ %291, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i179 ]
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 64
   %.sroa.0.0.copyload.i.i.i.i196 = load i16, ptr %342, align 8, !tbaa !83
   %343 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i196, 320
-  br i1 %343, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread380
+  br i1 %343, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread379
 
 _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198: ; preds = %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 152
@@ -95315,7 +95315,7 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198: ; preds = %
   %347 = load i64, ptr %346, align 4
   %348 = and i64 %347, 16
   %.not.i199 = icmp eq i64 %348, 0
-  br i1 %.not.i199, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread380, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200
+  br i1 %.not.i199, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread379, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200
 
 _ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200: ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198
   %349 = call noundef zeroext i1 @_ZNK6AstVar11isScBigUintEv(ptr noundef nonnull align 8 dereferenceable(280) %345)
@@ -95379,20 +95379,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %_Z
   br label %455
 
 _ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread: ; preds = %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200
-  %.pre293 = load ptr, ptr %73, align 8, !tbaa !1427
-  %.phi.trans.insert294 = getelementptr inbounds nuw i8, ptr %.pre293, i64 24
-  %.pre295 = load ptr, ptr %.phi.trans.insert294, align 8, !tbaa !124
-  %.not.i.i213 = icmp eq ptr %.pre295, null
-  br i1 %.not.i.i213, label %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218.thread, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread380
+  %.pre292 = load ptr, ptr %73, align 8, !tbaa !1427
+  %.phi.trans.insert293 = getelementptr inbounds nuw i8, ptr %.pre292, i64 24
+  %.pre294 = load ptr, ptr %.phi.trans.insert293, align 8, !tbaa !124
+  %.not.i.i213 = icmp eq ptr %.pre294, null
+  br i1 %.not.i.i213, label %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218.thread, label %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread379
 
-_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread380: ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread
-  %368 = phi ptr [ %.pre295, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread ], [ %341, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread ], [ %341, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198 ]
+_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread379: ; preds = %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread
+  %368 = phi ptr [ %.pre294, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread ], [ %341, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread.thread ], [ %341, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i198 ]
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 64
   %.sroa.0.0.copyload.i.i.i.i214 = load i16, ptr %369, align 8, !tbaa !83
   %370 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i214, 320
   br i1 %370, label %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i216, label %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218.thread
 
-_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i216: ; preds = %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread380
+_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i216: ; preds = %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread379
   %371 = getelementptr inbounds nuw i8, ptr %368, i64 152
   %372 = load ptr, ptr %371, align 8, !tbaa !376
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 260
@@ -95462,7 +95462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit230: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %455
 
-_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218.thread: ; preds = %288, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread380, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227, %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191
+_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218.thread: ; preds = %288, %_ZN10EmitCTrace17emitTraceIsScUintEP11AstTraceInc.exit.thread, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread.thread379, %_ZN10EmitCTrace20emitTraceIsScBigUintEP11AstTraceInc.exit200.thread, %_ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit.i216, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227, %_ZN10EmitCTrace15emitTraceIsScBvEP11AstTraceInc.exit218, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %395 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %395, ptr %19, align 8, !tbaa !138

@@ -3917,8 +3917,8 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit345:     ; preds = %_ZN9grpc_core12expe
 
 645:                                              ; preds = %639
   %646 = getelementptr inbounds nuw i8, ptr %640, i64 %642
-  %.not3.i = icmp samesign eq i64 %642, 0
-  br i1 %.not3.i, label %_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.lr.ph.i
+  %.not2.i = icmp samesign eq i64 %642, 0
+  br i1 %.not2.i, label %_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.lr.ph.i
 
 647:                                              ; preds = %639
   %648 = landingpad { ptr, i32 }
@@ -3926,19 +3926,19 @@ _ZN9grpc_core12experimental4JsonD2Ev.exit345:     ; preds = %_ZN9grpc_core12expe
   br label %725
 
 .lr.ph.i:                                         ; preds = %645, %721
-  %.0654.i = phi ptr [ %724, %721 ], [ %640, %645 ]
-  %649 = load i8, ptr %.0654.i, align 1, !tbaa !39, !noalias !146
-  %.fr1.i = freeze i8 %649
-  %650 = add i8 %.fr1.i, -48
+  %.0653.i = phi ptr [ %724, %721 ], [ %640, %645 ]
+  %649 = load i8, ptr %.0653.i, align 1, !tbaa !39, !noalias !146
+  %.fr.i = freeze i8 %649
+  %650 = add i8 %.fr.i, -48
   %or.cond.i = icmp ult i8 %650, 10
-  %651 = and i8 %.fr1.i, -33
+  %651 = and i8 %.fr.i, -33
   %652 = add i8 %651, -65
   %653 = icmp ult i8 %652, 26
-  %or.cond2.i = or i1 %or.cond.i, %653
-  br i1 %or.cond2.i, label %654, label %switch.early.test.i
+  %or.cond1.i = or i1 %or.cond.i, %653
+  br i1 %or.cond1.i, label %654, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
-  switch i8 %.fr1.i, label %669 [
+  switch i8 %.fr.i, label %669 [
     i8 126, label %654
     i8 95, label %654
     i8 46, label %654
@@ -3979,7 +3979,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; preds = %.noexc.i351, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
   %665 = phi ptr [ %.pre.i.i, %.noexc.i351 ], [ %657, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
   %666 = getelementptr inbounds nuw i8, ptr %665, i64 %655
-  store i8 %.fr1.i, ptr %666, align 1, !tbaa !39
+  store i8 %.fr.i, ptr %666, align 1, !tbaa !39
   br label %721
 
 667:                                              ; preds = %718, %699, %679, %664
@@ -4021,7 +4021,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i69.i: ; 
   %683 = load ptr, ptr %89, align 8, !tbaa !56, !alias.scope !146
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 %671
   store i8 0, ptr %684, align 1, !tbaa !39
-  %685 = zext i8 %.fr1.i to i32
+  %685 = zext i8 %.fr.i to i32
   %686 = lshr i32 %685, 4
   %687 = zext nneg i32 %686 to i64
   %688 = getelementptr inbounds nuw i8, ptr @.str.59, i64 %687
@@ -4100,7 +4100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit80.i: ; pr
   %722 = load ptr, ptr %89, align 8, !tbaa !56, !alias.scope !146
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 %.sink.i
   store i8 0, ptr %723, align 1, !tbaa !39
-  %724 = getelementptr inbounds nuw i8, ptr %.0654.i, i64 1
+  %724 = getelementptr inbounds nuw i8, ptr %.0653.i, i64 1
   %.not.i350 = icmp eq ptr %724, %646
   br i1 %.not.i350, label %_ZN9grpc_core12_GLOBAL__N_19UrlEncodeB5cxx11ERKSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %.lr.ph.i
 

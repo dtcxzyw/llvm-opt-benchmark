@@ -3701,7 +3701,8 @@ define dso_local void @sunionDiffGenericCommand(ptr noundef %0, ptr noundef read
 
 setTypeSize.exit:                                 ; preds = %53, %61, %66
   %.0.i = phi i64 [ %60, %53 ], [ %65, %61 ], [ %69, %66 ]
-  %71 = add i64 %.0.i, %.0143230
+  %.0.i.fr = freeze i64 %.0.i
+  %71 = add i64 %.0.i.fr, %.0143230
   %72 = load ptr, ptr %45, align 8, !tbaa !73
   %73 = load i32, ptr %72, align 8
   %74 = lshr i32 %73, 4
@@ -3742,7 +3743,8 @@ setTypeSize.exit:                                 ; preds = %53, %61, %66
 
 setTypeSize.exit190:                              ; preds = %76, %84, %89
   %.0.i189 = phi i64 [ %83, %76 ], [ %88, %84 ], [ %92, %89 ]
-  %94 = add i64 %.0.i189, %.0231
+  %.0.i189.fr = freeze i64 %.0.i189
+  %94 = add i64 %.0.i189.fr, %.0231
   br label %95
 
 95:                                               ; preds = %.lr.ph232, %setTypeSize.exit190
@@ -3755,10 +3757,9 @@ setTypeSize.exit190:                              ; preds = %76, %84, %89
 ._crit_edge233:                                   ; preds = %95
   %96 = sdiv i64 %.1144, 2
   %97 = icmp sle i64 %96, %.1
-  %cond.fr = freeze i1 %97
-  %spec.select362 = select i1 %cond.fr, i32 1, i32 2
+  %spec.select362 = select i1 %97, i32 1, i32 2
   %98 = icmp sgt i32 %2, 1
-  %or.cond5 = and i1 %98, %cond.fr
+  %or.cond5 = and i1 %98, %97
   br i1 %or.cond5, label %99, label %.thread
 
 99:                                               ; preds = %._crit_edge233

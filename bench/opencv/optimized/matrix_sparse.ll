@@ -1905,9 +1905,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !74
   %.not46 = icmp eq i64 %46, 0
-  br i1 %.not46, label %47, label %._crit_edge72
+  br i1 %.not46, label %47, label %._crit_edge75
 
-._crit_edge72:                                    ; preds = %43
+._crit_edge75:                                    ; preds = %43
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %44, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29
   br label %74
@@ -1915,35 +1915,37 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !22
+  %.fr68 = freeze i64 %49
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !30
   %53 = load ptr, ptr %50, align 8, !tbaa !29
-  %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
+  %.fr66 = freeze ptr %52
+  %54 = ptrtoint ptr %.fr66 to i64
+  %.fr67 = freeze ptr %53
+  %55 = ptrtoint ptr %.fr67 to i64
   %56 = sub i64 %54, %55
   %57 = mul i64 %56, 3
   %58 = lshr i64 %57, 1
-  %59 = shl i64 %49, 3
+  %59 = shl i64 %.fr68, 3
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %58, i64 %59)
-  %.fr = freeze i64 %.sroa.speculated
-  %60 = urem i64 %.fr, %49
-  %61 = sub nuw i64 %.fr, %60
+  %60 = urem i64 %.sroa.speculated, %.fr68
+  %61 = sub nuw i64 %.sroa.speculated, %60
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %61)
   %62 = load ptr, ptr %6, align 8, !tbaa !36
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8, !tbaa !29
-  %.sroa.speculated52 = tail call i64 @llvm.umax.i64(i64 %56, i64 %49)
+  %.sroa.speculated52 = tail call i64 @llvm.umax.i64(i64 %56, i64 %.fr68)
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store i64 %.sroa.speculated52, ptr %65, align 8, !tbaa !74
-  %66 = sub i64 %61, %49
+  %66 = sub i64 %61, %.fr68
   %67 = icmp ult i64 %.sroa.speculated52, %66
   br i1 %67, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %47, %.lr.ph
-  %.04266 = phi i64 [ %68, %.lr.ph ], [ %.sroa.speculated52, %47 ]
-  %68 = add i64 %.04266, %49
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %.04266
+  %.04269 = phi i64 [ %68, %.lr.ph ], [ %.sroa.speculated52, %47 ]
+  %68 = add i64 %.04269, %.fr68
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %.04269
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %68, ptr %70, align 8, !tbaa !75
   %71 = icmp ult i64 %68, %66
@@ -1956,10 +1958,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 0, ptr %73, align 8, !tbaa !75
   br label %74
 
-74:                                               ; preds = %._crit_edge72, %._crit_edge
-  %75 = phi ptr [ %64, %._crit_edge ], [ %.pre, %._crit_edge72 ]
-  %76 = phi i64 [ %.sroa.speculated52, %._crit_edge ], [ %46, %._crit_edge72 ]
-  %77 = phi ptr [ %62, %._crit_edge ], [ %44, %._crit_edge72 ]
+74:                                               ; preds = %._crit_edge75, %._crit_edge
+  %75 = phi ptr [ %64, %._crit_edge ], [ %.pre, %._crit_edge75 ]
+  %76 = phi i64 [ %.sroa.speculated52, %._crit_edge ], [ %46, %._crit_edge75 ]
+  %77 = phi ptr [ %62, %._crit_edge ], [ %44, %._crit_edge75 ]
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -1977,24 +1979,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !20
   %90 = icmp sgt i32 %89, 0
-  br i1 %90, label %.lr.ph69, label %._crit_edge70
+  br i1 %90, label %.lr.ph72, label %._crit_edge73
 
-.lr.ph69:                                         ; preds = %74
+.lr.ph72:                                         ; preds = %74
   %91 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %wide.trip.count = zext nneg i32 %89 to i64
   br label %92
 
-92:                                               ; preds = %.lr.ph69, %92
-  %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %92 ]
+92:                                               ; preds = %.lr.ph72, %92
+  %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %92 ]
   %93 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4, !tbaa !23
   %95 = getelementptr inbounds nuw [32 x i32], ptr %91, i64 0, i64 %indvars.iv
   store i32 %94, ptr %95, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge70, label %92, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge73, label %92, !llvm.loop !77
 
-._crit_edge70:                                    ; preds = %92, %74
+._crit_edge73:                                    ; preds = %92, %74
   %96 = load i32, ptr %0, align 8, !tbaa !33
   %97 = lshr i32 %96, 3
   %98 = and i32 %97, 511
@@ -2013,15 +2015,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
     i32 8, label %110
   ]
 
-109:                                              ; preds = %._crit_edge70
+109:                                              ; preds = %._crit_edge73
   store float 0.000000e+00, ptr %108, align 4, !tbaa !78
   br label %113
 
-110:                                              ; preds = %._crit_edge70
+110:                                              ; preds = %._crit_edge73
   store double 0.000000e+00, ptr %108, align 8, !tbaa !80
   br label %113
 
-111:                                              ; preds = %._crit_edge70
+111:                                              ; preds = %._crit_edge73
   %112 = zext nneg i32 %104 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %108, i8 0, i64 %112, i1 false)
   br label %113
@@ -2223,27 +2225,28 @@ _ZN2cv9SparseMat7releaseEv.exit:                  ; preds = %10, %11, %14, %_ZN2
 _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %24, %31
   %34 = phi i64 [ %33, %31 ], [ 0, %24 ]
   %35 = load i32, ptr %0, align 8, !tbaa !33
-  %36 = lshr i32 %35, 3
+  %.fr18 = freeze i32 %35
+  %36 = lshr i32 %.fr18, 3
   %37 = and i32 %36, 511
   %38 = add nuw nsw i32 %37, 1
-  %39 = shl i32 %35, 2
+  %39 = shl i32 %.fr18, 2
   %40 = and i32 %39, 28
   %41 = lshr i32 675553809, %40
-  %42 = and i32 %41, 15
+  %.fr17 = freeze i32 %41
+  %42 = and i32 %.fr17, 15
   %43 = mul nuw nsw i32 %42, %38
-  %.fr17 = freeze i32 %43
-  %44 = zext nneg i32 %.fr17 to i64
+  %44 = zext nneg i32 %43 to i64
   %.not16 = icmp eq i64 %34, 0
   br i1 %.not16, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph: ; preds = %_ZNK2cv9SparseMat7nzcountEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.not14.i = icmp ult i32 %.fr17, 4
+  %.not14.i = icmp samesign ult i32 %43, 4
   br i1 %.not14.i, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us: ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph
-  %.not18 = icmp eq i32 %.fr17, 0
-  br i1 %.not18, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us
+  %.not19 = icmp eq i32 %42, 0
+  br i1 %.not19, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us: ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us, %_ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us
   %.015.us.us = phi i64 [ %63, %_ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us ], [ 0, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us ]
@@ -2275,8 +2278,8 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us: ; preds = %_ZNK2cv22SparseMat
 _ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us:      ; preds = %.lr.ph17.i.us.us
   %63 = add nuw i64 %.015.us.us, 1
   %64 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %exitcond22.not = icmp eq i64 %63, %34
-  br i1 %exitcond22.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us, !llvm.loop !83
+  %exitcond23.not = icmp eq i64 %63, %34
+  br i1 %exitcond23.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us, !llvm.loop !83
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us:   ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us
   %.015.us = phi i64 [ %77, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us ], [ 0, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us ]
@@ -2294,8 +2297,8 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us:   ; preds = %_ZNK2cv22SparseMatC
   %76 = call noundef ptr @_ZN2cv9SparseMat7newNodeEPKim(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %74, i64 noundef %75)
   %77 = add nuw i64 %.015.us, 1
   %78 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  %exitcond23.not = icmp eq i64 %77, %34
-  br i1 %exitcond23.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, !llvm.loop !83
+  %exitcond24.not = icmp eq i64 %77, %34
+  br i1 %exitcond24.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %_ZN2cvL8copyElemEPKhPhm.exit, %_ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, %_ZNK2cv9SparseMat7nzcountEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5569,27 +5572,28 @@ define noundef ptr @_Z17cvCreateSparseMatRKN2cv9SparseMatE(ptr noundef nonnull a
 _ZNK2cv9SparseMat7nzcountEv.exit:                 ; preds = %9, %15
   %18 = phi i64 [ %17, %15 ], [ 0, %9 ]
   %19 = load i32, ptr %0, align 8, !tbaa !33
-  %20 = lshr i32 %19, 3
+  %.fr24 = freeze i32 %19
+  %20 = lshr i32 %.fr24, 3
   %21 = and i32 %20, 511
   %22 = add nuw nsw i32 %21, 1
-  %23 = shl i32 %19, 2
+  %23 = shl i32 %.fr24, 2
   %24 = and i32 %23, 28
   %25 = lshr i32 675553809, %24
-  %26 = and i32 %25, 15
+  %.fr23 = freeze i32 %25
+  %26 = and i32 %.fr23, 15
   %27 = mul nuw nsw i32 %26, %22
-  %.fr23 = freeze i32 %27
-  %28 = zext nneg i32 %.fr23 to i64
+  %28 = zext nneg i32 %27 to i64
   %.not22 = icmp eq i64 %18, 0
   br i1 %.not22, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph: ; preds = %_ZNK2cv9SparseMat7nzcountEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.not14.i = icmp ult i32 %.fr23, 4
+  %.not14.i = icmp samesign ult i32 %27, 4
   br i1 %.not14.i, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us: ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph
-  %.not24 = icmp eq i32 %.fr23, 0
-  br i1 %.not24, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us
+  %.not25 = icmp eq i32 %26, 0
+  br i1 %.not25, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us: ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us, %_ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us
   %.01621.us.us = phi i64 [ %46, %_ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us ], [ 0, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us ]
@@ -5620,8 +5624,8 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us: ; preds = %_ZNK2cv22SparseMat
 _ZN2cvL8copyElemEPKhPhm.exit.loopexit.us.us:      ; preds = %.lr.ph17.i.us.us
   %46 = add nuw i64 %.01621.us.us, 1
   %47 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %exitcond28.not = icmp eq i64 %46, %18
-  br i1 %exitcond28.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us, !llvm.loop !110
+  %exitcond29.not = icmp eq i64 %46, %18
+  br i1 %exitcond29.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us.us, !llvm.loop !110
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us:   ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us
   %.01621.us = phi i64 [ %59, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us ], [ 0, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph.split.us ]
@@ -5638,8 +5642,8 @@ _ZNK2cv22SparseMatConstIterator4nodeEv.exit.us:   ; preds = %_ZNK2cv22SparseMatC
   %58 = call ptr @cvPtrND(ptr noundef %13, ptr noundef nonnull %57, ptr noundef null, i32 noundef -2, ptr noundef null)
   %59 = add nuw i64 %.01621.us, 1
   %60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv22SparseMatConstIteratorppEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %exitcond29.not = icmp eq i64 %59, %18
-  br i1 %exitcond29.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, !llvm.loop !110
+  %exitcond30.not = icmp eq i64 %59, %18
+  br i1 %exitcond30.not, label %._crit_edge, label %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.us, !llvm.loop !110
 
 _ZNK2cv22SparseMatConstIterator4nodeEv.exit:      ; preds = %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph, %_ZN2cvL8copyElemEPKhPhm.exit
   %.01621 = phi i64 [ %83, %_ZN2cvL8copyElemEPKhPhm.exit ], [ 0, %_ZNK2cv22SparseMatConstIterator4nodeEv.exit.lr.ph ]

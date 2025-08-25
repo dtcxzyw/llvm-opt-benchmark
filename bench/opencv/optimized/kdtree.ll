@@ -2446,13 +2446,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   %.043 = phi ptr [ %114, %111 ], [ null, %80 ]
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %117 = load ptr, ptr %116, align 8, !tbaa !122
+  %.fr97 = freeze ptr %117
   %118 = icmp sgt i32 %52, 0
   br i1 %118, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %120 = load ptr, ptr %119, align 8, !tbaa !122
-  %121 = icmp eq ptr %117, %120
+  %.fr99 = freeze ptr %120
+  %121 = icmp eq ptr %.fr97, %.fr99
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2462,18 +2464,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %.not = icmp eq ptr %.043, null
-  %.not5980 = icmp eq ptr %117, null
+  %.not5980 = icmp eq ptr %.fr97, null
   %.not59 = or i1 %.not5980, %121
-  %.not59.fr = freeze i1 %.not59
-  %wide.trip.count131 = and i64 %50, 2147483647
+  %wide.trip.count134 = and i64 %50, 2147483647
   br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us
-  %indvars.iv128 = phi i64 [ %indvars.iv.next129, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us ], [ 0, %.lr.ph.split.us ]
-  %128 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv128
+  %indvars.iv131 = phi i64 [ %indvars.iv.next132, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us ], [ 0, %.lr.ph.split.us ]
+  %128 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv131
   %129 = load i32, ptr %128, align 4, !tbaa !45
   %130 = load i32, ptr %122, align 8, !tbaa !123
   %131 = icmp ult i32 %129, %130
@@ -2484,9 +2485,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
           to label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us unwind label %.split84.us.split.us
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us:           ; preds = %132
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !124
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
+  br i1 %exitcond135.not, label %.loopexit, label %.lr.ph.split.us.split.us, !llvm.loop !124
 
 .split84.us.split.us:                             ; preds = %132
   %134 = landingpad { ptr, i32 }
@@ -2494,11 +2495,11 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us:           ; preds = %132
   br label %.split84.us
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %.not59.fr, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
+  br i1 %.not59, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94
-  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94 ], [ 0, %.lr.ph.split.us.split ]
-  %135 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv123
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94 ], [ 0, %.lr.ph.split.us.split ]
+  %135 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv126
   %136 = load i32, ptr %135, align 4, !tbaa !45
   %137 = load i32, ptr %122, align 8, !tbaa !123
   %138 = icmp ult i32 %136, %137
@@ -2509,11 +2510,11 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us:           ; preds = %132
           to label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94 unwind label %.split84.us.split.split.us
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94:         ; preds = %139
-  %141 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv123
+  %141 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv126
   store i32 %136, ptr %141, align 4, !tbaa !45
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count131
-  br i1 %exitcond127.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !124
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count134
+  br i1 %exitcond130.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !124
 
 .split84.us.split.split.us:                       ; preds = %139
   %142 = landingpad { ptr, i32 }
@@ -2521,8 +2522,8 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94:         ; preds = %139
   br label %.split84.us
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us ], [ 0, %.lr.ph.split.us.split ]
-  %143 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv118
+  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us ], [ 0, %.lr.ph.split.us.split ]
+  %143 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv121
   %144 = load i32, ptr %143, align 4, !tbaa !45
   %145 = load i32, ptr %122, align 8, !tbaa !123
   %146 = icmp ult i32 %144, %145
@@ -2534,13 +2535,13 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94:         ; preds = %139
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us:              ; preds = %147
   %149 = sext i32 %144 to i64
-  %150 = getelementptr inbounds i32, ptr %117, i64 %149
+  %150 = getelementptr inbounds i32, ptr %.fr97, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !45
-  %152 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv118
+  %152 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv121
   store i32 %151, ptr %152, align 4, !tbaa !45
-  %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count131
-  br i1 %exitcond122.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !124
+  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
+  %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count134
+  br i1 %exitcond125.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !124
 
 .split84.us.split.split:                          ; preds = %147
   %153 = landingpad { ptr, i32 }
@@ -2551,8 +2552,8 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us:              ; preds = %147
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86 ], [ 0, %.lr.ph.split ]
-  %154 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv113
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86 ], [ 0, %.lr.ph.split ]
+  %154 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv116
   %155 = load i32, ptr %154, align 4, !tbaa !45
   %156 = load i32, ptr %122, align 8, !tbaa !123
   %157 = icmp ult i32 %155, %156
@@ -2575,15 +2576,15 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us:              ; preds = %147
   %168 = load ptr, ptr %126, align 8, !tbaa !48
   %169 = load ptr, ptr %127, align 8, !tbaa !72
   %170 = load i64, ptr %169, align 8, !tbaa !50
-  %171 = mul i64 %170, %indvars.iv113
+  %171 = mul i64 %170, %indvars.iv116
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 %171
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %172, ptr align 4 %164, i64 %.idx, i1 false)
   br label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86:            ; preds = %167, %166
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count131
-  br i1 %exitcond117.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !124
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
+  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count134
+  br i1 %exitcond120.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !124
 
 .split84.split.us:                                ; preds = %158
   %173 = landingpad { ptr, i32 }
@@ -2591,11 +2592,11 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86:            ; preds = %167, %166
   br label %.split84.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %.not59.fr, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
+  br i1 %.not59, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us89
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us89 ], [ 0, %.lr.ph.split.split ]
-  %174 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv108
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us89 ], [ 0, %.lr.ph.split.split ]
+  %174 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv111
   %175 = load i32, ptr %174, align 4, !tbaa !45
   %176 = load i32, ptr %122, align 8, !tbaa !123
   %177 = icmp ult i32 %175, %176
@@ -2618,17 +2619,17 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86:            ; preds = %167, %166
   %188 = load ptr, ptr %126, align 8, !tbaa !48
   %189 = load ptr, ptr %127, align 8, !tbaa !72
   %190 = load i64, ptr %189, align 8, !tbaa !50
-  %191 = mul i64 %190, %indvars.iv108
+  %191 = mul i64 %190, %indvars.iv111
   %192 = getelementptr inbounds nuw i8, ptr %188, i64 %191
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %192, ptr align 4 %184, i64 %.idx, i1 false)
   br label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us89
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit.us89:            ; preds = %187, %186
-  %193 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv108
+  %193 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv111
   store i32 %175, ptr %193, align 4, !tbaa !45
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count131
-  br i1 %exitcond112.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !124
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count134
+  br i1 %exitcond115.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !124
 
 .split84.split.split.us:                          ; preds = %178
   %194 = landingpad { ptr, i32 }
@@ -2714,12 +2715,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
   br label %.split84.us
 
 _ZSt4copyIPKfPfET0_T_S4_S3_.exit:                 ; preds = %220, %219
-  %227 = getelementptr inbounds i32, ptr %117, i64 %215
+  %227 = getelementptr inbounds i32, ptr %.fr97, i64 %215
   %228 = load i32, ptr %227, align 4, !tbaa !45
   %229 = getelementptr inbounds nuw i32, ptr %.043, i64 %indvars.iv
   store i32 %228, ptr %229, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count131
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count134
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !124
 
 .loopexit:                                        ; preds = %_ZSt4copyIPKfPfET0_T_S4_S3_.exit, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us89, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us86, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us94, %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.us.us, %115, %55

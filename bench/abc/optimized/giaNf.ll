@@ -3332,7 +3332,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Nf_ManPrepareCuts.e
   br i1 %455, label %Nf_CutMergeOrderMux.exit.thread.us.us.us, label %456
 
 456:                                              ; preds = %454
-  %indvars.iv.next.i286.us.us.us = add nuw nsw i64 %indvars.iv.i285.us.us.us, 1
+  %indvars.iv.next.i286.us.us.us = add i64 %indvars.iv.i285.us.us.us, 1
   %457 = getelementptr inbounds nuw i32, ptr %428, i64 %indvars.iv.i285.us.us.us
   store i32 %452, ptr %457, align 4, !tbaa !13
   %458 = icmp eq i32 %436, %452
@@ -3347,14 +3347,14 @@ Gia_ObjFaninC2.exit:                              ; preds = %Nf_ManPrepareCuts.e
   br label %429
 
 463:                                              ; preds = %449
-  %464 = trunc nuw nsw i64 %indvars.iv.i285.us.us.us to i32
+  %464 = trunc i64 %indvars.iv.i285.us.us.us to i32
   %465 = getelementptr inbounds nuw i8, ptr %419, i64 16
   %466 = load i32, ptr %465, align 8
   %467 = shl i32 %464, 27
-  %468 = and i32 %466, 67108864
+  %.fr = freeze i32 %466
+  %468 = and i32 %.fr, 67108864
   %469 = or disjoint i32 %468, %467
-  %.fr = freeze i32 %469
-  %470 = or i32 %.fr, 67108863
+  %470 = or disjoint i32 %469, 67108863
   store i32 %470, ptr %465, align 8
   store i64 %410, ptr %419, align 8, !tbaa !141
   %471 = icmp sgt i32 %.4506.us.us.us, 0
@@ -3362,9 +3362,9 @@ Gia_ObjFaninC2.exit:                              ; preds = %Nf_ManPrepareCuts.e
 
 .lr.ph.i289.us.us.us:                             ; preds = %463
   %472 = zext nneg i32 %.4506.us.us.us to i64
-  %473 = lshr i32 %.fr, 27
-  %.not48.i.i.us.us.us = icmp ult i32 %.fr, 134217728
-  %wide.trip.count.i.i290.us.us.us = zext nneg i32 %473 to i64
+  %473 = and i32 %464, 31
+  %.not48.i.i.us.us.us = icmp eq i32 %467, 0
+  %wide.trip.count.i.i290.us.us.us = and i64 %indvars.iv.i285.us.us.us, 31
   br i1 %.not48.i.i.us.us.us, label %.lr.ph.split.us.split.us.i.us.us.us, label %.lr.ph.split.split.i.us.us.us
 
 .lr.ph.split.split.i.us.us.us:                    ; preds = %.lr.ph.i289.us.us.us, %Nf_SetCutIsContainedOrder.exit.thread.i.us.us.us
@@ -4175,11 +4175,12 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %.5.lcssa.sink.i.us = phi i32 [ %25, %.preheader.i.us ], [ %.1.i335.us, %.preheader117.i.us ], [ %875, %.lr.ph127.preheader.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %888, %.lr.ph130.preheader.i.us ], [ %25, %893 ]
   %895 = getelementptr inbounds nuw i8, ptr %835, i64 16
   %896 = load i32, ptr %895, align 8
-  %897 = shl i32 %.5.lcssa.sink.i.us, 27
-  %898 = and i32 %896, 67108864
+  %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
+  %897 = shl i32 %.5.lcssa.sink.i.us.fr, 27
+  %.fr680 = freeze i32 %896
+  %898 = and i32 %.fr680, 67108864
   %899 = or disjoint i32 %898, %897
-  %.fr680 = freeze i32 %899
-  %900 = or i32 %.fr680, 67108863
+  %900 = or disjoint i32 %899, 67108863
   store i32 %900, ptr %895, align 8
   %901 = load i64, ptr %.1534.us, align 8, !tbaa !141
   %902 = load i64, ptr %.1152529.us, align 8, !tbaa !141
@@ -4190,8 +4191,8 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 
 .lr.ph.i341.us:                                   ; preds = %.loopexit.us
   %905 = zext nneg i32 %.8525.us to i64
-  %906 = lshr i32 %.fr680, 27
-  %.not48.i.i343.us = icmp ult i32 %.fr680, 134217728
+  %906 = and i32 %.5.lcssa.sink.i.us.fr, 31
+  %.not48.i.i343.us = icmp eq i32 %897, 0
   %wide.trip.count.i.i344.us = zext nneg i32 %906 to i64
   br i1 %.not48.i.i343.us, label %.lr.ph.split.us.split.us.i362.us, label %.lr.ph.split.split.i345.us
 

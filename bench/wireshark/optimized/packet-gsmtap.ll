@@ -494,14 +494,14 @@ define internal i32 @dissect_gsmtap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %17 = shl i8 %16, 2
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 2)
-  %.fr44.i = freeze i8 %18
+  %.fr.i = freeze i8 %18
   %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   %21 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
   %23 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 14)
-  %24 = zext i8 %.fr44.i to i32
-  %25 = icmp ne i8 %.fr44.i, 1
+  %24 = zext i8 %.fr.i to i32
+  %25 = icmp ne i8 %.fr.i, 1
   %.not.i = icmp sgt i8 %22, -1
   %or.cond.i = select i1 %25, i1 true, i1 %.not.i
   %26 = zext i8 %17 to i32
@@ -581,7 +581,7 @@ switch.lookup:                                    ; preds = %55
   br i1 %.not258.i, label %106, label %66
 
 66:                                               ; preds = %59
-  %67 = icmp eq i8 %.fr44.i, 4
+  %67 = icmp eq i8 %.fr.i, 4
   br i1 %67, label %.thread.i, label %70
 
 .thread.i:                                        ; preds = %66
@@ -591,11 +591,11 @@ switch.lookup:                                    ; preds = %55
 
 70:                                               ; preds = %66
   %71 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 12)
-  %72 = icmp eq i8 %.fr44.i, 5
+  %72 = icmp eq i8 %.fr.i, 5
   %73 = zext i8 %71 to i32
-  %switch.selectcmp.i = icmp eq i8 %.fr44.i, 13
+  %switch.selectcmp.i = icmp eq i8 %.fr.i, 13
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @gsmtap_lte_rrc_channels, ptr @gsmtap_channels
-  %switch.selectcmp38.i = icmp eq i8 %.fr44.i, 10
+  %switch.selectcmp38.i = icmp eq i8 %.fr.i, 10
   %switch.select39.i = select i1 %switch.selectcmp38.i, ptr @gsmtap_gmr1_channels, ptr %switch.select.i
   %gsmtap_gmr1_channels.sink.i = select i1 %72, ptr @gsmtap_tetra_channels, ptr %switch.select39.i
   %74 = tail call ptr @val_to_str(i32 noundef %73, ptr noundef nonnull %gsmtap_gmr1_channels.sink.i, ptr noundef nonnull @.str.362)
@@ -620,13 +620,13 @@ switch.lookup:                                    ; preds = %55
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %91, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %93 = load i32, ptr @hf_gsmtap_frame_nr, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %93, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
-  %.not43.i = icmp eq i8 %.fr44.i, 3
+  %.not43.i = icmp eq i8 %.fr.i, 3
   %hf_gsmtap_burst_type.mux.i = select i1 %25, ptr @hf_gsmtap_tetra_channel_type, ptr @hf_gsmtap_channel_type
   %hf_gsmtap_burst_type.mux.mux.i = select i1 %.not43.i, ptr @hf_gsmtap_burst_type, ptr %hf_gsmtap_burst_type.mux.i
   br i1 %25, label %switch.early.test.i, label %.sink.split.i
 
 switch.early.test.i:                              ; preds = %70
-  switch i8 %.fr44.i, label %101 [
+  switch i8 %.fr.i, label %101 [
     i8 5, label %.sink.split.i
     i8 3, label %.sink.split.i
     i8 7, label %.sink.split.fold.split.i
@@ -665,7 +665,7 @@ switch.early.test.i:                              ; preds = %70
   br label %106
 
 106:                                              ; preds = %101, %59
-  switch i8 %.fr44.i, label %213 [
+  switch i8 %.fr.i, label %213 [
     i8 4, label %214
     i8 12, label %107
     i8 13, label %110

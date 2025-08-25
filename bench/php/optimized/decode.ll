@@ -4706,7 +4706,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
 41:                                               ; preds = %36
   %42 = trunc i32 %6 to i8
   store i32 0, ptr %5, align 8, !tbaa !24
-  %.pre162 = load ptr, ptr %1, align 8, !tbaa !4
+  %.pre161 = load ptr, ptr %1, align 8, !tbaa !4
   br label %94
 
 .preheader:                                       ; preds = %3, %25, %122, %154, %166, %191, %200
@@ -4734,9 +4734,9 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store ptr %55, ptr %1, align 8, !tbaa !4
   %56 = load i8, ptr %52, align 1, !tbaa !24
-  %.fr144 = freeze i8 %56
-  %57 = zext i8 %.fr144 to i32
-  %58 = icmp ult i8 %.fr144, -127
+  %.fr = freeze i8 %56
+  %57 = zext i8 %.fr to i32
+  %58 = icmp ult i8 %.fr, -127
   br i1 %58, label %59, label %66
 
 59:                                               ; preds = %54
@@ -4748,13 +4748,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
   br label %.backedge
 
 .backedge:                                        ; preds = %59, %69, %85
-  %63 = phi ptr [ %55, %59 ], [ %55, %69 ], [ %.pre163, %85 ]
+  %63 = phi ptr [ %55, %59 ], [ %55, %69 ], [ %.pre162, %85 ]
   %64 = phi i64 [ %61, %59 ], [ %72, %69 ], [ %91, %85 ]
   %65 = icmp ult ptr %63, %2
   br i1 %65, label %50, label %.loopexit
 
 66:                                               ; preds = %54
-  %67 = add nsw i8 %.fr144, 95
+  %67 = add nsw i8 %.fr, 95
   %68 = icmp ult i8 %67, 63
   br i1 %68, label %69, label %74
 
@@ -4768,12 +4768,12 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
   br label %.backedge
 
 74:                                               ; preds = %66
-  %75 = add nsw i8 %.fr144, 96
+  %75 = add nsw i8 %.fr, 96
   %76 = icmp ult i8 %75, -31
   br i1 %76, label %switch.early.test, label %92
 
 switch.early.test:                                ; preds = %74
-  switch i8 %.fr144, label %77 [
+  switch i8 %.fr, label %77 [
     i8 -4, label %92
     i8 -32, label %92
   ]
@@ -4802,7 +4802,7 @@ switch.early.test:                                ; preds = %74
   %90 = load i64, ptr %45, align 8, !tbaa !20
   %91 = add i64 %90, %89
   store i64 %91, ptr %45, align 8, !tbaa !20
-  %.pre163 = load ptr, ptr %1, align 8, !tbaa !4
+  %.pre162 = load ptr, ptr %1, align 8, !tbaa !4
   br label %.backedge
 
 92:                                               ; preds = %switch.early.test, %switch.early.test, %74
@@ -4817,8 +4817,8 @@ switch.early.test:                                ; preds = %74
 94:                                               ; preds = %92, %41
   %95 = phi i64 [ %53, %92 ], [ %40, %41 ]
   %96 = phi i64 [ %51, %92 ], [ %38, %41 ]
-  %97 = phi ptr [ %55, %92 ], [ %.pre162, %41 ]
-  %.0 = phi i8 [ %.fr144, %92 ], [ %42, %41 ]
+  %97 = phi ptr [ %55, %92 ], [ %.pre161, %41 ]
+  %.0 = phi i8 [ %.fr, %92 ], [ %42, %41 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 1
   store ptr %98, ptr %1, align 8, !tbaa !4
   %99 = load i8, ptr %97, align 1, !tbaa !24
@@ -8203,13 +8203,13 @@ define hidden i32 @lxb_encoding_decode_shift_jis_single(ptr noundef captures(non
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %10, ptr %1, align 8, !tbaa !4
   %11 = load i8, ptr %9, align 1, !tbaa !24
-  %.fr49 = freeze i8 %11
-  %12 = zext i8 %.fr49 to i32
-  %13 = icmp ult i8 %.fr49, -127
+  %.fr = freeze i8 %11
+  %12 = zext i8 %.fr to i32
+  %13 = icmp ult i8 %.fr, -127
   br i1 %13, label %57, label %14
 
 14:                                               ; preds = %8
-  %15 = add nsw i8 %.fr49, 95
+  %15 = add nsw i8 %.fr, 95
   %16 = icmp ult i8 %15, 63
   br i1 %16, label %17, label %19
 
@@ -8218,12 +8218,12 @@ define hidden i32 @lxb_encoding_decode_shift_jis_single(ptr noundef captures(non
   br label %57
 
 19:                                               ; preds = %14
-  %20 = add nsw i8 %.fr49, 96
+  %20 = add nsw i8 %.fr, 96
   %21 = icmp ult i8 %20, -31
   br i1 %21, label %switch.early.test, label %22
 
 switch.early.test:                                ; preds = %19
-  switch i8 %.fr49, label %57 [
+  switch i8 %.fr, label %57 [
     i8 -4, label %22
     i8 -32, label %22
   ]
@@ -8238,7 +8238,7 @@ switch.early.test:                                ; preds = %19
 
 24:                                               ; preds = %22, %6
   %25 = phi ptr [ %.pre, %6 ], [ %10, %22 ]
-  %.0 = phi i8 [ %7, %6 ], [ %.fr49, %22 ]
+  %.0 = phi i8 [ %7, %6 ], [ %.fr, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %1, align 8, !tbaa !4
   %27 = load i8, ptr %25, align 1, !tbaa !24

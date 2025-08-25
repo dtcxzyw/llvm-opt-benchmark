@@ -3142,10 +3142,10 @@ _ZNK5clang6interp7Pointer16inPrimitiveArrayEv.exit: ; preds = %7
   %23 = trunc nuw i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %25 = load ptr, ptr %24, align 8
-  %.not.i.i = icmp eq ptr %25, null
-  %26 = select i1 %23, i1 %.not.i.i, i1 false
-  %cond.fr = freeze i1 %26
-  %spec.select = select i1 %cond.fr, i64 32, i64 16
+  %.fr = freeze ptr %25
+  %.not.i.i = icmp eq ptr %.fr, null
+  %26 = and i1 %.not.i.i, %23
+  %spec.select = select i1 %26, i64 32, i64 16
   br i1 %spec.select.i.i.i, label %.thread4.i.i, label %_ZNK5clang6interp7Pointer7getSizeEv.exit
 
 27:                                               ; preds = %7

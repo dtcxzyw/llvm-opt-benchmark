@@ -1514,13 +1514,14 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   %.pn = phi ptr [ %121, %114 ], [ %58, %110 ]
   %.1370 = phi ptr [ %122, %114 ], [ %.0369482486, %110 ]
   %.0379 = getelementptr i8, ptr %.pn, i64 -7
-  %124 = zext i8 %.sroa.12.0.copyload to i16
-  %125 = zext i8 %.sroa.11.0.copyload to i16
+  %.sroa.12.0.copyload.fr = freeze i8 %.sroa.12.0.copyload
+  %124 = zext i8 %.sroa.12.0.copyload.fr to i16
+  %.sroa.11.0.copyload.fr = freeze i8 %.sroa.11.0.copyload
+  %125 = zext i8 %.sroa.11.0.copyload.fr to i16
   %126 = shl nuw i16 %124, 8
   %127 = or disjoint i16 %126, %125
-  %.fr659 = freeze i16 %127
-  %128 = zext i16 %.fr659 to i32
-  %129 = zext i16 %.fr659 to i64
+  %128 = zext i16 %127 to i32
+  %129 = zext i16 %127 to i64
   %130 = getelementptr inbounds nuw i8, ptr %.1370, i64 %129
   %131 = icmp ugt ptr %130, %.0379
   br i1 %131, label %132, label %133
@@ -1595,7 +1596,7 @@ define internal fastcc range(i32 -30, 1) i32 @read_header(ptr noundef %0, ptr no
   br i1 %165, label %.lr.ph.lr.ph, label %.outer._crit_edge.thread
 
 .lr.ph.lr.ph:                                     ; preds = %163
-  %166 = icmp ne i16 %.fr659, 0
+  %166 = icmp ne i16 %127, 0
   %167 = add nsw i32 %128, -1
   br label %.lr.ph
 
@@ -1856,10 +1857,10 @@ default.unreachable:                              ; preds = %194
   br label %.thread492
 
 .outer._crit_edge.thread:                         ; preds = %163, %.outer._crit_edge
-  %.1364.lcssa665 = phi i32 [ %.1364.lcssa, %.outer._crit_edge ], [ %.0363, %163 ]
-  %.0386.ph.lcssa527664 = phi i32 [ %.0386.ph.lcssa527, %.outer._crit_edge ], [ 0, %163 ]
-  %270 = add nuw nsw i32 %.0386.ph.lcssa527664, 1
-  %271 = zext nneg i32 %.0386.ph.lcssa527664 to i64
+  %.1364.lcssa664 = phi i32 [ %.1364.lcssa, %.outer._crit_edge ], [ %.0363, %163 ]
+  %.0386.ph.lcssa527663 = phi i32 [ %.0386.ph.lcssa527, %.outer._crit_edge ], [ 0, %163 ]
+  %270 = add nuw nsw i32 %.0386.ph.lcssa527663, 1
+  %271 = zext nneg i32 %.0386.ph.lcssa527663 to i64
   %272 = getelementptr inbounds nuw i8, ptr %147, i64 %271
   store i8 0, ptr %272, align 1, !tbaa !31
   %273 = zext nneg i32 %270 to i64
@@ -1900,7 +1901,7 @@ default.unreachable:                              ; preds = %194
   br i1 %.not433, label %._crit_edge580, label %.lr.ph579, !llvm.loop !126
 
 ._crit_edge580:                                   ; preds = %285, %281
-  %287 = zext i32 %.1364.lcssa665 to i64
+  %287 = zext i32 %.1364.lcssa664 to i64
   %288 = getelementptr inbounds nuw i8, ptr %.1370, i64 %287
   br label %.loopexit
 
@@ -2010,15 +2011,15 @@ default.unreachable:                              ; preds = %194
 
 337:                                              ; preds = %.thread, %335
   %338 = phi ptr [ %328, %.thread ], [ %.pre621, %335 ]
-  %.pre-phi667 = phi i64 [ %332, %.thread ], [ %.pre622, %335 ]
-  %339 = getelementptr inbounds nuw %struct.data_block_offsets, ptr %338, i64 %.pre-phi667, i32 1
+  %.pre-phi666 = phi i64 [ %332, %.thread ], [ %.pre622, %335 ]
+  %339 = getelementptr inbounds nuw %struct.data_block_offsets, ptr %338, i64 %.pre-phi666, i32 1
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %341 = load ptr, ptr %340, align 8, !tbaa !131
   %342 = load i64, ptr %341, align 8, !tbaa !132
   store i64 %342, ptr %339, align 8, !tbaa !77
   %343 = load i64, ptr %37, align 8, !tbaa !121
   %344 = add nsw i64 %343, %342
-  %345 = getelementptr inbounds nuw %struct.data_block_offsets, ptr %338, i64 %.pre-phi667, i32 2
+  %345 = getelementptr inbounds nuw %struct.data_block_offsets, ptr %338, i64 %.pre-phi666, i32 2
   store i64 %344, ptr %345, align 8, !tbaa !80
   br label %.thread492
 

@@ -8196,9 +8196,10 @@ define internal fastcc ptr @get_ls_tile_buffers(ptr noundef %0, ptr noundef %1, 
   call void @av1_get_uniform_tile_size(ptr noundef nonnull %20, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
   %36 = load i32, ptr %6, align 4
   %37 = load i32, ptr %7, align 4
-  %38 = call i32 @llvm.smax.i32(i32 %36, i32 %37)
-  %.fr = freeze i32 %38
-  %39 = shl i32 %.fr, 2
+  %.fr155 = freeze i32 %36
+  %.fr156 = freeze i32 %37
+  %38 = call i32 @llvm.smax.i32(i32 %.fr155, i32 %.fr156)
+  %39 = shl i32 %38, 2
   %40 = icmp slt i32 %39, 257
   %41 = icmp sgt i32 %9, 0
   br i1 %41, label %.lr.ph, label %.preheader
@@ -8227,19 +8228,19 @@ define internal fastcc ptr @get_ls_tile_buffers(ptr noundef %0, ptr noundef %1, 
   %55 = add i32 %52, -8
   %56 = zext nneg i32 %55 to i64
   %57 = sext i32 %29 to i64
-  %sext176 = sext i32 %48 to i64
+  %sext177 = sext i32 %48 to i64
   %58 = sext i32 %33 to i64
   br i1 %40, label %.lr.ph137.split, label %.lr.ph137.split.us
 
 .lr.ph137.split.us:                               ; preds = %.lr.ph137, %._crit_edge.split.us.us
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %._crit_edge.split.us.us ], [ %57, %.lr.ph137 ]
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %._crit_edge.split.us.us ], [ %57, %.lr.ph137 ]
   %.2135.us = phi ptr [ %.5.lcssa.us, %._crit_edge.split.us.us ], [ %1, %.lr.ph137 ]
-  %59 = icmp eq i64 %indvars.iv165, %sext176
-  %60 = icmp sgt i64 %indvars.iv165, 0
+  %59 = icmp eq i64 %indvars.iv166, %sext177
+  %60 = icmp sgt i64 %indvars.iv166, 0
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %.lr.ph137.split.us
-  %62 = add nsw i64 %indvars.iv165, -1
+  %62 = add nsw i64 %indvars.iv166, -1
   %63 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %62
   %64 = load ptr, ptr %63, align 8
   br label %65
@@ -8255,22 +8256,22 @@ define internal fastcc ptr @get_ls_tile_buffers(ptr noundef %0, ptr noundef %1, 
 
 ._crit_edge.split.us.us:                          ; preds = %get_ls_tile_buffer.exit.us.us, %65
   %.5.lcssa.us = phi ptr [ %.4.us, %65 ], [ %100, %get_ls_tile_buffer.exit.us.us ]
-  %indvars.iv.next166 = add nsw i64 %indvars.iv165, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next166 to i32
-  %exitcond168.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond168.not, label %._crit_edge138, label %.lr.ph137.split.us, !llvm.loop !75
+  %indvars.iv.next167 = add nsw i64 %indvars.iv166, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next167 to i32
+  %exitcond169.not = icmp eq i32 %31, %lftr.wideiv
+  br i1 %exitcond169.not, label %._crit_edge138, label %.lr.ph137.split.us, !llvm.loop !75
 
 .lr.ph128.us:                                     ; preds = %65
-  %69 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv165
+  %69 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv166
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
-  %invariant.gep129.us = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv165
-  %invariant.gep133.us = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv165, i32 1
-  %wide.trip.count163 = zext nneg i32 %67 to i64
+  %invariant.gep129.us = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv166
+  %invariant.gep133.us = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv166, i32 1
+  %wide.trip.count164 = zext nneg i32 %67 to i64
   br label %72
 
 72:                                               ; preds = %get_ls_tile_buffer.exit.us.us, %.lr.ph128.us
-  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %get_ls_tile_buffer.exit.us.us ], [ 0, %.lr.ph128.us ]
+  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %get_ls_tile_buffer.exit.us.us ], [ 0, %.lr.ph128.us ]
   %.5126.us.us = phi ptr [ %100, %get_ls_tile_buffer.exit.us.us ], [ %.4.us, %.lr.ph128.us ]
   %73 = ptrtoint ptr %.5126.us.us to i64
   %74 = sub i64 %71, %73
@@ -8336,14 +8337,14 @@ mem_get_varsize.exit.i.us.us:                     ; preds = %90, %88, %80, %77, 
 
 get_ls_tile_buffer.exit.us.us:                    ; preds = %98, %99
   %.sink = phi ptr [ %94, %99 ], [ null, %98 ]
-  %gep132.us.us = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep129.us, i64 %indvars.iv160
+  %gep132.us.us = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep129.us, i64 %indvars.iv161
   store ptr %.sink, ptr %gep132.us.us, align 8
-  %gep134.us.us = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep133.us, i64 %indvars.iv160
+  %gep134.us.us = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep133.us, i64 %indvars.iv161
   store i64 %93, ptr %gep134.us.us, align 8
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 %93
-  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
-  %exitcond164.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count163
-  br i1 %exitcond164.not, label %._crit_edge.split.us.us, label %72, !llvm.loop !76
+  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+  %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
+  br i1 %exitcond165.not, label %._crit_edge.split.us.us, label %72, !llvm.loop !76
 
 101:                                              ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
@@ -8407,14 +8408,14 @@ mem_get_varsize.exit:                             ; preds = %103, %104, %107, %1
   br i1 %exitcond.not, label %.preheader, label %101, !llvm.loop !77
 
 .lr.ph137.split:                                  ; preds = %.lr.ph137, %._crit_edge.split
-  %indvars.iv174 = phi i64 [ %indvars.iv.next175, %._crit_edge.split ], [ %57, %.lr.ph137 ]
+  %indvars.iv175 = phi i64 [ %indvars.iv.next176, %._crit_edge.split ], [ %57, %.lr.ph137 ]
   %.2135 = phi ptr [ %.5.lcssa, %._crit_edge.split ], [ %1, %.lr.ph137 ]
-  %128 = icmp eq i64 %indvars.iv174, %sext176
-  %129 = icmp sgt i64 %indvars.iv174, 0
+  %128 = icmp eq i64 %indvars.iv175, %sext177
+  %129 = icmp sgt i64 %indvars.iv175, 0
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %.lr.ph137.split
-  %131 = add nsw i64 %indvars.iv174, -1
+  %131 = add nsw i64 %indvars.iv175, -1
   %132 = getelementptr inbounds nuw [64 x ptr], ptr %5, i64 0, i64 %131
   %133 = load ptr, ptr %132, align 8
   br label %134
@@ -8429,16 +8430,16 @@ mem_get_varsize.exit:                             ; preds = %103, %104, %107, %1
   br i1 %137, label %.lr.ph128, label %._crit_edge.split
 
 .lr.ph128:                                        ; preds = %134
-  %138 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv174
+  %138 = getelementptr inbounds [64 x ptr], ptr %5, i64 0, i64 %indvars.iv175
   %139 = load ptr, ptr %138, align 8
   %140 = ptrtoint ptr %139 to i64
-  %invariant.gep = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv174
-  %invariant.gep133 = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv174, i32 1
-  %wide.trip.count172 = zext nneg i32 %136 to i64
+  %invariant.gep = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv175
+  %invariant.gep133 = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %indvars.iv175, i32 1
+  %wide.trip.count173 = zext nneg i32 %136 to i64
   br label %141
 
 141:                                              ; preds = %.lr.ph128, %get_ls_tile_buffer.exit
-  %indvars.iv169 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next170, %get_ls_tile_buffer.exit ]
+  %indvars.iv170 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next171, %get_ls_tile_buffer.exit ]
   %.5126 = phi ptr [ %.4, %.lr.ph128 ], [ %179, %get_ls_tile_buffer.exit ]
   %142 = ptrtoint ptr %.5126 to i64
   %143 = sub i64 %140, %142
@@ -8491,9 +8492,9 @@ mem_get_varsize.exit.i:                           ; preds = %159, %151, %149, %1
 .thread54.i:                                      ; preds = %mem_get_varsize.exit.i
   %164 = lshr i64 %.0.i.i, %56
   %165 = and i64 %164, 127
-  %166 = sub nsw i64 %indvars.iv169, %165
-  %sext195 = shl i64 %166, 32
-  %167 = ashr exact i64 %sext195, 22
+  %166 = sub nsw i64 %indvars.iv170, %165
+  %sext196 = shl i64 %166, 32
+  %167 = ashr exact i64 %sext196, 22
   %gep = getelementptr i8, ptr %invariant.gep, i64 %167
   %168 = load ptr, ptr %gep, align 8
   %169 = getelementptr inbounds nuw i8, ptr %gep, i64 8
@@ -8520,25 +8521,25 @@ mem_get_varsize.exit.i:                           ; preds = %159, %151, %149, %1
   br label %get_ls_tile_buffer.exit
 
 get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thread63.i, %177, %._crit_edge.i
-  %.sink200 = phi ptr [ %173, %177 ], [ %173, %.thread63.i ], [ %168, %.thread54.i ], [ null, %._crit_edge.i ]
+  %.sink201 = phi ptr [ %173, %177 ], [ %173, %.thread63.i ], [ %168, %.thread54.i ], [ null, %._crit_edge.i ]
   %.0455162.sink.i = phi i64 [ %172, %177 ], [ %172, %.thread63.i ], [ %170, %.thread54.i ], [ 0, %._crit_edge.i ]
   %.05359.i = phi i64 [ %172, %177 ], [ %172, %.thread63.i ], [ 0, %.thread54.i ], [ 0, %._crit_edge.i ]
   %178 = getelementptr inbounds i8, ptr %.5126, i64 %50
-  %gep132 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep, i64 %indvars.iv169
-  store ptr %.sink200, ptr %gep132, align 8
-  %gep134 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep133, i64 %indvars.iv169
+  %gep132 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep, i64 %indvars.iv170
+  store ptr %.sink201, ptr %gep132, align 8
+  %gep134 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep133, i64 %indvars.iv170
   store i64 %.0455162.sink.i, ptr %gep134, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 %.05359.i
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge.split, label %141, !llvm.loop !76
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
+  br i1 %exitcond174.not, label %._crit_edge.split, label %141, !llvm.loop !76
 
 ._crit_edge.split:                                ; preds = %get_ls_tile_buffer.exit, %134
   %.5.lcssa = phi ptr [ %.4, %134 ], [ %179, %get_ls_tile_buffer.exit ]
-  %indvars.iv.next175 = add nsw i64 %indvars.iv174, 1
-  %lftr.wideiv178 = trunc i64 %indvars.iv.next175 to i32
-  %exitcond179.not = icmp eq i32 %31, %lftr.wideiv178
-  br i1 %exitcond179.not, label %._crit_edge138, label %.lr.ph137.split, !llvm.loop !75
+  %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
+  %lftr.wideiv179 = trunc i64 %indvars.iv.next176 to i32
+  %exitcond180.not = icmp eq i32 %31, %lftr.wideiv179
+  br i1 %exitcond180.not, label %._crit_edge138, label %.lr.ph137.split, !llvm.loop !75
 
 ._crit_edge138:                                   ; preds = %._crit_edge.split.us.us, %._crit_edge.split, %.preheader
   %.2.lcssa = phi ptr [ %1, %.preheader ], [ %.5.lcssa, %._crit_edge.split ], [ %.5.lcssa.us, %._crit_edge.split.us.us ]
@@ -8569,11 +8570,11 @@ get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thre
   %198 = zext nneg i32 %197 to i64
   %invariant.gep145 = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %187
   %invariant.gep151 = getelementptr [64 x %struct.TileBufferDec], ptr %3, i64 0, i64 %187, i32 1
-  %wide.trip.count183 = zext nneg i32 %11 to i64
+  %wide.trip.count184 = zext nneg i32 %11 to i64
   br label %199
 
 199:                                              ; preds = %.lr.ph143, %get_ls_tile_buffer.exit112
-  %indvars.iv180 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next181, %get_ls_tile_buffer.exit112 ]
+  %indvars.iv181 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next182, %get_ls_tile_buffer.exit112 ]
   %.7141 = phi ptr [ %184, %.lr.ph143 ], [ %237, %get_ls_tile_buffer.exit112 ]
   %200 = ptrtoint ptr %.7141 to i64
   %201 = sub i64 %192, %200
@@ -8627,9 +8628,9 @@ mem_get_varsize.exit.i96:                         ; preds = %217, %209, %207, %2
 .thread54.i110:                                   ; preds = %mem_get_varsize.exit.i96
   %222 = lshr i64 %.0.i.i97, %198
   %223 = and i64 %222, 127
-  %224 = sub nsw i64 %indvars.iv180, %223
-  %sext196 = shl i64 %224, 32
-  %225 = ashr exact i64 %sext196, 22
+  %224 = sub nsw i64 %indvars.iv181, %223
+  %sext197 = shl i64 %224, 32
+  %225 = ashr exact i64 %sext197, 22
   %gep146 = getelementptr i8, ptr %invariant.gep145, i64 %225
   %226 = load ptr, ptr %gep146, align 8
   %227 = getelementptr inbounds nuw i8, ptr %gep146, i64 8
@@ -8656,18 +8657,18 @@ mem_get_varsize.exit.i96:                         ; preds = %217, %209, %207, %2
   br label %get_ls_tile_buffer.exit112
 
 get_ls_tile_buffer.exit112:                       ; preds = %.thread54.i110, %.thread63.i108, %235, %._crit_edge.i103
-  %.sink201 = phi ptr [ %231, %235 ], [ %231, %.thread63.i108 ], [ %226, %.thread54.i110 ], [ null, %._crit_edge.i103 ]
+  %.sink202 = phi ptr [ %231, %235 ], [ %231, %.thread63.i108 ], [ %226, %.thread54.i110 ], [ null, %._crit_edge.i103 ]
   %.0455162.sink.i101 = phi i64 [ %230, %235 ], [ %230, %.thread63.i108 ], [ %228, %.thread54.i110 ], [ 0, %._crit_edge.i103 ]
   %.05359.i102 = phi i64 [ %230, %235 ], [ %230, %.thread63.i108 ], [ 0, %.thread54.i110 ], [ 0, %._crit_edge.i103 ]
   %236 = getelementptr inbounds i8, ptr %.7141, i64 %191
-  %gep150 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep145, i64 %indvars.iv180
-  store ptr %.sink201, ptr %gep150, align 8
-  %gep152 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep151, i64 %indvars.iv180
+  %gep150 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep145, i64 %indvars.iv181
+  store ptr %.sink202, ptr %gep150, align 8
+  %gep152 = getelementptr [64 x %struct.TileBufferDec], ptr %invariant.gep151, i64 %indvars.iv181
   store i64 %.0455162.sink.i101, ptr %gep152, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 %.05359.i102
-  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
-  %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %.loopexit, label %199, !llvm.loop !78
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
+  br i1 %exitcond185.not, label %.loopexit, label %199, !llvm.loop !78
 
 .loopexit:                                        ; preds = %get_ls_tile_buffer.exit112, %180, %._crit_edge138, %14
   %.084 = phi ptr [ null, %14 ], [ %.2.lcssa, %._crit_edge138 ], [ %184, %180 ], [ %237, %get_ls_tile_buffer.exit112 ]
@@ -11528,11 +11529,10 @@ av1_is_scaled.exit.i.i:                           ; preds = %219, %av1_is_valid_
   %278 = select i1 %276, i32 %277, i32 0
   %spec.select78.i.i = call i32 @llvm.smin.i32(i32 %278, i32 %254)
   %279 = icmp sgt i32 %.sroa.5.1.i, %222
-  %280 = sub nsw i32 %.sroa.5.1.i, %222
+  %280 = sub i32 %.sroa.5.1.i, %222
   %.059.i.i = select i1 %279, i32 %280, i32 0
-  %.059.fr.i.i = freeze i32 %.059.i.i
-  %.1.i.i = call i32 @llvm.smin.i32(i32 %.059.fr.i.i, i32 %254)
-  %281 = add i32 %.1.i.i, %spec.select78.i.i
+  %.1.i.i = call i32 @llvm.smin.i32(i32 %.059.i.i, i32 %254)
+  %281 = add i32 %spec.select78.i.i, %.1.i.i
   %282 = sub i32 %254, %281
   %.not74.i.i = icmp eq i32 %spec.select78.i.i, 0
   %283 = sext i32 %spec.select78.i.i to i64
@@ -15441,7 +15441,8 @@ max_block_wide.exit:                              ; preds = %97, %max_block_high
   %phi.call88.in = phi i32 [ %60, %54 ], [ %50, %max_block_high.exit ], [ %102, %97 ], [ %93, %max_block_high.exit103 ]
   %103 = phi i8 [ %.0.i.i, %54 ], [ %.0.i.i, %max_block_high.exit ], [ %78, %97 ], [ %78, %max_block_high.exit103 ]
   %phi.call.in = phi i32 [ %.0.i, %54 ], [ %.0.i, %max_block_high.exit ], [ %.0.i102, %97 ], [ %.0.i102, %max_block_high.exit103 ]
-  %phi.call = ashr i32 %phi.call.in, 2
+  %phi.call.in.fr = freeze i32 %phi.call.in
+  %phi.call = ashr i32 %phi.call.in.fr, 2
   %phi.call88 = ashr i32 %phi.call88.in, 2
   %.not = icmp slt i32 %6, %phi.call
   %.not95 = icmp slt i32 %7, %phi.call88
@@ -15508,10 +15509,10 @@ max_block_wide.exit:                              ; preds = %97, %max_block_high
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.0109.us = phi i32 [ %.us-phi.us, %._crit_edge.us ], [ %8, %.preheader.us.preheader ]
   %.084108.us = phi i32 [ %155, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %148 = add nsw i32 %.084108.us, %6
+  %.084108.us.fr = freeze i32 %.084108.us
+  %148 = add i32 %.084108.us.fr, %6
   %.not96.us = icmp slt i32 %148, %phi.call
-  %.not96.fr.us = freeze i1 %.not96.us
-  br i1 %.not96.fr.us, label %.lr.ph.split.us112, label %._crit_edge.us
+  br i1 %.not96.us, label %.lr.ph.split.us112, label %._crit_edge.us
 
 .lr.ph.split.us112:                               ; preds = %.preheader.us, %152
   %.1107.us = phi i32 [ %.2.us, %152 ], [ %.0109.us, %.preheader.us ]
@@ -15533,7 +15534,7 @@ max_block_wide.exit:                              ; preds = %97, %max_block_high
 
 ._crit_edge.us:                                   ; preds = %152, %.preheader.us
   %.us-phi.us = phi i32 [ %.0109.us, %.preheader.us ], [ %.2.us, %152 ]
-  %155 = add nsw i32 %.084108.us, %142
+  %155 = add nsw i32 %.084108.us.fr, %142
   %156 = icmp slt i32 %155, %145
   br i1 %156, label %.preheader.us, label %.loopexit, !llvm.loop !134
 

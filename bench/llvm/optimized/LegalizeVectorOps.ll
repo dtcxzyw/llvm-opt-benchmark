@@ -9588,12 +9588,12 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i: ; preds = %189
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit.i: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i, %189
   %.pre-phi.i = phi i64 [ %192, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i.i ], [ 1, %189 ]
-  %.idx121.i = mul nuw nsw i64 %.pre-phi.i, 496
+  %.idx120.i = mul nuw nsw i64 %.pre-phi.i, 496
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 5712
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 %.idx121.i
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 %.idx120.i
   %197 = load i8, ptr %196, align 1, !tbaa !164
-  %.fr122.i = freeze i8 %197
-  %198 = and i8 %.fr122.i, -5
+  %.fr121.i = freeze i8 %197
+  %198 = and i8 %.fr121.i, -5
   %spec.select.i.i = icmp eq i8 %198, 0
   %spec.select.i = select i1 %spec.select.i.i, i32 226, i32 227
   br label %.thread.i
@@ -9614,13 +9614,13 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i81.i: ; preds = %199
   br i1 %.not.i82.i, label %.thread.i, label %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit83.i
 
 _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit83.i: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i81.i, %199
-  %.pre-phi126.i = phi i64 [ %202, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i81.i ], [ 1, %199 ]
-  %.idx.i = mul nuw nsw i64 %.pre-phi126.i, 496
+  %.pre-phi125.i = phi i64 [ %202, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i81.i ], [ 1, %199 ]
+  %.idx.i = mul nuw nsw i64 %.pre-phi125.i, 496
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 5627
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx.i
   %207 = load i8, ptr %206, align 1, !tbaa !164
-  %.fr120.i = freeze i8 %207
-  %208 = and i8 %.fr120.i, -5
+  %.fr.i = freeze i8 %207
+  %208 = and i8 %.fr.i, -5
   %spec.select.i80.i = icmp eq i8 %208, 0
   %spec.select119.i = select i1 %spec.select.i80.i, i32 141, i32 142
   br label %.thread.i
@@ -13491,25 +13491,25 @@ _ZNK4llvm18TargetLoweringBase18getOperationActionEjNS_3EVTE.exit111: ; preds = %
   %48 = zext i32 %.sroa.11.0.copyload to i64
   %49 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %47, i64 %48
   %.sroa.0.0.copyload.i.i112 = load i16, ptr %49, align 8, !tbaa !127
-  %.fr4.i = freeze i16 %.sroa.0.0.copyload.i.i112
+  %.fr.i = freeze i16 %.sroa.0.0.copyload.i.i112
   %.sroa.21.0..sroa_idx.i.i113 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.21.0.copyload.i.i114 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i113, align 8, !tbaa !129
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i16 %.fr4.i, ptr %4, align 8
+  store i16 %.fr.i, ptr %4, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.21.0.copyload.i.i114, ptr %50, align 8
-  %.not.i.i117 = icmp eq i16 %.fr4.i, 0
+  %.not.i.i117 = icmp eq i16 %.fr.i, 0
   br i1 %.not.i.i117, label %56, label %51
 
 51:                                               ; preds = %45
-  %52 = add i16 %.fr4.i, -17
+  %52 = add i16 %.fr.i, -17
   %spec.select.i.i.i = icmp ult i16 %52, 174
-  %53 = add i16 %.fr4.i, -10
+  %53 = add i16 %.fr.i, -10
   %or.cond.i.i.i = icmp ult i16 %53, 7
-  %54 = add i16 %.fr4.i, -88
+  %54 = add i16 %.fr.i, -88
   %or.cond3.i.i.i = icmp ult i16 %54, 50
   %or.cond4.i.i.i = or i1 %or.cond.i.i.i, %or.cond3.i.i.i
-  %55 = add i16 %.fr4.i, -170
+  %55 = add i16 %.fr.i, -170
   %spec.select.i.i2.i = icmp ult i16 %55, 21
   %or.cond.i = or i1 %spec.select.i.i2.i, %or.cond4.i.i.i
   br i1 %or.cond.i, label %_ZNK4llvm3EVT15isFloatingPointEv.exit.thread.i, label %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit
@@ -13537,14 +13537,14 @@ _ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit: ; preds = %51, 
   ]
 
 62:                                               ; preds = %_ZNK4llvm18TargetLoweringBase18getBooleanContentsENS_3EVTE.exit
-  store i16 %.fr4.i, ptr %6, align 8
+  store i16 %.fr.i, ptr %6, align 8
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.sroa.21.0.copyload.i.i114, ptr %63, align 8
-  %.not.i = icmp eq i16 %.fr4.i, 0
+  %.not.i = icmp eq i16 %.fr.i, 0
   br i1 %.not.i, label %69, label %64
 
 64:                                               ; preds = %62
-  %65 = zext i16 %.fr4.i to i64
+  %65 = zext i16 %.fr.i to i64
   %66 = add nsw i64 %65, -1
   %67 = getelementptr inbounds nuw [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !127

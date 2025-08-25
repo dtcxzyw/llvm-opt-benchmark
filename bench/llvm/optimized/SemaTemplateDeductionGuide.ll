@@ -8641,102 +8641,50 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTyp
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 16
-  %7 = lshr i32 %6, 19
+  %.fr.i.i.i = freeze i32 %6
+  %7 = lshr i32 %.fr.i.i.i, 19
   %8 = and i32 %7, 511
   %9 = add nsw i32 %8, -442
   %or.cond.i.i.i.i = icmp ult i32 %9, 5
-  br i1 %or.cond.i.i.i.i, label %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i
-
-_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i: ; preds = %3
   %10 = add nsw i32 %8, -450
-  %or.cond3.i.i7.i.i = icmp ult i32 %10, 37
-  %11 = icmp eq i32 %8, 437
-  %or.cond5.i.i8.i.i = or i1 %11, %or.cond3.i.i7.i.i
-  %12 = icmp eq i32 %8, 448
-  %spec.select.i.i9.i.i = or i1 %12, %or.cond5.i.i8.i.i
-  %cond.fr.i10.i.i = freeze i1 %spec.select.i.i9.i.i
-  %13 = select i1 %cond.fr.i10.i.i, i64 12, i64 8
-  br label %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit
-
-_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit: ; preds = %3, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i
-  %.lhs.trunc.i.i = phi i64 [ 12, %3 ], [ %13, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i ]
-  %14 = tail call { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 %4, i64 noundef %.lhs.trunc.i.i, i32 noundef 4) #22
-  %15 = extractvalue { ptr, ptr } %14, 0
-  %16 = extractvalue { ptr, ptr } %14, 1
+  %or.cond3.i.i.i.i = icmp ult i32 %10, 37
+  %or.cond.i.i.i = select i1 %or.cond.i.i.i.i, i1 true, i1 %or.cond3.i.i.i.i
+  %switch.selectcmp.case1.i.i.i = icmp eq i32 %8, 448
+  %switch.selectcmp.case2.i.i.i = icmp eq i32 %8, 437
+  %switch.selectcmp.i.i.i = or i1 %switch.selectcmp.case1.i.i.i, %switch.selectcmp.case2.i.i.i
+  %11 = or i1 %switch.selectcmp.i.i.i, %or.cond.i.i.i
+  %12 = select i1 %11, i64 12, i64 8
+  %13 = tail call { ptr, ptr } @_ZN5clang14TypeLocBuilder8pushImplENS_8QualTypeEmj(ptr noundef nonnull align 8 dereferenceable(61) %0, i64 %4, i64 noundef %12, i32 noundef 4) #22
+  %14 = extractvalue { ptr, ptr } %13, 1
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4, !tbaa !11
   %.sroa.4.0.insert.ext.i = zext i32 %.sroa.0.0.copyload.i.i to i64
   %.sroa.0.0.insert.insert.i = mul nuw i64 %.sroa.4.0.insert.ext.i, 4294967297
-  store i64 %.sroa.0.0.insert.insert.i, ptr %16, align 4
-  %17 = load i32, ptr %5, align 16
-  %.fr8 = freeze i32 %17
-  %18 = lshr i32 %.fr8, 19
-  %19 = and i32 %18, 511
-  %20 = add nsw i32 %19, -442
-  %or.cond.i = icmp ult i32 %20, 5
-  %21 = add nsw i32 %19, -450
-  %or.cond3.i = icmp ult i32 %21, 37
+  store i64 %.sroa.0.0.insert.insert.i, ptr %14, align 4
+  %15 = load i32, ptr %5, align 16
+  %.fr = freeze i32 %15
+  %16 = lshr i32 %.fr, 19
+  %17 = and i32 %16, 511
+  %18 = add nsw i32 %17, -442
+  %or.cond.i = icmp ult i32 %18, 5
+  %19 = add nsw i32 %17, -450
+  %or.cond3.i = icmp ult i32 %19, 37
   %or.cond = select i1 %or.cond.i, i1 true, i1 %or.cond3.i
-  br i1 %or.cond, label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit, label %switch.early.test
+  br i1 %or.cond, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread, label %switch.early.test
 
-switch.early.test:                                ; preds = %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit
-  switch i32 %19, label %46 [
-    i32 448, label %switch.early.test9
-    i32 437, label %switch.early.test9
+switch.early.test:                                ; preds = %3
+  switch i32 %17, label %23 [
+    i32 448, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread
+    i32 437, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread
   ]
 
-switch.early.test9:                               ; preds = %switch.early.test, %switch.early.test
-  %switch.selectcmp.case1 = icmp eq i32 %19, 448
-  %switch.selectcmp.case2 = icmp eq i32 %19, 437
-  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
-  %22 = select i1 %switch.selectcmp, i32 4, i32 1
-  br label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit
+_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread: ; preds = %switch.early.test, %switch.early.test, %3
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %22 = load i32, ptr %20, align 4
+  store i32 %22, ptr %21, align 4
+  br label %23
 
-_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit: ; preds = %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit, %switch.early.test9
-  %23 = phi i32 [ %22, %switch.early.test9 ], [ 4, %_ZN5clang14TypeLocBuilder4pushINS_14BuiltinTypeLocEEET_NS_8QualTypeE.exit ]
-  %.rhs.trunc.i.i = trunc nuw nsw i32 %23 to i8
-  %24 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i, i1 true)
-  %25 = lshr i8 7, %24
-  %narrow.i.i = add nuw nsw i8 %25, 1
-  %26 = zext nneg i8 %narrow.i.i to i32
-  %27 = mul nuw nsw i32 %23, %26
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %31 = load i32, ptr %30, align 16
-  %32 = lshr i32 %31, 19
-  %33 = and i32 %32, 511
-  %34 = add nsw i32 %33, -442
-  %or.cond.i.i.i.i5 = icmp ult i32 %34, 5
-  br i1 %or.cond.i.i.i.i5, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6
-
-_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6: ; preds = %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit
-  %35 = add nsw i32 %33, -450
-  %or.cond3.i.i.i.i7 = icmp ult i32 %35, 37
-  %36 = icmp eq i32 %33, 437
-  %or.cond5.i.i.i.i8 = or i1 %36, %or.cond3.i.i.i.i7
-  %37 = icmp eq i32 %33, 448
-  %spec.select.i.i.i.i9 = or i1 %37, %or.cond5.i.i.i.i8
-  %cond.fr.i.i.i10 = freeze i1 %spec.select.i.i.i.i9
-  br i1 %cond.fr.i.i.i10, label %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13, label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
-
-_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13: ; preds = %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit
-  br label %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
-
-_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14: ; preds = %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13
-  %38 = phi i32 [ 4, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread.i.i.i13 ], [ 1, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.i.i.i6 ]
-  %.rhs.trunc.i.i11 = trunc nuw nsw i32 %38 to i8
-  %39 = tail call range(i8 0, 9) i8 @llvm.cttz.i8(i8 %.rhs.trunc.i.i11, i1 true)
-  %40 = lshr i8 7, %39
-  %narrow.i.i12 = add nuw nsw i8 %40, 1
-  %41 = zext nneg i8 %narrow.i.i12 to i32
-  %42 = mul nuw nsw i32 %38, %41
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i8, ptr %16, i64 %43
-  %45 = load i32, ptr %29, align 4
-  store i32 %45, ptr %44, align 4
-  br label %46
-
-46:                                               ; preds = %switch.early.test, %_ZN5clang14BuiltinTypeLoc22getWrittenBuiltinSpecsEv.exit14
+23:                                               ; preds = %switch.early.test, %_ZNK5clang14BuiltinTypeLoc19needsExtraLocalDataEv.exit.thread
   ret i64 %4
 }
 
@@ -66393,7 +66341,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, -2
   %5 = load i32, ptr %0, align 8
-  %6 = and i32 %5, 1
+  %.fr27 = freeze i32 %5
+  %6 = and i32 %.fr27, 1
   %7 = or disjoint i32 %6, %4
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -66403,13 +66352,16 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
   %.not.i.i.i = icmp eq i32 %6, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = select i1 %.not.i.i.i, ptr %12, ptr %11
+  %.fr28 = freeze ptr %12
+  %13 = select i1 %.not.i.i.i, ptr %.fr28, ptr %11
   %14 = load i32, ptr %1, align 8
-  %15 = and i32 %14, 1
+  %.fr29 = freeze i32 %14
+  %15 = and i32 %.fr29, 1
   %.not.i.i = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = select i1 %.not.i.i, ptr %17, ptr %16
+  %.fr30 = freeze ptr %17
+  %18 = select i1 %.not.i.i, ptr %.fr30, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %.not.i.i.i, i32 %20, i32 8
@@ -66419,8 +66371,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
 
 .lr.ph:                                           ; preds = %2
   %23 = icmp eq ptr %13, %18
-  %.fr = freeze i1 %23
-  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EEC2ERKS5_.exit.us
   %.026.us = phi i64 [ %36, %_ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EEC2ERKS5_.exit.us ], [ 0, %.lr.ph ]
@@ -66448,8 +66399,8 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5cla
 
 _ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EEC2ERKS5_.exit.us: ; preds = %31, %.lr.ph.split.us
   %36 = add nuw nsw i64 %.026.us, 1
-  %exitcond28.not = icmp eq i64 %36, %22
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2713
+  %exitcond32.not = icmp eq i64 %36, %22
+  br i1 %exitcond32.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !2713
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EEC2ERKS5_.exit, %_ZN4llvm11SmallVectorIN5clang4sema17FunctionScopeInfo9WeakUseTyELj4EEC2ERKS5_.exit.us, %2
   ret void
@@ -73899,9 +73850,6 @@ declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.cttz.i8(i8, i1 immarg) #20
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

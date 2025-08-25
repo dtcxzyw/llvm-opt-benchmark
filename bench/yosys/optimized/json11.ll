@@ -7696,7 +7696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %.no
   %90 = phi i64 [ %26, %.lr.ph ], [ %611, %.backedge ]
   %91 = phi ptr [ %24, %.lr.ph ], [ %609, %.backedge ]
   %92 = phi i64 [ %23, %.lr.ph ], [ %608, %.backedge ]
-  %.0327 = phi i64 [ -1, %.lr.ph ], [ %.1485, %.backedge ]
+  %.0327 = phi i64 [ -1, %.lr.ph ], [ %.1484, %.backedge ]
   %93 = add i64 %92, 1
   store i64 %93, ptr %22, align 8, !tbaa !95
   %94 = load ptr, ptr %91, align 8, !tbaa !42
@@ -7727,11 +7727,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   store ptr %100, ptr %0, align 8, !tbaa !42
   %106 = load i64, ptr %20, align 8, !tbaa !18
   store i64 %106, ptr %34, align 8, !tbaa !18
-  %.pre365 = load i64, ptr %21, align 8, !tbaa !45
+  %.pre364 = load i64, ptr %21, align 8, !tbaa !45
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %107 = phi i64 [ %103, %102 ], [ %.pre365, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+  %107 = phi i64 [ %103, %102 ], [ %.pre364, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   store i64 %107, ptr %35, align 8, !tbaa !45
   store ptr %20, ptr %9, align 8, !tbaa !42
   store i64 0, ptr %21, align 8, !tbaa !45
@@ -7974,11 +7974,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i100: ; preds 
   %190 = phi ptr [ %.pre.i.i103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i102 ], [ %166, %188 ], [ %147, %189 ], [ %158, %174 ]
   store i64 0, ptr %161, align 8, !tbaa !45
   store i8 0, ptr %190, align 1, !tbaa !18
-  %.pre364 = load ptr, ptr %11, align 8, !tbaa !42
+  %.pre363 = load ptr, ptr %11, align 8, !tbaa !42
   br label %_ZN6json1112_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_.exit106
 
 _ZN6json1112_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_.exit106: ; preds = %157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i100
-  %191 = phi ptr [ %158, %157 ], [ %.pre364, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i100 ]
+  %191 = phi ptr [ %158, %157 ], [ %.pre363, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i100 ]
   store i8 1, ptr %30, align 8, !tbaa !99
   store ptr %34, ptr %0, align 8, !tbaa !39
   store i64 0, ptr %35, align 8, !tbaa !45
@@ -8467,13 +8467,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %30
   %.039326 = phi i64 [ %402, %401 ], [ 0, %304 ]
   %353 = getelementptr inbounds nuw i8, ptr %28, i64 %.039326
   %354 = load i8, ptr %353, align 1, !tbaa !18
-  %.fr328 = freeze i8 %354
-  %355 = add i8 %.fr328, -48
+  %.fr = freeze i8 %354
+  %355 = add i8 %.fr, -48
   %356 = icmp ult i8 %355, 10
   br i1 %356, label %401, label %switch.early.test
 
 switch.early.test:                                ; preds = %.preheader
-  switch i8 %.fr328, label %357 [
+  switch i8 %.fr, label %357 [
     i8 102, label %401
     i8 101, label %401
     i8 100, label %401
@@ -9182,7 +9182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262: ; preds = %_Z
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.sink.split, %605
-  %.1485 = phi i64 [ %.2, %605 ], [ -1, %.backedge.sink.split ]
+  %.1484 = phi i64 [ %.2, %605 ], [ -1, %.backedge.sink.split ]
   %608 = load i64, ptr %22, align 8, !tbaa !95
   %609 = load ptr, ptr %1, align 8, !tbaa !110
   %610 = getelementptr inbounds nuw i8, ptr %609, i64 8

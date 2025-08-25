@@ -487,14 +487,15 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %22
   store float %4, ptr %28, align 8, !tbaa !33
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !23
+  %.fr205 = freeze ptr %30
   %31 = load ptr, ptr %1, align 8, !tbaa !21
-  %32 = ptrtoint ptr %30 to i64
-  %33 = ptrtoint ptr %31 to i64
+  %.fr206 = freeze ptr %31
+  %32 = ptrtoint ptr %.fr205 to i64
+  %33 = ptrtoint ptr %.fr206 to i64
   %34 = sub i64 %32, %33
-  %.fr206 = freeze i64 %34
-  %35 = lshr i64 %.fr206, 2
+  %35 = lshr i64 %34, 2
   %36 = trunc i64 %35 to i32
-  %.not = icmp eq ptr %30, %31
+  %.not = icmp eq ptr %.fr205, %.fr206
   br i1 %.not, label %45, label %37
 
 37:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
@@ -504,7 +505,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %.thread, %22
   %41 = ptrtoint ptr %39 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
-  %44 = icmp eq i64 %.fr206, %43
+  %44 = icmp eq i64 %34, %43
   br i1 %44, label %58, label %45
 
 45:                                               ; preds = %37, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit
@@ -6417,7 +6418,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %61 = getelementptr %"class.cv::BriskLayer", ptr %59, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -416
   %63 = fptosi float %.0224 to i32
-  %64 = add nsw i32 %63, 1
+  %.fr = freeze i32 %63
+  %64 = add nsw i32 %.fr, 1
   %65 = fptosi float %.0226 to i32
   %66 = add nsw i32 %65, 1
   %67 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %.0226, i32 noundef 1, float noundef 1.000000e+00)
@@ -6428,7 +6430,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .preheader:                                       ; preds = %57
   %71 = fptosi float %.0225 to i32
-  %.not513.not = icmp slt i32 %63, %71
+  %.fr560 = freeze i32 %71
+  %.not513.not = icmp slt i32 %.fr, %.fr560
   br i1 %.not513.not, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %77
@@ -6446,7 +6449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %79 = select i1 %78, float %75, float %72
   %.1231 = select i1 %78, i32 %.0252514, i32 %.0230515
   %80 = add i32 %.0252514, 1
-  %exitcond.not = icmp eq i32 %.0252514, %71
+  %exitcond.not = icmp eq i32 %.0252514, %.fr560
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !210
 
 .critedge:                                        ; preds = %77, %.preheader
@@ -6460,7 +6463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 84:                                               ; preds = %.critedge
   %85 = fcmp olt float %.0..0.476, %82
   %.0..promoted531 = select i1 %85, float %82, float %.0..0.476
-  %.2232 = select i1 %85, i32 %71, i32 %.0230.lcssa
+  %.2232 = select i1 %85, i32 %.fr560, i32 %.0230.lcssa
   %86 = fptosi float %.0227 to i32
   %.not267536.not = icmp slt i32 %65, %86
   br i1 %.not267536.not, label %.lr.ph541, label %.thread
@@ -6468,7 +6471,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .lr.ph541:                                        ; preds = %84
   %87 = fadd float %.0224, 1.000000e+00
   %88 = fptosi float %87 to i32
-  %.not268522 = icmp sge i32 %63, %71
   %89 = getelementptr i8, ptr %61, i64 -404
   %90 = getelementptr i8, ptr %61, i64 -408
   %91 = getelementptr i8, ptr %61, i64 -304
@@ -6476,1636 +6478,1639 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %93 = getelementptr i8, ptr %61, i64 -400
   %94 = getelementptr i8, ptr %61, i64 -344
   %95 = getelementptr i8, ptr %61, i64 -100
-  %.not268522.fr = freeze i1 %.not268522
-  br i1 %.not268522.fr, label %.lr.ph541.split.us, label %.lr.ph541.split
+  br i1 %.not513.not, label %.lr.ph541.split.preheader, label %.lr.ph541.split.us
 
-.lr.ph541.split.us:                               ; preds = %.lr.ph541, %103
-  %.3233540.us = phi i32 [ %.10.us, %103 ], [ %.2232, %.lr.ph541 ]
-  %.0236539.us = phi i32 [ %.7243.us, %103 ], [ %66, %.lr.ph541 ]
-  %.0253538.us = phi i32 [ %107, %103 ], [ %66, %.lr.ph541 ]
-  %.0.i520.lcssa533537.us = phi float [ %.0.i520.lcssa534.us, %103 ], [ %.0..promoted531, %.lr.ph541 ]
-  %96 = sitofp i32 %.0253538.us to float
-  %97 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %96, i32 noundef 1, float noundef 1.000000e+00)
-  %98 = sitofp i32 %97 to float
-  %99 = fcmp ogt float %98, %69
-  br i1 %99, label %.thread489, label %.critedge272.us
+.lr.ph541.split.preheader:                        ; preds = %.lr.ph541
+  %96 = add i32 %.fr560, 1
+  br label %.lr.ph541.split
+
+.lr.ph541.split.us:                               ; preds = %.lr.ph541, %104
+  %.3233540.us = phi i32 [ %.10.us, %104 ], [ %.2232, %.lr.ph541 ]
+  %.0236539.us = phi i32 [ %.7243.us, %104 ], [ %66, %.lr.ph541 ]
+  %.0253538.us = phi i32 [ %108, %104 ], [ %66, %.lr.ph541 ]
+  %.0.i520.lcssa533537.us = phi float [ %.0.i520.lcssa534.us, %104 ], [ %.0..promoted531, %.lr.ph541 ]
+  %97 = sitofp i32 %.0253538.us to float
+  %98 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %97, i32 noundef 1, float noundef 1.000000e+00)
+  %99 = sitofp i32 %98 to float
+  %100 = fcmp ogt float %99, %69
+  br i1 %100, label %.thread489, label %.critedge272.us
 
 .critedge272.us:                                  ; preds = %.lr.ph541.split.us
-  %100 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0225, float noundef %96, i32 noundef 1, float noundef 1.000000e+00)
-  %101 = sitofp i32 %100 to float
-  %102 = fcmp ogt float %101, %69
-  br i1 %102, label %.thread489, label %103
+  %101 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0225, float noundef %97, i32 noundef 1, float noundef 1.000000e+00)
+  %102 = sitofp i32 %101 to float
+  %103 = fcmp ogt float %102, %69
+  br i1 %103, label %.thread489, label %104
 
-103:                                              ; preds = %.critedge272.us
-  %104 = fcmp olt float %.0.i520.lcssa533537.us, %98
-  %.0.i520.lcssa532.us = select i1 %104, float %98, float %.0.i520.lcssa533537.us
-  %.5235.us = select i1 %104, i32 %88, i32 %.3233540.us
-  %105 = fcmp olt float %.0.i520.lcssa532.us, %101
-  %.0.i520.lcssa534.us = select i1 %105, float %101, float %.0.i520.lcssa532.us
-  %106 = or i1 %105, %104
-  %.7243.us = select i1 %106, i32 %.0253538.us, i32 %.0236539.us
-  %.10.us = select i1 %105, i32 %71, i32 %.5235.us
-  %107 = add i32 %.0253538.us, 1
+104:                                              ; preds = %.critedge272.us
+  %105 = fcmp olt float %.0.i520.lcssa533537.us, %99
+  %.0.i520.lcssa532.us = select i1 %105, float %99, float %.0.i520.lcssa533537.us
+  %.5235.us = select i1 %105, i32 %88, i32 %.3233540.us
+  %106 = fcmp olt float %.0.i520.lcssa532.us, %102
+  %.0.i520.lcssa534.us = select i1 %106, float %102, float %.0.i520.lcssa532.us
+  %107 = or i1 %106, %105
+  %.7243.us = select i1 %107, i32 %.0253538.us, i32 %.0236539.us
+  %.10.us = select i1 %106, i32 %.fr560, i32 %.5235.us
+  %108 = add i32 %.0253538.us, 1
   %exitcond568.not = icmp eq i32 %.0253538.us, %86
   br i1 %exitcond568.not, label %.thread, label %.lr.ph541.split.us, !llvm.loop !211
 
-.lr.ph541.split:                                  ; preds = %.lr.ph541, %648
-  %.3233540 = phi i32 [ %.10, %648 ], [ %.2232, %.lr.ph541 ]
-  %.0236539 = phi i32 [ %.7243, %648 ], [ %66, %.lr.ph541 ]
-  %.0253538 = phi i32 [ %115, %648 ], [ %66, %.lr.ph541 ]
-  %.0.i520.lcssa533537 = phi float [ %.0.i520.lcssa534, %648 ], [ %.0..promoted531, %.lr.ph541 ]
-  %108 = sitofp i32 %.0253538 to float
-  %109 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %108, i32 noundef 1, float noundef 1.000000e+00)
-  %110 = sitofp i32 %109 to float
-  %111 = fcmp ogt float %110, %69
-  br i1 %111, label %.thread489, label %.lr.ph527
+.lr.ph541.split:                                  ; preds = %.lr.ph541.split.preheader, %649
+  %.3233540 = phi i32 [ %.10, %649 ], [ %.2232, %.lr.ph541.split.preheader ]
+  %.0236539 = phi i32 [ %.7243, %649 ], [ %66, %.lr.ph541.split.preheader ]
+  %.0253538 = phi i32 [ %116, %649 ], [ %66, %.lr.ph541.split.preheader ]
+  %.0.i520.lcssa533537 = phi float [ %.0.i520.lcssa534, %649 ], [ %.0..promoted531, %.lr.ph541.split.preheader ]
+  %109 = sitofp i32 %.0253538 to float
+  %110 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %109, i32 noundef 1, float noundef 1.000000e+00)
+  %111 = sitofp i32 %110 to float
+  %112 = fcmp ogt float %111, %69
+  br i1 %112, label %.thread489, label %.lr.ph527
 
 .lr.ph527:                                        ; preds = %.lr.ph541.split
-  %112 = fcmp olt float %.0.i520.lcssa533537, %110
-  %.0.i520.lcssa532 = select i1 %112, float %110, float %.0.i520.lcssa533537
-  %.2238 = select i1 %112, i32 %.0253538, i32 %.0236539
-  %.5235 = select i1 %112, i32 %88, i32 %.3233540
-  %113 = icmp slt i32 %.0253538, 3
-  %114 = zext nneg i32 %.0253538 to i64
-  %115 = add i32 %.0253538, 1
-  %116 = icmp slt i32 %.0253538, 2
-  %117 = zext nneg i32 %115 to i64
-  %118 = add nsw i32 %.0253538, -1
-  %119 = icmp slt i32 %.0253538, 4
-  %120 = zext nneg i32 %118 to i64
-  br label %121
+  %113 = fcmp olt float %.0.i520.lcssa533537, %111
+  %.0.i520.lcssa532 = select i1 %113, float %111, float %.0.i520.lcssa533537
+  %.2238 = select i1 %113, i32 %.0253538, i32 %.0236539
+  %.5235 = select i1 %113, i32 %88, i32 %.3233540
+  %114 = icmp slt i32 %.0253538, 3
+  %115 = zext nneg i32 %.0253538 to i64
+  %116 = add i32 %.0253538, 1
+  %117 = icmp slt i32 %.0253538, 2
+  %118 = zext nneg i32 %116 to i64
+  %119 = add nsw i32 %.0253538, -1
+  %120 = icmp slt i32 %.0253538, 4
+  %121 = zext nneg i32 %119 to i64
+  br label %122
 
-121:                                              ; preds = %.lr.ph527, %643
-  %.6526 = phi i32 [ %.5235, %.lr.ph527 ], [ %.9, %643 ]
-  %.3239525 = phi i32 [ %.2238, %.lr.ph527 ], [ %.6242, %643 ]
-  %.0254524 = phi i32 [ %64, %.lr.ph527 ], [ %.pre-phi, %643 ]
-  %.0.i520523 = phi float [ %.0.i520.lcssa532, %.lr.ph527 ], [ %.0.i519, %643 ]
-  %122 = icmp slt i32 %.0254524, 3
-  %or.cond.i = or i1 %113, %122
-  br i1 %or.cond.i, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, label %123
+122:                                              ; preds = %.lr.ph527, %644
+  %.6526 = phi i32 [ %.5235, %.lr.ph527 ], [ %.9, %644 ]
+  %.3239525 = phi i32 [ %.2238, %.lr.ph527 ], [ %.6242, %644 ]
+  %.0254524 = phi i32 [ %64, %.lr.ph527 ], [ %.pre-phi, %644 ]
+  %.0.i520523 = phi float [ %.0.i520.lcssa532, %.lr.ph527 ], [ %.0.i519, %644 ]
+  %123 = icmp slt i32 %.0254524, 3
+  %or.cond.i = or i1 %114, %123
+  br i1 %or.cond.i, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, label %124
 
-123:                                              ; preds = %121
-  %124 = load i32, ptr %89, align 4, !tbaa !206
-  %125 = add nsw i32 %124, -3
-  %.not.i = icmp slt i32 %.0254524, %125
-  br i1 %.not.i, label %126, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
+124:                                              ; preds = %122
+  %125 = load i32, ptr %89, align 4, !tbaa !206
+  %126 = add nsw i32 %125, -3
+  %.not.i = icmp slt i32 %.0254524, %126
+  br i1 %.not.i, label %127, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
-126:                                              ; preds = %123
-  %127 = load i32, ptr %90, align 8, !tbaa !207
-  %128 = add nsw i32 %127, -3
-  %.not21.i = icmp slt i32 %.0253538, %128
-  br i1 %.not21.i, label %129, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
+127:                                              ; preds = %124
+  %128 = load i32, ptr %90, align 8, !tbaa !207
+  %129 = add nsw i32 %128, -3
+  %.not21.i = icmp slt i32 %.0253538, %129
+  br i1 %.not21.i, label %130, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
-129:                                              ; preds = %126
-  %130 = load ptr, ptr %91, align 8, !tbaa !122
-  %131 = load ptr, ptr %92, align 8, !tbaa !142
-  %132 = load i64, ptr %131, align 8, !tbaa !143
-  %133 = mul i64 %132, %114
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %133
-  %135 = zext nneg i32 %.0254524 to i64
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %135
-  %137 = load i8, ptr %136, align 1, !tbaa !75
-  %138 = icmp ugt i8 %137, 2
-  br i1 %138, label %150, label %139
+130:                                              ; preds = %127
+  %131 = load ptr, ptr %91, align 8, !tbaa !122
+  %132 = load ptr, ptr %92, align 8, !tbaa !142
+  %133 = load i64, ptr %132, align 8, !tbaa !143
+  %134 = mul i64 %133, %115
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %134
+  %136 = zext nneg i32 %.0254524 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !75
+  %139 = icmp ugt i8 %138, 2
+  br i1 %139, label %151, label %140
 
-139:                                              ; preds = %129
-  %140 = load ptr, ptr %93, align 8, !tbaa !122
-  %141 = load ptr, ptr %94, align 8, !tbaa !142
-  %142 = load i64, ptr %141, align 8, !tbaa !143
-  %143 = mul i64 %142, %114
-  %144 = getelementptr inbounds nuw i8, ptr %140, i64 %143
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %135
-  %146 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %145, ptr noundef nonnull %95, i32 noundef 0)
-  %147 = trunc i32 %146 to i8
-  %148 = and i32 %146, 255
-  %149 = icmp eq i32 %148, 0
-  %spec.select.i = select i1 %149, i8 0, i8 %147
-  store i8 %spec.select.i, ptr %136, align 1, !tbaa !75
-  br label %150
+140:                                              ; preds = %130
+  %141 = load ptr, ptr %93, align 8, !tbaa !122
+  %142 = load ptr, ptr %94, align 8, !tbaa !142
+  %143 = load i64, ptr %142, align 8, !tbaa !143
+  %144 = mul i64 %143, %115
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 %144
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 %136
+  %147 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %146, ptr noundef nonnull %95, i32 noundef 0)
+  %148 = trunc i32 %147 to i8
+  %149 = and i32 %147, 255
+  %150 = icmp eq i32 %149, 0
+  %spec.select.i = select i1 %150, i8 0, i8 %148
+  store i8 %spec.select.i, ptr %137, align 1, !tbaa !75
+  br label %151
 
-150:                                              ; preds = %139, %129
-  %.1.in.i = phi i8 [ %spec.select.i, %139 ], [ %137, %129 ]
-  %151 = uitofp i8 %.1.in.i to float
+151:                                              ; preds = %140, %130
+  %.1.in.i = phi i8 [ %spec.select.i, %140 ], [ %138, %130 ]
+  %152 = uitofp i8 %.1.in.i to float
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %121, %123, %126, %150
-  %.0.i = phi float [ %151, %150 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %126 ], [ 0.000000e+00, %123 ]
-  %152 = fcmp ogt float %.0.i, %69
-  br i1 %152, label %.thread489, label %153
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %122, %124, %127, %151
+  %.0.i = phi float [ %152, %151 ], [ 0.000000e+00, %122 ], [ 0.000000e+00, %127 ], [ 0.000000e+00, %124 ]
+  %153 = fcmp ogt float %.0.i, %69
+  br i1 %153, label %.thread489, label %154
 
-153:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
-  %154 = fcmp oeq float %.0.i520523, %.0.i
-  br i1 %154, label %155, label %._crit_edge574
+154:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit
+  %155 = fcmp oeq float %.0.i520523, %.0.i
+  br i1 %155, label %156, label %._crit_edge576
 
-._crit_edge574:                                   ; preds = %153
-  %.pre = add nsw i32 %.0254524, 1
-  br label %643
+._crit_edge576:                                   ; preds = %154
+  %.pre = add i32 %.0254524, 1
+  br label %644
 
-155:                                              ; preds = %153
-  %156 = add nsw i32 %.0254524, -1
-  %157 = icmp slt i32 %.0254524, 4
-  %or.cond.i275 = or i1 %113, %157
-  br i1 %or.cond.i275, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282, label %158
+156:                                              ; preds = %154
+  %157 = add nsw i32 %.0254524, -1
+  %158 = icmp slt i32 %.0254524, 4
+  %or.cond.i275 = or i1 %114, %158
+  br i1 %or.cond.i275, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282, label %159
 
-158:                                              ; preds = %155
-  %159 = load i32, ptr %89, align 4, !tbaa !206
-  %160 = add nsw i32 %159, -3
-  %.not.i276.not = icmp sgt i32 %.0254524, %160
-  br i1 %.not.i276.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282, label %161
+159:                                              ; preds = %156
+  %160 = load i32, ptr %89, align 4, !tbaa !206
+  %161 = add nsw i32 %160, -3
+  %.not.i276.not = icmp sgt i32 %.0254524, %161
+  br i1 %.not.i276.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282, label %162
 
-161:                                              ; preds = %158
-  %162 = load i32, ptr %90, align 8, !tbaa !207
-  %163 = add nsw i32 %162, -3
-  %.not21.i278 = icmp slt i32 %.0253538, %163
-  br i1 %.not21.i278, label %164, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282
+162:                                              ; preds = %159
+  %163 = load i32, ptr %90, align 8, !tbaa !207
+  %164 = add nsw i32 %163, -3
+  %.not21.i278 = icmp slt i32 %.0253538, %164
+  br i1 %.not21.i278, label %165, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282
 
-164:                                              ; preds = %161
-  %165 = load ptr, ptr %91, align 8, !tbaa !122
-  %166 = load ptr, ptr %92, align 8, !tbaa !142
-  %167 = load i64, ptr %166, align 8, !tbaa !143
-  %168 = mul i64 %167, %114
-  %169 = getelementptr inbounds nuw i8, ptr %165, i64 %168
-  %170 = zext nneg i32 %156 to i64
-  %171 = getelementptr inbounds nuw i8, ptr %169, i64 %170
-  %172 = load i8, ptr %171, align 1, !tbaa !75
-  %173 = icmp ugt i8 %172, 2
-  br i1 %173, label %185, label %174
+165:                                              ; preds = %162
+  %166 = load ptr, ptr %91, align 8, !tbaa !122
+  %167 = load ptr, ptr %92, align 8, !tbaa !142
+  %168 = load i64, ptr %167, align 8, !tbaa !143
+  %169 = mul i64 %168, %115
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 %169
+  %171 = zext nneg i32 %157 to i64
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
+  %173 = load i8, ptr %172, align 1, !tbaa !75
+  %174 = icmp ugt i8 %173, 2
+  br i1 %174, label %186, label %175
 
-174:                                              ; preds = %164
-  %175 = load ptr, ptr %93, align 8, !tbaa !122
-  %176 = load ptr, ptr %94, align 8, !tbaa !142
-  %177 = load i64, ptr %176, align 8, !tbaa !143
-  %178 = mul i64 %177, %114
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 %178
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 %170
-  %181 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %180, ptr noundef nonnull %95, i32 noundef 0)
-  %182 = trunc i32 %181 to i8
-  %183 = and i32 %181, 255
-  %184 = icmp eq i32 %183, 0
-  %spec.select.i279 = select i1 %184, i8 0, i8 %182
-  store i8 %spec.select.i279, ptr %171, align 1, !tbaa !75
-  br label %185
+175:                                              ; preds = %165
+  %176 = load ptr, ptr %93, align 8, !tbaa !122
+  %177 = load ptr, ptr %94, align 8, !tbaa !142
+  %178 = load i64, ptr %177, align 8, !tbaa !143
+  %179 = mul i64 %178, %115
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 %179
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %171
+  %182 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %181, ptr noundef nonnull %95, i32 noundef 0)
+  %183 = trunc i32 %182 to i8
+  %184 = and i32 %182, 255
+  %185 = icmp eq i32 %184, 0
+  %spec.select.i279 = select i1 %185, i8 0, i8 %183
+  store i8 %spec.select.i279, ptr %172, align 1, !tbaa !75
+  br label %186
 
-185:                                              ; preds = %174, %164
-  %.1.in.i280 = phi i8 [ %spec.select.i279, %174 ], [ %172, %164 ]
+186:                                              ; preds = %175, %165
+  %.1.in.i280 = phi i8 [ %spec.select.i279, %175 ], [ %173, %165 ]
   %.1.i281 = zext i8 %.1.in.i280 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282:   ; preds = %155, %158, %161, %185
-  %.0.i277 = phi i32 [ %.1.i281, %185 ], [ 0, %155 ], [ 0, %161 ], [ 0, %158 ]
-  %186 = add nsw i32 %.0254524, 1
-  %187 = icmp slt i32 %.0254524, 2
-  %or.cond.i283 = or i1 %113, %187
-  br i1 %or.cond.i283, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290, label %188
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282:   ; preds = %156, %159, %162, %186
+  %.0.i277 = phi i32 [ %.1.i281, %186 ], [ 0, %156 ], [ 0, %162 ], [ 0, %159 ]
+  %187 = add i32 %.0254524, 1
+  %188 = icmp slt i32 %.0254524, 2
+  %or.cond.i283 = or i1 %114, %188
+  br i1 %or.cond.i283, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290, label %189
 
-188:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282
-  %189 = load i32, ptr %89, align 4, !tbaa !206
-  %190 = add nsw i32 %189, -3
-  %.not.i284 = icmp slt i32 %186, %190
-  br i1 %.not.i284, label %191, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
+189:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282
+  %190 = load i32, ptr %89, align 4, !tbaa !206
+  %191 = add nsw i32 %190, -3
+  %.not.i284 = icmp slt i32 %187, %191
+  br i1 %.not.i284, label %192, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
 
-191:                                              ; preds = %188
-  %192 = load i32, ptr %90, align 8, !tbaa !207
-  %193 = add nsw i32 %192, -3
-  %.not21.i286 = icmp slt i32 %.0253538, %193
-  br i1 %.not21.i286, label %194, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
+192:                                              ; preds = %189
+  %193 = load i32, ptr %90, align 8, !tbaa !207
+  %194 = add nsw i32 %193, -3
+  %.not21.i286 = icmp slt i32 %.0253538, %194
+  br i1 %.not21.i286, label %195, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
 
-194:                                              ; preds = %191
-  %195 = load ptr, ptr %91, align 8, !tbaa !122
-  %196 = load ptr, ptr %92, align 8, !tbaa !142
-  %197 = load i64, ptr %196, align 8, !tbaa !143
-  %198 = mul i64 %197, %114
-  %199 = getelementptr inbounds nuw i8, ptr %195, i64 %198
-  %200 = zext nneg i32 %186 to i64
-  %201 = getelementptr inbounds nuw i8, ptr %199, i64 %200
-  %202 = load i8, ptr %201, align 1, !tbaa !75
-  %203 = icmp ugt i8 %202, 2
-  br i1 %203, label %215, label %204
+195:                                              ; preds = %192
+  %196 = load ptr, ptr %91, align 8, !tbaa !122
+  %197 = load ptr, ptr %92, align 8, !tbaa !142
+  %198 = load i64, ptr %197, align 8, !tbaa !143
+  %199 = mul i64 %198, %115
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 %199
+  %201 = zext nneg i32 %187 to i64
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 %201
+  %203 = load i8, ptr %202, align 1, !tbaa !75
+  %204 = icmp ugt i8 %203, 2
+  br i1 %204, label %216, label %205
 
-204:                                              ; preds = %194
-  %205 = load ptr, ptr %93, align 8, !tbaa !122
-  %206 = load ptr, ptr %94, align 8, !tbaa !142
-  %207 = load i64, ptr %206, align 8, !tbaa !143
-  %208 = mul i64 %207, %114
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 %208
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 %200
-  %211 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %210, ptr noundef nonnull %95, i32 noundef 0)
-  %212 = trunc i32 %211 to i8
-  %213 = and i32 %211, 255
-  %214 = icmp eq i32 %213, 0
-  %spec.select.i287 = select i1 %214, i8 0, i8 %212
-  store i8 %spec.select.i287, ptr %201, align 1, !tbaa !75
-  br label %215
+205:                                              ; preds = %195
+  %206 = load ptr, ptr %93, align 8, !tbaa !122
+  %207 = load ptr, ptr %94, align 8, !tbaa !142
+  %208 = load i64, ptr %207, align 8, !tbaa !143
+  %209 = mul i64 %208, %115
+  %210 = getelementptr inbounds nuw i8, ptr %206, i64 %209
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 %201
+  %212 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %211, ptr noundef nonnull %95, i32 noundef 0)
+  %213 = trunc i32 %212 to i8
+  %214 = and i32 %212, 255
+  %215 = icmp eq i32 %214, 0
+  %spec.select.i287 = select i1 %215, i8 0, i8 %213
+  store i8 %spec.select.i287, ptr %202, align 1, !tbaa !75
+  br label %216
 
-215:                                              ; preds = %204, %194
-  %.1.in.i288 = phi i8 [ %spec.select.i287, %204 ], [ %202, %194 ]
+216:                                              ; preds = %205, %195
+  %.1.in.i288 = phi i8 [ %spec.select.i287, %205 ], [ %203, %195 ]
   %.1.i289 = zext i8 %.1.in.i288 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282, %188, %191, %215
-  %.0.i285 = phi i32 [ %.1.i289, %215 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282 ], [ 0, %191 ], [ 0, %188 ]
-  %216 = add nuw nsw i32 %.0.i285, %.0.i277
-  %or.cond.i291 = or i1 %116, %122
-  br i1 %or.cond.i291, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298, label %217
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282, %189, %192, %216
+  %.0.i285 = phi i32 [ %.1.i289, %216 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit282 ], [ 0, %192 ], [ 0, %189 ]
+  %217 = add nuw nsw i32 %.0.i285, %.0.i277
+  %or.cond.i291 = or i1 %117, %123
+  br i1 %or.cond.i291, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298, label %218
 
-217:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
-  %218 = load i32, ptr %89, align 4, !tbaa !206
-  %219 = add nsw i32 %218, -3
-  %.not.i292 = icmp slt i32 %.0254524, %219
-  br i1 %.not.i292, label %220, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
+218:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290
+  %219 = load i32, ptr %89, align 4, !tbaa !206
+  %220 = add nsw i32 %219, -3
+  %.not.i292 = icmp slt i32 %.0254524, %220
+  br i1 %.not.i292, label %221, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
 
-220:                                              ; preds = %217
-  %221 = load i32, ptr %90, align 8, !tbaa !207
-  %222 = add nsw i32 %221, -3
-  %.not21.i294 = icmp slt i32 %115, %222
-  br i1 %.not21.i294, label %223, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
+221:                                              ; preds = %218
+  %222 = load i32, ptr %90, align 8, !tbaa !207
+  %223 = add nsw i32 %222, -3
+  %.not21.i294 = icmp slt i32 %116, %223
+  br i1 %.not21.i294, label %224, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
 
-223:                                              ; preds = %220
-  %224 = load ptr, ptr %91, align 8, !tbaa !122
-  %225 = load ptr, ptr %92, align 8, !tbaa !142
-  %226 = load i64, ptr %225, align 8, !tbaa !143
-  %227 = mul i64 %226, %117
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 %227
-  %229 = zext nneg i32 %.0254524 to i64
-  %230 = getelementptr inbounds nuw i8, ptr %228, i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !75
-  %232 = icmp ugt i8 %231, 2
-  br i1 %232, label %244, label %233
+224:                                              ; preds = %221
+  %225 = load ptr, ptr %91, align 8, !tbaa !122
+  %226 = load ptr, ptr %92, align 8, !tbaa !142
+  %227 = load i64, ptr %226, align 8, !tbaa !143
+  %228 = mul i64 %227, %118
+  %229 = getelementptr inbounds nuw i8, ptr %225, i64 %228
+  %230 = zext nneg i32 %.0254524 to i64
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 %230
+  %232 = load i8, ptr %231, align 1, !tbaa !75
+  %233 = icmp ugt i8 %232, 2
+  br i1 %233, label %245, label %234
 
-233:                                              ; preds = %223
-  %234 = load ptr, ptr %93, align 8, !tbaa !122
-  %235 = load ptr, ptr %94, align 8, !tbaa !142
-  %236 = load i64, ptr %235, align 8, !tbaa !143
-  %237 = mul i64 %236, %117
-  %238 = getelementptr inbounds nuw i8, ptr %234, i64 %237
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 %229
-  %240 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %239, ptr noundef nonnull %95, i32 noundef 0)
-  %241 = trunc i32 %240 to i8
-  %242 = and i32 %240, 255
-  %243 = icmp eq i32 %242, 0
-  %spec.select.i295 = select i1 %243, i8 0, i8 %241
-  store i8 %spec.select.i295, ptr %230, align 1, !tbaa !75
-  br label %244
+234:                                              ; preds = %224
+  %235 = load ptr, ptr %93, align 8, !tbaa !122
+  %236 = load ptr, ptr %94, align 8, !tbaa !142
+  %237 = load i64, ptr %236, align 8, !tbaa !143
+  %238 = mul i64 %237, %118
+  %239 = getelementptr inbounds nuw i8, ptr %235, i64 %238
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 %230
+  %241 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %240, ptr noundef nonnull %95, i32 noundef 0)
+  %242 = trunc i32 %241 to i8
+  %243 = and i32 %241, 255
+  %244 = icmp eq i32 %243, 0
+  %spec.select.i295 = select i1 %244, i8 0, i8 %242
+  store i8 %spec.select.i295, ptr %231, align 1, !tbaa !75
+  br label %245
 
-244:                                              ; preds = %233, %223
-  %.1.in.i296 = phi i8 [ %spec.select.i295, %233 ], [ %231, %223 ]
+245:                                              ; preds = %234, %224
+  %.1.in.i296 = phi i8 [ %spec.select.i295, %234 ], [ %232, %224 ]
   %.1.i297 = zext i8 %.1.in.i296 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290, %217, %220, %244
-  %.0.i293 = phi i32 [ %.1.i297, %244 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290 ], [ 0, %220 ], [ 0, %217 ]
-  %245 = add nuw nsw i32 %216, %.0.i293
-  %or.cond.i299 = or i1 %119, %122
-  br i1 %or.cond.i299, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306, label %246
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290, %218, %221, %245
+  %.0.i293 = phi i32 [ %.1.i297, %245 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit290 ], [ 0, %221 ], [ 0, %218 ]
+  %246 = add nuw nsw i32 %217, %.0.i293
+  %or.cond.i299 = or i1 %120, %123
+  br i1 %or.cond.i299, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306, label %247
 
-246:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
-  %247 = load i32, ptr %89, align 4, !tbaa !206
-  %248 = add nsw i32 %247, -3
-  %.not.i300 = icmp slt i32 %.0254524, %248
-  br i1 %.not.i300, label %249, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306
+247:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298
+  %248 = load i32, ptr %89, align 4, !tbaa !206
+  %249 = add nsw i32 %248, -3
+  %.not.i300 = icmp slt i32 %.0254524, %249
+  br i1 %.not.i300, label %250, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306
 
-249:                                              ; preds = %246
-  %250 = load i32, ptr %90, align 8, !tbaa !207
-  %251 = add nsw i32 %250, -3
-  %.not21.i302.not = icmp sgt i32 %.0253538, %251
-  br i1 %.not21.i302.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306, label %252
+250:                                              ; preds = %247
+  %251 = load i32, ptr %90, align 8, !tbaa !207
+  %252 = add nsw i32 %251, -3
+  %.not21.i302.not = icmp sgt i32 %.0253538, %252
+  br i1 %.not21.i302.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306, label %253
 
-252:                                              ; preds = %249
-  %253 = load ptr, ptr %91, align 8, !tbaa !122
-  %254 = load ptr, ptr %92, align 8, !tbaa !142
-  %255 = load i64, ptr %254, align 8, !tbaa !143
-  %256 = mul i64 %255, %120
-  %257 = getelementptr inbounds nuw i8, ptr %253, i64 %256
-  %258 = zext nneg i32 %.0254524 to i64
-  %259 = getelementptr inbounds nuw i8, ptr %257, i64 %258
-  %260 = load i8, ptr %259, align 1, !tbaa !75
-  %261 = icmp ugt i8 %260, 2
-  br i1 %261, label %273, label %262
+253:                                              ; preds = %250
+  %254 = load ptr, ptr %91, align 8, !tbaa !122
+  %255 = load ptr, ptr %92, align 8, !tbaa !142
+  %256 = load i64, ptr %255, align 8, !tbaa !143
+  %257 = mul i64 %256, %121
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 %257
+  %259 = zext nneg i32 %.0254524 to i64
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 %259
+  %261 = load i8, ptr %260, align 1, !tbaa !75
+  %262 = icmp ugt i8 %261, 2
+  br i1 %262, label %274, label %263
 
-262:                                              ; preds = %252
-  %263 = load ptr, ptr %93, align 8, !tbaa !122
-  %264 = load ptr, ptr %94, align 8, !tbaa !142
-  %265 = load i64, ptr %264, align 8, !tbaa !143
-  %266 = mul i64 %265, %120
-  %267 = getelementptr inbounds nuw i8, ptr %263, i64 %266
-  %268 = getelementptr inbounds nuw i8, ptr %267, i64 %258
-  %269 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %268, ptr noundef nonnull %95, i32 noundef 0)
-  %270 = trunc i32 %269 to i8
-  %271 = and i32 %269, 255
-  %272 = icmp eq i32 %271, 0
-  %spec.select.i303 = select i1 %272, i8 0, i8 %270
-  store i8 %spec.select.i303, ptr %259, align 1, !tbaa !75
-  br label %273
+263:                                              ; preds = %253
+  %264 = load ptr, ptr %93, align 8, !tbaa !122
+  %265 = load ptr, ptr %94, align 8, !tbaa !142
+  %266 = load i64, ptr %265, align 8, !tbaa !143
+  %267 = mul i64 %266, %121
+  %268 = getelementptr inbounds nuw i8, ptr %264, i64 %267
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 %259
+  %270 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %269, ptr noundef nonnull %95, i32 noundef 0)
+  %271 = trunc i32 %270 to i8
+  %272 = and i32 %270, 255
+  %273 = icmp eq i32 %272, 0
+  %spec.select.i303 = select i1 %273, i8 0, i8 %271
+  store i8 %spec.select.i303, ptr %260, align 1, !tbaa !75
+  br label %274
 
-273:                                              ; preds = %262, %252
-  %.1.in.i304 = phi i8 [ %spec.select.i303, %262 ], [ %260, %252 ]
+274:                                              ; preds = %263, %253
+  %.1.in.i304 = phi i8 [ %spec.select.i303, %263 ], [ %261, %253 ]
   %.1.i305 = zext i8 %.1.in.i304 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298, %246, %249, %273
-  %.0.i301 = phi i32 [ %.1.i305, %273 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298 ], [ 0, %249 ], [ 0, %246 ]
-  %274 = add nuw nsw i32 %245, %.0.i301
-  %275 = shl nuw nsw i32 %274, 1
-  %or.cond.i307 = or i1 %116, %187
-  br i1 %or.cond.i307, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314, label %276
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298, %247, %250, %274
+  %.0.i301 = phi i32 [ %.1.i305, %274 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit298 ], [ 0, %250 ], [ 0, %247 ]
+  %275 = add nuw nsw i32 %246, %.0.i301
+  %276 = shl nuw nsw i32 %275, 1
+  %or.cond.i307 = or i1 %117, %188
+  br i1 %or.cond.i307, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314, label %277
 
-276:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306
-  %277 = load i32, ptr %89, align 4, !tbaa !206
-  %278 = add nsw i32 %277, -3
-  %.not.i308 = icmp slt i32 %186, %278
-  br i1 %.not.i308, label %279, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
+277:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306
+  %278 = load i32, ptr %89, align 4, !tbaa !206
+  %279 = add nsw i32 %278, -3
+  %.not.i308 = icmp slt i32 %187, %279
+  br i1 %.not.i308, label %280, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
 
-279:                                              ; preds = %276
-  %280 = load i32, ptr %90, align 8, !tbaa !207
-  %281 = add nsw i32 %280, -3
-  %.not21.i310 = icmp slt i32 %115, %281
-  br i1 %.not21.i310, label %282, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
+280:                                              ; preds = %277
+  %281 = load i32, ptr %90, align 8, !tbaa !207
+  %282 = add nsw i32 %281, -3
+  %.not21.i310 = icmp slt i32 %116, %282
+  br i1 %.not21.i310, label %283, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
 
-282:                                              ; preds = %279
-  %283 = load ptr, ptr %91, align 8, !tbaa !122
-  %284 = load ptr, ptr %92, align 8, !tbaa !142
-  %285 = load i64, ptr %284, align 8, !tbaa !143
-  %286 = mul i64 %285, %117
-  %287 = getelementptr inbounds nuw i8, ptr %283, i64 %286
-  %288 = zext nneg i32 %186 to i64
-  %289 = getelementptr inbounds nuw i8, ptr %287, i64 %288
-  %290 = load i8, ptr %289, align 1, !tbaa !75
-  %291 = icmp ugt i8 %290, 2
-  br i1 %291, label %303, label %292
+283:                                              ; preds = %280
+  %284 = load ptr, ptr %91, align 8, !tbaa !122
+  %285 = load ptr, ptr %92, align 8, !tbaa !142
+  %286 = load i64, ptr %285, align 8, !tbaa !143
+  %287 = mul i64 %286, %118
+  %288 = getelementptr inbounds nuw i8, ptr %284, i64 %287
+  %289 = zext nneg i32 %187 to i64
+  %290 = getelementptr inbounds nuw i8, ptr %288, i64 %289
+  %291 = load i8, ptr %290, align 1, !tbaa !75
+  %292 = icmp ugt i8 %291, 2
+  br i1 %292, label %304, label %293
 
-292:                                              ; preds = %282
-  %293 = load ptr, ptr %93, align 8, !tbaa !122
-  %294 = load ptr, ptr %94, align 8, !tbaa !142
-  %295 = load i64, ptr %294, align 8, !tbaa !143
-  %296 = mul i64 %295, %117
-  %297 = getelementptr inbounds nuw i8, ptr %293, i64 %296
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 %288
-  %299 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %298, ptr noundef nonnull %95, i32 noundef 0)
-  %300 = trunc i32 %299 to i8
-  %301 = and i32 %299, 255
-  %302 = icmp eq i32 %301, 0
-  %spec.select.i311 = select i1 %302, i8 0, i8 %300
-  store i8 %spec.select.i311, ptr %289, align 1, !tbaa !75
-  br label %303
+293:                                              ; preds = %283
+  %294 = load ptr, ptr %93, align 8, !tbaa !122
+  %295 = load ptr, ptr %94, align 8, !tbaa !142
+  %296 = load i64, ptr %295, align 8, !tbaa !143
+  %297 = mul i64 %296, %118
+  %298 = getelementptr inbounds nuw i8, ptr %294, i64 %297
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 %289
+  %300 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %299, ptr noundef nonnull %95, i32 noundef 0)
+  %301 = trunc i32 %300 to i8
+  %302 = and i32 %300, 255
+  %303 = icmp eq i32 %302, 0
+  %spec.select.i311 = select i1 %303, i8 0, i8 %301
+  store i8 %spec.select.i311, ptr %290, align 1, !tbaa !75
+  br label %304
 
-303:                                              ; preds = %292, %282
-  %.1.in.i312 = phi i8 [ %spec.select.i311, %292 ], [ %290, %282 ]
+304:                                              ; preds = %293, %283
+  %.1.in.i312 = phi i8 [ %spec.select.i311, %293 ], [ %291, %283 ]
   %.1.i313 = zext i8 %.1.in.i312 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306, %276, %279, %303
-  %.0.i309 = phi i32 [ %.1.i313, %303 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306 ], [ 0, %279 ], [ 0, %276 ]
-  %or.cond.i315 = or i1 %116, %157
-  br i1 %or.cond.i315, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322, label %304
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306, %277, %280, %304
+  %.0.i309 = phi i32 [ %.1.i313, %304 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit306 ], [ 0, %280 ], [ 0, %277 ]
+  %or.cond.i315 = or i1 %117, %158
+  br i1 %or.cond.i315, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322, label %305
 
-304:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
-  %305 = load i32, ptr %89, align 4, !tbaa !206
-  %306 = add nsw i32 %305, -3
-  %.not.i316.not = icmp sgt i32 %.0254524, %306
-  br i1 %.not.i316.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322, label %307
+305:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314
+  %306 = load i32, ptr %89, align 4, !tbaa !206
+  %307 = add nsw i32 %306, -3
+  %.not.i316.not = icmp sgt i32 %.0254524, %307
+  br i1 %.not.i316.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322, label %308
 
-307:                                              ; preds = %304
-  %308 = load i32, ptr %90, align 8, !tbaa !207
-  %309 = add nsw i32 %308, -3
-  %.not21.i318 = icmp slt i32 %115, %309
-  br i1 %.not21.i318, label %310, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322
+308:                                              ; preds = %305
+  %309 = load i32, ptr %90, align 8, !tbaa !207
+  %310 = add nsw i32 %309, -3
+  %.not21.i318 = icmp slt i32 %116, %310
+  br i1 %.not21.i318, label %311, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322
 
-310:                                              ; preds = %307
-  %311 = load ptr, ptr %91, align 8, !tbaa !122
-  %312 = load ptr, ptr %92, align 8, !tbaa !142
-  %313 = load i64, ptr %312, align 8, !tbaa !143
-  %314 = mul i64 %313, %117
-  %315 = getelementptr inbounds nuw i8, ptr %311, i64 %314
-  %316 = zext nneg i32 %156 to i64
-  %317 = getelementptr inbounds nuw i8, ptr %315, i64 %316
-  %318 = load i8, ptr %317, align 1, !tbaa !75
-  %319 = icmp ugt i8 %318, 2
-  br i1 %319, label %331, label %320
+311:                                              ; preds = %308
+  %312 = load ptr, ptr %91, align 8, !tbaa !122
+  %313 = load ptr, ptr %92, align 8, !tbaa !142
+  %314 = load i64, ptr %313, align 8, !tbaa !143
+  %315 = mul i64 %314, %118
+  %316 = getelementptr inbounds nuw i8, ptr %312, i64 %315
+  %317 = zext nneg i32 %157 to i64
+  %318 = getelementptr inbounds nuw i8, ptr %316, i64 %317
+  %319 = load i8, ptr %318, align 1, !tbaa !75
+  %320 = icmp ugt i8 %319, 2
+  br i1 %320, label %332, label %321
 
-320:                                              ; preds = %310
-  %321 = load ptr, ptr %93, align 8, !tbaa !122
-  %322 = load ptr, ptr %94, align 8, !tbaa !142
-  %323 = load i64, ptr %322, align 8, !tbaa !143
-  %324 = mul i64 %323, %117
-  %325 = getelementptr inbounds nuw i8, ptr %321, i64 %324
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 %316
-  %327 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %326, ptr noundef nonnull %95, i32 noundef 0)
-  %328 = trunc i32 %327 to i8
-  %329 = and i32 %327, 255
-  %330 = icmp eq i32 %329, 0
-  %spec.select.i319 = select i1 %330, i8 0, i8 %328
-  store i8 %spec.select.i319, ptr %317, align 1, !tbaa !75
-  br label %331
+321:                                              ; preds = %311
+  %322 = load ptr, ptr %93, align 8, !tbaa !122
+  %323 = load ptr, ptr %94, align 8, !tbaa !142
+  %324 = load i64, ptr %323, align 8, !tbaa !143
+  %325 = mul i64 %324, %118
+  %326 = getelementptr inbounds nuw i8, ptr %322, i64 %325
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 %317
+  %328 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %327, ptr noundef nonnull %95, i32 noundef 0)
+  %329 = trunc i32 %328 to i8
+  %330 = and i32 %328, 255
+  %331 = icmp eq i32 %330, 0
+  %spec.select.i319 = select i1 %331, i8 0, i8 %329
+  store i8 %spec.select.i319, ptr %318, align 1, !tbaa !75
+  br label %332
 
-331:                                              ; preds = %320, %310
-  %.1.in.i320 = phi i8 [ %spec.select.i319, %320 ], [ %318, %310 ]
+332:                                              ; preds = %321, %311
+  %.1.in.i320 = phi i8 [ %spec.select.i319, %321 ], [ %319, %311 ]
   %.1.i321 = zext i8 %.1.in.i320 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314, %304, %307, %331
-  %.0.i317 = phi i32 [ %.1.i321, %331 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314 ], [ 0, %307 ], [ 0, %304 ]
-  %or.cond.i323 = or i1 %119, %187
-  br i1 %or.cond.i323, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330, label %332
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314, %305, %308, %332
+  %.0.i317 = phi i32 [ %.1.i321, %332 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit314 ], [ 0, %308 ], [ 0, %305 ]
+  %or.cond.i323 = or i1 %120, %188
+  br i1 %or.cond.i323, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330, label %333
 
-332:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322
-  %333 = load i32, ptr %89, align 4, !tbaa !206
-  %334 = add nsw i32 %333, -3
-  %.not.i324 = icmp slt i32 %186, %334
-  br i1 %.not.i324, label %335, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330
+333:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322
+  %334 = load i32, ptr %89, align 4, !tbaa !206
+  %335 = add nsw i32 %334, -3
+  %.not.i324 = icmp slt i32 %187, %335
+  br i1 %.not.i324, label %336, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330
 
-335:                                              ; preds = %332
-  %336 = load i32, ptr %90, align 8, !tbaa !207
-  %337 = add nsw i32 %336, -3
-  %.not21.i326.not = icmp sgt i32 %.0253538, %337
-  br i1 %.not21.i326.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330, label %338
+336:                                              ; preds = %333
+  %337 = load i32, ptr %90, align 8, !tbaa !207
+  %338 = add nsw i32 %337, -3
+  %.not21.i326.not = icmp sgt i32 %.0253538, %338
+  br i1 %.not21.i326.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330, label %339
 
-338:                                              ; preds = %335
-  %339 = load ptr, ptr %91, align 8, !tbaa !122
-  %340 = load ptr, ptr %92, align 8, !tbaa !142
-  %341 = load i64, ptr %340, align 8, !tbaa !143
-  %342 = mul i64 %341, %120
-  %343 = getelementptr inbounds nuw i8, ptr %339, i64 %342
-  %344 = zext nneg i32 %186 to i64
-  %345 = getelementptr inbounds nuw i8, ptr %343, i64 %344
-  %346 = load i8, ptr %345, align 1, !tbaa !75
-  %347 = icmp ugt i8 %346, 2
-  br i1 %347, label %359, label %348
+339:                                              ; preds = %336
+  %340 = load ptr, ptr %91, align 8, !tbaa !122
+  %341 = load ptr, ptr %92, align 8, !tbaa !142
+  %342 = load i64, ptr %341, align 8, !tbaa !143
+  %343 = mul i64 %342, %121
+  %344 = getelementptr inbounds nuw i8, ptr %340, i64 %343
+  %345 = zext nneg i32 %187 to i64
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 %345
+  %347 = load i8, ptr %346, align 1, !tbaa !75
+  %348 = icmp ugt i8 %347, 2
+  br i1 %348, label %360, label %349
 
-348:                                              ; preds = %338
-  %349 = load ptr, ptr %93, align 8, !tbaa !122
-  %350 = load ptr, ptr %94, align 8, !tbaa !142
-  %351 = load i64, ptr %350, align 8, !tbaa !143
-  %352 = mul i64 %351, %120
-  %353 = getelementptr inbounds nuw i8, ptr %349, i64 %352
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 %344
-  %355 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %354, ptr noundef nonnull %95, i32 noundef 0)
-  %356 = trunc i32 %355 to i8
-  %357 = and i32 %355, 255
-  %358 = icmp eq i32 %357, 0
-  %spec.select.i327 = select i1 %358, i8 0, i8 %356
-  store i8 %spec.select.i327, ptr %345, align 1, !tbaa !75
-  br label %359
+349:                                              ; preds = %339
+  %350 = load ptr, ptr %93, align 8, !tbaa !122
+  %351 = load ptr, ptr %94, align 8, !tbaa !142
+  %352 = load i64, ptr %351, align 8, !tbaa !143
+  %353 = mul i64 %352, %121
+  %354 = getelementptr inbounds nuw i8, ptr %350, i64 %353
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 %345
+  %356 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %355, ptr noundef nonnull %95, i32 noundef 0)
+  %357 = trunc i32 %356 to i8
+  %358 = and i32 %356, 255
+  %359 = icmp eq i32 %358, 0
+  %spec.select.i327 = select i1 %359, i8 0, i8 %357
+  store i8 %spec.select.i327, ptr %346, align 1, !tbaa !75
+  br label %360
 
-359:                                              ; preds = %348, %338
-  %.1.in.i328 = phi i8 [ %spec.select.i327, %348 ], [ %346, %338 ]
+360:                                              ; preds = %349, %339
+  %.1.in.i328 = phi i8 [ %spec.select.i327, %349 ], [ %347, %339 ]
   %.1.i329 = zext i8 %.1.in.i328 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322, %332, %335, %359
-  %.0.i325 = phi i32 [ %.1.i329, %359 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322 ], [ 0, %335 ], [ 0, %332 ]
-  %or.cond.i331 = or i1 %119, %157
-  br i1 %or.cond.i331, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, label %360
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322, %333, %336, %360
+  %.0.i325 = phi i32 [ %.1.i329, %360 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit322 ], [ 0, %336 ], [ 0, %333 ]
+  %or.cond.i331 = or i1 %120, %158
+  br i1 %or.cond.i331, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, label %361
 
-360:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330
-  %361 = load i32, ptr %89, align 4, !tbaa !206
-  %362 = add nsw i32 %361, -3
-  %.not.i332.not = icmp sgt i32 %.0254524, %362
-  br i1 %.not.i332.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, label %363
+361:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330
+  %362 = load i32, ptr %89, align 4, !tbaa !206
+  %363 = add nsw i32 %362, -3
+  %.not.i332.not = icmp sgt i32 %.0254524, %363
+  br i1 %.not.i332.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, label %364
 
-363:                                              ; preds = %360
-  %364 = load i32, ptr %90, align 8, !tbaa !207
-  %365 = add nsw i32 %364, -3
-  %.not21.i334.not = icmp sgt i32 %.0253538, %365
-  br i1 %.not21.i334.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, label %366
+364:                                              ; preds = %361
+  %365 = load i32, ptr %90, align 8, !tbaa !207
+  %366 = add nsw i32 %365, -3
+  %.not21.i334.not = icmp sgt i32 %.0253538, %366
+  br i1 %.not21.i334.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, label %367
 
-366:                                              ; preds = %363
-  %367 = load ptr, ptr %91, align 8, !tbaa !122
-  %368 = load ptr, ptr %92, align 8, !tbaa !142
-  %369 = load i64, ptr %368, align 8, !tbaa !143
-  %370 = mul i64 %369, %120
-  %371 = getelementptr inbounds nuw i8, ptr %367, i64 %370
-  %372 = zext nneg i32 %156 to i64
-  %373 = getelementptr inbounds nuw i8, ptr %371, i64 %372
-  %374 = load i8, ptr %373, align 1, !tbaa !75
-  %375 = icmp ugt i8 %374, 2
-  br i1 %375, label %387, label %376
+367:                                              ; preds = %364
+  %368 = load ptr, ptr %91, align 8, !tbaa !122
+  %369 = load ptr, ptr %92, align 8, !tbaa !142
+  %370 = load i64, ptr %369, align 8, !tbaa !143
+  %371 = mul i64 %370, %121
+  %372 = getelementptr inbounds nuw i8, ptr %368, i64 %371
+  %373 = zext nneg i32 %157 to i64
+  %374 = getelementptr inbounds nuw i8, ptr %372, i64 %373
+  %375 = load i8, ptr %374, align 1, !tbaa !75
+  %376 = icmp ugt i8 %375, 2
+  br i1 %376, label %388, label %377
 
-376:                                              ; preds = %366
-  %377 = load ptr, ptr %93, align 8, !tbaa !122
-  %378 = load ptr, ptr %94, align 8, !tbaa !142
-  %379 = load i64, ptr %378, align 8, !tbaa !143
-  %380 = mul i64 %379, %120
-  %381 = getelementptr inbounds nuw i8, ptr %377, i64 %380
-  %382 = getelementptr inbounds nuw i8, ptr %381, i64 %372
-  %383 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %382, ptr noundef nonnull %95, i32 noundef 0)
-  %384 = trunc i32 %383 to i8
-  %385 = and i32 %383, 255
-  %386 = icmp eq i32 %385, 0
-  %spec.select.i335 = select i1 %386, i8 0, i8 %384
-  store i8 %spec.select.i335, ptr %373, align 1, !tbaa !75
-  br label %387
+377:                                              ; preds = %367
+  %378 = load ptr, ptr %93, align 8, !tbaa !122
+  %379 = load ptr, ptr %94, align 8, !tbaa !142
+  %380 = load i64, ptr %379, align 8, !tbaa !143
+  %381 = mul i64 %380, %121
+  %382 = getelementptr inbounds nuw i8, ptr %378, i64 %381
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 %373
+  %384 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %383, ptr noundef nonnull %95, i32 noundef 0)
+  %385 = trunc i32 %384 to i8
+  %386 = and i32 %384, 255
+  %387 = icmp eq i32 %386, 0
+  %spec.select.i335 = select i1 %387, i8 0, i8 %385
+  store i8 %spec.select.i335, ptr %374, align 1, !tbaa !75
+  br label %388
 
-387:                                              ; preds = %376, %366
-  %.1.in.i336 = phi i8 [ %spec.select.i335, %376 ], [ %374, %366 ]
+388:                                              ; preds = %377, %367
+  %.1.in.i336 = phi i8 [ %spec.select.i335, %377 ], [ %375, %367 ]
   %.1.i337 = zext i8 %.1.in.i336 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330, %360, %363, %387
-  %.0.i333 = phi i32 [ %.1.i337, %387 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330 ], [ 0, %363 ], [ 0, %360 ]
-  %388 = add nuw nsw i32 %.0.i309, %275
-  %389 = add nuw nsw i32 %388, %.0.i317
-  %390 = add nuw nsw i32 %389, %.0.i325
-  %391 = add nuw nsw i32 %390, %.0.i333
-  %392 = add nsw i32 %.6526, -1
-  %393 = icmp slt i32 %.6526, 4
-  %394 = icmp slt i32 %.3239525, 3
-  %or.cond.i339 = or i1 %394, %393
-  br i1 %or.cond.i339, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346, label %395
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330, %361, %364, %388
+  %.0.i333 = phi i32 [ %.1.i337, %388 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit330 ], [ 0, %364 ], [ 0, %361 ]
+  %389 = add nuw nsw i32 %.0.i309, %276
+  %390 = add nuw nsw i32 %389, %.0.i317
+  %391 = add nuw nsw i32 %390, %.0.i325
+  %392 = add nuw nsw i32 %391, %.0.i333
+  %393 = add nsw i32 %.6526, -1
+  %394 = icmp slt i32 %.6526, 4
+  %395 = icmp slt i32 %.3239525, 3
+  %or.cond.i339 = or i1 %395, %394
+  br i1 %or.cond.i339, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346, label %396
 
-395:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338
-  %396 = load i32, ptr %89, align 4, !tbaa !206
-  %397 = add nsw i32 %396, -3
-  %.not.i340.not = icmp sgt i32 %.6526, %397
-  br i1 %.not.i340.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346, label %398
+396:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338
+  %397 = load i32, ptr %89, align 4, !tbaa !206
+  %398 = add nsw i32 %397, -3
+  %.not.i340.not = icmp sgt i32 %.6526, %398
+  br i1 %.not.i340.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346, label %399
 
-398:                                              ; preds = %395
-  %399 = load i32, ptr %90, align 8, !tbaa !207
-  %400 = add nsw i32 %399, -3
-  %.not21.i342 = icmp slt i32 %.3239525, %400
-  br i1 %.not21.i342, label %401, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346
+399:                                              ; preds = %396
+  %400 = load i32, ptr %90, align 8, !tbaa !207
+  %401 = add nsw i32 %400, -3
+  %.not21.i342 = icmp slt i32 %.3239525, %401
+  br i1 %.not21.i342, label %402, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346
 
-401:                                              ; preds = %398
-  %402 = load ptr, ptr %91, align 8, !tbaa !122
-  %403 = load ptr, ptr %92, align 8, !tbaa !142
-  %404 = load i64, ptr %403, align 8, !tbaa !143
-  %405 = zext nneg i32 %.3239525 to i64
-  %406 = mul i64 %404, %405
-  %407 = getelementptr inbounds nuw i8, ptr %402, i64 %406
-  %408 = zext nneg i32 %392 to i64
-  %409 = getelementptr inbounds nuw i8, ptr %407, i64 %408
-  %410 = load i8, ptr %409, align 1, !tbaa !75
-  %411 = icmp ugt i8 %410, 2
-  br i1 %411, label %423, label %412
+402:                                              ; preds = %399
+  %403 = load ptr, ptr %91, align 8, !tbaa !122
+  %404 = load ptr, ptr %92, align 8, !tbaa !142
+  %405 = load i64, ptr %404, align 8, !tbaa !143
+  %406 = zext nneg i32 %.3239525 to i64
+  %407 = mul i64 %405, %406
+  %408 = getelementptr inbounds nuw i8, ptr %403, i64 %407
+  %409 = zext nneg i32 %393 to i64
+  %410 = getelementptr inbounds nuw i8, ptr %408, i64 %409
+  %411 = load i8, ptr %410, align 1, !tbaa !75
+  %412 = icmp ugt i8 %411, 2
+  br i1 %412, label %424, label %413
 
-412:                                              ; preds = %401
-  %413 = load ptr, ptr %93, align 8, !tbaa !122
-  %414 = load ptr, ptr %94, align 8, !tbaa !142
-  %415 = load i64, ptr %414, align 8, !tbaa !143
-  %416 = mul i64 %415, %405
-  %417 = getelementptr inbounds nuw i8, ptr %413, i64 %416
-  %418 = getelementptr inbounds nuw i8, ptr %417, i64 %408
-  %419 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %418, ptr noundef nonnull %95, i32 noundef 0)
-  %420 = trunc i32 %419 to i8
-  %421 = and i32 %419, 255
-  %422 = icmp eq i32 %421, 0
-  %spec.select.i343 = select i1 %422, i8 0, i8 %420
-  store i8 %spec.select.i343, ptr %409, align 1, !tbaa !75
-  br label %423
+413:                                              ; preds = %402
+  %414 = load ptr, ptr %93, align 8, !tbaa !122
+  %415 = load ptr, ptr %94, align 8, !tbaa !142
+  %416 = load i64, ptr %415, align 8, !tbaa !143
+  %417 = mul i64 %416, %406
+  %418 = getelementptr inbounds nuw i8, ptr %414, i64 %417
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 %409
+  %420 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %419, ptr noundef nonnull %95, i32 noundef 0)
+  %421 = trunc i32 %420 to i8
+  %422 = and i32 %420, 255
+  %423 = icmp eq i32 %422, 0
+  %spec.select.i343 = select i1 %423, i8 0, i8 %421
+  store i8 %spec.select.i343, ptr %410, align 1, !tbaa !75
+  br label %424
 
-423:                                              ; preds = %412, %401
-  %.1.in.i344 = phi i8 [ %spec.select.i343, %412 ], [ %410, %401 ]
+424:                                              ; preds = %413, %402
+  %.1.in.i344 = phi i8 [ %spec.select.i343, %413 ], [ %411, %402 ]
   %.1.i345 = zext i8 %.1.in.i344 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, %395, %398, %423
-  %.0.i341 = phi i32 [ %.1.i345, %423 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338 ], [ 0, %398 ], [ 0, %395 ]
-  %424 = add nsw i32 %.6526, 1
-  %425 = icmp slt i32 %.6526, 2
-  %or.cond.i347 = or i1 %394, %425
-  br i1 %or.cond.i347, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354, label %426
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338, %396, %399, %424
+  %.0.i341 = phi i32 [ %.1.i345, %424 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit338 ], [ 0, %399 ], [ 0, %396 ]
+  %425 = add nsw i32 %.6526, 1
+  %426 = icmp slt i32 %.6526, 2
+  %or.cond.i347 = or i1 %395, %426
+  br i1 %or.cond.i347, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354, label %427
 
-426:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346
-  %427 = load i32, ptr %89, align 4, !tbaa !206
-  %428 = add nsw i32 %427, -3
-  %.not.i348 = icmp slt i32 %424, %428
-  br i1 %.not.i348, label %429, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
+427:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346
+  %428 = load i32, ptr %89, align 4, !tbaa !206
+  %429 = add nsw i32 %428, -3
+  %.not.i348 = icmp slt i32 %425, %429
+  br i1 %.not.i348, label %430, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
 
-429:                                              ; preds = %426
-  %430 = load i32, ptr %90, align 8, !tbaa !207
-  %431 = add nsw i32 %430, -3
-  %.not21.i350 = icmp slt i32 %.3239525, %431
-  br i1 %.not21.i350, label %432, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
+430:                                              ; preds = %427
+  %431 = load i32, ptr %90, align 8, !tbaa !207
+  %432 = add nsw i32 %431, -3
+  %.not21.i350 = icmp slt i32 %.3239525, %432
+  br i1 %.not21.i350, label %433, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
 
-432:                                              ; preds = %429
-  %433 = load ptr, ptr %91, align 8, !tbaa !122
-  %434 = load ptr, ptr %92, align 8, !tbaa !142
-  %435 = load i64, ptr %434, align 8, !tbaa !143
-  %436 = zext nneg i32 %.3239525 to i64
-  %437 = mul i64 %435, %436
-  %438 = getelementptr inbounds nuw i8, ptr %433, i64 %437
-  %439 = zext nneg i32 %424 to i64
-  %440 = getelementptr inbounds nuw i8, ptr %438, i64 %439
-  %441 = load i8, ptr %440, align 1, !tbaa !75
-  %442 = icmp ugt i8 %441, 2
-  br i1 %442, label %454, label %443
+433:                                              ; preds = %430
+  %434 = load ptr, ptr %91, align 8, !tbaa !122
+  %435 = load ptr, ptr %92, align 8, !tbaa !142
+  %436 = load i64, ptr %435, align 8, !tbaa !143
+  %437 = zext nneg i32 %.3239525 to i64
+  %438 = mul i64 %436, %437
+  %439 = getelementptr inbounds nuw i8, ptr %434, i64 %438
+  %440 = zext nneg i32 %425 to i64
+  %441 = getelementptr inbounds nuw i8, ptr %439, i64 %440
+  %442 = load i8, ptr %441, align 1, !tbaa !75
+  %443 = icmp ugt i8 %442, 2
+  br i1 %443, label %455, label %444
 
-443:                                              ; preds = %432
-  %444 = load ptr, ptr %93, align 8, !tbaa !122
-  %445 = load ptr, ptr %94, align 8, !tbaa !142
-  %446 = load i64, ptr %445, align 8, !tbaa !143
-  %447 = mul i64 %446, %436
-  %448 = getelementptr inbounds nuw i8, ptr %444, i64 %447
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 %439
-  %450 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %449, ptr noundef nonnull %95, i32 noundef 0)
-  %451 = trunc i32 %450 to i8
-  %452 = and i32 %450, 255
-  %453 = icmp eq i32 %452, 0
-  %spec.select.i351 = select i1 %453, i8 0, i8 %451
-  store i8 %spec.select.i351, ptr %440, align 1, !tbaa !75
-  br label %454
+444:                                              ; preds = %433
+  %445 = load ptr, ptr %93, align 8, !tbaa !122
+  %446 = load ptr, ptr %94, align 8, !tbaa !142
+  %447 = load i64, ptr %446, align 8, !tbaa !143
+  %448 = mul i64 %447, %437
+  %449 = getelementptr inbounds nuw i8, ptr %445, i64 %448
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 %440
+  %451 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %450, ptr noundef nonnull %95, i32 noundef 0)
+  %452 = trunc i32 %451 to i8
+  %453 = and i32 %451, 255
+  %454 = icmp eq i32 %453, 0
+  %spec.select.i351 = select i1 %454, i8 0, i8 %452
+  store i8 %spec.select.i351, ptr %441, align 1, !tbaa !75
+  br label %455
 
-454:                                              ; preds = %443, %432
-  %.1.in.i352 = phi i8 [ %spec.select.i351, %443 ], [ %441, %432 ]
+455:                                              ; preds = %444, %433
+  %.1.in.i352 = phi i8 [ %spec.select.i351, %444 ], [ %442, %433 ]
   %.1.i353 = zext i8 %.1.in.i352 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346, %426, %429, %454
-  %.0.i349 = phi i32 [ %.1.i353, %454 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346 ], [ 0, %429 ], [ 0, %426 ]
-  %455 = add nuw nsw i32 %.0.i349, %.0.i341
-  %456 = add nsw i32 %.3239525, 1
-  %457 = icmp slt i32 %.6526, 3
-  %458 = icmp slt i32 %.3239525, 2
-  %or.cond.i355 = or i1 %458, %457
-  br i1 %or.cond.i355, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362, label %459
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346, %427, %430, %455
+  %.0.i349 = phi i32 [ %.1.i353, %455 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit346 ], [ 0, %430 ], [ 0, %427 ]
+  %456 = add nuw nsw i32 %.0.i349, %.0.i341
+  %457 = add nsw i32 %.3239525, 1
+  %458 = icmp slt i32 %.6526, 3
+  %459 = icmp slt i32 %.3239525, 2
+  %or.cond.i355 = or i1 %459, %458
+  br i1 %or.cond.i355, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362, label %460
 
-459:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
-  %460 = load i32, ptr %89, align 4, !tbaa !206
-  %461 = add nsw i32 %460, -3
-  %.not.i356 = icmp slt i32 %.6526, %461
-  br i1 %.not.i356, label %462, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
+460:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354
+  %461 = load i32, ptr %89, align 4, !tbaa !206
+  %462 = add nsw i32 %461, -3
+  %.not.i356 = icmp slt i32 %.6526, %462
+  br i1 %.not.i356, label %463, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
 
-462:                                              ; preds = %459
-  %463 = load i32, ptr %90, align 8, !tbaa !207
-  %464 = add nsw i32 %463, -3
-  %.not21.i358 = icmp slt i32 %456, %464
-  br i1 %.not21.i358, label %465, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
+463:                                              ; preds = %460
+  %464 = load i32, ptr %90, align 8, !tbaa !207
+  %465 = add nsw i32 %464, -3
+  %.not21.i358 = icmp slt i32 %457, %465
+  br i1 %.not21.i358, label %466, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
 
-465:                                              ; preds = %462
-  %466 = load ptr, ptr %91, align 8, !tbaa !122
-  %467 = load ptr, ptr %92, align 8, !tbaa !142
-  %468 = load i64, ptr %467, align 8, !tbaa !143
-  %469 = zext nneg i32 %456 to i64
-  %470 = mul i64 %468, %469
-  %471 = getelementptr inbounds nuw i8, ptr %466, i64 %470
-  %472 = zext nneg i32 %.6526 to i64
-  %473 = getelementptr inbounds nuw i8, ptr %471, i64 %472
-  %474 = load i8, ptr %473, align 1, !tbaa !75
-  %475 = icmp ugt i8 %474, 2
-  br i1 %475, label %487, label %476
+466:                                              ; preds = %463
+  %467 = load ptr, ptr %91, align 8, !tbaa !122
+  %468 = load ptr, ptr %92, align 8, !tbaa !142
+  %469 = load i64, ptr %468, align 8, !tbaa !143
+  %470 = zext nneg i32 %457 to i64
+  %471 = mul i64 %469, %470
+  %472 = getelementptr inbounds nuw i8, ptr %467, i64 %471
+  %473 = zext nneg i32 %.6526 to i64
+  %474 = getelementptr inbounds nuw i8, ptr %472, i64 %473
+  %475 = load i8, ptr %474, align 1, !tbaa !75
+  %476 = icmp ugt i8 %475, 2
+  br i1 %476, label %488, label %477
 
-476:                                              ; preds = %465
-  %477 = load ptr, ptr %93, align 8, !tbaa !122
-  %478 = load ptr, ptr %94, align 8, !tbaa !142
-  %479 = load i64, ptr %478, align 8, !tbaa !143
-  %480 = mul i64 %479, %469
-  %481 = getelementptr inbounds nuw i8, ptr %477, i64 %480
-  %482 = getelementptr inbounds nuw i8, ptr %481, i64 %472
-  %483 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %482, ptr noundef nonnull %95, i32 noundef 0)
-  %484 = trunc i32 %483 to i8
-  %485 = and i32 %483, 255
-  %486 = icmp eq i32 %485, 0
-  %spec.select.i359 = select i1 %486, i8 0, i8 %484
-  store i8 %spec.select.i359, ptr %473, align 1, !tbaa !75
-  br label %487
+477:                                              ; preds = %466
+  %478 = load ptr, ptr %93, align 8, !tbaa !122
+  %479 = load ptr, ptr %94, align 8, !tbaa !142
+  %480 = load i64, ptr %479, align 8, !tbaa !143
+  %481 = mul i64 %480, %470
+  %482 = getelementptr inbounds nuw i8, ptr %478, i64 %481
+  %483 = getelementptr inbounds nuw i8, ptr %482, i64 %473
+  %484 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %483, ptr noundef nonnull %95, i32 noundef 0)
+  %485 = trunc i32 %484 to i8
+  %486 = and i32 %484, 255
+  %487 = icmp eq i32 %486, 0
+  %spec.select.i359 = select i1 %487, i8 0, i8 %485
+  store i8 %spec.select.i359, ptr %474, align 1, !tbaa !75
+  br label %488
 
-487:                                              ; preds = %476, %465
-  %.1.in.i360 = phi i8 [ %spec.select.i359, %476 ], [ %474, %465 ]
+488:                                              ; preds = %477, %466
+  %.1.in.i360 = phi i8 [ %spec.select.i359, %477 ], [ %475, %466 ]
   %.1.i361 = zext i8 %.1.in.i360 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354, %459, %462, %487
-  %.0.i357 = phi i32 [ %.1.i361, %487 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354 ], [ 0, %462 ], [ 0, %459 ]
-  %488 = add nuw nsw i32 %455, %.0.i357
-  %489 = add nsw i32 %.3239525, -1
-  %490 = icmp slt i32 %.3239525, 4
-  %or.cond.i363 = or i1 %490, %457
-  br i1 %or.cond.i363, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370, label %491
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354, %460, %463, %488
+  %.0.i357 = phi i32 [ %.1.i361, %488 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit354 ], [ 0, %463 ], [ 0, %460 ]
+  %489 = add nuw nsw i32 %456, %.0.i357
+  %490 = add nsw i32 %.3239525, -1
+  %491 = icmp slt i32 %.3239525, 4
+  %or.cond.i363 = or i1 %491, %458
+  br i1 %or.cond.i363, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370, label %492
 
-491:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
-  %492 = load i32, ptr %89, align 4, !tbaa !206
-  %493 = add nsw i32 %492, -3
-  %.not.i364 = icmp slt i32 %.6526, %493
-  br i1 %.not.i364, label %494, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370
+492:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362
+  %493 = load i32, ptr %89, align 4, !tbaa !206
+  %494 = add nsw i32 %493, -3
+  %.not.i364 = icmp slt i32 %.6526, %494
+  br i1 %.not.i364, label %495, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370
 
-494:                                              ; preds = %491
-  %495 = load i32, ptr %90, align 8, !tbaa !207
-  %496 = add nsw i32 %495, -3
-  %.not21.i366.not = icmp sgt i32 %.3239525, %496
-  br i1 %.not21.i366.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370, label %497
+495:                                              ; preds = %492
+  %496 = load i32, ptr %90, align 8, !tbaa !207
+  %497 = add nsw i32 %496, -3
+  %.not21.i366.not = icmp sgt i32 %.3239525, %497
+  br i1 %.not21.i366.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370, label %498
 
-497:                                              ; preds = %494
-  %498 = load ptr, ptr %91, align 8, !tbaa !122
-  %499 = load ptr, ptr %92, align 8, !tbaa !142
-  %500 = load i64, ptr %499, align 8, !tbaa !143
-  %501 = zext nneg i32 %489 to i64
-  %502 = mul i64 %500, %501
-  %503 = getelementptr inbounds nuw i8, ptr %498, i64 %502
-  %504 = zext nneg i32 %.6526 to i64
-  %505 = getelementptr inbounds nuw i8, ptr %503, i64 %504
-  %506 = load i8, ptr %505, align 1, !tbaa !75
-  %507 = icmp ugt i8 %506, 2
-  br i1 %507, label %519, label %508
+498:                                              ; preds = %495
+  %499 = load ptr, ptr %91, align 8, !tbaa !122
+  %500 = load ptr, ptr %92, align 8, !tbaa !142
+  %501 = load i64, ptr %500, align 8, !tbaa !143
+  %502 = zext nneg i32 %490 to i64
+  %503 = mul i64 %501, %502
+  %504 = getelementptr inbounds nuw i8, ptr %499, i64 %503
+  %505 = zext nneg i32 %.6526 to i64
+  %506 = getelementptr inbounds nuw i8, ptr %504, i64 %505
+  %507 = load i8, ptr %506, align 1, !tbaa !75
+  %508 = icmp ugt i8 %507, 2
+  br i1 %508, label %520, label %509
 
-508:                                              ; preds = %497
-  %509 = load ptr, ptr %93, align 8, !tbaa !122
-  %510 = load ptr, ptr %94, align 8, !tbaa !142
-  %511 = load i64, ptr %510, align 8, !tbaa !143
-  %512 = mul i64 %511, %501
-  %513 = getelementptr inbounds nuw i8, ptr %509, i64 %512
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 %504
-  %515 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %514, ptr noundef nonnull %95, i32 noundef 0)
-  %516 = trunc i32 %515 to i8
-  %517 = and i32 %515, 255
-  %518 = icmp eq i32 %517, 0
-  %spec.select.i367 = select i1 %518, i8 0, i8 %516
-  store i8 %spec.select.i367, ptr %505, align 1, !tbaa !75
-  br label %519
+509:                                              ; preds = %498
+  %510 = load ptr, ptr %93, align 8, !tbaa !122
+  %511 = load ptr, ptr %94, align 8, !tbaa !142
+  %512 = load i64, ptr %511, align 8, !tbaa !143
+  %513 = mul i64 %512, %502
+  %514 = getelementptr inbounds nuw i8, ptr %510, i64 %513
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 %505
+  %516 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %515, ptr noundef nonnull %95, i32 noundef 0)
+  %517 = trunc i32 %516 to i8
+  %518 = and i32 %516, 255
+  %519 = icmp eq i32 %518, 0
+  %spec.select.i367 = select i1 %519, i8 0, i8 %517
+  store i8 %spec.select.i367, ptr %506, align 1, !tbaa !75
+  br label %520
 
-519:                                              ; preds = %508, %497
-  %.1.in.i368 = phi i8 [ %spec.select.i367, %508 ], [ %506, %497 ]
+520:                                              ; preds = %509, %498
+  %.1.in.i368 = phi i8 [ %spec.select.i367, %509 ], [ %507, %498 ]
   %.1.i369 = zext i8 %.1.in.i368 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362, %491, %494, %519
-  %.0.i365 = phi i32 [ %.1.i369, %519 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362 ], [ 0, %494 ], [ 0, %491 ]
-  %520 = add nuw nsw i32 %488, %.0.i365
-  %521 = shl nuw nsw i32 %520, 1
-  %or.cond.i371 = or i1 %458, %425
-  br i1 %or.cond.i371, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378, label %522
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362, %492, %495, %520
+  %.0.i365 = phi i32 [ %.1.i369, %520 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit362 ], [ 0, %495 ], [ 0, %492 ]
+  %521 = add nuw nsw i32 %489, %.0.i365
+  %522 = shl nuw nsw i32 %521, 1
+  %or.cond.i371 = or i1 %459, %426
+  br i1 %or.cond.i371, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378, label %523
 
-522:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370
-  %523 = load i32, ptr %89, align 4, !tbaa !206
-  %524 = add nsw i32 %523, -3
-  %.not.i372 = icmp slt i32 %424, %524
-  br i1 %.not.i372, label %525, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
+523:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370
+  %524 = load i32, ptr %89, align 4, !tbaa !206
+  %525 = add nsw i32 %524, -3
+  %.not.i372 = icmp slt i32 %425, %525
+  br i1 %.not.i372, label %526, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
 
-525:                                              ; preds = %522
-  %526 = load i32, ptr %90, align 8, !tbaa !207
-  %527 = add nsw i32 %526, -3
-  %.not21.i374 = icmp slt i32 %456, %527
-  br i1 %.not21.i374, label %528, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
+526:                                              ; preds = %523
+  %527 = load i32, ptr %90, align 8, !tbaa !207
+  %528 = add nsw i32 %527, -3
+  %.not21.i374 = icmp slt i32 %457, %528
+  br i1 %.not21.i374, label %529, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
 
-528:                                              ; preds = %525
-  %529 = load ptr, ptr %91, align 8, !tbaa !122
-  %530 = load ptr, ptr %92, align 8, !tbaa !142
-  %531 = load i64, ptr %530, align 8, !tbaa !143
-  %532 = zext nneg i32 %456 to i64
-  %533 = mul i64 %531, %532
-  %534 = getelementptr inbounds nuw i8, ptr %529, i64 %533
-  %535 = zext nneg i32 %424 to i64
-  %536 = getelementptr inbounds nuw i8, ptr %534, i64 %535
-  %537 = load i8, ptr %536, align 1, !tbaa !75
-  %538 = icmp ugt i8 %537, 2
-  br i1 %538, label %550, label %539
+529:                                              ; preds = %526
+  %530 = load ptr, ptr %91, align 8, !tbaa !122
+  %531 = load ptr, ptr %92, align 8, !tbaa !142
+  %532 = load i64, ptr %531, align 8, !tbaa !143
+  %533 = zext nneg i32 %457 to i64
+  %534 = mul i64 %532, %533
+  %535 = getelementptr inbounds nuw i8, ptr %530, i64 %534
+  %536 = zext nneg i32 %425 to i64
+  %537 = getelementptr inbounds nuw i8, ptr %535, i64 %536
+  %538 = load i8, ptr %537, align 1, !tbaa !75
+  %539 = icmp ugt i8 %538, 2
+  br i1 %539, label %551, label %540
 
-539:                                              ; preds = %528
-  %540 = load ptr, ptr %93, align 8, !tbaa !122
-  %541 = load ptr, ptr %94, align 8, !tbaa !142
-  %542 = load i64, ptr %541, align 8, !tbaa !143
-  %543 = mul i64 %542, %532
-  %544 = getelementptr inbounds nuw i8, ptr %540, i64 %543
-  %545 = getelementptr inbounds nuw i8, ptr %544, i64 %535
-  %546 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %545, ptr noundef nonnull %95, i32 noundef 0)
-  %547 = trunc i32 %546 to i8
-  %548 = and i32 %546, 255
-  %549 = icmp eq i32 %548, 0
-  %spec.select.i375 = select i1 %549, i8 0, i8 %547
-  store i8 %spec.select.i375, ptr %536, align 1, !tbaa !75
-  br label %550
+540:                                              ; preds = %529
+  %541 = load ptr, ptr %93, align 8, !tbaa !122
+  %542 = load ptr, ptr %94, align 8, !tbaa !142
+  %543 = load i64, ptr %542, align 8, !tbaa !143
+  %544 = mul i64 %543, %533
+  %545 = getelementptr inbounds nuw i8, ptr %541, i64 %544
+  %546 = getelementptr inbounds nuw i8, ptr %545, i64 %536
+  %547 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %546, ptr noundef nonnull %95, i32 noundef 0)
+  %548 = trunc i32 %547 to i8
+  %549 = and i32 %547, 255
+  %550 = icmp eq i32 %549, 0
+  %spec.select.i375 = select i1 %550, i8 0, i8 %548
+  store i8 %spec.select.i375, ptr %537, align 1, !tbaa !75
+  br label %551
 
-550:                                              ; preds = %539, %528
-  %.1.in.i376 = phi i8 [ %spec.select.i375, %539 ], [ %537, %528 ]
+551:                                              ; preds = %540, %529
+  %.1.in.i376 = phi i8 [ %spec.select.i375, %540 ], [ %538, %529 ]
   %.1.i377 = zext i8 %.1.in.i376 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370, %522, %525, %550
-  %.0.i373 = phi i32 [ %.1.i377, %550 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370 ], [ 0, %525 ], [ 0, %522 ]
-  %or.cond.i379 = or i1 %458, %393
-  br i1 %or.cond.i379, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386, label %551
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370, %523, %526, %551
+  %.0.i373 = phi i32 [ %.1.i377, %551 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit370 ], [ 0, %526 ], [ 0, %523 ]
+  %or.cond.i379 = or i1 %459, %394
+  br i1 %or.cond.i379, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386, label %552
 
-551:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
-  %552 = load i32, ptr %89, align 4, !tbaa !206
-  %553 = add nsw i32 %552, -3
-  %.not.i380.not = icmp sgt i32 %.6526, %553
-  br i1 %.not.i380.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386, label %554
+552:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378
+  %553 = load i32, ptr %89, align 4, !tbaa !206
+  %554 = add nsw i32 %553, -3
+  %.not.i380.not = icmp sgt i32 %.6526, %554
+  br i1 %.not.i380.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386, label %555
 
-554:                                              ; preds = %551
-  %555 = load i32, ptr %90, align 8, !tbaa !207
-  %556 = add nsw i32 %555, -3
-  %.not21.i382 = icmp slt i32 %456, %556
-  br i1 %.not21.i382, label %557, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386
+555:                                              ; preds = %552
+  %556 = load i32, ptr %90, align 8, !tbaa !207
+  %557 = add nsw i32 %556, -3
+  %.not21.i382 = icmp slt i32 %457, %557
+  br i1 %.not21.i382, label %558, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386
 
-557:                                              ; preds = %554
-  %558 = load ptr, ptr %91, align 8, !tbaa !122
-  %559 = load ptr, ptr %92, align 8, !tbaa !142
-  %560 = load i64, ptr %559, align 8, !tbaa !143
-  %561 = zext nneg i32 %456 to i64
-  %562 = mul i64 %560, %561
-  %563 = getelementptr inbounds nuw i8, ptr %558, i64 %562
-  %564 = zext nneg i32 %392 to i64
-  %565 = getelementptr inbounds nuw i8, ptr %563, i64 %564
-  %566 = load i8, ptr %565, align 1, !tbaa !75
-  %567 = icmp ugt i8 %566, 2
-  br i1 %567, label %579, label %568
+558:                                              ; preds = %555
+  %559 = load ptr, ptr %91, align 8, !tbaa !122
+  %560 = load ptr, ptr %92, align 8, !tbaa !142
+  %561 = load i64, ptr %560, align 8, !tbaa !143
+  %562 = zext nneg i32 %457 to i64
+  %563 = mul i64 %561, %562
+  %564 = getelementptr inbounds nuw i8, ptr %559, i64 %563
+  %565 = zext nneg i32 %393 to i64
+  %566 = getelementptr inbounds nuw i8, ptr %564, i64 %565
+  %567 = load i8, ptr %566, align 1, !tbaa !75
+  %568 = icmp ugt i8 %567, 2
+  br i1 %568, label %580, label %569
 
-568:                                              ; preds = %557
-  %569 = load ptr, ptr %93, align 8, !tbaa !122
-  %570 = load ptr, ptr %94, align 8, !tbaa !142
-  %571 = load i64, ptr %570, align 8, !tbaa !143
-  %572 = mul i64 %571, %561
-  %573 = getelementptr inbounds nuw i8, ptr %569, i64 %572
-  %574 = getelementptr inbounds nuw i8, ptr %573, i64 %564
-  %575 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %574, ptr noundef nonnull %95, i32 noundef 0)
-  %576 = trunc i32 %575 to i8
-  %577 = and i32 %575, 255
-  %578 = icmp eq i32 %577, 0
-  %spec.select.i383 = select i1 %578, i8 0, i8 %576
-  store i8 %spec.select.i383, ptr %565, align 1, !tbaa !75
-  br label %579
+569:                                              ; preds = %558
+  %570 = load ptr, ptr %93, align 8, !tbaa !122
+  %571 = load ptr, ptr %94, align 8, !tbaa !142
+  %572 = load i64, ptr %571, align 8, !tbaa !143
+  %573 = mul i64 %572, %562
+  %574 = getelementptr inbounds nuw i8, ptr %570, i64 %573
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 %565
+  %576 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %575, ptr noundef nonnull %95, i32 noundef 0)
+  %577 = trunc i32 %576 to i8
+  %578 = and i32 %576, 255
+  %579 = icmp eq i32 %578, 0
+  %spec.select.i383 = select i1 %579, i8 0, i8 %577
+  store i8 %spec.select.i383, ptr %566, align 1, !tbaa !75
+  br label %580
 
-579:                                              ; preds = %568, %557
-  %.1.in.i384 = phi i8 [ %spec.select.i383, %568 ], [ %566, %557 ]
+580:                                              ; preds = %569, %558
+  %.1.in.i384 = phi i8 [ %spec.select.i383, %569 ], [ %567, %558 ]
   %.1.i385 = zext i8 %.1.in.i384 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378, %551, %554, %579
-  %.0.i381 = phi i32 [ %.1.i385, %579 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378 ], [ 0, %554 ], [ 0, %551 ]
-  %or.cond.i387 = or i1 %490, %425
-  br i1 %or.cond.i387, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394, label %580
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378, %552, %555, %580
+  %.0.i381 = phi i32 [ %.1.i385, %580 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit378 ], [ 0, %555 ], [ 0, %552 ]
+  %or.cond.i387 = or i1 %491, %426
+  br i1 %or.cond.i387, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394, label %581
 
-580:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386
-  %581 = load i32, ptr %89, align 4, !tbaa !206
-  %582 = add nsw i32 %581, -3
-  %.not.i388 = icmp slt i32 %424, %582
-  br i1 %.not.i388, label %583, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394
+581:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386
+  %582 = load i32, ptr %89, align 4, !tbaa !206
+  %583 = add nsw i32 %582, -3
+  %.not.i388 = icmp slt i32 %425, %583
+  br i1 %.not.i388, label %584, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394
 
-583:                                              ; preds = %580
-  %584 = load i32, ptr %90, align 8, !tbaa !207
-  %585 = add nsw i32 %584, -3
-  %.not21.i390.not = icmp sgt i32 %.3239525, %585
-  br i1 %.not21.i390.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394, label %586
+584:                                              ; preds = %581
+  %585 = load i32, ptr %90, align 8, !tbaa !207
+  %586 = add nsw i32 %585, -3
+  %.not21.i390.not = icmp sgt i32 %.3239525, %586
+  br i1 %.not21.i390.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394, label %587
 
-586:                                              ; preds = %583
-  %587 = load ptr, ptr %91, align 8, !tbaa !122
-  %588 = load ptr, ptr %92, align 8, !tbaa !142
-  %589 = load i64, ptr %588, align 8, !tbaa !143
-  %590 = zext nneg i32 %489 to i64
-  %591 = mul i64 %589, %590
-  %592 = getelementptr inbounds nuw i8, ptr %587, i64 %591
-  %593 = zext nneg i32 %424 to i64
-  %594 = getelementptr inbounds nuw i8, ptr %592, i64 %593
-  %595 = load i8, ptr %594, align 1, !tbaa !75
-  %596 = icmp ugt i8 %595, 2
-  br i1 %596, label %608, label %597
+587:                                              ; preds = %584
+  %588 = load ptr, ptr %91, align 8, !tbaa !122
+  %589 = load ptr, ptr %92, align 8, !tbaa !142
+  %590 = load i64, ptr %589, align 8, !tbaa !143
+  %591 = zext nneg i32 %490 to i64
+  %592 = mul i64 %590, %591
+  %593 = getelementptr inbounds nuw i8, ptr %588, i64 %592
+  %594 = zext nneg i32 %425 to i64
+  %595 = getelementptr inbounds nuw i8, ptr %593, i64 %594
+  %596 = load i8, ptr %595, align 1, !tbaa !75
+  %597 = icmp ugt i8 %596, 2
+  br i1 %597, label %609, label %598
 
-597:                                              ; preds = %586
-  %598 = load ptr, ptr %93, align 8, !tbaa !122
-  %599 = load ptr, ptr %94, align 8, !tbaa !142
-  %600 = load i64, ptr %599, align 8, !tbaa !143
-  %601 = mul i64 %600, %590
-  %602 = getelementptr inbounds nuw i8, ptr %598, i64 %601
-  %603 = getelementptr inbounds nuw i8, ptr %602, i64 %593
-  %604 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %603, ptr noundef nonnull %95, i32 noundef 0)
-  %605 = trunc i32 %604 to i8
-  %606 = and i32 %604, 255
-  %607 = icmp eq i32 %606, 0
-  %spec.select.i391 = select i1 %607, i8 0, i8 %605
-  store i8 %spec.select.i391, ptr %594, align 1, !tbaa !75
-  br label %608
+598:                                              ; preds = %587
+  %599 = load ptr, ptr %93, align 8, !tbaa !122
+  %600 = load ptr, ptr %94, align 8, !tbaa !142
+  %601 = load i64, ptr %600, align 8, !tbaa !143
+  %602 = mul i64 %601, %591
+  %603 = getelementptr inbounds nuw i8, ptr %599, i64 %602
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 %594
+  %605 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %604, ptr noundef nonnull %95, i32 noundef 0)
+  %606 = trunc i32 %605 to i8
+  %607 = and i32 %605, 255
+  %608 = icmp eq i32 %607, 0
+  %spec.select.i391 = select i1 %608, i8 0, i8 %606
+  store i8 %spec.select.i391, ptr %595, align 1, !tbaa !75
+  br label %609
 
-608:                                              ; preds = %597, %586
-  %.1.in.i392 = phi i8 [ %spec.select.i391, %597 ], [ %595, %586 ]
+609:                                              ; preds = %598, %587
+  %.1.in.i392 = phi i8 [ %spec.select.i391, %598 ], [ %596, %587 ]
   %.1.i393 = zext i8 %.1.in.i392 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386, %580, %583, %608
-  %.0.i389 = phi i32 [ %.1.i393, %608 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386 ], [ 0, %583 ], [ 0, %580 ]
-  %or.cond.i395 = or i1 %490, %393
-  br i1 %or.cond.i395, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402, label %609
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386, %581, %584, %609
+  %.0.i389 = phi i32 [ %.1.i393, %609 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit386 ], [ 0, %584 ], [ 0, %581 ]
+  %or.cond.i395 = or i1 %491, %394
+  br i1 %or.cond.i395, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402, label %610
 
-609:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394
-  %610 = load i32, ptr %89, align 4, !tbaa !206
-  %611 = add nsw i32 %610, -3
-  %.not.i396.not = icmp sgt i32 %.6526, %611
-  br i1 %.not.i396.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402, label %612
+610:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394
+  %611 = load i32, ptr %89, align 4, !tbaa !206
+  %612 = add nsw i32 %611, -3
+  %.not.i396.not = icmp sgt i32 %.6526, %612
+  br i1 %.not.i396.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402, label %613
 
-612:                                              ; preds = %609
-  %613 = load i32, ptr %90, align 8, !tbaa !207
-  %614 = add nsw i32 %613, -3
-  %.not21.i398.not = icmp sgt i32 %.3239525, %614
-  br i1 %.not21.i398.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402, label %615
+613:                                              ; preds = %610
+  %614 = load i32, ptr %90, align 8, !tbaa !207
+  %615 = add nsw i32 %614, -3
+  %.not21.i398.not = icmp sgt i32 %.3239525, %615
+  br i1 %.not21.i398.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402, label %616
 
-615:                                              ; preds = %612
-  %616 = load ptr, ptr %91, align 8, !tbaa !122
-  %617 = load ptr, ptr %92, align 8, !tbaa !142
-  %618 = load i64, ptr %617, align 8, !tbaa !143
-  %619 = zext nneg i32 %489 to i64
-  %620 = mul i64 %618, %619
-  %621 = getelementptr inbounds nuw i8, ptr %616, i64 %620
-  %622 = zext nneg i32 %392 to i64
-  %623 = getelementptr inbounds nuw i8, ptr %621, i64 %622
-  %624 = load i8, ptr %623, align 1, !tbaa !75
-  %625 = icmp ugt i8 %624, 2
-  br i1 %625, label %637, label %626
+616:                                              ; preds = %613
+  %617 = load ptr, ptr %91, align 8, !tbaa !122
+  %618 = load ptr, ptr %92, align 8, !tbaa !142
+  %619 = load i64, ptr %618, align 8, !tbaa !143
+  %620 = zext nneg i32 %490 to i64
+  %621 = mul i64 %619, %620
+  %622 = getelementptr inbounds nuw i8, ptr %617, i64 %621
+  %623 = zext nneg i32 %393 to i64
+  %624 = getelementptr inbounds nuw i8, ptr %622, i64 %623
+  %625 = load i8, ptr %624, align 1, !tbaa !75
+  %626 = icmp ugt i8 %625, 2
+  br i1 %626, label %638, label %627
 
-626:                                              ; preds = %615
-  %627 = load ptr, ptr %93, align 8, !tbaa !122
-  %628 = load ptr, ptr %94, align 8, !tbaa !142
-  %629 = load i64, ptr %628, align 8, !tbaa !143
-  %630 = mul i64 %629, %619
-  %631 = getelementptr inbounds nuw i8, ptr %627, i64 %630
-  %632 = getelementptr inbounds nuw i8, ptr %631, i64 %622
-  %633 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %632, ptr noundef nonnull %95, i32 noundef 0)
-  %634 = trunc i32 %633 to i8
-  %635 = and i32 %633, 255
-  %636 = icmp eq i32 %635, 0
-  %spec.select.i399 = select i1 %636, i8 0, i8 %634
-  store i8 %spec.select.i399, ptr %623, align 1, !tbaa !75
-  br label %637
+627:                                              ; preds = %616
+  %628 = load ptr, ptr %93, align 8, !tbaa !122
+  %629 = load ptr, ptr %94, align 8, !tbaa !142
+  %630 = load i64, ptr %629, align 8, !tbaa !143
+  %631 = mul i64 %630, %620
+  %632 = getelementptr inbounds nuw i8, ptr %628, i64 %631
+  %633 = getelementptr inbounds nuw i8, ptr %632, i64 %623
+  %634 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %633, ptr noundef nonnull %95, i32 noundef 0)
+  %635 = trunc i32 %634 to i8
+  %636 = and i32 %634, 255
+  %637 = icmp eq i32 %636, 0
+  %spec.select.i399 = select i1 %637, i8 0, i8 %635
+  store i8 %spec.select.i399, ptr %624, align 1, !tbaa !75
+  br label %638
 
-637:                                              ; preds = %626, %615
-  %.1.in.i400 = phi i8 [ %spec.select.i399, %626 ], [ %624, %615 ]
+638:                                              ; preds = %627, %616
+  %.1.in.i400 = phi i8 [ %spec.select.i399, %627 ], [ %625, %616 ]
   %.1.i401 = zext i8 %.1.in.i400 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394, %609, %612, %637
-  %.0.i397 = phi i32 [ %.1.i401, %637 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394 ], [ 0, %612 ], [ 0, %609 ]
-  %638 = add nuw nsw i32 %.0.i373, %521
-  %639 = add nuw nsw i32 %638, %.0.i381
-  %640 = add nuw nsw i32 %639, %.0.i389
-  %641 = add nuw nsw i32 %640, %.0.i397
-  %642 = icmp samesign ugt i32 %391, %641
-  %spec.select = select i1 %642, i32 %.0253538, i32 %.3239525
-  %spec.select270 = select i1 %642, i32 %.0254524, i32 %.6526
-  br label %643
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394, %610, %613, %638
+  %.0.i397 = phi i32 [ %.1.i401, %638 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit394 ], [ 0, %613 ], [ 0, %610 ]
+  %639 = add nuw nsw i32 %.0.i373, %522
+  %640 = add nuw nsw i32 %639, %.0.i381
+  %641 = add nuw nsw i32 %640, %.0.i389
+  %642 = add nuw nsw i32 %641, %.0.i397
+  %643 = icmp samesign ugt i32 %392, %642
+  %spec.select = select i1 %643, i32 %.0253538, i32 %.3239525
+  %spec.select270 = select i1 %643, i32 %.0254524, i32 %.6526
+  br label %644
 
-643:                                              ; preds = %._crit_edge574, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge574 ], [ %186, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402 ]
-  %.4240 = phi i32 [ %.3239525, %._crit_edge574 ], [ %spec.select, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402 ]
-  %.7 = phi i32 [ %.6526, %._crit_edge574 ], [ %spec.select270, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402 ]
-  %644 = fcmp olt float %.0.i520523, %.0.i
-  %.0.i519 = select i1 %644, float %.0.i, float %.0.i520523
-  %.6242 = select i1 %644, i32 %.0253538, i32 %.4240
-  %.9 = select i1 %644, i32 %.0254524, i32 %.7
-  %.not268.not = icmp slt i32 %.0254524, %71
-  br i1 %.not268.not, label %121, label %..critedge272_crit_edge, !llvm.loop !212
+644:                                              ; preds = %._crit_edge576, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge576 ], [ %187, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402 ]
+  %.4240 = phi i32 [ %.3239525, %._crit_edge576 ], [ %spec.select, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402 ]
+  %.7 = phi i32 [ %.6526, %._crit_edge576 ], [ %spec.select270, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit402 ]
+  %645 = fcmp olt float %.0.i520523, %.0.i
+  %.0.i519 = select i1 %645, float %.0.i, float %.0.i520523
+  %.6242 = select i1 %645, i32 %.0253538, i32 %.4240
+  %.9 = select i1 %645, i32 %.0254524, i32 %.7
+  %exitcond569.not = icmp eq i32 %.pre-phi, %96
+  br i1 %exitcond569.not, label %..critedge272_crit_edge, label %122, !llvm.loop !212
 
-..critedge272_crit_edge:                          ; preds = %643
-  %645 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0225, float noundef %108, i32 noundef 1, float noundef 1.000000e+00)
-  %646 = sitofp i32 %645 to float
-  %647 = fcmp ogt float %646, %69
-  br i1 %647, label %.thread489, label %648
+..critedge272_crit_edge:                          ; preds = %644
+  %646 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0225, float noundef %109, i32 noundef 1, float noundef 1.000000e+00)
+  %647 = sitofp i32 %646 to float
+  %648 = fcmp ogt float %647, %69
+  br i1 %648, label %.thread489, label %649
 
-648:                                              ; preds = %..critedge272_crit_edge
-  %649 = fcmp olt float %.0.i519, %646
-  %.0.i520.lcssa534 = select i1 %649, float %646, float %.0.i519
-  %.7243 = select i1 %649, i32 %.0253538, i32 %.6242
-  %.10 = select i1 %649, i32 %71, i32 %.9
-  %exitcond567.not = icmp eq i32 %.0253538, %86
-  br i1 %exitcond567.not, label %.thread, label %.lr.ph541.split, !llvm.loop !211
+649:                                              ; preds = %..critedge272_crit_edge
+  %650 = fcmp olt float %.0.i519, %647
+  %.0.i520.lcssa534 = select i1 %650, float %647, float %.0.i519
+  %.7243 = select i1 %650, i32 %.0253538, i32 %.6242
+  %.10 = select i1 %650, i32 %.fr560, i32 %.9
+  %exitcond570.not = icmp eq i32 %.0253538, %86
+  br i1 %exitcond570.not, label %.thread, label %.lr.ph541.split, !llvm.loop !211
 
-.thread:                                          ; preds = %648, %103, %84
-  %.0.i520.lcssa533.lcssa = phi float [ %.0..promoted531, %84 ], [ %.0.i520.lcssa534.us, %103 ], [ %.0.i520.lcssa534, %648 ]
-  %.0236.lcssa = phi i32 [ %66, %84 ], [ %.7243.us, %103 ], [ %.7243, %648 ]
-  %.3233.lcssa = phi i32 [ %.2232, %84 ], [ %.10.us, %103 ], [ %.10, %648 ]
-  %650 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %.0227, i32 noundef 1, float noundef 1.000000e+00)
-  %651 = sitofp i32 %650 to float
-  %652 = fcmp olt float %.0.i520.lcssa533.lcssa, %651
-  %653 = fadd float %.0224, 1.000000e+00
-  %654 = fptosi float %653 to i32
-  %.0..promoted550 = select i1 %652, float %651, float %.0.i520.lcssa533.lcssa
-  %.8244 = select i1 %652, i32 %86, i32 %.0236.lcssa
-  %.11 = select i1 %652, i32 %654, i32 %.3233.lcssa
+.thread:                                          ; preds = %104, %649, %84
+  %.0.i520.lcssa533.lcssa = phi float [ %.0..promoted531, %84 ], [ %.0.i520.lcssa534, %649 ], [ %.0.i520.lcssa534.us, %104 ]
+  %.0236.lcssa = phi i32 [ %66, %84 ], [ %.7243, %649 ], [ %.7243.us, %104 ]
+  %.3233.lcssa = phi i32 [ %.2232, %84 ], [ %.10, %649 ], [ %.10.us, %104 ]
+  %651 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0224, float noundef %.0227, i32 noundef 1, float noundef 1.000000e+00)
+  %652 = sitofp i32 %651 to float
+  %653 = fcmp olt float %.0.i520.lcssa533.lcssa, %652
+  %654 = fadd float %.0224, 1.000000e+00
+  %655 = fptosi float %654 to i32
+  %.0..promoted550 = select i1 %653, float %652, float %.0.i520.lcssa533.lcssa
+  %.8244 = select i1 %653, i32 %86, i32 %.0236.lcssa
+  %.11 = select i1 %653, i32 %655, i32 %.3233.lcssa
   br i1 %.not513.not, label %.lr.ph556, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph556, %.thread
-  %.lcssa551 = phi float [ %.0..promoted550, %.thread ], [ %667, %.lr.ph556 ]
+  %.lcssa551 = phi float [ %.0..promoted550, %.thread ], [ %668, %.lr.ph556 ]
   %.9245.lcssa = phi i32 [ %.8244, %.thread ], [ %.10246, %.lr.ph556 ]
   %.12.lcssa = phi i32 [ %.11, %.thread ], [ %.13, %.lr.ph556 ]
-  %655 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0225, float noundef %.0227, i32 noundef 1, float noundef 1.000000e+00)
-  %656 = sitofp i32 %655 to float
-  %657 = fcmp olt float %.lcssa551, %656
-  %.0..0.484 = select i1 %657, float %656, float %.lcssa551
-  %.11247 = select i1 %657, i32 %86, i32 %.9245.lcssa
-  %.14 = select i1 %657, i32 %71, i32 %.12.lcssa
-  %658 = add nsw i32 %.14, -1
-  %659 = add nsw i32 %.11247, -1
-  %660 = icmp slt i32 %.14, 4
-  %661 = icmp slt i32 %.11247, 4
-  %or.cond.i403 = or i1 %661, %660
-  br i1 %or.cond.i403, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, label %669
+  %656 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %.0225, float noundef %.0227, i32 noundef 1, float noundef 1.000000e+00)
+  %657 = sitofp i32 %656 to float
+  %658 = fcmp olt float %.lcssa551, %657
+  %.0..0.484 = select i1 %658, float %657, float %.lcssa551
+  %.11247 = select i1 %658, i32 %86, i32 %.9245.lcssa
+  %.14 = select i1 %658, i32 %.fr560, i32 %.12.lcssa
+  %659 = add nsw i32 %.14, -1
+  %660 = add nsw i32 %.11247, -1
+  %661 = icmp slt i32 %.14, 4
+  %662 = icmp slt i32 %.11247, 4
+  %or.cond.i403 = or i1 %662, %661
+  br i1 %or.cond.i403, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, label %670
 
 .lr.ph556:                                        ; preds = %.thread, %.lr.ph556
   %.12555 = phi i32 [ %.13, %.lr.ph556 ], [ %.11, %.thread ]
   %.9245554 = phi i32 [ %.10246, %.lr.ph556 ], [ %.8244, %.thread ]
-  %.0251553 = phi i32 [ %668, %.lr.ph556 ], [ %64, %.thread ]
-  %662 = phi float [ %667, %.lr.ph556 ], [ %.0..promoted550, %.thread ]
-  %663 = sitofp i32 %.0251553 to float
-  %664 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %663, float noundef %.0227, i32 noundef 1, float noundef 1.000000e+00)
-  %665 = sitofp i32 %664 to float
-  %666 = fcmp olt float %662, %665
-  %667 = select i1 %666, float %665, float %662
-  %.10246 = select i1 %666, i32 %86, i32 %.9245554
-  %.13 = select i1 %666, i32 %.0251553, i32 %.12555
-  %668 = add i32 %.0251553, 1
-  %exitcond569.not = icmp eq i32 %.0251553, %71
-  br i1 %exitcond569.not, label %._crit_edge, label %.lr.ph556, !llvm.loop !213
+  %.0251553 = phi i32 [ %669, %.lr.ph556 ], [ %64, %.thread ]
+  %663 = phi float [ %668, %.lr.ph556 ], [ %.0..promoted550, %.thread ]
+  %664 = sitofp i32 %.0251553 to float
+  %665 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %62, float noundef %664, float noundef %.0227, i32 noundef 1, float noundef 1.000000e+00)
+  %666 = sitofp i32 %665 to float
+  %667 = fcmp olt float %663, %666
+  %668 = select i1 %667, float %666, float %663
+  %.10246 = select i1 %667, i32 %86, i32 %.9245554
+  %.13 = select i1 %667, i32 %.0251553, i32 %.12555
+  %669 = add i32 %.0251553, 1
+  %exitcond571.not = icmp eq i32 %.0251553, %.fr560
+  br i1 %exitcond571.not, label %._crit_edge, label %.lr.ph556, !llvm.loop !213
 
-669:                                              ; preds = %._crit_edge
-  %670 = getelementptr i8, ptr %61, i64 -404
-  %671 = load i32, ptr %670, align 4, !tbaa !206
-  %672 = add nsw i32 %671, -3
-  %.not.i404.not = icmp sgt i32 %.14, %672
-  br i1 %.not.i404.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, label %673
+670:                                              ; preds = %._crit_edge
+  %671 = getelementptr i8, ptr %61, i64 -404
+  %672 = load i32, ptr %671, align 4, !tbaa !206
+  %673 = add nsw i32 %672, -3
+  %.not.i404.not = icmp sgt i32 %.14, %673
+  br i1 %.not.i404.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, label %674
 
-673:                                              ; preds = %669
-  %674 = getelementptr i8, ptr %61, i64 -408
-  %675 = load i32, ptr %674, align 8, !tbaa !207
-  %676 = add nsw i32 %675, -3
-  %.not21.i406.not = icmp sgt i32 %.11247, %676
-  br i1 %.not21.i406.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, label %677
+674:                                              ; preds = %670
+  %675 = getelementptr i8, ptr %61, i64 -408
+  %676 = load i32, ptr %675, align 8, !tbaa !207
+  %677 = add nsw i32 %676, -3
+  %.not21.i406.not = icmp sgt i32 %.11247, %677
+  br i1 %.not21.i406.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, label %678
 
-677:                                              ; preds = %673
-  %678 = getelementptr i8, ptr %61, i64 -304
-  %679 = load ptr, ptr %678, align 8, !tbaa !122
-  %680 = getelementptr i8, ptr %61, i64 -248
-  %681 = load ptr, ptr %680, align 8, !tbaa !142
-  %682 = load i64, ptr %681, align 8, !tbaa !143
-  %683 = zext nneg i32 %659 to i64
-  %684 = mul i64 %682, %683
-  %685 = getelementptr inbounds nuw i8, ptr %679, i64 %684
-  %686 = zext nneg i32 %658 to i64
-  %687 = getelementptr inbounds nuw i8, ptr %685, i64 %686
-  %688 = load i8, ptr %687, align 1, !tbaa !75
-  %689 = icmp ugt i8 %688, 2
-  br i1 %689, label %704, label %690
+678:                                              ; preds = %674
+  %679 = getelementptr i8, ptr %61, i64 -304
+  %680 = load ptr, ptr %679, align 8, !tbaa !122
+  %681 = getelementptr i8, ptr %61, i64 -248
+  %682 = load ptr, ptr %681, align 8, !tbaa !142
+  %683 = load i64, ptr %682, align 8, !tbaa !143
+  %684 = zext nneg i32 %660 to i64
+  %685 = mul i64 %683, %684
+  %686 = getelementptr inbounds nuw i8, ptr %680, i64 %685
+  %687 = zext nneg i32 %659 to i64
+  %688 = getelementptr inbounds nuw i8, ptr %686, i64 %687
+  %689 = load i8, ptr %688, align 1, !tbaa !75
+  %690 = icmp ugt i8 %689, 2
+  br i1 %690, label %705, label %691
 
-690:                                              ; preds = %677
-  %691 = getelementptr i8, ptr %61, i64 -400
-  %692 = load ptr, ptr %691, align 8, !tbaa !122
-  %693 = getelementptr i8, ptr %61, i64 -344
-  %694 = load ptr, ptr %693, align 8, !tbaa !142
-  %695 = load i64, ptr %694, align 8, !tbaa !143
-  %696 = mul i64 %695, %683
-  %697 = getelementptr inbounds nuw i8, ptr %692, i64 %696
-  %698 = getelementptr inbounds nuw i8, ptr %697, i64 %686
-  %699 = getelementptr i8, ptr %61, i64 -100
-  %700 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %698, ptr noundef nonnull %699, i32 noundef 0)
-  %701 = trunc i32 %700 to i8
-  %702 = and i32 %700, 255
-  %703 = icmp eq i32 %702, 0
-  %spec.select.i407 = select i1 %703, i8 0, i8 %701
-  store i8 %spec.select.i407, ptr %687, align 1, !tbaa !75
-  br label %704
+691:                                              ; preds = %678
+  %692 = getelementptr i8, ptr %61, i64 -400
+  %693 = load ptr, ptr %692, align 8, !tbaa !122
+  %694 = getelementptr i8, ptr %61, i64 -344
+  %695 = load ptr, ptr %694, align 8, !tbaa !142
+  %696 = load i64, ptr %695, align 8, !tbaa !143
+  %697 = mul i64 %696, %684
+  %698 = getelementptr inbounds nuw i8, ptr %693, i64 %697
+  %699 = getelementptr inbounds nuw i8, ptr %698, i64 %687
+  %700 = getelementptr i8, ptr %61, i64 -100
+  %701 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %699, ptr noundef nonnull %700, i32 noundef 0)
+  %702 = trunc i32 %701 to i8
+  %703 = and i32 %701, 255
+  %704 = icmp eq i32 %703, 0
+  %spec.select.i407 = select i1 %704, i8 0, i8 %702
+  store i8 %spec.select.i407, ptr %688, align 1, !tbaa !75
+  br label %705
 
-704:                                              ; preds = %690, %677
-  %.1.in.i408 = phi i8 [ %spec.select.i407, %690 ], [ %688, %677 ]
+705:                                              ; preds = %691, %678
+  %.1.in.i408 = phi i8 [ %spec.select.i407, %691 ], [ %689, %678 ]
   %.1.i409 = zext i8 %.1.in.i408 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410:   ; preds = %._crit_edge, %669, %673, %704
-  %.0.i405 = phi i32 [ %.1.i409, %704 ], [ 0, %._crit_edge ], [ 0, %673 ], [ 0, %669 ]
-  %705 = icmp slt i32 %.14, 3
-  %or.cond.i411 = or i1 %661, %705
-  br i1 %or.cond.i411, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418, label %706
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410:   ; preds = %._crit_edge, %670, %674, %705
+  %.0.i405 = phi i32 [ %.1.i409, %705 ], [ 0, %._crit_edge ], [ 0, %674 ], [ 0, %670 ]
+  %706 = icmp slt i32 %.14, 3
+  %or.cond.i411 = or i1 %662, %706
+  br i1 %or.cond.i411, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418, label %707
 
-706:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410
-  %707 = getelementptr i8, ptr %61, i64 -404
-  %708 = load i32, ptr %707, align 4, !tbaa !206
-  %709 = add nsw i32 %708, -3
-  %.not.i412 = icmp slt i32 %.14, %709
-  br i1 %.not.i412, label %710, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418
+707:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410
+  %708 = getelementptr i8, ptr %61, i64 -404
+  %709 = load i32, ptr %708, align 4, !tbaa !206
+  %710 = add nsw i32 %709, -3
+  %.not.i412 = icmp slt i32 %.14, %710
+  br i1 %.not.i412, label %711, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418
 
-710:                                              ; preds = %706
-  %711 = getelementptr i8, ptr %61, i64 -408
-  %712 = load i32, ptr %711, align 8, !tbaa !207
-  %713 = add nsw i32 %712, -3
-  %.not21.i414.not = icmp sgt i32 %.11247, %713
-  br i1 %.not21.i414.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418, label %714
+711:                                              ; preds = %707
+  %712 = getelementptr i8, ptr %61, i64 -408
+  %713 = load i32, ptr %712, align 8, !tbaa !207
+  %714 = add nsw i32 %713, -3
+  %.not21.i414.not = icmp sgt i32 %.11247, %714
+  br i1 %.not21.i414.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418, label %715
 
-714:                                              ; preds = %710
-  %715 = getelementptr i8, ptr %61, i64 -304
-  %716 = load ptr, ptr %715, align 8, !tbaa !122
-  %717 = getelementptr i8, ptr %61, i64 -248
-  %718 = load ptr, ptr %717, align 8, !tbaa !142
-  %719 = load i64, ptr %718, align 8, !tbaa !143
-  %720 = zext nneg i32 %659 to i64
-  %721 = mul i64 %719, %720
-  %722 = getelementptr inbounds nuw i8, ptr %716, i64 %721
-  %723 = zext nneg i32 %.14 to i64
-  %724 = getelementptr inbounds nuw i8, ptr %722, i64 %723
-  %725 = load i8, ptr %724, align 1, !tbaa !75
-  %726 = icmp ugt i8 %725, 2
-  br i1 %726, label %741, label %727
+715:                                              ; preds = %711
+  %716 = getelementptr i8, ptr %61, i64 -304
+  %717 = load ptr, ptr %716, align 8, !tbaa !122
+  %718 = getelementptr i8, ptr %61, i64 -248
+  %719 = load ptr, ptr %718, align 8, !tbaa !142
+  %720 = load i64, ptr %719, align 8, !tbaa !143
+  %721 = zext nneg i32 %660 to i64
+  %722 = mul i64 %720, %721
+  %723 = getelementptr inbounds nuw i8, ptr %717, i64 %722
+  %724 = zext nneg i32 %.14 to i64
+  %725 = getelementptr inbounds nuw i8, ptr %723, i64 %724
+  %726 = load i8, ptr %725, align 1, !tbaa !75
+  %727 = icmp ugt i8 %726, 2
+  br i1 %727, label %742, label %728
 
-727:                                              ; preds = %714
-  %728 = getelementptr i8, ptr %61, i64 -400
-  %729 = load ptr, ptr %728, align 8, !tbaa !122
-  %730 = getelementptr i8, ptr %61, i64 -344
-  %731 = load ptr, ptr %730, align 8, !tbaa !142
-  %732 = load i64, ptr %731, align 8, !tbaa !143
-  %733 = mul i64 %732, %720
-  %734 = getelementptr inbounds nuw i8, ptr %729, i64 %733
-  %735 = getelementptr inbounds nuw i8, ptr %734, i64 %723
-  %736 = getelementptr i8, ptr %61, i64 -100
-  %737 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %735, ptr noundef nonnull %736, i32 noundef 0)
-  %738 = trunc i32 %737 to i8
-  %739 = and i32 %737, 255
-  %740 = icmp eq i32 %739, 0
-  %spec.select.i415 = select i1 %740, i8 0, i8 %738
-  store i8 %spec.select.i415, ptr %724, align 1, !tbaa !75
-  br label %741
+728:                                              ; preds = %715
+  %729 = getelementptr i8, ptr %61, i64 -400
+  %730 = load ptr, ptr %729, align 8, !tbaa !122
+  %731 = getelementptr i8, ptr %61, i64 -344
+  %732 = load ptr, ptr %731, align 8, !tbaa !142
+  %733 = load i64, ptr %732, align 8, !tbaa !143
+  %734 = mul i64 %733, %721
+  %735 = getelementptr inbounds nuw i8, ptr %730, i64 %734
+  %736 = getelementptr inbounds nuw i8, ptr %735, i64 %724
+  %737 = getelementptr i8, ptr %61, i64 -100
+  %738 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %736, ptr noundef nonnull %737, i32 noundef 0)
+  %739 = trunc i32 %738 to i8
+  %740 = and i32 %738, 255
+  %741 = icmp eq i32 %740, 0
+  %spec.select.i415 = select i1 %741, i8 0, i8 %739
+  store i8 %spec.select.i415, ptr %725, align 1, !tbaa !75
+  br label %742
 
-741:                                              ; preds = %727, %714
-  %.1.in.i416 = phi i8 [ %spec.select.i415, %727 ], [ %725, %714 ]
+742:                                              ; preds = %728, %715
+  %.1.in.i416 = phi i8 [ %spec.select.i415, %728 ], [ %726, %715 ]
   %.1.i417 = zext i8 %.1.in.i416 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, %706, %710, %741
-  %.0.i413 = phi i32 [ %.1.i417, %741 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410 ], [ 0, %710 ], [ 0, %706 ]
-  %742 = add nsw i32 %.14, 1
-  %743 = icmp slt i32 %.14, 2
-  %or.cond.i419 = or i1 %661, %743
-  br i1 %or.cond.i419, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426, label %744
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410, %707, %711, %742
+  %.0.i413 = phi i32 [ %.1.i417, %742 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit410 ], [ 0, %711 ], [ 0, %707 ]
+  %743 = add nsw i32 %.14, 1
+  %744 = icmp slt i32 %.14, 2
+  %or.cond.i419 = or i1 %662, %744
+  br i1 %or.cond.i419, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426, label %745
 
-744:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418
-  %745 = getelementptr i8, ptr %61, i64 -404
-  %746 = load i32, ptr %745, align 4, !tbaa !206
-  %747 = add nsw i32 %746, -3
-  %.not.i420 = icmp slt i32 %742, %747
-  br i1 %.not.i420, label %748, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426
+745:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418
+  %746 = getelementptr i8, ptr %61, i64 -404
+  %747 = load i32, ptr %746, align 4, !tbaa !206
+  %748 = add nsw i32 %747, -3
+  %.not.i420 = icmp slt i32 %743, %748
+  br i1 %.not.i420, label %749, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426
 
-748:                                              ; preds = %744
-  %749 = getelementptr i8, ptr %61, i64 -408
-  %750 = load i32, ptr %749, align 8, !tbaa !207
-  %751 = add nsw i32 %750, -3
-  %.not21.i422.not = icmp sgt i32 %.11247, %751
-  br i1 %.not21.i422.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426, label %752
+749:                                              ; preds = %745
+  %750 = getelementptr i8, ptr %61, i64 -408
+  %751 = load i32, ptr %750, align 8, !tbaa !207
+  %752 = add nsw i32 %751, -3
+  %.not21.i422.not = icmp sgt i32 %.11247, %752
+  br i1 %.not21.i422.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426, label %753
 
-752:                                              ; preds = %748
-  %753 = getelementptr i8, ptr %61, i64 -304
-  %754 = load ptr, ptr %753, align 8, !tbaa !122
-  %755 = getelementptr i8, ptr %61, i64 -248
-  %756 = load ptr, ptr %755, align 8, !tbaa !142
-  %757 = load i64, ptr %756, align 8, !tbaa !143
-  %758 = zext nneg i32 %659 to i64
-  %759 = mul i64 %757, %758
-  %760 = getelementptr inbounds nuw i8, ptr %754, i64 %759
-  %761 = zext nneg i32 %742 to i64
-  %762 = getelementptr inbounds nuw i8, ptr %760, i64 %761
-  %763 = load i8, ptr %762, align 1, !tbaa !75
-  %764 = icmp ugt i8 %763, 2
-  br i1 %764, label %779, label %765
+753:                                              ; preds = %749
+  %754 = getelementptr i8, ptr %61, i64 -304
+  %755 = load ptr, ptr %754, align 8, !tbaa !122
+  %756 = getelementptr i8, ptr %61, i64 -248
+  %757 = load ptr, ptr %756, align 8, !tbaa !142
+  %758 = load i64, ptr %757, align 8, !tbaa !143
+  %759 = zext nneg i32 %660 to i64
+  %760 = mul i64 %758, %759
+  %761 = getelementptr inbounds nuw i8, ptr %755, i64 %760
+  %762 = zext nneg i32 %743 to i64
+  %763 = getelementptr inbounds nuw i8, ptr %761, i64 %762
+  %764 = load i8, ptr %763, align 1, !tbaa !75
+  %765 = icmp ugt i8 %764, 2
+  br i1 %765, label %780, label %766
 
-765:                                              ; preds = %752
-  %766 = getelementptr i8, ptr %61, i64 -400
-  %767 = load ptr, ptr %766, align 8, !tbaa !122
-  %768 = getelementptr i8, ptr %61, i64 -344
-  %769 = load ptr, ptr %768, align 8, !tbaa !142
-  %770 = load i64, ptr %769, align 8, !tbaa !143
-  %771 = mul i64 %770, %758
-  %772 = getelementptr inbounds nuw i8, ptr %767, i64 %771
-  %773 = getelementptr inbounds nuw i8, ptr %772, i64 %761
-  %774 = getelementptr i8, ptr %61, i64 -100
-  %775 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %773, ptr noundef nonnull %774, i32 noundef 0)
-  %776 = trunc i32 %775 to i8
-  %777 = and i32 %775, 255
-  %778 = icmp eq i32 %777, 0
-  %spec.select.i423 = select i1 %778, i8 0, i8 %776
-  store i8 %spec.select.i423, ptr %762, align 1, !tbaa !75
-  br label %779
+766:                                              ; preds = %753
+  %767 = getelementptr i8, ptr %61, i64 -400
+  %768 = load ptr, ptr %767, align 8, !tbaa !122
+  %769 = getelementptr i8, ptr %61, i64 -344
+  %770 = load ptr, ptr %769, align 8, !tbaa !142
+  %771 = load i64, ptr %770, align 8, !tbaa !143
+  %772 = mul i64 %771, %759
+  %773 = getelementptr inbounds nuw i8, ptr %768, i64 %772
+  %774 = getelementptr inbounds nuw i8, ptr %773, i64 %762
+  %775 = getelementptr i8, ptr %61, i64 -100
+  %776 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %774, ptr noundef nonnull %775, i32 noundef 0)
+  %777 = trunc i32 %776 to i8
+  %778 = and i32 %776, 255
+  %779 = icmp eq i32 %778, 0
+  %spec.select.i423 = select i1 %779, i8 0, i8 %777
+  store i8 %spec.select.i423, ptr %763, align 1, !tbaa !75
+  br label %780
 
-779:                                              ; preds = %765, %752
-  %.1.in.i424 = phi i8 [ %spec.select.i423, %765 ], [ %763, %752 ]
+780:                                              ; preds = %766, %753
+  %.1.in.i424 = phi i8 [ %spec.select.i423, %766 ], [ %764, %753 ]
   %.1.i425 = zext i8 %.1.in.i424 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418, %744, %748, %779
-  %.0.i421 = phi i32 [ %.1.i425, %779 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418 ], [ 0, %748 ], [ 0, %744 ]
-  %780 = icmp slt i32 %.11247, 3
-  %or.cond.i427 = or i1 %780, %743
-  br i1 %or.cond.i427, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434, label %781
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418, %745, %749, %780
+  %.0.i421 = phi i32 [ %.1.i425, %780 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit418 ], [ 0, %749 ], [ 0, %745 ]
+  %781 = icmp slt i32 %.11247, 3
+  %or.cond.i427 = or i1 %781, %744
+  br i1 %or.cond.i427, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434, label %782
 
-781:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426
-  %782 = getelementptr i8, ptr %61, i64 -404
-  %783 = load i32, ptr %782, align 4, !tbaa !206
-  %784 = add nsw i32 %783, -3
-  %.not.i428 = icmp slt i32 %742, %784
-  br i1 %.not.i428, label %785, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
+782:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426
+  %783 = getelementptr i8, ptr %61, i64 -404
+  %784 = load i32, ptr %783, align 4, !tbaa !206
+  %785 = add nsw i32 %784, -3
+  %.not.i428 = icmp slt i32 %743, %785
+  br i1 %.not.i428, label %786, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
 
-785:                                              ; preds = %781
-  %786 = getelementptr i8, ptr %61, i64 -408
-  %787 = load i32, ptr %786, align 8, !tbaa !207
-  %788 = add nsw i32 %787, -3
-  %.not21.i430 = icmp slt i32 %.11247, %788
-  br i1 %.not21.i430, label %789, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
+786:                                              ; preds = %782
+  %787 = getelementptr i8, ptr %61, i64 -408
+  %788 = load i32, ptr %787, align 8, !tbaa !207
+  %789 = add nsw i32 %788, -3
+  %.not21.i430 = icmp slt i32 %.11247, %789
+  br i1 %.not21.i430, label %790, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
 
-789:                                              ; preds = %785
-  %790 = getelementptr i8, ptr %61, i64 -304
-  %791 = load ptr, ptr %790, align 8, !tbaa !122
-  %792 = getelementptr i8, ptr %61, i64 -248
-  %793 = load ptr, ptr %792, align 8, !tbaa !142
-  %794 = load i64, ptr %793, align 8, !tbaa !143
-  %795 = zext nneg i32 %.11247 to i64
-  %796 = mul i64 %794, %795
-  %797 = getelementptr inbounds nuw i8, ptr %791, i64 %796
-  %798 = zext nneg i32 %742 to i64
-  %799 = getelementptr inbounds nuw i8, ptr %797, i64 %798
-  %800 = load i8, ptr %799, align 1, !tbaa !75
-  %801 = icmp ugt i8 %800, 2
-  br i1 %801, label %816, label %802
+790:                                              ; preds = %786
+  %791 = getelementptr i8, ptr %61, i64 -304
+  %792 = load ptr, ptr %791, align 8, !tbaa !122
+  %793 = getelementptr i8, ptr %61, i64 -248
+  %794 = load ptr, ptr %793, align 8, !tbaa !142
+  %795 = load i64, ptr %794, align 8, !tbaa !143
+  %796 = zext nneg i32 %.11247 to i64
+  %797 = mul i64 %795, %796
+  %798 = getelementptr inbounds nuw i8, ptr %792, i64 %797
+  %799 = zext nneg i32 %743 to i64
+  %800 = getelementptr inbounds nuw i8, ptr %798, i64 %799
+  %801 = load i8, ptr %800, align 1, !tbaa !75
+  %802 = icmp ugt i8 %801, 2
+  br i1 %802, label %817, label %803
 
-802:                                              ; preds = %789
-  %803 = getelementptr i8, ptr %61, i64 -400
-  %804 = load ptr, ptr %803, align 8, !tbaa !122
-  %805 = getelementptr i8, ptr %61, i64 -344
-  %806 = load ptr, ptr %805, align 8, !tbaa !142
-  %807 = load i64, ptr %806, align 8, !tbaa !143
-  %808 = mul i64 %807, %795
-  %809 = getelementptr inbounds nuw i8, ptr %804, i64 %808
-  %810 = getelementptr inbounds nuw i8, ptr %809, i64 %798
-  %811 = getelementptr i8, ptr %61, i64 -100
-  %812 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %810, ptr noundef nonnull %811, i32 noundef 0)
-  %813 = trunc i32 %812 to i8
-  %814 = and i32 %812, 255
-  %815 = icmp eq i32 %814, 0
-  %spec.select.i431 = select i1 %815, i8 0, i8 %813
-  store i8 %spec.select.i431, ptr %799, align 1, !tbaa !75
-  br label %816
+803:                                              ; preds = %790
+  %804 = getelementptr i8, ptr %61, i64 -400
+  %805 = load ptr, ptr %804, align 8, !tbaa !122
+  %806 = getelementptr i8, ptr %61, i64 -344
+  %807 = load ptr, ptr %806, align 8, !tbaa !142
+  %808 = load i64, ptr %807, align 8, !tbaa !143
+  %809 = mul i64 %808, %796
+  %810 = getelementptr inbounds nuw i8, ptr %805, i64 %809
+  %811 = getelementptr inbounds nuw i8, ptr %810, i64 %799
+  %812 = getelementptr i8, ptr %61, i64 -100
+  %813 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %811, ptr noundef nonnull %812, i32 noundef 0)
+  %814 = trunc i32 %813 to i8
+  %815 = and i32 %813, 255
+  %816 = icmp eq i32 %815, 0
+  %spec.select.i431 = select i1 %816, i8 0, i8 %814
+  store i8 %spec.select.i431, ptr %800, align 1, !tbaa !75
+  br label %817
 
-816:                                              ; preds = %802, %789
-  %.1.in.i432 = phi i8 [ %spec.select.i431, %802 ], [ %800, %789 ]
+817:                                              ; preds = %803, %790
+  %.1.in.i432 = phi i8 [ %spec.select.i431, %803 ], [ %801, %790 ]
   %.1.i433 = zext i8 %.1.in.i432 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426, %781, %785, %816
-  %.0.i429 = phi i32 [ %.1.i433, %816 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426 ], [ 0, %785 ], [ 0, %781 ]
-  %or.cond.i435 = or i1 %780, %705
-  br i1 %or.cond.i435, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442, label %817
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426, %782, %786, %817
+  %.0.i429 = phi i32 [ %.1.i433, %817 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit426 ], [ 0, %786 ], [ 0, %782 ]
+  %or.cond.i435 = or i1 %781, %706
+  br i1 %or.cond.i435, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442, label %818
 
-817:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
-  %818 = getelementptr i8, ptr %61, i64 -404
-  %819 = load i32, ptr %818, align 4, !tbaa !206
-  %820 = add nsw i32 %819, -3
-  %.not.i436 = icmp slt i32 %.14, %820
-  br i1 %.not.i436, label %821, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
+818:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434
+  %819 = getelementptr i8, ptr %61, i64 -404
+  %820 = load i32, ptr %819, align 4, !tbaa !206
+  %821 = add nsw i32 %820, -3
+  %.not.i436 = icmp slt i32 %.14, %821
+  br i1 %.not.i436, label %822, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
 
-821:                                              ; preds = %817
-  %822 = getelementptr i8, ptr %61, i64 -408
-  %823 = load i32, ptr %822, align 8, !tbaa !207
-  %824 = add nsw i32 %823, -3
-  %.not21.i438 = icmp slt i32 %.11247, %824
-  br i1 %.not21.i438, label %825, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
+822:                                              ; preds = %818
+  %823 = getelementptr i8, ptr %61, i64 -408
+  %824 = load i32, ptr %823, align 8, !tbaa !207
+  %825 = add nsw i32 %824, -3
+  %.not21.i438 = icmp slt i32 %.11247, %825
+  br i1 %.not21.i438, label %826, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
 
-825:                                              ; preds = %821
-  %826 = getelementptr i8, ptr %61, i64 -304
-  %827 = load ptr, ptr %826, align 8, !tbaa !122
-  %828 = getelementptr i8, ptr %61, i64 -248
-  %829 = load ptr, ptr %828, align 8, !tbaa !142
-  %830 = load i64, ptr %829, align 8, !tbaa !143
-  %831 = zext nneg i32 %.11247 to i64
-  %832 = mul i64 %830, %831
-  %833 = getelementptr inbounds nuw i8, ptr %827, i64 %832
-  %834 = zext nneg i32 %.14 to i64
-  %835 = getelementptr inbounds nuw i8, ptr %833, i64 %834
-  %836 = load i8, ptr %835, align 1, !tbaa !75
-  %837 = icmp ugt i8 %836, 2
-  br i1 %837, label %852, label %838
+826:                                              ; preds = %822
+  %827 = getelementptr i8, ptr %61, i64 -304
+  %828 = load ptr, ptr %827, align 8, !tbaa !122
+  %829 = getelementptr i8, ptr %61, i64 -248
+  %830 = load ptr, ptr %829, align 8, !tbaa !142
+  %831 = load i64, ptr %830, align 8, !tbaa !143
+  %832 = zext nneg i32 %.11247 to i64
+  %833 = mul i64 %831, %832
+  %834 = getelementptr inbounds nuw i8, ptr %828, i64 %833
+  %835 = zext nneg i32 %.14 to i64
+  %836 = getelementptr inbounds nuw i8, ptr %834, i64 %835
+  %837 = load i8, ptr %836, align 1, !tbaa !75
+  %838 = icmp ugt i8 %837, 2
+  br i1 %838, label %853, label %839
 
-838:                                              ; preds = %825
-  %839 = getelementptr i8, ptr %61, i64 -400
-  %840 = load ptr, ptr %839, align 8, !tbaa !122
-  %841 = getelementptr i8, ptr %61, i64 -344
-  %842 = load ptr, ptr %841, align 8, !tbaa !142
-  %843 = load i64, ptr %842, align 8, !tbaa !143
-  %844 = mul i64 %843, %831
-  %845 = getelementptr inbounds nuw i8, ptr %840, i64 %844
-  %846 = getelementptr inbounds nuw i8, ptr %845, i64 %834
-  %847 = getelementptr i8, ptr %61, i64 -100
-  %848 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %846, ptr noundef nonnull %847, i32 noundef 0)
-  %849 = trunc i32 %848 to i8
-  %850 = and i32 %848, 255
-  %851 = icmp eq i32 %850, 0
-  %spec.select.i439 = select i1 %851, i8 0, i8 %849
-  store i8 %spec.select.i439, ptr %835, align 1, !tbaa !75
-  br label %852
+839:                                              ; preds = %826
+  %840 = getelementptr i8, ptr %61, i64 -400
+  %841 = load ptr, ptr %840, align 8, !tbaa !122
+  %842 = getelementptr i8, ptr %61, i64 -344
+  %843 = load ptr, ptr %842, align 8, !tbaa !142
+  %844 = load i64, ptr %843, align 8, !tbaa !143
+  %845 = mul i64 %844, %832
+  %846 = getelementptr inbounds nuw i8, ptr %841, i64 %845
+  %847 = getelementptr inbounds nuw i8, ptr %846, i64 %835
+  %848 = getelementptr i8, ptr %61, i64 -100
+  %849 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %847, ptr noundef nonnull %848, i32 noundef 0)
+  %850 = trunc i32 %849 to i8
+  %851 = and i32 %849, 255
+  %852 = icmp eq i32 %851, 0
+  %spec.select.i439 = select i1 %852, i8 0, i8 %850
+  store i8 %spec.select.i439, ptr %836, align 1, !tbaa !75
+  br label %853
 
-852:                                              ; preds = %838, %825
-  %.1.in.i440 = phi i8 [ %spec.select.i439, %838 ], [ %836, %825 ]
+853:                                              ; preds = %839, %826
+  %.1.in.i440 = phi i8 [ %spec.select.i439, %839 ], [ %837, %826 ]
   %.1.i441 = zext i8 %.1.in.i440 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434, %817, %821, %852
-  %.0.i437 = phi i32 [ %.1.i441, %852 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434 ], [ 0, %821 ], [ 0, %817 ]
-  %or.cond.i443 = or i1 %780, %660
-  br i1 %or.cond.i443, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450, label %853
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434, %818, %822, %853
+  %.0.i437 = phi i32 [ %.1.i441, %853 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit434 ], [ 0, %822 ], [ 0, %818 ]
+  %or.cond.i443 = or i1 %781, %661
+  br i1 %or.cond.i443, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450, label %854
 
-853:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
-  %854 = getelementptr i8, ptr %61, i64 -404
-  %855 = load i32, ptr %854, align 4, !tbaa !206
-  %856 = add nsw i32 %855, -3
-  %.not.i444.not = icmp sgt i32 %.14, %856
-  br i1 %.not.i444.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450, label %857
+854:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442
+  %855 = getelementptr i8, ptr %61, i64 -404
+  %856 = load i32, ptr %855, align 4, !tbaa !206
+  %857 = add nsw i32 %856, -3
+  %.not.i444.not = icmp sgt i32 %.14, %857
+  br i1 %.not.i444.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450, label %858
 
-857:                                              ; preds = %853
-  %858 = getelementptr i8, ptr %61, i64 -408
-  %859 = load i32, ptr %858, align 8, !tbaa !207
-  %860 = add nsw i32 %859, -3
-  %.not21.i446 = icmp slt i32 %.11247, %860
-  br i1 %.not21.i446, label %861, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450
+858:                                              ; preds = %854
+  %859 = getelementptr i8, ptr %61, i64 -408
+  %860 = load i32, ptr %859, align 8, !tbaa !207
+  %861 = add nsw i32 %860, -3
+  %.not21.i446 = icmp slt i32 %.11247, %861
+  br i1 %.not21.i446, label %862, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450
 
-861:                                              ; preds = %857
-  %862 = getelementptr i8, ptr %61, i64 -304
-  %863 = load ptr, ptr %862, align 8, !tbaa !122
-  %864 = getelementptr i8, ptr %61, i64 -248
-  %865 = load ptr, ptr %864, align 8, !tbaa !142
-  %866 = load i64, ptr %865, align 8, !tbaa !143
-  %867 = zext nneg i32 %.11247 to i64
-  %868 = mul i64 %866, %867
-  %869 = getelementptr inbounds nuw i8, ptr %863, i64 %868
-  %870 = zext nneg i32 %658 to i64
-  %871 = getelementptr inbounds nuw i8, ptr %869, i64 %870
-  %872 = load i8, ptr %871, align 1, !tbaa !75
-  %873 = icmp ugt i8 %872, 2
-  br i1 %873, label %888, label %874
+862:                                              ; preds = %858
+  %863 = getelementptr i8, ptr %61, i64 -304
+  %864 = load ptr, ptr %863, align 8, !tbaa !122
+  %865 = getelementptr i8, ptr %61, i64 -248
+  %866 = load ptr, ptr %865, align 8, !tbaa !142
+  %867 = load i64, ptr %866, align 8, !tbaa !143
+  %868 = zext nneg i32 %.11247 to i64
+  %869 = mul i64 %867, %868
+  %870 = getelementptr inbounds nuw i8, ptr %864, i64 %869
+  %871 = zext nneg i32 %659 to i64
+  %872 = getelementptr inbounds nuw i8, ptr %870, i64 %871
+  %873 = load i8, ptr %872, align 1, !tbaa !75
+  %874 = icmp ugt i8 %873, 2
+  br i1 %874, label %889, label %875
 
-874:                                              ; preds = %861
-  %875 = getelementptr i8, ptr %61, i64 -400
-  %876 = load ptr, ptr %875, align 8, !tbaa !122
-  %877 = getelementptr i8, ptr %61, i64 -344
-  %878 = load ptr, ptr %877, align 8, !tbaa !142
-  %879 = load i64, ptr %878, align 8, !tbaa !143
-  %880 = mul i64 %879, %867
-  %881 = getelementptr inbounds nuw i8, ptr %876, i64 %880
-  %882 = getelementptr inbounds nuw i8, ptr %881, i64 %870
-  %883 = getelementptr i8, ptr %61, i64 -100
-  %884 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %882, ptr noundef nonnull %883, i32 noundef 0)
-  %885 = trunc i32 %884 to i8
-  %886 = and i32 %884, 255
-  %887 = icmp eq i32 %886, 0
-  %spec.select.i447 = select i1 %887, i8 0, i8 %885
-  store i8 %spec.select.i447, ptr %871, align 1, !tbaa !75
-  br label %888
+875:                                              ; preds = %862
+  %876 = getelementptr i8, ptr %61, i64 -400
+  %877 = load ptr, ptr %876, align 8, !tbaa !122
+  %878 = getelementptr i8, ptr %61, i64 -344
+  %879 = load ptr, ptr %878, align 8, !tbaa !142
+  %880 = load i64, ptr %879, align 8, !tbaa !143
+  %881 = mul i64 %880, %868
+  %882 = getelementptr inbounds nuw i8, ptr %877, i64 %881
+  %883 = getelementptr inbounds nuw i8, ptr %882, i64 %871
+  %884 = getelementptr i8, ptr %61, i64 -100
+  %885 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %883, ptr noundef nonnull %884, i32 noundef 0)
+  %886 = trunc i32 %885 to i8
+  %887 = and i32 %885, 255
+  %888 = icmp eq i32 %887, 0
+  %spec.select.i447 = select i1 %888, i8 0, i8 %886
+  store i8 %spec.select.i447, ptr %872, align 1, !tbaa !75
+  br label %889
 
-888:                                              ; preds = %874, %861
-  %.1.in.i448 = phi i8 [ %spec.select.i447, %874 ], [ %872, %861 ]
+889:                                              ; preds = %875, %862
+  %.1.in.i448 = phi i8 [ %spec.select.i447, %875 ], [ %873, %862 ]
   %.1.i449 = zext i8 %.1.in.i448 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442, %853, %857, %888
-  %.0.i445 = phi i32 [ %.1.i449, %888 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442 ], [ 0, %857 ], [ 0, %853 ]
-  %889 = add nsw i32 %.11247, 1
-  %890 = icmp slt i32 %.11247, 2
-  %or.cond.i451 = or i1 %890, %660
-  br i1 %or.cond.i451, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458, label %891
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442, %854, %858, %889
+  %.0.i445 = phi i32 [ %.1.i449, %889 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit442 ], [ 0, %858 ], [ 0, %854 ]
+  %890 = add nsw i32 %.11247, 1
+  %891 = icmp slt i32 %.11247, 2
+  %or.cond.i451 = or i1 %891, %661
+  br i1 %or.cond.i451, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458, label %892
 
-891:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450
-  %892 = getelementptr i8, ptr %61, i64 -404
-  %893 = load i32, ptr %892, align 4, !tbaa !206
-  %894 = add nsw i32 %893, -3
-  %.not.i452.not = icmp sgt i32 %.14, %894
-  br i1 %.not.i452.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458, label %895
+892:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450
+  %893 = getelementptr i8, ptr %61, i64 -404
+  %894 = load i32, ptr %893, align 4, !tbaa !206
+  %895 = add nsw i32 %894, -3
+  %.not.i452.not = icmp sgt i32 %.14, %895
+  br i1 %.not.i452.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458, label %896
 
-895:                                              ; preds = %891
-  %896 = getelementptr i8, ptr %61, i64 -408
-  %897 = load i32, ptr %896, align 8, !tbaa !207
-  %898 = add nsw i32 %897, -3
-  %.not21.i454 = icmp slt i32 %889, %898
-  br i1 %.not21.i454, label %899, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458
+896:                                              ; preds = %892
+  %897 = getelementptr i8, ptr %61, i64 -408
+  %898 = load i32, ptr %897, align 8, !tbaa !207
+  %899 = add nsw i32 %898, -3
+  %.not21.i454 = icmp slt i32 %890, %899
+  br i1 %.not21.i454, label %900, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458
 
-899:                                              ; preds = %895
-  %900 = getelementptr i8, ptr %61, i64 -304
-  %901 = load ptr, ptr %900, align 8, !tbaa !122
-  %902 = getelementptr i8, ptr %61, i64 -248
-  %903 = load ptr, ptr %902, align 8, !tbaa !142
-  %904 = load i64, ptr %903, align 8, !tbaa !143
-  %905 = zext nneg i32 %889 to i64
-  %906 = mul i64 %904, %905
-  %907 = getelementptr inbounds nuw i8, ptr %901, i64 %906
-  %908 = zext nneg i32 %658 to i64
-  %909 = getelementptr inbounds nuw i8, ptr %907, i64 %908
-  %910 = load i8, ptr %909, align 1, !tbaa !75
-  %911 = icmp ugt i8 %910, 2
-  br i1 %911, label %926, label %912
+900:                                              ; preds = %896
+  %901 = getelementptr i8, ptr %61, i64 -304
+  %902 = load ptr, ptr %901, align 8, !tbaa !122
+  %903 = getelementptr i8, ptr %61, i64 -248
+  %904 = load ptr, ptr %903, align 8, !tbaa !142
+  %905 = load i64, ptr %904, align 8, !tbaa !143
+  %906 = zext nneg i32 %890 to i64
+  %907 = mul i64 %905, %906
+  %908 = getelementptr inbounds nuw i8, ptr %902, i64 %907
+  %909 = zext nneg i32 %659 to i64
+  %910 = getelementptr inbounds nuw i8, ptr %908, i64 %909
+  %911 = load i8, ptr %910, align 1, !tbaa !75
+  %912 = icmp ugt i8 %911, 2
+  br i1 %912, label %927, label %913
 
-912:                                              ; preds = %899
-  %913 = getelementptr i8, ptr %61, i64 -400
-  %914 = load ptr, ptr %913, align 8, !tbaa !122
-  %915 = getelementptr i8, ptr %61, i64 -344
-  %916 = load ptr, ptr %915, align 8, !tbaa !142
-  %917 = load i64, ptr %916, align 8, !tbaa !143
-  %918 = mul i64 %917, %905
-  %919 = getelementptr inbounds nuw i8, ptr %914, i64 %918
-  %920 = getelementptr inbounds nuw i8, ptr %919, i64 %908
-  %921 = getelementptr i8, ptr %61, i64 -100
-  %922 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %920, ptr noundef nonnull %921, i32 noundef 0)
-  %923 = trunc i32 %922 to i8
-  %924 = and i32 %922, 255
-  %925 = icmp eq i32 %924, 0
-  %spec.select.i455 = select i1 %925, i8 0, i8 %923
-  store i8 %spec.select.i455, ptr %909, align 1, !tbaa !75
-  br label %926
+913:                                              ; preds = %900
+  %914 = getelementptr i8, ptr %61, i64 -400
+  %915 = load ptr, ptr %914, align 8, !tbaa !122
+  %916 = getelementptr i8, ptr %61, i64 -344
+  %917 = load ptr, ptr %916, align 8, !tbaa !142
+  %918 = load i64, ptr %917, align 8, !tbaa !143
+  %919 = mul i64 %918, %906
+  %920 = getelementptr inbounds nuw i8, ptr %915, i64 %919
+  %921 = getelementptr inbounds nuw i8, ptr %920, i64 %909
+  %922 = getelementptr i8, ptr %61, i64 -100
+  %923 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %921, ptr noundef nonnull %922, i32 noundef 0)
+  %924 = trunc i32 %923 to i8
+  %925 = and i32 %923, 255
+  %926 = icmp eq i32 %925, 0
+  %spec.select.i455 = select i1 %926, i8 0, i8 %924
+  store i8 %spec.select.i455, ptr %910, align 1, !tbaa !75
+  br label %927
 
-926:                                              ; preds = %912, %899
-  %.1.in.i456 = phi i8 [ %spec.select.i455, %912 ], [ %910, %899 ]
+927:                                              ; preds = %913, %900
+  %.1.in.i456 = phi i8 [ %spec.select.i455, %913 ], [ %911, %900 ]
   %.1.i457 = zext i8 %.1.in.i456 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450, %891, %895, %926
-  %.0.i453 = phi i32 [ %.1.i457, %926 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450 ], [ 0, %895 ], [ 0, %891 ]
-  %or.cond.i459 = or i1 %890, %705
-  br i1 %or.cond.i459, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466, label %927
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450, %892, %896, %927
+  %.0.i453 = phi i32 [ %.1.i457, %927 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit450 ], [ 0, %896 ], [ 0, %892 ]
+  %or.cond.i459 = or i1 %891, %706
+  br i1 %or.cond.i459, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466, label %928
 
-927:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458
-  %928 = getelementptr i8, ptr %61, i64 -404
-  %929 = load i32, ptr %928, align 4, !tbaa !206
-  %930 = add nsw i32 %929, -3
-  %.not.i460 = icmp slt i32 %.14, %930
-  br i1 %.not.i460, label %931, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
+928:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458
+  %929 = getelementptr i8, ptr %61, i64 -404
+  %930 = load i32, ptr %929, align 4, !tbaa !206
+  %931 = add nsw i32 %930, -3
+  %.not.i460 = icmp slt i32 %.14, %931
+  br i1 %.not.i460, label %932, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
 
-931:                                              ; preds = %927
-  %932 = getelementptr i8, ptr %61, i64 -408
-  %933 = load i32, ptr %932, align 8, !tbaa !207
-  %934 = add nsw i32 %933, -3
-  %.not21.i462 = icmp slt i32 %889, %934
-  br i1 %.not21.i462, label %935, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
+932:                                              ; preds = %928
+  %933 = getelementptr i8, ptr %61, i64 -408
+  %934 = load i32, ptr %933, align 8, !tbaa !207
+  %935 = add nsw i32 %934, -3
+  %.not21.i462 = icmp slt i32 %890, %935
+  br i1 %.not21.i462, label %936, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
 
-935:                                              ; preds = %931
-  %936 = getelementptr i8, ptr %61, i64 -304
-  %937 = load ptr, ptr %936, align 8, !tbaa !122
-  %938 = getelementptr i8, ptr %61, i64 -248
-  %939 = load ptr, ptr %938, align 8, !tbaa !142
-  %940 = load i64, ptr %939, align 8, !tbaa !143
-  %941 = zext nneg i32 %889 to i64
-  %942 = mul i64 %940, %941
-  %943 = getelementptr inbounds nuw i8, ptr %937, i64 %942
-  %944 = zext nneg i32 %.14 to i64
-  %945 = getelementptr inbounds nuw i8, ptr %943, i64 %944
-  %946 = load i8, ptr %945, align 1, !tbaa !75
-  %947 = icmp ugt i8 %946, 2
-  br i1 %947, label %962, label %948
+936:                                              ; preds = %932
+  %937 = getelementptr i8, ptr %61, i64 -304
+  %938 = load ptr, ptr %937, align 8, !tbaa !122
+  %939 = getelementptr i8, ptr %61, i64 -248
+  %940 = load ptr, ptr %939, align 8, !tbaa !142
+  %941 = load i64, ptr %940, align 8, !tbaa !143
+  %942 = zext nneg i32 %890 to i64
+  %943 = mul i64 %941, %942
+  %944 = getelementptr inbounds nuw i8, ptr %938, i64 %943
+  %945 = zext nneg i32 %.14 to i64
+  %946 = getelementptr inbounds nuw i8, ptr %944, i64 %945
+  %947 = load i8, ptr %946, align 1, !tbaa !75
+  %948 = icmp ugt i8 %947, 2
+  br i1 %948, label %963, label %949
 
-948:                                              ; preds = %935
-  %949 = getelementptr i8, ptr %61, i64 -400
-  %950 = load ptr, ptr %949, align 8, !tbaa !122
-  %951 = getelementptr i8, ptr %61, i64 -344
-  %952 = load ptr, ptr %951, align 8, !tbaa !142
-  %953 = load i64, ptr %952, align 8, !tbaa !143
-  %954 = mul i64 %953, %941
-  %955 = getelementptr inbounds nuw i8, ptr %950, i64 %954
-  %956 = getelementptr inbounds nuw i8, ptr %955, i64 %944
-  %957 = getelementptr i8, ptr %61, i64 -100
-  %958 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %956, ptr noundef nonnull %957, i32 noundef 0)
-  %959 = trunc i32 %958 to i8
-  %960 = and i32 %958, 255
-  %961 = icmp eq i32 %960, 0
-  %spec.select.i463 = select i1 %961, i8 0, i8 %959
-  store i8 %spec.select.i463, ptr %945, align 1, !tbaa !75
-  br label %962
+949:                                              ; preds = %936
+  %950 = getelementptr i8, ptr %61, i64 -400
+  %951 = load ptr, ptr %950, align 8, !tbaa !122
+  %952 = getelementptr i8, ptr %61, i64 -344
+  %953 = load ptr, ptr %952, align 8, !tbaa !142
+  %954 = load i64, ptr %953, align 8, !tbaa !143
+  %955 = mul i64 %954, %942
+  %956 = getelementptr inbounds nuw i8, ptr %951, i64 %955
+  %957 = getelementptr inbounds nuw i8, ptr %956, i64 %945
+  %958 = getelementptr i8, ptr %61, i64 -100
+  %959 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %957, ptr noundef nonnull %958, i32 noundef 0)
+  %960 = trunc i32 %959 to i8
+  %961 = and i32 %959, 255
+  %962 = icmp eq i32 %961, 0
+  %spec.select.i463 = select i1 %962, i8 0, i8 %960
+  store i8 %spec.select.i463, ptr %946, align 1, !tbaa !75
+  br label %963
 
-962:                                              ; preds = %948, %935
-  %.1.in.i464 = phi i8 [ %spec.select.i463, %948 ], [ %946, %935 ]
+963:                                              ; preds = %949, %936
+  %.1.in.i464 = phi i8 [ %spec.select.i463, %949 ], [ %947, %936 ]
   %.1.i465 = zext i8 %.1.in.i464 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458, %927, %931, %962
-  %.0.i461 = phi i32 [ %.1.i465, %962 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458 ], [ 0, %931 ], [ 0, %927 ]
-  %or.cond.i467 = or i1 %890, %743
-  br i1 %or.cond.i467, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474, label %963
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458, %928, %932, %963
+  %.0.i461 = phi i32 [ %.1.i465, %963 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit458 ], [ 0, %932 ], [ 0, %928 ]
+  %or.cond.i467 = or i1 %891, %744
+  br i1 %or.cond.i467, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474, label %964
 
-963:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
-  %964 = getelementptr i8, ptr %61, i64 -404
-  %965 = load i32, ptr %964, align 4, !tbaa !206
-  %966 = add nsw i32 %965, -3
-  %.not.i468 = icmp slt i32 %742, %966
-  br i1 %.not.i468, label %967, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
+964:                                              ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466
+  %965 = getelementptr i8, ptr %61, i64 -404
+  %966 = load i32, ptr %965, align 4, !tbaa !206
+  %967 = add nsw i32 %966, -3
+  %.not.i468 = icmp slt i32 %743, %967
+  br i1 %.not.i468, label %968, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
 
-967:                                              ; preds = %963
-  %968 = getelementptr i8, ptr %61, i64 -408
-  %969 = load i32, ptr %968, align 8, !tbaa !207
-  %970 = add nsw i32 %969, -3
-  %.not21.i470 = icmp slt i32 %889, %970
-  br i1 %.not21.i470, label %971, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
+968:                                              ; preds = %964
+  %969 = getelementptr i8, ptr %61, i64 -408
+  %970 = load i32, ptr %969, align 8, !tbaa !207
+  %971 = add nsw i32 %970, -3
+  %.not21.i470 = icmp slt i32 %890, %971
+  br i1 %.not21.i470, label %972, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
 
-971:                                              ; preds = %967
-  %972 = getelementptr i8, ptr %61, i64 -304
-  %973 = load ptr, ptr %972, align 8, !tbaa !122
-  %974 = getelementptr i8, ptr %61, i64 -248
-  %975 = load ptr, ptr %974, align 8, !tbaa !142
-  %976 = load i64, ptr %975, align 8, !tbaa !143
-  %977 = zext nneg i32 %889 to i64
-  %978 = mul i64 %976, %977
-  %979 = getelementptr inbounds nuw i8, ptr %973, i64 %978
-  %980 = zext nneg i32 %742 to i64
-  %981 = getelementptr inbounds nuw i8, ptr %979, i64 %980
-  %982 = load i8, ptr %981, align 1, !tbaa !75
-  %983 = icmp ugt i8 %982, 2
-  br i1 %983, label %998, label %984
+972:                                              ; preds = %968
+  %973 = getelementptr i8, ptr %61, i64 -304
+  %974 = load ptr, ptr %973, align 8, !tbaa !122
+  %975 = getelementptr i8, ptr %61, i64 -248
+  %976 = load ptr, ptr %975, align 8, !tbaa !142
+  %977 = load i64, ptr %976, align 8, !tbaa !143
+  %978 = zext nneg i32 %890 to i64
+  %979 = mul i64 %977, %978
+  %980 = getelementptr inbounds nuw i8, ptr %974, i64 %979
+  %981 = zext nneg i32 %743 to i64
+  %982 = getelementptr inbounds nuw i8, ptr %980, i64 %981
+  %983 = load i8, ptr %982, align 1, !tbaa !75
+  %984 = icmp ugt i8 %983, 2
+  br i1 %984, label %999, label %985
 
-984:                                              ; preds = %971
-  %985 = getelementptr i8, ptr %61, i64 -400
-  %986 = load ptr, ptr %985, align 8, !tbaa !122
-  %987 = getelementptr i8, ptr %61, i64 -344
-  %988 = load ptr, ptr %987, align 8, !tbaa !142
-  %989 = load i64, ptr %988, align 8, !tbaa !143
-  %990 = mul i64 %989, %977
-  %991 = getelementptr inbounds nuw i8, ptr %986, i64 %990
-  %992 = getelementptr inbounds nuw i8, ptr %991, i64 %980
-  %993 = getelementptr i8, ptr %61, i64 -100
-  %994 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %992, ptr noundef nonnull %993, i32 noundef 0)
-  %995 = trunc i32 %994 to i8
-  %996 = and i32 %994, 255
-  %997 = icmp eq i32 %996, 0
-  %spec.select.i471 = select i1 %997, i8 0, i8 %995
-  store i8 %spec.select.i471, ptr %981, align 1, !tbaa !75
-  br label %998
+985:                                              ; preds = %972
+  %986 = getelementptr i8, ptr %61, i64 -400
+  %987 = load ptr, ptr %986, align 8, !tbaa !122
+  %988 = getelementptr i8, ptr %61, i64 -344
+  %989 = load ptr, ptr %988, align 8, !tbaa !142
+  %990 = load i64, ptr %989, align 8, !tbaa !143
+  %991 = mul i64 %990, %978
+  %992 = getelementptr inbounds nuw i8, ptr %987, i64 %991
+  %993 = getelementptr inbounds nuw i8, ptr %992, i64 %981
+  %994 = getelementptr i8, ptr %61, i64 -100
+  %995 = tail call noundef i32 @_ZN2cv17agast_cornerScoreILNS_20AgastFeatureDetector12DetectorTypeE3EEEiPKhPKii(ptr noundef nonnull %993, ptr noundef nonnull %994, i32 noundef 0)
+  %996 = trunc i32 %995 to i8
+  %997 = and i32 %995, 255
+  %998 = icmp eq i32 %997, 0
+  %spec.select.i471 = select i1 %998, i8 0, i8 %996
+  store i8 %spec.select.i471, ptr %982, align 1, !tbaa !75
+  br label %999
 
-998:                                              ; preds = %984, %971
-  %.1.in.i472 = phi i8 [ %spec.select.i471, %984 ], [ %982, %971 ]
+999:                                              ; preds = %985, %972
+  %.1.in.i472 = phi i8 [ %spec.select.i471, %985 ], [ %983, %972 ]
   %.1.i473 = zext i8 %.1.in.i472 to i32
   br label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
 
-_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466, %963, %967, %998
-  %.0.i469 = phi i32 [ %.1.i473, %998 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466 ], [ 0, %967 ], [ 0, %963 ]
+_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474:   ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466, %964, %968, %999
+  %.0.i469 = phi i32 [ %.1.i473, %999 ], [ 0, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit466 ], [ 0, %968 ], [ 0, %964 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %999 = call noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEiiiiiiiiiRfS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i405, i32 noundef %.0.i445, i32 noundef %.0.i453, i32 noundef %.0.i413, i32 noundef %.0.i437, i32 noundef %.0.i461, i32 noundef %.0.i421, i32 noundef %.0.i429, i32 noundef %.0.i469, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  %1000 = sitofp i32 %.14 to float
-  %1001 = load float, ptr %11, align 4, !tbaa !29
-  %1002 = fadd float %1001, %1000
-  %1003 = sitofp i32 %.11247 to float
-  %1004 = load float, ptr %12, align 4, !tbaa !29
-  %1005 = fadd float %1004, %1003
-  %1006 = fpext float %1002 to double
-  %1007 = sitofp i32 %2 to float
-  %1008 = fpext float %1005 to double
-  %1009 = sitofp i32 %3 to float
-  br i1 %14, label %1010, label %1015
+  %1000 = call noundef float @_ZNK2cv15BriskScaleSpace10subpixel2DEiiiiiiiiiRfS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i405, i32 noundef %.0.i445, i32 noundef %.0.i453, i32 noundef %.0.i413, i32 noundef %.0.i437, i32 noundef %.0.i461, i32 noundef %.0.i421, i32 noundef %.0.i429, i32 noundef %.0.i469, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
+  %1001 = sitofp i32 %.14 to float
+  %1002 = load float, ptr %11, align 4, !tbaa !29
+  %1003 = fadd float %1002, %1001
+  %1004 = sitofp i32 %.11247 to float
+  %1005 = load float, ptr %12, align 4, !tbaa !29
+  %1006 = fadd float %1005, %1004
+  %1007 = fpext float %1003 to double
+  %1008 = sitofp i32 %2 to float
+  %1009 = fpext float %1006 to double
+  %1010 = sitofp i32 %3 to float
+  br i1 %14, label %1011, label %1016
 
-1010:                                             ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
-  %1011 = call double @llvm.fmuladd.f64(double %1006, double 6.000000e+00, double 1.000000e+00)
-  %1012 = fmul double %1011, 1.250000e-01
-  %1013 = call double @llvm.fmuladd.f64(double %1008, double 6.000000e+00, double 1.000000e+00)
-  %1014 = fmul double %1013, 1.250000e-01
-  br label %1020
+1011:                                             ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
+  %1012 = call double @llvm.fmuladd.f64(double %1007, double 6.000000e+00, double 1.000000e+00)
+  %1013 = fmul double %1012, 1.250000e-01
+  %1014 = call double @llvm.fmuladd.f64(double %1009, double 6.000000e+00, double 1.000000e+00)
+  %1015 = fmul double %1014, 1.250000e-01
+  br label %1021
 
-1015:                                             ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
-  %1016 = call double @llvm.fmuladd.f64(double %1006, double 4.000000e+00, double -1.000000e+00)
-  %1017 = fdiv double %1016, 6.000000e+00
-  %1018 = call double @llvm.fmuladd.f64(double %1008, double 4.000000e+00, double -1.000000e+00)
-  %1019 = fdiv double %1018, 6.000000e+00
-  br label %1020
+1016:                                             ; preds = %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit474
+  %1017 = call double @llvm.fmuladd.f64(double %1007, double 4.000000e+00, double -1.000000e+00)
+  %1018 = fdiv double %1017, 6.000000e+00
+  %1019 = call double @llvm.fmuladd.f64(double %1009, double 4.000000e+00, double -1.000000e+00)
+  %1020 = fdiv double %1019, 6.000000e+00
+  br label %1021
 
-1020:                                             ; preds = %1015, %1010
-  %.sink640 = phi double [ %1019, %1015 ], [ %1014, %1010 ]
-  %.pn.in = phi double [ %1017, %1015 ], [ %1012, %1010 ]
+1021:                                             ; preds = %1016, %1011
+  %.sink639 = phi double [ %1020, %1016 ], [ %1015, %1011 ]
+  %.pn.in = phi double [ %1018, %1016 ], [ %1013, %1011 ]
   %.pn = fptrunc double %.pn.in to float
-  %.sink = fsub float %.pn, %1007
-  %1021 = fptrunc double %.sink640 to float
-  %1022 = fsub float %1021, %1009
+  %.sink = fsub float %.pn, %1008
+  %1022 = fptrunc double %.sink639 to float
+  %1023 = fsub float %1022, %1010
   store float %.sink, ptr %6, align 4, !tbaa !29
-  store float %1022, ptr %7, align 4, !tbaa !29
-  %1023 = load float, ptr %6, align 4, !tbaa !29
-  %1024 = fcmp ule float %1023, 1.000000e+00
-  br i1 %1024, label %1025, label %thread-pre-split
+  store float %1023, ptr %7, align 4, !tbaa !29
+  %1024 = load float, ptr %6, align 4, !tbaa !29
+  %1025 = fcmp ule float %1024, 1.000000e+00
+  br i1 %1025, label %1026, label %thread-pre-split
 
-1025:                                             ; preds = %1020
-  %1026 = fcmp olt float %1023, -1.000000e+00
-  br i1 %1026, label %thread-pre-split, label %1027
+1026:                                             ; preds = %1021
+  %1027 = fcmp olt float %1024, -1.000000e+00
+  br i1 %1027, label %thread-pre-split, label %1028
 
-thread-pre-split:                                 ; preds = %1025, %1020
-  %.sink641 = phi float [ 1.000000e+00, %1020 ], [ -1.000000e+00, %1025 ]
-  store float %.sink641, ptr %6, align 4, !tbaa !29
+thread-pre-split:                                 ; preds = %1026, %1021
+  %.sink640 = phi float [ 1.000000e+00, %1021 ], [ -1.000000e+00, %1026 ]
+  store float %.sink640, ptr %6, align 4, !tbaa !29
   %.pr = load float, ptr %7, align 4, !tbaa !29
-  br label %1027
+  br label %1028
 
-1027:                                             ; preds = %thread-pre-split, %1025
-  %1028 = phi float [ %.pr, %thread-pre-split ], [ %1022, %1025 ]
-  %.1 = phi i1 [ false, %thread-pre-split ], [ true, %1025 ]
-  %1029 = fcmp ogt float %1028, 1.000000e+00
-  br i1 %1029, label %.thread496, label %1030
+1028:                                             ; preds = %thread-pre-split, %1026
+  %1029 = phi float [ %.pr, %thread-pre-split ], [ %1023, %1026 ]
+  %.1 = phi i1 [ false, %thread-pre-split ], [ true, %1026 ]
+  %1030 = fcmp ogt float %1029, 1.000000e+00
+  br i1 %1030, label %.thread496, label %1031
 
-.thread496:                                       ; preds = %1027
+.thread496:                                       ; preds = %1028
   store float 1.000000e+00, ptr %7, align 4, !tbaa !29
   store i8 1, ptr %5, align 1, !tbaa !183
-  br label %1035
+  br label %1036
 
-1030:                                             ; preds = %1027
-  %1031 = fcmp olt float %1028, -1.000000e+00
-  br i1 %1031, label %.critedge274, label %1032
+1031:                                             ; preds = %1028
+  %1032 = fcmp olt float %1029, -1.000000e+00
+  br i1 %1032, label %.critedge274, label %1033
 
-.critedge274:                                     ; preds = %1030
+.critedge274:                                     ; preds = %1031
   store float -1.000000e+00, ptr %7, align 4, !tbaa !29
   store i8 1, ptr %5, align 1, !tbaa !183
-  br label %1035
+  br label %1036
 
-1032:                                             ; preds = %1030
+1033:                                             ; preds = %1031
   store i8 1, ptr %5, align 1, !tbaa !183
-  br i1 %.1, label %1033, label %1035
+  br i1 %.1, label %1034, label %1036
 
-1033:                                             ; preds = %1032
-  %1034 = fcmp olt float %999, %.0..0.484
-  %.5.pre = select i1 %1034, float %.0..0.484, float %999
-  br label %1035
+1034:                                             ; preds = %1033
+  %1035 = fcmp olt float %1000, %.0..0.484
+  %.5.pre = select i1 %1035, float %.0..0.484, float %1000
+  br label %1036
 
-1035:                                             ; preds = %.thread496, %1032, %.critedge274, %1033
-  %.5 = phi float [ %.5.pre, %1033 ], [ %.0..0.484, %.critedge274 ], [ %.0..0.484, %1032 ], [ %.0..0.484, %.thread496 ]
+1036:                                             ; preds = %.thread496, %1033, %.critedge274, %1034
+  %.5 = phi float [ %.5.pre, %1034 ], [ %.0..0.484, %.critedge274 ], [ %.0..0.484, %1033 ], [ %.0..0.484, %.thread496 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread489
 
-.thread489:                                       ; preds = %.lr.ph, %.lr.ph541.split, %..critedge272_crit_edge, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge272.us, %.lr.ph541.split.us, %.critedge, %57, %1035
-  %.0220 = phi float [ %.5, %1035 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %.lr.ph541.split.us ], [ 0.000000e+00, %.critedge272.us ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %..critedge272_crit_edge ], [ 0.000000e+00, %.lr.ph541.split ], [ 0.000000e+00, %.lr.ph ]
+.thread489:                                       ; preds = %.lr.ph, %.critedge272.us, %.lr.ph541.split.us, %.lr.ph541.split, %..critedge272_crit_edge, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge, %57, %1036
+  %.0220 = phi float [ %.5, %1036 ], [ 0.000000e+00, %57 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %..critedge272_crit_edge ], [ 0.000000e+00, %.lr.ph541.split ], [ 0.000000e+00, %.lr.ph541.split.us ], [ 0.000000e+00, %.critedge272.us ], [ 0.000000e+00, %.lr.ph ]
   ret float %.0220
 }
 
@@ -11360,10 +11365,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.0172 = phi float [ %40, %33 ], [ %55, %48 ]
   %.0171 = phi float [ %37, %33 ], [ %52, %48 ]
   %64 = fptosi float %.0171 to i32
-  %65 = add nsw i32 %64, 1
+  %.fr385 = freeze i32 %64
+  %65 = add nsw i32 %.fr385, 1
   %66 = fptosi float %.0173 to i32
-  %.fr385 = freeze i32 %66
-  %67 = add i32 %.fr385, 1
+  %.fr387 = freeze i32 %66
+  %67 = add i32 %.fr387, 1
   %68 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %30, float noundef %.0171, float noundef %.0173, i32 noundef 1, float noundef 1.000000e+00)
   %69 = sitofp i32 %68 to float
   %70 = sitofp i32 %4 to float
@@ -11372,7 +11378,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 .preheader:                                       ; preds = %63
   %72 = fptosi float %.0172 to i32
-  %.not328.not = icmp slt i32 %64, %72
+  %.fr386 = freeze i32 %72
+  %.not328.not = icmp slt i32 %.fr385, %.fr386
   br i1 %.not328.not, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %78
@@ -11390,7 +11397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %80 = select i1 %79, float %76, float %73
   %.1178 = select i1 %79, i32 %.0199329, i32 %.0177330
   %81 = add i32 %.0199329, 1
-  %exitcond.not = icmp eq i32 %.0199329, %72
+  %exitcond.not = icmp eq i32 %.0199329, %.fr386
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !239
 
 .critedge:                                        ; preds = %78, %.preheader
@@ -11404,15 +11411,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 85:                                               ; preds = %.critedge
   %86 = fcmp olt float %.0..0.292, %83
   %.0..promoted353 = select i1 %86, float %83, float %.0..0.292
-  %.2179 = select i1 %86, i32 %72, i32 %.0177.lcssa
+  %.2179 = select i1 %86, i32 %.fr386, i32 %.0177.lcssa
   %87 = fptosi float %.0174 to i32
-  %.not212359.not = icmp slt i32 %.fr385, %87
+  %.not212359.not = icmp slt i32 %.fr387, %87
   br i1 %.not212359.not, label %.lr.ph365, label %.thread
 
 .lr.ph365:                                        ; preds = %85
   %88 = fadd float %.0171, 1.000000e+00
   %89 = fptosi float %88 to i32
-  %.not213337 = icmp sge i32 %64, %72
   %90 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %91 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %92 = getelementptr inbounds nuw i8, ptr %30, i64 112
@@ -11421,8 +11427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %95 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %96 = getelementptr inbounds nuw i8, ptr %30, i64 316
   %97 = icmp slt i32 %4, 0
-  %.not213337.fr = freeze i1 %.not213337
-  br i1 %.not213337.fr, label %.lr.ph365.split.us, label %.lr.ph365.split
+  br i1 %.not328.not, label %.lr.ph365.split, label %.lr.ph365.split.us
 
 .lr.ph365.split.us:                               ; preds = %.lr.ph365, %105
   %.3180364.us = phi i32 [ %.8.us, %105 ], [ %.2179, %.lr.ph365 ]
@@ -11449,10 +11454,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.0.i335.lcssa356.us = select i1 %107, float %103, float %.0.i335.lcssa354.us
   %108 = or i1 %107, %106
   %.5188.us = select i1 %108, i32 %.0198361.us, i32 %.0183363.us
-  %.8.us = select i1 %107, i32 %72, i32 %.5182.us
+  %.8.us = select i1 %107, i32 %.fr386, i32 %.5182.us
   %109 = add i32 %.0198361.us, 1
-  %exitcond397.not = icmp eq i32 %.0198361.us, %87
-  br i1 %exitcond397.not, label %.thread, label %.lr.ph365.split.us, !llvm.loop !240
+  %exitcond399.not = icmp eq i32 %.0198361.us, %87
+  br i1 %exitcond399.not, label %.thread, label %.lr.ph365.split.us, !llvm.loop !240
 
 .lr.ph365.split:                                  ; preds = %.lr.ph365, %156
   %.3180364 = phi i32 [ %.8, %156 ], [ %.2179, %.lr.ph365 ]
@@ -11486,9 +11491,9 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit.us:   ; preds = %.lr.ph342.split.us,
   %.0.i334.us = select i1 %117, float 0.000000e+00, float %.0.i335338.us
   %.4187.us = select i1 %117, i32 %.0198361, i32 %.3186340.us
   %.7.us = select i1 %117, i32 %.0197339.us, i32 %.6341.us
-  %118 = add nsw i32 %.0197339.us, 1
-  %.not213.us.not = icmp slt i32 %.0197339.us, %72
-  br i1 %.not213.us.not, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit.us, label %..critedge216_crit_edge, !llvm.loop !241
+  %118 = add i32 %.0197339.us, 1
+  %exitcond401.not = icmp eq i32 %.0197339.us, %.fr386
+  br i1 %exitcond401.not, label %..critedge216_crit_edge, label %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit.us, !llvm.loop !241
 
 .lr.ph342.split:                                  ; preds = %.lr.ph342, %150
   %.6341 = phi i32 [ %.7, %150 ], [ %.5182, %.lr.ph342 ]
@@ -11552,9 +11557,9 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %.lr.ph342.split, %1
   %.0.i334 = select i1 %151, float %.0.i, float %.0.i335338
   %.4187 = select i1 %151, i32 %.0198361, i32 %.3186340
   %.7 = select i1 %151, i32 %.0197339, i32 %.6341
-  %152 = add nsw i32 %.0197339, 1
-  %.not213.not = icmp slt i32 %.0197339, %72
-  br i1 %.not213.not, label %.lr.ph342.split, label %..critedge216_crit_edge, !llvm.loop !241
+  %152 = add i32 %.0197339, 1
+  %exitcond400.not = icmp eq i32 %.0197339, %.fr386
+  br i1 %exitcond400.not, label %..critedge216_crit_edge, label %.lr.ph342.split, !llvm.loop !241
 
 ..critedge216_crit_edge:                          ; preds = %150, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit.us
   %.us-phi346 = phi float [ %.0.i334.us, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit.us ], [ %.0.i334, %150 ]
@@ -11569,15 +11574,15 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %.lr.ph342.split, %1
   %157 = fcmp olt float %.us-phi346, %154
   %.0.i335.lcssa356 = select i1 %157, float %154, float %.us-phi346
   %.5188 = select i1 %157, i32 %.0198361, i32 %.us-phi347
-  %.8 = select i1 %157, i32 %72, i32 %.us-phi348
+  %.8 = select i1 %157, i32 %.fr386, i32 %.us-phi348
   %158 = add i32 %.0198361, 1
   %.not212 = icmp sgt i32 %158, %87
   br i1 %.not212, label %.thread, label %.lr.ph365.split, !llvm.loop !240
 
-.thread:                                          ; preds = %156, %105, %85
-  %.0.i335.lcssa355.lcssa = phi float [ %.0..promoted353, %85 ], [ %.0.i335.lcssa356.us, %105 ], [ %.0.i335.lcssa356, %156 ]
-  %.0183.lcssa = phi i32 [ %67, %85 ], [ %.5188.us, %105 ], [ %.5188, %156 ]
-  %.3180.lcssa = phi i32 [ %.2179, %85 ], [ %.8.us, %105 ], [ %.8, %156 ]
+.thread:                                          ; preds = %105, %156, %85
+  %.0.i335.lcssa355.lcssa = phi float [ %.0..promoted353, %85 ], [ %.0.i335.lcssa356, %156 ], [ %.0.i335.lcssa356.us, %105 ]
+  %.0183.lcssa = phi i32 [ %67, %85 ], [ %.5188, %156 ], [ %.5188.us, %105 ]
+  %.3180.lcssa = phi i32 [ %.2179, %85 ], [ %.8, %156 ], [ %.8.us, %105 ]
   %159 = tail call noundef i32 @_ZNK2cv10BriskLayer13getAgastScoreEffif(ptr noundef nonnull align 8 dereferenceable(416) %30, float noundef %.0171, float noundef %.0174, i32 noundef 1, float noundef 1.000000e+00)
   %160 = sitofp i32 %159 to float
   %161 = fcmp olt float %.0.i335.lcssa355.lcssa, %160
@@ -11597,7 +11602,7 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %.lr.ph342.split, %1
   %166 = fcmp olt float %.lcssa376, %165
   %.0..0.299 = select i1 %166, float %165, float %.lcssa376
   %.9192 = select i1 %166, i32 %87, i32 %.7190.lcssa
-  %.12 = select i1 %166, i32 %72, i32 %.10.lcssa
+  %.12 = select i1 %166, i32 %.fr386, i32 %.10.lcssa
   %167 = add nsw i32 %.12, -1
   %168 = add nsw i32 %.9192, -1
   %169 = icmp slt i32 %.12, 4
@@ -11618,8 +11623,8 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit:      ; preds = %.lr.ph342.split, %1
   %.8191 = select i1 %175, i32 %87, i32 %.7190379
   %.11 = select i1 %175, i32 %.0196378, i32 %.10380
   %177 = add i32 %.0196378, 1
-  %exitcond398.not = icmp eq i32 %.0196378, %72
-  br i1 %exitcond398.not, label %._crit_edge, label %.lr.ph381, !llvm.loop !242
+  %exitcond402.not = icmp eq i32 %.0196378, %.fr386
+  br i1 %exitcond402.not, label %._crit_edge, label %.lr.ph381, !llvm.loop !242
 
 178:                                              ; preds = %._crit_edge
   %179 = getelementptr inbounds nuw i8, ptr %30, i64 12
@@ -12165,10 +12170,10 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit290:   ; preds = %_ZNK2cv10BriskLayer
   br label %527
 
 527:                                              ; preds = %522, %517
-  %.sink443 = phi float [ %526, %522 ], [ %521, %517 ]
+  %.sink446 = phi float [ %526, %522 ], [ %521, %517 ]
   %.pn = phi float [ %524, %522 ], [ %519, %517 ]
   %.sink = fsub float %.pn, %515
-  %528 = fsub float %.sink443, %516
+  %528 = fsub float %.sink446, %516
   store float %.sink, ptr %6, align 4, !tbaa !29
   store float %528, ptr %7, align 4, !tbaa !29
   %529 = load float, ptr %6, align 4, !tbaa !29
@@ -12180,8 +12185,8 @@ _ZNK2cv10BriskLayer13getAgastScoreEiii.exit290:   ; preds = %_ZNK2cv10BriskLayer
   br i1 %532, label %thread-pre-split, label %533
 
 thread-pre-split:                                 ; preds = %531, %527
-  %.sink444 = phi float [ 1.000000e+00, %527 ], [ -1.000000e+00, %531 ]
-  store float %.sink444, ptr %6, align 4, !tbaa !29
+  %.sink447 = phi float [ 1.000000e+00, %527 ], [ -1.000000e+00, %531 ]
+  store float %.sink447, ptr %6, align 4, !tbaa !29
   %.pr = load float, ptr %7, align 4, !tbaa !29
   br label %533
 
@@ -12220,8 +12225,8 @@ thread-pre-split:                                 ; preds = %531, %527
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread304
 
-.thread304:                                       ; preds = %.lr.ph, %.lr.ph365.split, %..critedge216_crit_edge, %.lr.ph342.split.us, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge216.us, %.lr.ph365.split.us, %.critedge, %63, %541
-  %.0167 = phi float [ %.5, %541 ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %.lr.ph365.split.us ], [ 0.000000e+00, %.critedge216.us ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph342.split.us ], [ 0.000000e+00, %..critedge216_crit_edge ], [ 0.000000e+00, %.lr.ph365.split ], [ 0.000000e+00, %.lr.ph ]
+.thread304:                                       ; preds = %.lr.ph, %.critedge216.us, %.lr.ph365.split.us, %.lr.ph365.split, %..critedge216_crit_edge, %.lr.ph342.split.us, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit, %.critedge, %63, %541
+  %.0167 = phi float [ %.5, %541 ], [ 0.000000e+00, %63 ], [ 0.000000e+00, %.critedge ], [ 0.000000e+00, %_ZNK2cv10BriskLayer13getAgastScoreEiii.exit ], [ 0.000000e+00, %.lr.ph342.split.us ], [ 0.000000e+00, %..critedge216_crit_edge ], [ 0.000000e+00, %.lr.ph365.split ], [ 0.000000e+00, %.lr.ph365.split.us ], [ 0.000000e+00, %.critedge216.us ], [ 0.000000e+00, %.lr.ph ]
   ret float %.0167
 }
 

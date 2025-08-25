@@ -59670,14 +59670,14 @@ _ZL19checkVerifyPrefixesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %.lr.ph.i.i.i.i.i642
 
 .lr.ph.i.i.i.i.i642:                              ; preds = %931, %.lr.ph.preheader.i.i.i.i.i
-  %.070.i.i.i.i.i = phi i64 [ %933, %931 ], [ %898, %.lr.ph.preheader.i.i.i.i.i ]
-  %.sroa.037.069.i.i.i.i.i = phi ptr [ %932, %931 ], [ %.val.i, %.lr.ph.preheader.i.i.i.i.i ]
-  %901 = load i8, ptr %.sroa.037.069.i.i.i.i.i, align 1, !tbaa !56
+  %.069.i.i.i.i.i = phi i64 [ %933, %931 ], [ %898, %.lr.ph.preheader.i.i.i.i.i ]
+  %.sroa.037.068.i.i.i.i.i = phi ptr [ %932, %931 ], [ %.val.i, %.lr.ph.preheader.i.i.i.i.i ]
+  %901 = load i8, ptr %.sroa.037.068.i.i.i.i.i, align 1, !tbaa !56
   %902 = zext i8 %901 to i64
   %903 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %902
   %904 = load i16, ptr %903, align 2, !tbaa !1718
-  %.fr55.i.i.i.i.i = freeze i16 %904
-  %905 = and i16 %.fr55.i.i.i.i.i, 104
+  %.fr54.i.i.i.i.i = freeze i16 %904
+  %905 = and i16 %.fr54.i.i.i.i.i, 104
   %906 = icmp eq i16 %905, 0
   br i1 %906, label %switch.early.test.i.i.i.i.i, label %907
 
@@ -59688,13 +59688,13 @@ switch.early.test.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i642
   ]
 
 907:                                              ; preds = %switch.early.test.i.i.i.i.i, %switch.early.test.i.i.i.i.i, %.lr.ph.i.i.i.i.i642
-  %908 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 1
+  %908 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 1
   %909 = load i8, ptr %908, align 1, !tbaa !56
   %910 = zext i8 %909 to i64
   %911 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %910
   %912 = load i16, ptr %911, align 2, !tbaa !1718
-  %.fr56.i.i.i.i.i = freeze i16 %912
-  %913 = and i16 %.fr56.i.i.i.i.i, 104
+  %.fr55.i.i.i.i.i = freeze i16 %912
+  %913 = and i16 %.fr55.i.i.i.i.i, 104
   %914 = icmp eq i16 %913, 0
   br i1 %914, label %switch.early.test46.i.i.i.i.i, label %915
 
@@ -59705,13 +59705,13 @@ switch.early.test46.i.i.i.i.i:                    ; preds = %907
   ]
 
 915:                                              ; preds = %switch.early.test46.i.i.i.i.i, %switch.early.test46.i.i.i.i.i, %907
-  %916 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 2
+  %916 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 2
   %917 = load i8, ptr %916, align 1, !tbaa !56
   %918 = zext i8 %917 to i64
   %919 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %918
   %920 = load i16, ptr %919, align 2, !tbaa !1718
-  %.fr57.i.i.i.i.i = freeze i16 %920
-  %921 = and i16 %.fr57.i.i.i.i.i, 104
+  %.fr56.i.i.i.i.i = freeze i16 %920
+  %921 = and i16 %.fr56.i.i.i.i.i, 104
   %922 = icmp eq i16 %921, 0
   br i1 %922, label %switch.early.test47.i.i.i.i.i, label %923
 
@@ -59722,13 +59722,13 @@ switch.early.test47.i.i.i.i.i:                    ; preds = %915
   ]
 
 923:                                              ; preds = %switch.early.test47.i.i.i.i.i, %switch.early.test47.i.i.i.i.i, %915
-  %924 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 3
+  %924 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 3
   %925 = load i8, ptr %924, align 1, !tbaa !56
   %926 = zext i8 %925 to i64
   %927 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %926
   %928 = load i16, ptr %927, align 2, !tbaa !1718
-  %.fr58.i.i.i.i.i = freeze i16 %928
-  %929 = and i16 %.fr58.i.i.i.i.i, 104
+  %.fr57.i.i.i.i.i = freeze i16 %928
+  %929 = and i16 %.fr57.i.i.i.i.i, 104
   %930 = icmp eq i16 %929, 0
   br i1 %930, label %switch.early.test48.i.i.i.i.i, label %931
 
@@ -59739,9 +59739,9 @@ switch.early.test48.i.i.i.i.i:                    ; preds = %923
   ]
 
 931:                                              ; preds = %switch.early.test48.i.i.i.i.i, %switch.early.test48.i.i.i.i.i, %923
-  %932 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 4
-  %933 = add nsw i64 %.070.i.i.i.i.i, -1
-  %934 = icmp sgt i64 %.070.i.i.i.i.i, 1
+  %932 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 4
+  %933 = add nsw i64 %.069.i.i.i.i.i, -1
+  %934 = icmp sgt i64 %.069.i.i.i.i.i, 1
   br i1 %934, label %.lr.ph.i.i.i.i.i642, label %._crit_edge.i.i.i.i.i, !llvm.loop !1719
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %931, %894
@@ -59759,8 +59759,8 @@ switch.early.test48.i.i.i.i.i:                    ; preds = %923
   %938 = zext i8 %937 to i64
   %939 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %938
   %940 = load i16, ptr %939, align 2, !tbaa !1718
-  %.fr52.i.i.i.i.i = freeze i16 %940
-  %941 = and i16 %.fr52.i.i.i.i.i, 104
+  %.fr.i.i.i.i.i = freeze i16 %940
+  %941 = and i16 %.fr.i.i.i.i.i, 104
   %942 = icmp eq i16 %941, 0
   br i1 %942, label %switch.early.test49.i.i.i.i.i, label %943
 
@@ -59780,8 +59780,8 @@ switch.early.test49.i.i.i.i.i:                    ; preds = %936
   %947 = zext i8 %946 to i64
   %948 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %947
   %949 = load i16, ptr %948, align 2, !tbaa !1718
-  %.fr53.i.i.i.i.i = freeze i16 %949
-  %950 = and i16 %.fr53.i.i.i.i.i, 104
+  %.fr52.i.i.i.i.i = freeze i16 %949
+  %950 = and i16 %.fr52.i.i.i.i.i, 104
   %951 = icmp eq i16 %950, 0
   br i1 %951, label %switch.early.test50.i.i.i.i.i, label %952
 
@@ -59801,8 +59801,8 @@ switch.early.test50.i.i.i.i.i:                    ; preds = %945
   %956 = zext i8 %955 to i64
   %957 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %956
   %958 = load i16, ptr %957, align 2, !tbaa !1718
-  %.fr54.i.i.i.i.i = freeze i16 %958
-  %959 = and i16 %.fr54.i.i.i.i.i, 104
+  %.fr53.i.i.i.i.i = freeze i16 %958
+  %959 = and i16 %.fr53.i.i.i.i.i, 104
   %960 = icmp eq i16 %959, 0
   br i1 %960, label %switch.early.test51.i.i.i.i.i, label %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.thread.i"
 
@@ -59813,19 +59813,19 @@ switch.early.test51.i.i.i.i.i:                    ; preds = %954
   ]
 
 "_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %switch.early.test46.i.i.i.i.i
-  %961 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 1
+  %961 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 1
   br label %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i"
 
 "_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1301": ; preds = %switch.early.test47.i.i.i.i.i
-  %962 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 2
+  %962 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 2
   br label %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i"
 
 "_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1303": ; preds = %switch.early.test48.i.i.i.i.i
-  %963 = getelementptr inbounds nuw i8, ptr %.sroa.037.069.i.i.i.i.i, i64 3
+  %963 = getelementptr inbounds nuw i8, ptr %.sroa.037.068.i.i.i.i.i, i64 3
   br label %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i"
 
 "_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i": ; preds = %switch.early.test.i.i.i.i.i, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1301", %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1303", %switch.early.test51.i.i.i.i.i, %switch.early.test50.i.i.i.i.i, %switch.early.test49.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %switch.early.test49.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %switch.early.test50.i.i.i.i.i ], [ %.sroa.037.2.i.i.i.i.i, %switch.early.test51.i.i.i.i.i ], [ %961, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %962, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1301" ], [ %963, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1303" ], [ %.sroa.037.069.i.i.i.i.i, %switch.early.test.i.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.037.0.lcssa.i.i.i.i.i, %switch.early.test49.i.i.i.i.i ], [ %.sroa.037.1.i.i.i.i.i, %switch.early.test50.i.i.i.i.i ], [ %.sroa.037.2.i.i.i.i.i, %switch.early.test51.i.i.i.i.i ], [ %961, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit" ], [ %962, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1301" ], [ %963, %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.i.loopexit.split.loop.exit1303" ], [ %.sroa.037.068.i.i.i.i.i, %switch.early.test.i.i.i.i.i ]
   %.not7.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %896
   br i1 %.not7.i, label %"_ZN4llvm7find_ifIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZL19checkVerifyPrefixesRKSt6vectorIS6_SaIS6_EERN5clang17DiagnosticsEngineEE3$_0EEDaOT_T0_.exit.thread.i", label %.critedge.i
 
@@ -61633,10 +61633,10 @@ define dso_local void @_ZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_
   %377 = alloca %"class.std::__cxx11::basic_string", align 8
   %378 = alloca %"class.std::__cxx11::basic_string", align 8
   %379 = alloca %"class.llvm::Twine", align 8
-  %.fr4164 = freeze i32 %4
-  %380 = and i32 %.fr4164, 1792
+  %.fr = freeze i32 %4
+  %380 = and i32 %.fr, 1792
   %381 = icmp eq i32 %380, 512
-  %382 = and i32 %.fr4164, 254
+  %382 = and i32 %.fr, 254
   %switch4162 = icmp eq i32 %382, 2
   %or.cond4163 = or i1 %381, %switch4162
   br i1 %or.cond4163, label %383, label %463
@@ -61706,11 +61706,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i32 %417, ptr %306, align 8, !tbaa !56
   call fastcc void @_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierES3_(ptr %1, i64 %2, i32 3053, ptr noundef nonnull align 8 dereferenceable(34) %306)
   call void @llvm.lifetime.end.p0(ptr nonnull %306)
-  %.pre4415 = load i64, ptr %411, align 8
+  %.pre4414 = load i64, ptr %411, align 8
   br label %420
 
 420:                                              ; preds = %414, %410
-  %421 = phi i64 [ %.pre4415, %414 ], [ %412, %410 ]
+  %421 = phi i64 [ %.pre4414, %414 ], [ %412, %410 ]
   %422 = and i64 %421, 137438953472
   %.not337 = icmp eq i64 %422, 0
   br i1 %.not337, label %446, label %423
@@ -61770,38 +61770,38 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   %451 = load ptr, ptr %307, align 8, !tbaa !106
   %452 = load i32, ptr %449, align 8, !tbaa !107
   %453 = zext i32 %452 to i64
-  %.idx4216 = shl nuw nsw i64 %453, 4
-  %454 = getelementptr inbounds nuw i8, ptr %451, i64 %.idx4216
-  %.not3384211 = icmp eq i32 %452, 0
-  br i1 %.not3384211, label %._crit_edge4215, label %.lr.ph4214
+  %.idx4215 = shl nuw nsw i64 %453, 4
+  %454 = getelementptr inbounds nuw i8, ptr %451, i64 %.idx4215
+  %.not3384210 = icmp eq i32 %452, 0
+  br i1 %.not3384210, label %._crit_edge4214, label %.lr.ph4213
 
-.lr.ph4214:                                       ; preds = %446
+.lr.ph4213:                                       ; preds = %446
   %455 = getelementptr inbounds nuw i8, ptr %308, i64 32
   %456 = getelementptr inbounds nuw i8, ptr %308, i64 33
   %457 = getelementptr inbounds nuw i8, ptr %308, i64 8
   br label %461
 
-._crit_edge4215.loopexit:                         ; preds = %461
-  %.pre4416 = load ptr, ptr %307, align 8, !tbaa !106
-  br label %._crit_edge4215
+._crit_edge4214.loopexit:                         ; preds = %461
+  %.pre4415 = load ptr, ptr %307, align 8, !tbaa !106
+  br label %._crit_edge4214
 
-._crit_edge4215:                                  ; preds = %._crit_edge4215.loopexit, %446
-  %458 = phi ptr [ %.pre4416, %._crit_edge4215.loopexit ], [ %451, %446 ]
+._crit_edge4214:                                  ; preds = %._crit_edge4214.loopexit, %446
+  %458 = phi ptr [ %.pre4415, %._crit_edge4214.loopexit ], [ %451, %446 ]
   %459 = icmp eq ptr %458, %448
   br i1 %459, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit, label %460
 
-460:                                              ; preds = %._crit_edge4215
+460:                                              ; preds = %._crit_edge4214
   call void @free(ptr noundef %458) #25
   br label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit: ; preds = %._crit_edge4215, %460
+_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit: ; preds = %._crit_edge4214, %460
   call void @llvm.lifetime.end.p0(ptr nonnull %307)
   br label %4014
 
-461:                                              ; preds = %.lr.ph4214, %461
-  %.04212 = phi ptr [ %451, %.lr.ph4214 ], [ %462, %461 ]
-  %.sroa.03537.0.copyload = load ptr, ptr %.04212, align 8, !tbaa !484
-  %.sroa.43538.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.04212, i64 8
+461:                                              ; preds = %.lr.ph4213, %461
+  %.04211 = phi ptr [ %451, %.lr.ph4213 ], [ %462, %461 ]
+  %.sroa.03537.0.copyload = load ptr, ptr %.04211, align 8, !tbaa !484
+  %.sroa.43538.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.04211, i64 8
   %.sroa.43538.0.copyload = load i64, ptr %.sroa.43538.0..0.sroa_idx, align 8, !tbaa !379
   call void @llvm.lifetime.start.p0(ptr nonnull %308)
   store i8 5, ptr %455, align 8, !tbaa !637
@@ -61810,9 +61810,9 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit: ; preds = %._crit_edge4215, 
   store i64 %.sroa.43538.0.copyload, ptr %457, align 8, !tbaa !56
   call fastcc void @_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierES3_(ptr %1, i64 %2, i32 1736, ptr noundef nonnull align 8 dereferenceable(34) %308)
   call void @llvm.lifetime.end.p0(ptr nonnull %308)
-  %462 = getelementptr inbounds nuw i8, ptr %.04212, i64 16
+  %462 = getelementptr inbounds nuw i8, ptr %.04211, i64 16
   %.not338 = icmp eq ptr %462, %454
-  br i1 %.not338, label %._crit_edge4215.loopexit, label %461
+  br i1 %.not338, label %._crit_edge4214.loopexit, label %461
 
 463:                                              ; preds = %5
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -61951,18 +61951,18 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 22, ptr %532, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %301) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %301)
-  %.pre4296 = load i64, ptr %524, align 8
+  %.pre4295 = load i64, ptr %524, align 8
   %.val345.val.val.pre = load i64, ptr %0, align 8
-  %.pre4417 = and i64 %.val345.val.val.pre, 65536
-  %.pre4418 = and i64 %.pre4296, 4
+  %.pre4416 = and i64 %.val345.val.val.pre, 65536
+  %.pre4417 = and i64 %.pre4295, 4
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_0clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_0clIjEEDaRKT_.exit": ; preds = %523, %529
-  %.pre-phi4419 = phi i64 [ %527, %523 ], [ %.pre4418, %529 ]
-  %.pre-phi = phi i64 [ %526, %523 ], [ %.pre4417, %529 ]
+  %.pre-phi4418 = phi i64 [ %527, %523 ], [ %.pre4417, %529 ]
+  %.pre-phi = phi i64 [ %526, %523 ], [ %.pre4416, %529 ]
   %.not.i943 = icmp eq i64 %.pre-phi, 0
-  %or.cond.i9444165 = icmp eq i64 %.pre-phi4419, 0
-  %or.cond.i944 = select i1 %.not.i943, i1 true, i1 %or.cond.i9444165
+  %or.cond.i9444164 = icmp eq i64 %.pre-phi4418, 0
+  %or.cond.i944 = select i1 %.not.i943, i1 true, i1 %or.cond.i9444164
   br i1 %or.cond.i944, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_1clIjEEDaRKT_.exit", label %533
 
 533:                                              ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_0clIjEEDaRKT_.exit"
@@ -62004,13 +62004,13 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 23, ptr %550, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %299) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %299)
-  %.pre4298 = load i64, ptr %537, align 8
+  %.pre4297 = load i64, ptr %537, align 8
   %.val351.val.val.pre = load i64, ptr %541, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_2clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_2clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_1clIjEEDaRKT_.exit", %547
   %.val351.val.val = phi i64 [ %.val348.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_1clIjEEDaRKT_.exit" ], [ %.val351.val.val.pre, %547 ]
-  %551 = phi i64 [ %538, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_1clIjEEDaRKT_.exit" ], [ %.pre4298, %547 ]
+  %551 = phi i64 [ %538, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_1clIjEEDaRKT_.exit" ], [ %.pre4297, %547 ]
   %552 = and i64 %551, 128
   %.not1.i952 = icmp eq i64 %552, 0
   %553 = and i64 %.val351.val.val, 68719476736
@@ -62092,11 +62092,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 29, ptr %577, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %296) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %296)
-  %.pre4300 = load i64, ptr %471, align 8
+  %.pre4299 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_5clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_5clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_4clIjEEDaRKT_.exit", %574
-  %578 = phi i64 [ %572, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_4clIjEEDaRKT_.exit" ], [ %.pre4300, %574 ]
+  %578 = phi i64 [ %572, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_4clIjEEDaRKT_.exit" ], [ %.pre4299, %574 ]
   %579 = and i64 %578, 2097152
   %.not.i965 = icmp eq i64 %579, 0
   br i1 %.not.i965, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_6clIjEEDaRKT_.exit", label %580
@@ -62112,11 +62112,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 29, ptr %583, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %295) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %295)
-  %.pre4301 = load i64, ptr %471, align 8
+  %.pre4300 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_6clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_6clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_5clIjEEDaRKT_.exit", %580
-  %584 = phi i64 [ %578, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_5clIjEEDaRKT_.exit" ], [ %.pre4301, %580 ]
+  %584 = phi i64 [ %578, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_5clIjEEDaRKT_.exit" ], [ %.pre4300, %580 ]
   %585 = and i64 %584, 524288
   %.not.i969 = icmp eq i64 %585, 0
   br i1 %.not.i969, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_7clIjEEDaRKT_.exit", label %586
@@ -62132,11 +62132,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 21, ptr %589, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %294) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %294)
-  %.pre4302 = load i64, ptr %471, align 8
+  %.pre4301 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_7clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_7clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_6clIjEEDaRKT_.exit", %586
-  %590 = phi i64 [ %584, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_6clIjEEDaRKT_.exit" ], [ %.pre4302, %586 ]
+  %590 = phi i64 [ %584, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_6clIjEEDaRKT_.exit" ], [ %.pre4301, %586 ]
   %591 = and i64 %590, 1048576
   %.not.i973 = icmp eq i64 %591, 0
   br i1 %.not.i973, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_8clIjEEDaRKT_.exit", label %592
@@ -62191,11 +62191,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 9, ptr %607, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %291) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %291)
-  %.pre4303 = load i64, ptr %602, align 8
+  %.pre4302 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_10clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_10clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_9clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i"
-  %608 = phi i64 [ %603, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_9clIjEEDaRKT_.exit" ], [ %.pre4303, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i" ]
+  %608 = phi i64 [ %603, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK3$_9clIjEEDaRKT_.exit" ], [ %.pre4302, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i" ]
   %609 = and i64 %608, 32768
   %.not.i985 = icmp eq i64 %609, 0
   br i1 %.not.i985, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_12clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i986"
@@ -62253,11 +62253,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 16, ptr %625, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %288) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %288)
-  %.pre4304 = load i64, ptr %537, align 8
+  %.pre4303 = load i64, ptr %537, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_15clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_15clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_14clINS_15LangOptionsBase20GPUDefaultStreamKindEEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i995"
-  %626 = phi i64 [ %621, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_14clINS_15LangOptionsBase20GPUDefaultStreamKindEEEDaRKT_.exit" ], [ %.pre4304, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i995" ]
+  %626 = phi i64 [ %621, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_14clINS_15LangOptionsBase20GPUDefaultStreamKindEEEDaRKT_.exit" ], [ %.pre4303, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i995" ]
   %627 = and i64 %626, 2
   %.not.i999 = icmp eq i64 %627, 0
   br i1 %.not.i999, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_17clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1000"
@@ -62380,13 +62380,13 @@ _ZL19extractForwardValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_
 667:                                              ; preds = %._crit_edge.i.i.i.thread, %._crit_edge.i.i.i
   %668 = phi ptr [ %663, %._crit_edge.i.i.i.thread ], [ %661, %._crit_edge.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %668, ptr align 1 %656, i64 %657, i1 false)
-  %.pre4305 = load i64, ptr %284, align 8, !tbaa !379
-  %.pre4306 = load ptr, ptr %285, align 8, !tbaa !380
+  %.pre4304 = load i64, ptr %284, align 8, !tbaa !379
+  %.pre4305 = load ptr, ptr %285, align 8, !tbaa !380
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %667, %665
-  %669 = phi ptr [ %.pre4306, %667 ], [ %661, %665 ]
-  %670 = phi i64 [ %.pre4305, %667 ], [ 1, %665 ]
+  %669 = phi ptr [ %.pre4305, %667 ], [ %661, %665 ]
+  %670 = phi i64 [ %.pre4304, %667 ], [ 1, %665 ]
   %671 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i64 %670, ptr %671, align 8, !tbaa !32
   %672 = getelementptr inbounds nuw i8, ptr %669, i64 %670
@@ -62473,11 +62473,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010: ; preds = %_
   store i64 18, ptr %698, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %282) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %282)
-  %.pre4307 = load i64, ptr %537, align 8
+  %.pre4306 = load i64, ptr %537, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_20clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_20clIjEEDaRKT_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1012"
-  %699 = phi i64 [ %694, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010 ], [ %.pre4307, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1012" ]
+  %699 = phi i64 [ %694, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010 ], [ %.pre4306, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1012" ]
   %700 = and i64 %699, 256
   %.not.i1016 = icmp eq i64 %700, 0
   br i1 %.not.i1016, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_22clIjEEDaRKT_.exit", label %701
@@ -62493,11 +62493,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010: ; preds = %_
   store i64 11, ptr %704, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %281) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %281)
-  %.pre4308 = load i64, ptr %537, align 8
+  %.pre4307 = load i64, ptr %537, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_22clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_22clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_20clIjEEDaRKT_.exit", %701
-  %705 = phi i64 [ %699, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_20clIjEEDaRKT_.exit" ], [ %.pre4308, %701 ]
+  %705 = phi i64 [ %699, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_20clIjEEDaRKT_.exit" ], [ %.pre4307, %701 ]
   %706 = and i64 %705, 512
   %.not.i1020 = icmp eq i64 %706, 0
   br i1 %.not.i1020, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_23clIjEEDaRKT_.exit", label %707
@@ -62513,11 +62513,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010: ; preds = %_
   store i64 27, ptr %710, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %280) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %280)
-  %.pre4309 = load i64, ptr %537, align 8
+  %.pre4308 = load i64, ptr %537, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_23clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_23clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_22clIjEEDaRKT_.exit", %707
-  %711 = phi i64 [ %705, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_22clIjEEDaRKT_.exit" ], [ %.pre4309, %707 ]
+  %711 = phi i64 [ %705, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_22clIjEEDaRKT_.exit" ], [ %.pre4308, %707 ]
   %712 = and i64 %711, 64
   %.not.i1024 = icmp eq i64 %712, 0
   br i1 %.not.i1024, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_24clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1025"
@@ -62552,11 +62552,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1010: ; preds = %_
   store i64 23, ptr %720, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %278) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %278)
-  %.pre4310 = load i64, ptr %602, align 8
+  %.pre4309 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_26clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_26clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_24clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1030"
-  %721 = phi i64 [ %716, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_24clIjEEDaRKT_.exit" ], [ %.pre4310, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1030" ]
+  %721 = phi i64 [ %716, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_24clIjEEDaRKT_.exit" ], [ %.pre4309, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1030" ]
   %722 = lshr i64 %721, 32
   %.not.i1034 = icmp eq i64 %722, 1024
   br i1 %.not.i1034, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_28clIjEEDaRKT_.exit", label %723
@@ -62722,11 +62722,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 19, ptr %774, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %271) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %271)
-  %.pre4311 = load i64, ptr %743, align 8
+  %.pre4310 = load i64, ptr %743, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_36clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_36clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_35clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1074"
-  %775 = phi i64 [ %770, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_35clIjEEDaRKT_.exit" ], [ %.pre4311, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1074" ]
+  %775 = phi i64 [ %770, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_35clIjEEDaRKT_.exit" ], [ %.pre4310, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1074" ]
   %776 = and i64 %775, 8589934592
   %.not.i1078 = icmp eq i64 %776, 0
   br i1 %.not.i1078, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_38clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1079"
@@ -62788,11 +62788,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 12, ptr %797, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %268) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %268)
-  %.pre4312 = load i64, ptr %749, align 8
+  %.pre4311 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_44clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_44clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_42clIjEEDaRKT_.exit", %794
-  %798 = phi i64 [ %786, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_42clIjEEDaRKT_.exit" ], [ %.pre4312, %794 ]
+  %798 = phi i64 [ %786, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_42clIjEEDaRKT_.exit" ], [ %.pre4311, %794 ]
   %799 = and i64 %798, 1152921504606846976
   %.not.i1094 = icmp eq i64 %799, 0
   br i1 %.not.i1094, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_46clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1095"
@@ -62808,11 +62808,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 25, ptr %802, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %267) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %267)
-  %.pre4313 = load i64, ptr %749, align 8
+  %.pre4312 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_46clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_46clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_44clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1095"
-  %803 = phi i64 [ %798, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_44clIjEEDaRKT_.exit" ], [ %.pre4313, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1095" ]
+  %803 = phi i64 [ %798, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_44clIjEEDaRKT_.exit" ], [ %.pre4312, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1095" ]
   %804 = and i64 %803, 4611686018427387904
   %.not.i1099 = icmp eq i64 %804, 0
   br i1 %.not.i1099, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_48clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1100"
@@ -62828,11 +62828,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 22, ptr %807, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %266) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %266)
-  %.pre4314 = load i64, ptr %749, align 8
+  %.pre4313 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_48clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_48clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_46clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1100"
-  %808 = phi i64 [ %803, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_46clIjEEDaRKT_.exit" ], [ %.pre4314, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1100" ]
+  %808 = phi i64 [ %803, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_46clIjEEDaRKT_.exit" ], [ %.pre4313, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1100" ]
   %809 = and i64 %808, 288230376151711744
   %cond.i1104 = icmp eq i64 %809, 0
   br i1 %cond.i1104, label %810, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_50clIjEEDaRKT_.exit"
@@ -62975,11 +62975,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 10, ptr %857, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %264) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %264)
-  %.pre4315 = load i64, ptr %743, align 8
+  %.pre4314 = load i64, ptr %743, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_53clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_53clIjEEDaRKT_.exit": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1125, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1127"
-  %858 = phi i64 [ %853, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1125 ], [ %.pre4315, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1127" ]
+  %858 = phi i64 [ %853, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1125 ], [ %.pre4314, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1127" ]
   %859 = and i64 %858, 68719476736
   %.not.i1132 = icmp eq i64 %859, 0
   br i1 %.not.i1132, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_55clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1133"
@@ -63286,11 +63286,11 @@ _ZL21denormalizeSimpleEnumIN5clang15LangOptionsBase17CoreFoundationABIEEvN4llvm1
   store i8 9, ptr %955, align 1, !tbaa !640, !alias.scope !1820
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %255) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %255)
-  %.pre4316 = load i64, ptr %948, align 8
+  %.pre4315 = load i64, ptr %948, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_69clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_69clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_68clIjEEDaRKT_.exit", %951
-  %956 = phi i64 [ %949, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_68clIjEEDaRKT_.exit" ], [ %.pre4316, %951 ]
+  %956 = phi i64 [ %949, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_68clIjEEDaRKT_.exit" ], [ %.pre4315, %951 ]
   %957 = and i64 %956, 4294967296
   %.not.i1213 = icmp eq i64 %957, 0
   br i1 %.not.i1213, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_70clIjEEDaRKT_.exit", label %958
@@ -63325,11 +63325,11 @@ _ZL21denormalizeSimpleEnumIN5clang15LangOptionsBase17CoreFoundationABIEEvN4llvm1
   store i64 16, ptr %966, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %253) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %253)
-  %.pre4317 = load i64, ptr %749, align 8
+  %.pre4316 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_71clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_71clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_70clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1218"
-  %967 = phi i64 [ %962, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_70clIjEEDaRKT_.exit" ], [ %.pre4317, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1218" ]
+  %967 = phi i64 [ %962, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_70clIjEEDaRKT_.exit" ], [ %.pre4316, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1218" ]
   %968 = and i64 %967, 70368744177664
   %.not.i1222 = icmp eq i64 %968, 0
   br i1 %.not.i1222, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_73clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1223"
@@ -63368,11 +63368,11 @@ _ZL21denormalizeSimpleEnumIN5clang15LangOptionsBase17CoreFoundationABIEEvN4llvm1
   store i64 16, ptr %979, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %251) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %251)
-  %.pre4318 = load i64, ptr %0, align 8
+  %.pre4317 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_75clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_75clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_73clIjEEDaRKT_.exit", %976
-  %980 = phi i64 [ %.val450.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_73clIjEEDaRKT_.exit" ], [ %.pre4318, %976 ]
+  %980 = phi i64 [ %.val450.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_73clIjEEDaRKT_.exit" ], [ %.pre4317, %976 ]
   %981 = and i64 %980, 12884901888
   %or.cond.i1234.not = icmp eq i64 %981, 12884901888
   br i1 %or.cond.i1234.not, label %982, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_77clIjEEDaRKT_.exit"
@@ -63388,11 +63388,11 @@ _ZL21denormalizeSimpleEnumIN5clang15LangOptionsBase17CoreFoundationABIEEvN4llvm1
   store i64 24, ptr %985, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %250) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %250)
-  %.pre4319 = load i64, ptr %0, align 8
+  %.pre4318 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_77clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_77clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_75clIjEEDaRKT_.exit", %982
-  %986 = phi i64 [ %980, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_75clIjEEDaRKT_.exit" ], [ %.pre4319, %982 ]
+  %986 = phi i64 [ %980, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_75clIjEEDaRKT_.exit" ], [ %.pre4318, %982 ]
   %987 = and i64 %986, 12884901888
   %or.cond.i1241 = icmp eq i64 %987, 0
   br i1 %or.cond.i1241, label %988, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_78clIjEEDaRKT_.exit"
@@ -63537,11 +63537,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 19, ptr %1028, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %243) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %243)
-  %.pre4320 = load i64, ptr %749, align 8
+  %.pre4319 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_85clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_85clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_84clIjEEDaRKT_.exit", %1025
-  %1029 = phi i64 [ %1023, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_84clIjEEDaRKT_.exit" ], [ %.pre4320, %1025 ]
+  %1029 = phi i64 [ %1023, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_84clIjEEDaRKT_.exit" ], [ %.pre4319, %1025 ]
   %1030 = and i64 %1029, 562949953421312
   %.not.i1278 = icmp eq i64 %1030, 0
   br i1 %.not.i1278, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_86clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1279"
@@ -63691,11 +63691,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i1325, ptr %1071, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %239) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %239)
-  %.pre4321 = load i64, ptr %524, align 8
+  %.pre4320 = load i64, ptr %524, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_90clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_90clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_89clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i1324
-  %1072 = phi i64 [ %1059, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_89clIjEEDaRKT_.exit" ], [ %.pre4321, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i1324 ]
+  %1072 = phi i64 [ %1059, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_89clIjEEDaRKT_.exit" ], [ %.pre4320, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i1324 ]
   %1073 = lshr i64 %1072, 57
   %1074 = trunc nuw nsw i64 %1073 to i32
   %1075 = and i32 %1074, 3
@@ -63769,17 +63769,17 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 11, ptr %1100, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %237) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %237)
-  %.pre4322 = load i64, ptr %736, align 8
-  %.pre4323 = load i64, ptr %471, align 8
-  %.pre4324 = load i64, ptr %602, align 8
-  %.pre4420 = and i64 %.pre4323, 524288
+  %.pre4321 = load i64, ptr %736, align 8
+  %.pre4322 = load i64, ptr %471, align 8
+  %.pre4323 = load i64, ptr %602, align 8
+  %.pre4419 = and i64 %.pre4322, 524288
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_92clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_92clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit", %1097
-  %.pre-phi4421 = phi i64 [ %1089, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit" ], [ %.pre4420, %1097 ]
-  %1101 = phi i64 [ %1090, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit" ], [ %.pre4324, %1097 ]
-  %1102 = phi i64 [ %1085, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit" ], [ %.pre4322, %1097 ]
-  %.not.i1347 = icmp ne i64 %.pre-phi4421, 0
+  %.pre-phi4420 = phi i64 [ %1089, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit" ], [ %.pre4419, %1097 ]
+  %1101 = phi i64 [ %1090, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit" ], [ %.pre4323, %1097 ]
+  %1102 = phi i64 [ %1085, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK4$_91clIjEEDaRKT_.exit" ], [ %.pre4321, %1097 ]
+  %.not.i1347 = icmp ne i64 %.pre-phi4420, 0
   %1103 = and i64 %1101, 256
   %1104 = icmp ne i64 %1103, 0
   %1105 = select i1 %.not.i1347, i1 true, i1 %1104
@@ -64062,18 +64062,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 27, ptr %1200, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %230) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %230)
-  %.pre4325 = load i64, ptr %736, align 8
-  %.pre4422 = lshr i64 %.pre4325, 44
-  %.pre4424 = trunc nuw nsw i64 %.pre4422 to i32
-  %.pre4426 = and i32 %.pre4424, 1
+  %.pre4324 = load i64, ptr %736, align 8
+  %.pre4421 = lshr i64 %.pre4324, 44
+  %.pre4423 = trunc nuw nsw i64 %.pre4421 to i32
+  %.pre4425 = and i32 %.pre4423, 1
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_102clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_102clIjEEDaRKT_.exit": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1415, %1197
-  %.pre-phi4427 = phi i32 [ %1190, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1415 ], [ %.pre4426, %1197 ]
-  %1201 = phi i64 [ %1187, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1415 ], [ %.pre4325, %1197 ]
+  %.pre-phi4426 = phi i32 [ %1190, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1415 ], [ %.pre4425, %1197 ]
+  %1201 = phi i64 [ %1187, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1415 ], [ %.pre4324, %1197 ]
   %1202 = lshr i64 %1201, 50
   %1203 = trunc nuw nsw i64 %1202 to i32
-  %1204 = xor i32 %.pre-phi4427, 1
+  %1204 = xor i32 %.pre-phi4426, 1
   %1205 = and i32 %1204, %1203
   %or.cond.i1420 = icmp eq i32 %1205, 0
   br i1 %or.cond.i1420, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_103clIjEEDaRKT_.exit", label %1206
@@ -64089,11 +64089,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 17, ptr %1209, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %229) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %229)
-  %.pre4326 = load i64, ptr %736, align 8
+  %.pre4325 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_103clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_103clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_102clIjEEDaRKT_.exit", %1206
-  %1210 = phi i64 [ %1201, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_102clIjEEDaRKT_.exit" ], [ %.pre4326, %1206 ]
+  %1210 = phi i64 [ %1201, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_102clIjEEDaRKT_.exit" ], [ %.pre4325, %1206 ]
   %1211 = and i64 %1210, 1143492092887040
   %or.cond.i1426 = icmp eq i64 %1211, 17592186044416
   br i1 %or.cond.i1426, label %1212, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_104clIjEEDaRKT_.exit"
@@ -64109,11 +64109,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 20, ptr %1215, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %228) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %228)
-  %.pre4327 = load i64, ptr %736, align 8
+  %.pre4326 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_104clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_104clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_103clIjEEDaRKT_.exit", %1212
-  %1216 = phi i64 [ %1210, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_103clIjEEDaRKT_.exit" ], [ %.pre4327, %1212 ]
+  %1216 = phi i64 [ %1210, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_103clIjEEDaRKT_.exit" ], [ %.pre4326, %1212 ]
   %1217 = lshr i64 %1216, 51
   %1218 = trunc nuw nsw i64 %1217 to i32
   %1219 = lshr i64 %1216, 44
@@ -64135,11 +64135,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 13, ptr %1227, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %227) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %227)
-  %.pre4328 = load i64, ptr %736, align 8
+  %.pre4327 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_105clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_105clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_104clIjEEDaRKT_.exit", %1224
-  %1228 = phi i64 [ %1216, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_104clIjEEDaRKT_.exit" ], [ %.pre4328, %1224 ]
+  %1228 = phi i64 [ %1216, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_104clIjEEDaRKT_.exit" ], [ %.pre4327, %1224 ]
   %1229 = and i64 %1228, 2269391999729664
   %or.cond.i1437 = icmp eq i64 %1229, 17592186044416
   br i1 %or.cond.i1437, label %1230, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit"
@@ -64155,11 +64155,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 16, ptr %1233, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %226) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %226)
-  %.pre4329 = load i64, ptr %736, align 8
+  %.pre4328 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_105clIjEEDaRKT_.exit", %1230
-  %1234 = phi i64 [ %1228, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_105clIjEEDaRKT_.exit" ], [ %.pre4329, %1230 ]
+  %1234 = phi i64 [ %1228, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_105clIjEEDaRKT_.exit" ], [ %.pre4328, %1230 ]
   %1235 = lshr i64 %1234, 49
   %1236 = trunc nuw nsw i64 %1235 to i32
   %1237 = load i64, ptr %471, align 8
@@ -64185,17 +64185,17 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 17, ptr %1248, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %225) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %225)
-  %.pre4330 = load i64, ptr %736, align 8
-  %.pre4331 = load i64, ptr %471, align 8
-  %.pre4428 = and i64 %.pre4331, 1048576
+  %.pre4329 = load i64, ptr %736, align 8
+  %.pre4330 = load i64, ptr %471, align 8
+  %.pre4427 = and i64 %.pre4330, 1048576
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_107clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_107clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit", %1245
-  %.pre-phi4429 = phi i64 [ %1238, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit" ], [ %.pre4428, %1245 ]
-  %1249 = phi i64 [ %1237, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit" ], [ %.pre4331, %1245 ]
-  %1250 = phi i64 [ %1234, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit" ], [ %.pre4330, %1245 ]
+  %.pre-phi4428 = phi i64 [ %1238, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit" ], [ %.pre4427, %1245 ]
+  %1249 = phi i64 [ %1237, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit" ], [ %.pre4330, %1245 ]
+  %1250 = phi i64 [ %1234, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_106clIjEEDaRKT_.exit" ], [ %.pre4329, %1245 ]
   %1251 = and i64 %1250, 17592186044416
-  %1252 = or disjoint i64 %.pre-phi4429, %1251
+  %1252 = or disjoint i64 %.pre-phi4428, %1251
   %1253 = icmp ne i64 %1252, 0
   %1254 = and i64 %1250, 562949953421312
   %.not1.i1449 = icmp eq i64 %1254, 0
@@ -64213,11 +64213,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 14, ptr %1258, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %224) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %224)
-  %.pre4332 = load i64, ptr %471, align 8
+  %.pre4331 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_108clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_108clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_107clIjEEDaRKT_.exit", %1255
-  %1259 = phi i64 [ %1249, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_107clIjEEDaRKT_.exit" ], [ %.pre4332, %1255 ]
+  %1259 = phi i64 [ %1249, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_107clIjEEDaRKT_.exit" ], [ %.pre4331, %1255 ]
   %1260 = and i64 %1259, 8388608
   %.not.i1455 = icmp eq i64 %1260, 0
   br i1 %.not.i1455, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_109clIjEEDaRKT_.exit", label %1261
@@ -64296,11 +64296,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 14, ptr %1287, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %220) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
-  %.pre4333 = load i64, ptr %0, align 8
+  %.pre4332 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_113clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_113clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_112clIjEEDaRKT_.exit", %1284
-  %1288 = phi i64 [ %1276, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_112clIjEEDaRKT_.exit" ], [ %.pre4333, %1284 ]
+  %1288 = phi i64 [ %1276, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_112clIjEEDaRKT_.exit" ], [ %.pre4332, %1284 ]
   %1289 = and i64 %1288, 51539607552
   %or.cond.i1474 = icmp eq i64 %1289, 17179869184
   br i1 %or.cond.i1474, label %1290, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_114clIjEEDaRKT_.exit"
@@ -64325,8 +64325,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %1295 = and i64 %.val529.val.val, 2049
   %narrow.i = icmp eq i64 %1295, 0
   %1296 = and i64 %1294, 1099511627776
-  %or.cond.i14794167 = icmp eq i64 %1296, 0
-  %or.cond.i1479 = select i1 %narrow.i, i1 true, i1 %or.cond.i14794167
+  %or.cond.i14794166 = icmp eq i64 %1296, 0
+  %or.cond.i1479 = select i1 %narrow.i, i1 true, i1 %or.cond.i14794166
   br i1 %or.cond.i1479, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_115clIjEEDaRKT_.exit", label %1297
 
 1297:                                             ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_114clIjEEDaRKT_.exit"
@@ -64721,11 +64721,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 31, ptr %1433, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %215) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %215)
-  %.pre4335 = load i64, ptr %743, align 8
+  %.pre4334 = load i64, ptr %743, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_123clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_123clIjEEDaRKT_.exit": ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1573, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1575"
-  %1434 = phi i64 [ %1429, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1573 ], [ %.pre4335, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1575" ]
+  %1434 = phi i64 [ %1429, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit1573 ], [ %.pre4334, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1575" ]
   %1435 = and i64 %1434, 4398046511104
   %.not.i1579 = icmp eq i64 %1435, 0
   br i1 %.not.i1579, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_125clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1580"
@@ -64878,16 +64878,16 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 15, ptr %1486, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %209) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %209)
-  %.pre4336 = load i64, ptr %0, align 8
-  %.pre4430 = trunc i64 %.pre4336 to i32
-  %.pre4432 = lshr i32 %.pre4430, 7
+  %.pre4335 = load i64, ptr %0, align 8
+  %.pre4429 = trunc i64 %.pre4335 to i32
+  %.pre4431 = lshr i32 %.pre4429, 7
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_132clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_132clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_131clIjEEDaRKT_.exit", %1483
-  %.pre-phi4433 = phi i32 [ %1479, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_131clIjEEDaRKT_.exit" ], [ %.pre4432, %1483 ]
-  %.pre-phi4431 = phi i32 [ %1478, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_131clIjEEDaRKT_.exit" ], [ %.pre4430, %1483 ]
-  %1487 = lshr i32 %.pre-phi4431, 9
-  %1488 = and i32 %.pre-phi4433, 1
+  %.pre-phi4432 = phi i32 [ %1479, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_131clIjEEDaRKT_.exit" ], [ %.pre4431, %1483 ]
+  %.pre-phi4430 = phi i32 [ %1478, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_131clIjEEDaRKT_.exit" ], [ %.pre4429, %1483 ]
+  %1487 = lshr i32 %.pre-phi4430, 9
+  %1488 = and i32 %.pre-phi4432, 1
   %1489 = xor i32 %1488, 1
   %1490 = and i32 %1489, %1487
   %or.cond.i1618 = icmp eq i32 %1490, 0
@@ -65008,11 +65008,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 11, ptr %1523, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %204) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
-  %.pre4337 = load i64, ptr %0, align 8
+  %.pre4336 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_139clIjEEDaRKT_.exit", %1520
-  %1524 = phi i64 [ %1518, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_139clIjEEDaRKT_.exit" ], [ %.pre4337, %1520 ]
+  %1524 = phi i64 [ %1518, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_139clIjEEDaRKT_.exit" ], [ %.pre4336, %1520 ]
   %1525 = trunc i64 %1524 to i32
   %1526 = lshr i32 %1525, 31
   %1527 = and i64 %1524, 1152
@@ -65036,16 +65036,16 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 10, ptr %1536, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %203) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %203)
-  %.pre4338 = load i64, ptr %0, align 8
-  %.pre4339 = load i64, ptr %541, align 8
-  %.pre4434 = and i64 %.pre4338, 1152
+  %.pre4337 = load i64, ptr %0, align 8
+  %.pre4338 = load i64, ptr %541, align 8
+  %.pre4433 = and i64 %.pre4337, 1152
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_141clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_141clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit", %1533
-  %.pre-phi4435 = phi i64 [ %1527, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit" ], [ %.pre4434, %1533 ]
-  %1537 = phi i64 [ %1528, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit" ], [ %.pre4339, %1533 ]
-  %1538 = phi i64 [ %1524, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit" ], [ %.pre4338, %1533 ]
-  %or.cond.i1657 = icmp ne i64 %.pre-phi4435, 0
+  %.pre-phi4434 = phi i64 [ %1527, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit" ], [ %.pre4433, %1533 ]
+  %1537 = phi i64 [ %1528, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit" ], [ %.pre4338, %1533 ]
+  %1538 = phi i64 [ %1524, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_140clIjEEDaRKT_.exit" ], [ %.pre4337, %1533 ]
+  %or.cond.i1657 = icmp ne i64 %.pre-phi4434, 0
   %1539 = and i64 %1537, 68719476736
   %1540 = icmp ne i64 %1539, 0
   %1541 = select i1 %or.cond.i1657, i1 true, i1 %1540
@@ -65084,11 +65084,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 23, ptr %1551, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %201) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %201)
-  %.pre4340 = load i64, ptr %780, align 8
+  %.pre4339 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_143clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_143clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_142clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1665"
-  %1552 = phi i64 [ %1547, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_142clIjEEDaRKT_.exit" ], [ %.pre4340, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1665" ]
+  %1552 = phi i64 [ %1547, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_142clIjEEDaRKT_.exit" ], [ %.pre4339, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1665" ]
   %1553 = and i64 %1552, 8589934592
   %.not.i1670.not = icmp eq i64 %1553, 0
   br i1 %.not.i1670.not, label %1554, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_145clIjEEDaRKT_.exit"
@@ -65142,11 +65142,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 27, ptr %1568, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %198) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
-  %.pre4341 = load i64, ptr %780, align 8
+  %.pre4340 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_147clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_147clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_146clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1679"
-  %1569 = phi i64 [ %1564, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_146clIjEEDaRKT_.exit" ], [ %.pre4341, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1679" ]
+  %1569 = phi i64 [ %1564, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_146clIjEEDaRKT_.exit" ], [ %.pre4340, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1679" ]
   %1570 = trunc i64 %1569 to i32
   %1571 = lshr i32 %1570, 22
   %1572 = lshr i32 %1570, 23
@@ -65167,11 +65167,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 9, ptr %1579, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %197) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %197)
-  %.pre4342 = load i64, ptr %780, align 8
+  %.pre4341 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_149clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_149clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_147clIjEEDaRKT_.exit", %1576
-  %1580 = phi i64 [ %1569, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_147clIjEEDaRKT_.exit" ], [ %.pre4342, %1576 ]
+  %1580 = phi i64 [ %1569, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_147clIjEEDaRKT_.exit" ], [ %.pre4341, %1576 ]
   %1581 = and i64 %1580, 33554432
   %.not.i1689 = icmp eq i64 %1581, 0
   br i1 %.not.i1689, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_151clIjEEDaRKT_.exit", label %1582
@@ -65294,13 +65294,13 @@ _ZL19extractForwardValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_
 1622:                                             ; preds = %._crit_edge.i.i.i1702.thread, %._crit_edge.i.i.i1702
   %1623 = phi ptr [ %1618, %._crit_edge.i.i.i1702.thread ], [ %1616, %._crit_edge.i.i.i1702 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1623, ptr align 1 %1611, i64 %1612, i1 false)
-  %.pre4343 = load i64, ptr %193, align 8, !tbaa !379
-  %.pre4344 = load ptr, ptr %194, align 8, !tbaa !380
+  %.pre4342 = load i64, ptr %193, align 8, !tbaa !379
+  %.pre4343 = load ptr, ptr %194, align 8, !tbaa !380
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i1704
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i1704: ; preds = %1622, %1620
-  %1624 = phi ptr [ %.pre4344, %1622 ], [ %1616, %1620 ]
-  %1625 = phi i64 [ %.pre4343, %1622 ], [ 1, %1620 ]
+  %1624 = phi ptr [ %.pre4343, %1622 ], [ %1616, %1620 ]
+  %1625 = phi i64 [ %.pre4342, %1622 ], [ 1, %1620 ]
   %1626 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i64 %1625, ptr %1626, align 8, !tbaa !32
   %1627 = getelementptr inbounds nuw i8, ptr %1624, i64 %1625
@@ -65387,11 +65387,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 24, ptr %1654, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %191) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %191)
-  %.pre4345 = load i64, ptr %780, align 8
+  %.pre4344 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_153clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_153clIjEEDaRKT_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713, %1651
-  %1655 = phi i64 [ %1649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713 ], [ %.pre4345, %1651 ]
+  %1655 = phi i64 [ %1649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713 ], [ %.pre4344, %1651 ]
   %1656 = trunc i64 %1655 to i32
   %1657 = lshr i32 %1656, 30
   %1658 = lshr i64 %1655, 32
@@ -65413,11 +65413,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 17, ptr %1666, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %190) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %190)
-  %.pre4346 = load i64, ptr %780, align 8
+  %.pre4345 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_154clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_154clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_153clIjEEDaRKT_.exit", %1663
-  %1667 = phi i64 [ %1655, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_153clIjEEDaRKT_.exit" ], [ %.pre4346, %1663 ]
+  %1667 = phi i64 [ %1655, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_153clIjEEDaRKT_.exit" ], [ %.pre4345, %1663 ]
   %1668 = and i64 %1667, 2147483648
   %.not.i1723 = icmp eq i64 %1668, 0
   br i1 %.not.i1723, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_156clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1724"
@@ -65433,11 +65433,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 20, ptr %1671, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %189) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %189)
-  %.pre4347 = load i64, ptr %780, align 8
+  %.pre4346 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_156clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_156clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_154clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1724"
-  %1672 = phi i64 [ %1667, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_154clIjEEDaRKT_.exit" ], [ %.pre4347, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1724" ]
+  %1672 = phi i64 [ %1667, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_154clIjEEDaRKT_.exit" ], [ %.pre4346, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1724" ]
   %1673 = and i64 %1672, 34359738368
   %cond.i1729 = icmp eq i64 %1673, 0
   br i1 %cond.i1729, label %1674, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_158clIjEEDaRKT_.exit"
@@ -65491,11 +65491,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 18, ptr %1689, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %186) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
-  %.pre4348 = load i64, ptr %749, align 8
+  %.pre4347 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_161clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_161clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_160clIjEEDaRKT_.exit", %1686
-  %1690 = phi i64 [ %1684, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_160clIjEEDaRKT_.exit" ], [ %.pre4348, %1686 ]
+  %1690 = phi i64 [ %1684, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_160clIjEEDaRKT_.exit" ], [ %.pre4347, %1686 ]
   %1691 = lshr i64 %1690, 33
   %1692 = trunc nuw nsw i64 %1691 to i32
   %.val607.val.val = load i32, ptr %464, align 8, !tbaa !1736
@@ -65569,11 +65569,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 19, ptr %1721, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %183) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
-  %.pre4349 = load i64, ptr %0, align 8
+  %.pre4348 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_164clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_164clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_163clIjEEDaRKT_.exit", %1718
-  %1722 = phi i64 [ %.val613.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_163clIjEEDaRKT_.exit" ], [ %.pre4349, %1718 ]
+  %1722 = phi i64 [ %.val613.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_163clIjEEDaRKT_.exit" ], [ %.pre4348, %1718 ]
   %1723 = and i64 %1722, 2097152
   %.not.i1759 = icmp eq i64 %1723, 0
   br i1 %.not.i1759, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_166clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1760"
@@ -65671,13 +65671,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 20, ptr %1752, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %178) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %178)
-  %.pre4350 = load i64, ptr %537, align 8
+  %.pre4349 = load i64, ptr %537, align 8
   %.val627.val.val.pre = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_174clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_174clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_172clIjEEDaRKT_.exit", %1749
   %.val627.val.val = phi i64 [ %.val624.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_172clIjEEDaRKT_.exit" ], [ %.val627.val.val.pre, %1749 ]
-  %1753 = phi i64 [ %1741, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_172clIjEEDaRKT_.exit" ], [ %.pre4350, %1749 ]
+  %1753 = phi i64 [ %1741, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_172clIjEEDaRKT_.exit" ], [ %.pre4349, %1749 ]
   %1754 = and i64 %1753, 4096
   %.not1.i1784 = icmp eq i64 %1754, 0
   %1755 = and i64 %.val627.val.val, 8192
@@ -65696,13 +65696,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 23, ptr %1760, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %177) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %177)
-  %.pre4352 = load i64, ptr %537, align 8
+  %.pre4351 = load i64, ptr %537, align 8
   %.val630.val.val.pre = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_175clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_175clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_174clIjEEDaRKT_.exit", %1757
   %.val630.val.val = phi i64 [ %.val627.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_174clIjEEDaRKT_.exit" ], [ %.val630.val.val.pre, %1757 ]
-  %1761 = phi i64 [ %1753, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_174clIjEEDaRKT_.exit" ], [ %.pre4352, %1757 ]
+  %1761 = phi i64 [ %1753, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_174clIjEEDaRKT_.exit" ], [ %.pre4351, %1757 ]
   %1762 = trunc i64 %1761 to i32
   %1763 = lshr i32 %1762, 13
   %1764 = trunc i64 %.val630.val.val to i32
@@ -65724,13 +65724,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 20, ptr %1772, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %176) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
-  %.pre4354 = load i64, ptr %537, align 8
+  %.pre4353 = load i64, ptr %537, align 8
   %.val633.val.val.pre = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_176clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_176clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_175clIjEEDaRKT_.exit", %1769
   %.val633.val.val = phi i64 [ %.val630.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_175clIjEEDaRKT_.exit" ], [ %.val633.val.val.pre, %1769 ]
-  %1773 = phi i64 [ %1761, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_175clIjEEDaRKT_.exit" ], [ %.pre4354, %1769 ]
+  %1773 = phi i64 [ %1761, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_175clIjEEDaRKT_.exit" ], [ %.pre4353, %1769 ]
   %1774 = and i64 %1773, 8192
   %.not1.i1795 = icmp eq i64 %1774, 0
   %1775 = and i64 %.val633.val.val, 16384
@@ -65749,11 +65749,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 23, ptr %1780, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %175) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %175)
-  %.pre4356 = load i64, ptr %537, align 8
+  %.pre4355 = load i64, ptr %537, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_177clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_177clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_176clIjEEDaRKT_.exit", %1777
-  %1781 = phi i64 [ %1773, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_176clIjEEDaRKT_.exit" ], [ %.pre4356, %1777 ]
+  %1781 = phi i64 [ %1773, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_176clIjEEDaRKT_.exit" ], [ %.pre4355, %1777 ]
   %.not.i1801 = icmp ult i64 %1781, 4294967296
   br i1 %.not.i1801, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_178clIjEEDaRKT_.exit", label %1782
 
@@ -65849,11 +65849,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 31, ptr %1812, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %170) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %170)
-  %.pre4357 = load i64, ptr %602, align 8
+  %.pre4356 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_184clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_184clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_183clIjEEDaRKT_.exit", %1809
-  %1813 = phi i64 [ %1807, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_183clIjEEDaRKT_.exit" ], [ %.pre4357, %1809 ]
+  %1813 = phi i64 [ %1807, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_183clIjEEDaRKT_.exit" ], [ %.pre4356, %1809 ]
   %1814 = and i64 %1813, 16
   %.not.i1829 = icmp eq i64 %1814, 0
   br i1 %.not.i1829, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_185clIjEEDaRKT_.exit", label %1815
@@ -65869,11 +65869,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 37, ptr %1818, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %169) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %169)
-  %.pre4358 = load i64, ptr %602, align 8
+  %.pre4357 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_185clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_185clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_184clIjEEDaRKT_.exit", %1815
-  %1819 = phi i64 [ %1813, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_184clIjEEDaRKT_.exit" ], [ %.pre4358, %1815 ]
+  %1819 = phi i64 [ %1813, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_184clIjEEDaRKT_.exit" ], [ %.pre4357, %1815 ]
   %1820 = and i64 %1819, 32
   %.not.i1833 = icmp eq i64 %1820, 0
   br i1 %.not.i1833, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_186clIjEEDaRKT_.exit", label %1821
@@ -65889,11 +65889,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 26, ptr %1824, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %168) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
-  %.pre4359 = load i64, ptr %602, align 8
+  %.pre4358 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_186clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_186clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_185clIjEEDaRKT_.exit", %1821
-  %1825 = phi i64 [ %1819, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_185clIjEEDaRKT_.exit" ], [ %.pre4359, %1821 ]
+  %1825 = phi i64 [ %1819, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_185clIjEEDaRKT_.exit" ], [ %.pre4358, %1821 ]
   %1826 = and i64 %1825, 64
   %.not.i1837 = icmp eq i64 %1826, 0
   br i1 %.not.i1837, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_187clIjEEDaRKT_.exit", label %1827
@@ -65909,11 +65909,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 18, ptr %1830, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %167) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %167)
-  %.pre4360 = load i64, ptr %602, align 8
+  %.pre4359 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_187clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_187clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_186clIjEEDaRKT_.exit", %1827
-  %1831 = phi i64 [ %1825, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_186clIjEEDaRKT_.exit" ], [ %.pre4360, %1827 ]
+  %1831 = phi i64 [ %1825, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_186clIjEEDaRKT_.exit" ], [ %.pre4359, %1827 ]
   %1832 = and i64 %1831, 1
   %.not.i1841 = icmp eq i64 %1832, 0
   br i1 %.not.i1841, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_188clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1842"
@@ -65952,11 +65952,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i8 9, ptr %1843, align 1, !tbaa !640, !alias.scope !1921
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %165) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %165)
-  %.pre4361 = load i64, ptr %1836, align 8
+  %.pre4360 = load i64, ptr %1836, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_190clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_190clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_188clIjEEDaRKT_.exit", %1839
-  %1844 = phi i64 [ %1837, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_188clIjEEDaRKT_.exit" ], [ %.pre4361, %1839 ]
+  %1844 = phi i64 [ %1837, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_188clIjEEDaRKT_.exit" ], [ %.pre4360, %1839 ]
   %.not.i1852 = icmp ult i64 %1844, 4294967296
   br i1 %.not.i1852, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_191clIjEEDaRKT_.exit", label %1845
 
@@ -66013,11 +66013,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 6, ptr %1860, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %162) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
-  %.pre4362 = load i64, ptr %736, align 8
+  %.pre4361 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_194clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_194clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_192clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1864"
-  %1861 = phi i64 [ %1856, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_192clIjEEDaRKT_.exit" ], [ %.pre4362, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1864" ]
+  %1861 = phi i64 [ %1856, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_192clIjEEDaRKT_.exit" ], [ %.pre4361, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1864" ]
   %1862 = and i64 %1861, 549755813888
   %.not.i1869 = icmp eq i64 %1862, 0
   br i1 %.not.i1869, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_196clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i1870"
@@ -66056,11 +66056,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 9, ptr %1873, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %160) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
-  %.pre4363 = load i64, ptr %749, align 8
+  %.pre4362 = load i64, ptr %749, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_198clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_198clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_196clIjEEDaRKT_.exit", %1870
-  %1874 = phi i64 [ %1866, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_196clIjEEDaRKT_.exit" ], [ %.pre4363, %1870 ]
+  %1874 = phi i64 [ %1866, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_196clIjEEDaRKT_.exit" ], [ %.pre4362, %1870 ]
   %1875 = and i64 %1874, 6755399441055744
   %or.cond.i1882 = icmp eq i64 %1875, 2251799813685248
   br i1 %or.cond.i1882, label %1876, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_200clIjEEDaRKT_.exit"
@@ -66119,11 +66119,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1713: ; preds = %_
   store i64 9, ptr %1895, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %157) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %157)
-  %.pre4364 = load i64, ptr %0, align 8
+  %.pre4363 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_204clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_204clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_202clIjEEDaRKT_.exit", %1892
-  %1896 = phi i64 [ %1885, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_202clIjEEDaRKT_.exit" ], [ %.pre4364, %1892 ]
+  %1896 = phi i64 [ %1885, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_202clIjEEDaRKT_.exit" ], [ %.pre4363, %1892 ]
   %1897 = and i64 %1896, 536903680
   %or.cond.i1898 = icmp eq i64 %1897, 32768
   br i1 %or.cond.i1898, label %1898, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_205clIjEEDaRKT_.exit"
@@ -66243,11 +66243,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 9, ptr %1933, align 1, !tbaa !640, !alias.scope !1939
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %152) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %152)
-  %.pre4365 = load i64, ptr %1926, align 8
+  %.pre4364 = load i64, ptr %1926, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_211clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_211clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_210clIjEEDaRKT_.exit", %1929
-  %1934 = phi i64 [ %1927, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_210clIjEEDaRKT_.exit" ], [ %.pre4365, %1929 ]
+  %1934 = phi i64 [ %1927, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_210clIjEEDaRKT_.exit" ], [ %.pre4364, %1929 ]
   %.not.i1933 = icmp ult i64 %1934, 4294967296
   br i1 %.not.i1933, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_212clIjEEDaRKT_.exit", label %1935
 
@@ -66437,11 +66437,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i1986, ptr %1992, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %144) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
-  %.pre4366 = load i32, ptr %1047, align 8
+  %.pre4365 = load i32, ptr %1047, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_222clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_222clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_220clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i1985
-  %1993 = phi i32 [ %1981, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_220clIjEEDaRKT_.exit" ], [ %.pre4366, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i1985 ]
+  %1993 = phi i32 [ %1981, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_220clIjEEDaRKT_.exit" ], [ %.pre4365, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i1985 ]
   %1994 = lshr i32 %1993, 17
   %1995 = and i32 %1994, 7
   switch i32 %1995, label %.lr.ph.i.i.i.i1991 [
@@ -66484,11 +66484,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i2001, ptr %2004, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %143) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %143)
-  %.pre4367 = load i32, ptr %1047, align 8
+  %.pre4366 = load i32, ptr %1047, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_223clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_223clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_222clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2000
-  %2005 = phi i32 [ %1993, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_222clIjEEDaRKT_.exit" ], [ %.pre4367, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2000 ]
+  %2005 = phi i32 [ %1993, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_222clIjEEDaRKT_.exit" ], [ %.pre4366, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2000 ]
   %2006 = lshr i32 %2005, 20
   %2007 = and i32 %2006, 7
   switch i32 %2007, label %.lr.ph.i.i.i.i2006 [
@@ -66531,11 +66531,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i2016, ptr %2016, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %142) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %142)
-  %.pre4368 = load i32, ptr %1047, align 8
+  %.pre4367 = load i32, ptr %1047, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_224clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_224clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_223clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2015
-  %2017 = phi i32 [ %2005, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_223clIjEEDaRKT_.exit" ], [ %.pre4368, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2015 ]
+  %2017 = phi i32 [ %2005, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_223clIjEEDaRKT_.exit" ], [ %.pre4367, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2015 ]
   %2018 = lshr i32 %2017, 23
   %2019 = and i32 %2018, 7
   switch i32 %2019, label %.lr.ph.i.i.i.i2021 [
@@ -66578,11 +66578,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i2031, ptr %2028, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %141) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %141)
-  %.pre4369 = load i32, ptr %1047, align 8
+  %.pre4368 = load i32, ptr %1047, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_225clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_225clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_224clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2030
-  %2029 = phi i32 [ %2017, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_224clIjEEDaRKT_.exit" ], [ %.pre4369, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2030 ]
+  %2029 = phi i32 [ %2017, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_224clIjEEDaRKT_.exit" ], [ %.pre4368, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2030 ]
   %2030 = lshr i32 %2029, 8
   %2031 = and i32 %2030, 7
   %.not.i2032 = icmp eq i32 %2031, 2
@@ -66641,11 +66641,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 27, ptr %2045, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %139) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
-  %.pre4370 = load i64, ptr %471, align 8
+  %.pre4369 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_227clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_227clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_226clIjEEDaRKT_.exit", %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i2047"
-  %2046 = phi i64 [ %2041, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_226clIjEEDaRKT_.exit" ], [ %.pre4370, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i2047" ]
+  %2046 = phi i64 [ %2041, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_226clIjEEDaRKT_.exit" ], [ %.pre4369, %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i2047" ]
   %2047 = and i64 %2046, 2048
   %.not.i2051 = icmp eq i64 %2047, 0
   br i1 %.not.i2051, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_229clIjEEDaRKT_.exit", label %"_ZZL29makeBooleanOptionDenormalizerbENK3$_0clEN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjb.exit.i2052"
@@ -66705,11 +66705,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i2070, ptr %2063, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %137) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
-  %.pre4371 = load i64, ptr %524, align 8
+  %.pre4370 = load i64, ptr %524, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_231clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_231clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_229clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2069
-  %2064 = phi i64 [ %2051, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_229clIjEEDaRKT_.exit" ], [ %.pre4371, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2069 ]
+  %2064 = phi i64 [ %2051, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_229clIjEEDaRKT_.exit" ], [ %.pre4370, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2069 ]
   %2065 = lshr i64 %2064, 50
   %2066 = trunc nuw nsw i64 %2065 to i32
   %2067 = and i32 %2066, 3
@@ -66807,11 +66807,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 15, ptr %2093, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %133) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
-  %.pre4372 = load i64, ptr %1121, align 8
+  %.pre4371 = load i64, ptr %1121, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_236clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_236clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_235clIjEEDaRKT_.exit", %2090
-  %2094 = phi i64 [ %2088, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_235clIjEEDaRKT_.exit" ], [ %.pre4372, %2090 ]
+  %2094 = phi i64 [ %2088, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_235clIjEEDaRKT_.exit" ], [ %.pre4371, %2090 ]
   %2095 = lshr i64 %2094, 37
   %2096 = trunc nuw nsw i64 %2095 to i32
   %.val734.val.val = load i32, ptr %464, align 8, !tbaa !1736
@@ -66932,11 +66932,11 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.i2106: ; preds = %2119, %"
   store i8 9, ptr %2141, align 1, !tbaa !640, !alias.scope !2020
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %129) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %129)
-  %.pre4373 = load i64, ptr %2134, align 8
+  %.pre4372 = load i64, ptr %2134, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_240clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_240clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_239clIjEEDaRKT_.exit", %2136
-  %2142 = phi i64 [ %2135, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_239clIjEEDaRKT_.exit" ], [ %.pre4373, %2136 ]
+  %2142 = phi i64 [ %2135, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_239clIjEEDaRKT_.exit" ], [ %.pre4372, %2136 ]
   %2143 = and i64 %2142, 1
   %.not.i2124 = icmp eq i64 %2143, 0
   br i1 %.not.i2124, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_241clIjEEDaRKT_.exit", label %2144
@@ -67065,11 +67065,11 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit.i2106: ; preds = %2119, %"
   store i8 9, ptr %2183, align 1, !tbaa !640, !alias.scope !2030
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %122) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
-  %.pre4374 = load i64, ptr %2176, align 8
+  %.pre4373 = load i64, ptr %2176, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_246clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_246clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_245clIjEEDaRKT_.exit", %2179
-  %2184 = phi i64 [ %2177, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_245clIjEEDaRKT_.exit" ], [ %.pre4374, %2179 ]
+  %2184 = phi i64 [ %2177, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_245clIjEEDaRKT_.exit" ], [ %.pre4373, %2179 ]
   %.not.i2153 = icmp ult i64 %2184, 4294967296
   br i1 %.not.i2153, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_247clIjEEDaRKT_.exit", label %2185
 
@@ -67379,11 +67379,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 20, ptr %2277, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %107) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
-  %.pre4375 = load i64, ptr %736, align 8
+  %.pre4374 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_266clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_266clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_265clIjEEDaRKT_.exit", %2274
-  %2278 = phi i64 [ %2272, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_265clIjEEDaRKT_.exit" ], [ %.pre4375, %2274 ]
+  %2278 = phi i64 [ %2272, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_265clIjEEDaRKT_.exit" ], [ %.pre4374, %2274 ]
   %2279 = and i64 %2278, 8589934592
   %.not.i2232 = icmp eq i64 %2279, 0
   br i1 %.not.i2232, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_267clIjEEDaRKT_.exit", label %2280
@@ -67418,11 +67418,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 23, ptr %2289, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %105) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  %.pre4376 = load i64, ptr %728, align 8
+  %.pre4375 = load i64, ptr %728, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_268clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_268clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_267clIjEEDaRKT_.exit", %2286
-  %2290 = phi i64 [ %2284, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_267clIjEEDaRKT_.exit" ], [ %.pre4376, %2286 ]
+  %2290 = phi i64 [ %2284, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_267clIjEEDaRKT_.exit" ], [ %.pre4375, %2286 ]
   %2291 = and i64 %2290, 8589934592
   %.not.i2240 = icmp eq i64 %2291, 0
   br i1 %.not.i2240, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_269clIjEEDaRKT_.exit", label %2292
@@ -67438,11 +67438,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 28, ptr %2295, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %104) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
-  %.pre4377 = load i64, ptr %728, align 8
+  %.pre4376 = load i64, ptr %728, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_269clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_269clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_268clIjEEDaRKT_.exit", %2292
-  %2296 = phi i64 [ %2290, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_268clIjEEDaRKT_.exit" ], [ %.pre4377, %2292 ]
+  %2296 = phi i64 [ %2290, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_268clIjEEDaRKT_.exit" ], [ %.pre4376, %2292 ]
   %2297 = and i64 %2296, 17179869184
   %.not.i2244 = icmp eq i64 %2297, 0
   br i1 %.not.i2244, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_270clIjEEDaRKT_.exit", label %2298
@@ -67647,11 +67647,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 17, ptr %2369, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %99) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
-  %.pre4378 = load i64, ptr %471, align 8
+  %.pre4377 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_275clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_275clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_274clIjEEDaRKT_.exit", %2366
-  %2370 = phi i64 [ %2364, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_274clIjEEDaRKT_.exit" ], [ %.pre4378, %2366 ]
+  %2370 = phi i64 [ %2364, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_274clIjEEDaRKT_.exit" ], [ %.pre4377, %2366 ]
   %2371 = and i64 %2370, 2
   %.not.i2291 = icmp eq i64 %2371, 0
   br i1 %.not.i2291, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_276clIjEEDaRKT_.exit", label %2372
@@ -67686,11 +67686,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 17, ptr %2381, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %97) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
-  %.pre4379 = load i64, ptr %780, align 8
+  %.pre4378 = load i64, ptr %780, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_278clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_278clIjEEDaRKT_.exit": ; preds = %2378, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_276clIjEEDaRKT_.exit"
-  %2382 = phi i64 [ %.pre4379, %2378 ], [ %2376, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_276clIjEEDaRKT_.exit" ]
+  %2382 = phi i64 [ %.pre4378, %2378 ], [ %2376, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_276clIjEEDaRKT_.exit" ]
   %2383 = and i64 %2382, 65536
   %cond.i2305 = icmp eq i64 %2383, 0
   br i1 %cond.i2305, label %2384, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_280clIjEEDaRKT_.exit"
@@ -67725,11 +67725,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 28, ptr %2393, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %95) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
-  %.pre4380 = load i64, ptr %471, align 8
+  %.pre4379 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_281clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_281clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_280clIjEEDaRKT_.exit", %2390
-  %2394 = phi i64 [ %2388, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_280clIjEEDaRKT_.exit" ], [ %.pre4380, %2390 ]
+  %2394 = phi i64 [ %2388, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_280clIjEEDaRKT_.exit" ], [ %.pre4379, %2390 ]
   %2395 = and i64 %2394, 32
   %.not.i2319 = icmp eq i64 %2395, 0
   br i1 %.not.i2319, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_282clIjEEDaRKT_.exit", label %2396
@@ -67745,11 +67745,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 31, ptr %2399, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %94) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
-  %.pre4381 = load i64, ptr %471, align 8
+  %.pre4380 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_282clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_282clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_281clIjEEDaRKT_.exit", %2396
-  %2400 = phi i64 [ %2394, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_281clIjEEDaRKT_.exit" ], [ %.pre4381, %2396 ]
+  %2400 = phi i64 [ %2394, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_281clIjEEDaRKT_.exit" ], [ %.pre4380, %2396 ]
   %2401 = and i64 %2400, 64
   %.not.i2323 = icmp eq i64 %2401, 0
   br i1 %.not.i2323, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_283clIjEEDaRKT_.exit", label %2402
@@ -67765,11 +67765,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 30, ptr %2405, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %93) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
-  %.pre4382 = load i64, ptr %471, align 8
+  %.pre4381 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_283clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_283clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_282clIjEEDaRKT_.exit", %2402
-  %2406 = phi i64 [ %2400, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_282clIjEEDaRKT_.exit" ], [ %.pre4382, %2402 ]
+  %2406 = phi i64 [ %2400, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_282clIjEEDaRKT_.exit" ], [ %.pre4381, %2402 ]
   %2407 = trunc i64 %2406 to i32
   %2408 = lshr i32 %2407, 3
   %2409 = and i32 %2408, 1
@@ -67852,11 +67852,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 13, ptr %2438, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %89) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
-  %.pre4383 = load i64, ptr %736, align 8
+  %.pre4382 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_286clIjEEDaRKT_.exit", %2435
-  %2439 = phi i64 [ %2430, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_286clIjEEDaRKT_.exit" ], [ %.pre4383, %2435 ]
+  %2439 = phi i64 [ %2430, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_286clIjEEDaRKT_.exit" ], [ %.pre4382, %2435 ]
   %2440 = lshr i64 %2439, 47
   %2441 = lshr i64 %2439, 43
   %2442 = xor i64 %2440, %2441
@@ -67875,15 +67875,15 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 16, ptr %2447, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %88) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
-  %.pre4384 = load i64, ptr %736, align 8
-  %.pre4436 = lshr i64 %.pre4384, 43
+  %.pre4383 = load i64, ptr %736, align 8
+  %.pre4435 = lshr i64 %.pre4383, 43
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_288clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_288clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit", %2444
-  %.pre-phi4437 = phi i64 [ %2441, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit" ], [ %.pre4436, %2444 ]
-  %2448 = phi i64 [ %2439, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit" ], [ %.pre4384, %2444 ]
+  %.pre-phi4436 = phi i64 [ %2441, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit" ], [ %.pre4435, %2444 ]
+  %2448 = phi i64 [ %2439, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_287clIjEEDaRKT_.exit" ], [ %.pre4383, %2444 ]
   %2449 = lshr i64 %2448, 48
-  %2450 = xor i64 %2449, %.pre-phi4437
+  %2450 = xor i64 %2449, %.pre-phi4436
   %2451 = and i64 %2450, 1
   %.not.i2348 = icmp eq i64 %2451, 0
   br i1 %.not.i2348, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_289clIjEEDaRKT_.exit", label %2452
@@ -67899,11 +67899,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   store i64 16, ptr %2455, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %87) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
-  %.pre4385 = load i64, ptr %736, align 8
+  %.pre4384 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_289clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_289clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_288clIjEEDaRKT_.exit", %2452
-  %2456 = phi i64 [ %2448, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_288clIjEEDaRKT_.exit" ], [ %.pre4385, %2452 ]
+  %2456 = phi i64 [ %2448, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_288clIjEEDaRKT_.exit" ], [ %.pre4384, %2452 ]
   %2457 = lshr i64 %2456, 35
   %2458 = trunc nuw nsw i64 %2457 to i32
   %2459 = and i32 %2458, 3
@@ -67929,11 +67929,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %86) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
   call void @llvm.lifetime.end.p0(ptr nonnull %85)
-  %.pre4386 = load i64, ptr %736, align 8
+  %.pre4385 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_290clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_290clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_289clIjEEDaRKT_.exit", %2460
-  %2466 = phi i64 [ %2456, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_289clIjEEDaRKT_.exit" ], [ %.pre4386, %2460 ]
+  %2466 = phi i64 [ %2456, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_289clIjEEDaRKT_.exit" ], [ %.pre4385, %2460 ]
   %2467 = and i64 %2466, 137438953472
   %.not.i2356 = icmp eq i64 %2467, 0
   br i1 %.not.i2356, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_291clIjEEDaRKT_.exit", label %2468
@@ -68117,13 +68117,13 @@ _ZL19extractForwardValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_
 2530:                                             ; preds = %._crit_edge.i.i.i2381.thread, %._crit_edge.i.i.i2381
   %2531 = phi ptr [ %2526, %._crit_edge.i.i.i2381.thread ], [ %2524, %._crit_edge.i.i.i2381 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2531, ptr align 1 %2519, i64 %2520, i1 false)
-  %.pre4387 = load i64, ptr %78, align 8, !tbaa !379
-  %.pre4388 = load ptr, ptr %79, align 8, !tbaa !380
+  %.pre4386 = load i64, ptr %78, align 8, !tbaa !379
+  %.pre4387 = load ptr, ptr %79, align 8, !tbaa !380
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i2383
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i2383: ; preds = %2530, %2528
-  %2532 = phi ptr [ %.pre4388, %2530 ], [ %2524, %2528 ]
-  %2533 = phi i64 [ %.pre4387, %2530 ], [ 1, %2528 ]
+  %2532 = phi ptr [ %.pre4387, %2530 ], [ %2524, %2528 ]
+  %2533 = phi i64 [ %.pre4386, %2530 ], [ 1, %2528 ]
   %2534 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 %2533, ptr %2534, align 8, !tbaa !32
   %2535 = getelementptr inbounds nuw i8, ptr %2532, i64 %2533
@@ -68216,11 +68216,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391: ; preds = %_
   store i64 43, ptr %2564, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %75) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  %.pre4389 = load i64, ptr %0, align 8
+  %.pre4388 = load i64, ptr %0, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_296clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_296clIjEEDaRKT_.exit": ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391, %2561
-  %2565 = phi i64 [ %2559, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391 ], [ %.pre4389, %2561 ]
+  %2565 = phi i64 [ %2559, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2391 ], [ %.pre4388, %2561 ]
   %2566 = and i64 %2565, 1048576
   %.not.i2396 = icmp eq i64 %2566, 0
   br i1 %.not.i2396, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_297clIjEEDaRKT_.exit", label %2567
@@ -68352,11 +68352,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %68) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  %.pre4390 = load i32, ptr %1047, align 8
+  %.pre4389 = load i32, ptr %1047, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_301clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_301clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_300clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2424
-  %2606 = phi i32 [ %2593, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_300clIjEEDaRKT_.exit" ], [ %.pre4390, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2424 ]
+  %2606 = phi i32 [ %2593, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_300clIjEEDaRKT_.exit" ], [ %.pre4389, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2424 ]
   %2607 = lshr i32 %2606, 11
   %2608 = and i32 %2607, 7
   %2609 = lshr i32 %2606, 8
@@ -68487,11 +68487,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 24, ptr %2646, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %62) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
-  %.pre4391 = load i64, ptr %471, align 8
+  %.pre4390 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_307clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_307clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_305clIjEEDaRKT_.exit", %2643
-  %2647 = phi i64 [ %2641, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_305clIjEEDaRKT_.exit" ], [ %.pre4391, %2643 ]
+  %2647 = phi i64 [ %2641, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_305clIjEEDaRKT_.exit" ], [ %.pre4390, %2643 ]
   %2648 = and i64 %2647, 8589934592
   %.not.i2459 = icmp eq i64 %2648, 0
   br i1 %.not.i2459, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_308clIjEEDaRKT_.exit", label %2649
@@ -68569,11 +68569,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 17, ptr %2670, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %59) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  %.pre4392 = load i64, ptr %471, align 8
+  %.pre4391 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_310clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_310clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_309clIjEEDaRKT_.exit", %2667
-  %2671 = phi i64 [ %2665, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_309clIjEEDaRKT_.exit" ], [ %.pre4392, %2667 ]
+  %2671 = phi i64 [ %2665, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_309clIjEEDaRKT_.exit" ], [ %.pre4391, %2667 ]
   %2672 = and i64 %2671, 16384
   %.not.i2481 = icmp eq i64 %2672, 0
   br i1 %.not.i2481, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_311clIjEEDaRKT_.exit", label %2673
@@ -68589,11 +68589,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 18, ptr %2676, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %58) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  %.pre4393 = load i64, ptr %471, align 8
+  %.pre4392 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_311clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_311clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_310clIjEEDaRKT_.exit", %2673
-  %2677 = phi i64 [ %2671, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_310clIjEEDaRKT_.exit" ], [ %.pre4393, %2673 ]
+  %2677 = phi i64 [ %2671, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_310clIjEEDaRKT_.exit" ], [ %.pre4392, %2673 ]
   %2678 = and i64 %2677, 32768
   %.not.i2485 = icmp eq i64 %2678, 0
   br i1 %.not.i2485, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_312clIjEEDaRKT_.exit", label %2679
@@ -68609,11 +68609,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 28, ptr %2682, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %57) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  %.pre4394 = load i64, ptr %471, align 8
+  %.pre4393 = load i64, ptr %471, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_312clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_312clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_311clIjEEDaRKT_.exit", %2679
-  %2683 = phi i64 [ %2677, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_311clIjEEDaRKT_.exit" ], [ %.pre4394, %2679 ]
+  %2683 = phi i64 [ %2677, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_311clIjEEDaRKT_.exit" ], [ %.pre4393, %2679 ]
   %2684 = and i64 %2683, 65536
   %.not.i2489 = icmp eq i64 %2684, 0
   br i1 %.not.i2489, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_313clIjEEDaRKT_.exit", label %2685
@@ -68695,13 +68695,13 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 18, ptr %2710, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %53) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  %.pre4395 = load i64, ptr %541, align 8
-  %.pre4396 = load i64, ptr %736, align 8
+  %.pre4394 = load i64, ptr %541, align 8
+  %.pre4395 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_317clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_317clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_316clIjEEDaRKT_.exit", %2707
-  %2711 = phi i64 [ %.val897.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_316clIjEEDaRKT_.exit" ], [ %.pre4396, %2707 ]
-  %2712 = phi i64 [ %2702, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_316clIjEEDaRKT_.exit" ], [ %.pre4395, %2707 ]
+  %2711 = phi i64 [ %.val897.val.val, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_316clIjEEDaRKT_.exit" ], [ %.pre4395, %2707 ]
+  %2712 = phi i64 [ %2702, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_316clIjEEDaRKT_.exit" ], [ %.pre4394, %2707 ]
   %2713 = lshr i64 %2712, 35
   %2714 = trunc nuw nsw i64 %2713 to i32
   %2715 = and i32 %2714, 1
@@ -68850,11 +68850,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i8 %.sink.i2548, ptr %2761, align 1, !tbaa !663
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %49) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %.pre4397 = load i64, ptr %736, align 8
+  %.pre4396 = load i64, ptr %736, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_321clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_321clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_320clIjEEDaRKT_.exit", %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2547
-  %2762 = phi i64 [ %2749, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_320clIjEEDaRKT_.exit" ], [ %.pre4397, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2547 ]
+  %2762 = phi i64 [ %2749, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_320clIjEEDaRKT_.exit" ], [ %.pre4396, %_ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6Option11OptionClassEjT_.exit.i2547 ]
   %2763 = and i64 %2762, 576460752303423488
   %cond.i2549 = icmp eq i64 %2763, 0
   br i1 %cond.i2549, label %2764, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_323clIjEEDaRKT_.exit"
@@ -68930,11 +68930,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 16, ptr %2786, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %45) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  %.pre4398 = load i64, ptr %602, align 8
+  %.pre4397 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_326clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_326clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_325clIjEEDaRKT_.exit", %2783
-  %2787 = phi i64 [ %2781, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_325clIjEEDaRKT_.exit" ], [ %.pre4398, %2783 ]
+  %2787 = phi i64 [ %2781, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_325clIjEEDaRKT_.exit" ], [ %.pre4397, %2783 ]
   %2788 = and i64 %2787, 2048
   %.not.i2573 = icmp eq i64 %2788, 0
   br i1 %.not.i2573, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_327clIjEEDaRKT_.exit", label %2789
@@ -68950,11 +68950,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 31, ptr %2792, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %44) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
-  %.pre4399 = load i64, ptr %602, align 8
+  %.pre4398 = load i64, ptr %602, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_327clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_327clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_326clIjEEDaRKT_.exit", %2789
-  %2793 = phi i64 [ %2787, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_326clIjEEDaRKT_.exit" ], [ %.pre4399, %2789 ]
+  %2793 = phi i64 [ %2787, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_326clIjEEDaRKT_.exit" ], [ %.pre4398, %2789 ]
   %2794 = and i64 %2793, 4096
   %.not.i2577.not = icmp eq i64 %2794, 0
   br i1 %.not.i2577.not, label %2795, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_328clIjEEDaRKT_.exit"
@@ -68989,11 +68989,11 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store i64 16, ptr %2804, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %42) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  %.pre4400 = load i64, ptr %537, align 8
+  %.pre4399 = load i64, ptr %537, align 8
   br label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_329clIjEEDaRKT_.exit"
 
 "_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_329clIjEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_328clIjEEDaRKT_.exit", %2801
-  %2805 = phi i64 [ %2799, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_328clIjEEDaRKT_.exit" ], [ %.pre4400, %2801 ]
+  %2805 = phi i64 [ %2799, %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_328clIjEEDaRKT_.exit" ], [ %.pre4399, %2801 ]
   %2806 = and i64 %2805, 32
   %.not.i2585 = icmp eq i64 %2806, 0
   br i1 %.not.i2585, label %"_ZZN5clang22CompilerInvocationBase16GenerateLangArgsERKNS_11LangOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleENS_9InputKindEENK5$_330clIjEEDaRKT_.exit", label %2807
@@ -69254,11 +69254,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %2918, ptr %2921, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %36) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  %.pre4401 = load i64, ptr %471, align 8
+  %.pre4400 = load i64, ptr %471, align 8
   br label %2922
 
 2922:                                             ; preds = %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2620, %2896
-  %2923 = phi i64 [ %.pre4401, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2620 ], [ %2897, %2896 ]
+  %2923 = phi i64 [ %.pre4400, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2620 ], [ %2897, %2896 ]
   %2924 = and i64 %2923, 268435456
   %.not297 = icmp eq i64 %2924, 0
   br i1 %.not297, label %2948, label %2925
@@ -69300,11 +69300,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %2944, ptr %2947, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %35) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %.pre4402 = load i64, ptr %471, align 8
+  %.pre4401 = load i64, ptr %471, align 8
   br label %2948
 
 2948:                                             ; preds = %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2623, %2922
-  %2949 = phi i64 [ %.pre4402, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2623 ], [ %2923, %2922 ]
+  %2949 = phi i64 [ %.pre4401, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2623 ], [ %2923, %2922 ]
   %2950 = and i64 %2949, 536870912
   %.not298 = icmp eq i64 %2950, 0
   br i1 %.not298, label %2974, label %2951
@@ -69361,8 +69361,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit2673:              ; preds = %2974
   call void @llvm.lifetime.start.p0(ptr nonnull %333)
   call void @llvm.lifetime.start.p0(ptr nonnull %334)
   call void @llvm.lifetime.start.p0(ptr nonnull %335)
-  %.sroa.04290.0.insert.ext = zext nneg i32 %2977 to i64
-  %2979 = inttoptr i64 %.sroa.04290.0.insert.ext to ptr
+  %.sroa.04289.0.insert.ext = zext nneg i32 %2977 to i64
+  %2979 = inttoptr i64 %.sroa.04289.0.insert.ext to ptr
   store ptr %2979, ptr %335, align 8, !alias.scope !2108
   %2980 = getelementptr inbounds nuw i8, ptr %335, i64 16
   store ptr @.str.56, ptr %2980, align 8, !alias.scope !2108
@@ -69372,8 +69372,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit2673:              ; preds = %2974
   store i8 3, ptr %2982, align 1, !tbaa !640, !alias.scope !2108
   %2983 = udiv i32 %2976, 100
   %2984 = urem i32 %2983, 100
-  %.sroa.04278.0.insert.ext = zext nneg i32 %2984 to i64
-  %2985 = inttoptr i64 %.sroa.04278.0.insert.ext to ptr
+  %.sroa.04277.0.insert.ext = zext nneg i32 %2984 to i64
+  %2985 = inttoptr i64 %.sroa.04277.0.insert.ext to ptr
   store ptr %335, ptr %334, align 8, !alias.scope !2113
   %2986 = getelementptr inbounds nuw i8, ptr %334, i64 16
   store ptr %2985, ptr %2986, align 8, !alias.scope !2113
@@ -69388,8 +69388,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit2673:              ; preds = %2974
   store i8 2, ptr %2990, align 8, !tbaa !637, !alias.scope !2118
   %2991 = getelementptr inbounds nuw i8, ptr %333, i64 33
   store i8 3, ptr %2991, align 1, !tbaa !640, !alias.scope !2118
-  %.sroa.04266.0.insert.ext = zext nneg i32 %2978 to i64
-  %2992 = inttoptr i64 %.sroa.04266.0.insert.ext to ptr
+  %.sroa.04265.0.insert.ext = zext nneg i32 %2978 to i64
+  %2992 = inttoptr i64 %.sroa.04265.0.insert.ext to ptr
   store ptr %333, ptr %332, align 8, !alias.scope !2123
   %2993 = getelementptr inbounds nuw i8, ptr %332, i64 16
   store ptr %2992, ptr %2993, align 8, !alias.scope !2123
@@ -69602,8 +69602,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit2747:              ; preds = %3100
   call void @llvm.lifetime.start.p0(ptr nonnull %338)
   call void @llvm.lifetime.start.p0(ptr nonnull %339)
   call void @llvm.lifetime.start.p0(ptr nonnull %340)
-  %.sroa.04260.0.insert.ext = zext nneg i32 %3103 to i64
-  %3105 = inttoptr i64 %.sroa.04260.0.insert.ext to ptr
+  %.sroa.04259.0.insert.ext = zext nneg i32 %3103 to i64
+  %3105 = inttoptr i64 %.sroa.04259.0.insert.ext to ptr
   store ptr %3105, ptr %340, align 8, !alias.scope !2128
   %3106 = getelementptr inbounds nuw i8, ptr %340, i64 16
   store ptr @.str.56, ptr %3106, align 8, !alias.scope !2128
@@ -69614,8 +69614,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit2747:              ; preds = %3100
   %3109 = udiv i32 %3102, 100000
   %.lhs.trunc = trunc nuw i32 %3109 to i16
   %3110 = urem i16 %.lhs.trunc, 100
-  %.sroa.04249.0.insert.ext = zext nneg i16 %3110 to i64
-  %3111 = inttoptr i64 %.sroa.04249.0.insert.ext to ptr
+  %.sroa.04248.0.insert.ext = zext nneg i16 %3110 to i64
+  %3111 = inttoptr i64 %.sroa.04248.0.insert.ext to ptr
   store ptr %340, ptr %339, align 8, !alias.scope !2133
   %3112 = getelementptr inbounds nuw i8, ptr %339, i64 16
   store ptr %3111, ptr %3112, align 8, !alias.scope !2133
@@ -69710,8 +69710,8 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
 3155:                                             ; preds = %3153, %3154, %3129, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2750
   %3156 = load i32, ptr %3125, align 4, !tbaa !1529
   %3157 = icmp eq i32 %3156, 15
-  %.pre4407 = load i64, ptr %0, align 8
-  %3158 = and i64 %.pre4407, 256
+  %.pre4406 = load i64, ptr %0, align 8
+  %3158 = and i64 %.pre4406, 256
   %.not309 = icmp eq i64 %3158, 0
   br i1 %3157, label %3159, label %3183
 
@@ -69983,11 +69983,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %3310, ptr %3313, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %23) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.pre4408 = load i64, ptr %749, align 8
+  %.pre4407 = load i64, ptr %749, align 8
   br label %3314
 
 3314:                                             ; preds = %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2768, %3288
-  %3315 = phi i64 [ %.pre4408, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2768 ], [ %3289, %3288 ]
+  %3315 = phi i64 [ %.pre4407, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2768 ], [ %3289, %3288 ]
   %3316 = and i64 %3315, 72057594037927936
   %.not316 = icmp eq i64 %3316, 0
   br i1 %.not316, label %3317, label %.loopexit
@@ -69997,8 +69997,8 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   %3319 = load ptr, ptr %3318, align 8, !tbaa !547
   %3320 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3321 = load ptr, ptr %3320, align 8, !tbaa !547
-  %.not41684197 = icmp eq ptr %3319, %3321
-  br i1 %.not41684197, label %.loopexit, label %.lr.ph
+  %.not41674196 = icmp eq ptr %3319, %3321
+  br i1 %.not41674196, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3317
   %3322 = getelementptr inbounds nuw i8, ptr %341, i64 32
@@ -70006,16 +70006,16 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   br label %3324
 
 3324:                                             ; preds = %.lr.ph, %3324
-  %.sroa.02916.04198 = phi ptr [ %3319, %.lr.ph ], [ %3325, %3324 ]
+  %.sroa.02916.04197 = phi ptr [ %3319, %.lr.ph ], [ %3325, %3324 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %341)
   store i8 4, ptr %3322, align 8, !tbaa !637
   store i8 1, ptr %3323, align 1, !tbaa !640
-  store ptr %.sroa.02916.04198, ptr %341, align 8, !tbaa !56
+  store ptr %.sroa.02916.04197, ptr %341, align 8, !tbaa !56
   call fastcc void @_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierES3_(ptr %1, i64 %2, i32 1024, ptr noundef nonnull align 8 dereferenceable(34) %341)
   call void @llvm.lifetime.end.p0(ptr nonnull %341)
-  %3325 = getelementptr inbounds nuw i8, ptr %.sroa.02916.04198, i64 32
-  %.not4168 = icmp eq ptr %3325, %3321
-  br i1 %.not4168, label %.loopexit, label %3324
+  %3325 = getelementptr inbounds nuw i8, ptr %.sroa.02916.04197, i64 32
+  %.not4167 = icmp eq ptr %3325, %3321
+  br i1 %.not4167, label %.loopexit, label %3324
 
 .loopexit:                                        ; preds = %3324, %3317, %3314
   %3326 = load i64, ptr %736, align 8
@@ -70204,11 +70204,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i32 %3427, ptr %342, align 8, !tbaa !56
   call fastcc void @_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierES3_(ptr %1, i64 %2, i32 1526, ptr noundef nonnull align 8 dereferenceable(34) %342)
   call void @llvm.lifetime.end.p0(ptr nonnull %342)
-  %.pre4409 = load i64, ptr %1800, align 8
+  %.pre4408 = load i64, ptr %1800, align 8
   br label %3430
 
 3430:                                             ; preds = %3426, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2780
-  %3431 = phi i64 [ %.pre4409, %3426 ], [ %3424, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2780 ]
+  %3431 = phi i64 [ %.pre4408, %3426 ], [ %3424, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2780 ]
   %3432 = and i64 %3431, 17179869184
   %.not320 = icmp eq i64 %3432, 0
   br i1 %.not320, label %3433, label %3456
@@ -70250,11 +70250,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %3452, ptr %3455, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %18) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.pre4410 = load i64, ptr %1800, align 8
+  %.pre4409 = load i64, ptr %1800, align 8
   br label %3456
 
 3456:                                             ; preds = %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2783, %3430
-  %3457 = phi i64 [ %.pre4410, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2783 ], [ %3431, %3430 ]
+  %3457 = phi i64 [ %.pre4409, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2783 ], [ %3431, %3430 ]
   %3458 = and i64 %3457, 34359738368
   %.not321 = icmp eq i64 %3458, 0
   br i1 %.not321, label %3482, label %3459
@@ -70296,11 +70296,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %3478, ptr %3481, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %17) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre4411 = load i64, ptr %1800, align 8
+  %.pre4410 = load i64, ptr %1800, align 8
   br label %3482
 
 3482:                                             ; preds = %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2786, %3456
-  %3483 = phi i64 [ %.pre4411, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2786 ], [ %3457, %3456 ]
+  %3483 = phi i64 [ %.pre4410, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2786 ], [ %3457, %3456 ]
   %3484 = and i64 %3483, 137438953472
   %.not322 = icmp eq i64 %3484, 0
   br i1 %.not322, label %3508, label %3485
@@ -70342,11 +70342,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %3504, ptr %3507, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %16) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.pre4412 = load i64, ptr %1800, align 8
+  %.pre4411 = load i64, ptr %1800, align 8
   br label %3508
 
 3508:                                             ; preds = %3482, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2789, %3397
-  %3509 = phi i64 [ %3483, %3482 ], [ %.pre4412, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2789 ], [ %3398, %3397 ]
+  %3509 = phi i64 [ %3483, %3482 ], [ %.pre4411, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2789 ], [ %3398, %3397 ]
   %3510 = and i64 %3509, 8589934592
   %.not323 = icmp eq i64 %3510, 0
   br i1 %.not323, label %3540, label %3511
@@ -70448,11 +70448,11 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   store i64 %3562, ptr %3565, align 8, !tbaa !56
   call void %1(i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %14) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.pre4413 = load i64, ptr %602, align 8
+  %.pre4412 = load i64, ptr %602, align 8
   br label %3566
 
 3566:                                             ; preds = %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2795, %3540
-  %3567 = phi i64 [ %.pre4413, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2795 ], [ %3541, %3540 ]
+  %3567 = phi i64 [ %.pre4412, %_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exit2795 ], [ %3541, %3540 ]
   %3568 = and i64 %3567, 4
   %.not326 = icmp eq i64 %3568, 0
   br i1 %.not326, label %3592, label %3569
@@ -70877,21 +70877,21 @@ default.unreachable:                              ; preds = %3728
   %3752 = zext i32 %3751 to i64
   %.idx = shl nuw nsw i64 %3752, 4
   %3753 = getelementptr inbounds nuw i8, ptr %3750, i64 %.idx
-  %.not3334199 = icmp eq i32 %3751, 0
-  br i1 %.not3334199, label %._crit_edge, label %.lr.ph4201
+  %.not3334198 = icmp eq i32 %3751, 0
+  br i1 %.not3334198, label %._crit_edge, label %.lr.ph4200
 
-.lr.ph4201:                                       ; preds = %3745
+.lr.ph4200:                                       ; preds = %3745
   %3754 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %3755 = getelementptr inbounds nuw i8, ptr %358, i64 33
   %3756 = getelementptr inbounds nuw i8, ptr %358, i64 8
   br label %3766
 
 ._crit_edge.loopexit:                             ; preds = %3766
-  %.pre4414 = load ptr, ptr %357, align 8, !tbaa !106
+  %.pre4413 = load ptr, ptr %357, align 8, !tbaa !106
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3745
-  %3757 = phi ptr [ %.pre4414, %._crit_edge.loopexit ], [ %3750, %3745 ]
+  %3757 = phi ptr [ %.pre4413, %._crit_edge.loopexit ], [ %3750, %3745 ]
   %3758 = icmp eq ptr %3757, %3747
   br i1 %3758, label %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814, label %3759
 
@@ -70905,18 +70905,18 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   %3761 = load ptr, ptr %3760, align 8, !tbaa !547
   %3762 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3763 = load ptr, ptr %3762, align 8, !tbaa !547
-  %.not41694202 = icmp eq ptr %3761, %3763
-  br i1 %.not41694202, label %._crit_edge4205, label %.lr.ph4204
+  %.not41684201 = icmp eq ptr %3761, %3763
+  br i1 %.not41684201, label %._crit_edge4204, label %.lr.ph4203
 
-.lr.ph4204:                                       ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814
+.lr.ph4203:                                       ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814
   %3764 = getelementptr inbounds nuw i8, ptr %359, i64 32
   %3765 = getelementptr inbounds nuw i8, ptr %359, i64 33
   br label %3771
 
-3766:                                             ; preds = %.lr.ph4201, %3766
-  %.02864200 = phi ptr [ %3750, %.lr.ph4201 ], [ %3767, %3766 ]
-  %.sroa.02886.0.copyload = load ptr, ptr %.02864200, align 8, !tbaa !484
-  %.sroa.4.0..0286.sroa_idx = getelementptr inbounds nuw i8, ptr %.02864200, i64 8
+3766:                                             ; preds = %.lr.ph4200, %3766
+  %.02864199 = phi ptr [ %3750, %.lr.ph4200 ], [ %3767, %3766 ]
+  %.sroa.02886.0.copyload = load ptr, ptr %.02864199, align 8, !tbaa !484
+  %.sroa.4.0..0286.sroa_idx = getelementptr inbounds nuw i8, ptr %.02864199, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0286.sroa_idx, align 8, !tbaa !379
   call void @llvm.lifetime.start.p0(ptr nonnull %358)
   store i8 5, ptr %3754, align 8, !tbaa !637
@@ -70925,11 +70925,11 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   store i64 %.sroa.4.0.copyload, ptr %3756, align 8, !tbaa !56
   call fastcc void @_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierES3_(ptr %1, i64 %2, i32 1736, ptr noundef nonnull align 8 dereferenceable(34) %358)
   call void @llvm.lifetime.end.p0(ptr nonnull %358)
-  %3767 = getelementptr inbounds nuw i8, ptr %.02864200, i64 16
+  %3767 = getelementptr inbounds nuw i8, ptr %.02864199, i64 16
   %.not333 = icmp eq ptr %3767, %3753
   br i1 %.not333, label %._crit_edge.loopexit, label %3766
 
-._crit_edge4205:                                  ; preds = %3771, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814
+._crit_edge4204:                                  ; preds = %3771, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814
   %3768 = load i16, ptr %756, align 4
   %3769 = lshr i16 %3768, 4
   %3770 = and i16 %3769, 15
@@ -70948,19 +70948,19 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
     i16 11, label %3806
   ]
 
-3771:                                             ; preds = %.lr.ph4204, %3771
-  %.sroa.02882.04203 = phi ptr [ %3761, %.lr.ph4204 ], [ %3772, %3771 ]
+3771:                                             ; preds = %.lr.ph4203, %3771
+  %.sroa.02882.04202 = phi ptr [ %3761, %.lr.ph4203 ], [ %3772, %3771 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %359)
   store i8 4, ptr %3764, align 8, !tbaa !637
   store i8 1, ptr %3765, align 1, !tbaa !640
-  store ptr %.sroa.02882.04203, ptr %359, align 8, !tbaa !56
+  store ptr %.sroa.02882.04202, ptr %359, align 8, !tbaa !56
   call fastcc void @_ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierES3_(ptr %1, i64 %2, i32 1710, ptr noundef nonnull align 8 dereferenceable(34) %359)
   call void @llvm.lifetime.end.p0(ptr nonnull %359)
-  %3772 = getelementptr inbounds nuw i8, ptr %.sroa.02882.04203, i64 32
-  %.not4169 = icmp eq ptr %3772, %3763
-  br i1 %.not4169, label %._crit_edge4205, label %3771
+  %3772 = getelementptr inbounds nuw i8, ptr %.sroa.02882.04202, i64 32
+  %.not4168 = icmp eq ptr %3772, %3763
+  br i1 %.not4168, label %._crit_edge4204, label %3771
 
-3773:                                             ; preds = %._crit_edge4205
+3773:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %360)
   %3774 = getelementptr inbounds nuw i8, ptr %360, i64 32
   %3775 = getelementptr inbounds nuw i8, ptr %360, i64 33
@@ -70971,7 +70971,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %360)
   br label %3809
 
-3776:                                             ; preds = %._crit_edge4205
+3776:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %361)
   %3777 = getelementptr inbounds nuw i8, ptr %361, i64 32
   %3778 = getelementptr inbounds nuw i8, ptr %361, i64 33
@@ -70982,7 +70982,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %361)
   br label %3809
 
-3779:                                             ; preds = %._crit_edge4205
+3779:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %362)
   %3780 = getelementptr inbounds nuw i8, ptr %362, i64 32
   %3781 = getelementptr inbounds nuw i8, ptr %362, i64 33
@@ -70993,7 +70993,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %362)
   br label %3809
 
-3782:                                             ; preds = %._crit_edge4205
+3782:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %363)
   %3783 = getelementptr inbounds nuw i8, ptr %363, i64 32
   %3784 = getelementptr inbounds nuw i8, ptr %363, i64 33
@@ -71004,7 +71004,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %363)
   br label %3809
 
-3785:                                             ; preds = %._crit_edge4205
+3785:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %364)
   %3786 = getelementptr inbounds nuw i8, ptr %364, i64 32
   %3787 = getelementptr inbounds nuw i8, ptr %364, i64 33
@@ -71015,7 +71015,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %364)
   br label %3809
 
-3788:                                             ; preds = %._crit_edge4205
+3788:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %365)
   %3789 = getelementptr inbounds nuw i8, ptr %365, i64 32
   %3790 = getelementptr inbounds nuw i8, ptr %365, i64 33
@@ -71026,7 +71026,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %365)
   br label %3809
 
-3791:                                             ; preds = %._crit_edge4205
+3791:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %366)
   %3792 = getelementptr inbounds nuw i8, ptr %366, i64 32
   %3793 = getelementptr inbounds nuw i8, ptr %366, i64 33
@@ -71037,7 +71037,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %366)
   br label %3809
 
-3794:                                             ; preds = %._crit_edge4205
+3794:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %367)
   %3795 = getelementptr inbounds nuw i8, ptr %367, i64 32
   %3796 = getelementptr inbounds nuw i8, ptr %367, i64 33
@@ -71048,7 +71048,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %367)
   br label %3809
 
-3797:                                             ; preds = %._crit_edge4205
+3797:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %368)
   %3798 = getelementptr inbounds nuw i8, ptr %368, i64 32
   %3799 = getelementptr inbounds nuw i8, ptr %368, i64 33
@@ -71059,7 +71059,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %368)
   br label %3809
 
-3800:                                             ; preds = %._crit_edge4205
+3800:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %369)
   %3801 = getelementptr inbounds nuw i8, ptr %369, i64 32
   %3802 = getelementptr inbounds nuw i8, ptr %369, i64 33
@@ -71070,7 +71070,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %369)
   br label %3809
 
-3803:                                             ; preds = %._crit_edge4205
+3803:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %370)
   %3804 = getelementptr inbounds nuw i8, ptr %370, i64 32
   %3805 = getelementptr inbounds nuw i8, ptr %370, i64 33
@@ -71081,7 +71081,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %370)
   br label %3809
 
-3806:                                             ; preds = %._crit_edge4205
+3806:                                             ; preds = %._crit_edge4204
   call void @llvm.lifetime.start.p0(ptr nonnull %371)
   %3807 = getelementptr inbounds nuw i8, ptr %371, i64 32
   %3808 = getelementptr inbounds nuw i8, ptr %371, i64 33
@@ -71092,7 +71092,7 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
   call void @llvm.lifetime.end.p0(ptr nonnull %371)
   br label %3809
 
-3809:                                             ; preds = %3806, %3803, %3800, %3797, %3794, %3791, %3788, %3785, %3782, %3779, %3776, %3773, %._crit_edge4205
+3809:                                             ; preds = %3806, %3803, %3800, %3797, %3794, %3791, %3788, %3785, %3782, %3779, %3776, %3773, %._crit_edge4204
   %3810 = load i16, ptr %756, align 4
   %3811 = lshr i16 %3810, 12
   %3812 = and i16 %3811, 3
@@ -71126,8 +71126,8 @@ _ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit2814: ; preds = %._crit_edge, 
 3819:                                             ; preds = %3809, %3816, %3813
   %3820 = load i16, ptr %756, align 4
   %3821 = and i16 %3820, 16384
-  %.not4170 = icmp eq i16 %3821, 0
-  br i1 %.not4170, label %3825, label %3822
+  %.not4169 = icmp eq i16 %3821, 0
+  br i1 %.not4169, label %3825, label %3822
 
 3822:                                             ; preds = %3819
   call void @llvm.lifetime.start.p0(ptr nonnull %374)
@@ -71363,10 +71363,10 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   %3945 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %3946 = load ptr, ptr %3945, align 8, !tbaa !74
   %3947 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %.not41714206 = icmp eq ptr %3946, %3947
-  br i1 %.not41714206, label %._crit_edge4210, label %.lr.ph4209
+  %.not41704205 = icmp eq ptr %3946, %3947
+  br i1 %.not41704205, label %._crit_edge4209, label %.lr.ph4208
 
-.lr.ph4209:                                       ; preds = %3944
+.lr.ph4208:                                       ; preds = %3944
   %3948 = getelementptr inbounds nuw i8, ptr %378, i64 16
   %3949 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %3950 = getelementptr inbounds nuw i8, ptr %377, i64 16
@@ -71375,22 +71375,22 @@ _ZL11GenerateArgN4llvm12function_refIFvRKNS_5TwineEEEENS_3opt12OptSpecifierE.exi
   %3953 = getelementptr inbounds nuw i8, ptr %376, i64 33
   br label %3957
 
-._crit_edge4210:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854, %3944
+._crit_edge4209:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854, %3944
   %3954 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %3955 = load i64, ptr %3954, align 8, !tbaa !32
   %3956 = icmp eq i64 %3955, 0
   br i1 %3956, label %4014, label %4010
 
-3957:                                             ; preds = %.lr.ph4209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854
-  %.sroa.02857.04207 = phi ptr [ %3946, %.lr.ph4209 ], [ %4009, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854 ]
-  %3958 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04207, i64 32
+3957:                                             ; preds = %.lr.ph4208, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854
+  %.sroa.02857.04206 = phi ptr [ %3946, %.lr.ph4208 ], [ %4009, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854 ]
+  %3958 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04206, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %376)
   call void @llvm.lifetime.start.p0(ptr nonnull %377)
   call void @llvm.lifetime.start.p0(ptr nonnull %378)
   call void @llvm.experimental.noalias.scope.decl(metadata !2159)
   store ptr %3948, ptr %378, align 8, !tbaa !29, !alias.scope !2159
   %3959 = load ptr, ptr %3958, align 8, !tbaa !380, !noalias !2159
-  %3960 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04207, i64 40
+  %3960 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04206, i64 40
   %3961 = load i64, ptr %3960, align 8, !tbaa !32, !noalias !2159
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2159
   store i64 %3961, ptr %6, align 8, !tbaa !379, !noalias !2159
@@ -71438,7 +71438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i2845: ; pred
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i2845
   %3976 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %378, ptr noundef nonnull @.str.6, i64 noundef 1) #25
   call void @llvm.experimental.noalias.scope.decl(metadata !2162)
-  %3977 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04207, i64 72
+  %3977 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04206, i64 72
   %3978 = load i64, ptr %3977, align 8, !tbaa !32, !noalias !2162
   %3979 = load i64, ptr %3949, align 8, !tbaa !32, !noalias !2162
   %3980 = sub i64 4611686018427387903, %3979
@@ -71450,7 +71450,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
-  %3983 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04207, i64 64
+  %3983 = getelementptr inbounds nuw i8, ptr %.sroa.02857.04206, i64 64
   %3984 = load ptr, ptr %3983, align 8, !tbaa !380, !noalias !2162
   %3985 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %378, ptr noundef %3984, i64 noundef %3978) #25, !noalias !2162
   store ptr %3950, ptr %377, align 8, !tbaa !29, !alias.scope !2162
@@ -71524,11 +71524,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %378)
   call void @llvm.lifetime.end.p0(ptr nonnull %377)
   call void @llvm.lifetime.end.p0(ptr nonnull %376)
-  %4009 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02857.04207) #28
-  %.not4171 = icmp eq ptr %4009, %3947
-  br i1 %.not4171, label %._crit_edge4210, label %3957
+  %4009 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02857.04206) #28
+  %.not4170 = icmp eq ptr %4009, %3947
+  br i1 %.not4170, label %._crit_edge4209, label %3957
 
-4010:                                             ; preds = %._crit_edge4210
+4010:                                             ; preds = %._crit_edge4209
   %4011 = getelementptr inbounds nuw i8, ptr %0, i64 776
   call void @llvm.lifetime.start.p0(ptr nonnull %379)
   %4012 = getelementptr inbounds nuw i8, ptr %379, i64 32
@@ -71540,7 +71540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2854: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %379)
   br label %4014
 
-4014:                                             ; preds = %._crit_edge4210, %4010, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit
+4014:                                             ; preds = %._crit_edge4209, %4010, %_ZN4llvm11SmallVectorINS_9StringRefELj4EED2Ev.exit
   ret void
 }
 
@@ -71697,11 +71697,11 @@ define dso_local noundef zeroext i1 @_ZN5clang18CompilerInvocation13ParseLangArg
   %148 = alloca %"class.clang::DiagnosticBuilder", align 8
   %149 = alloca %"class.clang::DiagnosticBuilder", align 8
   %150 = alloca %"class.clang::DiagnosticBuilder", align 8
-  %.fr9411 = freeze i32 %2
-  %.sroa.08833.0.extract.trunc = trunc i32 %.fr9411 to i8
+  %.fr = freeze i32 %2
+  %.sroa.08833.0.extract.trunc = trunc i32 %.fr to i8
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 212
   %152 = load i32, ptr %151, align 4, !tbaa !1247
-  %153 = and i32 %.fr9411, 1792
+  %153 = and i32 %.fr, 1792
   %154 = icmp eq i32 %153, 512
   %155 = and i8 %.sroa.08833.0.extract.trunc, -2
   %switch9407 = icmp eq i8 %155, 2
@@ -72665,7 +72665,7 @@ _ZL29IsInputCompatibleWithStandardN5clang9InputKindERKNS_12LangStandardE.exit252
   %612 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %613 = load i64, ptr %612, align 8, !tbaa !32
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %55, ptr %611, i64 %613)
-  %614 = call fastcc { ptr, i64 } @_ZL16GetInputKindNameN5clang9InputKindE(i32 %.fr9411)
+  %614 = call fastcc { ptr, i64 } @_ZL16GetInputKindNameN5clang9InputKindE(i32 %.fr)
   %615 = extractvalue { ptr, i64 } %614, 0
   %616 = extractvalue { ptr, i64 } %614, 1
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %55, ptr %615, i64 %616)
@@ -72811,10 +72811,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2613:    ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2618: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2616, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2613, %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2607.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2569, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2558, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2561, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2572, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2594, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2591, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2580, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2583, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2602, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2605
   %.sroa.22.8 = phi i64 [ 4294967328, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2605 ], [ 4294967328, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2602 ], [ 4294967328, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2594 ], [ 4294967328, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2591 ], [ 4294967327, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2580 ], [ 4294967327, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2583 ], [ 4294967326, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2569 ], [ 4294967325, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2558 ], [ 4294967325, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2561 ], [ 4294967326, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2572 ], [ %.sroa.22.610841.ph, %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2607.thread ], [ 4294967329, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2613 ], [ 4294967329, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i2616 ]
   %648 = and i64 %.sroa.22.8, 4294967296
-  %.not9414 = icmp eq i64 %648, 0
+  %.not9413 = icmp eq i64 %648, 0
   %.sroa.22.16.extract.trunc = trunc i64 %.sroa.22.8 to i32
   %649 = icmp eq i32 %.sroa.22.16.extract.trunc, 42
-  %650 = or i1 %.not9414, %649
+  %650 = or i1 %.not9413, %649
   br i1 %650, label %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2618.thread, label %743
 
 _ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2618.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit2528, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i2613, %625, %_ZN4llvmeqENS_9StringRefES0_.exit.i14.i.i, %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2618
@@ -73026,17 +73026,17 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit2629:        ; preds = %_ZNSt7__cxx1112basi
 743:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit2629, %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2618, %_ZL29IsInputCompatibleWithStandardN5clang9InputKindERKNS_12LangStandardE.exit2523.thread
   %.1 = phi i32 [ %.02298, %_ZL29IsInputCompatibleWithStandardN5clang9InputKindERKNS_12LangStandardE.exit2523.thread ], [ %.02298, %_ZN5clang17DiagnosticBuilderD2Ev.exit2629 ], [ %.sroa.22.16.extract.trunc, %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E5CasesENS_13StringLiteralES5_S3_.exit2618 ]
   %744 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 838)
-  %.not9415 = icmp eq ptr %744, null
+  %.not9414 = icmp eq ptr %744, null
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %746 = load i64, ptr %745, align 8
-  %747 = select i1 %.not9415, i64 0, i64 17179869184
+  %747 = select i1 %.not9414, i64 0, i64 17179869184
   %748 = and i64 %746, -17179869185
   %749 = or disjoint i64 %748, %747
   store i64 %749, ptr %745, align 8
   %750 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 572)
-  %.not9416 = icmp eq ptr %750, null
+  %.not9415 = icmp eq ptr %750, null
   %751 = load i64, ptr %745, align 8
-  %752 = select i1 %.not9416, i64 0, i64 34359738368
+  %752 = select i1 %.not9415, i64 0, i64 34359738368
   %753 = and i64 %751, -34359738369
   %754 = or disjoint i64 %753, %752
   store i64 %754, ptr %745, align 8
@@ -73102,8 +73102,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit2629:        ; preds = %_ZNSt7__cxx1112basi
   %.pre9727 = load i64, ptr %777, align 8
   %786 = and i64 %.pre9727, -129
   %787 = load i64, ptr %779, align 8
-  %sh.diff9417 = lshr i64 %787, 29
-  %788 = and i64 %sh.diff9417, 128
+  %sh.diff9416 = lshr i64 %787, 29
+  %788 = and i64 %sh.diff9416, 128
   %789 = or disjoint i64 %788, %786
   store i64 %789, ptr %777, align 8
   %790 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierES3_EEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 1226, i32 1497)
@@ -73124,8 +73124,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit2629:        ; preds = %_ZNSt7__cxx1112basi
   %797 = and i64 %796, -98305
   store i64 %797, ptr %755, align 8
   %798 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 217, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9418 = icmp samesign ult i64 %798, 4294967296
-  br i1 %.not9418, label %805, label %799
+  %.not9417 = icmp samesign ult i64 %798, 4294967296
+  br i1 %.not9417, label %805, label %799
 
 799:                                              ; preds = %.critedge9525
   %800 = load i64, ptr %755, align 8
@@ -73227,8 +73227,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit2629:        ; preds = %_ZNSt7__cxx1112basi
   %848 = getelementptr inbounds nuw i8, ptr %0, i64 740
   store i32 0, ptr %848, align 4, !tbaa !1767
   %849 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 807, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9419 = icmp samesign ult i64 %849, 4294967296
-  br i1 %.not9419, label %851, label %850
+  %.not9418 = icmp samesign ult i64 %849, 4294967296
+  br i1 %.not9418, label %851, label %850
 
 850:                                              ; preds = %.critedge9527
   %.sroa.08650.0.extract.trunc = trunc i64 %849 to i32
@@ -73779,8 +73779,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 1056:                                             ; preds = %.critedge9532
   %1057 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1995, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9420 = icmp samesign ult i64 %1057, 4294967296
-  br i1 %.not9420, label %1063, label %1058
+  %.not9419 = icmp samesign ult i64 %1057, 4294967296
+  br i1 %.not9419, label %1063, label %1058
 
 1058:                                             ; preds = %1056
   %1059 = load i64, ptr %831, align 8
@@ -73796,8 +73796,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %1066 = and i64 %1065, -4294967296
   store i64 %1066, ptr %1064, align 8
   %1067 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 904, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9421 = icmp samesign ult i64 %1067, 4294967296
-  br i1 %.not9421, label %1073, label %1068
+  %.not9420 = icmp samesign ult i64 %1067, 4294967296
+  br i1 %.not9420, label %1073, label %1068
 
 1068:                                             ; preds = %1063
   %1069 = load i64, ptr %1064, align 8
@@ -73864,8 +73864,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %1102 = and i16 %1101, -3073
   store i16 %1102, ptr %1100, align 4
   %1103 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1787, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9422 = icmp samesign ult i64 %1103, 4294967296
-  br i1 %.not9422, label %1111, label %1104
+  %.not9421 = icmp samesign ult i64 %1103, 4294967296
+  br i1 %.not9421, label %1111, label %1104
 
 1104:                                             ; preds = %1099
   %1105 = load i16, ptr %1100, align 4
@@ -75018,8 +75018,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1551 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store i32 2, ptr %1551, align 4, !tbaa !1806
   %1552 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 484, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9423 = icmp samesign ult i64 %1552, 4294967296
-  br i1 %.not9423, label %1554, label %1553
+  %.not9422 = icmp samesign ult i64 %1552, 4294967296
+  br i1 %.not9422, label %1554, label %1553
 
 1553:                                             ; preds = %.critedge9548
   %.sroa.08299.0.extract.trunc = trunc i64 %1552 to i32
@@ -75050,8 +75050,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1566 = or disjoint i64 %1565, 2199023255552
   store i64 %1566, ptr %1563, align 8
   %1567 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 510, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9424 = icmp samesign ult i64 %1567, 4294967296
-  br i1 %.not9424, label %1573, label %1568
+  %.not9423 = icmp samesign ult i64 %1567, 4294967296
+  br i1 %.not9423, label %1573, label %1568
 
 1568:                                             ; preds = %.critedge9549
   %1569 = load i64, ptr %1563, align 8
@@ -75068,11 +75068,11 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1577 = or disjoint i64 %1576, 1048576
   store i64 %1577, ptr %1574, align 8
   %1578 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 511, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9425 = icmp samesign ult i64 %1578, 4294967296
+  %.not9424 = icmp samesign ult i64 %1578, 4294967296
   %.pre9749 = load i64, ptr %1574, align 8
   %1579 = and i64 %.pre9749, -8589934592
   %1580 = or disjoint i64 %1579, %1578
-  %1581 = select i1 %.not9425, i64 %.pre9749, i64 %1580
+  %1581 = select i1 %.not9424, i64 %.pre9749, i64 %1580
   %1582 = and i64 %1581, -4294967297
   store i64 %1582, ptr %1574, align 8
   %1583 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 662)
@@ -75246,8 +75246,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1666 = and i64 %1665, -3585
   store i64 %1666, ptr %755, align 8
   %1667 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 364, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9426 = icmp samesign ult i64 %1667, 4294967296
-  br i1 %.not9426, label %1674, label %1668
+  %.not9425 = icmp samesign ult i64 %1667, 4294967296
+  br i1 %.not9425, label %1674, label %1668
 
 1668:                                             ; preds = %.critedge9556
   %1669 = load i64, ptr %755, align 8
@@ -75287,8 +75287,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1687 = and i64 %1686, -6917529027641081857
   store i64 %1687, ptr %755, align 8
   %1688 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 771, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9427 = icmp samesign ult i64 %1688, 4294967296
-  br i1 %.not9427, label %1695, label %1689
+  %.not9426 = icmp samesign ult i64 %1688, 4294967296
+  br i1 %.not9426, label %1695, label %1689
 
 1689:                                             ; preds = %.critedge9557
   %1690 = load i64, ptr %755, align 8
@@ -75305,8 +75305,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1698 = and i32 %1697, -4
   store i32 %1698, ptr %1696, align 8
   %1699 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 451, i32 noundef 9, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9428 = icmp samesign ult i64 %1699, 4294967296
-  br i1 %.not9428, label %1705, label %1700
+  %.not9427 = icmp samesign ult i64 %1699, 4294967296
+  br i1 %.not9427, label %1705, label %1700
 
 1700:                                             ; preds = %1695
   %.sroa.08180.0.extract.trunc = trunc i64 %1699 to i32
@@ -75322,18 +75322,18 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1707 = or i64 %1706, 1729382256910270464
   store i64 %1707, ptr %755, align 8
   %1708 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 780, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9429 = icmp samesign ult i64 %1708, 4294967296
+  %.not9428 = icmp samesign ult i64 %1708, 4294967296
   %.pre9753 = load i64, ptr %755, align 8
   %1709 = shl i64 %1708, 59
   %1710 = and i64 %1709, 1729382256910270464
   %1711 = and i64 %.pre9753, -2161727821137838081
   %1712 = or disjoint i64 %1711, %1710
-  %1713 = select i1 %.not9429, i64 %.pre9753, i64 %1712
+  %1713 = select i1 %.not9428, i64 %.pre9753, i64 %1712
   %1714 = or i64 %1713, 432345564227567616
   store i64 %1714, ptr %755, align 8
   %1715 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 781, i32 noundef 11, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9430 = icmp samesign ult i64 %1715, 4294967296
-  br i1 %.not9430, label %1722, label %1716
+  %.not9429 = icmp samesign ult i64 %1715, 4294967296
+  br i1 %.not9429, label %1722, label %1716
 
 1716:                                             ; preds = %1705
   %1717 = load i64, ptr %755, align 8
@@ -75443,8 +75443,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1769 = and i16 %1768, 32767
   store i16 %1769, ptr %1100, align 4
   %1770 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 674, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9431 = icmp samesign ult i64 %1770, 4294967296
-  br i1 %.not9431, label %1777, label %1771
+  %.not9430 = icmp samesign ult i64 %1770, 4294967296
+  br i1 %.not9430, label %1777, label %1771
 
 1771:                                             ; preds = %.critedge9560
   %1772 = load i16, ptr %1100, align 4
@@ -75478,8 +75478,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1788 = and i16 %1787, -769
   store i16 %1788, ptr %1100, align 4
   %1789 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 468, i32 noundef 13, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9432 = icmp samesign ult i64 %1789, 4294967296
-  br i1 %.not9432, label %1797, label %1790
+  %.not9431 = icmp samesign ult i64 %1789, 4294967296
+  br i1 %.not9431, label %1797, label %1790
 
 1790:                                             ; preds = %.critedge9561
   %1791 = load i16, ptr %1100, align 4
@@ -75496,8 +75496,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1799 = and i64 %1798, -412316860417
   store i64 %1799, ptr %1083, align 8
   %1800 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1675, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9433 = icmp samesign ult i64 %1800, 4294967296
-  br i1 %.not9433, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit6143, label %1801
+  %.not9432 = icmp samesign ult i64 %1800, 4294967296
+  br i1 %.not9432, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit6143, label %1801
 
 1801:                                             ; preds = %1797
   %1802 = load i64, ptr %1083, align 8
@@ -77624,8 +77624,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %2633 = or disjoint i64 %2631, %2632
   store i64 %2633, ptr %755, align 8
   %2634 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 884, i32 noundef 17, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9438 = icmp samesign ult i64 %2634, 4294967296
-  br i1 %.not9438, label %2641, label %2635
+  %.not9437 = icmp samesign ult i64 %2634, 4294967296
+  br i1 %.not9437, label %2641, label %2635
 
 2635:                                             ; preds = %.critedge9579
   %2636 = load i64, ptr %755, align 8
@@ -77733,8 +77733,8 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %2688 = and i64 %2687, -393217
   store i64 %2688, ptr %755, align 8
   %2689 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 963, i32 noundef 18, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9440 = icmp samesign ult i64 %2689, 4294967296
-  br i1 %.not9440, label %2696, label %2690
+  %.not9439 = icmp samesign ult i64 %2689, 4294967296
+  br i1 %.not9439, label %2696, label %2690
 
 2690:                                             ; preds = %.critedge9583
   %2691 = load i64, ptr %755, align 8
@@ -78382,8 +78382,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %.pre9777 = load i64, ptr %1128, align 8
   %2938 = or i64 %.pre9777, 4294967296
   %spec.select10909 = select i1 %.not.not.i4277.not, i64 %.pre9777, i64 %2938
-  %sh.diff9441 = lshr i64 %spec.select10909, 2
-  %2939 = and i64 %sh.diff9441, 1073741824
+  %sh.diff9440 = lshr i64 %spec.select10909, 2
+  %2939 = and i64 %sh.diff9440, 1073741824
   %2940 = and i64 %spec.select10909, -1073741825
   %2941 = or disjoint i64 %2939, %2940
   store i64 %2941, ptr %1128, align 8
@@ -78531,8 +78531,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3009 = getelementptr inbounds nuw i8, ptr %3008, i64 16
   %3010 = load i32, ptr %3009, align 8, !tbaa !1914
   %3011 = lshr i32 %3010, 13
-  %.lobit9442 = and i32 %3011, 1
-  %3012 = zext nneg i32 %.lobit9442 to i64
+  %.lobit9441 = and i32 %3011, 1
+  %3012 = zext nneg i32 %.lobit9441 to i64
   %3013 = load i64, ptr %1092, align 8
   %3014 = shl nuw nsw i64 %3012, 33
   %3015 = and i64 %3013, -8589934593
@@ -78728,8 +78728,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3106 = and i64 %3105, 4294967295
   store i64 %3106, ptr %777, align 8
   %3107 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 976, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9443 = icmp samesign ult i64 %3107, 4294967296
-  br i1 %.not9443, label %3113, label %3108
+  %.not9442 = icmp samesign ult i64 %3107, 4294967296
+  br i1 %.not9442, label %3113, label %3108
 
 3108:                                             ; preds = %.critedge9605
   %3109 = load i64, ptr %777, align 8
@@ -78859,14 +78859,14 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3171 = and i64 %3170, -4294967296
   store i64 %3171, ptr %3169, align 8
   %3172 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1554, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9444 = icmp samesign ult i64 %3172, 4294967296
+  %.not9443 = icmp samesign ult i64 %3172, 4294967296
   %.pre9791 = load i64, ptr %3169, align 8
-  %3173 = select i1 %.not9444, i64 %.pre9791, i64 %3172
+  %3173 = select i1 %.not9443, i64 %.pre9791, i64 %3172
   %3174 = and i64 %3173, 4294967295
   store i64 %3174, ptr %3169, align 8
   %3175 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 905, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9445 = icmp samesign ult i64 %3175, 4294967296
-  br i1 %.not9445, label %3181, label %3176
+  %.not9444 = icmp samesign ult i64 %3175, 4294967296
+  br i1 %.not9444, label %3181, label %3176
 
 3176:                                             ; preds = %.critedge9609
   %3177 = load i64, ptr %3169, align 8
@@ -79112,8 +79112,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3288 = and i32 %3287, -805306369
   store i32 %3288, ptr %1696, align 8
   %3289 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1839, i32 noundef 21, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9446 = icmp samesign ult i64 %3289, 4294967296
-  br i1 %.not9446, label %3296, label %3290
+  %.not9445 = icmp samesign ult i64 %3289, 4294967296
+  br i1 %.not9445, label %3296, label %3290
 
 3290:                                             ; preds = %.critedge9621
   %.sroa.07292.0.extract.trunc = trunc i64 %3289 to i32
@@ -79131,14 +79131,14 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3299 = and i64 %3298, -4294967296
   store i64 %3299, ptr %3297, align 8
   %3300 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1838, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9447 = icmp samesign ult i64 %3300, 4294967296
+  %.not9446 = icmp samesign ult i64 %3300, 4294967296
   %.pre9797 = load i64, ptr %3297, align 8
-  %3301 = select i1 %.not9447, i64 %.pre9797, i64 %3300
+  %3301 = select i1 %.not9446, i64 %.pre9797, i64 %3300
   %3302 = and i64 %3301, 4294967295
   store i64 %3302, ptr %3297, align 8
   %3303 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1837, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9448 = icmp samesign ult i64 %3303, 4294967296
-  br i1 %.not9448, label %3309, label %3304
+  %.not9447 = icmp samesign ult i64 %3303, 4294967296
+  br i1 %.not9447, label %3309, label %3304
 
 3304:                                             ; preds = %3296
   %3305 = load i64, ptr %3297, align 8
@@ -79154,8 +79154,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3312 = or disjoint i64 %3311, 1024
   store i64 %3312, ptr %1563, align 8
   %3313 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1807, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9449 = icmp samesign ult i64 %3313, 4294967296
-  br i1 %.not9449, label %3319, label %3314
+  %.not9448 = icmp samesign ult i64 %3313, 4294967296
+  br i1 %.not9448, label %3319, label %3314
 
 3314:                                             ; preds = %3309
   %3315 = load i64, ptr %1563, align 8
@@ -79172,8 +79172,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3323 = or disjoint i64 %3322, 1099511627776
   store i64 %3323, ptr %3320, align 8
   %3324 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1529, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9450 = icmp samesign ult i64 %3324, 4294967296
-  br i1 %.not9450, label %3330, label %3325
+  %.not9449 = icmp samesign ult i64 %3324, 4294967296
+  br i1 %.not9449, label %3330, label %3325
 
 3325:                                             ; preds = %3319
   %3326 = load i64, ptr %3320, align 8
@@ -79206,8 +79206,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3341 = and i64 %3340, 4294967295
   store i64 %3341, ptr %3339, align 8
   %3342 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3360, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9451 = icmp samesign ult i64 %3342, 4294967296
-  br i1 %.not9451, label %3348, label %3343
+  %.not9450 = icmp samesign ult i64 %3342, 4294967296
+  br i1 %.not9450, label %3348, label %3343
 
 3343:                                             ; preds = %.critedge9622
   %3344 = load i64, ptr %3339, align 8
@@ -79267,9 +79267,9 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 3370:                                             ; preds = %.critedge9624
   %3371 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1880, i32 noundef 23, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9452 = icmp samesign ult i64 %3371, 4294967296
+  %.not9451 = icmp samesign ult i64 %3371, 4294967296
   %.pre9799 = load i32, ptr %1696, align 8
-  br i1 %.not9452, label %3377, label %3372
+  br i1 %.not9451, label %3377, label %3372
 
 3372:                                             ; preds = %3370
   %.sroa.07238.0.extract.trunc = trunc i64 %3371 to i32
@@ -79291,9 +79291,9 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 3383:                                             ; preds = %3377
   %3384 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1889, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9453 = icmp samesign ult i64 %3384, 4294967296
+  %.not9452 = icmp samesign ult i64 %3384, 4294967296
   %.pre9800 = load i32, ptr %1696, align 8
-  br i1 %.not9453, label %3390, label %3385
+  br i1 %.not9452, label %3390, label %3385
 
 3385:                                             ; preds = %3383
   %.sroa.07234.0.extract.trunc = trunc i64 %3384 to i32
@@ -79315,9 +79315,9 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 3396:                                             ; preds = %3390
   %3397 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1881, i32 noundef 25, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9454 = icmp samesign ult i64 %3397, 4294967296
+  %.not9453 = icmp samesign ult i64 %3397, 4294967296
   %.pre9801 = load i32, ptr %1696, align 8
-  br i1 %.not9454, label %3403, label %3398
+  br i1 %.not9453, label %3403, label %3398
 
 3398:                                             ; preds = %3396
   %.sroa.07230.0.extract.trunc = trunc i64 %3397 to i32
@@ -79339,9 +79339,9 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 3409:                                             ; preds = %3403
   %3410 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1882, i32 noundef 26, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9455 = icmp samesign ult i64 %3410, 4294967296
+  %.not9454 = icmp samesign ult i64 %3410, 4294967296
   %.pre9802 = load i32, ptr %1696, align 8
-  br i1 %.not9455, label %3416, label %3411
+  br i1 %.not9454, label %3416, label %3411
 
 3411:                                             ; preds = %3409
   %.sroa.07226.0.extract.trunc = trunc i64 %3410 to i32
@@ -79357,8 +79357,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3419 = or disjoint i32 %3418, 512
   store i32 %3419, ptr %1696, align 8
   %3420 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1890, i32 noundef 27, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9456 = icmp samesign ult i64 %3420, 4294967296
-  br i1 %.not9456, label %3427, label %3421
+  %.not9455 = icmp samesign ult i64 %3420, 4294967296
+  br i1 %.not9455, label %3427, label %3421
 
 3421:                                             ; preds = %3416
   %.sroa.07222.0.extract.trunc = trunc i64 %3420 to i32
@@ -79425,18 +79425,18 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %3449 = or disjoint i64 %3448, 9007199254740992
   store i64 %3449, ptr %755, align 8
   %3450 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1885, i32 noundef 28, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9457 = icmp samesign ult i64 %3450, 4294967296
+  %.not9456 = icmp samesign ult i64 %3450, 4294967296
   %.pre9805 = load i64, ptr %755, align 8
   %3451 = shl i64 %3450, 52
   %3452 = and i64 %3451, 31525197391593472
   %3453 = and i64 %.pre9805, -34902897112121345
   %3454 = or disjoint i64 %3453, %3452
   %3455 = and i64 %.pre9805, -3377699720527873
-  %3456 = select i1 %.not9457, i64 %3455, i64 %3454
+  %3456 = select i1 %.not9456, i64 %3455, i64 %3454
   store i64 %3456, ptr %755, align 8
   %3457 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2271, i32 noundef 29, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9458 = icmp samesign ult i64 %3457, 4294967296
-  br i1 %.not9458, label %3464, label %3458
+  %.not9457 = icmp samesign ult i64 %3457, 4294967296
+  br i1 %.not9457, label %3464, label %3458
 
 3458:                                             ; preds = %.critedge9627
   %3459 = load i64, ptr %755, align 8
@@ -79520,8 +79520,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 3497:                                             ; preds = %3495
   %3498 = lshr i32 %3493, 14
-  %.lobit9459 = and i32 %3498, 1
-  %3499 = zext nneg i32 %.lobit9459 to i64
+  %.lobit9458 = and i32 %3498, 1
+  %3499 = zext nneg i32 %.lobit9458 to i64
   %3500 = shl nuw nsw i64 %3499, 37
   br label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit
 
@@ -79560,8 +79560,8 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit: ; preds = %3489, %3495, %
 
 3518:                                             ; preds = %3516
   %3519 = lshr i32 %3514, 14
-  %.lobit9460 = and i32 %3519, 1
-  %3520 = zext nneg i32 %.lobit9460 to i64
+  %.lobit9459 = and i32 %3519, 1
+  %3520 = zext nneg i32 %.lobit9459 to i64
   %3521 = shl nuw nsw i64 %3520, 37
   br label %_ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4780
 
@@ -79604,13 +79604,13 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4780: ; preds = %.critedge9
   %3541 = and i64 %3540, 4294967295
   store i64 %3541, ptr %3539, align 8
   %3542 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2276, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9461 = icmp samesign ult i64 %3542, 4294967296
+  %.not9460 = icmp samesign ult i64 %3542, 4294967296
   %.pre9807 = load i64, ptr %3539, align 8
   %3543 = shl i64 %3542, 32
   %3544 = and i64 %.pre9807, 4294967294
   %3545 = or disjoint i64 %3544, %3543
   %3546 = and i64 %.pre9807, -2
-  %3547 = select i1 %.not9461, i64 %3546, i64 %3545
+  %3547 = select i1 %.not9460, i64 %3546, i64 %3545
   store i64 %3547, ptr %3539, align 8
   %3548 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 2174)
   %.not.not.i4795.not = icmp eq ptr %3548, null
@@ -79628,8 +79628,8 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4780: ; preds = %.critedge9
   %3555 = and i64 %3554, -4294967296
   store i64 %3555, ptr %3553, align 8
   %3556 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 789, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9462 = icmp samesign ult i64 %3556, 4294967296
-  br i1 %.not9462, label %3562, label %3557
+  %.not9461 = icmp samesign ult i64 %3556, 4294967296
+  br i1 %.not9461, label %3562, label %3557
 
 3557:                                             ; preds = %3552
   %3558 = load i64, ptr %3553, align 8
@@ -79658,8 +79658,8 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4780: ; preds = %.critedge9
   %3571 = and i16 %3570, -4
   store i16 %3571, ptr %1100, align 4
   %3572 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 2837, i32 noundef 35, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9463 = icmp samesign ult i64 %3572, 4294967296
-  br i1 %.not9463, label %3579, label %3573
+  %.not9462 = icmp samesign ult i64 %3572, 4294967296
+  br i1 %.not9462, label %3579, label %3573
 
 3573:                                             ; preds = %3569
   %3574 = load i16, ptr %1100, align 4
@@ -79690,14 +79690,14 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4780: ; preds = %.critedge9
   %3589 = and i64 %3588, -4294967296
   store i64 %3589, ptr %3587, align 8
   %3590 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2890, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9464 = icmp samesign ult i64 %3590, 4294967296
+  %.not9463 = icmp samesign ult i64 %3590, 4294967296
   %.pre9808 = load i64, ptr %3587, align 8
-  %3591 = select i1 %.not9464, i64 %.pre9808, i64 %3590
+  %3591 = select i1 %.not9463, i64 %.pre9808, i64 %3590
   %3592 = and i64 %3591, 4294967295
   store i64 %3592, ptr %3587, align 8
   %3593 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 2889, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9465 = icmp samesign ult i64 %3593, 4294967296
-  br i1 %.not9465, label %3599, label %3594
+  %.not9464 = icmp samesign ult i64 %3593, 4294967296
+  br i1 %.not9464, label %3599, label %3594
 
 3594:                                             ; preds = %3586
   %3595 = load i64, ptr %3587, align 8
@@ -79828,8 +79828,8 @@ _ZNK5clang12LangStandard20hasRawStringLiteralsEv.exit4780: ; preds = %.critedge9
   %3655 = and i64 %3654, -385
   store i64 %3655, ptr %755, align 8
   %3656 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 413, i32 noundef 38, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9466 = icmp samesign ult i64 %3656, 4294967296
-  br i1 %.not9466, label %3663, label %3657
+  %.not9465 = icmp samesign ult i64 %3656, 4294967296
+  br i1 %.not9465, label %3663, label %3657
 
 3657:                                             ; preds = %3653
   %3658 = load i64, ptr %755, align 8
@@ -80682,14 +80682,14 @@ _ZNSt14_Optional_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %4010 = and i64 %4009, -103079215105
   store i64 %4010, ptr %1074, align 8
   %4011 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3053, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9472 = icmp samesign ult i64 %4011, 4294967296
+  %.not9471 = icmp samesign ult i64 %4011, 4294967296
   %.pre9824 = load i64, ptr %1074, align 8
   %4012 = shl i64 %4011, 35
   %4013 = and i64 %4012, 103079215104
   %4014 = and i64 %.pre9824, -240518168577
   %4015 = or disjoint i64 %4014, %4013
   %4016 = and i64 %.pre9824, -137438953473
-  %4017 = select i1 %.not9472, i64 %4016, i64 %4015
+  %4017 = select i1 %.not9471, i64 %4016, i64 %4015
   store i64 %4017, ptr %1074, align 8
   %4018 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 3052)
   %.not.not.i5125.not = icmp eq ptr %4018, null
@@ -81194,8 +81194,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4208 = and i64 %4207, -1090715534753793
   store i64 %4208, ptr %1083, align 8
   %4209 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 1841, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9473 = icmp samesign ult i64 %4209, 4294967296
-  br i1 %.not9473, label %4216, label %4210
+  %.not9472 = icmp samesign ult i64 %4209, 4294967296
+  br i1 %.not9472, label %4216, label %4210
 
 4210:                                             ; preds = %4206
   %4211 = load i64, ptr %1083, align 8
@@ -81239,22 +81239,22 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4232 = and i32 %4231, -201326593
   store i32 %4232, ptr %1696, align 8
   %4233 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 3205, i32 noundef 52, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9474 = icmp samesign ult i64 %4233, 4294967296
+  %.not9473 = icmp samesign ult i64 %4233, 4294967296
   %.pre9829 = load i32, ptr %1696, align 8
   %.sroa.06825.0.extract.trunc = trunc i64 %4233 to i32
   %4234 = shl i32 %.sroa.06825.0.extract.trunc, 26
   %4235 = and i32 %4234, 201326592
   %4236 = and i32 %.pre9829, -201326593
   %4237 = or disjoint i32 %4236, %4235
-  %4238 = select i1 %.not9474, i32 %.pre9829, i32 %4237
+  %4238 = select i1 %.not9473, i32 %.pre9829, i32 %4237
   %4239 = shl i32 %4238, 3
   %4240 = and i32 %4239, 14336
   %4241 = and i32 %4238, -14337
   %4242 = or disjoint i32 %4240, %4241
   store i32 %4242, ptr %1696, align 8
   %4243 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1840, i32 noundef 53, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9475 = icmp samesign ult i64 %4243, 4294967296
-  br i1 %.not9475, label %4250, label %4244
+  %.not9474 = icmp samesign ult i64 %4243, 4294967296
+  br i1 %.not9474, label %4250, label %4244
 
 4244:                                             ; preds = %4230
   %.sroa.06821.0.extract.trunc = trunc i64 %4243 to i32
@@ -81286,8 +81286,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4260 = or disjoint i64 %4259, 256
   store i64 %4260, ptr %3339, align 8
   %4261 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 460, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9476 = icmp samesign ult i64 %4261, 4294967296
-  br i1 %.not9476, label %4267, label %4262
+  %.not9475 = icmp samesign ult i64 %4261, 4294967296
+  br i1 %.not9475, label %4267, label %4262
 
 4262:                                             ; preds = %4257
   %4263 = load i64, ptr %3339, align 8
@@ -81352,8 +81352,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4290 = and i32 %4289, -49
   store i32 %4290, ptr %1696, align 8
   %4291 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 390, i32 noundef 54, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9477 = icmp samesign ult i64 %4291, 4294967296
-  br i1 %.not9477, label %4298, label %4292
+  %.not9476 = icmp samesign ult i64 %4291, 4294967296
+  br i1 %.not9476, label %4298, label %4292
 
 4292:                                             ; preds = %4288
   %.sroa.06784.0.extract.trunc = trunc i64 %4291 to i32
@@ -81435,8 +81435,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4330 = or disjoint i16 %4329, 4
   store i16 %4330, ptr %1100, align 4
   %4331 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 3312, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9478 = icmp samesign ult i64 %4331, 4294967296
-  br i1 %.not9478, label %4339, label %4332
+  %.not9477 = icmp samesign ult i64 %4331, 4294967296
+  br i1 %.not9477, label %4339, label %4332
 
 4332:                                             ; preds = %.critedge9652
   %4333 = load i16, ptr %1100, align 4
@@ -81505,8 +81505,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4365 = and i64 %4364, -3670017
   store i64 %4365, ptr %755, align 8
   %4366 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 574, i32 noundef 55, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9479 = icmp samesign ult i64 %4366, 4294967296
-  br i1 %.not9479, label %4373, label %4367
+  %.not9478 = icmp samesign ult i64 %4366, 4294967296
+  br i1 %.not9478, label %4373, label %4367
 
 4367:                                             ; preds = %4363
   %4368 = load i64, ptr %755, align 8
@@ -81536,13 +81536,13 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4382 = and i64 %4381, -540431955284459521
   store i64 %4382, ptr %1074, align 8
   %4383 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 1893, i32 noundef 56, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9480 = icmp samesign ult i64 %4383, 4294967296
+  %.not9479 = icmp samesign ult i64 %4383, 4294967296
   %.pre9837 = load i64, ptr %1074, align 8
   %4384 = shl i64 %4383, 55
   %4385 = and i64 %4384, 540431955284459520
   %4386 = and i64 %.pre9837, -1116892707587883009
   %4387 = or disjoint i64 %4386, %4385
-  %4388 = select i1 %.not9480, i64 %.pre9837, i64 %4387
+  %4388 = select i1 %.not9479, i64 %.pre9837, i64 %4387
   %4389 = or i64 %4388, 576460752303423488
   store i64 %4389, ptr %1074, align 8
   %4390 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJNS0_12OptSpecifierES3_EEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 1369, i32 1759)
@@ -81597,8 +81597,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %4412 = and i64 %4411, 4294967295
   store i64 %4412, ptr %3553, align 8
   %4413 = call fastcc i64 @_ZL23normalizeStringIntegralIjESt8optionalIT_EN4llvm3opt12OptSpecifierEiRKNS4_7ArgListERN5clang17DiagnosticsEngineE(i32 660, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9481 = icmp samesign ult i64 %4413, 4294967296
-  br i1 %.not9481, label %4419, label %4414
+  %.not9480 = icmp samesign ult i64 %4413, 4294967296
+  br i1 %.not9480, label %4419, label %4414
 
 4414:                                             ; preds = %4410
   %4415 = load i64, ptr %3553, align 8
@@ -81668,8 +81668,8 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 
 4447:                                             ; preds = %4442
   %4448 = call fastcc i64 @_ZL19normalizeSimpleEnumN4llvm3opt12OptSpecifierEjRKNS0_7ArgListERN5clang17DiagnosticsEngineE(i32 3231, i32 noundef 57, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(15248) %5)
-  %.not9482 = icmp samesign ult i64 %4448, 4294967296
-  br i1 %.not9482, label %4455, label %4449
+  %.not9481 = icmp samesign ult i64 %4448, 4294967296
+  br i1 %.not9481, label %4455, label %4449
 
 4449:                                             ; preds = %4447
   %4450 = load i64, ptr %755, align 8
@@ -81771,8 +81771,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i5322:        ; preds = %_ZN4llvm9StringRefC
 
 _ZN4llvm12StringSwitchIN5clang23CFBranchLabelSchemeKindES2_E4CaseENS_13StringLiteralES2_.exit5325: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5322, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm9StringRefC2EPKc.exit5315, %4478
   %.sroa.86661.1 = phi i64 [ 0, %4478 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit5315 ], [ %spec.select9365, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5322 ]
-  %spec.select.i53269484 = call i64 @llvm.umax.i64(i64 %.sroa.86661.1, i64 4294967296)
-  %spec.select.i5326 = trunc i64 %spec.select.i53269484 to i32
+  %spec.select.i53269483 = call i64 @llvm.umax.i64(i64 %.sroa.86661.1, i64 4294967296)
+  %spec.select.i5326 = trunc i64 %spec.select.i53269483 to i32
   %4485 = load i32, ptr %1696, align 8
   %4486 = shl nuw nsw i32 %spec.select.i5326, 2
   %4487 = and i32 %4485, -13
@@ -81782,18 +81782,18 @@ _ZN4llvm12StringSwitchIN5clang23CFBranchLabelSchemeKindES2_E4CaseENS_13StringLit
 
 4489:                                             ; preds = %4476, %_ZN4llvm12StringSwitchIN5clang23CFBranchLabelSchemeKindES2_E4CaseENS_13StringLiteralES2_.exit5325, %_ZN4llvmeqENS_9StringRefES0_.exit5313.thread9171
   %4490 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1796)
-  %.not9485 = icmp eq ptr %4490, null
-  br i1 %.not9485, label %4491, label %4493
+  %.not9484 = icmp eq ptr %4490, null
+  br i1 %.not9484, label %4491, label %4493
 
 4491:                                             ; preds = %4489
   %4492 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1797)
-  %.not9486 = icmp eq ptr %4492, null
-  br i1 %.not9486, label %4499, label %4493
+  %.not9485 = icmp eq ptr %4492, null
+  br i1 %.not9485, label %4499, label %4493
 
 4493:                                             ; preds = %4491, %4489
   %4494 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 3231)
-  %.not9487 = icmp eq ptr %4494, null
-  br i1 %.not9487, label %4495, label %4499
+  %.not9486 = icmp eq ptr %4494, null
+  br i1 %.not9486, label %4495, label %4499
 
 4495:                                             ; preds = %4493
   %4496 = load i64, ptr %755, align 8
@@ -81840,8 +81840,8 @@ _ZN4llvm9StringRefC2EPKc.exit5328:                ; preds = %4504, %4508
 
 4514:                                             ; preds = %_ZN4llvm9StringRefC2EPKc.exit5328, %4513, %4502
   %4515 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1481)
-  %.not9488 = icmp eq ptr %4515, null
-  br i1 %.not9488, label %4520, label %4516
+  %.not9487 = icmp eq ptr %4515, null
+  br i1 %.not9487, label %4520, label %4516
 
 4516:                                             ; preds = %4514
   %4517 = load i32, ptr %1696, align 8
@@ -81852,8 +81852,8 @@ _ZN4llvm9StringRefC2EPKc.exit5328:                ; preds = %4504, %4508
 
 4520:                                             ; preds = %4514
   %4521 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1482)
-  %.not9489 = icmp eq ptr %4521, null
-  br i1 %.not9489, label %4526, label %4522
+  %.not9488 = icmp eq ptr %4521, null
+  br i1 %.not9488, label %4526, label %4522
 
 4522:                                             ; preds = %4520
   %4523 = load i32, ptr %1696, align 8
@@ -81864,8 +81864,8 @@ _ZN4llvm9StringRefC2EPKc.exit5328:                ; preds = %4504, %4508
 
 4526:                                             ; preds = %4520
   %4527 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1472)
-  %.not9490 = icmp eq ptr %4527, null
-  br i1 %.not9490, label %_ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread, label %4528
+  %.not9489 = icmp eq ptr %4527, null
+  br i1 %.not9489, label %_ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread, label %4528
 
 4528:                                             ; preds = %4526
   %4529 = load i64, ptr %745, align 8
@@ -81907,8 +81907,8 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread9185: ; preds = %4538, %4528, %45
 
 _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528, %4528, %4528, %4528, %4522, %_ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread9185, %4526, %4516
   %4542 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1489)
-  %.not9491 = icmp eq ptr %4542, null
-  br i1 %.not9491, label %4546, label %4543
+  %.not9490 = icmp eq ptr %4542, null
+  br i1 %.not9490, label %4546, label %4543
 
 4543:                                             ; preds = %_ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread
   %4544 = load i64, ptr %745, align 8
@@ -81931,8 +81931,8 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528,
 4549:                                             ; preds = %4546
   %4550 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4551 = load i64, ptr %4550, align 4
-  %.fr9495 = freeze i64 %4551
-  %4552 = trunc i64 %.fr9495 to i32
+  %.fr9494 = freeze i64 %4551
+  %4552 = trunc i64 %.fr9494 to i32
   %4553 = icmp ult i32 %4552, 10
   br i1 %4553, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread9190, label %4554
 
@@ -81941,7 +81941,7 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528,
   br i1 %.not17.i.i.i, label %4555, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread
 
 4555:                                             ; preds = %4554
-  %4556 = and i64 %.fr9495, 9223372032559808512
+  %4556 = and i64 %.fr9494, 9223372032559808512
   %4557 = icmp samesign ugt i64 %4556, 30064771071
   %4558 = load i64, ptr %745, align 8
   br i1 %4557, label %4585, label %4587
@@ -81949,8 +81949,8 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528,
 4559:                                             ; preds = %4546
   %4560 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4561 = load i64, ptr %4560, align 4
-  %.fr9494 = freeze i64 %4561
-  %4562 = trunc i64 %.fr9494 to i32
+  %.fr9493 = freeze i64 %4561
+  %4562 = trunc i64 %.fr9493 to i32
   %4563 = icmp ult i32 %4562, 10
   br i1 %4563, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread9190, label %4564
 
@@ -81959,7 +81959,7 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528,
   br i1 %.not15.i.i.i, label %4565, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread
 
 4565:                                             ; preds = %4564
-  %4566 = and i64 %.fr9494, 9223372032559808512
+  %4566 = and i64 %.fr9493, 9223372032559808512
   %4567 = icmp samesign ugt i64 %4566, 30064771071
   %4568 = load i64, ptr %745, align 8
   br i1 %4567, label %4585, label %4587
@@ -81967,8 +81967,8 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528,
 4569:                                             ; preds = %4546
   %4570 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4571 = load i64, ptr %4570, align 4
-  %.fr9493 = freeze i64 %4571
-  %4572 = trunc i64 %.fr9493 to i32
+  %.fr9492 = freeze i64 %4571
+  %4572 = trunc i64 %.fr9492 to i32
   %4573 = icmp ugt i32 %4572, 4
   %4574 = load i64, ptr %745, align 8
   br i1 %4573, label %4585, label %4587
@@ -81976,8 +81976,8 @@ _ZNK5clang11ObjCRuntime9allowsARCEv.exit.thread:  ; preds = %4538, %4528, %4528,
 4575:                                             ; preds = %4546
   %4576 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4577 = load i64, ptr %4576, align 4
-  %.fr9492 = freeze i64 %4577
-  %4578 = trunc i64 %.fr9492 to i32
+  %.fr9491 = freeze i64 %4577
+  %4578 = trunc i64 %.fr9491 to i32
   switch i32 %4578, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread [
     i32 0, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread9190
     i32 1, label %_ZNK5clang11ObjCRuntime10allowsWeakEv.exit
@@ -81995,7 +81995,7 @@ _ZNK5clang11ObjCRuntime10allowsWeakEv.exit.thread9190: ; preds = %4549, %4559, %
   br label %4587
 
 _ZNK5clang11ObjCRuntime10allowsWeakEv.exit:       ; preds = %4575
-  %4582 = and i64 %.fr9492, 9223372028264841216
+  %4582 = and i64 %.fr9491, 9223372028264841216
   %4583 = icmp samesign ugt i64 %4582, 25769803775
   %4584 = load i64, ptr %745, align 8
   br i1 %4583, label %4585, label %4587
@@ -82065,8 +82065,8 @@ _ZNK5clang11ObjCRuntime10allowsWeakEv.exit:       ; preds = %4575
 
 4614:                                             ; preds = %4606, %4609, %4594, %4603, %4604, %4599
   %4615 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1492)
-  %.not9496 = icmp eq ptr %4615, null
-  br i1 %.not9496, label %4624, label %4616
+  %.not9495 = icmp eq ptr %4615, null
+  br i1 %.not9495, label %4624, label %4616
 
 4616:                                             ; preds = %4614
   %4617 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -82112,8 +82112,8 @@ _ZN4llvm9StringRefC2EPKc.exit5335:                ; preds = %4626, %4630
   %4642 = trunc i64 %4641 to i32
   %.sroa.06639.0.extract.trunc = and i32 %4642, 2147483647
   %4643 = and i64 %4641, 2147483648
-  %.not9497 = icmp eq i64 %4643, 0
-  %.0.i5345 = select i1 %.not9497, i32 0, i32 %.sroa.06639.0.extract.trunc
+  %.not9496 = icmp eq i64 %4643, 0
+  %.0.i5345 = select i1 %.not9496, i32 0, i32 %.sroa.06639.0.extract.trunc
   br i1 %4633, label %.critedge, label %4644
 
 4644:                                             ; preds = %_ZN4llvm9StringRefC2EPKc.exit5335
@@ -82351,8 +82351,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5359:        ; preds = %_ZNSt7__cxx1112basi
 
 4753:                                             ; preds = %4749
   %4754 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 2354)
-  %.not9498 = icmp eq ptr %4754, null
-  br i1 %.not9498, label %4758, label %4755
+  %.not9497 = icmp eq ptr %4754, null
+  br i1 %.not9497, label %4758, label %4755
 
 4755:                                             ; preds = %4753
   %4756 = load i64, ptr %745, align 8
@@ -82362,8 +82362,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5359:        ; preds = %_ZNSt7__cxx1112basi
 
 4758:                                             ; preds = %4755, %4753, %4749
   %4759 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1828)
-  %.not9499 = icmp eq ptr %4759, null
-  br i1 %.not9499, label %4822, label %4760
+  %.not9498 = icmp eq ptr %4759, null
+  br i1 %.not9498, label %4822, label %4760
 
 4760:                                             ; preds = %4758
   %4761 = load i32, ptr %1696, align 8
@@ -82529,8 +82529,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5371: ; preds = %_
 
 4822:                                             ; preds = %4758
   %4823 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1899)
-  %.not9500 = icmp eq ptr %4823, null
-  br i1 %.not9500, label %4828, label %4824
+  %.not9499 = icmp eq ptr %4823, null
+  br i1 %.not9499, label %4828, label %4824
 
 4824:                                             ; preds = %4822
   %4825 = load i32, ptr %1696, align 8
@@ -82541,8 +82541,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5371: ; preds = %_
 
 4828:                                             ; preds = %4822, %4824, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5371
   %4829 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1898)
-  %.not9501 = icmp eq ptr %4829, null
-  br i1 %.not9501, label %4833, label %4830
+  %.not9500 = icmp eq ptr %4829, null
+  br i1 %.not9500, label %4833, label %4830
 
 4830:                                             ; preds = %4828
   %4831 = load i64, ptr %3320, align 8
@@ -82795,8 +82795,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5383:        ; preds = %_ZNSt7__cxx1112basi
   %4948 = load i64, ptr %4947, align 8
   %.sroa.06618.0.extract.trunc = and i64 %4948, 2147483647
   %4949 = and i64 %4948, 2147483648
-  %.not9502 = icmp eq i64 %4949, 0
-  %.0.i5396 = select i1 %.not9502, i64 0, i64 %.sroa.06618.0.extract.trunc
+  %.not9501 = icmp eq i64 %4949, 0
+  %.0.i5396 = select i1 %.not9501, i64 0, i64 %.sroa.06618.0.extract.trunc
   %4950 = add i64 %4946, %.0.i5396
   %4951 = and i64 %4950, 4294967295
   %4952 = load i64, ptr %1083, align 8
@@ -82832,8 +82832,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5383:        ; preds = %_ZNSt7__cxx1112basi
   %4975 = or disjoint i64 %4974, %4973
   store i64 %4975, ptr %0, align 8
   %4976 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 455)
-  %.not9503 = icmp eq ptr %4976, null
-  br i1 %.not9503, label %4977, label %4986
+  %.not9502 = icmp eq ptr %4976, null
+  br i1 %.not9502, label %4977, label %4986
 
 4977:                                             ; preds = %4955
   %4978 = load i64, ptr %1074, align 8
@@ -82901,11 +82901,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5383:        ; preds = %_ZNSt7__cxx1112basi
   %5016 = or disjoint i64 %5015, %5014
   store i64 %5016, ptr %1092, align 8
   %5017 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1025)
-  %.not9504 = icmp eq ptr %5017, null
+  %.not9503 = icmp eq ptr %5017, null
   %5018 = load i64, ptr %1092, align 8
   %5019 = shl i64 %5018, 1
   %5020 = and i64 %5019, 72057594037927936
-  %5021 = select i1 %.not9504, i64 %5020, i64 72057594037927936
+  %5021 = select i1 %.not9503, i64 %5020, i64 72057594037927936
   %5022 = and i64 %5018, -72057594037927937
   %5023 = or disjoint i64 %5021, %5022
   store i64 %5023, ptr %1092, align 8
@@ -83338,8 +83338,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5212:                                             ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit5421, %5207, %5205, %5203, %_ZN4llvm4sortIRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEEvOT_.exit
   %5213 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1528)
-  %.not9505 = icmp eq ptr %5213, null
-  %5214 = select i1 %.not9505, i64 0, i64 51
+  %.not9504 = icmp eq ptr %5213, null
+  %5214 = select i1 %.not9504, i64 0, i64 51
   %5215 = load i64, ptr %3129, align 8
   %5216 = and i64 %5215, -4294967296
   %5217 = or disjoint i64 %5216, %5214
@@ -83357,8 +83357,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5225:                                             ; preds = %5212
   %5226 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1467)
-  %.not9506 = icmp eq ptr %5226, null
-  %5227 = select i1 %.not9506, i64 17179869184, i64 0
+  %.not9505 = icmp eq ptr %5226, null
+  %5227 = select i1 %.not9505, i64 17179869184, i64 0
   %.pre9843 = load i64, ptr %3129, align 8
   br label %5228
 
@@ -83374,8 +83374,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5234:                                             ; preds = %5228
   %5235 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1514)
-  %.not9507 = icmp eq ptr %5235, null
-  %5236 = select i1 %.not9507, i64 0, i64 34359738368
+  %.not9506 = icmp eq ptr %5235, null
+  %5236 = select i1 %.not9506, i64 0, i64 34359738368
   %.pre9844 = load i64, ptr %3129, align 8
   br label %5237
 
@@ -83391,8 +83391,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5243:                                             ; preds = %5237
   %5244 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1509)
-  %.not9508 = icmp eq ptr %5244, null
-  %5245 = select i1 %.not9508, i64 0, i64 137438953472
+  %.not9507 = icmp eq ptr %5244, null
+  %5245 = select i1 %.not9507, i64 0, i64 137438953472
   %.pre9845 = load i64, ptr %3129, align 8
   br label %5246
 
@@ -83533,13 +83533,13 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 .thread10855:                                     ; preds = %5291, %5295
   %5321 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1521)
-  %.not9509 = icmp eq ptr %5321, null
-  br i1 %.not9509, label %5322, label %5324
+  %.not9508 = icmp eq ptr %5321, null
+  br i1 %.not9508, label %5322, label %5324
 
 5322:                                             ; preds = %.thread10855
   %5323 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1520)
-  %.not9510 = icmp eq ptr %5323, null
-  br i1 %.not9510, label %.thread10853, label %5324
+  %.not9509 = icmp eq ptr %5323, null
+  br i1 %.not9509, label %.thread10853, label %5324
 
 5324:                                             ; preds = %5322, %.thread10855
   %5325 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -83558,8 +83558,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5335:                                             ; preds = %5324
   %5336 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1521)
-  %.not9511 = icmp eq ptr %5336, null
-  br i1 %.not9511, label %.thread10853, label %5337
+  %.not9510 = icmp eq ptr %5336, null
+  br i1 %.not9510, label %.thread10853, label %5337
 
 5337:                                             ; preds = %5335
   %5338 = load i64, ptr %5325, align 8
@@ -83576,8 +83576,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5343:                                             ; preds = %.thread10853
   %5344 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1503)
-  %.not9512 = icmp eq ptr %5344, null
-  br i1 %.not9512, label %5348, label %5345
+  %.not9511 = icmp eq ptr %5344, null
+  br i1 %.not9511, label %5348, label %5345
 
 5345:                                             ; preds = %5343
   %5346 = load i64, ptr %831, align 8
@@ -83587,8 +83587,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5421:        ; preds = %_ZNSt7__cxx1112basi
 
 5348:                                             ; preds = %5345, %5343
   %5349 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1504)
-  %.not9513 = icmp eq ptr %5349, null
-  br i1 %.not9513, label %5353, label %5350
+  %.not9512 = icmp eq ptr %5349, null
+  br i1 %.not9512, label %5353, label %5350
 
 5350:                                             ; preds = %5348
   %5351 = load i64, ptr %831, align 8
@@ -84236,8 +84236,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5462:        ; preds = %_ZNSt7__cxx1112basi
 
 5628:                                             ; preds = %5625, %5625, %5625
   %5629 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1506)
-  %.not9514 = icmp eq ptr %5629, null
-  %5630 = select i1 %.not9514, i64 0, i64 68719476736
+  %.not9513 = icmp eq ptr %5629, null
+  %5630 = select i1 %.not9513, i64 0, i64 68719476736
   %.pre9850 = load i64, ptr %3129, align 8
   br label %5631
 
@@ -84248,8 +84248,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5462:        ; preds = %_ZNSt7__cxx1112basi
   %5635 = or disjoint i64 %5634, %5633
   store i64 %5635, ptr %3129, align 8
   %5636 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 1500)
-  %.not9515 = icmp eq ptr %5636, null
-  br i1 %.not9515, label %5650, label %5637
+  %.not9514 = icmp eq ptr %5636, null
+  br i1 %.not9514, label %5650, label %5637
 
 5637:                                             ; preds = %5631
   %5638 = load i64, ptr %777, align 8
@@ -84271,7 +84271,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5462:        ; preds = %_ZNSt7__cxx1112basi
   br label %5650
 
 5650:                                             ; preds = %5637, %5641, %5631
-  %5651 = call fastcc noundef i32 @_ZL20getOptimizationLevelRN4llvm3opt7ArgListEN5clang9InputKindERNS3_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 %.fr9411, ptr noundef nonnull align 8 dereferenceable(15248) %5)
+  %5651 = call fastcc noundef i32 @_ZL20getOptimizationLevelRN4llvm3opt7ArgListEN5clang9InputKindERNS3_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 %.fr, ptr noundef nonnull align 8 dereferenceable(15248) %5)
   %5652 = call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 10)
   %.not.i5464 = icmp eq ptr %5652, null
   br i1 %.not.i5464, label %_ZL24getOptimizationLevelSizeRN4llvm3opt7ArgListE.exit.thread, label %5653
@@ -84285,8 +84285,8 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit5462:        ; preds = %_ZNSt7__cxx1112basi
   %5657 = load ptr, ptr %5656, align 8, !tbaa !106
   %5658 = load ptr, ptr %5657, align 8, !tbaa !484
   %5659 = load i8, ptr %5658, align 1, !tbaa !56
-  %.fr = freeze i8 %5659
-  %switch.selectcmp10.i = icmp eq i8 %.fr, 115
+  %.fr9515 = freeze i8 %5659
+  %switch.selectcmp10.i = icmp eq i8 %.fr9515, 115
   br i1 %switch.selectcmp10.i, label %_ZL24getOptimizationLevelSizeRN4llvm3opt7ArgListE.exit.thread9202, label %_ZL24getOptimizationLevelSizeRN4llvm3opt7ArgListE.exit
 
 _ZL24getOptimizationLevelSizeRN4llvm3opt7ArgListE.exit.thread9202: ; preds = %5655
@@ -84300,7 +84300,7 @@ _ZL24getOptimizationLevelSizeRN4llvm3opt7ArgListE.exit.thread: ; preds = %5653, 
   br label %5663
 
 _ZL24getOptimizationLevelSizeRN4llvm3opt7ArgListE.exit: ; preds = %5655
-  %switch.selectcmp.i5466.not = icmp eq i8 %.fr, 122
+  %switch.selectcmp.i5466.not = icmp eq i8 %.fr9515, 122
   %.not2439 = icmp eq i32 %5651, 0
   %5662 = select i1 %.not2439, i64 0, i64 137438953472
   %spec.select9379 = select i1 %switch.selectcmp.i5466.not, i64 274877906944, i64 0

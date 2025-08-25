@@ -1928,7 +1928,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 26:                                               ; preds = %7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !78
-  %.2826.fr1962 = freeze i32 %28
+  %.2826.fr1960 = freeze i32 %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i64, ptr %29, align 8, !tbaa !79
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1993,7 +1993,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.1996 = phi i32 [ 0, %40 ], [ %36, %26 ]
   %.1907 = phi i32 [ 0, %40 ], [ %34, %26 ]
   %.1828 = phi i32 [ 0, %40 ], [ %32, %26 ]
-  %.1825 = phi i32 [ 0, %40 ], [ %.2826.fr1962, %26 ]
+  %.1825 = phi i32 [ 0, %40 ], [ %.2826.fr1960, %26 ]
   %.not1537.not = icmp eq i64 %11, 0
   br i1 %.not1537.not, label %47, label %49
 
@@ -2018,7 +2018,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.3998 = phi i32 [ %.1996, %49 ], [ %36, %57 ]
   %.3909 = phi i32 [ %.1907, %49 ], [ %34, %57 ]
   %.3830 = phi i32 [ %.1828, %49 ], [ %32, %57 ]
-  %.3 = phi i32 [ %.1825, %49 ], [ %.2826.fr1962, %57 ]
+  %.3 = phi i32 [ %.1825, %49 ], [ %.2826.fr1960, %57 ]
   %.not1538 = icmp ult ptr %.21170, %12
   br i1 %.not1538, label %58, label %55
 
@@ -2077,9 +2077,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.5832 = phi i32 [ %.68895, %916 ], [ %.3830, %72 ], [ %.3830, %79 ], [ 0, %40 ]
   %.5 = phi i32 [ %.73, %916 ], [ %.3, %72 ], [ %.3, %79 ], [ 0, %40 ]
   %82 = icmp ult i32 %.5, 3
-  br i1 %82, label %.preheader2135, label %.loopexit2136
+  br i1 %82, label %.preheader2133, label %.loopexit2134
 
-.preheader2135:                                   ; preds = %86, %81
+.preheader2133:                                   ; preds = %86, %81
   %.41345.ph = phi i64 [ %.11342, %81 ], [ %38, %86 ]
   %.41264.ph = phi ptr [ %.11261, %81 ], [ %4, %86 ]
   %.71175.ph = phi ptr [ %.41172, %81 ], [ %1, %86 ]
@@ -2087,13 +2087,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.81003.ph = phi i32 [ %.51000, %81 ], [ %36, %86 ]
   %.9915.ph = phi i32 [ %.6912, %81 ], [ %34, %86 ]
   %.8835.ph = phi i32 [ %.5832, %81 ], [ %32, %86 ]
-  %.8.ph = phi i32 [ %.5, %81 ], [ %.2826.fr1962, %86 ]
+  %.8.ph = phi i32 [ %.5, %81 ], [ %.2826.fr1960, %86 ]
   br label %83
 
-83:                                               ; preds = %.preheader2135, %87
-  %.71175 = phi ptr [ %88, %87 ], [ %.71175.ph, %.preheader2135 ]
-  %.81084 = phi i64 [ %93, %87 ], [ %.81084.ph, %.preheader2135 ]
-  %.8 = phi i32 [ %94, %87 ], [ %.8.ph, %.preheader2135 ]
+83:                                               ; preds = %.preheader2133, %87
+  %.71175 = phi ptr [ %88, %87 ], [ %.71175.ph, %.preheader2133 ]
+  %.81084 = phi i64 [ %93, %87 ], [ %.81084.ph, %.preheader2133 ]
+  %.8 = phi i32 [ %94, %87 ], [ %.8.ph, %.preheader2133 ]
   %.not1542 = icmp ult ptr %.71175, %12
   br i1 %.not1542, label %87, label %84
 
@@ -2105,7 +2105,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 86:                                               ; preds = %26
-  br label %.preheader2135, !llvm.loop !92
+  br label %.preheader2133, !llvm.loop !92
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %.71175, i64 1
@@ -2116,9 +2116,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %93 = or i64 %92, %.81084
   %94 = add i32 %.8, 8
   %95 = icmp ult i32 %94, 3
-  br i1 %95, label %83, label %.loopexit2136, !llvm.loop !93
+  br i1 %95, label %83, label %.loopexit2134, !llvm.loop !93
 
-.loopexit2136:                                    ; preds = %87, %81
+.loopexit2134:                                    ; preds = %87, %81
   %.21343 = phi i64 [ %.11342, %81 ], [ %.41345.ph, %87 ]
   %.21262 = phi ptr [ %.11261, %81 ], [ %.41264.ph, %87 ]
   %.51173 = phi ptr [ %.41172, %81 ], [ %88, %87 ]
@@ -2154,20 +2154,20 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %109 = load i8, ptr %1, align 1, !tbaa !3
   %110 = zext i8 %109 to i64
-  %111 = zext nneg i32 %.2826.fr1962 to i64
+  %111 = zext nneg i32 %.2826.fr1960 to i64
   %112 = shl i64 %110, %111
   %113 = or i64 %112, %30
-  %114 = add i32 %.2826.fr1962, 8
+  %114 = add i32 %.2826.fr1960, 8
   br label %115
 
-115:                                              ; preds = %.loopexit2136, %107
-  %.51346 = phi i64 [ %38, %107 ], [ %.21343, %.loopexit2136 ]
-  %.51265 = phi ptr [ %4, %107 ], [ %.21262, %.loopexit2136 ]
-  %.81176 = phi ptr [ %108, %107 ], [ %.51173, %.loopexit2136 ]
-  %.91085 = phi i64 [ %113, %107 ], [ %99, %.loopexit2136 ]
-  %.91004 = phi i32 [ %36, %107 ], [ %.61001, %.loopexit2136 ]
-  %.9836 = phi i32 [ %32, %107 ], [ %.6833, %.loopexit2136 ]
-  %.9 = phi i32 [ %114, %107 ], [ %100, %.loopexit2136 ]
+115:                                              ; preds = %.loopexit2134, %107
+  %.51346 = phi i64 [ %38, %107 ], [ %.21343, %.loopexit2134 ]
+  %.51265 = phi ptr [ %4, %107 ], [ %.21262, %.loopexit2134 ]
+  %.81176 = phi ptr [ %108, %107 ], [ %.51173, %.loopexit2134 ]
+  %.91085 = phi i64 [ %113, %107 ], [ %99, %.loopexit2134 ]
+  %.91004 = phi i32 [ %36, %107 ], [ %.61001, %.loopexit2134 ]
+  %.9836 = phi i32 [ %32, %107 ], [ %.6833, %.loopexit2134 ]
+  %.9 = phi i32 [ %114, %107 ], [ %100, %.loopexit2134 ]
   %116 = and i32 %.9, 7
   %117 = zext nneg i32 %116 to i64
   %118 = lshr i64 %.91085, %117
@@ -2192,9 +2192,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 
 123:                                              ; preds = %122
   %124 = icmp ult i32 %.12, 8
-  br i1 %124, label %.preheader2026, label %.loopexit2027
+  br i1 %124, label %.preheader2024, label %.loopexit2025
 
-.preheader2026:                                   ; preds = %128, %123
+.preheader2024:                                   ; preds = %128, %123
   %.111352.ph = phi i64 [ %.81349, %123 ], [ %38, %128 ]
   %.111271.ph = phi ptr [ %.81268, %123 ], [ %4, %128 ]
   %.141182.ph = phi ptr [ %.111179, %123 ], [ %1, %128 ]
@@ -2202,13 +2202,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.151010.ph = phi i32 [ %.121007, %123 ], [ %36, %128 ]
   %.15921.ph = phi i32 [ %.12918, %123 ], [ %34, %128 ]
   %.15842.ph = phi i32 [ %.12839, %123 ], [ %32, %128 ]
-  %.15.ph = phi i32 [ %.12, %123 ], [ %.2826.fr1962, %128 ]
+  %.15.ph = phi i32 [ %.12, %123 ], [ %.2826.fr1960, %128 ]
   br label %125
 
-125:                                              ; preds = %.preheader2026, %129
-  %.141182 = phi ptr [ %130, %129 ], [ %.141182.ph, %.preheader2026 ]
-  %.151091 = phi i64 [ %135, %129 ], [ %.151091.ph, %.preheader2026 ]
-  %.15 = phi i32 [ %136, %129 ], [ %.15.ph, %.preheader2026 ]
+125:                                              ; preds = %.preheader2024, %129
+  %.141182 = phi ptr [ %130, %129 ], [ %.141182.ph, %.preheader2024 ]
+  %.151091 = phi i64 [ %135, %129 ], [ %.151091.ph, %.preheader2024 ]
+  %.15 = phi i32 [ %136, %129 ], [ %.15.ph, %.preheader2024 ]
   %.not1601 = icmp ult ptr %.141182, %12
   br i1 %.not1601, label %129, label %126
 
@@ -2220,7 +2220,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 128:                                              ; preds = %26
-  br label %.preheader2026, !llvm.loop !96
+  br label %.preheader2024, !llvm.loop !96
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %.141182, i64 1
@@ -2231,9 +2231,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %135 = or i64 %134, %.151091
   %136 = add i32 %.15, 8
   %137 = icmp ugt i32 %.15, -9
-  br i1 %137, label %125, label %.loopexit2027, !llvm.loop !97
+  br i1 %137, label %125, label %.loopexit2025, !llvm.loop !97
 
-.loopexit2027:                                    ; preds = %129, %123
+.loopexit2025:                                    ; preds = %129, %123
   %.91350 = phi i64 [ %.81349, %123 ], [ %.111352.ph, %129 ]
   %.91269 = phi ptr [ %.81268, %123 ], [ %.111271.ph, %129 ]
   %.121180 = phi ptr [ %.111179, %123 ], [ %130, %129 ]
@@ -2259,7 +2259,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.161011 = phi i32 [ %.121007, %122 ], [ %36, %147 ]
   %.16922 = phi i32 [ %.12918, %122 ], [ %34, %147 ]
   %.16843 = phi i32 [ %.12839, %122 ], [ %32, %147 ]
-  %.16 = phi i32 [ 0, %122 ], [ %.2826.fr1962, %147 ]
+  %.16 = phi i32 [ 0, %122 ], [ %.2826.fr1960, %147 ]
   %.not1599 = icmp ult ptr %.151183, %12
   br i1 %.not1599, label %148, label %145
 
@@ -2282,15 +2282,15 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   store i8 %150, ptr %153, align 1, !tbaa !3
   br label %154
 
-154:                                              ; preds = %.loopexit2027, %148
-  %.131354 = phi i64 [ %.91350, %.loopexit2027 ], [ %.121353, %148 ]
-  %.131273 = phi ptr [ %.91269, %.loopexit2027 ], [ %.121272, %148 ]
-  %.161184 = phi ptr [ %.121180, %.loopexit2027 ], [ %149, %148 ]
-  %.171093 = phi i64 [ %142, %.loopexit2027 ], [ %.161092, %148 ]
-  %.171012 = phi i32 [ %.131008, %.loopexit2027 ], [ %.161011, %148 ]
-  %.17923 = phi i32 [ %.13919, %.loopexit2027 ], [ %.16922, %148 ]
-  %.17844 = phi i32 [ %.13840, %.loopexit2027 ], [ %.16843, %148 ]
-  %.17 = phi i32 [ %143, %.loopexit2027 ], [ %.16, %148 ]
+154:                                              ; preds = %.loopexit2025, %148
+  %.131354 = phi i64 [ %.91350, %.loopexit2025 ], [ %.121353, %148 ]
+  %.131273 = phi ptr [ %.91269, %.loopexit2025 ], [ %.121272, %148 ]
+  %.161184 = phi ptr [ %.121180, %.loopexit2025 ], [ %149, %148 ]
+  %.171093 = phi i64 [ %142, %.loopexit2025 ], [ %.161092, %148 ]
+  %.171012 = phi i32 [ %.131008, %.loopexit2025 ], [ %.161011, %148 ]
+  %.17923 = phi i32 [ %.13919, %.loopexit2025 ], [ %.16922, %148 ]
+  %.17844 = phi i32 [ %.13840, %.loopexit2025 ], [ %.16843, %148 ]
+  %.17 = phi i32 [ %143, %.loopexit2025 ], [ %.16, %148 ]
   %155 = add i32 %.17923, 1
   br label %120, !llvm.loop !99
 
@@ -2326,9 +2326,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 
 173:                                              ; preds = %169
   %174 = icmp ult i32 %.19, 8
-  br i1 %174, label %.preheader2034, label %.loopexit2035
+  br i1 %174, label %.preheader2032, label %.loopexit2033
 
-.preheader2034:                                   ; preds = %178, %173
+.preheader2032:                                   ; preds = %178, %173
   %.181359.ph = phi i64 [ %.151356, %173 ], [ %38, %178 ]
   %.181278.ph = phi ptr [ %.151275, %173 ], [ %4, %178 ]
   %.211189.ph = phi ptr [ %.181186, %173 ], [ %1, %178 ]
@@ -2336,13 +2336,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.221017.ph = phi i32 [ %.191014, %173 ], [ %36, %178 ]
   %.22928.ph = phi i32 [ %.19925, %173 ], [ %34, %178 ]
   %.21848.ph = phi i32 [ %.19846, %173 ], [ %32, %178 ]
-  %.22.ph = phi i32 [ %.19, %173 ], [ %.2826.fr1962, %178 ]
+  %.22.ph = phi i32 [ %.19, %173 ], [ %.2826.fr1960, %178 ]
   br label %175
 
-175:                                              ; preds = %.preheader2034, %179
-  %.211189 = phi ptr [ %180, %179 ], [ %.211189.ph, %.preheader2034 ]
-  %.221098 = phi i64 [ %185, %179 ], [ %.221098.ph, %.preheader2034 ]
-  %.22 = phi i32 [ %186, %179 ], [ %.22.ph, %.preheader2034 ]
+175:                                              ; preds = %.preheader2032, %179
+  %.211189 = phi ptr [ %180, %179 ], [ %.211189.ph, %.preheader2032 ]
+  %.221098 = phi i64 [ %185, %179 ], [ %.221098.ph, %.preheader2032 ]
+  %.22 = phi i32 [ %186, %179 ], [ %.22.ph, %.preheader2032 ]
   %.not1595 = icmp ult ptr %.211189, %12
   br i1 %.not1595, label %179, label %176
 
@@ -2354,7 +2354,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 178:                                              ; preds = %26
-  br label %.preheader2034, !llvm.loop !100
+  br label %.preheader2032, !llvm.loop !100
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds nuw i8, ptr %.211189, i64 1
@@ -2365,9 +2365,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %185 = or i64 %184, %.221098
   %186 = add i32 %.22, 8
   %187 = icmp ugt i32 %.22, -9
-  br i1 %187, label %175, label %.loopexit2035, !llvm.loop !101
+  br i1 %187, label %175, label %.loopexit2033, !llvm.loop !101
 
-.loopexit2035:                                    ; preds = %179, %173
+.loopexit2033:                                    ; preds = %179, %173
   %.161357 = phi i64 [ %.151356, %173 ], [ %.181359.ph, %179 ]
   %.161276 = phi ptr [ %.151275, %173 ], [ %.181278.ph, %179 ]
   %.191187 = phi ptr [ %.181186, %173 ], [ %180, %179 ]
@@ -2381,15 +2381,15 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %191 = add i32 %.20, -8
   br label %192
 
-192:                                              ; preds = %193, %.loopexit2035
-  %.191360 = phi i64 [ %.161357, %.loopexit2035 ], [ %38, %193 ]
-  %.191279 = phi ptr [ %.161276, %.loopexit2035 ], [ %4, %193 ]
-  %.221190 = phi ptr [ %.191187, %.loopexit2035 ], [ %1, %193 ]
-  %.231099 = phi i64 [ %190, %.loopexit2035 ], [ %30, %193 ]
-  %.231018 = phi i32 [ %.201015, %.loopexit2035 ], [ %36, %193 ]
-  %.23929 = phi i32 [ %.20926, %.loopexit2035 ], [ %34, %193 ]
-  %.22849 = phi i32 [ %189, %.loopexit2035 ], [ %32, %193 ]
-  %.23 = phi i32 [ %191, %.loopexit2035 ], [ %.2826.fr1962, %193 ]
+192:                                              ; preds = %193, %.loopexit2033
+  %.191360 = phi i64 [ %.161357, %.loopexit2033 ], [ %38, %193 ]
+  %.191279 = phi ptr [ %.161276, %.loopexit2033 ], [ %4, %193 ]
+  %.221190 = phi ptr [ %.191187, %.loopexit2033 ], [ %1, %193 ]
+  %.231099 = phi i64 [ %190, %.loopexit2033 ], [ %30, %193 ]
+  %.231018 = phi i32 [ %.201015, %.loopexit2033 ], [ %36, %193 ]
+  %.23929 = phi i32 [ %.20926, %.loopexit2033 ], [ %34, %193 ]
+  %.22849 = phi i32 [ %189, %.loopexit2033 ], [ %32, %193 ]
+  %.23 = phi i32 [ %191, %.loopexit2033 ], [ %.2826.fr1960, %193 ]
   %.not1596 = icmp ult ptr %.191279, %14
   br i1 %.not1596, label %194, label %989
 
@@ -2423,7 +2423,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.251020 = phi i32 [ %.241019, %198 ], [ %36, %200 ]
   %.25931 = phi i32 [ %.24930, %198 ], [ %34, %200 ]
   %.24851 = phi i32 [ %.23850, %198 ], [ %32, %200 ]
-  %.25 = phi i32 [ %.24, %198 ], [ %.2826.fr1962, %200 ]
+  %.25 = phi i32 [ %.24, %198 ], [ %.2826.fr1960, %200 ]
   %.not1592 = icmp ult ptr %.211281, %14
   br i1 %.not1592, label %201, label %989
 
@@ -2438,7 +2438,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.261021 = phi i32 [ %.251020, %199 ], [ %36, %204 ]
   %.26932 = phi i32 [ %.25931, %199 ], [ %34, %204 ]
   %.25852 = phi i32 [ %.24851, %199 ], [ %32, %204 ]
-  %.26 = phi i32 [ %.25, %199 ], [ %.2826.fr1962, %204 ]
+  %.26 = phi i32 [ %.25, %199 ], [ %.2826.fr1960, %204 ]
   %.not1593 = icmp ult ptr %.251193, %12
   br i1 %.not1593, label %205, label %202
 
@@ -2469,7 +2469,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %217 = sub i32 %.26932, %216
   br label %198, !llvm.loop !106
 
-218:                                              ; preds = %.loopexit2136
+218:                                              ; preds = %.loopexit2134
   switch i32 %101, label %223 [
     i32 3, label %989
     i32 1, label %.lr.ph1749.preheader
@@ -2492,15 +2492,15 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   store i64 578721382704613384, ptr %scevgep1868, align 4
   br label %.loopexit1721
 
-223:                                              ; preds = %218, %.loopexit2051
-  %.251366 = phi i64 [ %.261367, %.loopexit2051 ], [ %.21343, %218 ]
-  %.251285 = phi ptr [ %.261286, %.loopexit2051 ], [ %.21262, %218 ]
-  %.281196 = phi ptr [ %.291197, %.loopexit2051 ], [ %.51173, %218 ]
-  %.291105 = phi i64 [ %256, %.loopexit2051 ], [ %99, %218 ]
-  %.291024 = phi i32 [ %.301025, %.loopexit2051 ], [ %.61001, %218 ]
-  %.29935 = phi i32 [ %261, %.loopexit2051 ], [ 0, %218 ]
-  %.28855 = phi i32 [ %.29856, %.loopexit2051 ], [ %.6833, %218 ]
-  %.29 = phi i32 [ %257, %.loopexit2051 ], [ %100, %218 ]
+223:                                              ; preds = %218, %.loopexit2049
+  %.251366 = phi i64 [ %.261367, %.loopexit2049 ], [ %.21343, %218 ]
+  %.251285 = phi ptr [ %.261286, %.loopexit2049 ], [ %.21262, %218 ]
+  %.281196 = phi ptr [ %.291197, %.loopexit2049 ], [ %.51173, %218 ]
+  %.291105 = phi i64 [ %256, %.loopexit2049 ], [ %99, %218 ]
+  %.291024 = phi i32 [ %.301025, %.loopexit2049 ], [ %.61001, %218 ]
+  %.29935 = phi i32 [ %261, %.loopexit2049 ], [ 0, %218 ]
+  %.28855 = phi i32 [ %.29856, %.loopexit2049 ], [ %.6833, %218 ]
+  %.29 = phi i32 [ %257, %.loopexit2049 ], [ %100, %218 ]
   %224 = icmp ult i32 %.29935, 3
   br i1 %224, label %225, label %262
 
@@ -2510,9 +2510,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %228 = load i8, ptr %227, align 1, !tbaa !3
   %229 = sext i8 %228 to i32
   %230 = icmp ult i32 %.29, %229
-  br i1 %230, label %.preheader2050, label %.loopexit2051
+  br i1 %230, label %.preheader2048, label %.loopexit2049
 
-.preheader2050:                                   ; preds = %236, %225
+.preheader2048:                                   ; preds = %236, %225
   %.281369.ph = phi i64 [ %.251366, %225 ], [ %38, %236 ]
   %.281288.ph = phi ptr [ %.251285, %225 ], [ %4, %236 ]
   %.311199.ph = phi ptr [ %.281196, %225 ], [ %1, %236 ]
@@ -2520,15 +2520,15 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.321027.ph = phi i32 [ %.291024, %225 ], [ %36, %236 ]
   %.32938.ph = phi i32 [ %.29935, %225 ], [ %34, %236 ]
   %.31858.ph = phi i32 [ %.28855, %225 ], [ %32, %236 ]
-  %.32.ph = phi i32 [ %.29, %225 ], [ %.2826.fr1962, %236 ]
+  %.32.ph = phi i32 [ %.29, %225 ], [ %.2826.fr1960, %236 ]
   %231 = zext i32 %.32938.ph to i64
   %232 = getelementptr inbounds nuw [4 x i8], ptr @.str.12, i64 0, i64 %231
   br label %233
 
-233:                                              ; preds = %.preheader2050, %237
-  %.311199 = phi ptr [ %238, %237 ], [ %.311199.ph, %.preheader2050 ]
-  %.321108 = phi i64 [ %243, %237 ], [ %.321108.ph, %.preheader2050 ]
-  %.32 = phi i32 [ %244, %237 ], [ %.32.ph, %.preheader2050 ]
+233:                                              ; preds = %.preheader2048, %237
+  %.311199 = phi ptr [ %238, %237 ], [ %.311199.ph, %.preheader2048 ]
+  %.321108 = phi i64 [ %243, %237 ], [ %.321108.ph, %.preheader2048 ]
+  %.32 = phi i32 [ %244, %237 ], [ %.32.ph, %.preheader2048 ]
   %.not1545 = icmp ult ptr %.311199, %12
   br i1 %.not1545, label %237, label %234
 
@@ -2540,7 +2540,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 236:                                              ; preds = %26
-  br label %.preheader2050, !llvm.loop !107
+  br label %.preheader2048, !llvm.loop !107
 
 237:                                              ; preds = %233
   %238 = getelementptr inbounds nuw i8, ptr %.311199, i64 1
@@ -2553,9 +2553,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %245 = load i8, ptr %232, align 1, !tbaa !3
   %246 = sext i8 %245 to i32
   %247 = icmp ult i32 %244, %246
-  br i1 %247, label %233, label %.loopexit2051, !llvm.loop !108
+  br i1 %247, label %233, label %.loopexit2049, !llvm.loop !108
 
-.loopexit2051:                                    ; preds = %237, %225
+.loopexit2049:                                    ; preds = %237, %225
   %.pre-phi1895 = phi i32 [ %229, %225 ], [ %246, %237 ]
   %248 = phi i8 [ %228, %225 ], [ %245, %237 ]
   %.pre-phi = phi i64 [ %226, %225 ], [ %231, %237 ]
@@ -2589,15 +2589,15 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %263, i8 0, i64 288, i1 false)
   br label %264
 
-264:                                              ; preds = %.loopexit2062, %262
-  %.291370 = phi i64 [ %.251366, %262 ], [ %.301371, %.loopexit2062 ]
-  %.291289 = phi ptr [ %.251285, %262 ], [ %.301290, %.loopexit2062 ]
-  %.321200 = phi ptr [ %.281196, %262 ], [ %.331201, %.loopexit2062 ]
-  %.331109 = phi i64 [ %.291105, %262 ], [ %285, %.loopexit2062 ]
-  %.331028 = phi i32 [ %.291024, %262 ], [ %.341029, %.loopexit2062 ]
-  %.33939 = phi i32 [ 0, %262 ], [ %293, %.loopexit2062 ]
-  %.32859 = phi i32 [ %.28855, %262 ], [ %.33860, %.loopexit2062 ]
-  %.33 = phi i32 [ %.29, %262 ], [ %286, %.loopexit2062 ]
+264:                                              ; preds = %.loopexit2060, %262
+  %.291370 = phi i64 [ %.251366, %262 ], [ %.301371, %.loopexit2060 ]
+  %.291289 = phi ptr [ %.251285, %262 ], [ %.301290, %.loopexit2060 ]
+  %.321200 = phi ptr [ %.281196, %262 ], [ %.331201, %.loopexit2060 ]
+  %.331109 = phi i64 [ %.291105, %262 ], [ %285, %.loopexit2060 ]
+  %.331028 = phi i32 [ %.291024, %262 ], [ %.341029, %.loopexit2060 ]
+  %.33939 = phi i32 [ 0, %262 ], [ %293, %.loopexit2060 ]
+  %.32859 = phi i32 [ %.28855, %262 ], [ %.33860, %.loopexit2060 ]
+  %.33 = phi i32 [ %.29, %262 ], [ %286, %.loopexit2060 ]
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %266 = load i32, ptr %265, align 4, !tbaa !10
   %267 = icmp ult i32 %.33939, %266
@@ -2605,9 +2605,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 
 268:                                              ; preds = %264
   %269 = icmp ult i32 %.33, 3
-  br i1 %269, label %.preheader2061, label %.loopexit2062
+  br i1 %269, label %.preheader2059, label %.loopexit2060
 
-.preheader2061:                                   ; preds = %273, %268
+.preheader2059:                                   ; preds = %273, %268
   %.321373.ph = phi i64 [ %.291370, %268 ], [ %38, %273 ]
   %.321292.ph = phi ptr [ %.291289, %268 ], [ %4, %273 ]
   %.351203.ph = phi ptr [ %.321200, %268 ], [ %1, %273 ]
@@ -2615,13 +2615,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.361031.ph = phi i32 [ %.331028, %268 ], [ %36, %273 ]
   %.36942.ph = phi i32 [ %.33939, %268 ], [ %34, %273 ]
   %.35862.ph = phi i32 [ %.32859, %268 ], [ %32, %273 ]
-  %.36.ph = phi i32 [ %.33, %268 ], [ %.2826.fr1962, %273 ]
+  %.36.ph = phi i32 [ %.33, %268 ], [ %.2826.fr1960, %273 ]
   br label %270
 
-270:                                              ; preds = %.preheader2061, %274
-  %.351203 = phi ptr [ %275, %274 ], [ %.351203.ph, %.preheader2061 ]
-  %.361112 = phi i64 [ %280, %274 ], [ %.361112.ph, %.preheader2061 ]
-  %.36 = phi i32 [ %281, %274 ], [ %.36.ph, %.preheader2061 ]
+270:                                              ; preds = %.preheader2059, %274
+  %.351203 = phi ptr [ %275, %274 ], [ %.351203.ph, %.preheader2059 ]
+  %.361112 = phi i64 [ %280, %274 ], [ %.361112.ph, %.preheader2059 ]
+  %.36 = phi i32 [ %281, %274 ], [ %.36.ph, %.preheader2059 ]
   %.not1543 = icmp ult ptr %.351203, %12
   br i1 %.not1543, label %274, label %271
 
@@ -2633,7 +2633,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 273:                                              ; preds = %26
-  br label %.preheader2061, !llvm.loop !110
+  br label %.preheader2059, !llvm.loop !110
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.351203, i64 1
@@ -2644,9 +2644,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %280 = or i64 %279, %.361112
   %281 = add i32 %.36, 8
   %282 = icmp ult i32 %281, 3
-  br i1 %282, label %270, label %.loopexit2062, !llvm.loop !111
+  br i1 %282, label %270, label %.loopexit2060, !llvm.loop !111
 
-.loopexit2062:                                    ; preds = %274, %268
+.loopexit2060:                                    ; preds = %274, %268
   %.301371 = phi i64 [ %.291370, %268 ], [ %.321373.ph, %274 ]
   %.301290 = phi ptr [ %.291289, %268 ], [ %.321292.ph, %274 ]
   %.331201 = phi ptr [ %.321200, %268 ], [ %275, %274 ]
@@ -2686,7 +2686,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.36863 = phi i32 [ %.46873, %546 ], [ %.32859, %294 ], [ %.6833, %.lr.ph1749.preheader ]
   %.37 = phi i32 [ %.48, %546 ], [ %.33, %294 ], [ %100, %.lr.ph1749.preheader ]
   %296 = icmp sgt i32 %295, -1
-  br i1 %296, label %297, label %.preheader2109
+  br i1 %296, label %297, label %.preheader2107
 
 297:                                              ; preds = %.loopexit1721
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2979,7 +2979,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.421037 = phi i32 [ %.411036, %408 ], [ %.411036, %428 ], [ %.411036, %410 ], [ %36, %433 ]
   %.42948 = phi i32 [ %.41947, %408 ], [ %.41947, %428 ], [ %.41947, %410 ], [ %34, %433 ]
   %.40867 = phi i32 [ %.39866, %408 ], [ %.39866, %428 ], [ %.39866, %410 ], [ %32, %433 ]
-  %.42 = phi i32 [ %.41, %408 ], [ %.41, %428 ], [ %.41, %410 ], [ %.2826.fr1962, %433 ]
+  %.42 = phi i32 [ %.41, %408 ], [ %.41, %428 ], [ %.41, %410 ], [ %.2826.fr1960, %433 ]
   %.not1572 = icmp ult ptr %.411209, %12
   br i1 %.not1572, label %434, label %431
 
@@ -3093,9 +3093,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %498 = load i8, ptr %497, align 1, !tbaa !3
   %499 = sext i8 %498 to i32
   %500 = icmp ult i32 %483, %499
-  br i1 %500, label %.preheader2069, label %514
+  br i1 %500, label %.preheader2067, label %514
 
-.preheader2069:                                   ; preds = %504, %494
+.preheader2067:                                   ; preds = %504, %494
   %.421383.ph = phi i64 [ %.361377, %494 ], [ %38, %504 ]
   %.421302.ph = phi ptr [ %.361296, %494 ], [ %4, %504 ]
   %.451213.ph = phi ptr [ %.391207, %494 ], [ %1, %504 ]
@@ -3103,13 +3103,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.461041.ph = phi i32 [ %499, %494 ], [ %36, %504 ]
   %.46952.ph = phi i32 [ %.40946, %494 ], [ %34, %504 ]
   %.44871.ph = phi i32 [ %.11421, %494 ], [ %32, %504 ]
-  %.46.ph = phi i32 [ %483, %494 ], [ %.2826.fr1962, %504 ]
+  %.46.ph = phi i32 [ %483, %494 ], [ %.2826.fr1960, %504 ]
   br label %501
 
-501:                                              ; preds = %.preheader2069, %505
-  %.451213 = phi ptr [ %506, %505 ], [ %.451213.ph, %.preheader2069 ]
-  %.461122 = phi i64 [ %511, %505 ], [ %.461122.ph, %.preheader2069 ]
-  %.46 = phi i32 [ %512, %505 ], [ %.46.ph, %.preheader2069 ]
+501:                                              ; preds = %.preheader2067, %505
+  %.451213 = phi ptr [ %506, %505 ], [ %.451213.ph, %.preheader2067 ]
+  %.461122 = phi i64 [ %511, %505 ], [ %.461122.ph, %.preheader2067 ]
+  %.46 = phi i32 [ %512, %505 ], [ %.46.ph, %.preheader2067 ]
   %.not1574 = icmp ult ptr %.451213, %12
   br i1 %.not1574, label %505, label %502
 
@@ -3121,7 +3121,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 504:                                              ; preds = %26
-  br label %.preheader2069, !llvm.loop !126
+  br label %.preheader2067, !llvm.loop !126
 
 505:                                              ; preds = %501
   %506 = getelementptr inbounds nuw i8, ptr %.451213, i64 1
@@ -3212,12 +3212,12 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   store i32 %549, ptr %548, align 8, !tbaa !95
   br label %.loopexit1721, !llvm.loop !128
 
-550:                                              ; preds = %.preheader2109, %714
-  %.461306 = phi ptr [ %717, %714 ], [ %.461306.ph, %.preheader2109 ]
-  %.491217 = phi ptr [ %.561224, %714 ], [ %.491217.ph, %.preheader2109 ]
-  %.501126 = phi i64 [ %708, %714 ], [ %.501126.ph, %.preheader2109 ]
-  %.50956 = phi i32 [ %.01164, %714 ], [ %.50956.ph, %.preheader2109 ]
-  %.50 = phi i32 [ %709, %714 ], [ %.50.ph, %.preheader2109 ]
+550:                                              ; preds = %.preheader2107, %714
+  %.461306 = phi ptr [ %717, %714 ], [ %.461306.ph, %.preheader2107 ]
+  %.491217 = phi ptr [ %.561224, %714 ], [ %.491217.ph, %.preheader2107 ]
+  %.501126 = phi i64 [ %708, %714 ], [ %.501126.ph, %.preheader2107 ]
+  %.50956 = phi i32 [ %.01164, %714 ], [ %.50956.ph, %.preheader2107 ]
+  %.50 = phi i32 [ %709, %714 ], [ %.50.ph, %.preheader2107 ]
   %551 = ptrtoint ptr %.491217 to i64
   %552 = sub i64 %650, %551
   %553 = icmp slt i64 %552, 4
@@ -3298,7 +3298,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.531048 = phi i32 [ %.521047, %568 ], [ %.521047, %588 ], [ %.521047, %570 ], [ %36, %593 ]
   %.52958 = phi i32 [ %.51957, %568 ], [ %.51957, %588 ], [ %.51957, %570 ], [ %34, %593 ]
   %.51878 = phi i32 [ %.50877, %568 ], [ %.50877, %588 ], [ %.50877, %570 ], [ %32, %593 ]
-  %.53 = phi i32 [ %.52, %568 ], [ %.52, %588 ], [ %.52, %570 ], [ %.2826.fr1962, %593 ]
+  %.53 = phi i32 [ %.52, %568 ], [ %.52, %588 ], [ %.52, %570 ], [ %.2826.fr1960, %593 ]
   %.not1551 = icmp ult ptr %.521220, %12
   br i1 %.not1551, label %594, label %591
 
@@ -3398,7 +3398,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.551050 = phi i32 [ %.511046, %.loopexit1714 ], [ %36, %646 ]
   %.54960 = phi i32 [ %.11257, %.loopexit1714 ], [ %34, %646 ]
   %.53880 = phi i32 [ %.49876, %.loopexit1714 ], [ %32, %646 ]
-  %.55 = phi i32 [ %643, %.loopexit1714 ], [ %.2826.fr1962, %646 ]
+  %.55 = phi i32 [ %643, %.loopexit1714 ], [ %.2826.fr1960, %646 ]
   %.not1553 = icmp ult ptr %.511311, %14
   br i1 %.not1553, label %647, label %989
 
@@ -3409,9 +3409,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %648 = trunc i32 %.54960 to i8
   %649 = getelementptr inbounds nuw i8, ptr %.511311, i64 1
   store i8 %648, ptr %.511311, align 1, !tbaa !3
-  br label %.preheader2109, !llvm.loop !134
+  br label %.preheader2107, !llvm.loop !134
 
-.preheader2109:                                   ; preds = %883, %.loopexit1721, %647, %913, %._crit_edge
+.preheader2107:                                   ; preds = %883, %.loopexit1721, %647, %913, %._crit_edge
   %.461387.ph = phi i64 [ %870, %._crit_edge ], [ %870, %913 ], [ %.511392, %647 ], [ %.631404, %883 ], [ %.331374, %.loopexit1721 ]
   %.461306.ph = phi ptr [ %.681328.lcssa, %._crit_edge ], [ %915, %913 ], [ %649, %647 ], [ %.661326, %883 ], [ %.331293, %.loopexit1721 ]
   %.491217.ph = phi ptr [ %.641232, %._crit_edge ], [ %.641232, %913 ], [ %.541222, %647 ], [ %.691237, %883 ], [ %.361204, %.loopexit1721 ]
@@ -3559,9 +3559,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %727 = getelementptr inbounds nuw [31 x i32], ptr @_ZZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_jE14s_length_extra, i64 0, i64 %722
   %728 = load i32, ptr %727, align 4, !tbaa !10
   %729 = icmp ult i32 %.54, %728
-  br i1 %729, label %.preheader2098, label %.loopexit2099
+  br i1 %729, label %.preheader2096, label %.loopexit2097
 
-.preheader2098:                                   ; preds = %733, %726
+.preheader2096:                                   ; preds = %733, %726
   %.551396.ph = phi i64 [ %.501391, %726 ], [ %38, %733 ]
   %.561316.ph = phi ptr [ %.501310, %726 ], [ %4, %733 ]
   %.591227.ph = phi ptr [ %.531221, %726 ], [ %1, %733 ]
@@ -3569,13 +3569,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.591054.ph = phi i32 [ %728, %726 ], [ %36, %733 ]
   %.59965.ph = phi i32 [ %724, %726 ], [ %34, %733 ]
   %.57884.ph = phi i32 [ %.52879, %726 ], [ %32, %733 ]
-  %.61.ph = phi i32 [ %.54, %726 ], [ %.2826.fr1962, %733 ]
+  %.61.ph = phi i32 [ %.54, %726 ], [ %.2826.fr1960, %733 ]
   br label %730
 
-730:                                              ; preds = %.preheader2098, %734
-  %.591227 = phi ptr [ %735, %734 ], [ %.591227.ph, %.preheader2098 ]
-  %.611137 = phi i64 [ %740, %734 ], [ %.611137.ph, %.preheader2098 ]
-  %.61 = phi i32 [ %741, %734 ], [ %.61.ph, %.preheader2098 ]
+730:                                              ; preds = %.preheader2096, %734
+  %.591227 = phi ptr [ %735, %734 ], [ %.591227.ph, %.preheader2096 ]
+  %.611137 = phi i64 [ %740, %734 ], [ %.611137.ph, %.preheader2096 ]
+  %.61 = phi i32 [ %741, %734 ], [ %.61.ph, %.preheader2096 ]
   %.not1555 = icmp ult ptr %.591227, %12
   br i1 %.not1555, label %734, label %731
 
@@ -3587,7 +3587,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 733:                                              ; preds = %26
-  br label %.preheader2098, !llvm.loop !137
+  br label %.preheader2096, !llvm.loop !137
 
 734:                                              ; preds = %730
   %735 = getelementptr inbounds nuw i8, ptr %.591227, i64 1
@@ -3598,9 +3598,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %740 = or i64 %739, %.611137
   %741 = add i32 %.61, 8
   %742 = icmp ult i32 %741, %.591054.ph
-  br i1 %742, label %730, label %.loopexit2099, !llvm.loop !138
+  br i1 %742, label %730, label %.loopexit2097, !llvm.loop !138
 
-.loopexit2099:                                    ; preds = %734, %726
+.loopexit2097:                                    ; preds = %734, %726
   %.531394 = phi i64 [ %.501391, %726 ], [ %.551396.ph, %734 ]
   %.541314 = phi ptr [ %.501310, %726 ], [ %.561316.ph, %734 ]
   %.571225 = phi ptr [ %.531221, %726 ], [ %735, %734 ]
@@ -3619,15 +3619,15 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %749 = add i32 %745, %.57963
   br label %750
 
-750:                                              ; preds = %720, %.loopexit2099
-  %.561397 = phi i64 [ %.531394, %.loopexit2099 ], [ %.501391, %720 ]
-  %.571317 = phi ptr [ %.541314, %.loopexit2099 ], [ %.501310, %720 ]
-  %.601228 = phi ptr [ %.571225, %.loopexit2099 ], [ %.531221, %720 ]
-  %.621138 = phi i64 [ %747, %.loopexit2099 ], [ %.541130, %720 ]
-  %.601055 = phi i32 [ %.571052, %.loopexit2099 ], [ 0, %720 ]
-  %.60966 = phi i32 [ %749, %.loopexit2099 ], [ %724, %720 ]
-  %.58885 = phi i32 [ %.55882, %.loopexit2099 ], [ %.52879, %720 ]
-  %.62 = phi i32 [ %748, %.loopexit2099 ], [ %.54, %720 ]
+750:                                              ; preds = %720, %.loopexit2097
+  %.561397 = phi i64 [ %.531394, %.loopexit2097 ], [ %.501391, %720 ]
+  %.571317 = phi ptr [ %.541314, %.loopexit2097 ], [ %.501310, %720 ]
+  %.601228 = phi ptr [ %.571225, %.loopexit2097 ], [ %.531221, %720 ]
+  %.621138 = phi i64 [ %747, %.loopexit2097 ], [ %.541130, %720 ]
+  %.601055 = phi i32 [ %.571052, %.loopexit2097 ], [ 0, %720 ]
+  %.60966 = phi i32 [ %749, %.loopexit2097 ], [ %724, %720 ]
+  %.58885 = phi i32 [ %.55882, %.loopexit2097 ], [ %.52879, %720 ]
+  %.62 = phi i32 [ %748, %.loopexit2097 ], [ %.54, %720 ]
   %751 = icmp ult i32 %.62, 15
   br i1 %751, label %752, label %814
 
@@ -3701,7 +3701,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.621057 = phi i32 [ %.611056, %764 ], [ %.611056, %784 ], [ %.611056, %766 ], [ %36, %789 ]
   %.63969 = phi i32 [ %.62968, %764 ], [ %.62968, %784 ], [ %.62968, %766 ], [ %34, %789 ]
   %.60887 = phi i32 [ %.59886, %764 ], [ %.59886, %784 ], [ %.59886, %766 ], [ %32, %789 ]
-  %.65 = phi i32 [ %.64, %764 ], [ %.64, %784 ], [ %.64, %766 ], [ %.2826.fr1962, %789 ]
+  %.65 = phi i32 [ %.64, %764 ], [ %.64, %784 ], [ %.64, %766 ], [ %.2826.fr1960, %789 ]
   %.not1559 = icmp ult ptr %.631231, %12
   br i1 %.not1559, label %790, label %787
 
@@ -3800,9 +3800,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %845 = getelementptr inbounds nuw [32 x i32], ptr @_ZZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_jE12s_dist_extra, i64 0, i64 %840
   %846 = load i32, ptr %845, align 4, !tbaa !10
   %847 = icmp ult i32 %839, %846
-  br i1 %847, label %.preheader2087, label %.loopexit2088
+  br i1 %847, label %.preheader2085, label %.loopexit2086
 
-.preheader2087:                                   ; preds = %851, %844
+.preheader2085:                                   ; preds = %851, %844
   %.611402.ph = phi i64 [ %.571398, %844 ], [ %38, %851 ]
   %.641324.ph = phi ptr [ %.581318, %844 ], [ %4, %851 ]
   %.671235.ph = phi ptr [ %.611229, %844 ], [ %1, %851 ]
@@ -3810,13 +3810,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.661061.ph = phi i32 [ %846, %844 ], [ %36, %851 ]
   %.67973.ph = phi i32 [ %.61967, %844 ], [ %34, %851 ]
   %.64891.ph = phi i32 [ %842, %844 ], [ %32, %851 ]
-  %.69.ph = phi i32 [ %839, %844 ], [ %.2826.fr1962, %851 ]
+  %.69.ph = phi i32 [ %839, %844 ], [ %.2826.fr1960, %851 ]
   br label %848
 
-848:                                              ; preds = %.preheader2087, %852
-  %.671235 = phi ptr [ %853, %852 ], [ %.671235.ph, %.preheader2087 ]
-  %.691145 = phi i64 [ %858, %852 ], [ %.691145.ph, %.preheader2087 ]
-  %.69 = phi i32 [ %859, %852 ], [ %.69.ph, %.preheader2087 ]
+848:                                              ; preds = %.preheader2085, %852
+  %.671235 = phi ptr [ %853, %852 ], [ %.671235.ph, %.preheader2085 ]
+  %.691145 = phi i64 [ %858, %852 ], [ %.691145.ph, %.preheader2085 ]
+  %.69 = phi i32 [ %859, %852 ], [ %.69.ph, %.preheader2085 ]
   %.not1562 = icmp ult ptr %.671235, %12
   br i1 %.not1562, label %852, label %849
 
@@ -3828,7 +3828,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 851:                                              ; preds = %26
-  br label %.preheader2087, !llvm.loop !143
+  br label %.preheader2085, !llvm.loop !143
 
 852:                                              ; preds = %848
   %853 = getelementptr inbounds nuw i8, ptr %.671235, i64 1
@@ -3839,9 +3839,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %858 = or i64 %857, %.691145
   %859 = add i32 %.69, 8
   %860 = icmp ult i32 %859, %.661061.ph
-  br i1 %860, label %848, label %.loopexit2088, !llvm.loop !144
+  br i1 %860, label %848, label %.loopexit2086, !llvm.loop !144
 
-.loopexit2088:                                    ; preds = %852, %844
+.loopexit2086:                                    ; preds = %852, %844
   %.621322 = phi ptr [ %.581318, %844 ], [ %.641324.ph, %852 ]
   %.651233 = phi ptr [ %.611229, %844 ], [ %853, %852 ]
   %.671143 = phi i64 [ %838, %844 ], [ %858, %852 ]
@@ -3859,14 +3859,14 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %867 = add i32 %.62889, %863
   br label %868
 
-868:                                              ; preds = %.loopexit2088, %.loopexit1711
-  %.611321 = phi ptr [ %.621322, %.loopexit2088 ], [ %.581318, %.loopexit1711 ]
-  %.641232 = phi ptr [ %.651233, %.loopexit2088 ], [ %.611229, %.loopexit1711 ]
-  %.661142 = phi i64 [ %865, %.loopexit2088 ], [ %838, %.loopexit1711 ]
-  %.631058 = phi i32 [ %.641059, %.loopexit2088 ], [ 0, %.loopexit1711 ]
-  %.64970 = phi i32 [ %.65971, %.loopexit2088 ], [ %.61967, %.loopexit1711 ]
-  %.61888 = phi i32 [ %867, %.loopexit2088 ], [ %842, %.loopexit1711 ]
-  %.66 = phi i32 [ %866, %.loopexit2088 ], [ %839, %.loopexit1711 ]
+868:                                              ; preds = %.loopexit2086, %.loopexit1711
+  %.611321 = phi ptr [ %.621322, %.loopexit2086 ], [ %.581318, %.loopexit1711 ]
+  %.641232 = phi ptr [ %.651233, %.loopexit2086 ], [ %.611229, %.loopexit1711 ]
+  %.661142 = phi i64 [ %865, %.loopexit2086 ], [ %838, %.loopexit1711 ]
+  %.631058 = phi i32 [ %.641059, %.loopexit2086 ], [ 0, %.loopexit1711 ]
+  %.64970 = phi i32 [ %.65971, %.loopexit2086 ], [ %.61967, %.loopexit1711 ]
+  %.61888 = phi i32 [ %867, %.loopexit2086 ], [ %842, %.loopexit1711 ]
+  %.66 = phi i32 [ %866, %.loopexit2086 ], [ %839, %.loopexit1711 ]
   %869 = ptrtoint ptr %.611321 to i64
   %870 = sub i64 %869, %17
   %871 = zext i32 %.61888 to i64
@@ -3900,7 +3900,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.71 = phi i32 [ %.66, %873 ], [ %.72, %887 ]
   %884 = add i32 %.69975, -1
   %.not1565 = icmp eq i32 %.69975, 0
-  br i1 %.not1565, label %.preheader2109, label %885, !llvm.loop !145
+  br i1 %.not1565, label %.preheader2107, label %885, !llvm.loop !145
 
 885:                                              ; preds = %883, %886
   %.641405 = phi i64 [ %.631404, %883 ], [ %38, %886 ]
@@ -3910,7 +3910,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.691064 = phi i32 [ %.681063, %883 ], [ %36, %886 ]
   %.70976 = phi i32 [ %884, %883 ], [ %34, %886 ]
   %.67894 = phi i32 [ %.66893, %883 ], [ %32, %886 ]
-  %.72 = phi i32 [ %.71, %883 ], [ %.2826.fr1962, %886 ]
+  %.72 = phi i32 [ %.71, %883 ], [ %.2826.fr1960, %886 ]
   %.not1566 = icmp ult ptr %.671327, %14
   br i1 %.not1566, label %887, label %989
 
@@ -3953,7 +3953,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.01259.lcssa = phi ptr [ %876, %.preheader1709 ], [ %903, %.lr.ph1753 ]
   %.71977.lcssa = phi i32 [ %.64970, %.preheader1709 ], [ %904, %.lr.ph1753 ]
   %.not1564 = icmp eq i32 %.71977.lcssa, 0
-  br i1 %.not1564, label %.preheader2109, label %906, !llvm.loop !145
+  br i1 %.not1564, label %.preheader2107, label %906, !llvm.loop !145
 
 906:                                              ; preds = %._crit_edge
   %907 = load i8, ptr %.01259.lcssa, align 1, !tbaa !3
@@ -3971,7 +3971,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 913:                                              ; preds = %909, %906
   %914 = zext nneg i32 %.71977.lcssa to i64
   %915 = getelementptr inbounds nuw i8, ptr %.681328.lcssa, i64 %914
-  br label %.preheader2109, !llvm.loop !145
+  br label %.preheader2107, !llvm.loop !145
 
 916:                                              ; preds = %198, %.thread
   %.651406 = phi i64 [ %.201361, %198 ], [ %.501391, %.thread ]
@@ -4003,10 +4003,10 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %924 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %925 = load i8, ptr %1, align 1, !tbaa !3
   %926 = zext i8 %925 to i64
-  %927 = zext nneg i32 %.2826.fr1962 to i64
+  %927 = zext nneg i32 %.2826.fr1960 to i64
   %928 = shl i64 %926, %927
   %929 = or i64 %928, %30
-  %930 = add i32 %.2826.fr1962, 8
+  %930 = add i32 %.2826.fr1960, 8
   br label %931
 
 931:                                              ; preds = %916, %923
@@ -4072,9 +4072,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
 
 955:                                              ; preds = %954
   %956 = icmp ult i32 %.78, 8
-  br i1 %956, label %.preheader2042, label %.loopexit2043
+  br i1 %956, label %.preheader2040, label %.loopexit2041
 
-.preheader2042:                                   ; preds = %960, %955
+.preheader2040:                                   ; preds = %960, %955
   %.721413.ph = phi i64 [ %.691410, %955 ], [ %38, %960 ]
   %.771337.ph = phi ptr [ %.741334, %955 ], [ %4, %960 ]
   %.791247.ph = phi ptr [ %.761244, %955 ], [ %1, %960 ]
@@ -4082,13 +4082,13 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.771072.ph = phi i32 [ %.741069, %955 ], [ %36, %960 ]
   %.79985.ph = phi i32 [ %.76982, %955 ], [ %34, %960 ]
   %.75902.ph = phi i32 [ %.72899, %955 ], [ %32, %960 ]
-  %.81.ph = phi i32 [ %.78, %955 ], [ %.2826.fr1962, %960 ]
+  %.81.ph = phi i32 [ %.78, %955 ], [ %.2826.fr1960, %960 ]
   br label %957
 
-957:                                              ; preds = %.preheader2042, %961
-  %.791247 = phi ptr [ %962, %961 ], [ %.791247.ph, %.preheader2042 ]
-  %.801156 = phi i64 [ %967, %961 ], [ %.801156.ph, %.preheader2042 ]
-  %.81 = phi i32 [ %968, %961 ], [ %.81.ph, %.preheader2042 ]
+957:                                              ; preds = %.preheader2040, %961
+  %.791247 = phi ptr [ %962, %961 ], [ %.791247.ph, %.preheader2040 ]
+  %.801156 = phi i64 [ %967, %961 ], [ %.801156.ph, %.preheader2040 ]
+  %.81 = phi i32 [ %968, %961 ], [ %.81.ph, %.preheader2040 ]
   %.not1590 = icmp ult ptr %.791247, %12
   br i1 %.not1590, label %961, label %958
 
@@ -4100,7 +4100,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   br label %.thread1646
 
 960:                                              ; preds = %26
-  br label %.preheader2042, !llvm.loop !150
+  br label %.preheader2040, !llvm.loop !150
 
 961:                                              ; preds = %957
   %962 = getelementptr inbounds nuw i8, ptr %.791247, i64 1
@@ -4111,9 +4111,9 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %967 = or i64 %966, %.801156
   %968 = add i32 %.81, 8
   %969 = icmp ugt i32 %.81, -9
-  br i1 %969, label %957, label %.loopexit2043, !llvm.loop !151
+  br i1 %969, label %957, label %.loopexit2041, !llvm.loop !151
 
-.loopexit2043:                                    ; preds = %961, %955
+.loopexit2041:                                    ; preds = %961, %955
   %.701411 = phi i64 [ %.691410, %955 ], [ %.721413.ph, %961 ]
   %.751335 = phi ptr [ %.741334, %955 ], [ %.771337.ph, %961 ]
   %.771245 = phi ptr [ %.761244, %955 ], [ %962, %961 ]
@@ -4136,7 +4136,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.791074 = phi i32 [ %.741069, %954 ], [ %36, %977 ]
   %.81987 = phi i32 [ %.76982, %954 ], [ %34, %977 ]
   %.77904 = phi i32 [ %.72899, %954 ], [ %32, %977 ]
-  %.83 = phi i32 [ 0, %954 ], [ %.2826.fr1962, %977 ]
+  %.83 = phi i32 [ 0, %954 ], [ %.2826.fr1960, %977 ]
   %.not1588 = icmp ult ptr %.811249, %12
   br i1 %.not1588, label %978, label %975
 
@@ -4156,16 +4156,16 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %981 = zext i8 %980 to i32
   br label %982
 
-982:                                              ; preds = %978, %.loopexit2043
-  %.731414 = phi i64 [ %.701411, %.loopexit2043 ], [ %.741415, %978 ]
-  %.781338 = phi ptr [ %.751335, %.loopexit2043 ], [ %.791339, %978 ]
-  %.801248 = phi ptr [ %.771245, %.loopexit2043 ], [ %979, %978 ]
-  %.811157 = phi i64 [ %972, %.loopexit2043 ], [ %.821158, %978 ]
-  %.781073 = phi i32 [ %.751070, %.loopexit2043 ], [ %.791074, %978 ]
-  %.80986 = phi i32 [ %.77983, %.loopexit2043 ], [ %.81987, %978 ]
-  %.76903 = phi i32 [ %.73900, %.loopexit2043 ], [ %.77904, %978 ]
-  %.82 = phi i32 [ %973, %.loopexit2043 ], [ %.83, %978 ]
-  %.0820 = phi i32 [ %971, %.loopexit2043 ], [ %981, %978 ]
+982:                                              ; preds = %978, %.loopexit2041
+  %.731414 = phi i64 [ %.701411, %.loopexit2041 ], [ %.741415, %978 ]
+  %.781338 = phi ptr [ %.751335, %.loopexit2041 ], [ %.791339, %978 ]
+  %.801248 = phi ptr [ %.771245, %.loopexit2041 ], [ %979, %978 ]
+  %.811157 = phi i64 [ %972, %.loopexit2041 ], [ %.821158, %978 ]
+  %.781073 = phi i32 [ %.751070, %.loopexit2041 ], [ %.791074, %978 ]
+  %.80986 = phi i32 [ %.77983, %.loopexit2041 ], [ %.81987, %978 ]
+  %.76903 = phi i32 [ %.73900, %.loopexit2041 ], [ %.77904, %978 ]
+  %.82 = phi i32 [ %973, %.loopexit2041 ], [ %.83, %978 ]
+  %.0820 = phi i32 [ %971, %.loopexit2041 ], [ %981, %978 ]
   %983 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %984 = load i32, ptr %983, align 8, !tbaa !89
   %985 = shl i32 %984, 8
@@ -4186,7 +4186,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.2997 = phi i32 [ %.3998, %72 ], [ %36, %80 ], [ %.3998, %79 ], [ %.121007, %156 ], [ %.231018, %192 ], [ %.251020, %199 ], [ %.61001, %218 ], [ %.371032, %320 ], [ %.401035, %491 ], [ %.391034, %538 ], [ %.551050, %645 ], [ %.631058, %868 ], [ %.691064, %885 ], [ %36, %988 ], [ %.711066, %._crit_edge1789 ], [ %.741069, %952 ]
   %.2908 = phi i32 [ 1, %72 ], [ %34, %80 ], [ 1, %79 ], [ %164, %156 ], [ %.23929, %192 ], [ %.25931, %199 ], [ %.7913, %218 ], [ %.37943, %320 ], [ 0, %491 ], [ %.39945, %538 ], [ %.54960, %645 ], [ %.64970, %868 ], [ %.70976, %885 ], [ %34, %988 ], [ %.73979, %._crit_edge1789 ], [ %.76982, %952 ]
   %.2829 = phi i32 [ %.3830, %72 ], [ %32, %80 ], [ %.3830, %79 ], [ %.12839, %156 ], [ %.22849, %192 ], [ %.24851, %199 ], [ %.6833, %218 ], [ %.36863, %320 ], [ 16, %491 ], [ %.38865, %538 ], [ %.53880, %645 ], [ %.61888, %868 ], [ %.67894, %885 ], [ %32, %988 ], [ %.69896, %._crit_edge1789 ], [ %.72899, %952 ]
-  %.2826 = phi i32 [ %.3, %72 ], [ %.2826.fr1962, %80 ], [ %.3, %79 ], [ %.12, %156 ], [ %.23, %192 ], [ %.25, %199 ], [ %100, %218 ], [ %.37, %320 ], [ %483, %491 ], [ %.39, %538 ], [ %.55, %645 ], [ %.66, %868 ], [ %.72, %885 ], [ %.2826.fr1962, %988 ], [ %.77.lcssa, %._crit_edge1789 ], [ %.78, %952 ]
+  %.2826 = phi i32 [ %.3, %72 ], [ %.2826.fr1960, %80 ], [ %.3, %79 ], [ %.12, %156 ], [ %.23, %192 ], [ %.25, %199 ], [ %100, %218 ], [ %.37, %320 ], [ %483, %491 ], [ %.39, %538 ], [ %.55, %645 ], [ %.66, %868 ], [ %.72, %885 ], [ %.2826.fr1960, %988 ], [ %.77.lcssa, %._crit_edge1789 ], [ %.78, %952 ]
   %.0821 = phi i32 [ -1, %72 ], [ -1, %80 ], [ -1, %79 ], [ -1, %156 ], [ 2, %192 ], [ 2, %199 ], [ -1, %218 ], [ -1, %320 ], [ -1, %491 ], [ -1, %538 ], [ 2, %645 ], [ -1, %868 ], [ 2, %885 ], [ 0, %988 ], [ 0, %._crit_edge1789 ], [ 0, %952 ]
   store i32 %.sink, ptr %0, align 8, !tbaa !84
   %.2826.fr = freeze i32 %.2826
@@ -4219,7 +4219,7 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %.012601657 = phi ptr [ %4, %47 ], [ %4, %55 ], [ %.41264.ph, %84 ], [ %4, %104 ], [ %.111271.ph, %126 ], [ %.121272, %145 ], [ %.181278.ph, %176 ], [ %.221282, %202 ], [ %4, %920 ], [ %.771337.ph, %958 ], [ %.791339, %975 ], [ %.421302.ph, %502 ], [ %.381298, %431 ], [ %.561316.ph, %731 ], [ %.641324.ph, %849 ], [ %.601320, %787 ], [ %.491309, %591 ], [ %.281288.ph, %234 ], [ %.321292.ph, %271 ], [ %.01260, %989 ], [ %.01260, %.lr.ph1795.preheader ], [ %4, %26 ]
   %.013411656 = phi i64 [ %38, %47 ], [ %38, %55 ], [ %.41345.ph, %84 ], [ %38, %104 ], [ %.111352.ph, %126 ], [ %.121353, %145 ], [ %.181359.ph, %176 ], [ %.221363, %202 ], [ %38, %920 ], [ %.721413.ph, %958 ], [ %.741415, %975 ], [ %.421383.ph, %502 ], [ %.381379, %431 ], [ %.551396.ph, %731 ], [ %.611402.ph, %849 ], [ %.591400, %787 ], [ %.491390, %591 ], [ %.281369.ph, %234 ], [ %.321373.ph, %271 ], [ %.01341, %989 ], [ %.01341, %.lr.ph1795.preheader ], [ %38, %26 ]
   %.831251 = phi ptr [ %1, %47 ], [ %.21170, %55 ], [ %.71175, %84 ], [ %1, %104 ], [ %.141182, %126 ], [ %.151183, %145 ], [ %.211189, %176 ], [ %.251193, %202 ], [ %1, %920 ], [ %.791247, %958 ], [ %.811249, %975 ], [ %.451213, %502 ], [ %.411209, %431 ], [ %.591227, %731 ], [ %.671235, %849 ], [ %.631231, %787 ], [ %.521220, %591 ], [ %.311199, %234 ], [ %.351203, %271 ], [ %.11169, %989 ], [ %scevgep1886, %.lr.ph1795.preheader ], [ %1, %26 ]
-  %.85 = phi i32 [ %.1825, %47 ], [ %.3, %55 ], [ %.8, %84 ], [ %.2826.fr1962, %104 ], [ %.15, %126 ], [ %.16, %145 ], [ %.22, %176 ], [ %.26, %202 ], [ %.2826.fr1962, %920 ], [ %.81, %958 ], [ %.83, %975 ], [ %.46, %502 ], [ %.42, %431 ], [ %.61, %731 ], [ %.69, %849 ], [ %.65, %787 ], [ %.53, %591 ], [ %.32, %234 ], [ %.36, %271 ], [ %.2826.fr, %989 ], [ %1001, %.lr.ph1795.preheader ], [ %.2826.fr1962, %26 ]
+  %.85 = phi i32 [ %.1825, %47 ], [ %.3, %55 ], [ %.8, %84 ], [ %.2826.fr1960, %104 ], [ %.15, %126 ], [ %.16, %145 ], [ %.22, %176 ], [ %.26, %202 ], [ %.2826.fr1960, %920 ], [ %.81, %958 ], [ %.83, %975 ], [ %.46, %502 ], [ %.42, %431 ], [ %.61, %731 ], [ %.69, %849 ], [ %.65, %787 ], [ %.53, %591 ], [ %.32, %234 ], [ %.36, %271 ], [ %.2826.fr, %989 ], [ %1001, %.lr.ph1795.preheader ], [ %.2826.fr1960, %26 ]
   store i32 %.85, ptr %27, align 4, !tbaa !78
   %1002 = zext nneg i32 %.85 to i64
   %notmask1606 = shl nsw i64 -1, %1002

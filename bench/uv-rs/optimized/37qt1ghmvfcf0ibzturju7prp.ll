@@ -3416,9 +3416,9 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
 .lr.ph.i13.i:                                     ; preds = %357
   %360 = load i64, ptr %80, align 8, !alias.scope !737, !noalias !744, !noundef !3
   %361 = load i64, ptr %71, align 8, !alias.scope !737, !noalias !744
-  %.fr427 = freeze i64 %361
+  %.fr = freeze i64 %361
   %362 = load i64, ptr %73, align 8, !alias.scope !737, !noalias !744
-  %363 = add i64 %.fr427, -1
+  %363 = add i64 %.fr, -1
   %.first_iter.i = icmp ult i64 %363, %300
   br label %364
 
@@ -3445,7 +3445,7 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br i1 %379, label %364, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h42db795c5d9331b4E.exit.thread"
 
 .preheader7.i:                                    ; preds = %364, %395
-  %.sroa.04.0.i.i = phi i64 [ %396, %395 ], [ %.fr427, %364 ]
+  %.sroa.04.0.i.i = phi i64 [ %396, %395 ], [ %.fr, %364 ]
   %380 = icmp ult i64 %.sroa.04.0.i.i, %300
   br i1 %380, label %391, label %.preheader.i.preheader
 
@@ -3453,7 +3453,7 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br i1 %.first_iter.i, label %.preheader.i.us, label %.preheader.i.preheader.split
 
 .preheader.i.us:                                  ; preds = %.preheader.i.preheader, %385
-  %.sroa.59.0.i.i.us = phi i64 [ %382, %385 ], [ %.fr427, %.preheader.i.preheader ]
+  %.sroa.59.0.i.i.us = phi i64 [ %382, %385 ], [ %.fr, %.preheader.i.preheader ]
   %.not.i156.us = icmp eq i64 %.sroa.59.0.i.i.us, 0
   br i1 %.not.i156.us, label %.split.us, label %381
 
@@ -3476,7 +3476,7 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br label %376
 
 .preheader.i.preheader.split:                     ; preds = %.preheader.i.preheader
-  %.not.i156 = icmp eq i64 %.fr427, 0
+  %.not.i156 = icmp eq i64 %.fr, 0
   br i1 %.not.i156, label %.split.us, label %.invoke
 
 391:                                              ; preds = %.preheader7.i
@@ -3498,7 +3498,7 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   br i1 %.not24.i.i, label %.preheader7.i, label %406
 
 401:                                              ; preds = %391
-  %402 = add i64 %365, %.fr427
+  %402 = add i64 %365, %.fr
   %umax.i.i = call i64 @llvm.umax.i64(i64 %298, i64 %402)
   br label %.invoke
 
@@ -3513,8 +3513,8 @@ define void @_ZN10uv_publish20files_for_publishing17h43351fed1361c64fE(ptr dead_
   unreachable
 
 406:                                              ; preds = %395
-  %reass.sub428 = sub i64 %365, %.fr427
-  %407 = add i64 %reass.sub428, 1
+  %reass.sub427 = sub i64 %365, %.fr
+  %407 = add i64 %reass.sub427, 1
   %408 = add i64 %407, %.sroa.04.0.i.i
   br label %376
 

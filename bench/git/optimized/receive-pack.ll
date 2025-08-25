@@ -1053,11 +1053,11 @@ unpack_with_sideband.exit:                        ; preds = %279, %281, %285
   %305 = load i32, ptr @shallow_update, align 4, !tbaa !4
   %.not28.i = icmp eq i32 %305, 0
   %306 = load i64, ptr %293, align 8, !tbaa !80
-  %.fr.i.i = freeze i64 %306
+  %.fr58.i.i = freeze i64 %306
   br i1 %.not28.i, label %382, label %307
 
 307:                                              ; preds = %303
-  %308 = add i64 %.fr.i.i, 31
+  %308 = add i64 %.fr58.i.i, 31
   %309 = lshr i64 %308, 5
   %310 = trunc i64 %309 to i32
   %311 = load ptr, ptr %27, align 8, !tbaa !84
@@ -1126,20 +1126,20 @@ st_mult.exit.i.i:                                 ; preds = %307
   br label %.lr.ph54.split.us.i.i
 
 .lr.ph54.split.us.i.i:                            ; preds = %364, %.lr.ph54.split.us.preheader.i.i
-  %indvars.iv74.i.i = phi i64 [ 0, %.lr.ph54.split.us.preheader.i.i ], [ %indvars.iv.next75.i.i, %364 ]
-  %344 = getelementptr inbounds nuw ptr, ptr %340, i64 %indvars.iv74.i.i
+  %indvars.iv73.i.i = phi i64 [ 0, %.lr.ph54.split.us.preheader.i.i ], [ %indvars.iv.next74.i.i, %364 ]
+  %344 = getelementptr inbounds nuw ptr, ptr %340, i64 %indvars.iv73.i.i
   %345 = load ptr, ptr %344, align 8, !tbaa !90
   %.not.us.i.i = icmp eq ptr %345, null
   br i1 %.not.us.i.i, label %364, label %.preheader.us.i.i.preheader
 
 .preheader.us.i.i.preheader:                      ; preds = %.lr.ph54.split.us.i.i
   %346 = load ptr, ptr %322, align 8
-  %347 = getelementptr inbounds nuw i32, ptr %346, i64 %indvars.iv74.i.i
+  %347 = getelementptr inbounds nuw i32, ptr %346, i64 %indvars.iv73.i.i
   br label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.preheader.us.i.i.preheader, %.loopexit.us.i.i
-  %indvars.iv70.i.i = phi i64 [ %indvars.iv.next71.i.i, %.loopexit.us.i.i ], [ 0, %.preheader.us.i.i.preheader ]
-  %348 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv70.i.i
+  %indvars.iv69.i.i = phi i64 [ %indvars.iv.next70.i.i, %.loopexit.us.i.i ], [ 0, %.preheader.us.i.i.preheader ]
+  %348 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv69.i.i
   %349 = load i32, ptr %348, align 4, !tbaa !4
   %.not46.us.i.i = icmp eq i32 %349, 0
   br i1 %.not46.us.i.i, label %.loopexit.us.i.i, label %350
@@ -1148,44 +1148,44 @@ st_mult.exit.i.i:                                 ; preds = %307
   %351 = load i32, ptr %347, align 4, !tbaa !4
   %352 = add nsw i32 %351, 1
   store i32 %352, ptr %347, align 4, !tbaa !4
-  %353 = shl i64 %indvars.iv70.i.i, 5
+  %353 = shl i64 %indvars.iv69.i.i, 5
   %354 = and i64 %353, 4294967264
   %invariant.gep.i.i = getelementptr inbounds nuw i32, ptr %331, i64 %354
   br label %355
 
 355:                                              ; preds = %363, %350
-  %indvars.iv66.i.i = phi i64 [ %indvars.iv.next67.i.i, %363 ], [ 0, %350 ]
+  %indvars.iv65.i.i = phi i64 [ %indvars.iv.next66.i.i, %363 ], [ 0, %350 ]
   %356 = load i32, ptr %348, align 4, !tbaa !4
-  %357 = trunc nuw nsw i64 %indvars.iv66.i.i to i32
+  %357 = trunc nuw nsw i64 %indvars.iv65.i.i to i32
   %358 = shl nuw i32 1, %357
   %359 = and i32 %358, %356
   %.not47.us.i.i = icmp eq i32 %359, 0
   br i1 %.not47.us.i.i, label %363, label %360
 
 360:                                              ; preds = %355
-  %gep.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i.i, i64 %indvars.iv66.i.i
+  %gep.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i.i, i64 %indvars.iv65.i.i
   %361 = load i32, ptr %gep.i.i, align 4, !tbaa !4
   %362 = add nsw i32 %361, 1
   store i32 %362, ptr %gep.i.i, align 4, !tbaa !4
   br label %363
 
 363:                                              ; preds = %360, %355
-  %indvars.iv.next67.i.i = add nuw nsw i64 %indvars.iv66.i.i, 1
-  %exitcond69.not.i.i = icmp eq i64 %indvars.iv.next67.i.i, 32
-  br i1 %exitcond69.not.i.i, label %.loopexit.us.i.i, label %355, !llvm.loop !91
+  %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
+  %exitcond68.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, 32
+  br i1 %exitcond68.not.i.i, label %.loopexit.us.i.i, label %355, !llvm.loop !91
 
 .loopexit.us.i.i:                                 ; preds = %363, %.preheader.us.i.i
-  %indvars.iv.next71.i.i = add nuw nsw i64 %indvars.iv70.i.i, 1
-  %exitcond73.not.i.i = icmp eq i64 %indvars.iv.next71.i.i, %wide.trip.count.i.i
-  br i1 %exitcond73.not.i.i, label %._crit_edge.us.i.i, label %.preheader.us.i.i, !llvm.loop !92
+  %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
+  %exitcond72.not.i.i = icmp eq i64 %indvars.iv.next70.i.i, %wide.trip.count.i.i
+  br i1 %exitcond72.not.i.i, label %._crit_edge.us.i.i, label %.preheader.us.i.i, !llvm.loop !92
 
 364:                                              ; preds = %._crit_edge.us.i.i, %.lr.ph54.split.us.i.i
-  %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
-  %exitcond77.not.i.i = icmp eq i64 %indvars.iv.next75.i.i, %339
-  br i1 %exitcond77.not.i.i, label %prepare_shallow_update.exit.i, label %.lr.ph54.split.us.i.i, !llvm.loop !93
+  %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
+  %exitcond76.not.i.i = icmp eq i64 %indvars.iv.next74.i.i, %339
+  br i1 %exitcond76.not.i.i, label %prepare_shallow_update.exit.i, label %.lr.ph54.split.us.i.i, !llvm.loop !93
 
 ._crit_edge.us.i.i:                               ; preds = %.loopexit.us.i.i
-  %365 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv74.i.i
+  %365 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv73.i.i
   %366 = load i32, ptr %365, align 4, !tbaa !4
   %367 = icmp sgt i32 %366, 1
   %368 = zext i1 %367 to i32
@@ -1203,14 +1203,14 @@ st_mult.exit.i.i:                                 ; preds = %307
   br i1 %exitcond.not.i.i, label %.preheader48.i.i, label %369, !llvm.loop !94
 
 .lr.ph54.split.i.i:                               ; preds = %.lr.ph54.split.i.i.preheader, %379
-  %indvars.iv62.i.i = phi i64 [ %indvars.iv.next63.i.i, %379 ], [ 0, %.lr.ph54.split.i.i.preheader ]
-  %373 = getelementptr inbounds nuw ptr, ptr %340, i64 %indvars.iv62.i.i
+  %indvars.iv61.i.i = phi i64 [ %indvars.iv.next62.i.i, %379 ], [ 0, %.lr.ph54.split.i.i.preheader ]
+  %373 = getelementptr inbounds nuw ptr, ptr %340, i64 %indvars.iv61.i.i
   %374 = load ptr, ptr %373, align 8, !tbaa !90
   %.not.i33.i = icmp eq ptr %374, null
   br i1 %.not.i33.i, label %379, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph54.split.i.i
-  %375 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv62.i.i
+  %375 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv61.i.i
   %376 = load i32, ptr %375, align 4, !tbaa !4
   %377 = icmp sgt i32 %376, 1
   %378 = zext i1 %377 to i32
@@ -1218,9 +1218,9 @@ st_mult.exit.i.i:                                 ; preds = %307
   br label %379
 
 379:                                              ; preds = %.preheader.i.i, %.lr.ph54.split.i.i
-  %indvars.iv.next63.i.i = add nuw nsw i64 %indvars.iv62.i.i, 1
-  %exitcond65.not.i.i = icmp eq i64 %indvars.iv.next63.i.i, %339
-  br i1 %exitcond65.not.i.i, label %prepare_shallow_update.exit.i, label %.lr.ph54.split.i.i, !llvm.loop !93
+  %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
+  %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next62.i.i, %339
+  br i1 %exitcond64.not.i.i, label %prepare_shallow_update.exit.i, label %.lr.ph54.split.i.i, !llvm.loop !93
 
 prepare_shallow_update.exit.i:                    ; preds = %379, %364, %.preheader48.i.i
   %380 = load ptr, ptr @alt_shallow_file, align 8, !tbaa !21
@@ -1228,15 +1228,15 @@ prepare_shallow_update.exit.i:                    ; preds = %379, %364, %.prehea
   br label %delete_only.exit
 
 382:                                              ; preds = %303
-  %mul.ov.i.i = icmp ugt i64 %.fr.i.i, 4611686018427387903
+  %mul.ov.i.i = icmp ugt i64 %.fr58.i.i, 4611686018427387903
   br i1 %mul.ov.i.i, label %383, label %st_mult.exit.i
 
 383:                                              ; preds = %382
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 4, i64 noundef %.fr.i.i) #22
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.105, i64 noundef 4, i64 noundef %.fr58.i.i) #22
   unreachable
 
 st_mult.exit.i:                                   ; preds = %382
-  %384 = shl nuw i64 %.fr.i.i, 2
+  %384 = shl nuw i64 %.fr58.i.i, 2
   %385 = call ptr @xmalloc(i64 noundef %384) #21
   call void @assign_shallow_commits_to_refs(ptr noundef nonnull %27, ptr noundef null, ptr noundef %385) #21
   br label %386

@@ -1055,7 +1055,7 @@ _ZL20getInnerLoopGuardCmpRKN4llvm4LoopE.exit:     ; preds = %91, %103
   %158 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getExitBlockEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #14
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 56
   %160 = load ptr, ptr %159, align 8, !tbaa !124
-  %161 = getelementptr inbounds nuw i8, ptr %158, i64 48
+  %161 = getelementptr i8, ptr %158, i64 48
   %.not18.i.i.i.i.i.i60 = icmp eq ptr %160, %161
   br i1 %.not18.i.i.i.i.i.i60, label %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79.thread", label %.lr.ph.i.i.i.i.i.i61
 
@@ -1065,7 +1065,8 @@ _ZL20getInnerLoopGuardCmpRKN4llvm4LoopE.exit:     ; preds = %91, %103
 
 162:                                              ; preds = %169, %.lr.ph.i.i.i.i.i.i61
   %.sroa.03.019.i.i.i.i.i.i63 = phi ptr [ %160, %.lr.ph.i.i.i.i.i.i61 ], [ %171, %169 ]
-  %163 = getelementptr inbounds i8, ptr %.sroa.03.019.i.i.i.i.i.i63, i64 -24
+  %.sroa.03.019.i.i.i.i.i.i63.fr = freeze ptr %.sroa.03.019.i.i.i.i.i.i63
+  %163 = getelementptr inbounds i8, ptr %.sroa.03.019.i.i.i.i.i.i63.fr, i64 -24
   %.sroa.1.0.copyload.i.i.i.i.i.i.i.i64 = load ptr, ptr %.sroa.1.0..sroa_idx.i.i.i.i.i.i.i.i62, align 8
   %164 = call noundef zeroext i1 @_ZN4llvm28isSafeToSpeculativelyExecuteEPKNS_11InstructionES2_PNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoEb(ptr noundef nonnull align 8 dereferenceable(72) %163, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true) #14
   %.pre.i.i.i.i.i.i.i.i.i65 = load i8, ptr %163, align 8, !tbaa !114
@@ -1094,15 +1095,14 @@ _ZL20getInnerLoopGuardCmpRKN4llvm4LoopE.exit:     ; preds = %91, %103
   br i1 %or.cond15.i.i.not.i.i.i.i.i.i.i77, label %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79", label %169
 
 169:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS2_4LoopES6_RNS2_15ScalarEvolutionEENK3$_0clERKNS2_10BasicBlockEEUlRKNS2_11InstructionEE_EclINS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsISD_Lb0ELb0EvLb1ESA_EELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i72"
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.03.019.i.i.i.i.i.i63, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.03.019.i.i.i.i.i.i63.fr, i64 8
   %171 = load ptr, ptr %170, align 8, !tbaa !124
   %.not.i.i.i.i.i.i78 = icmp eq ptr %171, %161
   br i1 %.not.i.i.i.i.i.i78, label %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79.thread", label %162, !llvm.loop !128
 
 "_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79": ; preds = %165, %.critedge.i.i.i.i.i.i.i.i.i66, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS2_4LoopES6_RNS2_15ScalarEvolutionEENK3$_0clERKNS2_10BasicBlockEEUlRKNS2_11InstructionEE_EclINS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsISD_Lb0ELb0EvLb1ESA_EELb0ELb1EEEEEbT_.exit.i.i.i.i.i.i72"
-  %172 = icmp eq ptr %161, %.sroa.03.019.i.i.i.i.i.i63
-  %cond.fr = freeze i1 %172
-  br i1 %cond.fr, label %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79.thread", label %173
+  %172 = icmp eq ptr %161, %.sroa.03.019.i.i.i.i.i.i63.fr
+  br i1 %172, label %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79.thread", label %173
 
 "_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79.thread": ; preds = %169, %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit59.thread", %"_ZZN4llvm8LoopNest29analyzeLoopNestForPerfectNestERKNS_4LoopES3_RNS_15ScalarEvolutionEENK3$_0clERKNS_10BasicBlockE.exit79"
   br label %173

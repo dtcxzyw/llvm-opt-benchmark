@@ -3400,8 +3400,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 
 .lr.ph:                                           ; preds = %156
   %164 = load i32, ptr %157, align 8, !tbaa !110
-  %.fr = freeze i32 %164
-  %165 = and i32 %.fr, 4088
+  %.fr165 = freeze i32 %164
+  %165 = and i32 %.fr165, 4088
   %166 = icmp eq i32 %165, 24
   %167 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %168 = getelementptr inbounds nuw i8, ptr %13, i64 20

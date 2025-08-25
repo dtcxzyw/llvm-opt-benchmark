@@ -2093,14 +2093,14 @@ define internal fastcc noundef zeroext i1 @findPartialMatch(ptr noundef readonly
   br i1 %.not22.not, label %.loopexit, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %3
-  %.fr = freeze i32 %6
+  %.fr28 = freeze i32 %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = add i32 %.fr, -1
+  %18 = add i32 %.fr28, -1
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %.lr.ph24.split.us.preheader, label %.lr.ph24.split
 

@@ -7022,8 +7022,8 @@ define hidden void @_ZN16bv2fpa_converter24convert_min_max_specialsEP10model_cor
 _ZNK7obj_mapI9func_declSt4pairIP3appS3_EE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %26, %4
   %.sroa.0.1.i.i = phi ptr [ %20, %4 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %24, %26 ]
   %28 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<app *, app *>>::obj_map_entry", ptr %20, i64 %23
-  %.not105 = icmp eq ptr %.sroa.0.1.i.i, %28
-  br i1 %.not105, label %._crit_edge, label %.lr.ph
+  %.not109 = icmp eq ptr %.sroa.0.1.i.i, %28
+  br i1 %.not109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7obj_mapI9func_declSt4pairIP3appS3_EE5beginEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7055,11 +7055,11 @@ _ZNK7obj_mapI9func_declSt4pairIP3appS3_EE5beginEv.exit: ; preds = %.lr.ph.i.i.i.
   ret void
 
 52:                                               ; preds = %.lr.ph, %_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIP3appS4_EE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit
-  %.sroa.093.0106 = phi ptr [ %.sroa.0.1.i.i, %.lr.ph ], [ %.sroa.093.2, %_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIP3appS4_EE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit ]
-  %53 = load ptr, ptr %.sroa.093.0106, align 8, !tbaa !57
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.093.0106, i64 8
+  %.sroa.093.0110 = phi ptr [ %.sroa.0.1.i.i, %.lr.ph ], [ %.sroa.093.2, %_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIP3appS4_EE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit ]
+  %53 = load ptr, ptr %.sroa.093.0110, align 8, !tbaa !57
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.093.0110, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !58
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.093.0106, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.093.0110, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %58 = load ptr, ptr %29, align 8, !tbaa !60
@@ -7342,15 +7342,16 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit75:    ; preds = %118, %110, %112
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %155
   %162 = load i8, ptr %39, align 4
-  %163 = and i8 %162, 1
+  %.fr = freeze i8 %162
+  %163 = and i8 %.fr, 1
   %164 = icmp eq i8 %163, 0
   %165 = load i32, ptr %38, align 8
-  %166 = icmp eq i32 %165, 1
-  %167 = select i1 %164, i1 %166, i1 false
-  %cond.fr = freeze i1 %167
+  %.fr105 = freeze i32 %165
+  %166 = icmp eq i32 %.fr105, 1
+  %167 = and i1 %164, %166
   %.val = load ptr, ptr %7, align 8
-  %.val133 = load ptr, ptr %6, align 8
-  %.pre = select i1 %cond.fr, ptr %.val, ptr %.val133
+  %.val137 = load ptr, ptr %6, align 8
+  %.pre = select i1 %167, ptr %.val, ptr %.val137
   br label %_ZNK8rational6is_oneEv.exit.thread
 
 _ZNK8rational6is_oneEv.exit.thread:               ; preds = %_ZNK8rational6is_oneEv.exit, %155
@@ -7369,19 +7370,20 @@ _ZNK8rational6is_oneEv.exit.thread:               ; preds = %_ZNK8rational6is_on
 
 _ZNK8rational6is_oneEv.exit76:                    ; preds = %169
   %176 = load i8, ptr %44, align 4
-  %177 = and i8 %176, 1
+  %.fr106 = freeze i8 %176
+  %177 = and i8 %.fr106, 1
   %178 = icmp eq i8 %177, 0
   %179 = load i32, ptr %43, align 8
-  %180 = icmp eq i32 %179, 1
-  %181 = select i1 %178, i1 %180, i1 false
-  %cond.fr97 = freeze i1 %181
-  %.val134 = load ptr, ptr %7, align 8
-  %.val135 = load ptr, ptr %6, align 8
-  %.pre111 = select i1 %cond.fr97, ptr %.val134, ptr %.val135
+  %.fr107 = freeze i32 %179
+  %180 = icmp eq i32 %.fr107, 1
+  %181 = and i1 %178, %180
+  %.val138 = load ptr, ptr %7, align 8
+  %.val139 = load ptr, ptr %6, align 8
+  %.pre115 = select i1 %181, ptr %.val138, ptr %.val139
   br label %_ZNK8rational6is_oneEv.exit76.thread
 
 _ZNK8rational6is_oneEv.exit76.thread:             ; preds = %_ZNK8rational6is_oneEv.exit76, %169
-  %182 = phi ptr [ %63, %169 ], [ %.pre111, %_ZNK8rational6is_oneEv.exit76 ]
+  %182 = phi ptr [ %63, %169 ], [ %.pre115, %_ZNK8rational6is_oneEv.exit76 ]
   invoke void @_ZN11func_interp16insert_new_entryEPKP4exprS1_(ptr noundef nonnull align 8 dereferenceable(56) %150, ptr noundef nonnull %16, ptr noundef %182)
           to label %183 unwind label %286
 
@@ -7400,8 +7402,8 @@ _ZNK4decl13get_family_idEv.exit.thread.i:         ; preds = %183
 _Z10is_decl_ofPK9func_declii.exit:                ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %191 = load i32, ptr %190, align 4, !tbaa !151
-  %.fr = freeze i32 %191
-  %192 = icmp eq i32 %.fr, 18
+  %.fr108 = freeze i32 %191
+  %192 = icmp eq i32 %.fr108, 18
   %spec.select104 = select i1 %192, i32 20, i32 21
   br label %_Z10is_decl_ofPK9func_declii.exit.thread101
 
@@ -7648,7 +7650,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit89:       ; preds = %_ZN7obj_refI4expr11
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit91:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit89, %271, %276
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %280 = getelementptr inbounds nuw i8, ptr %.sroa.093.0106, i64 24
+  %280 = getelementptr inbounds nuw i8, ptr %.sroa.093.0110, i64 24
   %.not1.i.i = icmp eq ptr %280, %24
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI9func_declSt4pairIP3appS4_EE13obj_map_entryE8obj_hashINS6_8key_dataEE10default_eqIS9_EE8iteratorppEv.exit, label %.lr.ph.i.i
 

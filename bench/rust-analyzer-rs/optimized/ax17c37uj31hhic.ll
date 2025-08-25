@@ -3208,53 +3208,47 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
   %35 = getelementptr inbounds i8, ptr %28, i64 -12
   %.sroa.09.0.copyload.i = load i32, ptr %35, align 4, !noalias !1207
   %.sroa.2.0...sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 -8
-  %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0...sroa_idx.i, align 4, !noalias !1207
-  %.sroa.3.0...sroa_idx.i = getelementptr inbounds i8, ptr %28, i64 -4
-  %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0...sroa_idx.i, align 4, !noalias !1207
+  %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0...sroa_idx.i, align 4, !noalias !1207
+  %36 = trunc i64 %.sroa.2.0.copyload.i to i32
+  %37 = lshr i64 %.sroa.2.0.copyload.i, 32
+  %38 = trunc nuw i64 %37 to i32
   %.sroa.04.sroa.0.0.copyload.i = load i32, ptr %2, align 4, !alias.scope !1201, !noalias !1236
   %.sroa.04.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.04.sroa.6.0.copyload.i = load i64, ptr %.sroa.04.sroa.6.0..sroa_idx.i, align 4, !alias.scope !1201, !noalias !1236
-  %36 = icmp eq i32 %.sroa.04.sroa.0.0.copyload.i, 0
-  br i1 %36, label %37, label %38
+  %39 = icmp eq i32 %.sroa.04.sroa.0.0.copyload.i, 0
+  br i1 %39, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i", label %40
 
-37:                                               ; preds = %34
-  %.sroa.04.sroa.6.4.insert.ext.i = zext i32 %.sroa.2.0.copyload.i to i64
-  %.sroa.04.sroa.6.8.insert.ext.i = zext i32 %.sroa.3.0.copyload.i to i64
-  %.sroa.04.sroa.6.8.insert.shift.i = shl nuw i64 %.sroa.04.sroa.6.8.insert.ext.i, 32
-  %.sroa.04.sroa.6.8.insert.insert.i = or disjoint i64 %.sroa.04.sroa.6.8.insert.shift.i, %.sroa.04.sroa.6.4.insert.ext.i
-  br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i"
-
-38:                                               ; preds = %34
+40:                                               ; preds = %34
   %trunc.i.i = trunc nuw i32 %.sroa.09.0.copyload.i to i1
-  br i1 %trunc.i.i, label %39, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i"
+  br i1 %trunc.i.i, label %41, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i"
 
-39:                                               ; preds = %38
+41:                                               ; preds = %40
   %.sroa.04.sroa.6.4.extract.trunc.i = trunc i64 %.sroa.04.sroa.6.0.copyload.i to i32
   %.sroa.04.sroa.6.8.extract.shift.i = lshr i64 %.sroa.04.sroa.6.0.copyload.i, 32
   %.sroa.04.sroa.6.8.extract.trunc.i = trunc nuw i64 %.sroa.04.sroa.6.8.extract.shift.i to i32
-  %.0.sroa.speculated.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.04.sroa.6.4.extract.trunc.i, i32 %.sroa.2.0.copyload.i)
-  %.0.sroa.speculated.i9.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.04.sroa.6.8.extract.trunc.i, i32 %.sroa.3.0.copyload.i)
-  %40 = icmp ult i32 %.0.sroa.speculated.i9.i.i.i, %.0.sroa.speculated.i.i.i.i
-  br i1 %40, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i"
+  %.0.sroa.speculated.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.04.sroa.6.4.extract.trunc.i, i32 %36)
+  %.0.sroa.speculated.i9.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.04.sroa.6.8.extract.trunc.i, i32 %38)
+  %42 = icmp ult i32 %.0.sroa.speculated.i9.i.i.i, %.0.sroa.speculated.i.i.i.i
+  br i1 %42, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i": ; preds = %39
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i": ; preds = %41
   %.sroa.6.4.insert.ext.i = zext i32 %.0.sroa.speculated.i.i.i.i to i64
   %.sroa.6.8.insert.ext.i = zext i32 %.0.sroa.speculated.i9.i.i.i to i64
   %.sroa.6.8.insert.shift.i = shl nuw i64 %.sroa.6.8.insert.ext.i, 32
   %.sroa.6.8.insert.insert.i = or disjoint i64 %.sroa.6.8.insert.shift.i, %.sroa.6.4.insert.ext.i
   br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i": ; preds = %38, %37
-  %.sroa.6.0.i = phi i64 [ %.sroa.04.sroa.6.8.insert.insert.i, %37 ], [ %.sroa.04.sroa.6.0.copyload.i, %38 ]
-  %.sroa.0.011.i = phi i32 [ %.sroa.09.0.copyload.i, %37 ], [ %.sroa.04.sroa.0.0.copyload.i, %38 ]
-  %41 = icmp eq i32 %.sroa.0.011.i, 2
-  br i1 %41, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit"
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i": ; preds = %40, %34
+  %.sroa.6.0.i = phi i64 [ %.sroa.04.sroa.6.0.copyload.i, %40 ], [ %.sroa.2.0.copyload.i, %34 ]
+  %.sroa.0.011.i = phi i32 [ %.sroa.04.sroa.0.0.copyload.i, %40 ], [ %.sroa.09.0.copyload.i, %34 ]
+  %43 = icmp eq i32 %.sroa.0.011.i, 2
+  br i1 %43, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit"
 
 "_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit": ; preds = %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i"
   %.sroa.8.0 = phi i64 [ %.sroa.6.8.insert.insert.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i" ], [ %.sroa.6.0.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i" ]
   %.sroa.4.0 = phi i32 [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i" ], [ %.sroa.0.011.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i" ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val4 = load ptr, ptr %42, align 8, !nonnull !4, !align !5, !noundef !4
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val4 = load ptr, ptr %44, align 8, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1237
   store i32 %.sroa.4.0, ptr %5, align 8
   %.sroa.6.4..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -3265,7 +3259,7 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1237
   br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread": ; preds = %17, %39, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i", %3, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit"
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.thread": ; preds = %17, %41, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i", %3, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit"
   ret void
 }
 
@@ -9650,53 +9644,47 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   %37 = getelementptr inbounds i8, ptr %30, i64 -12
   %.sroa.09.0.copyload.i.i = load i32, ptr %37, align 4, !noalias !2421
   %.sroa.2.0...sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 -8
-  %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0...sroa_idx.i.i, align 4, !noalias !2421
-  %.sroa.3.0...sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 -4
-  %.sroa.3.0.copyload.i.i = load i32, ptr %.sroa.3.0...sroa_idx.i.i, align 4, !noalias !2421
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0...sroa_idx.i.i, align 4, !noalias !2421
+  %38 = trunc i64 %.sroa.2.0.copyload.i.i to i32
+  %39 = lshr i64 %.sroa.2.0.copyload.i.i, 32
+  %40 = trunc nuw i64 %39 to i32
   %.sroa.04.sroa.0.0.copyload.i.i = load i32, ptr %7, align 4, !alias.scope !2450, !noalias !2451
   %.sroa.04.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %1, i64 -8
   %.sroa.04.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.04.sroa.6.0..sroa_idx.i.i, align 4, !alias.scope !2450, !noalias !2451
-  %38 = icmp eq i32 %.sroa.04.sroa.0.0.copyload.i.i, 0
-  br i1 %38, label %39, label %40
+  %41 = icmp eq i32 %.sroa.04.sroa.0.0.copyload.i.i, 0
+  br i1 %41, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i", label %42
 
-39:                                               ; preds = %36
-  %.sroa.04.sroa.6.4.insert.ext.i.i = zext i32 %.sroa.2.0.copyload.i.i to i64
-  %.sroa.04.sroa.6.8.insert.ext.i.i = zext i32 %.sroa.3.0.copyload.i.i to i64
-  %.sroa.04.sroa.6.8.insert.shift.i.i = shl nuw i64 %.sroa.04.sroa.6.8.insert.ext.i.i, 32
-  %.sroa.04.sroa.6.8.insert.insert.i.i = or disjoint i64 %.sroa.04.sroa.6.8.insert.shift.i.i, %.sroa.04.sroa.6.4.insert.ext.i.i
-  br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i"
-
-40:                                               ; preds = %36
+42:                                               ; preds = %36
   %trunc.i.i.i = trunc nuw i32 %.sroa.09.0.copyload.i.i to i1
-  br i1 %trunc.i.i.i, label %41, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i"
+  br i1 %trunc.i.i.i, label %43, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i"
 
-41:                                               ; preds = %40
+43:                                               ; preds = %42
   %.sroa.04.sroa.6.4.extract.trunc.i.i = trunc i64 %.sroa.04.sroa.6.0.copyload.i.i to i32
   %.sroa.04.sroa.6.8.extract.shift.i.i = lshr i64 %.sroa.04.sroa.6.0.copyload.i.i, 32
   %.sroa.04.sroa.6.8.extract.trunc.i.i = trunc nuw i64 %.sroa.04.sroa.6.8.extract.shift.i.i to i32
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.04.sroa.6.4.extract.trunc.i.i, i32 %.sroa.2.0.copyload.i.i)
-  %.0.sroa.speculated.i9.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.04.sroa.6.8.extract.trunc.i.i, i32 %.sroa.3.0.copyload.i.i)
-  %42 = icmp ult i32 %.0.sroa.speculated.i9.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
-  br i1 %42, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i"
+  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.04.sroa.6.4.extract.trunc.i.i, i32 %38)
+  %.0.sroa.speculated.i9.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.04.sroa.6.8.extract.trunc.i.i, i32 %40)
+  %44 = icmp ult i32 %.0.sroa.speculated.i9.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i
+  br i1 %44, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i": ; preds = %41
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i": ; preds = %43
   %.sroa.6.4.insert.ext.i.i = zext i32 %.0.sroa.speculated.i.i.i.i.i to i64
   %.sroa.6.8.insert.ext.i.i = zext i32 %.0.sroa.speculated.i9.i.i.i.i to i64
   %.sroa.6.8.insert.shift.i.i = shl nuw i64 %.sroa.6.8.insert.ext.i.i, 32
   %.sroa.6.8.insert.insert.i.i = or disjoint i64 %.sroa.6.8.insert.shift.i.i, %.sroa.6.4.insert.ext.i.i
   br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i": ; preds = %40, %39
-  %.sroa.6.0.i.i = phi i64 [ %.sroa.04.sroa.6.8.insert.insert.i.i, %39 ], [ %.sroa.04.sroa.6.0.copyload.i.i, %40 ]
-  %.sroa.0.011.i.i = phi i32 [ %.sroa.09.0.copyload.i.i, %39 ], [ %.sroa.04.sroa.0.0.copyload.i.i, %40 ]
-  %43 = icmp eq i32 %.sroa.0.011.i.i, 2
-  br i1 %43, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i"
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i": ; preds = %42, %36
+  %.sroa.6.0.i.i = phi i64 [ %.sroa.04.sroa.6.0.copyload.i.i, %42 ], [ %.sroa.2.0.copyload.i.i, %36 ]
+  %.sroa.0.011.i.i = phi i32 [ %.sroa.04.sroa.0.0.copyload.i.i, %42 ], [ %.sroa.09.0.copyload.i.i, %36 ]
+  %45 = icmp eq i32 %.sroa.0.011.i.i, 2
+  br i1 %45, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i"
 
 "_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i": ; preds = %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i"
   %.sroa.8.0.i = phi i64 [ %.sroa.6.8.insert.insert.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i" ], [ %.sroa.6.0.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i" ]
   %.sroa.4.0.i = phi i32 [ 1, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i" ], [ %.sroa.0.011.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i" ]
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val4.i = load ptr, ptr %44, align 8, !alias.scope !2406, !noalias !2413, !nonnull !4, !align !5, !noundef !4
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.val4.i = load ptr, ptr %46, align 8, !alias.scope !2406, !noalias !2413, !nonnull !4, !align !5, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2452
   store i32 %.sroa.4.0.i, ptr %4, align 8, !noalias !2455
   %.sroa.6.4..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9707,7 +9695,7 @@ define hidden void @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2452
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit"
 
-"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit": ; preds = %19, %2, %41, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i"
+"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7a29555b5c726892E.llvm.17704032041304388331.exit": ; preds = %19, %2, %43, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i"
   ret void
 }
 
@@ -27163,23 +27151,23 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h446796
   %.lcssa2026 = phi ptr [ %.lcssa2025, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit" ], [ %.promoted24, %3 ]
   %.lcssa1923 = phi ptr [ %.lcssa1922, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit" ], [ %.promoted, %3 ]
   %11 = phi i16 [ %18, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit" ], [ %.promoted21, %3 ]
-  %.0.ph = phi i64 [ %57, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit" ], [ %1, %3 ]
+  %.0.ph = phi i64 [ %59, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit" ], [ %1, %3 ]
   %.not.i15 = icmp eq i16 %11, 0
   br i1 %.not.i15, label %.lr.ph, label %14
 
 .lr.ph:                                           ; preds = %.outer
   %12 = icmp eq i64 %.0.ph, 0
-  br i1 %12, label %65, label %.lr.ph.split
+  br i1 %12, label %67, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split
-  %13 = xor i16 %62, -1
-  store ptr %63, ptr %0, align 8
-  store ptr %64, ptr %7, align 8
+  %13 = xor i16 %64, -1
+  store ptr %65, ptr %0, align 8
+  store ptr %66, ptr %7, align 8
   br label %14
 
 14:                                               ; preds = %._crit_edge, %.outer
-  %.lcssa2025 = phi ptr [ %64, %._crit_edge ], [ %.lcssa2026, %.outer ]
-  %.lcssa1922 = phi ptr [ %63, %._crit_edge ], [ %.lcssa1923, %.outer ]
+  %.lcssa2025 = phi ptr [ %66, %._crit_edge ], [ %.lcssa2026, %.outer ]
+  %.lcssa1922 = phi ptr [ %65, %._crit_edge ], [ %.lcssa1923, %.outer ]
   %.lcssa = phi i16 [ %13, %._crit_edge ], [ %11, %.outer ]
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
   %16 = zext nneg i16 %15 to i64
@@ -27249,47 +27237,41 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h446796
   %50 = getelementptr inbounds i8, ptr %43, i64 -12
   %.sroa.09.0.copyload.i.i.i = load i32, ptr %50, align 4, !noalias !6471
   %.sroa.2.0...sroa_idx.i.i.i = getelementptr inbounds i8, ptr %43, i64 -8
-  %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0...sroa_idx.i.i.i, align 4, !noalias !6471
-  %.sroa.3.0...sroa_idx.i.i.i = getelementptr inbounds i8, ptr %43, i64 -4
-  %.sroa.3.0.copyload.i.i.i = load i32, ptr %.sroa.3.0...sroa_idx.i.i.i, align 4, !noalias !6471
+  %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0...sroa_idx.i.i.i, align 4, !noalias !6471
+  %51 = trunc i64 %.sroa.2.0.copyload.i.i.i to i32
+  %52 = lshr i64 %.sroa.2.0.copyload.i.i.i, 32
+  %53 = trunc nuw i64 %52 to i32
   %.sroa.04.sroa.0.0.copyload.i.i.i = load i32, ptr %22, align 4, !alias.scope !6500, !noalias !6501
   %.sroa.04.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %20, i64 -8
   %.sroa.04.sroa.6.0.copyload.i.i.i = load i64, ptr %.sroa.04.sroa.6.0..sroa_idx.i.i.i, align 4, !alias.scope !6500, !noalias !6501
-  %51 = icmp eq i32 %.sroa.04.sroa.0.0.copyload.i.i.i, 0
-  br i1 %51, label %52, label %53
+  %54 = icmp eq i32 %.sroa.04.sroa.0.0.copyload.i.i.i, 0
+  br i1 %54, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i", label %55
 
-52:                                               ; preds = %49
-  %.sroa.04.sroa.6.4.insert.ext.i.i.i = zext i32 %.sroa.2.0.copyload.i.i.i to i64
-  %.sroa.04.sroa.6.8.insert.ext.i.i.i = zext i32 %.sroa.3.0.copyload.i.i.i to i64
-  %.sroa.04.sroa.6.8.insert.shift.i.i.i = shl nuw i64 %.sroa.04.sroa.6.8.insert.ext.i.i.i, 32
-  %.sroa.04.sroa.6.8.insert.insert.i.i.i = or disjoint i64 %.sroa.04.sroa.6.8.insert.shift.i.i.i, %.sroa.04.sroa.6.4.insert.ext.i.i.i
-  br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i"
-
-53:                                               ; preds = %49
+55:                                               ; preds = %49
   %trunc.i.i.i.i = trunc nuw i32 %.sroa.09.0.copyload.i.i.i to i1
-  br i1 %trunc.i.i.i.i, label %54, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i"
+  br i1 %trunc.i.i.i.i, label %56, label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i"
 
-54:                                               ; preds = %53
+56:                                               ; preds = %55
   %.sroa.04.sroa.6.4.extract.trunc.i.i.i = trunc i64 %.sroa.04.sroa.6.0.copyload.i.i.i to i32
   %.sroa.04.sroa.6.8.extract.shift.i.i.i = lshr i64 %.sroa.04.sroa.6.0.copyload.i.i.i, 32
   %.sroa.04.sroa.6.8.extract.trunc.i.i.i = trunc nuw i64 %.sroa.04.sroa.6.8.extract.shift.i.i.i to i32
-  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.04.sroa.6.4.extract.trunc.i.i.i, i32 %.sroa.2.0.copyload.i.i.i)
-  %.0.sroa.speculated.i9.i.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.04.sroa.6.8.extract.trunc.i.i.i, i32 %.sroa.3.0.copyload.i.i.i)
-  %55 = icmp ult i32 %.0.sroa.speculated.i9.i.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i.i
-  br i1 %55, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i"
+  %.0.sroa.speculated.i.i.i.i.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.sroa.04.sroa.6.4.extract.trunc.i.i.i, i32 %51)
+  %.0.sroa.speculated.i9.i.i.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %.sroa.04.sroa.6.8.extract.trunc.i.i.i, i32 %53)
+  %57 = icmp ult i32 %.0.sroa.speculated.i9.i.i.i.i.i, %.0.sroa.speculated.i.i.i.i.i.i
+  br i1 %57, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i": ; preds = %54
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i": ; preds = %56
   %.sroa.6.4.insert.ext.i.i.i = zext i32 %.0.sroa.speculated.i.i.i.i.i.i to i64
   %.sroa.6.8.insert.ext.i.i.i = zext i32 %.0.sroa.speculated.i9.i.i.i.i.i to i64
   %.sroa.6.8.insert.shift.i.i.i = shl nuw i64 %.sroa.6.8.insert.ext.i.i.i, 32
   %.sroa.6.8.insert.insert.i.i.i = or disjoint i64 %.sroa.6.8.insert.shift.i.i.i, %.sroa.6.4.insert.ext.i.i.i
   br label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i"
 
-"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i": ; preds = %53, %52
-  %.sroa.6.0.i.i.i = phi i64 [ %.sroa.04.sroa.6.8.insert.insert.i.i.i, %52 ], [ %.sroa.04.sroa.6.0.copyload.i.i.i, %53 ]
-  %.sroa.0.011.i.i.i = phi i32 [ %.sroa.09.0.copyload.i.i.i, %52 ], [ %.sroa.04.sroa.0.0.copyload.i.i.i, %53 ]
-  %56 = icmp eq i32 %.sroa.0.011.i.i.i, 2
-  br i1 %56, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i"
+"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i": ; preds = %55, %49
+  %.sroa.6.0.i.i.i = phi i64 [ %.sroa.04.sroa.6.0.copyload.i.i.i, %55 ], [ %.sroa.2.0.copyload.i.i.i, %49 ]
+  %.sroa.0.011.i.i.i = phi i32 [ %.sroa.04.sroa.0.0.copyload.i.i.i, %55 ], [ %.sroa.09.0.copyload.i.i.i, %49 ]
+  %58 = icmp eq i32 %.sroa.0.011.i.i.i, 2
+  br i1 %58, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit", label %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i"
 
 "_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i": ; preds = %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i"
   %.sroa.8.0.i.i = phi i64 [ %.sroa.6.8.insert.insert.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.thread18.i.i.i" ], [ %.sroa.6.0.i.i.i, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i" ]
@@ -27303,22 +27285,22 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17h446796
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6502
   br label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit"
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit": ; preds = %32, %14, %54, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i"
-  %57 = add i64 %.0.ph, -1
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17h4f93e566d727b78fE.llvm.17704032041304388331.exit": ; preds = %32, %14, %56, %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17he836d197c28c8457E.exit.i.i.i", %"_ZN6ide_db6search11SearchScope12intersection28_$u7b$$u7b$closure$u7d$$u7d$17h77c103c5c0f4a5a8E.exit.i.i"
+  %59 = add i64 %.0.ph, -1
   br label %.outer
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %58 = phi ptr [ %64, %.lr.ph.split ], [ %.lcssa2026, %.lr.ph ]
-  %59 = phi ptr [ %63, %.lr.ph.split ], [ %.lcssa1923, %.lr.ph ]
-  %60 = load <16 x i8>, ptr %58, align 16, !noalias !6509
-  %61 = icmp slt <16 x i8> %60, zeroinitializer
-  %62 = bitcast <16 x i1> %61 to i16
-  %63 = getelementptr inbounds i8, ptr %59, i64 -256
-  %64 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %.not.i = icmp eq i16 %62, -1
+  %60 = phi ptr [ %66, %.lr.ph.split ], [ %.lcssa2026, %.lr.ph ]
+  %61 = phi ptr [ %65, %.lr.ph.split ], [ %.lcssa1923, %.lr.ph ]
+  %62 = load <16 x i8>, ptr %60, align 16, !noalias !6509
+  %63 = icmp slt <16 x i8> %62, zeroinitializer
+  %64 = bitcast <16 x i1> %63 to i16
+  %65 = getelementptr inbounds i8, ptr %61, i64 -256
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %.not.i = icmp eq i16 %64, -1
   br i1 %.not.i, label %.lr.ph.split, label %._crit_edge
 
-65:                                               ; preds = %.lr.ph
+67:                                               ; preds = %.lr.ph
   ret void
 }
 

@@ -589,8 +589,8 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %24 = add nuw nsw i32 %.047.us.us, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = add nuw nsw i32 %.04446.us.us, 1
-  %exitcond65.not = icmp eq i32 %25, %6
-  br i1 %exitcond65.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
+  %exitcond64.not = icmp eq i32 %25, %6
+  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !8
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %.047.us = phi i32 [ %37, %.lr.ph.split.us.split ], [ 4, %.lr.ph.split.us ]
@@ -612,8 +612,8 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %37 = add nuw nsw i32 %.047.us, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %38 = add nuw nsw i32 %.04446.us, 1
-  %exitcond64.not = icmp eq i32 %38, %6
-  br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
+  %exitcond63.not = icmp eq i32 %38, %6
+  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not45, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -638,8 +638,8 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   %50 = add nuw nsw i32 %.047.us48, 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %51 = add nuw nsw i32 %.04446.us49, 1
-  %exitcond63.not = icmp eq i32 %51, %6
-  br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
+  %exitcond62.not = icmp eq i32 %51, %6
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !8
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.047 = phi i32 [ %69, %.lr.ph.split.split ], [ 4, %.lr.ph.split ]

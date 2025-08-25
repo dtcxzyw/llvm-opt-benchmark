@@ -12682,8 +12682,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isValidOperand
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %16, align 8
-  %.fr90 = freeze i32 %25
-  %26 = and i32 %.fr90, 255
+  %.fr = freeze i32 %25
+  %26 = and i32 %.fr, 255
   %27 = icmp eq i32 %26, 18
   %28 = load ptr, ptr %4, align 8, !tbaa !89
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -12745,20 +12745,20 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %50 ], [ %55, %53 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
-  %.not55102 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not55102, label %.critedge, label %.lr.ph105
+  %.not55101 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not55101, label %.critedge, label %.lr.ph104
 
-.lr.ph105:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
+.lr.ph104:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
   %60 = shl i32 %40, 1
   %61 = zext i32 %60 to i64
   br label %62
 
-62:                                               ; preds = %.lr.ph105, %69
-  %.046103 = phi ptr [ %58, %.lr.ph105 ], [ %70, %69 ]
-  %63 = load ptr, ptr %.046103, align 8, !tbaa !75
+62:                                               ; preds = %.lr.ph104, %69
+  %.046102 = phi ptr [ %58, %.lr.ph104 ], [ %70, %69 ]
+  %63 = load ptr, ptr %.046102, align 8, !tbaa !75
   %64 = load i8, ptr %63, align 8, !tbaa !80
-  %.not96 = icmp eq i8 %64, 17
-  br i1 %.not96, label %65, label %67
+  %.not95 = icmp eq i8 %64, 17
+  br i1 %.not95, label %65, label %67
 
 65:                                               ; preds = %62
   %66 = tail call noundef zeroext i1 @_ZNK4llvm11ConstantInt3ugeEm(ptr noundef nonnull align 8 dereferenceable(40) %63, i64 noundef %61)
@@ -12770,7 +12770,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
   br i1 %spec.select.i.i.i.i.i.i.i.i66, label %69, label %.critedge
 
 69:                                               ; preds = %67, %65
-  %70 = getelementptr inbounds nuw i8, ptr %.046103, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.046102, i64 32
   %.not55 = icmp eq ptr %70, %59
   br i1 %.not55, label %.critedge, label %62
 
@@ -12782,8 +12782,8 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
 72:                                               ; preds = %.thread85
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !96
-  %.not5898 = icmp eq i32 %74, 0
-  br i1 %.not5898, label %.loopexit, label %.lr.ph
+  %.not5897 = icmp eq i32 %74, 0
+  br i1 %.not5897, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72
   %75 = shl i32 %40, 1
@@ -12791,13 +12791,13 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
   br label %77
 
 77:                                               ; preds = %77, %.lr.ph
-  %.03999 = phi i32 [ 0, %.lr.ph ], [ %79, %77 ]
-  %78 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.03999) #32
+  %.03998 = phi i32 [ 0, %.lr.ph ], [ %79, %77 ]
+  %78 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.03998) #32
   %.not59 = icmp ult i64 %78, %76
-  %79 = add nuw i32 %.03999, 1
+  %79 = add nuw i32 %.03998, 1
   %.not58 = icmp ne i32 %79, %74
-  %or.cond117.not = select i1 %.not59, i1 %.not58, i1 false
-  br i1 %or.cond117.not, label %77, label %.loopexit, !llvm.loop !288
+  %or.cond116.not = select i1 %.not59, i1 %.not58, i1 false
+  br i1 %or.cond116.not, label %77, label %.loopexit, !llvm.loop !288
 
 .loopexit:                                        ; preds = %77, %72, %.thread85
   %.9 = phi i1 [ undef, %.thread85 ], [ true, %72 ], [ %.not59, %77 ]
@@ -14768,9 +14768,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
 10:                                               ; preds = %8
   %11 = trunc i64 %1 to i32
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, label %.lr.ph68
+  br i1 %12, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, label %.lr.ph69
 
-.lr.ph68:                                         ; preds = %10
+.lr.ph69:                                         ; preds = %10
   %.idx1.i = shl nuw nsw i64 %6, 2
   %.not.i = icmp samesign ult i32 %2, 4
   %13 = lshr i64 %6, 2
@@ -14786,9 +14786,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
   %23 = shl nuw nsw i64 %19, 3
   br label %24
 
-24:                                               ; preds = %.lr.ph68, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread
-  %.02266 = phi i32 [ 0, %.lr.ph68 ], [ %119, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread ]
-  %25 = zext i32 %.02266 to i64
+24:                                               ; preds = %.lr.ph69, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread
+  %.02267 = phi i32 [ 0, %.lr.ph69 ], [ %119, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread ]
+  %25 = zext i32 %.02267 to i64
   %26 = getelementptr inbounds nuw i32, ptr %0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx1.i
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
@@ -14814,13 +14814,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
   %31 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %31, align 4, !tbaa !108
   %.not37.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i, -1
-  br i1 %.not37.i.i.i.i.i, label %32, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89"
+  br i1 %.not37.i.i.i.i.i, label %32, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93"
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %33, align 4, !tbaa !108
   %.not38.i.i.i.i.i = icmp eq i32 %.val31.i.i.i.i.i, -1
-  br i1 %.not38.i.i.i.i.i, label %34, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91"
+  br i1 %.not38.i.i.i.i.i, label %34, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95"
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
@@ -14870,25 +14870,21 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
   %45 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89": ; preds = %30
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93": ; preds = %30
   %46 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91": ; preds = %32
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95": ; preds = %32
   %47 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91", %38, %41, %44
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i, %41 ], [ %.2.i.i.i.i.i, %44 ], [ %45, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %46, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit89" ], [ %47, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95", %38, %41, %44
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i, %41 ], [ %.2.i.i.i.i.i, %44 ], [ %45, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %46, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93" ], [ %47, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %48 = icmp eq ptr %27, %.028.i.i.i.i.i
   br i1 %48, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread, label %49
 
 49:                                               ; preds = %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
   br i1 %16, label %.lr.ph.preheader, label %50
-
-.lr.ph.preheader:                                 ; preds = %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i, %49
-  %.sroa.0.064.ph = phi i64 [ %22, %49 ], [ %57, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i ]
-  br label %.lr.ph
 
 50:                                               ; preds = %49
   %51 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #36
@@ -14914,6 +14910,11 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i:     ; preds = %50, %_ZN4llvm11Smal
   %57 = ptrtoint ptr %51 to i64
   br label %.lr.ph.preheader
 
+.lr.ph.preheader:                                 ; preds = %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i, %49
+  %storemerge.i = phi i64 [ %57, %_ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i ], [ %22, %49 ]
+  %.sroa.0.0.fr63 = freeze i64 %storemerge.i
+  br label %.lr.ph
+
 ._crit_edge:                                      ; preds = %_ZN4llvm14SmallBitVector3setEj.exit
   %58 = and i64 %.sroa.0.1, 1
   %.not.i32 = icmp eq i64 %58, 0
@@ -14923,9 +14924,9 @@ _ZN4llvm11SmallVectorImLj6EEC2EmRKm.exit.i.i:     ; preds = %50, %_ZN4llvm11Smal
   %60 = lshr i64 %.sroa.0.1, 1
   %61 = lshr i64 %.sroa.0.1, 58
   %62 = shl nsw i64 -1, %61
-  %63 = or i64 %62, %60
-  %.fr = freeze i64 %63
-  %64 = icmp eq i64 %.fr, -1
+  %.fr = freeze i64 %62
+  %63 = or i64 %.fr, %60
+  %64 = icmp eq i64 %63, -1
   br i1 %64, label %_ZNK4llvm14SmallBitVector3allEv.exit.thread, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51
 
 65:                                               ; preds = %._crit_edge
@@ -14965,9 +14966,10 @@ _ZNK4llvm14SmallBitVector3allEv.exit:             ; preds = %._crit_edge.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !53
   %80 = zext nneg i32 %75 to i64
   %notmask.i.i = shl nsw i64 -1, %80
-  %81 = xor i64 %79, %notmask.i.i
-  %.fr53 = freeze i64 %81
-  %82 = icmp eq i64 %.fr53, -1
+  %.fr53 = freeze i64 %79
+  %notmask.i.i.fr = freeze i64 %notmask.i.i
+  %81 = xor i64 %.fr53, %notmask.i.i.fr
+  %82 = icmp eq i64 %81, -1
   br i1 %82, label %_ZNK4llvm14SmallBitVector3allEv.exit.thread, label %_ZNK4llvm14SmallBitVector3allEv.exit.thread46
 
 _ZNK4llvm14SmallBitVector3allEv.exit.thread:      ; preds = %._crit_edge.i.i, %59, %_ZNK4llvm14SmallBitVector3allEv.exit
@@ -14997,8 +14999,8 @@ _ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %90, %86
   br label %_ZN4llvm14SmallBitVectorD2Ev.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm14SmallBitVector3setEj.exit
+  %.sroa.0.0.fr66 = phi i64 [ %.sroa.0.1, %_ZN4llvm14SmallBitVector3setEj.exit ], [ %.sroa.0.0.fr63, %.lr.ph.preheader ]
   %.02365 = phi ptr [ %118, %_ZN4llvm14SmallBitVector3setEj.exit ], [ %26, %.lr.ph.preheader ]
-  %.sroa.0.064 = phi i64 [ %.sroa.0.1, %_ZN4llvm14SmallBitVector3setEj.exit ], [ %.sroa.0.064.ph, %.lr.ph.preheader ]
   %91 = load i32, ptr %.02365, align 4, !tbaa !108
   %.not30 = icmp ne i32 %91, -1
   %92 = icmp slt i32 %91, %2
@@ -15006,26 +15008,28 @@ _ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %90, %86
   br i1 %or.cond, label %93, label %_ZN4llvm14SmallBitVector3setEj.exit
 
 93:                                               ; preds = %.lr.ph
-  %94 = and i64 %.sroa.0.064, 1
+  %94 = and i64 %.sroa.0.0.fr66, 1
   %.not.i34 = icmp eq i64 %94, 0
   br i1 %.not.i34, label %107, label %95
 
 95:                                               ; preds = %93
-  %96 = lshr i64 %.sroa.0.064, 1
-  %97 = lshr i64 %.sroa.0.064, 58
+  %96 = lshr i64 %.sroa.0.0.fr66, 1
+  %97 = lshr i64 %.sroa.0.0.fr66, 58
   %98 = shl nsw i64 -1, %97
-  %99 = xor i64 %98, -1
+  %.fr75 = freeze i64 %98
+  %99 = xor i64 %.fr75, -1
   %100 = zext nneg i32 %91 to i64
   %101 = shl nuw i64 1, %100
-  %102 = or i64 %101, %96
+  %.fr74 = freeze i64 %101
+  %102 = or i64 %.fr74, %96
   %103 = and i64 %102, %99
-  %104 = shl nuw i64 %103, 1
-  %105 = and i64 %.sroa.0.064, -288230376151711743
+  %104 = shl i64 %103, 1
+  %105 = and i64 %.sroa.0.0.fr66, -288230376151711743
   %106 = or i64 %104, %105
   br label %_ZN4llvm14SmallBitVector3setEj.exit
 
 107:                                              ; preds = %93
-  %108 = inttoptr i64 %.sroa.0.064 to ptr
+  %108 = inttoptr i64 %.sroa.0.0.fr66 to ptr
   %109 = and i32 %91, 63
   %110 = zext nneg i32 %109 to i64
   %111 = shl nuw i64 1, %110
@@ -15039,7 +15043,7 @@ _ZN4llvm9BitVectorD2Ev.exit.i:                    ; preds = %90, %86
   br label %_ZN4llvm14SmallBitVector3setEj.exit
 
 _ZN4llvm14SmallBitVector3setEj.exit:              ; preds = %107, %95, %.lr.ph
-  %.sroa.0.1 = phi i64 [ %.sroa.0.064, %.lr.ph ], [ %.sroa.0.064, %107 ], [ %106, %95 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.fr66, %.lr.ph ], [ %.sroa.0.0.fr66, %107 ], [ %106, %95 ]
   %118 = getelementptr inbounds nuw i8, ptr %.02365, i64 4
   %.not29 = icmp eq ptr %118, %27
   br i1 %.not29, label %._crit_edge, label %.lr.ph
@@ -15048,9 +15052,9 @@ _ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvm9BitVectorD
   br i1 %cond, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51
 
 _ZN4llvm14SmallBitVectorD2Ev.exit.thread:         ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit, %44, %._crit_edge.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
-  %119 = add i32 %.02266, %2
-  %.not73 = icmp ult i32 %119, %11
-  br i1 %.not73, label %24, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, !llvm.loop !325
+  %119 = add i32 %.02267, %2
+  %.not77 = icmp ult i32 %119, %11
+  br i1 %.not77, label %24, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, !llvm.loop !325
 
 _ZN4llvm14SmallBitVectorD2Ev.exit.thread51:       ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit, %59, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread, %10, %3, %5, %8
   %.0 = phi i1 [ false, %8 ], [ false, %5 ], [ false, %3 ], [ true, %10 ], [ false, %_ZN4llvm14SmallBitVectorD2Ev.exit ], [ false, %59 ], [ true, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread ]
@@ -15412,8 +15416,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isBitRotateMas
   br i1 %.not22.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %.fr25 = freeze i64 %1
-  %8 = trunc i64 %.fr25 to i32
+  %.fr = freeze i64 %1
+  %8 = trunc i64 %.fr to i32
   %.not60.i = icmp eq i32 %8, 0
   br i1 %.not60.i, label %_ZL23matchShuffleAsBitRotateN4llvm8ArrayRefIiEEi.exit.thread.us, label %.lr.ph.split
 

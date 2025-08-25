@@ -4796,17 +4796,17 @@ _ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit: ; preds = %.thread.i
   br label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.i: ; preds = %123, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit
-  %.0.fr20.i = phi i64 [ %.fca.1.extract.i, %123 ], [ %114, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit ]
-  %.sink.i = lshr i64 %.0.fr20.i, 16
+  %.0.fr19.i = phi i64 [ %.fca.1.extract.i, %123 ], [ %114, %_ZN5tokio2io5ready5Ready8from_mio17hc19d03411ee37678E.exit ]
+  %.sink.i = lshr i64 %.0.fr19.i, 16
   %115 = and i64 %.sink.i, 32767
   %.cmp.not.i = icmp eq i64 %115, 32767
-  %116 = and i64 %.0.fr20.i, 63
+  %116 = and i64 %.0.fr19.i, 63
   %117 = shl nuw nsw i64 %115, 16
   %118 = add nuw nsw i64 %117, 65536
   %119 = select i1 %.cmp.not.i, i64 0, i64 %118
   %120 = or i64 %116, %.masked.i
   %121 = or i64 %120, %119
-  %122 = call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %113, i64 noundef %.0.fr20.i, i64 noundef %121, i8 noundef 3, i8 noundef 2), !noalias !715
+  %122 = call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %113, i64 noundef %.0.fr19.i, i64 noundef %121, i8 noundef 3, i8 noundef 2), !noalias !715
   %.fr.i = freeze { i64, i64 } %122
   %.fca.0.extract.i = extractvalue { i64, i64 } %.fr.i, 0
   %switch11.i = icmp eq i64 %.fca.0.extract.i, 0
@@ -9515,8 +9515,8 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo15clear_readi
   %invariant.op.i = xor i64 %8, 63
   %9 = lshr i64 %7, 16
   %10 = trunc i64 %9 to i8
-  %.not.us24.i = icmp eq i8 %5, %10
-  br i1 %.not.us24.i, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17h0217fa951bf66eb3E.exit
+  %.not.us23.i = icmp eq i8 %5, %10
+  br i1 %.not.us23.i, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readiness17h0217fa951bf66eb3E.exit
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i: ; preds = %2
   %11 = zext i8 %5 to i64
@@ -9524,14 +9524,14 @@ _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i: ; preds = %2
   br label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i: ; preds = %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i
-  %.0.fr.us25.i = phi i64 [ %7, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i ], [ %.fca.1.extract.us.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i ]
-  %.reass.us26.i = and i64 %.0.fr.us25.i, %invariant.op.i
-  %13 = or disjoint i64 %.reass.us26.i, %12
-  %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %6, i64 noundef %.0.fr.us25.i, i64 noundef %13, i8 noundef 3, i8 noundef 2), !noalias !1635
-  %.fr27.i = freeze { i64, i64 } %14
-  %.fca.0.extract.us.i = extractvalue { i64, i64 } %.fr27.i, 0
+  %.0.fr.us24.i = phi i64 [ %7, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.lr.ph.i ], [ %.fca.1.extract.us.i, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i ]
+  %.reass.us25.i = and i64 %.0.fr.us24.i, %invariant.op.i
+  %13 = or disjoint i64 %.reass.us25.i, %12
+  %14 = tail call { i64, i64 } @_ZN4core4sync6atomic23atomic_compare_exchange17h39b110560f0542ffE.llvm.18090272232049510573(ptr noundef nonnull %6, i64 noundef %.0.fr.us24.i, i64 noundef %13, i8 noundef 3, i8 noundef 2), !noalias !1635
+  %.fr26.i = freeze { i64, i64 } %14
+  %.fca.0.extract.us.i = extractvalue { i64, i64 } %.fr26.i, 0
   %switch11.us.i = icmp ne i64 %.fca.0.extract.us.i, 0
-  %.fca.1.extract.us.i = extractvalue { i64, i64 } %.fr27.i, 1
+  %.fca.1.extract.us.i = extractvalue { i64, i64 } %.fr26.i, 1
   %15 = lshr i64 %.fca.1.extract.us.i, 16
   %16 = trunc i64 %15 to i8
   %.not.us.i = icmp eq i8 %5, %16

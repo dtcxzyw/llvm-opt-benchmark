@@ -61,8 +61,8 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sroa.0.0.extract.trunc.i103, ptr %22, align 4, !tbaa !36
   %23 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 39) #7
-  %.fr239 = freeze ptr %23
-  %24 = ptrtoint ptr %.fr239 to i64
+  %.fr238 = freeze ptr %23
+  %24 = ptrtoint ptr %.fr238 to i64
   %25 = and i64 %24, 4294967295
   %26 = icmp eq i64 %25, 1
   %.not = icmp ne i8 %9, 0
@@ -167,27 +167,27 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
   ]
 
 .thread195.thread:                                ; preds = %74, %.thread195
-  %.0258 = phi i32 [ %.0, %.thread195 ], [ %.sroa.0.0.extract.trunc.i103, %74 ]
-  %.not93 = icmp eq i32 %.0258, 0
+  %.0257 = phi i32 [ %.0, %.thread195 ], [ %.sroa.0.0.extract.trunc.i103, %74 ]
+  %.not93 = icmp eq i32 %.0257, 0
   br i1 %.not93, label %.thread201, label %.thread197
 
 .thread197.fold.split:                            ; preds = %87
   br label %.thread197
 
 .thread197:                                       ; preds = %87, %.thread197.fold.split, %.thread195.thread
-  %.1200 = phi i32 [ %.0258, %.thread195.thread ], [ 1, %87 ], [ %.0, %.thread197.fold.split ]
+  %.1200 = phi i32 [ %.0257, %.thread195.thread ], [ 1, %87 ], [ %.0, %.thread197.fold.split ]
   %88 = and i8 %8, 8
   %.not94 = icmp eq i8 %88, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !45
-  %.phi.trans.insert243 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
-  %.pre244 = load i16, ptr %.phi.trans.insert243, align 8, !tbaa !46
-  %.pre250 = zext i16 %.pre244 to i32
-  %89 = add nsw i32 %.pre250, -1
+  %.phi.trans.insert242 = getelementptr inbounds nuw i8, ptr %.pre, i64 64
+  %.pre243 = load i16, ptr %.phi.trans.insert242, align 8, !tbaa !46
+  %.pre249 = zext i16 %.pre243 to i32
+  %89 = add nsw i32 %.pre249, -1
   %90 = select i1 %.not94, i32 0, i32 %89
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = icmp ult i32 %90, %.pre250
+  %92 = icmp ult i32 %90, %.pre249
   br i1 %92, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread197
@@ -218,7 +218,7 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
   br i1 %107, label %95, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %95
-  %.pre245 = load i8, ptr %10, align 4
+  %.pre244 = load i8, ptr %10, align 4
   %.not95 = icmp eq i32 %102, 0
   %108 = sub nsw i32 %101, %37
   %spec.select = select i1 %.not95, i32 %101, i32 %108
@@ -226,8 +226,8 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
 
 109:                                              ; preds = %._crit_edge, %._crit_edge.thread
   %110 = phi i32 [ %93, %._crit_edge.thread ], [ %108, %._crit_edge ]
-  %.086.lcssa264 = phi i32 [ 0, %._crit_edge.thread ], [ %102, %._crit_edge ]
-  %111 = phi i8 [ %14, %._crit_edge.thread ], [ %.pre245, %._crit_edge ]
+  %.086.lcssa263 = phi i32 [ 0, %._crit_edge.thread ], [ %102, %._crit_edge ]
+  %111 = phi i8 [ %14, %._crit_edge.thread ], [ %.pre244, %._crit_edge ]
   %112 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %113 = and i8 %111, 1
   %.not96 = icmp eq i8 %113, 0
@@ -243,7 +243,7 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
 
 118:                                              ; preds = %116, %114
   %119 = phi i32 [ %115, %114 ], [ %117, %116 ]
-  %120 = icmp slt i32 %.086.lcssa264, 2
+  %120 = icmp slt i32 %.086.lcssa263, 2
   %.off.i = add i32 %.1200, -3
   %switch.i = icmp ult i32 %.off.i, 2
   %or.cond.i = and i1 %switch.i, %120
@@ -274,18 +274,18 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
   br label %place_content.exit
 
 128:                                              ; preds = %118
-  %129 = icmp sgt i32 %.086.lcssa264, 1
+  %129 = icmp sgt i32 %.086.lcssa263, 1
   br i1 %129, label %130, label %place_content.exit
 
 130:                                              ; preds = %128
   %131 = sub nsw i32 %119, %110
-  %132 = add nsw i32 %.086.lcssa264, -1
+  %132 = add nsw i32 %.086.lcssa263, -1
   %133 = sdiv i32 %131, %132
   br label %place_content.exit
 
 134:                                              ; preds = %118
   %135 = sub nsw i32 %119, %112
-  %136 = sdiv i32 %135, %.086.lcssa264
+  %136 = sdiv i32 %135, %.086.lcssa263
   %137 = sdiv i32 %136, 2
   %.sroa.speculated128 = select i1 %.not, i32 %66, i32 %53
   %138 = add nsw i32 %137, %.sroa.speculated128
@@ -295,7 +295,7 @@ define internal void @flex_update(ptr noundef %0, ptr readnone captures(none) %1
 
 139:                                              ; preds = %118
   %140 = sub nsw i32 %119, %112
-  %141 = add nsw i32 %.086.lcssa264, 1
+  %141 = add nsw i32 %.086.lcssa263, 1
   %142 = sdiv i32 %140, %141
   %.sroa.speculated134 = select i1 %.not, i32 %66, i32 %53
   %143 = add nsw i32 %142, %.sroa.speculated134
@@ -318,12 +318,12 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %.087 = phi i32 [ 0, %.thread195.thread ], [ %112, %place_content.exit ], [ 0, %87 ]
   %145 = and i8 %144, 4
   %.not97 = icmp eq i8 %145, 0
-  %.phi.trans.insert246 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre247 = load ptr, ptr %.phi.trans.insert246, align 8, !tbaa !45
-  %.phi.trans.insert248 = getelementptr inbounds nuw i8, ptr %.pre247, i64 64
-  %.pre249 = load i16, ptr %.phi.trans.insert248, align 8, !tbaa !46
-  %.pre251 = zext i16 %.pre249 to i32
-  %146 = add nsw i32 %.pre251, -1
+  %.phi.trans.insert245 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre246 = load ptr, ptr %.phi.trans.insert245, align 8, !tbaa !45
+  %.phi.trans.insert247 = getelementptr inbounds nuw i8, ptr %.pre246, i64 64
+  %.pre248 = load i16, ptr %.phi.trans.insert247, align 8, !tbaa !46
+  %.pre250 = zext i16 %.pre248 to i32
+  %146 = add nsw i32 %.pre250, -1
   %147 = select i1 %.not97, i32 0, i32 %146
   %148 = and i8 %144, 1
   %.not98 = icmp eq i8 %148, 0
@@ -333,7 +333,7 @@ place_content.exit:                               ; preds = %139, %134, %125, %1
   %150 = and i1 %.not, %or.cond213
   %.1179 = select i1 %150, i32 %149, i32 %.0178
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %152 = icmp ult i32 %147, %.pre251
+  %152 = icmp ult i32 %147, %.pre250
   br i1 %152, label %.lr.ph231, label %._crit_edge232
 
 .lr.ph231:                                        ; preds = %.thread201

@@ -1320,8 +1320,8 @@ _ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.thread105.i: ; preds = %_ZN
 
 _ZNK5clang4Type10isVoidTypeEv.exit85.i:           ; preds = %_ZNK5clang4Type5getAsINS_12FunctionTypeEEEPKT_v.exit.thread105.i
   %364 = load i32, ptr %361, align 16
-  %.fr118.i = freeze i32 %364
-  %365 = and i32 %.fr118.i, 267911168
+  %.fr.i = freeze i32 %364
+  %365 = and i32 %.fr.i, 267911168
   %366 = icmp eq i32 %365, 227540992
   br label %_ZNK5clang4Type10isVoidTypeEv.exit85.thread.i
 

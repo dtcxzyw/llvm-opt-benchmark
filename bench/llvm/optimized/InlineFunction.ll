@@ -4563,17 +4563,17 @@ _ZNK4llvm8CallBase17getParamByValTypeEj.exit:     ; preds = %1032, %1034, %1036,
   %.1.i965 = phi ptr [ %1033, %1032 ], [ %1045, %1043 ], [ null, %1036 ], [ null, %1034 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i967 ]
   %1046 = call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %910, i32 noundef %.08072074) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
-  %.fr47.i = freeze i16 %1046
-  %.sroa.037.0.extract.trunc.i968 = trunc i16 %.fr47.i to i8
+  %.fr.i = freeze i16 %1046
+  %.sroa.037.0.extract.trunc.i968 = trunc i16 %.fr.i to i8
   %1047 = call noundef ptr @_ZNK4llvm11Instruction11getFunctionEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
   %1048 = call noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %1047) #20
   %1049 = call noundef zeroext i1 @_ZNK4llvm8Function15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(136) %173) #20
-  %1050 = and i16 %.fr47.i, 256
+  %1050 = and i16 %.fr.i, 256
   %1051 = icmp ne i16 %1050, 0
   br i1 %1049, label %1052, label %1063
 
 1052:                                             ; preds = %_ZNK4llvm8CallBase17getParamByValTypeEj.exit
-  %.sroa.037.0.extract.trunc.mask.i972 = and i16 %.fr47.i, 255
+  %.sroa.037.0.extract.trunc.mask.i972 = and i16 %.fr.i, 255
   %1053 = icmp ne i16 %.sroa.037.0.extract.trunc.mask.i972, 0
   %.not39.i = and i1 %1053, %1051
   br i1 %.not39.i, label %1054, label %_ZL19HandleByValArgumentPN4llvm4TypeEPNS_5ValueEPNS_11InstructionEPKNS_8FunctionERNS_18InlineFunctionInfoENS_10MaybeAlignE.exit

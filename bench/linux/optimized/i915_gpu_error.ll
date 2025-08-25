@@ -3357,15 +3357,16 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
 
 207:                                              ; preds = %203
   %208 = load i64, ptr %205, align 8, !noalias !75
-  %209 = and i64 %208, -4
+  %.fr = freeze i64 %208
+  %209 = and i64 %.fr, -4
   %210 = load i64, ptr @vmemmap_base, align 8, !noalias !75
-  %211 = icmp eq i64 %209, %210
-  %cond.fr = freeze i1 %211
-  br i1 %cond.fr, label %.thread70, label %212
+  %.fr77 = freeze i64 %210
+  %211 = icmp eq i64 %209, %.fr77
+  br i1 %211, label %.thread70, label %212
 
 212:                                              ; preds = %207
-  %213 = inttoptr i64 %210 to ptr
-  %214 = sub i64 %209, %210
+  %213 = inttoptr i64 %.fr77 to ptr
+  %214 = sub i64 %209, %.fr77
   %215 = getelementptr i8, ptr %213, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %217 = load i32, ptr %216, align 8, !noalias !75
@@ -3385,7 +3386,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
 
 .preheader:                                       ; preds = %.preheader.preheader, %275
   %226 = phi ptr [ %273, %275 ], [ %205, %.preheader.preheader ]
-  %227 = phi i64 [ %.fr, %275 ], [ %225, %.preheader.preheader ]
+  %227 = phi i64 [ %.fr78, %275 ], [ %225, %.preheader.preheader ]
   %228 = phi i32 [ %271, %275 ], [ %217, %.preheader.preheader ]
   %229 = phi i32 [ %270, %275 ], [ %224, %.preheader.preheader ]
   call void @drm_clflush_pages(ptr noundef nonnull %5, i64 noundef 1) #15
@@ -3411,7 +3412,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   %244 = load i64, ptr %226, align 8
   %245 = and i64 %244, 2
   %246 = icmp eq i64 %245, 0
-  br i1 %246, label %247, label %.loopexit77
+  br i1 %246, label %247, label %.loopexit79
 
 247:                                              ; preds = %243
   %248 = getelementptr i8, ptr %226, i64 32
@@ -3428,7 +3429,7 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
 255:                                              ; preds = %252, %247
   %256 = phi ptr [ %254, %252 ], [ %248, %247 ]
   %257 = icmp eq ptr %256, null
-  br i1 %257, label %.loopexit77, label %258
+  br i1 %257, label %.loopexit79, label %258
 
 258:                                              ; preds = %255
   %259 = getelementptr inbounds nuw i8, ptr %256, i64 8
@@ -3448,30 +3449,30 @@ define internal fastcc noundef ptr @i915_vma_coredump_create(ptr noundef readonl
   %271 = phi i32 [ %241, %240 ], [ %260, %258 ]
   %272 = phi i64 [ %227, %240 ], [ %265, %258 ]
   %273 = phi ptr [ %226, %240 ], [ %256, %258 ]
-  %.fr = freeze i64 %272
-  %274 = icmp eq i64 %.fr, 0
-  br i1 %274, label %.loopexit77, label %275
+  %.fr78 = freeze i64 %272
+  %274 = icmp eq i64 %.fr78, 0
+  br i1 %274, label %.loopexit79, label %275
 
 275:                                              ; preds = %269
   %276 = load i64, ptr @vmemmap_base, align 8
   %277 = inttoptr i64 %276 to ptr
-  %278 = getelementptr %struct.page, ptr %277, i64 %.fr
+  %278 = getelementptr %struct.page, ptr %277, i64 %.fr78
   %279 = lshr i32 %271, 12
   %280 = zext nneg i32 %279 to i64
   %281 = getelementptr %struct.page, ptr %278, i64 %280
   store ptr %281, ptr %5, align 8
   %282 = icmp eq ptr %281, null
-  br i1 %282, label %.loopexit77, label %.preheader, !llvm.loop !81
+  br i1 %282, label %.loopexit79, label %.preheader, !llvm.loop !81
 
 .thread70:                                        ; preds = %.preheader, %207, %203, %212
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread66
 
-.loopexit77:                                      ; preds = %275, %269, %243, %255
+.loopexit79:                                      ; preds = %275, %269, %243, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread68
 
-.thread68:                                        ; preds = %91, %103, %106, %166, %178, %181, %.loopexit77
+.thread68:                                        ; preds = %91, %103, %106, %166, %178, %181, %.loopexit79
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %285 = getelementptr inbounds nuw i8, ptr %2, i64 160

@@ -1794,12 +1794,12 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   %130 = getelementptr i16, ptr %93, i64 %128
   %131 = load i16, ptr %130, align 2
   %132 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %131) #11
-  %.fr64 = freeze i32 %132
-  %133 = lshr i32 %.fr64, 24
+  %.fr61 = freeze i32 %132
+  %133 = lshr i32 %.fr61, 24
   %134 = and i32 %133, 63
-  %135 = and i32 %.fr64, -1073741824
+  %135 = and i32 %.fr61, -1073741824
   %136 = icmp ne i32 %135, 1073741824
-  %137 = icmp ult i32 %.fr64, 1073741824
+  %137 = icmp ult i32 %.fr61, 1073741824
   %or.cond59 = and i1 %137, %136
   br i1 %or.cond59, label %138, label %.thread54
 

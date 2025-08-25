@@ -110,31 +110,32 @@ _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit: ; preds = %15, %
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13duckdb_brotli20BrotliBuildMetaBlockEPNS_13MemoryManagerEPKhmmP19BrotliEncoderParamshhPNS_7CommandEmNS_11ContextTypeEPNS_14MetaBlockSplitE(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %7, i64 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 {
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.sroa.0234.0.copyload = load i32, ptr %12, align 8, !tbaa !15
-  %.sroa.12242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %.sroa.12242.0.copyload = load i32, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !15
+  %.sroa.0237.0.copyload = load i32, ptr %12, align 8, !tbaa !15
+  %.sroa.12245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %.sroa.12245.0.copyload = load i32, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !15
+  %.fr.i = freeze i32 %.sroa.12245.0.copyload
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   %13 = load i64, ptr %.sroa.20.0..sroa_idx, align 8
-  %.sroa.20252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %.sroa.20252.0.copyload = load i64, ptr %.sroa.20252.0..sroa_idx, align 8, !tbaa !16
+  %.sroa.20255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %.sroa.20255.0.copyload = load i64, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !16
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 68
   %14 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef 2192)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 2176
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 2184
-  %.not4555.i = icmp eq i64 %8, 0
-  %18 = add i32 %.sroa.12242.0.copyload, 16
-  %notmask.i.us.i = shl nsw i32 -1, %.sroa.0234.0.copyload
+  %.not4556.i = icmp eq i64 %8, 0
+  %18 = add i32 %.fr.i, 16
+  %notmask.i.us.i = shl nsw i32 -1, %.sroa.0237.0.copyload
   %19 = xor i32 %notmask.i.us.i, -1
-  %20 = zext i32 %.sroa.0234.0.copyload to i64
+  %20 = zext i32 %.sroa.0237.0.copyload to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %11, %172
-  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %172 ]
-  %.0143297 = phi double [ 0x547D42AEA2879F2E, %11 ], [ %.1281363, %172 ]
-  %.0144296 = phi i32 [ 1, %11 ], [ %.2146364, %172 ]
-  %.0148295 = phi i32 [ 0, %11 ], [ %173, %172 ]
-  %21 = icmp samesign ult i32 %.0148295, 16
+.preheader:                                       ; preds = %11, %170
+  %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %170 ]
+  %.0143300 = phi double [ 0x547D42AEA2879F2E, %11 ], [ %.1284366, %170 ]
+  %.0144299 = phi i32 [ 1, %11 ], [ %.2146367, %170 ]
+  %.0148298 = phi i32 [ 0, %11 ], [ %171, %170 ]
+  %21 = icmp samesign ult i32 %.0148298, 16
   br i1 %21, label %.lr.ph, label %.thread.thread
 
 .lr.ph:                                           ; preds = %.preheader
@@ -149,21 +150,22 @@ define void @_ZN13duckdb_brotli20BrotliBuildMetaBlockEPNS_13MemoryManagerEPKhmmP
   %29 = zext nneg i32 %24 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph, %166
-  %.1286 = phi double [ %.0143297, %.lr.ph ], [ %164, %166 ]
-  %.1145285 = phi i32 [ %.0144296, %.lr.ph ], [ %.3147, %166 ]
-  %.1149284 = phi i32 [ %.0148295, %.lr.ph ], [ %167, %166 ]
-  %31 = shl nuw nsw i32 %.1149284, %22
+30:                                               ; preds = %.lr.ph, %164
+  %.1289 = phi double [ %.0143300, %.lr.ph ], [ %162, %164 ]
+  %.1145288 = phi i32 [ %.0144299, %.lr.ph ], [ %.3147, %164 ]
+  %.1149287 = phi i32 [ %.0148298, %.lr.ph ], [ %165, %164 ]
+  %31 = shl nuw nsw i32 %.1149287, %22
+  %.fr46.i = freeze i32 %31
   %32 = load i32, ptr %15, align 4, !tbaa !17
-  %33 = add nuw nsw i32 %31, 16
+  %33 = add nuw nsw i32 %.fr46.i, 16
   %34 = add nuw nsw i32 %33, %23
-  %35 = add nuw nsw i32 %.1149284, 67108860
+  %35 = add nuw nsw i32 %.1149287, 67108860
   %36 = shl nuw nsw i32 %35, %22
   %.not.i = icmp eq i32 %32, 0
   br i1 %.not.i, label %_ZN13duckdb_brotli24BrotliInitDistanceParamsEP20BrotliDistanceParamsjji.exit, label %37
 
 37:                                               ; preds = %30
-  %38 = sub nuw nsw i32 2147483644, %31
+  %38 = sub nuw nsw i32 2147483644, %.fr46.i
   %39 = lshr i32 %38, %22
   %40 = add nuw i32 %39, 4
   br label %41
@@ -193,19 +195,19 @@ define void @_ZN13duckdb_brotli20BrotliBuildMetaBlockEPNS_13MemoryManagerEPKhmmP
   %55 = shl nuw i32 %54, %53
   %56 = shl i32 %51, %22
   %57 = or i32 %56, %24
-  %58 = add nuw nsw i32 %31, 17
+  %58 = add nuw nsw i32 %.fr46.i, 17
   %59 = add i32 %58, %57
   %60 = shl i32 6, %52
   %61 = add i32 %60, -5
   %62 = add i32 %61, %55
   %63 = shl i32 %62, %22
-  %64 = sub i32 %31, %notmask.i.i
+  %64 = sub i32 %.fr46.i, %notmask.i.i
   %65 = add i32 %64, %63
   br label %_ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit.i
 
 _ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit.i: ; preds = %43, %50
   %.sroa.0.1.i.i = phi i32 [ %59, %50 ], [ %33, %43 ]
-  %.sroa.4.1.i.i = phi i32 [ %65, %50 ], [ %31, %43 ]
+  %.sroa.4.1.i.i = phi i32 [ %65, %50 ], [ %.fr46.i, %43 ]
   %66 = add nuw nsw i32 %33, %25
   br label %_ZN13duckdb_brotli24BrotliInitDistanceParamsEP20BrotliDistanceParamsjji.exit
 
@@ -214,623 +216,621 @@ _ZN13duckdb_brotli24BrotliInitDistanceParamsEP20BrotliDistanceParamsjji.exit: ; 
   %.020.i = phi i32 [ %.sroa.0.1.i.i, %_ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit.i ], [ %34, %30 ]
   %.0.i183 = phi i32 [ %66, %_ZN13duckdb_brotliL32BrotliCalculateDistanceCodeLimitEjjj.exit.i ], [ %34, %30 ]
   %67 = zext i32 %.021.i to i64
-  %68 = icmp eq i32 %31, %.sroa.12242.0.copyload
-  %or.cond = select i1 %26, i1 %68, i1 false
-  %.3147 = select i1 %or.cond, i32 0, i32 %.1145285
+  %68 = icmp eq i32 %.fr46.i, %.fr.i
+  %or.cond = and i1 %26, %68
+  %.3147 = select i1 %or.cond, i32 0, i32 %.1145288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %14, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %17, align 8, !tbaa !35
   br i1 %26, label %69, label %.thread.i
 
 69:                                               ; preds = %_ZN13duckdb_brotli24BrotliInitDistanceParamsEP20BrotliDistanceParamsjji.exit
-  br i1 %.not4555.i, label %.loopexit277, label %.lr.ph.i
+  br i1 %.not4556.i, label %.loopexit280, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %_ZN13duckdb_brotli24BrotliInitDistanceParamsEP20BrotliDistanceParamsjji.exit
-  br i1 %.not4555.i, label %.loopexit277, label %.lr.ph.split.us.preheader.i
+  br i1 %.not4556.i, label %.loopexit280, label %.lr.ph.split.us.preheader.i
 
 .lr.ph.i:                                         ; preds = %69
-  %70 = icmp ne i32 %.sroa.12242.0.copyload, %31
-  %71 = freeze i1 %70
-  br i1 %71, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.i
+  br i1 %68, label %.lr.ph.split.i, label %.lr.ph.split.us.preheader.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.thread.i, %.lr.ph.i
-  %72 = zext nneg i32 %31 to i64
-  %73 = add nuw nsw i64 %72, 16
-  %74 = sub nsw i64 %28, %72
+  %70 = zext i32 %.fr46.i to i64
+  %71 = add nuw nsw i64 %70, 16
+  %72 = sub nsw i64 %28, %70
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.critedge.us.i, %.lr.ph.split.us.preheader.i
-  %75 = phi i64 [ %139, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
-  %.03144.us.i = phi i64 [ %140, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
+  %73 = phi i64 [ %137, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
+  %.03144.us.i = phi i64 [ %138, %.critedge.us.i ], [ 0, %.lr.ph.split.us.preheader.i ]
   %.03243.us.i = phi double [ %.234.us.i, %.critedge.us.i ], [ 0.000000e+00, %.lr.ph.split.us.preheader.i ]
-  %76 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.03144.us.i
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !38
-  %79 = and i32 %78, 33554431
-  %.not.us.i = icmp eq i32 %79, 0
-  br i1 %.not.us.i, label %.critedge.us.i, label %80
+  %74 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.03144.us.i
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !38
+  %77 = and i32 %76, 33554431
+  %.not.us.i = icmp eq i32 %77, 0
+  br i1 %.not.us.i, label %.critedge.us.i, label %78
 
-80:                                               ; preds = %.lr.ph.split.us.i
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  %82 = load i16, ptr %81, align 4, !tbaa !41
-  %83 = icmp ugt i16 %82, 127
-  br i1 %83, label %84, label %.critedge.us.i
+78:                                               ; preds = %.lr.ph.split.us.i
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 12
+  %80 = load i16, ptr %79, align 4, !tbaa !41
+  %81 = icmp ugt i16 %80, 127
+  br i1 %81, label %82, label %.critedge.us.i
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw i8, ptr %76, i64 14
-  %86 = load i16, ptr %85, align 2, !tbaa !42
-  %87 = zext i16 %86 to i32
-  %88 = and i32 %87, 1023
-  %89 = icmp ult i32 %88, %18
-  br i1 %89, label %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i, label %90
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 14
+  %84 = load i16, ptr %83, align 2, !tbaa !42
+  %85 = zext i16 %84 to i32
+  %86 = and i32 %85, 1023
+  %87 = icmp ult i32 %86, %18
+  br i1 %87, label %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i, label %88
 
-90:                                               ; preds = %84
-  %91 = lshr i32 %87, 10
-  %92 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %93 = load i32, ptr %92, align 4, !tbaa !43
-  %94 = sub nsw i32 %88, %.sroa.12242.0.copyload
-  %95 = add nsw i32 %94, -16
-  %96 = lshr i32 %95, %.sroa.0234.0.copyload
-  %97 = and i32 %95, %19
-  %98 = and i32 %96, 1
-  %99 = or disjoint i32 %98, 2
-  %100 = shl i32 %99, %91
-  %101 = add i32 %100, -4
-  %102 = add i32 %101, %93
-  %103 = shl i32 %102, %.sroa.0234.0.copyload
-  %104 = add nuw i32 %97, %18
-  %105 = add i32 %104, %103
+88:                                               ; preds = %82
+  %89 = lshr i32 %85, 10
+  %90 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %91 = load i32, ptr %90, align 4, !tbaa !43
+  %92 = sub nsw i32 %86, %.fr.i
+  %93 = add nsw i32 %92, -16
+  %94 = lshr i32 %93, %.sroa.0237.0.copyload
+  %95 = and i32 %93, %19
+  %96 = and i32 %94, 1
+  %97 = or disjoint i32 %96, 2
+  %98 = shl i32 %97, %89
+  %99 = add i32 %98, -4
+  %100 = add i32 %99, %91
+  %101 = shl i32 %100, %.sroa.0237.0.copyload
+  %102 = add nuw i32 %95, %18
+  %103 = add i32 %102, %101
   br label %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i
 
-_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i: ; preds = %90, %84
-  %.0.i.us.i = phi i32 [ %105, %90 ], [ %88, %84 ]
-  %106 = zext i32 %.0.i.us.i to i64
+_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i: ; preds = %88, %82
+  %.0.i.us.i = phi i32 [ %103, %88 ], [ %86, %82 ]
+  %104 = zext i32 %.0.i.us.i to i64
   %.not38.us.i = icmp ult i32 %.021.i, %.0.i.us.i
-  br i1 %.not38.us.i, label %.thread, label %107
+  br i1 %.not38.us.i, label %.thread, label %105
 
-107:                                              ; preds = %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i
-  %108 = icmp samesign ugt i64 %73, %106
-  br i1 %108, label %128, label %109
+105:                                              ; preds = %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i
+  %106 = icmp samesign ugt i64 %71, %104
+  br i1 %106, label %126, label %107
 
-109:                                              ; preds = %107
-  %110 = add nsw i64 %74, %106
-  %111 = trunc i64 %110 to i32
-  %112 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %111, i1 true)
-  %113 = sub nsw i32 30, %112
-  %114 = zext i32 %113 to i64
-  %115 = and i64 %110, %29
-  %116 = lshr i64 %110, %114
-  %117 = and i64 %116, 1
-  %118 = sub nsw i64 %114, %indvars.iv
-  %119 = shl nsw i64 %118, 10
-  %120 = shl nsw i64 %118, 1
-  %121 = add nsw i64 %120, 65534
-  %122 = or disjoint i64 %121, %117
-  %123 = shl nsw i64 %122, %indvars.iv
-  %124 = add nuw nsw i64 %115, %73
-  %125 = add i64 %124, %123
-  %126 = or i64 %125, %119
-  %127 = trunc i64 %126 to i16
+107:                                              ; preds = %105
+  %108 = add nsw i64 %72, %104
+  %109 = trunc i64 %108 to i32
+  %110 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %109, i1 true)
+  %111 = sub nsw i32 30, %110
+  %112 = zext i32 %111 to i64
+  %113 = and i64 %108, %29
+  %114 = lshr i64 %108, %112
+  %115 = and i64 %114, 1
+  %116 = sub nsw i64 %112, %indvars.iv
+  %117 = shl nsw i64 %116, 10
+  %118 = shl nsw i64 %116, 1
+  %119 = add nsw i64 %118, 65534
+  %120 = or disjoint i64 %119, %115
+  %121 = shl nsw i64 %120, %indvars.iv
+  %122 = add nuw nsw i64 %113, %71
+  %123 = add i64 %122, %121
+  %124 = or i64 %123, %117
+  %125 = trunc i64 %124 to i16
   br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i
 
-128:                                              ; preds = %107
-  %129 = trunc i32 %.0.i.us.i to i16
+126:                                              ; preds = %105
+  %127 = trunc i32 %.0.i.us.i to i16
   br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i
 
-_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i: ; preds = %128, %109
-  %.0.us.i = phi i16 [ %129, %128 ], [ %127, %109 ]
-  %130 = and i16 %.0.us.i, 1023
-  %131 = zext nneg i16 %130 to i64
-  %132 = getelementptr inbounds nuw [544 x i32], ptr %14, i64 0, i64 %131
-  %133 = load i32, ptr %132, align 4, !tbaa !15
-  %134 = add i32 %133, 1
-  store i32 %134, ptr %132, align 4, !tbaa !15
-  %135 = add i64 %75, 1
-  store i64 %135, ptr %16, align 8, !tbaa !44
-  %136 = lshr i16 %.0.us.i, 10
-  %137 = uitofp nneg i16 %136 to double
-  %138 = fadd double %.03243.us.i, %137
+_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i: ; preds = %126, %107
+  %.0.us.i = phi i16 [ %127, %126 ], [ %125, %107 ]
+  %128 = and i16 %.0.us.i, 1023
+  %129 = zext nneg i16 %128 to i64
+  %130 = getelementptr inbounds nuw [544 x i32], ptr %14, i64 0, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !15
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %130, align 4, !tbaa !15
+  %133 = add i64 %73, 1
+  store i64 %133, ptr %16, align 8, !tbaa !44
+  %134 = lshr i16 %.0.us.i, 10
+  %135 = uitofp nneg i16 %134 to double
+  %136 = fadd double %.03243.us.i, %135
   br label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i, %80, %.lr.ph.split.us.i
-  %139 = phi i64 [ %135, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %75, %80 ], [ %75, %.lr.ph.split.us.i ]
-  %.234.us.i = phi double [ %138, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %.03243.us.i, %80 ], [ %.03243.us.i, %.lr.ph.split.us.i ]
-  %140 = add nuw i64 %.03144.us.i, 1
-  %exitcond47.not.i = icmp eq i64 %140, %8
-  br i1 %exitcond47.not.i, label %.loopexit277, label %.lr.ph.split.us.i, !llvm.loop !45
+.critedge.us.i:                                   ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i, %78, %.lr.ph.split.us.i
+  %137 = phi i64 [ %133, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %73, %78 ], [ %73, %.lr.ph.split.us.i ]
+  %.234.us.i = phi double [ %136, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.us.i ], [ %.03243.us.i, %78 ], [ %.03243.us.i, %.lr.ph.split.us.i ]
+  %138 = add nuw i64 %.03144.us.i, 1
+  %exitcond48.not.i = icmp eq i64 %138, %8
+  br i1 %exitcond48.not.i, label %.loopexit280, label %.lr.ph.split.us.i, !llvm.loop !45
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.critedge.i
-  %141 = phi i64 [ %161, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %.03144.i = phi i64 [ %162, %.critedge.i ], [ 0, %.lr.ph.i ]
+  %139 = phi i64 [ %159, %.critedge.i ], [ 0, %.lr.ph.i ]
+  %.03144.i = phi i64 [ %160, %.critedge.i ], [ 0, %.lr.ph.i ]
   %.03243.i = phi double [ %.234.i, %.critedge.i ], [ 0.000000e+00, %.lr.ph.i ]
-  %142 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.03144.i
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %144 = load i32, ptr %143, align 4, !tbaa !38
-  %145 = and i32 %144, 33554431
-  %.not.i184 = icmp eq i32 %145, 0
-  br i1 %.not.i184, label %.critedge.i, label %146
+  %140 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.03144.i
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  %142 = load i32, ptr %141, align 4, !tbaa !38
+  %143 = and i32 %142, 33554431
+  %.not.i184 = icmp eq i32 %143, 0
+  br i1 %.not.i184, label %.critedge.i, label %144
 
-146:                                              ; preds = %.lr.ph.split.i
-  %147 = getelementptr inbounds nuw i8, ptr %142, i64 12
-  %148 = load i16, ptr %147, align 4, !tbaa !41
-  %149 = icmp ugt i16 %148, 127
-  br i1 %149, label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i, label %.critedge.i
+144:                                              ; preds = %.lr.ph.split.i
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 12
+  %146 = load i16, ptr %145, align 4, !tbaa !41
+  %147 = icmp ugt i16 %146, 127
+  br i1 %147, label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i, label %.critedge.i
 
-_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i: ; preds = %146
-  %150 = getelementptr inbounds nuw i8, ptr %142, i64 14
-  %151 = load i16, ptr %150, align 2, !tbaa !42
-  %152 = and i16 %151, 1023
-  %153 = zext nneg i16 %152 to i64
-  %154 = getelementptr inbounds nuw [544 x i32], ptr %14, i64 0, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !15
-  %156 = add i32 %155, 1
-  store i32 %156, ptr %154, align 4, !tbaa !15
-  %157 = add i64 %141, 1
-  store i64 %157, ptr %16, align 8, !tbaa !44
-  %158 = lshr i16 %151, 10
-  %159 = uitofp nneg i16 %158 to double
-  %160 = fadd double %.03243.i, %159
+_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i: ; preds = %144
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 14
+  %149 = load i16, ptr %148, align 2, !tbaa !42
+  %150 = and i16 %149, 1023
+  %151 = zext nneg i16 %150 to i64
+  %152 = getelementptr inbounds nuw [544 x i32], ptr %14, i64 0, i64 %151
+  %153 = load i32, ptr %152, align 4, !tbaa !15
+  %154 = add i32 %153, 1
+  store i32 %154, ptr %152, align 4, !tbaa !15
+  %155 = add i64 %139, 1
+  store i64 %155, ptr %16, align 8, !tbaa !44
+  %156 = lshr i16 %149, 10
+  %157 = uitofp nneg i16 %156 to double
+  %158 = fadd double %.03243.i, %157
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i, %146, %.lr.ph.split.i
-  %161 = phi i64 [ %157, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %141, %146 ], [ %141, %.lr.ph.split.i ]
-  %.234.i = phi double [ %160, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %.03243.i, %146 ], [ %.03243.i, %.lr.ph.split.i ]
-  %162 = add nuw i64 %.03144.i, 1
-  %exitcond.not.i = icmp eq i64 %162, %8
-  br i1 %exitcond.not.i, label %.loopexit277, label %.lr.ph.split.i, !llvm.loop !45
+.critedge.i:                                      ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i, %144, %.lr.ph.split.i
+  %159 = phi i64 [ %155, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %139, %144 ], [ %139, %.lr.ph.split.i ]
+  %.234.i = phi double [ %158, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i ], [ %.03243.i, %144 ], [ %.03243.i, %.lr.ph.split.i ]
+  %160 = add nuw i64 %.03144.i, 1
+  %exitcond.not.i = icmp eq i64 %160, %8
+  br i1 %exitcond.not.i, label %.loopexit280, label %.lr.ph.split.i, !llvm.loop !45
 
-.loopexit277:                                     ; preds = %.critedge.i, %.critedge.us.i, %.thread.i, %69
-  %.032.lcssa.i = phi double [ 0.000000e+00, %69 ], [ 0.000000e+00, %.thread.i ], [ %.234.us.i, %.critedge.us.i ], [ %.234.i, %.critedge.i ]
-  %163 = tail call noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17HistogramDistanceE(ptr noundef nonnull %14)
-  %164 = fadd double %.032.lcssa.i, %163
-  %165 = fcmp ogt double %164, %.1286
-  br i1 %165, label %.thread, label %166
+.loopexit280:                                     ; preds = %.critedge.us.i, %.critedge.i, %.thread.i, %69
+  %.032.lcssa.i = phi double [ 0.000000e+00, %69 ], [ 0.000000e+00, %.thread.i ], [ %.234.i, %.critedge.i ], [ %.234.us.i, %.critedge.us.i ]
+  %161 = tail call noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17HistogramDistanceE(ptr noundef nonnull %14)
+  %162 = fadd double %.032.lcssa.i, %161
+  %163 = fcmp ogt double %162, %.1289
+  br i1 %163, label %.thread, label %164
 
-166:                                              ; preds = %.loopexit277
+164:                                              ; preds = %.loopexit280
   store i32 %22, ptr %12, align 8, !tbaa !15
-  store i32 %31, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !15
+  store i32 %.fr46.i, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !15
   store i32 %.0.i183, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !15
   store i32 %.020.i, ptr %.sroa.11.0..sroa_idx, align 4, !tbaa !15
-  store i64 %67, ptr %.sroa.20252.0..sroa_idx, align 8, !tbaa !16
-  %167 = add i32 %.1149284, 1
-  %exitcond.not = icmp eq i32 %167, 16
+  store i64 %67, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !16
+  %165 = add i32 %.1149287, 1
+  %exitcond.not = icmp eq i32 %165, 16
   br i1 %exitcond.not, label %.thread.thread, label %30, !llvm.loop !46
 
-.thread.thread:                                   ; preds = %166, %.preheader
-  %.1149283.ph = phi i32 [ %.0148295, %.preheader ], [ 16, %166 ]
-  %.1281.ph = phi double [ %.0143297, %.preheader ], [ %164, %166 ]
-  %.2146.ph = phi i32 [ %.0144296, %.preheader ], [ %.3147, %166 ]
-  %168 = add i32 %.1149283.ph, -1
+.thread.thread:                                   ; preds = %164, %.preheader
+  %.1149286.ph = phi i32 [ %.0148298, %.preheader ], [ 16, %164 ]
+  %.1284.ph = phi double [ %.0143300, %.preheader ], [ %162, %164 ]
+  %.2146.ph = phi i32 [ %.0144299, %.preheader ], [ %.3147, %164 ]
+  %166 = add i32 %.1149286.ph, -1
+  %167 = lshr i32 %166, 1
+  br label %170
+
+.thread:                                          ; preds = %.loopexit280, %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i
+  %.not177 = icmp eq i32 %.1149287, 0
+  %168 = add i32 %.1149287, -1
   %169 = lshr i32 %168, 1
-  br label %172
+  %spec.select = select i1 %.not177, i32 0, i32 %169
+  br label %170
 
-.thread:                                          ; preds = %.loopexit277, %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.us.i
-  %.not177 = icmp eq i32 %.1149284, 0
-  %170 = add i32 %.1149284, -1
-  %171 = lshr i32 %170, 1
-  %spec.select = select i1 %.not177, i32 0, i32 %171
-  br label %172
-
-172:                                              ; preds = %.thread, %.thread.thread
-  %.2146364 = phi i32 [ %.2146.ph, %.thread.thread ], [ %.3147, %.thread ]
-  %.1281363 = phi double [ %.1281.ph, %.thread.thread ], [ %.1286, %.thread ]
-  %173 = phi i32 [ %169, %.thread.thread ], [ %spec.select, %.thread ]
+170:                                              ; preds = %.thread, %.thread.thread
+  %.2146367 = phi i32 [ %.2146.ph, %.thread.thread ], [ %.3147, %.thread ]
+  %.1284366 = phi double [ %.1284.ph, %.thread.thread ], [ %.1289, %.thread ]
+  %171 = phi i32 [ %167, %.thread.thread ], [ %spec.select, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond320.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond320.not, label %174, label %.preheader, !llvm.loop !47
+  %exitcond323.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond323.not, label %172, label %.preheader, !llvm.loop !47
 
-174:                                              ; preds = %172
-  %.not = icmp eq i32 %.2146364, 0
-  br i1 %.not, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216.thread, label %175
+172:                                              ; preds = %170
+  %.not = icmp eq i32 %.2146367, 0
+  br i1 %.not, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219.thread, label %173
 
-175:                                              ; preds = %174
+173:                                              ; preds = %172
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %14, i8 0, i64 2184, i1 false)
   store double 0x7FF0000000000000, ptr %17, align 8, !tbaa !35
-  br i1 %.not4555.i, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216, label %.lr.ph.split.i208
+  br i1 %.not4556.i, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219, label %.lr.ph.split.i211
 
-.lr.ph.split.i208:                                ; preds = %175, %.critedge.i212
-  %176 = phi i64 [ %196, %.critedge.i212 ], [ 0, %175 ]
-  %.03144.i209 = phi i64 [ %197, %.critedge.i212 ], [ 0, %175 ]
-  %.03243.i210 = phi double [ %.234.i213, %.critedge.i212 ], [ 0.000000e+00, %175 ]
-  %177 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.03144.i209
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  %179 = load i32, ptr %178, align 4, !tbaa !38
-  %180 = and i32 %179, 33554431
-  %.not.i211 = icmp eq i32 %180, 0
-  br i1 %.not.i211, label %.critedge.i212, label %181
+.lr.ph.split.i211:                                ; preds = %173, %.critedge.i215
+  %174 = phi i64 [ %194, %.critedge.i215 ], [ 0, %173 ]
+  %.03144.i212 = phi i64 [ %195, %.critedge.i215 ], [ 0, %173 ]
+  %.03243.i213 = phi double [ %.234.i216, %.critedge.i215 ], [ 0.000000e+00, %173 ]
+  %175 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.03144.i212
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
+  %177 = load i32, ptr %176, align 4, !tbaa !38
+  %178 = and i32 %177, 33554431
+  %.not.i214 = icmp eq i32 %178, 0
+  br i1 %.not.i214, label %.critedge.i215, label %179
 
-181:                                              ; preds = %.lr.ph.split.i208
-  %182 = getelementptr inbounds nuw i8, ptr %177, i64 12
-  %183 = load i16, ptr %182, align 4, !tbaa !41
-  %184 = icmp ugt i16 %183, 127
-  br i1 %184, label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i215, label %.critedge.i212
+179:                                              ; preds = %.lr.ph.split.i211
+  %180 = getelementptr inbounds nuw i8, ptr %175, i64 12
+  %181 = load i16, ptr %180, align 4, !tbaa !41
+  %182 = icmp ugt i16 %181, 127
+  br i1 %182, label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218, label %.critedge.i215
 
-_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i215: ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %177, i64 14
-  %186 = load i16, ptr %185, align 2, !tbaa !42
-  %187 = and i16 %186, 1023
-  %188 = zext nneg i16 %187 to i64
-  %189 = getelementptr inbounds nuw [544 x i32], ptr %14, i64 0, i64 %188
-  %190 = load i32, ptr %189, align 4, !tbaa !15
-  %191 = add i32 %190, 1
-  store i32 %191, ptr %189, align 4, !tbaa !15
-  %192 = add i64 %176, 1
-  store i64 %192, ptr %16, align 8, !tbaa !44
-  %193 = lshr i16 %186, 10
-  %194 = uitofp nneg i16 %193 to double
-  %195 = fadd double %.03243.i210, %194
-  br label %.critedge.i212
+_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218: ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %175, i64 14
+  %184 = load i16, ptr %183, align 2, !tbaa !42
+  %185 = and i16 %184, 1023
+  %186 = zext nneg i16 %185 to i64
+  %187 = getelementptr inbounds nuw [544 x i32], ptr %14, i64 0, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !15
+  %189 = add i32 %188, 1
+  store i32 %189, ptr %187, align 4, !tbaa !15
+  %190 = add i64 %174, 1
+  store i64 %190, ptr %16, align 8, !tbaa !44
+  %191 = lshr i16 %184, 10
+  %192 = uitofp nneg i16 %191 to double
+  %193 = fadd double %.03243.i213, %192
+  br label %.critedge.i215
 
-.critedge.i212:                                   ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i215, %181, %.lr.ph.split.i208
-  %196 = phi i64 [ %192, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i215 ], [ %176, %181 ], [ %176, %.lr.ph.split.i208 ]
-  %.234.i213 = phi double [ %195, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i215 ], [ %.03243.i210, %181 ], [ %.03243.i210, %.lr.ph.split.i208 ]
-  %197 = add nuw i64 %.03144.i209, 1
-  %exitcond.not.i214 = icmp eq i64 %197, %8
-  br i1 %exitcond.not.i214, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216, label %.lr.ph.split.i208, !llvm.loop !45
+.critedge.i215:                                   ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218, %179, %.lr.ph.split.i211
+  %194 = phi i64 [ %190, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218 ], [ %174, %179 ], [ %174, %.lr.ph.split.i211 ]
+  %.234.i216 = phi double [ %193, %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i218 ], [ %.03243.i213, %179 ], [ %.03243.i213, %.lr.ph.split.i211 ]
+  %195 = add nuw i64 %.03144.i212, 1
+  %exitcond.not.i217 = icmp eq i64 %195, %8
+  br i1 %exitcond.not.i217, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219, label %.lr.ph.split.i211, !llvm.loop !45
 
-_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216: ; preds = %.critedge.i212, %175
-  %.032.lcssa.i197 = phi double [ 0.000000e+00, %175 ], [ %.234.i213, %.critedge.i212 ]
-  %198 = tail call noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17HistogramDistanceE(ptr noundef nonnull %14)
-  %199 = fadd double %.032.lcssa.i197, %198
-  %200 = fcmp olt double %199, %.1281363
-  br i1 %200, label %201, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216.thread
+_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219: ; preds = %.critedge.i215, %173
+  %.032.lcssa.i197 = phi double [ 0.000000e+00, %173 ], [ %.234.i216, %.critedge.i215 ]
+  %196 = tail call noundef double @_ZN13duckdb_brotli28BrotliPopulationCostDistanceEPKNS_17HistogramDistanceE(ptr noundef nonnull %14)
+  %197 = fadd double %.032.lcssa.i197, %196
+  %198 = fcmp olt double %197, %.1284366
+  br i1 %198, label %199, label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219.thread
 
-201:                                              ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216
-  store i32 %.sroa.0234.0.copyload, ptr %12, align 8, !tbaa !15
-  store i32 %.sroa.12242.0.copyload, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !15
+199:                                              ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219
+  store i32 %.sroa.0237.0.copyload, ptr %12, align 8, !tbaa !15
+  store i32 %.fr.i, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !15
   store i64 %13, ptr %.sroa.20.0..sroa_idx, align 8
-  store i64 %.sroa.20252.0.copyload, ptr %.sroa.20252.0..sroa_idx, align 8, !tbaa !16
-  br label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216.thread
+  store i64 %.sroa.20255.0.copyload, ptr %.sroa.20255.0..sroa_idx, align 8, !tbaa !16
+  br label %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219.thread
 
-_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216.thread: ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216, %201, %174
+_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219.thread: ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219, %199, %172
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %14)
-  %202 = load i32, ptr %12, align 8, !tbaa !3
-  %203 = icmp eq i32 %.sroa.0234.0.copyload, %202
-  br i1 %203, label %204, label %208
+  %200 = load i32, ptr %12, align 8, !tbaa !3
+  %201 = icmp eq i32 %.sroa.0237.0.copyload, %200
+  br i1 %201, label %202, label %206
 
-204:                                              ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216.thread
-  %205 = load i32, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !9
-  %206 = icmp ne i32 %.sroa.12242.0.copyload, %205
-  %207 = icmp ne i64 %8, 0
-  %or.cond.i = and i1 %207, %206
-  br i1 %or.cond.i, label %.lr.ph.i217.preheader, label %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit
+202:                                              ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219.thread
+  %203 = load i32, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !9
+  %204 = icmp ne i32 %.fr.i, %203
+  %205 = icmp ne i64 %8, 0
+  %or.cond.i = and i1 %205, %204
+  br i1 %or.cond.i, label %.lr.ph.i220.preheader, label %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit
 
-208:                                              ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit216.thread
-  br i1 %.not4555.i, label %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit, label %.lr.ph.i217.preheader
+206:                                              ; preds = %_ZL19ComputeDistanceCostPKN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS5_PdPNS_17HistogramDistanceE.exit219.thread
+  br i1 %.not4556.i, label %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit, label %.lr.ph.i220.preheader
 
-.lr.ph.i217.preheader:                            ; preds = %208, %204
-  br label %.lr.ph.i217
+.lr.ph.i220.preheader:                            ; preds = %206, %202
+  br label %.lr.ph.i220
 
-.lr.ph.i217:                                      ; preds = %.lr.ph.i217.preheader, %278
-  %.01.i = phi i64 [ %279, %278 ], [ 0, %.lr.ph.i217.preheader ]
-  %209 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.01.i
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
-  %211 = load i32, ptr %210, align 4, !tbaa !38
-  %212 = and i32 %211, 33554431
-  %.not.i219 = icmp eq i32 %212, 0
-  br i1 %.not.i219, label %278, label %213
+.lr.ph.i220:                                      ; preds = %.lr.ph.i220.preheader, %276
+  %.01.i = phi i64 [ %277, %276 ], [ 0, %.lr.ph.i220.preheader ]
+  %207 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %7, i64 %.01.i
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
+  %209 = load i32, ptr %208, align 4, !tbaa !38
+  %210 = and i32 %209, 33554431
+  %.not.i222 = icmp eq i32 %210, 0
+  br i1 %.not.i222, label %276, label %211
 
-213:                                              ; preds = %.lr.ph.i217
-  %214 = getelementptr inbounds nuw i8, ptr %209, i64 12
-  %215 = load i16, ptr %214, align 4, !tbaa !41
-  %216 = icmp ugt i16 %215, 127
-  br i1 %216, label %217, label %278
+211:                                              ; preds = %.lr.ph.i220
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 12
+  %213 = load i16, ptr %212, align 4, !tbaa !41
+  %214 = icmp ugt i16 %213, 127
+  br i1 %214, label %215, label %276
 
-217:                                              ; preds = %213
-  %218 = getelementptr inbounds nuw i8, ptr %209, i64 14
-  %219 = load i16, ptr %218, align 2, !tbaa !42
-  %220 = zext i16 %219 to i32
-  %221 = and i32 %220, 1023
-  %222 = icmp ult i32 %221, %18
-  br i1 %222, label %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i, label %223
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw i8, ptr %207, i64 14
+  %217 = load i16, ptr %216, align 2, !tbaa !42
+  %218 = zext i16 %217 to i32
+  %219 = and i32 %218, 1023
+  %220 = icmp ult i32 %219, %18
+  br i1 %220, label %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i, label %221
 
-223:                                              ; preds = %217
-  %224 = lshr i32 %220, 10
-  %225 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %226 = load i32, ptr %225, align 4, !tbaa !43
-  %227 = sub nsw i32 %221, %.sroa.12242.0.copyload
-  %228 = add nsw i32 %227, -16
-  %229 = lshr i32 %228, %.sroa.0234.0.copyload
-  %230 = and i32 %228, %19
-  %231 = and i32 %229, 1
-  %232 = or disjoint i32 %231, 2
-  %233 = shl i32 %232, %224
-  %234 = add i32 %233, -4
-  %235 = add i32 %234, %226
-  %236 = shl i32 %235, %.sroa.0234.0.copyload
-  %237 = add nuw i32 %230, %18
-  %238 = add i32 %237, %236
+221:                                              ; preds = %215
+  %222 = lshr i32 %218, 10
+  %223 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %224 = load i32, ptr %223, align 4, !tbaa !43
+  %225 = sub nsw i32 %219, %.fr.i
+  %226 = add nsw i32 %225, -16
+  %227 = lshr i32 %226, %.sroa.0237.0.copyload
+  %228 = and i32 %226, %19
+  %229 = and i32 %227, 1
+  %230 = or disjoint i32 %229, 2
+  %231 = shl i32 %230, %222
+  %232 = add i32 %231, -4
+  %233 = add i32 %232, %224
+  %234 = shl i32 %233, %.sroa.0237.0.copyload
+  %235 = add nuw i32 %228, %18
+  %236 = add i32 %235, %234
   br label %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i
 
-_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i: ; preds = %223, %217
-  %.0.i.i = phi i32 [ %238, %223 ], [ %221, %217 ]
-  %239 = zext i32 %.0.i.i to i64
-  %240 = load i32, ptr %.sroa.12242.0..sroa_idx, align 4, !tbaa !9
-  %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  %243 = add nuw nsw i64 %241, 16
-  %244 = icmp samesign ugt i64 %243, %239
-  br i1 %244, label %245, label %247
+_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i: ; preds = %221, %215
+  %.0.i.i = phi i32 [ %236, %221 ], [ %219, %215 ]
+  %237 = zext i32 %.0.i.i to i64
+  %238 = load i32, ptr %.sroa.12245.0..sroa_idx, align 4, !tbaa !9
+  %239 = zext i32 %238 to i64
+  %240 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %241 = add nuw nsw i64 %239, 16
+  %242 = icmp samesign ugt i64 %241, %237
+  br i1 %242, label %243, label %245
+
+243:                                              ; preds = %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i
+  %244 = trunc i32 %.0.i.i to i16
+  br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i224
 
 245:                                              ; preds = %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i
-  %246 = trunc i32 %.0.i.i to i16
-  br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i221
+  %246 = load i32, ptr %12, align 8, !tbaa !3
+  %247 = zext i32 %246 to i64
+  %248 = shl nuw i64 4, %247
+  %249 = add nsw i64 %237, -16
+  %250 = sub nsw i64 %249, %239
+  %251 = add i64 %250, %248
+  %252 = trunc i64 %251 to i32
+  %253 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %252, i1 true)
+  %254 = sub nsw i32 30, %253
+  %255 = zext i32 %254 to i64
+  %notmask.i16.i = shl nsw i32 -1, %246
+  %256 = xor i32 %notmask.i16.i, -1
+  %257 = zext nneg i32 %256 to i64
+  %258 = and i64 %251, %257
+  %259 = lshr i64 %251, %255
+  %260 = and i64 %259, 1
+  %261 = or disjoint i64 %260, 2
+  %262 = shl i64 %261, %255
+  %263 = sub nsw i64 %255, %247
+  %264 = shl nsw i64 %263, 10
+  %265 = shl nsw i64 %263, 1
+  %266 = add nsw i64 %265, 65534
+  %267 = or disjoint i64 %266, %260
+  %268 = shl i64 %267, %247
+  %269 = add nuw nsw i64 %258, %241
+  %270 = add i64 %269, %268
+  %271 = or i64 %270, %264
+  %272 = trunc i64 %271 to i16
+  %273 = sub i64 %251, %262
+  %274 = lshr i64 %273, %247
+  %275 = trunc i64 %274 to i32
+  br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i224
 
-247:                                              ; preds = %_ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistanceParams.exit.i
-  %248 = load i32, ptr %12, align 8, !tbaa !3
-  %249 = zext i32 %248 to i64
-  %250 = shl nuw i64 4, %249
-  %251 = add nsw i64 %239, -16
-  %252 = sub nsw i64 %251, %241
-  %253 = add i64 %252, %250
-  %254 = trunc i64 %253 to i32
-  %255 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %254, i1 true)
-  %256 = sub nsw i32 30, %255
-  %257 = zext i32 %256 to i64
-  %notmask.i16.i = shl nsw i32 -1, %248
-  %258 = xor i32 %notmask.i16.i, -1
-  %259 = zext nneg i32 %258 to i64
-  %260 = and i64 %253, %259
-  %261 = lshr i64 %253, %257
-  %262 = and i64 %261, 1
-  %263 = or disjoint i64 %262, 2
-  %264 = shl i64 %263, %257
-  %265 = sub nsw i64 %257, %249
-  %266 = shl nsw i64 %265, 10
-  %267 = shl nsw i64 %265, 1
-  %268 = add nsw i64 %267, 65534
-  %269 = or disjoint i64 %268, %262
-  %270 = shl i64 %269, %249
-  %271 = add nuw nsw i64 %260, %243
-  %272 = add i64 %271, %270
-  %273 = or i64 %272, %266
-  %274 = trunc i64 %273 to i16
-  %275 = sub i64 %253, %264
-  %276 = lshr i64 %275, %249
-  %277 = trunc i64 %276 to i32
-  br label %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i221
+_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i224: ; preds = %245, %243
+  %.sink.i = phi i16 [ %244, %243 ], [ %272, %245 ]
+  %storemerge.i.i = phi i32 [ 0, %243 ], [ %275, %245 ]
+  store i16 %.sink.i, ptr %216, align 2, !tbaa !48
+  store i32 %storemerge.i.i, ptr %240, align 4, !tbaa !15
+  br label %276
 
-_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i221: ; preds = %247, %245
-  %.sink.i = phi i16 [ %246, %245 ], [ %274, %247 ]
-  %storemerge.i.i = phi i32 [ 0, %245 ], [ %277, %247 ]
-  store i16 %.sink.i, ptr %218, align 2, !tbaa !48
-  store i32 %storemerge.i.i, ptr %242, align 4, !tbaa !15
-  br label %278
+276:                                              ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i224, %211, %.lr.ph.i220
+  %277 = add nuw i64 %.01.i, 1
+  %exitcond.not.i223 = icmp eq i64 %277, %8
+  br i1 %exitcond.not.i223, label %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit, label %.lr.ph.i220, !llvm.loop !49
 
-278:                                              ; preds = %_ZN13duckdb_brotliL24PrefixEncodeCopyDistanceEmmmPtPj.exit.i221, %213, %.lr.ph.i217
-  %279 = add nuw i64 %.01.i, 1
-  %exitcond.not.i220 = icmp eq i64 %279, %8
-  br i1 %exitcond.not.i220, label %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit, label %.lr.ph.i217, !llvm.loop !49
+_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit: ; preds = %276, %202, %206
+  %278 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %279 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  tail call void @_ZN13duckdb_brotli16BrotliSplitBlockEPNS_13MemoryManagerEPKNS_7CommandEmPKhmmPK19BrotliEncoderParamsPNS_10BlockSplitESB_SB_(ptr noundef %0, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %10, ptr noundef nonnull %278, ptr noundef nonnull %279)
+  %280 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %281 = load i32, ptr %280, align 8, !tbaa !50
+  %.not165 = icmp eq i32 %281, 0
+  %.pre329 = load i64, ptr %10, align 8, !tbaa !51
+  br i1 %.not165, label %282, label %.loopexit279
 
-_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit: ; preds = %278, %204, %208
-  %280 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %281 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  tail call void @_ZN13duckdb_brotli16BrotliSplitBlockEPNS_13MemoryManagerEPKNS_7CommandEmPKhmmPK19BrotliEncoderParamsPNS_10BlockSplitESB_SB_(ptr noundef %0, ptr noundef %7, i64 noundef %8, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %10, ptr noundef nonnull %280, ptr noundef nonnull %281)
-  %282 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %283 = load i32, ptr %282, align 8, !tbaa !50
-  %.not165 = icmp eq i32 %283, 0
-  %.pre326 = load i64, ptr %10, align 8, !tbaa !51
-  br i1 %.not165, label %284, label %.loopexit276
+282:                                              ; preds = %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit
+  %.not166 = icmp eq i64 %.pre329, 0
+  br i1 %.not166, label %.loopexit279, label %283
 
-284:                                              ; preds = %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit
-  %.not166 = icmp eq i64 %.pre326, 0
-  br i1 %.not166, label %.loopexit276, label %285
-
-285:                                              ; preds = %284
-  %286 = shl i64 %.pre326, 2
-  %287 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %286)
+283:                                              ; preds = %282
+  %284 = shl i64 %.pre329, 2
+  %285 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %284)
   %.pre = load i64, ptr %10, align 8, !tbaa !51
-  %.not310 = icmp eq i64 %.pre, 0
-  br i1 %.not310, label %.loopexit276, label %.lr.ph299
+  %.not313 = icmp eq i64 %.pre, 0
+  br i1 %.not313, label %.loopexit279, label %.lr.ph302
 
-.lr.ph299:                                        ; preds = %285, %.lr.ph299
-  %.0153298 = phi i64 [ %289, %.lr.ph299 ], [ 0, %285 ]
-  %288 = getelementptr inbounds nuw i32, ptr %287, i64 %.0153298
-  store i32 %9, ptr %288, align 4, !tbaa !58
-  %289 = add nuw i64 %.0153298, 1
-  %exitcond321.not = icmp eq i64 %289, %.pre
-  br i1 %exitcond321.not, label %.loopexit276, label %.lr.ph299, !llvm.loop !60
+.lr.ph302:                                        ; preds = %283, %.lr.ph302
+  %.0153301 = phi i64 [ %287, %.lr.ph302 ], [ 0, %283 ]
+  %286 = getelementptr inbounds nuw i32, ptr %285, i64 %.0153301
+  store i32 %9, ptr %286, align 4, !tbaa !58
+  %287 = add nuw i64 %.0153301, 1
+  %exitcond324.not = icmp eq i64 %287, %.pre
+  br i1 %exitcond324.not, label %.loopexit279, label %.lr.ph302, !llvm.loop !60
 
-.loopexit276:                                     ; preds = %.lr.ph299, %284, %285, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit
-  %290 = phi i64 [ %.pre326, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit ], [ 0, %285 ], [ 0, %284 ], [ %.pre, %.lr.ph299 ]
-  %.0155 = phi ptr [ null, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit ], [ %287, %285 ], [ null, %284 ], [ %287, %.lr.ph299 ]
-  %.0152 = phi i64 [ 1, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit ], [ 64, %285 ], [ 64, %284 ], [ 64, %.lr.ph299 ]
-  %291 = mul i64 %290, %.0152
-  %.not167 = icmp eq i64 %291, 0
-  br i1 %.not167, label %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit, label %.lr.ph301.preheader
+.loopexit279:                                     ; preds = %.lr.ph302, %282, %283, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit
+  %288 = phi i64 [ %.pre329, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit ], [ 0, %283 ], [ 0, %282 ], [ %.pre, %.lr.ph302 ]
+  %.0155 = phi ptr [ null, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit ], [ %285, %283 ], [ null, %282 ], [ %285, %.lr.ph302 ]
+  %.0152 = phi i64 [ 1, %_ZL25RecomputeDistancePrefixesPN13duckdb_brotli7CommandEmPK20BrotliDistanceParamsS4_.exit ], [ 64, %283 ], [ 64, %282 ], [ 64, %.lr.ph302 ]
+  %289 = mul i64 %288, %.0152
+  %.not167 = icmp eq i64 %289, 0
+  br i1 %.not167, label %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit, label %.lr.ph304.preheader
 
-.lr.ph301.preheader:                              ; preds = %.loopexit276
-  %292 = mul i64 %291, 1040
-  %293 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %292)
-  br label %.lr.ph301
+.lr.ph304.preheader:                              ; preds = %.loopexit279
+  %290 = mul i64 %289, 1040
+  %291 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %290)
+  br label %.lr.ph304
 
-.lr.ph301:                                        ; preds = %.lr.ph301.preheader, %.lr.ph301
-  %.0.i300 = phi i64 [ %296, %.lr.ph301 ], [ 0, %.lr.ph301.preheader ]
-  %294 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %293, i64 %.0.i300
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 1032
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %294, i8 0, i64 1032, i1 false)
-  store double 0x7FF0000000000000, ptr %295, align 8, !tbaa !61
-  %296 = add nuw i64 %.0.i300, 1
-  %exitcond322.not = icmp eq i64 %296, %291
-  br i1 %exitcond322.not, label %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit, label %.lr.ph301, !llvm.loop !63
+.lr.ph304:                                        ; preds = %.lr.ph304.preheader, %.lr.ph304
+  %.0.i303 = phi i64 [ %294, %.lr.ph304 ], [ 0, %.lr.ph304.preheader ]
+  %292 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramLiteral", ptr %291, i64 %.0.i303
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 1032
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %292, i8 0, i64 1032, i1 false)
+  store double 0x7FF0000000000000, ptr %293, align 8, !tbaa !61
+  %294 = add nuw i64 %.0.i303, 1
+  %exitcond325.not = icmp eq i64 %294, %289
+  br i1 %exitcond325.not, label %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit, label %.lr.ph304, !llvm.loop !63
 
-_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit: ; preds = %.lr.ph301, %.loopexit276
-  %297 = phi ptr [ null, %.loopexit276 ], [ %293, %.lr.ph301 ]
-  %298 = load i64, ptr %281, align 8, !tbaa !64
-  %299 = shl i64 %298, 2
-  %.not168 = icmp eq i64 %299, 0
-  br i1 %.not168, label %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit, label %.lr.ph303.preheader
+_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit: ; preds = %.lr.ph304, %.loopexit279
+  %295 = phi ptr [ null, %.loopexit279 ], [ %291, %.lr.ph304 ]
+  %296 = load i64, ptr %279, align 8, !tbaa !64
+  %297 = shl i64 %296, 2
+  %.not168 = icmp eq i64 %297, 0
+  br i1 %.not168, label %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit, label %.lr.ph306.preheader
 
-.lr.ph303.preheader:                              ; preds = %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit
-  %300 = mul i64 %298, 8768
-  %301 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %300)
-  br label %.lr.ph303
+.lr.ph306.preheader:                              ; preds = %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit
+  %298 = mul i64 %296, 8768
+  %299 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %298)
+  br label %.lr.ph306
 
-.lr.ph303:                                        ; preds = %.lr.ph303.preheader, %.lr.ph303
-  %.0.i180302 = phi i64 [ %304, %.lr.ph303 ], [ 0, %.lr.ph303.preheader ]
-  %302 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %301, i64 %.0.i180302
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 2184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %302, i8 0, i64 2184, i1 false)
-  store double 0x7FF0000000000000, ptr %303, align 8, !tbaa !35
-  %304 = add nuw i64 %.0.i180302, 1
-  %exitcond323.not = icmp eq i64 %304, %299
-  br i1 %exitcond323.not, label %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit, label %.lr.ph303, !llvm.loop !65
+.lr.ph306:                                        ; preds = %.lr.ph306.preheader, %.lr.ph306
+  %.0.i180305 = phi i64 [ %302, %.lr.ph306 ], [ 0, %.lr.ph306.preheader ]
+  %300 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramDistance", ptr %299, i64 %.0.i180305
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 2184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2184) %300, i8 0, i64 2184, i1 false)
+  store double 0x7FF0000000000000, ptr %301, align 8, !tbaa !35
+  %302 = add nuw i64 %.0.i180305, 1
+  %exitcond326.not = icmp eq i64 %302, %297
+  br i1 %exitcond326.not, label %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit, label %.lr.ph306, !llvm.loop !65
 
-_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit: ; preds = %.lr.ph303, %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit
-  %305 = phi ptr [ null, %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit ], [ %301, %.lr.ph303 ]
-  %306 = load i64, ptr %280, align 8, !tbaa !66
-  %307 = getelementptr inbounds nuw i8, ptr %10, i64 200
-  store i64 %306, ptr %307, align 8, !tbaa !67
-  %.not169 = icmp eq i64 %306, 0
-  br i1 %.not169, label %.thread369, label %309
+_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit: ; preds = %.lr.ph306, %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit
+  %303 = phi ptr [ null, %_ZN13duckdb_brotliL22ClearHistogramsLiteralEPNS_16HistogramLiteralEm.exit ], [ %299, %.lr.ph306 ]
+  %304 = load i64, ptr %278, align 8, !tbaa !66
+  %305 = getelementptr inbounds nuw i8, ptr %10, i64 200
+  store i64 %304, ptr %305, align 8, !tbaa !67
+  %.not169 = icmp eq i64 %304, 0
+  br i1 %.not169, label %.thread372, label %307
 
-.thread369:                                       ; preds = %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit
-  %308 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store ptr null, ptr %308, align 8, !tbaa !68
+.thread372:                                       ; preds = %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit
+  %306 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store ptr null, ptr %306, align 8, !tbaa !68
   br label %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit
 
-309:                                              ; preds = %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit
-  %310 = mul i64 %306, 2832
-  %311 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %310)
-  %.pre327 = load i64, ptr %307, align 8, !tbaa !67
-  %312 = getelementptr inbounds nuw i8, ptr %10, i64 192
-  store ptr %311, ptr %312, align 8, !tbaa !68
-  %.not313 = icmp eq i64 %.pre327, 0
-  br i1 %.not313, label %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit, label %.lr.ph305
+307:                                              ; preds = %_ZN13duckdb_brotliL23ClearHistogramsDistanceEPNS_17HistogramDistanceEm.exit
+  %308 = mul i64 %304, 2832
+  %309 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %308)
+  %.pre330 = load i64, ptr %305, align 8, !tbaa !67
+  %310 = getelementptr inbounds nuw i8, ptr %10, i64 192
+  store ptr %309, ptr %310, align 8, !tbaa !68
+  %.not316 = icmp eq i64 %.pre330, 0
+  br i1 %.not316, label %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit, label %.lr.ph308
 
-.lr.ph305:                                        ; preds = %309, %.lr.ph305
-  %.0.i181304 = phi i64 [ %315, %.lr.ph305 ], [ 0, %309 ]
-  %313 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %311, i64 %.0.i181304
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 2824
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %313, i8 0, i64 2824, i1 false)
-  store double 0x7FF0000000000000, ptr %314, align 8, !tbaa !69
-  %315 = add nuw i64 %.0.i181304, 1
-  %exitcond324.not = icmp eq i64 %315, %.pre327
-  br i1 %exitcond324.not, label %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit, label %.lr.ph305, !llvm.loop !71
+.lr.ph308:                                        ; preds = %307, %.lr.ph308
+  %.0.i181307 = phi i64 [ %313, %.lr.ph308 ], [ 0, %307 ]
+  %311 = getelementptr inbounds nuw %"struct.duckdb_brotli::HistogramCommand", ptr %309, i64 %.0.i181307
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 2824
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2824) %311, i8 0, i64 2824, i1 false)
+  store double 0x7FF0000000000000, ptr %312, align 8, !tbaa !69
+  %313 = add nuw i64 %.0.i181307, 1
+  %exitcond327.not = icmp eq i64 %313, %.pre330
+  br i1 %exitcond327.not, label %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit, label %.lr.ph308, !llvm.loop !71
 
-_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit: ; preds = %.lr.ph305
-  %.pre328 = load ptr, ptr %312, align 8, !tbaa !68
+_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit: ; preds = %.lr.ph308
+  %.pre331 = load ptr, ptr %310, align 8, !tbaa !68
   br label %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit
 
-_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit: ; preds = %.thread369, %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit, %309
-  %316 = phi ptr [ %.pre328, %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit ], [ %311, %309 ], [ null, %.thread369 ]
-  tail call void @_ZN13duckdb_brotli32BrotliBuildHistogramsWithContextEPKNS_7CommandEmPKNS_10BlockSplitES5_S5_PKhmmhhPKNS_11ContextTypeEPNS_16HistogramLiteralEPNS_16HistogramCommandEPNS_17HistogramDistanceE(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %280, ptr noundef nonnull %281, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %.0155, ptr noundef %297, ptr noundef %316, ptr noundef %305)
+_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit: ; preds = %.thread372, %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit, %307
+  %314 = phi ptr [ %.pre331, %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit.loopexit ], [ %309, %307 ], [ null, %.thread372 ]
+  tail call void @_ZN13duckdb_brotli32BrotliBuildHistogramsWithContextEPKNS_7CommandEmPKNS_10BlockSplitES5_S5_PKhmmhhPKNS_11ContextTypeEPNS_16HistogramLiteralEPNS_16HistogramCommandEPNS_17HistogramDistanceE(ptr noundef %7, i64 noundef %8, ptr noundef nonnull %10, ptr noundef nonnull %278, ptr noundef nonnull %279, ptr noundef %1, i64 noundef %2, i64 noundef %3, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr noundef %.0155, ptr noundef %295, ptr noundef %314, ptr noundef %303)
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %.0155)
-  %317 = load i64, ptr %10, align 8, !tbaa !51
-  %318 = shl i64 %317, 6
-  %319 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i64 %318, ptr %319, align 8, !tbaa !72
-  %.not170 = icmp eq i64 %318, 0
-  br i1 %.not170, label %.thread269, label %322
+  %315 = load i64, ptr %10, align 8, !tbaa !51
+  %316 = shl i64 %315, 6
+  %317 = getelementptr inbounds nuw i8, ptr %10, i64 152
+  store i64 %316, ptr %317, align 8, !tbaa !72
+  %.not170 = icmp eq i64 %316, 0
+  br i1 %.not170, label %.thread272, label %320
 
-.thread269:                                       ; preds = %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit
-  %320 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store ptr null, ptr %320, align 8, !tbaa !73
-  %321 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store i64 0, ptr %321, align 8, !tbaa !74
-  br label %330
+.thread272:                                       ; preds = %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit
+  %318 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  store ptr null, ptr %318, align 8, !tbaa !73
+  %319 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  store i64 0, ptr %319, align 8, !tbaa !74
+  br label %328
 
-322:                                              ; preds = %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit
-  %323 = shl i64 %317, 8
-  %324 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %323)
-  %.pr = load i64, ptr %319, align 8, !tbaa !72
-  %325 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  store ptr %324, ptr %325, align 8, !tbaa !73
-  %326 = getelementptr inbounds nuw i8, ptr %10, i64 184
-  store i64 %.pr, ptr %326, align 8, !tbaa !74
+320:                                              ; preds = %_ZN13duckdb_brotliL22ClearHistogramsCommandEPNS_16HistogramCommandEm.exit
+  %321 = shl i64 %315, 8
+  %322 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %321)
+  %.pr = load i64, ptr %317, align 8, !tbaa !72
+  %323 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  store ptr %322, ptr %323, align 8, !tbaa !73
+  %324 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  store i64 %.pr, ptr %324, align 8, !tbaa !74
   %.not171 = icmp eq i64 %.pr, 0
-  br i1 %.not171, label %330, label %327
+  br i1 %.not171, label %328, label %325
 
-327:                                              ; preds = %322
-  %328 = mul i64 %.pr, 1040
-  %329 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %328)
-  %.pre329 = load ptr, ptr %325, align 8, !tbaa !73
-  br label %330
+325:                                              ; preds = %320
+  %326 = mul i64 %.pr, 1040
+  %327 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %326)
+  %.pre332 = load ptr, ptr %323, align 8, !tbaa !73
+  br label %328
 
-330:                                              ; preds = %.thread269, %322, %327
-  %331 = phi ptr [ %.pre329, %327 ], [ %324, %322 ], [ null, %.thread269 ]
-  %332 = phi ptr [ %326, %327 ], [ %326, %322 ], [ %321, %.thread269 ]
-  %333 = phi ptr [ %325, %327 ], [ %325, %322 ], [ %320, %.thread269 ]
-  %334 = phi ptr [ %329, %327 ], [ null, %322 ], [ null, %.thread269 ]
-  %335 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  store ptr %334, ptr %335, align 8, !tbaa !75
-  tail call void @_ZN13duckdb_brotli30BrotliClusterHistogramsLiteralEPNS_13MemoryManagerEPKNS_16HistogramLiteralEmmPS2_PmPj(ptr noundef %0, ptr noundef %297, i64 noundef %291, i64 noundef 256, ptr noundef %334, ptr noundef nonnull %332, ptr noundef %331)
-  tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %297)
-  %336 = load i32, ptr %282, align 8, !tbaa !50
-  %.not172 = icmp eq i32 %336, 0
-  br i1 %.not172, label %.loopexit275, label %337
+328:                                              ; preds = %.thread272, %320, %325
+  %329 = phi ptr [ %.pre332, %325 ], [ %322, %320 ], [ null, %.thread272 ]
+  %330 = phi ptr [ %324, %325 ], [ %324, %320 ], [ %319, %.thread272 ]
+  %331 = phi ptr [ %323, %325 ], [ %323, %320 ], [ %318, %.thread272 ]
+  %332 = phi ptr [ %327, %325 ], [ null, %320 ], [ null, %.thread272 ]
+  %333 = getelementptr inbounds nuw i8, ptr %10, i64 176
+  store ptr %332, ptr %333, align 8, !tbaa !75
+  tail call void @_ZN13duckdb_brotli30BrotliClusterHistogramsLiteralEPNS_13MemoryManagerEPKNS_16HistogramLiteralEmmPS2_PmPj(ptr noundef %0, ptr noundef %295, i64 noundef %289, i64 noundef 256, ptr noundef %332, ptr noundef nonnull %330, ptr noundef %329)
+  tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %295)
+  %334 = load i32, ptr %280, align 8, !tbaa !50
+  %.not172 = icmp eq i32 %334, 0
+  br i1 %.not172, label %.loopexit278, label %335
 
-337:                                              ; preds = %330
-  %338 = load i64, ptr %10, align 8, !tbaa !51
-  %.not173307 = icmp eq i64 %338, 0
-  br i1 %.not173307, label %.loopexit275, label %.lr.ph309
+335:                                              ; preds = %328
+  %336 = load i64, ptr %10, align 8, !tbaa !51
+  %.not173310 = icmp eq i64 %336, 0
+  br i1 %.not173310, label %.loopexit278, label %.lr.ph312
 
-.lr.ph309:                                        ; preds = %337
-  %339 = load ptr, ptr %333, align 8, !tbaa !73
-  br label %340
+.lr.ph312:                                        ; preds = %335
+  %337 = load ptr, ptr %331, align 8, !tbaa !73
+  br label %338
 
-.loopexit:                                        ; preds = %344
-  %.not173 = icmp eq i64 %341, 0
-  br i1 %.not173, label %.loopexit275, label %340, !llvm.loop !76
+.loopexit:                                        ; preds = %342
+  %.not173 = icmp eq i64 %339, 0
+  br i1 %.not173, label %.loopexit278, label %338, !llvm.loop !76
 
-340:                                              ; preds = %.lr.ph309, %.loopexit
-  %.1154308 = phi i64 [ %338, %.lr.ph309 ], [ %341, %.loopexit ]
-  %341 = add i64 %.1154308, -1
-  %342 = getelementptr inbounds nuw i32, ptr %339, i64 %341
-  %.idx = shl i64 %341, 8
-  %343 = getelementptr inbounds nuw i8, ptr %339, i64 %.idx
-  %.pre330 = load i32, ptr %342, align 4, !tbaa !15
-  br label %344
+338:                                              ; preds = %.lr.ph312, %.loopexit
+  %.1154311 = phi i64 [ %336, %.lr.ph312 ], [ %339, %.loopexit ]
+  %339 = add i64 %.1154311, -1
+  %340 = getelementptr inbounds nuw i32, ptr %337, i64 %339
+  %.idx = shl i64 %339, 8
+  %341 = getelementptr inbounds nuw i8, ptr %337, i64 %.idx
+  %.pre333 = load i32, ptr %340, align 4, !tbaa !15
+  br label %342
 
-344:                                              ; preds = %340, %344
-  %.0306 = phi i64 [ 0, %340 ], [ %346, %344 ]
-  %345 = getelementptr inbounds nuw i32, ptr %343, i64 %.0306
-  store i32 %.pre330, ptr %345, align 4, !tbaa !15
-  %346 = add nuw nsw i64 %.0306, 1
-  %exitcond325.not = icmp eq i64 %346, 64
-  br i1 %exitcond325.not, label %.loopexit, label %344, !llvm.loop !77
+342:                                              ; preds = %338, %342
+  %.0309 = phi i64 [ 0, %338 ], [ %344, %342 ]
+  %343 = getelementptr inbounds nuw i32, ptr %341, i64 %.0309
+  store i32 %.pre333, ptr %343, align 4, !tbaa !15
+  %344 = add nuw nsw i64 %.0309, 1
+  %exitcond328.not = icmp eq i64 %344, 64
+  br i1 %exitcond328.not, label %.loopexit, label %342, !llvm.loop !77
 
-.loopexit275:                                     ; preds = %.loopexit, %337, %330
-  %347 = load i64, ptr %281, align 8, !tbaa !64
-  %348 = shl i64 %347, 2
-  %349 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  store i64 %348, ptr %349, align 8, !tbaa !78
-  %.not174 = icmp eq i64 %348, 0
-  br i1 %.not174, label %.thread272, label %352
+.loopexit278:                                     ; preds = %.loopexit, %335, %328
+  %345 = load i64, ptr %279, align 8, !tbaa !64
+  %346 = shl i64 %345, 2
+  %347 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  store i64 %346, ptr %347, align 8, !tbaa !78
+  %.not174 = icmp eq i64 %346, 0
+  br i1 %.not174, label %.thread275, label %350
 
-.thread272:                                       ; preds = %.loopexit275
-  %350 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr null, ptr %350, align 8, !tbaa !79
-  %351 = getelementptr inbounds nuw i8, ptr %10, i64 216
-  store i64 0, ptr %351, align 8, !tbaa !80
-  br label %360
+.thread275:                                       ; preds = %.loopexit278
+  %348 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store ptr null, ptr %348, align 8, !tbaa !79
+  %349 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  store i64 0, ptr %349, align 8, !tbaa !80
+  br label %358
 
-352:                                              ; preds = %.loopexit275
-  %353 = shl i64 %347, 4
-  %354 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %353)
-  %.pr271 = load i64, ptr %349, align 8, !tbaa !78
-  %355 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr %354, ptr %355, align 8, !tbaa !79
-  %356 = getelementptr inbounds nuw i8, ptr %10, i64 216
-  store i64 %.pr271, ptr %356, align 8, !tbaa !80
-  %.not175 = icmp eq i64 %.pr271, 0
-  br i1 %.not175, label %360, label %357
+350:                                              ; preds = %.loopexit278
+  %351 = shl i64 %345, 4
+  %352 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %351)
+  %.pr274 = load i64, ptr %347, align 8, !tbaa !78
+  %353 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store ptr %352, ptr %353, align 8, !tbaa !79
+  %354 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  store i64 %.pr274, ptr %354, align 8, !tbaa !80
+  %.not175 = icmp eq i64 %.pr274, 0
+  br i1 %.not175, label %358, label %355
 
-357:                                              ; preds = %352
-  %358 = mul i64 %.pr271, 2192
-  %359 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %358)
-  %.pre331 = load i64, ptr %349, align 8, !tbaa !78
-  %.pre332 = load ptr, ptr %355, align 8, !tbaa !79
-  br label %360
+355:                                              ; preds = %350
+  %356 = mul i64 %.pr274, 2192
+  %357 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %356)
+  %.pre334 = load i64, ptr %347, align 8, !tbaa !78
+  %.pre335 = load ptr, ptr %353, align 8, !tbaa !79
+  br label %358
 
-360:                                              ; preds = %.thread272, %352, %357
-  %361 = phi ptr [ %.pre332, %357 ], [ %354, %352 ], [ null, %.thread272 ]
-  %362 = phi i64 [ %.pre331, %357 ], [ 0, %352 ], [ 0, %.thread272 ]
-  %363 = phi ptr [ %356, %357 ], [ %356, %352 ], [ %351, %.thread272 ]
-  %364 = phi ptr [ %359, %357 ], [ null, %352 ], [ null, %.thread272 ]
-  %365 = getelementptr inbounds nuw i8, ptr %10, i64 208
-  store ptr %364, ptr %365, align 8, !tbaa !81
-  tail call void @_ZN13duckdb_brotli31BrotliClusterHistogramsDistanceEPNS_13MemoryManagerEPKNS_17HistogramDistanceEmmPS2_PmPj(ptr noundef %0, ptr noundef %305, i64 noundef %362, i64 noundef 256, ptr noundef %364, ptr noundef nonnull %363, ptr noundef %361)
-  tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %305)
+358:                                              ; preds = %.thread275, %350, %355
+  %359 = phi ptr [ %.pre335, %355 ], [ %352, %350 ], [ null, %.thread275 ]
+  %360 = phi i64 [ %.pre334, %355 ], [ 0, %350 ], [ 0, %.thread275 ]
+  %361 = phi ptr [ %354, %355 ], [ %354, %350 ], [ %349, %.thread275 ]
+  %362 = phi ptr [ %357, %355 ], [ null, %350 ], [ null, %.thread275 ]
+  %363 = getelementptr inbounds nuw i8, ptr %10, i64 208
+  store ptr %362, ptr %363, align 8, !tbaa !81
+  tail call void @_ZN13duckdb_brotli31BrotliClusterHistogramsDistanceEPNS_13MemoryManagerEPKNS_17HistogramDistanceEmmPS2_PmPj(ptr noundef %0, ptr noundef %303, i64 noundef %360, i64 noundef 256, ptr noundef %362, ptr noundef nonnull %361, ptr noundef %359)
+  tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %303)
   ret void
 }
 

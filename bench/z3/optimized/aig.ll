@@ -7031,7 +7031,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIP7aig_litlN9__gnu_cxx5__
 
 9:                                                ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit
   %10 = phi i64 [ %6, %.lr.ph ], [ %75, %_ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit ]
-  %.029 = phi ptr [ %1, %.lr.ph ], [ %.us-phi42.i.i, %_ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit ]
+  %.029 = phi ptr [ %1, %.lr.ph ], [ %.us-phi40.i.i, %_ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit ]
   %.01728 = phi i64 [ %2, %.lr.ph ], [ %73, %_ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit ]
   %11 = icmp eq i64 %.01728, 0
   br i1 %11, label %12, label %25
@@ -7075,8 +7075,8 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIP7aig_litlN9__gnu_cxx5__
   %.013.i.i = phi ptr [ %.029, %25 ], [ %.us-phi27.i.i, %71 ]
   %.0.i.i = phi ptr [ %8, %25 ], [ %72, %71 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !9
-  %.fr32.i.i = freeze ptr %30
-  %31 = ptrtoint ptr %.fr32.i.i to i64
+  %.fr30.i.i = freeze ptr %30
+  %31 = ptrtoint ptr %.fr30.i.i to i64
   %32 = and i64 %31, -2
   %33 = inttoptr i64 %32 to ptr
   %34 = load i32, ptr %33, align 8, !tbaa !157
@@ -7149,23 +7149,23 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.i
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.i.i, !llvm.loop !228
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit18.thread.i.i: ; preds = %66, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.us.i.i
-  %.us-phi42.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.us.i.i ], [ %.1.us.i.i, %66 ]
+  %.us-phi40.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.us.i.i ], [ %.1.us.i.i, %66 ]
   %69 = phi ptr [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.us.i.i ], [ %36, %66 ]
   %.us-phi27.i.i = phi ptr [ %.114.us.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.us.i.i ], [ %.114.i.i, %66 ]
   %.us-phi28.i.i = phi ptr [ %53, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.us.i.i ], [ %60, %66 ]
-  %70 = icmp ult ptr %.us-phi42.i.i, %.us-phi27.i.i
+  %70 = icmp ult ptr %.us-phi40.i.i, %.us-phi27.i.i
   br i1 %70, label %71, label %_ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit
 
 71:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit18.thread.i.i
-  store ptr %.us-phi28.i.i, ptr %.us-phi42.i.i, align 8, !tbaa !9
+  store ptr %.us-phi28.i.i, ptr %.us-phi40.i.i, align 8, !tbaa !9
   store ptr %69, ptr %.us-phi27.i.i, align 8, !tbaa !9
-  %72 = getelementptr inbounds nuw i8, ptr %.us-phi42.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.us-phi40.i.i, i64 8
   br label %29, !llvm.loop !229
 
 _ZSt27__unguarded_partition_pivotIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEET_S7_S7_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit18.thread.i.i
   %73 = add nsw i64 %.01728, -1
-  tail call void @_ZSt16__introsort_loopIP7aig_litlN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEEvT_S7_T0_T1_(ptr noundef nonnull %.us-phi42.i.i, ptr noundef %.029, i64 noundef %73)
-  %74 = ptrtoint ptr %.us-phi42.i.i to i64
+  tail call void @_ZSt16__introsort_loopIP7aig_litlN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEEvT_S7_T0_T1_(ptr noundef nonnull %.us-phi40.i.i, ptr noundef %.029, i64 noundef %73)
+  %74 = ptrtoint ptr %.us-phi40.i.i to i64
   %75 = sub i64 %74, %4
   %76 = icmp sgt i64 %75, 128
   br i1 %76, label %9, label %_ZSt14__partial_sortIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEEvT_S7_S7_T0_.exit, !llvm.loop !230
@@ -7282,11 +7282,11 @@ _ZSt16__insertion_sortIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltE
 .lr.ph.i:                                         ; preds = %_ZSt16__insertion_sortIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEEvT_S7_T0_.exit, %_ZSt25__unguarded_linear_insertIP7aig_litN9__gnu_cxx5__ops14_Val_comp_iterI10aig_lit_ltEEEvT_T0_.exit.i
   %.08.i = phi ptr [ %76, %_ZSt25__unguarded_linear_insertIP7aig_litN9__gnu_cxx5__ops14_Val_comp_iterI10aig_lit_ltEEEvT_T0_.exit.i ], [ %47, %_ZSt16__insertion_sortIP7aig_litN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEEvT_S7_T0_.exit ]
   %48 = load i64, ptr %.08.i, align 8, !tbaa !24
-  %.fr.i.i = freeze i64 %48
-  %49 = and i64 %.fr.i.i, -2
+  %.fr17.i.i = freeze i64 %48
+  %49 = and i64 %.fr17.i.i, -2
   %50 = inttoptr i64 %49 to ptr
   %51 = load i32, ptr %50, align 8, !tbaa !157
-  %52 = and i64 %.fr.i.i, 1
+  %52 = and i64 %.fr17.i.i, 1
   %.not.i.i13 = icmp eq i64 %52, 0
   br i1 %.not.i.i13, label %.split.us.i.i21, label %.split.i.i14
 
@@ -7338,7 +7338,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterI10aig_lit_ltEclI7aig_litPS5_EEbRT_T0_.exit.t
 
 _ZSt25__unguarded_linear_insertIP7aig_litN9__gnu_cxx5__ops14_Val_comp_iterI10aig_lit_ltEEEvT_T0_.exit.i: ; preds = %72, %_ZN9__gnu_cxx5__ops14_Val_comp_iterI10aig_lit_ltEclI7aig_litPS5_EEbRT_T0_.exit.thread.us.i.i22, %.split.us.i.i21
   %.us-phi.i.i = phi ptr [ %.08.i, %.split.us.i.i21 ], [ %.0.us16.i.i23, %_ZN9__gnu_cxx5__ops14_Val_comp_iterI10aig_lit_ltEclI7aig_litPS5_EEbRT_T0_.exit.thread.us.i.i22 ], [ %.09.i.i15, %72 ]
-  %75 = inttoptr i64 %.fr.i.i to ptr
+  %75 = inttoptr i64 %.fr17.i.i to ptr
   store ptr %75, ptr %.us-phi.i.i, align 8, !tbaa !9
   %76 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %.not.i19 = icmp eq ptr %76, %1
@@ -7360,8 +7360,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIP7aig_litlS0_N9__gnu_cxx5__
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread31
-  %.037 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread31 ], [ %1, %4 ]
-  %8 = shl i64 %.037, 1
+  %.036 = phi i64 [ %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread31 ], [ %1, %4 ]
+  %8 = shl i64 %.036, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %class.aig_lit, ptr %0, i64 %9
   %11 = getelementptr %class.aig_lit, ptr %0, i64 %8
@@ -7401,7 +7401,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit: 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread31: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit, %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread
   %31 = phi i64 [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit.thread ], [ %9, %25 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEclIP7aig_litS6_EEbT_T0_.exit ]
   %32 = getelementptr inbounds %class.aig_lit, ptr %0, i64 %31
-  %33 = getelementptr inbounds %class.aig_lit, ptr %0, i64 %.037
+  %33 = getelementptr inbounds %class.aig_lit, ptr %0, i64 %.036
   %34 = load ptr, ptr %32, align 8, !tbaa !9
   store ptr %34, ptr %33, align 8, !tbaa !9
   %35 = icmp slt i64 %31, %6

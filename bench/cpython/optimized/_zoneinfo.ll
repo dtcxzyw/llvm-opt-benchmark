@@ -4914,17 +4914,17 @@ define internal fastcc range(i32 -1, 1) i32 @parse_tz_str(ptr noundef readonly c
 18:                                               ; preds = %15
   %19 = getelementptr i8, ptr %13, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !20
-  %.not3945.i = icmp eq i8 %20, 62
-  br i1 %.not3945.i, label %.thread.i, label %.lr.ph.i
+  %.not3944.i = icmp eq i8 %20, 62
+  br i1 %.not3944.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %26
   %21 = phi i8 [ %28, %26 ], [ %20, %18 ]
-  %.03546.i = phi ptr [ %27, %26 ], [ %19, %18 ]
+  %.03545.i = phi ptr [ %27, %26 ], [ %19, %18 ]
   %22 = zext i8 %21 to i64
   %23 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !10
-  %.fr42.i = freeze i32 %24
-  %25 = and i32 %.fr42.i, 7
+  %.fr.i = freeze i32 %24
+  %25 = and i32 %.fr.i, 7
   %or.cond.i = icmp eq i32 %25, 0
   br i1 %or.cond.i, label %switch.early.test.i, label %26
 
@@ -4935,7 +4935,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   ]
 
 26:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %27 = getelementptr i8, ptr %.03546.i, i64 1
+  %27 = getelementptr i8, ptr %.03545.i, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !20
   %.not39.i = icmp eq i8 %28, 62
   br i1 %.not39.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !130
@@ -5003,17 +5003,17 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 55:                                               ; preds = %52
   %56 = getelementptr i8, ptr %53, i64 1
   %57 = load i8, ptr %56, align 1, !tbaa !20
-  %.not3945.i44 = icmp eq i8 %57, 62
-  br i1 %.not3945.i44, label %.thread.i50, label %.lr.ph.i45
+  %.not3944.i44 = icmp eq i8 %57, 62
+  br i1 %.not3944.i44, label %.thread.i50, label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %55, %63
   %58 = phi i8 [ %65, %63 ], [ %57, %55 ]
-  %.03546.i46 = phi ptr [ %64, %63 ], [ %56, %55 ]
+  %.03545.i46 = phi ptr [ %64, %63 ], [ %56, %55 ]
   %59 = zext i8 %58 to i64
   %60 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !10
-  %.fr42.i47 = freeze i32 %61
-  %62 = and i32 %.fr42.i47, 7
+  %.fr.i47 = freeze i32 %61
+  %62 = and i32 %.fr.i47, 7
   %or.cond.i48 = icmp eq i32 %62, 0
   br i1 %or.cond.i48, label %switch.early.test.i52, label %63
 
@@ -5024,7 +5024,7 @@ switch.early.test.i52:                            ; preds = %.lr.ph.i45
   ]
 
 63:                                               ; preds = %switch.early.test.i52, %switch.early.test.i52, %.lr.ph.i45
-  %64 = getelementptr i8, ptr %.03546.i46, i64 1
+  %64 = getelementptr i8, ptr %.03545.i46, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !20
   %.not39.i49 = icmp eq i8 %65, 62
   br i1 %.not39.i49, label %.thread.i50, label %.lr.ph.i45, !llvm.loop !130

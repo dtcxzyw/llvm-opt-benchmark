@@ -240,17 +240,16 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
 ._crit_edge.i13:                                  ; preds = %105
   %.not116.i = icmp ne i32 %.1102.i, 0
   %107 = icmp slt i32 %.1107.i, %.1102.i
-  %or.cond123.i = select i1 %.not116.i, i1 %107, i1 false
+  %or.cond123.i = and i1 %.not116.i, %107
   %.2111.i = select i1 %or.cond123.i, i32 %.2105.i, i32 %.1110.i
   %.2108.i = select i1 %or.cond123.i, i32 %.1102.i, i32 %.1107.i
-  %.2108.fr.i = freeze i32 %.2108.i
-  %108 = icmp ne i32 %.2108.fr.i, %spec.store.select.i
+  %108 = icmp ne i32 %.2108.i, %spec.store.select.i
   %109 = icmp eq i32 %.2111.i, 0
   %or.cond3.i = select i1 %108, i1 %109, i1 false
   br i1 %or.cond3.i, label %110, label %.lr.ph149.split.us.i
 
 110:                                              ; preds = %._crit_edge.i13
-  switch i32 %.2108.fr.i, label %.lr.ph149.split.us.i [
+  switch i32 %.2108.i, label %.lr.ph149.split.us.i [
     i32 6, label %.lr.ph149.split.split.preheader.i
     i32 5, label %111
     i32 7, label %118
@@ -277,9 +276,9 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   br i1 %or.cond135.i, label %.lr.ph149.split.us.split.preheader.i, label %.lr.ph149.split.split.preheader.i
 
 .lr.ph149.split.us.i:                             ; preds = %110, %._crit_edge.i13
-  %.not119.not182.i = icmp eq i32 %.2108.fr.i, 0
-  %121 = add i32 %.2108.fr.i, %.2111.i
-  br i1 %.not119.not182.i, label %.lr.ph149.split.us.split.us.i, label %.lr.ph149.split.us.split.preheader.i
+  %.not119.not185.i = icmp eq i32 %.2108.i, 0
+  %121 = add i32 %.2111.i, %.2108.i
+  br i1 %.not119.not185.i, label %.lr.ph149.split.us.split.us.i, label %.lr.ph149.split.us.split.preheader.i
 
 .lr.ph149.split.us.split.preheader.i:             ; preds = %111, %118, %.lr.ph149.split.us.i
   %122 = phi i32 [ %121, %.lr.ph149.split.us.i ], [ 7, %118 ], [ 5, %111 ]
@@ -312,8 +311,8 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %136 = getelementptr inbounds nuw i8, ptr %.5.us.us.i, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %.0147.us.us.i, i64 2
   %138 = add nuw nsw i32 %.0112145.us.us.i, 1
-  %exitcond170.not.i = icmp eq i32 %138, %spec.store.select.i
-  br i1 %exitcond170.not.i, label %.loopexit.i14, label %.lr.ph149.split.us.split.us.i, !llvm.loop !6
+  %exitcond173.not.i = icmp eq i32 %138, %spec.store.select.i
+  br i1 %exitcond173.not.i, label %.loopexit.i14, label %.lr.ph149.split.us.split.us.i, !llvm.loop !6
 
 .lr.ph149.split.us.split.i:                       ; preds = %163, %.lr.ph149.split.us.split.preheader.i
   %.0147.us.i = phi ptr [ %.1.us.i, %163 ], [ %6, %.lr.ph149.split.us.split.preheader.i ]
@@ -382,7 +381,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %.0147.i = phi ptr [ %.1.i, %214 ], [ %6, %.lr.ph149.split.split.preheader.i ]
   %.198146.i = phi ptr [ %.4.i15, %214 ], [ %7, %.lr.ph149.split.split.preheader.i ]
   %.0112145.i = phi i32 [ %215, %214 ], [ 0, %.lr.ph149.split.split.preheader.i ]
-  %167 = icmp slt i32 %.0112145.i, %.2108.fr.i
+  %167 = icmp slt i32 %.0112145.i, %.2108.i
   br i1 %167, label %168, label %178
 
 168:                                              ; preds = %.lr.ph149.split.split.i
@@ -467,8 +466,8 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %.4.i15 = phi ptr [ %.3.i17, %176 ], [ %198, %191 ], [ %189, %180 ], [ %212, %202 ]
   %.1.i = phi ptr [ %177, %176 ], [ %193, %191 ], [ %184, %180 ], [ %213, %202 ]
   %215 = add nuw nsw i32 %.0112145.i, 1
-  %exitcond171.not.i = icmp eq i32 %215, %spec.store.select.i
-  br i1 %exitcond171.not.i, label %.loopexit.i14, label %.lr.ph149.split.split.i, !llvm.loop !6
+  %exitcond174.not.i = icmp eq i32 %215, %spec.store.select.i
+  br i1 %exitcond174.not.i, label %.loopexit.i14, label %.lr.ph149.split.split.i, !llvm.loop !6
 
 .loopexit.i14:                                    ; preds = %214, %163, %126, %65
   %.097.i = phi ptr [ %67, %65 ], [ %136, %126 ], [ %.4.us.i, %163 ], [ %.4.i15, %214 ]

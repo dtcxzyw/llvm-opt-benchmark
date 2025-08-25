@@ -4847,8 +4847,8 @@ is_inter_block.exit.thread:                       ; preds = %10, %is_inter_block
 
 22:                                               ; preds = %.preheader, %70
   %23 = phi i1 [ true, %.preheader ], [ false, %70 ]
-  %indvars.iv146 = phi i64 [ 0, %.preheader ], [ 1, %70 ]
-  %24 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 0, i64 %indvars.iv146
+  %indvars.iv149 = phi i64 [ 0, %.preheader ], [ 1, %70 ]
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 0, i64 %indvars.iv149
   %25 = load i8, ptr %24, align 1
   %26 = load i8, ptr %1, align 1
   %27 = icmp eq i8 %25, %26
@@ -4873,41 +4873,41 @@ is_inter_block.exit.thread:                       ; preds = %10, %is_inter_block
   %or.cond5.i.not105 = or i1 %39, %or.cond.i.not108
   %40 = icmp ult i8 %..i, 8
   %narrow.i.not = select i1 %or.cond5.i.not105, i1 true, i1 %40
-  %41 = getelementptr inbounds nuw [2 x %union.int_mv], ptr %21, i64 0, i64 %indvars.iv146
+  %41 = getelementptr inbounds nuw [2 x %union.int_mv], ptr %21, i64 0, i64 %indvars.iv149
   %.sroa.01.0.in = select i1 %narrow.i.not, ptr %41, ptr %7
   %.sroa.01.0 = load i32, ptr %.sroa.01.0.in, align 4
   %42 = load i8, ptr %2, align 1
-  %.not125 = icmp eq i8 %42, 0
-  br i1 %.not125, label %.loopexit, label %.lr.ph122.preheader
+  %.not128 = icmp eq i8 %42, 0
+  br i1 %.not128, label %.loopexit, label %.lr.ph122.preheader
 
 .lr.ph122.preheader:                              ; preds = %28
   %43 = zext i8 %42 to i32
-  %wide.trip.count144 = zext i8 %42 to i64
+  %wide.trip.count147 = zext i8 %42 to i64
   br label %.lr.ph122
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %52
-  %indvars.iv141 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next142, %52 ]
-  %44 = getelementptr inbounds nuw %struct.candidate_mv, ptr %5, i64 %indvars.iv141
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next145, %52 ]
+  %44 = getelementptr inbounds nuw %struct.candidate_mv, ptr %5, i64 %indvars.iv144
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %.sroa.01.0
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %.lr.ph122
-  %48 = trunc nuw nsw i64 %indvars.iv141 to i32
-  %49 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv141
+  %48 = trunc nuw nsw i64 %indvars.iv144 to i32
+  %49 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv144
   %50 = load i16, ptr %49, align 2
   %51 = add i16 %50, %9
   store i16 %51, ptr %49, align 2
-  %.pre149 = load i8, ptr %2, align 1
+  %.pre152 = load i8, ptr %2, align 1
   br label %.loopexit
 
 52:                                               ; preds = %.lr.ph122
-  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
-  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
-  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph122, !llvm.loop !58
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
+  %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
+  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph122, !llvm.loop !58
 
 .loopexit:                                        ; preds = %52, %28, %47
-  %53 = phi i8 [ %.pre149, %47 ], [ 0, %28 ], [ %42, %52 ]
+  %53 = phi i8 [ %.pre152, %47 ], [ 0, %28 ], [ %42, %52 ]
   %.0115 = phi i32 [ %48, %47 ], [ 0, %28 ], [ %43, %52 ]
   %54 = zext i8 %53 to i32
   %55 = icmp eq i32 %.0115, %54
@@ -4968,20 +4968,21 @@ have_newmv_in_inter_mode.exit.thread:             ; preds = %63, %63, %63, %63, 
   %.val86 = load i8, ptr %0, align 8
   %79 = getelementptr i8, ptr %0, i64 2
   %.val87 = load i8, ptr %79, align 2
+  %.val87.fr = freeze i8 %.val87
   %80 = zext i8 %.val86 to i64
   %81 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %80
   %82 = load i8, ptr %81, align 1
   %83 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %80
   %84 = load i8, ptr %83, align 1
-  %..i88 = tail call i8 @llvm.umin.i8(i8 %82, i8 %84)
-  %85 = icmp ne i8 %.val87, 15
-  %86 = icmp ne i8 %.val87, 23
+  %.fr125 = freeze i8 %82
+  %.fr126 = freeze i8 %84
+  %..i88 = tail call i8 @llvm.umin.i8(i8 %.fr125, i8 %.fr126)
+  %85 = icmp ne i8 %.val87.fr, 15
+  %86 = icmp ne i8 %.val87.fr, 23
   %or.cond.i89.not102 = and i1 %85, %86
-  %..i88.fr = freeze i8 %..i88
-  %87 = icmp ult i8 %..i88.fr, 8
+  %87 = icmp ult i8 %..i88, 8
   %88 = getelementptr i8, ptr %0, i64 8
-  %or.cond.i89.not102.fr = freeze i1 %or.cond.i89.not102
-  %89 = or i1 %87, %or.cond.i89.not102.fr
+  %89 = or i1 %87, %or.cond.i89.not102
   br i1 %89, label %.preheader113.split.us.preheader, label %.preheader113.split
 
 .preheader113.split.us.preheader:                 ; preds = %.preheader113
@@ -5022,8 +5023,8 @@ have_newmv_in_inter_mode.exit.thread:             ; preds = %63, %63, %63, %63, 
   br i1 %94, label %.preheader113.split, label %.preheader111, !llvm.loop !60
 
 103:                                              ; preds = %.lr.ph, %116
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next139, %116 ]
-  %104 = getelementptr inbounds nuw %struct.candidate_mv, ptr %5, i64 %indvars.iv138
+  %indvars.iv141 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next142, %116 ]
+  %104 = getelementptr inbounds nuw %struct.candidate_mv, ptr %5, i64 %indvars.iv141
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, %.sroa.0.0..sroa.0.0.
   br i1 %106, label %107, label %116
@@ -5035,8 +5036,8 @@ have_newmv_in_inter_mode.exit.thread:             ; preds = %63, %63, %63, %63, 
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %107
-  %112 = trunc nuw nsw i64 %indvars.iv138 to i32
-  %113 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv138
+  %112 = trunc nuw nsw i64 %indvars.iv141 to i32
+  %113 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv141
   %114 = load i16, ptr %113, align 2
   %115 = add i16 %114, %9
   store i16 %115, ptr %113, align 2
@@ -5044,8 +5045,8 @@ have_newmv_in_inter_mode.exit.thread:             ; preds = %63, %63, %63, %63, 
   br label %.loopexit112
 
 116:                                              ; preds = %103, %107
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit112, label %103, !llvm.loop !61
 
 .loopexit112:                                     ; preds = %116, %.preheader111, %111
@@ -5060,11 +5061,11 @@ have_newmv_in_inter_mode.exit.thread:             ; preds = %63, %63, %63, %63, 
 121:                                              ; preds = %.loopexit112
   %122 = zext nneg i32 %.1117 to i64
   %123 = getelementptr inbounds nuw %struct.candidate_mv, ptr %5, i64 %122
-  %.sroa.0.0..sroa.0.0.161 = load i32, ptr %.sroa.0, align 8
-  store i32 %.sroa.0.0..sroa.0.0.161, ptr %123, align 4
+  %.sroa.0.0..sroa.0.0.164 = load i32, ptr %.sroa.0, align 8
+  store i32 %.sroa.0.0..sroa.0.0.164, ptr %123, align 4
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %.sroa.4.0..sroa.4.4.162 = load i32, ptr %.sroa.4, align 4
-  store i32 %.sroa.4.0..sroa.4.4.162, ptr %124, align 4
+  %.sroa.4.0..sroa.4.4.165 = load i32, ptr %.sroa.4, align 4
+  store i32 %.sroa.4.0..sroa.4.4.165, ptr %124, align 4
   %125 = getelementptr inbounds nuw i16, ptr %6, i64 %122
   store i16 %9, ptr %125, align 2
   %126 = load i8, ptr %2, align 1

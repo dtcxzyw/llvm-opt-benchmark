@@ -38239,9 +38239,9 @@ _ZN4core3ops8function6FnOnce9call_once17h3c7a7630d0f5ce3bE.exit.i: ; preds = %16
           to label %165 unwind label %.thread114.i
 
 165:                                              ; preds = %163
-  %.fr145.i = freeze { i64, ptr } %164
-  %166 = extractvalue { i64, ptr } %.fr145.i, 0
-  %167 = extractvalue { i64, ptr } %.fr145.i, 1
+  %.fr.i = freeze { i64, ptr } %164
+  %166 = extractvalue { i64, ptr } %.fr.i, 0
+  %167 = extractvalue { i64, ptr } %.fr.i, 1
   %168 = icmp eq i64 %166, 17
   %.sroa.2.0.insert.insert.i.i.i = select i1 %168, i64 4445291151360, i64 4449586118656
   %169 = icmp eq i64 %166, 36
@@ -42739,12 +42739,11 @@ define internal fastcc range(i64 17592186044416, 21990232555521) i64 @"_ZN3ide19
   %46 = zext nneg i8 %45 to i32
   %47 = or disjoint i32 %44, %46
   %48 = or disjoint i32 %47, %43
-  %.fr = freeze i32 %48
-  %49 = icmp eq i32 %.fr, 1114112
+  %49 = icmp eq i32 %48, 1114112
   br i1 %49, label %.critedge19, label %.thread7
 
 .thread7:                                         ; preds = %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit13.i", %38
-  %50 = phi i32 [ %.fr, %38 ], [ %27, %26 ], [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit13.i" ]
+  %50 = phi i32 [ %48, %38 ], [ %27, %26 ], [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit15.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.exit13.i" ]
   %51 = add nsw i32 %50, -65
   %or.cond = icmp ult i32 %51, 26
   br i1 %or.cond, label %.critedge, label %52

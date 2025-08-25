@@ -24879,8 +24879,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %3
   %19 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i7, i64 noundef %18) #11
   tail call void @lean_inc_heartbeat() #11
   %20 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr25 = freeze ptr %20
-  %21 = icmp eq ptr %.fr25, null
+  %.fr22 = freeze ptr %20
+  %21 = icmp eq ptr %.fr22, null
   br i1 %21, label %22, label %l_Lean_Name_str___override.exit8
 
 22:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24888,16 +24888,16 @@ l_Lean_Name_str___override.exit:                  ; preds = %3
   unreachable
 
 l_Lean_Name_str___override.exit8:                 ; preds = %l_Lean_Name_str___override.exit
-  %23 = getelementptr inbounds nuw i8, ptr %.fr25, i64 4
-  store i32 1, ptr %.fr25, align 4, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %.fr22, i64 4
+  store i32 1, ptr %.fr22, align 4, !tbaa !4
   store i32 16908320, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %.fr25, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.fr22, i64 8
   store ptr %.fr, ptr %24, align 8, !tbaa !10
-  %25 = getelementptr inbounds nuw i8, ptr %.fr25, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.fr22, i64 16
   store ptr %1, ptr %25, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw i8, ptr %.fr25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.fr22, i64 24
   store i64 %19, ptr %26, align 8, !tbaa !17
-  %27 = ptrtoint ptr %.fr25 to i64
+  %27 = ptrtoint ptr %.fr22 to i64
   %28 = and i64 %27, 1
   %.not.i.i.i9 = icmp eq i64 %28, 0
   %29 = and i64 %27, 8589934590
@@ -24921,7 +24921,7 @@ l_Lean_Name_str___override.exit15:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %34, align 4, !tbaa !4
   store i32 16908320, ptr %37, align 4
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %.fr25, ptr %38, align 8, !tbaa !10
+  store ptr %.fr22, ptr %38, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %2, ptr %39, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -24966,8 +24966,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %4
   %20 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i9, i64 noundef %19) #11
   tail call void @lean_inc_heartbeat() #11
   %21 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr38 = freeze ptr %21
-  %22 = icmp eq ptr %.fr38, null
+  %.fr35 = freeze ptr %21
+  %22 = icmp eq ptr %.fr35, null
   br i1 %22, label %23, label %l_Lean_Name_str___override.exit10
 
 23:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -24975,16 +24975,16 @@ l_Lean_Name_str___override.exit:                  ; preds = %4
   unreachable
 
 l_Lean_Name_str___override.exit10:                ; preds = %l_Lean_Name_str___override.exit
-  %24 = getelementptr inbounds nuw i8, ptr %.fr38, i64 4
-  store i32 1, ptr %.fr38, align 4, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %.fr35, i64 4
+  store i32 1, ptr %.fr35, align 4, !tbaa !4
   store i32 16908320, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %.fr38, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.fr35, i64 8
   store ptr %.fr, ptr %25, align 8, !tbaa !10
-  %26 = getelementptr inbounds nuw i8, ptr %.fr38, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.fr35, i64 16
   store ptr %1, ptr %26, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i8, ptr %.fr38, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.fr35, i64 24
   store i64 %20, ptr %27, align 8, !tbaa !17
-  %28 = ptrtoint ptr %.fr38 to i64
+  %28 = ptrtoint ptr %.fr35 to i64
   %29 = and i64 %28, 1
   %.not.i.i.i11 = icmp eq i64 %29, 0
   %30 = and i64 %28, 8589934590
@@ -24996,8 +24996,8 @@ l_Lean_Name_str___override.exit10:                ; preds = %l_Lean_Name_str___o
   %34 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i15, i64 noundef %33) #11
   tail call void @lean_inc_heartbeat() #11
   %35 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr41 = freeze ptr %35
-  %36 = icmp eq ptr %.fr41, null
+  %.fr36 = freeze ptr %35
+  %36 = icmp eq ptr %.fr36, null
   br i1 %36, label %37, label %l_Lean_Name_str___override.exit17
 
 37:                                               ; preds = %l_Lean_Name_str___override.exit10
@@ -25005,16 +25005,16 @@ l_Lean_Name_str___override.exit10:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit17:                ; preds = %l_Lean_Name_str___override.exit10
-  %38 = getelementptr inbounds nuw i8, ptr %.fr41, i64 4
-  store i32 1, ptr %.fr41, align 4, !tbaa !4
+  %38 = getelementptr inbounds nuw i8, ptr %.fr36, i64 4
+  store i32 1, ptr %.fr36, align 4, !tbaa !4
   store i32 16908320, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.fr41, i64 8
-  store ptr %.fr38, ptr %39, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw i8, ptr %.fr41, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.fr36, i64 8
+  store ptr %.fr35, ptr %39, align 8, !tbaa !10
+  %40 = getelementptr inbounds nuw i8, ptr %.fr36, i64 16
   store ptr %2, ptr %40, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw i8, ptr %.fr41, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.fr36, i64 24
   store i64 %34, ptr %41, align 8, !tbaa !17
-  %42 = ptrtoint ptr %.fr41 to i64
+  %42 = ptrtoint ptr %.fr36 to i64
   %43 = and i64 %42, 1
   %.not.i.i.i18 = icmp eq i64 %43, 0
   %44 = and i64 %42, 8589934590
@@ -25038,7 +25038,7 @@ l_Lean_Name_str___override.exit24:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %49, align 4, !tbaa !4
   store i32 16908320, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %.fr41, ptr %53, align 8, !tbaa !10
+  store ptr %.fr36, ptr %53, align 8, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %3, ptr %54, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -25083,8 +25083,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %5
   %21 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i11, i64 noundef %20) #11
   tail call void @lean_inc_heartbeat() #11
   %22 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr51 = freeze ptr %22
-  %23 = icmp eq ptr %.fr51, null
+  %.fr48 = freeze ptr %22
+  %23 = icmp eq ptr %.fr48, null
   br i1 %23, label %24, label %l_Lean_Name_str___override.exit12
 
 24:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -25092,16 +25092,16 @@ l_Lean_Name_str___override.exit:                  ; preds = %5
   unreachable
 
 l_Lean_Name_str___override.exit12:                ; preds = %l_Lean_Name_str___override.exit
-  %25 = getelementptr inbounds nuw i8, ptr %.fr51, i64 4
-  store i32 1, ptr %.fr51, align 4, !tbaa !4
+  %25 = getelementptr inbounds nuw i8, ptr %.fr48, i64 4
+  store i32 1, ptr %.fr48, align 4, !tbaa !4
   store i32 16908320, ptr %25, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %.fr51, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.fr48, i64 8
   store ptr %.fr, ptr %26, align 8, !tbaa !10
-  %27 = getelementptr inbounds nuw i8, ptr %.fr51, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.fr48, i64 16
   store ptr %1, ptr %27, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw i8, ptr %.fr51, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.fr48, i64 24
   store i64 %21, ptr %28, align 8, !tbaa !17
-  %29 = ptrtoint ptr %.fr51 to i64
+  %29 = ptrtoint ptr %.fr48 to i64
   %30 = and i64 %29, 1
   %.not.i.i.i13 = icmp eq i64 %30, 0
   %31 = and i64 %29, 8589934590
@@ -25113,8 +25113,8 @@ l_Lean_Name_str___override.exit12:                ; preds = %l_Lean_Name_str___o
   %35 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i17, i64 noundef %34) #11
   tail call void @lean_inc_heartbeat() #11
   %36 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr54 = freeze ptr %36
-  %37 = icmp eq ptr %.fr54, null
+  %.fr49 = freeze ptr %36
+  %37 = icmp eq ptr %.fr49, null
   br i1 %37, label %38, label %l_Lean_Name_str___override.exit19
 
 38:                                               ; preds = %l_Lean_Name_str___override.exit12
@@ -25122,16 +25122,16 @@ l_Lean_Name_str___override.exit12:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit19:                ; preds = %l_Lean_Name_str___override.exit12
-  %39 = getelementptr inbounds nuw i8, ptr %.fr54, i64 4
-  store i32 1, ptr %.fr54, align 4, !tbaa !4
+  %39 = getelementptr inbounds nuw i8, ptr %.fr49, i64 4
+  store i32 1, ptr %.fr49, align 4, !tbaa !4
   store i32 16908320, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %.fr54, i64 8
-  store ptr %.fr51, ptr %40, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw i8, ptr %.fr54, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.fr49, i64 8
+  store ptr %.fr48, ptr %40, align 8, !tbaa !10
+  %41 = getelementptr inbounds nuw i8, ptr %.fr49, i64 16
   store ptr %2, ptr %41, align 8, !tbaa !10
-  %42 = getelementptr inbounds nuw i8, ptr %.fr54, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %.fr49, i64 24
   store i64 %35, ptr %42, align 8, !tbaa !17
-  %43 = ptrtoint ptr %.fr54 to i64
+  %43 = ptrtoint ptr %.fr49 to i64
   %44 = and i64 %43, 1
   %.not.i.i.i20 = icmp eq i64 %44, 0
   %45 = and i64 %43, 8589934590
@@ -25143,8 +25143,8 @@ l_Lean_Name_str___override.exit19:                ; preds = %l_Lean_Name_str___o
   %49 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i24, i64 noundef %48) #11
   tail call void @lean_inc_heartbeat() #11
   %50 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr57 = freeze ptr %50
-  %51 = icmp eq ptr %.fr57, null
+  %.fr50 = freeze ptr %50
+  %51 = icmp eq ptr %.fr50, null
   br i1 %51, label %52, label %l_Lean_Name_str___override.exit26
 
 52:                                               ; preds = %l_Lean_Name_str___override.exit19
@@ -25152,16 +25152,16 @@ l_Lean_Name_str___override.exit19:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit26:                ; preds = %l_Lean_Name_str___override.exit19
-  %53 = getelementptr inbounds nuw i8, ptr %.fr57, i64 4
-  store i32 1, ptr %.fr57, align 4, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %.fr50, i64 4
+  store i32 1, ptr %.fr50, align 4, !tbaa !4
   store i32 16908320, ptr %53, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %.fr57, i64 8
-  store ptr %.fr54, ptr %54, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw i8, ptr %.fr57, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.fr50, i64 8
+  store ptr %.fr49, ptr %54, align 8, !tbaa !10
+  %55 = getelementptr inbounds nuw i8, ptr %.fr50, i64 16
   store ptr %3, ptr %55, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw i8, ptr %.fr57, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.fr50, i64 24
   store i64 %49, ptr %56, align 8, !tbaa !17
-  %57 = ptrtoint ptr %.fr57 to i64
+  %57 = ptrtoint ptr %.fr50 to i64
   %58 = and i64 %57, 1
   %.not.i.i.i27 = icmp eq i64 %58, 0
   %59 = and i64 %57, 8589934590
@@ -25185,7 +25185,7 @@ l_Lean_Name_str___override.exit33:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %64, align 4, !tbaa !4
   store i32 16908320, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %.fr57, ptr %68, align 8, !tbaa !10
+  store ptr %.fr50, ptr %68, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %4, ptr %69, align 8, !tbaa !10
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 24
@@ -25230,8 +25230,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %6
   %22 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i13, i64 noundef %21) #11
   tail call void @lean_inc_heartbeat() #11
   %23 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr64 = freeze ptr %23
-  %24 = icmp eq ptr %.fr64, null
+  %.fr61 = freeze ptr %23
+  %24 = icmp eq ptr %.fr61, null
   br i1 %24, label %25, label %l_Lean_Name_str___override.exit14
 
 25:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -25239,16 +25239,16 @@ l_Lean_Name_str___override.exit:                  ; preds = %6
   unreachable
 
 l_Lean_Name_str___override.exit14:                ; preds = %l_Lean_Name_str___override.exit
-  %26 = getelementptr inbounds nuw i8, ptr %.fr64, i64 4
-  store i32 1, ptr %.fr64, align 4, !tbaa !4
+  %26 = getelementptr inbounds nuw i8, ptr %.fr61, i64 4
+  store i32 1, ptr %.fr61, align 4, !tbaa !4
   store i32 16908320, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.fr64, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.fr61, i64 8
   store ptr %.fr, ptr %27, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw i8, ptr %.fr64, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.fr61, i64 16
   store ptr %1, ptr %28, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %.fr64, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.fr61, i64 24
   store i64 %22, ptr %29, align 8, !tbaa !17
-  %30 = ptrtoint ptr %.fr64 to i64
+  %30 = ptrtoint ptr %.fr61 to i64
   %31 = and i64 %30, 1
   %.not.i.i.i15 = icmp eq i64 %31, 0
   %32 = and i64 %30, 8589934590
@@ -25260,8 +25260,8 @@ l_Lean_Name_str___override.exit14:                ; preds = %l_Lean_Name_str___o
   %36 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i19, i64 noundef %35) #11
   tail call void @lean_inc_heartbeat() #11
   %37 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr67 = freeze ptr %37
-  %38 = icmp eq ptr %.fr67, null
+  %.fr62 = freeze ptr %37
+  %38 = icmp eq ptr %.fr62, null
   br i1 %38, label %39, label %l_Lean_Name_str___override.exit21
 
 39:                                               ; preds = %l_Lean_Name_str___override.exit14
@@ -25269,16 +25269,16 @@ l_Lean_Name_str___override.exit14:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit21:                ; preds = %l_Lean_Name_str___override.exit14
-  %40 = getelementptr inbounds nuw i8, ptr %.fr67, i64 4
-  store i32 1, ptr %.fr67, align 4, !tbaa !4
+  %40 = getelementptr inbounds nuw i8, ptr %.fr62, i64 4
+  store i32 1, ptr %.fr62, align 4, !tbaa !4
   store i32 16908320, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %.fr67, i64 8
-  store ptr %.fr64, ptr %41, align 8, !tbaa !10
-  %42 = getelementptr inbounds nuw i8, ptr %.fr67, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.fr62, i64 8
+  store ptr %.fr61, ptr %41, align 8, !tbaa !10
+  %42 = getelementptr inbounds nuw i8, ptr %.fr62, i64 16
   store ptr %2, ptr %42, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw i8, ptr %.fr67, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.fr62, i64 24
   store i64 %36, ptr %43, align 8, !tbaa !17
-  %44 = ptrtoint ptr %.fr67 to i64
+  %44 = ptrtoint ptr %.fr62 to i64
   %45 = and i64 %44, 1
   %.not.i.i.i22 = icmp eq i64 %45, 0
   %46 = and i64 %44, 8589934590
@@ -25290,8 +25290,8 @@ l_Lean_Name_str___override.exit21:                ; preds = %l_Lean_Name_str___o
   %50 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i26, i64 noundef %49) #11
   tail call void @lean_inc_heartbeat() #11
   %51 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr70 = freeze ptr %51
-  %52 = icmp eq ptr %.fr70, null
+  %.fr63 = freeze ptr %51
+  %52 = icmp eq ptr %.fr63, null
   br i1 %52, label %53, label %l_Lean_Name_str___override.exit28
 
 53:                                               ; preds = %l_Lean_Name_str___override.exit21
@@ -25299,16 +25299,16 @@ l_Lean_Name_str___override.exit21:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit28:                ; preds = %l_Lean_Name_str___override.exit21
-  %54 = getelementptr inbounds nuw i8, ptr %.fr70, i64 4
-  store i32 1, ptr %.fr70, align 4, !tbaa !4
+  %54 = getelementptr inbounds nuw i8, ptr %.fr63, i64 4
+  store i32 1, ptr %.fr63, align 4, !tbaa !4
   store i32 16908320, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.fr70, i64 8
-  store ptr %.fr67, ptr %55, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw i8, ptr %.fr70, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.fr63, i64 8
+  store ptr %.fr62, ptr %55, align 8, !tbaa !10
+  %56 = getelementptr inbounds nuw i8, ptr %.fr63, i64 16
   store ptr %3, ptr %56, align 8, !tbaa !10
-  %57 = getelementptr inbounds nuw i8, ptr %.fr70, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %.fr63, i64 24
   store i64 %50, ptr %57, align 8, !tbaa !17
-  %58 = ptrtoint ptr %.fr70 to i64
+  %58 = ptrtoint ptr %.fr63 to i64
   %59 = and i64 %58, 1
   %.not.i.i.i29 = icmp eq i64 %59, 0
   %60 = and i64 %58, 8589934590
@@ -25320,8 +25320,8 @@ l_Lean_Name_str___override.exit28:                ; preds = %l_Lean_Name_str___o
   %64 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i33, i64 noundef %63) #11
   tail call void @lean_inc_heartbeat() #11
   %65 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr73 = freeze ptr %65
-  %66 = icmp eq ptr %.fr73, null
+  %.fr64 = freeze ptr %65
+  %66 = icmp eq ptr %.fr64, null
   br i1 %66, label %67, label %l_Lean_Name_str___override.exit35
 
 67:                                               ; preds = %l_Lean_Name_str___override.exit28
@@ -25329,16 +25329,16 @@ l_Lean_Name_str___override.exit28:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit35:                ; preds = %l_Lean_Name_str___override.exit28
-  %68 = getelementptr inbounds nuw i8, ptr %.fr73, i64 4
-  store i32 1, ptr %.fr73, align 4, !tbaa !4
+  %68 = getelementptr inbounds nuw i8, ptr %.fr64, i64 4
+  store i32 1, ptr %.fr64, align 4, !tbaa !4
   store i32 16908320, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %.fr73, i64 8
-  store ptr %.fr70, ptr %69, align 8, !tbaa !10
-  %70 = getelementptr inbounds nuw i8, ptr %.fr73, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.fr64, i64 8
+  store ptr %.fr63, ptr %69, align 8, !tbaa !10
+  %70 = getelementptr inbounds nuw i8, ptr %.fr64, i64 16
   store ptr %4, ptr %70, align 8, !tbaa !10
-  %71 = getelementptr inbounds nuw i8, ptr %.fr73, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.fr64, i64 24
   store i64 %64, ptr %71, align 8, !tbaa !17
-  %72 = ptrtoint ptr %.fr73 to i64
+  %72 = ptrtoint ptr %.fr64 to i64
   %73 = and i64 %72, 1
   %.not.i.i.i36 = icmp eq i64 %73, 0
   %74 = and i64 %72, 8589934590
@@ -25362,7 +25362,7 @@ l_Lean_Name_str___override.exit42:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %79, align 4, !tbaa !4
   store i32 16908320, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %.fr73, ptr %83, align 8, !tbaa !10
+  store ptr %.fr64, ptr %83, align 8, !tbaa !10
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %5, ptr %84, align 8, !tbaa !10
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 24
@@ -25407,8 +25407,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %7
   %23 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i15, i64 noundef %22) #11
   tail call void @lean_inc_heartbeat() #11
   %24 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr77 = freeze ptr %24
-  %25 = icmp eq ptr %.fr77, null
+  %.fr74 = freeze ptr %24
+  %25 = icmp eq ptr %.fr74, null
   br i1 %25, label %26, label %l_Lean_Name_str___override.exit16
 
 26:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -25416,16 +25416,16 @@ l_Lean_Name_str___override.exit:                  ; preds = %7
   unreachable
 
 l_Lean_Name_str___override.exit16:                ; preds = %l_Lean_Name_str___override.exit
-  %27 = getelementptr inbounds nuw i8, ptr %.fr77, i64 4
-  store i32 1, ptr %.fr77, align 4, !tbaa !4
+  %27 = getelementptr inbounds nuw i8, ptr %.fr74, i64 4
+  store i32 1, ptr %.fr74, align 4, !tbaa !4
   store i32 16908320, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.fr77, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.fr74, i64 8
   store ptr %.fr, ptr %28, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw i8, ptr %.fr77, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.fr74, i64 16
   store ptr %1, ptr %29, align 8, !tbaa !10
-  %30 = getelementptr inbounds nuw i8, ptr %.fr77, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.fr74, i64 24
   store i64 %23, ptr %30, align 8, !tbaa !17
-  %31 = ptrtoint ptr %.fr77 to i64
+  %31 = ptrtoint ptr %.fr74 to i64
   %32 = and i64 %31, 1
   %.not.i.i.i17 = icmp eq i64 %32, 0
   %33 = and i64 %31, 8589934590
@@ -25437,8 +25437,8 @@ l_Lean_Name_str___override.exit16:                ; preds = %l_Lean_Name_str___o
   %37 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i21, i64 noundef %36) #11
   tail call void @lean_inc_heartbeat() #11
   %38 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr80 = freeze ptr %38
-  %39 = icmp eq ptr %.fr80, null
+  %.fr75 = freeze ptr %38
+  %39 = icmp eq ptr %.fr75, null
   br i1 %39, label %40, label %l_Lean_Name_str___override.exit23
 
 40:                                               ; preds = %l_Lean_Name_str___override.exit16
@@ -25446,16 +25446,16 @@ l_Lean_Name_str___override.exit16:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit23:                ; preds = %l_Lean_Name_str___override.exit16
-  %41 = getelementptr inbounds nuw i8, ptr %.fr80, i64 4
-  store i32 1, ptr %.fr80, align 4, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.fr75, i64 4
+  store i32 1, ptr %.fr75, align 4, !tbaa !4
   store i32 16908320, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %.fr80, i64 8
-  store ptr %.fr77, ptr %42, align 8, !tbaa !10
-  %43 = getelementptr inbounds nuw i8, ptr %.fr80, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.fr75, i64 8
+  store ptr %.fr74, ptr %42, align 8, !tbaa !10
+  %43 = getelementptr inbounds nuw i8, ptr %.fr75, i64 16
   store ptr %2, ptr %43, align 8, !tbaa !10
-  %44 = getelementptr inbounds nuw i8, ptr %.fr80, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.fr75, i64 24
   store i64 %37, ptr %44, align 8, !tbaa !17
-  %45 = ptrtoint ptr %.fr80 to i64
+  %45 = ptrtoint ptr %.fr75 to i64
   %46 = and i64 %45, 1
   %.not.i.i.i24 = icmp eq i64 %46, 0
   %47 = and i64 %45, 8589934590
@@ -25467,8 +25467,8 @@ l_Lean_Name_str___override.exit23:                ; preds = %l_Lean_Name_str___o
   %51 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i28, i64 noundef %50) #11
   tail call void @lean_inc_heartbeat() #11
   %52 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr83 = freeze ptr %52
-  %53 = icmp eq ptr %.fr83, null
+  %.fr76 = freeze ptr %52
+  %53 = icmp eq ptr %.fr76, null
   br i1 %53, label %54, label %l_Lean_Name_str___override.exit30
 
 54:                                               ; preds = %l_Lean_Name_str___override.exit23
@@ -25476,16 +25476,16 @@ l_Lean_Name_str___override.exit23:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit30:                ; preds = %l_Lean_Name_str___override.exit23
-  %55 = getelementptr inbounds nuw i8, ptr %.fr83, i64 4
-  store i32 1, ptr %.fr83, align 4, !tbaa !4
+  %55 = getelementptr inbounds nuw i8, ptr %.fr76, i64 4
+  store i32 1, ptr %.fr76, align 4, !tbaa !4
   store i32 16908320, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.fr83, i64 8
-  store ptr %.fr80, ptr %56, align 8, !tbaa !10
-  %57 = getelementptr inbounds nuw i8, ptr %.fr83, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.fr76, i64 8
+  store ptr %.fr75, ptr %56, align 8, !tbaa !10
+  %57 = getelementptr inbounds nuw i8, ptr %.fr76, i64 16
   store ptr %3, ptr %57, align 8, !tbaa !10
-  %58 = getelementptr inbounds nuw i8, ptr %.fr83, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.fr76, i64 24
   store i64 %51, ptr %58, align 8, !tbaa !17
-  %59 = ptrtoint ptr %.fr83 to i64
+  %59 = ptrtoint ptr %.fr76 to i64
   %60 = and i64 %59, 1
   %.not.i.i.i31 = icmp eq i64 %60, 0
   %61 = and i64 %59, 8589934590
@@ -25497,8 +25497,8 @@ l_Lean_Name_str___override.exit30:                ; preds = %l_Lean_Name_str___o
   %65 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i35, i64 noundef %64) #11
   tail call void @lean_inc_heartbeat() #11
   %66 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr86 = freeze ptr %66
-  %67 = icmp eq ptr %.fr86, null
+  %.fr77 = freeze ptr %66
+  %67 = icmp eq ptr %.fr77, null
   br i1 %67, label %68, label %l_Lean_Name_str___override.exit37
 
 68:                                               ; preds = %l_Lean_Name_str___override.exit30
@@ -25506,16 +25506,16 @@ l_Lean_Name_str___override.exit30:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit37:                ; preds = %l_Lean_Name_str___override.exit30
-  %69 = getelementptr inbounds nuw i8, ptr %.fr86, i64 4
-  store i32 1, ptr %.fr86, align 4, !tbaa !4
+  %69 = getelementptr inbounds nuw i8, ptr %.fr77, i64 4
+  store i32 1, ptr %.fr77, align 4, !tbaa !4
   store i32 16908320, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %.fr86, i64 8
-  store ptr %.fr83, ptr %70, align 8, !tbaa !10
-  %71 = getelementptr inbounds nuw i8, ptr %.fr86, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.fr77, i64 8
+  store ptr %.fr76, ptr %70, align 8, !tbaa !10
+  %71 = getelementptr inbounds nuw i8, ptr %.fr77, i64 16
   store ptr %4, ptr %71, align 8, !tbaa !10
-  %72 = getelementptr inbounds nuw i8, ptr %.fr86, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.fr77, i64 24
   store i64 %65, ptr %72, align 8, !tbaa !17
-  %73 = ptrtoint ptr %.fr86 to i64
+  %73 = ptrtoint ptr %.fr77 to i64
   %74 = and i64 %73, 1
   %.not.i.i.i38 = icmp eq i64 %74, 0
   %75 = and i64 %73, 8589934590
@@ -25527,8 +25527,8 @@ l_Lean_Name_str___override.exit37:                ; preds = %l_Lean_Name_str___o
   %79 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i42, i64 noundef %78) #11
   tail call void @lean_inc_heartbeat() #11
   %80 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr89 = freeze ptr %80
-  %81 = icmp eq ptr %.fr89, null
+  %.fr78 = freeze ptr %80
+  %81 = icmp eq ptr %.fr78, null
   br i1 %81, label %82, label %l_Lean_Name_str___override.exit44
 
 82:                                               ; preds = %l_Lean_Name_str___override.exit37
@@ -25536,16 +25536,16 @@ l_Lean_Name_str___override.exit37:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit44:                ; preds = %l_Lean_Name_str___override.exit37
-  %83 = getelementptr inbounds nuw i8, ptr %.fr89, i64 4
-  store i32 1, ptr %.fr89, align 4, !tbaa !4
+  %83 = getelementptr inbounds nuw i8, ptr %.fr78, i64 4
+  store i32 1, ptr %.fr78, align 4, !tbaa !4
   store i32 16908320, ptr %83, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %.fr89, i64 8
-  store ptr %.fr86, ptr %84, align 8, !tbaa !10
-  %85 = getelementptr inbounds nuw i8, ptr %.fr89, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.fr78, i64 8
+  store ptr %.fr77, ptr %84, align 8, !tbaa !10
+  %85 = getelementptr inbounds nuw i8, ptr %.fr78, i64 16
   store ptr %5, ptr %85, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw i8, ptr %.fr89, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.fr78, i64 24
   store i64 %79, ptr %86, align 8, !tbaa !17
-  %87 = ptrtoint ptr %.fr89 to i64
+  %87 = ptrtoint ptr %.fr78 to i64
   %88 = and i64 %87, 1
   %.not.i.i.i45 = icmp eq i64 %88, 0
   %89 = and i64 %87, 8589934590
@@ -25569,7 +25569,7 @@ l_Lean_Name_str___override.exit51:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %94, align 4, !tbaa !4
   store i32 16908320, ptr %97, align 4
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store ptr %.fr89, ptr %98, align 8, !tbaa !10
+  store ptr %.fr78, ptr %98, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store ptr %6, ptr %99, align 8, !tbaa !10
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 24
@@ -25614,8 +25614,8 @@ l_Lean_Name_str___override.exit:                  ; preds = %8
   %24 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i17, i64 noundef %23) #11
   tail call void @lean_inc_heartbeat() #11
   %25 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr90 = freeze ptr %25
-  %26 = icmp eq ptr %.fr90, null
+  %.fr87 = freeze ptr %25
+  %26 = icmp eq ptr %.fr87, null
   br i1 %26, label %27, label %l_Lean_Name_str___override.exit18
 
 27:                                               ; preds = %l_Lean_Name_str___override.exit
@@ -25623,16 +25623,16 @@ l_Lean_Name_str___override.exit:                  ; preds = %8
   unreachable
 
 l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___override.exit
-  %28 = getelementptr inbounds nuw i8, ptr %.fr90, i64 4
-  store i32 1, ptr %.fr90, align 4, !tbaa !4
+  %28 = getelementptr inbounds nuw i8, ptr %.fr87, i64 4
+  store i32 1, ptr %.fr87, align 4, !tbaa !4
   store i32 16908320, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %.fr90, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.fr87, i64 8
   store ptr %.fr, ptr %29, align 8, !tbaa !10
-  %30 = getelementptr inbounds nuw i8, ptr %.fr90, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.fr87, i64 16
   store ptr %1, ptr %30, align 8, !tbaa !10
-  %31 = getelementptr inbounds nuw i8, ptr %.fr90, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.fr87, i64 24
   store i64 %24, ptr %31, align 8, !tbaa !17
-  %32 = ptrtoint ptr %.fr90 to i64
+  %32 = ptrtoint ptr %.fr87 to i64
   %33 = and i64 %32, 1
   %.not.i.i.i19 = icmp eq i64 %33, 0
   %34 = and i64 %32, 8589934590
@@ -25644,8 +25644,8 @@ l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___o
   %38 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i23, i64 noundef %37) #11
   tail call void @lean_inc_heartbeat() #11
   %39 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr93 = freeze ptr %39
-  %40 = icmp eq ptr %.fr93, null
+  %.fr88 = freeze ptr %39
+  %40 = icmp eq ptr %.fr88, null
   br i1 %40, label %41, label %l_Lean_Name_str___override.exit25
 
 41:                                               ; preds = %l_Lean_Name_str___override.exit18
@@ -25653,16 +25653,16 @@ l_Lean_Name_str___override.exit18:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit25:                ; preds = %l_Lean_Name_str___override.exit18
-  %42 = getelementptr inbounds nuw i8, ptr %.fr93, i64 4
-  store i32 1, ptr %.fr93, align 4, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %.fr88, i64 4
+  store i32 1, ptr %.fr88, align 4, !tbaa !4
   store i32 16908320, ptr %42, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %.fr93, i64 8
-  store ptr %.fr90, ptr %43, align 8, !tbaa !10
-  %44 = getelementptr inbounds nuw i8, ptr %.fr93, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.fr88, i64 8
+  store ptr %.fr87, ptr %43, align 8, !tbaa !10
+  %44 = getelementptr inbounds nuw i8, ptr %.fr88, i64 16
   store ptr %2, ptr %44, align 8, !tbaa !10
-  %45 = getelementptr inbounds nuw i8, ptr %.fr93, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.fr88, i64 24
   store i64 %38, ptr %45, align 8, !tbaa !17
-  %46 = ptrtoint ptr %.fr93 to i64
+  %46 = ptrtoint ptr %.fr88 to i64
   %47 = and i64 %46, 1
   %.not.i.i.i26 = icmp eq i64 %47, 0
   %48 = and i64 %46, 8589934590
@@ -25674,8 +25674,8 @@ l_Lean_Name_str___override.exit25:                ; preds = %l_Lean_Name_str___o
   %52 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i30, i64 noundef %51) #11
   tail call void @lean_inc_heartbeat() #11
   %53 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr96 = freeze ptr %53
-  %54 = icmp eq ptr %.fr96, null
+  %.fr89 = freeze ptr %53
+  %54 = icmp eq ptr %.fr89, null
   br i1 %54, label %55, label %l_Lean_Name_str___override.exit32
 
 55:                                               ; preds = %l_Lean_Name_str___override.exit25
@@ -25683,16 +25683,16 @@ l_Lean_Name_str___override.exit25:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit32:                ; preds = %l_Lean_Name_str___override.exit25
-  %56 = getelementptr inbounds nuw i8, ptr %.fr96, i64 4
-  store i32 1, ptr %.fr96, align 4, !tbaa !4
+  %56 = getelementptr inbounds nuw i8, ptr %.fr89, i64 4
+  store i32 1, ptr %.fr89, align 4, !tbaa !4
   store i32 16908320, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %.fr96, i64 8
-  store ptr %.fr93, ptr %57, align 8, !tbaa !10
-  %58 = getelementptr inbounds nuw i8, ptr %.fr96, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.fr89, i64 8
+  store ptr %.fr88, ptr %57, align 8, !tbaa !10
+  %58 = getelementptr inbounds nuw i8, ptr %.fr89, i64 16
   store ptr %3, ptr %58, align 8, !tbaa !10
-  %59 = getelementptr inbounds nuw i8, ptr %.fr96, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.fr89, i64 24
   store i64 %52, ptr %59, align 8, !tbaa !17
-  %60 = ptrtoint ptr %.fr96 to i64
+  %60 = ptrtoint ptr %.fr89 to i64
   %61 = and i64 %60, 1
   %.not.i.i.i33 = icmp eq i64 %61, 0
   %62 = and i64 %60, 8589934590
@@ -25704,8 +25704,8 @@ l_Lean_Name_str___override.exit32:                ; preds = %l_Lean_Name_str___o
   %66 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i37, i64 noundef %65) #11
   tail call void @lean_inc_heartbeat() #11
   %67 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr99 = freeze ptr %67
-  %68 = icmp eq ptr %.fr99, null
+  %.fr90 = freeze ptr %67
+  %68 = icmp eq ptr %.fr90, null
   br i1 %68, label %69, label %l_Lean_Name_str___override.exit39
 
 69:                                               ; preds = %l_Lean_Name_str___override.exit32
@@ -25713,16 +25713,16 @@ l_Lean_Name_str___override.exit32:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit39:                ; preds = %l_Lean_Name_str___override.exit32
-  %70 = getelementptr inbounds nuw i8, ptr %.fr99, i64 4
-  store i32 1, ptr %.fr99, align 4, !tbaa !4
+  %70 = getelementptr inbounds nuw i8, ptr %.fr90, i64 4
+  store i32 1, ptr %.fr90, align 4, !tbaa !4
   store i32 16908320, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %.fr99, i64 8
-  store ptr %.fr96, ptr %71, align 8, !tbaa !10
-  %72 = getelementptr inbounds nuw i8, ptr %.fr99, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.fr90, i64 8
+  store ptr %.fr89, ptr %71, align 8, !tbaa !10
+  %72 = getelementptr inbounds nuw i8, ptr %.fr90, i64 16
   store ptr %4, ptr %72, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw i8, ptr %.fr99, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.fr90, i64 24
   store i64 %66, ptr %73, align 8, !tbaa !17
-  %74 = ptrtoint ptr %.fr99 to i64
+  %74 = ptrtoint ptr %.fr90 to i64
   %75 = and i64 %74, 1
   %.not.i.i.i40 = icmp eq i64 %75, 0
   %76 = and i64 %74, 8589934590
@@ -25734,8 +25734,8 @@ l_Lean_Name_str___override.exit39:                ; preds = %l_Lean_Name_str___o
   %80 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i44, i64 noundef %79) #11
   tail call void @lean_inc_heartbeat() #11
   %81 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr102 = freeze ptr %81
-  %82 = icmp eq ptr %.fr102, null
+  %.fr91 = freeze ptr %81
+  %82 = icmp eq ptr %.fr91, null
   br i1 %82, label %83, label %l_Lean_Name_str___override.exit46
 
 83:                                               ; preds = %l_Lean_Name_str___override.exit39
@@ -25743,16 +25743,16 @@ l_Lean_Name_str___override.exit39:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit46:                ; preds = %l_Lean_Name_str___override.exit39
-  %84 = getelementptr inbounds nuw i8, ptr %.fr102, i64 4
-  store i32 1, ptr %.fr102, align 4, !tbaa !4
+  %84 = getelementptr inbounds nuw i8, ptr %.fr91, i64 4
+  store i32 1, ptr %.fr91, align 4, !tbaa !4
   store i32 16908320, ptr %84, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %.fr102, i64 8
-  store ptr %.fr99, ptr %85, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw i8, ptr %.fr102, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.fr91, i64 8
+  store ptr %.fr90, ptr %85, align 8, !tbaa !10
+  %86 = getelementptr inbounds nuw i8, ptr %.fr91, i64 16
   store ptr %5, ptr %86, align 8, !tbaa !10
-  %87 = getelementptr inbounds nuw i8, ptr %.fr102, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.fr91, i64 24
   store i64 %80, ptr %87, align 8, !tbaa !17
-  %88 = ptrtoint ptr %.fr102 to i64
+  %88 = ptrtoint ptr %.fr91 to i64
   %89 = and i64 %88, 1
   %.not.i.i.i47 = icmp eq i64 %89, 0
   %90 = and i64 %88, 8589934590
@@ -25764,8 +25764,8 @@ l_Lean_Name_str___override.exit46:                ; preds = %l_Lean_Name_str___o
   %94 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.0.i.i51, i64 noundef %93) #11
   tail call void @lean_inc_heartbeat() #11
   %95 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #11
-  %.fr105 = freeze ptr %95
-  %96 = icmp eq ptr %.fr105, null
+  %.fr92 = freeze ptr %95
+  %96 = icmp eq ptr %.fr92, null
   br i1 %96, label %97, label %l_Lean_Name_str___override.exit53
 
 97:                                               ; preds = %l_Lean_Name_str___override.exit46
@@ -25773,16 +25773,16 @@ l_Lean_Name_str___override.exit46:                ; preds = %l_Lean_Name_str___o
   unreachable
 
 l_Lean_Name_str___override.exit53:                ; preds = %l_Lean_Name_str___override.exit46
-  %98 = getelementptr inbounds nuw i8, ptr %.fr105, i64 4
-  store i32 1, ptr %.fr105, align 4, !tbaa !4
+  %98 = getelementptr inbounds nuw i8, ptr %.fr92, i64 4
+  store i32 1, ptr %.fr92, align 4, !tbaa !4
   store i32 16908320, ptr %98, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %.fr105, i64 8
-  store ptr %.fr102, ptr %99, align 8, !tbaa !10
-  %100 = getelementptr inbounds nuw i8, ptr %.fr105, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %.fr92, i64 8
+  store ptr %.fr91, ptr %99, align 8, !tbaa !10
+  %100 = getelementptr inbounds nuw i8, ptr %.fr92, i64 16
   store ptr %6, ptr %100, align 8, !tbaa !10
-  %101 = getelementptr inbounds nuw i8, ptr %.fr105, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %.fr92, i64 24
   store i64 %94, ptr %101, align 8, !tbaa !17
-  %102 = ptrtoint ptr %.fr105 to i64
+  %102 = ptrtoint ptr %.fr92 to i64
   %103 = and i64 %102, 1
   %.not.i.i.i54 = icmp eq i64 %103, 0
   %104 = and i64 %102, 8589934590
@@ -25806,7 +25806,7 @@ l_Lean_Name_str___override.exit60:                ; preds = %l_Lean_Name_str___o
   store i32 1, ptr %109, align 4, !tbaa !4
   store i32 16908320, ptr %112, align 4
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %.fr105, ptr %113, align 8, !tbaa !10
+  store ptr %.fr92, ptr %113, align 8, !tbaa !10
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr %7, ptr %114, align 8, !tbaa !10
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 24

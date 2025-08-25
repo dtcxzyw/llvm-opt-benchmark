@@ -1827,8 +1827,8 @@ read_code012.exit.i:                              ; preds = %62
   %82 = zext i8 %79 to i32
   %83 = and i32 %spec.select.i.i.i, 7
   %84 = shl nuw nsw i32 %82, %83
-  %.fr15.i = freeze i32 %84
-  %85 = lshr i32 %.fr15.i, 7
+  %.fr.i = freeze i32 %84
+  %85 = lshr i32 %.fr.i, 7
   store i32 %spec.select.i2.i.i, ptr %36, align 8, !tbaa !51
   %86 = and i32 %85, 1
   %87 = add nuw nsw i32 %86, 1
@@ -11091,7 +11091,8 @@ define internal fastcc void @filter_chroma_edge(ptr noundef captures(none) %0, i
   %17 = zext i8 %16 to i32
   %18 = sub nsw i32 %12, %17
   %19 = tail call i32 @llvm.abs.i32(i32 %18, i1 true)
-  %20 = shl nuw nsw i32 %19, 2
+  %.fr = freeze i32 %19
+  %20 = shl i32 %.fr, 2
   %21 = sext i32 %1 to i64
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !42
@@ -11100,9 +11101,10 @@ define internal fastcc void @filter_chroma_edge(ptr noundef captures(none) %0, i
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 %24, %26
   %28 = tail call i32 @llvm.abs.i32(i32 %27, i1 true)
-  %29 = shl nuw nsw i32 %28, 2
-  %30 = icmp samesign uge i32 %20, %6
-  %31 = icmp samesign uge i32 %29, %6
+  %.fr91 = freeze i32 %28
+  %29 = shl i32 %.fr91, 2
+  %30 = icmp uge i32 %20, %6
+  %31 = icmp uge i32 %29, %6
   %.not80 = and i1 %30, %31
   br i1 %.not80, label %.loopexit, label %32
 
@@ -11114,13 +11116,12 @@ define internal fastcc void @filter_chroma_edge(ptr noundef captures(none) %0, i
   %37 = add nuw nsw i32 %36, %34
   %38 = lshr i32 %37, 1
   %or.cond = or i1 %30, %31
-  %or.cond.fr = freeze i1 %or.cond
-  %. = select i1 %or.cond.fr, i32 384, i32 256
+  %. = select i1 %or.cond, i32 384, i32 256
   %39 = sext i32 %2 to i64
   %40 = sub nsw i32 0, %38
   %41 = lshr i32 %37, 2
   %42 = sub nsw i32 0, %41
-  br i1 %or.cond.fr, label %.split.us, label %.split
+  br i1 %or.cond, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %32, %66
   %.090.us = phi ptr [ %67, %66 ], [ %0, %32 ]

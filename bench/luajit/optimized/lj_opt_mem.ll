@@ -2036,7 +2036,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %3 = load i16, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
   %5 = load i16, ptr %4, align 2, !tbaa !4
-  %.fr65 = freeze i16 %5
+  %.fr = freeze i16 %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %.030.in56 = load i16, ptr %6, align 4, !tbaa !4
   %7 = icmp ugt i16 %.030.in56, %3
@@ -2045,7 +2045,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !7
-  %10 = add i16 %.fr65, -5
+  %10 = add i16 %.fr, -5
   %or.cond.i = icmp ult i16 %10, 6
   %11 = zext i16 %3 to i64
   %12 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %11
@@ -2062,7 +2062,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %19 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !4
-  %.not.i.us = icmp eq i16 %.fr65, %21
+  %.not.i.us = icmp eq i16 %.fr, %21
   br i1 %.not.i.us, label %22, label %.loopexit.us
 
 22:                                               ; preds = %.lr.ph.split.us
@@ -2137,7 +2137,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   %57 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %59 = load i16, ptr %58, align 2, !tbaa !4
-  %.not.i = icmp eq i16 %.fr65, %59
+  %.not.i = icmp eq i16 %.fr, %59
   br i1 %.not.i, label %60, label %68
 
 60:                                               ; preds = %.lr.ph.split
@@ -2160,7 +2160,7 @@ define hidden i32 @lj_opt_fwd_fload(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %70, label %.lr.ph.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %68, %.loopexit.us, %1
-  %71 = icmp eq i16 %.fr65, 5
+  %71 = icmp eq i16 %.fr, 5
   br i1 %71, label %72, label %.thread42
 
 72:                                               ; preds = %._crit_edge
@@ -2211,8 +2211,8 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %13 = load i16, ptr %12, align 2, !tbaa !4
-  %.fr80 = freeze i16 %13
-  %14 = add i16 %.fr80, -5
+  %.fr = freeze i16 %13
+  %14 = add i16 %.fr, -5
   %or.cond.i = icmp ult i16 %14, 6
   %15 = ptrtoint ptr %7 to i64
   br i1 %or.cond.i, label %.lr.ph.split.us, label %.lr.ph.split
@@ -2227,7 +2227,7 @@ define hidden i32 @lj_opt_dse_fstore(ptr noundef %0) local_unnamed_addr #1 {
   %20 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !4
-  %.not.i.us = icmp eq i16 %.fr80, %22
+  %.not.i.us = icmp eq i16 %.fr, %22
   br i1 %.not.i.us, label %23, label %aa_fref.exit.thread.us
 
 23:                                               ; preds = %.lr.ph.split.us
@@ -2313,7 +2313,7 @@ aa_fref.exit.thread.us:                           ; preds = %54, %.loopexit.us, 
   %64 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %66 = load i16, ptr %65, align 2, !tbaa !4
-  %.not.i = icmp eq i16 %.fr80, %66
+  %.not.i = icmp eq i16 %.fr, %66
   br i1 %.not.i, label %67, label %aa_fref.exit.thread
 
 67:                                               ; preds = %.lr.ph.split
@@ -2335,7 +2335,7 @@ aa_fref.exit:                                     ; preds = %67, %23
   %74 = getelementptr inbounds nuw i8, ptr %.us-phi75, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !4
   %76 = icmp ne i16 %75, %5
-  %77 = add i16 %.fr80, -14
+  %77 = add i16 %.fr, -14
   %or.cond = icmp ult i16 %77, 6
   %or.cond63 = or i1 %or.cond, %76
   br i1 %or.cond63, label %78, label %.thread59
@@ -2371,7 +2371,7 @@ aa_fref.exit:                                     ; preds = %67, %23
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %.078, i64 2
   %96 = load i16, ptr %95, align 2, !tbaa !4
-  %97 = icmp eq i16 %96, %.fr80
+  %97 = icmp eq i16 %96, %.fr
   br i1 %97, label %.thread55, label %98
 
 98:                                               ; preds = %90, %94

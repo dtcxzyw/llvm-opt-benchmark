@@ -21004,8 +21004,8 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   %.fr18.i = freeze i64 %35
   %trunc.i.i.i.i.i.i.i.i = trunc i64 %.fr18.i to i1
   %36 = load ptr, ptr %31, align 8, !alias.scope !5727, !noalias !5740
-  %.fr41.i = freeze ptr %36
-  %37 = icmp eq ptr %.fr41.i, null
+  %.fr.i = freeze ptr %36
+  %37 = icmp eq ptr %.fr.i, null
   %38 = load ptr, ptr %32, align 8, !alias.scope !5727, !noalias !5740
   %39 = load ptr, ptr %33, align 8, !alias.scope !5727, !noalias !5740
   %.fr71 = freeze ptr %39
@@ -21131,7 +21131,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
 100:                                              ; preds = %.lr.ph.i.i.us.us54
   %101 = getelementptr inbounds nuw i8, ptr %.val4.i.i.i.us.us56, i64 16
   %102 = load ptr, ptr %101, align 8, !alias.scope !5754, !noalias !5755, !noundef !13
-  %103 = icmp eq ptr %.fr41.i, %102
+  %103 = icmp eq ptr %.fr.i, %102
   br i1 %103, label %104, label %.backedge.i.i.us.us58
 
 104:                                              ; preds = %100
@@ -21151,7 +21151,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   br i1 %.not.i.i.i.us.us59, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us.us54
 
 .split.us.i:                                      ; preds = %24
-  %111 = ptrtoint ptr %.fr41.i to i64
+  %111 = ptrtoint ptr %.fr.i to i64
   %112 = trunc i64 %111 to i8
   switch i8 %112, label %.split.us.split.i [
     i8 27, label %.split.us.split.us.i
@@ -21401,7 +21401,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h54a8b95a
   br i1 %229, label %232, label %.backedge.i.i
 
 230:                                              ; preds = %225
-  %231 = icmp eq ptr %.fr41.i, %227
+  %231 = icmp eq ptr %.fr.i, %227
   br i1 %231, label %232, label %.backedge.i.i
 
 232:                                              ; preds = %230, %228

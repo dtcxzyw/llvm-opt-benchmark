@@ -21670,16 +21670,16 @@ ra_dest.exit:                                     ; preds = %76, %79
 asm_swapops.exit:                                 ; preds = %131, %143, %146
   %150 = getelementptr inbounds nuw i8, ptr %108, i64 5
   %151 = load i8, ptr %150, align 1, !tbaa !20
-  %.fr144 = freeze i8 %151
-  %152 = add i8 %.fr144, -73
+  %.fr = freeze i8 %151
+  %152 = add i8 %.fr, -73
   %switch.i = icmp ult i8 %152, -7
   %spec.select = select i1 %switch.i, i32 %8, i32 %5
-  %spec.select145 = select i1 %switch.i, i32 %5, i32 %8
+  %spec.select144 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread138
 
 .thread138:                                       ; preds = %asm_swapops.exit, %139, %118, %105, %121, %124, %146
   %153 = phi i32 [ %5, %146 ], [ %5, %124 ], [ %5, %121 ], [ %8, %139 ], [ %8, %118 ], [ %8, %105 ], [ %spec.select, %asm_swapops.exit ]
-  %154 = phi i32 [ %8, %146 ], [ %8, %124 ], [ %8, %121 ], [ %5, %139 ], [ %5, %118 ], [ %5, %105 ], [ %spec.select145, %asm_swapops.exit ]
+  %154 = phi i32 [ %8, %146 ], [ %8, %124 ], [ %8, %121 ], [ %5, %139 ], [ %5, %118 ], [ %5, %105 ], [ %spec.select144, %asm_swapops.exit ]
   %155 = shl nuw i32 1, %.0.i
   %156 = xor i32 %155, -1
   %157 = and i32 %.074, %156
@@ -23040,16 +23040,16 @@ ra_dest.exit:                                     ; preds = %54, %57
 asm_swapops.exit:                                 ; preds = %87, %99, %102
   %106 = getelementptr inbounds nuw i8, ptr %64, i64 5
   %107 = load i8, ptr %106, align 1, !tbaa !20
-  %.fr59 = freeze i8 %107
-  %108 = add i8 %.fr59, -73
+  %.fr = freeze i8 %107
+  %108 = add i8 %.fr, -73
   %switch.i = icmp ult i8 %108, -7
   %spec.select = select i1 %switch.i, i32 %8, i32 %5
-  %spec.select60 = select i1 %switch.i, i32 %5, i32 %8
+  %spec.select59 = select i1 %switch.i, i32 %5, i32 %8
   br label %.thread55
 
 .thread55:                                        ; preds = %asm_swapops.exit, %95, %74, %60, %77, %80, %102
   %109 = phi i32 [ %5, %102 ], [ %5, %80 ], [ %5, %77 ], [ %8, %95 ], [ %8, %74 ], [ %8, %60 ], [ %spec.select, %asm_swapops.exit ]
-  %110 = phi i32 [ %8, %102 ], [ %8, %80 ], [ %8, %77 ], [ %5, %95 ], [ %5, %74 ], [ %5, %60 ], [ %spec.select60, %asm_swapops.exit ]
+  %110 = phi i32 [ %8, %102 ], [ %8, %80 ], [ %8, %77 ], [ %5, %95 ], [ %5, %74 ], [ %5, %60 ], [ %spec.select59, %asm_swapops.exit ]
   %111 = shl nuw i32 1, %.0.i
   %112 = xor i32 %111, -1
   %113 = and i32 %.033, %112

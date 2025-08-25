@@ -146,23 +146,23 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 .preheader250.us.preheader:                       ; preds = %.preheader250.lr.ph
   %38 = sext i32 %7 to i64
   %39 = zext i32 %30 to i64
-  %wide.trip.count355 = zext nneg i32 %6 to i64
+  %wide.trip.count354 = zext nneg i32 %6 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.preheader250.us
 
 .preheader250.us:                                 ; preds = %.preheader250.us.preheader, %._crit_edge.us
-  %indvars.iv350 = phi i64 [ 0, %.preheader250.us.preheader ], [ %indvars.iv.next351, %._crit_edge.us ]
+  %indvars.iv349 = phi i64 [ 0, %.preheader250.us.preheader ], [ %indvars.iv.next350, %._crit_edge.us ]
   %.0198274.us = phi i32 [ 0, %.preheader250.us.preheader ], [ %.us-phi.us, %._crit_edge.us ]
-  %40 = mul nsw i64 %indvars.iv350, %38
-  %41 = trunc nuw nsw i64 %indvars.iv350 to i32
+  %40 = mul nsw i64 %indvars.iv349, %38
+  %41 = trunc nuw nsw i64 %indvars.iv349 to i32
   %factor.op.mul.reass.us = mul i32 %factor.op.mul271, %41
-  %42 = shl nsw i64 %indvars.iv350, 4
+  %42 = shl nsw i64 %indvars.iv349, 4
   %43 = or disjoint i64 %42, 4
-  %44 = shl nuw nsw i64 %indvars.iv350, 1
+  %44 = shl nuw nsw i64 %indvars.iv349, 1
   %45 = trunc i64 %42 to i32
   %46 = or disjoint i32 %45, 8
   %47 = trunc i32 %46 to i16
-  %48 = mul i64 %indvars.iv350, %39
+  %48 = mul i64 %indvars.iv349, %39
   %invariant.gep = getelementptr i32, ptr %2, i64 %40
   %49 = trunc nsw i64 %43 to i32
   %50 = trunc nsw i64 %44 to i32
@@ -171,27 +171,27 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %53
 
 53:                                               ; preds = %.preheader250.us, %.split268.us278
-  %indvars.iv344 = phi i64 [ 0, %.preheader250.us ], [ %indvars.iv.next345, %.split268.us278 ]
+  %indvars.iv343 = phi i64 [ 0, %.preheader250.us ], [ %indvars.iv.next344, %.split268.us278 ]
   %.1199272.us = phi i32 [ %.0198274.us, %.preheader250.us ], [ %.us-phi.us, %.split268.us278 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv344
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv343
   %54 = load i32, ptr %gep, align 4, !tbaa !35
-  %.fr316 = freeze i32 %54
-  %55 = and i32 %.fr316, 64
+  %.fr = freeze i32 %54
+  %55 = and i32 %.fr, 64
   %.not224.us = icmp eq i32 %55, 0
-  %56 = shl nsw i64 %indvars.iv344, 4
+  %56 = shl nsw i64 %indvars.iv343, 4
   %57 = or disjoint i64 %56, 4
-  %58 = lshr i32 %.fr316, 7
+  %58 = lshr i32 %.fr, 7
   %59 = and i32 %58, 1
-  %60 = and i32 %.fr316, 32
+  %60 = and i32 %.fr, 32
   %.not.i232.us = icmp eq i32 %60, 0
   %61 = select i1 %.not.i232.us, i8 16, i8 8
   %62 = trunc i64 %56 to i32
   %63 = or disjoint i32 %62, 8
   %64 = trunc i32 %63 to i16
-  %indvars.iv344.tr = trunc i64 %indvars.iv344 to i32
-  %65 = shl i32 %indvars.iv344.tr, 1
+  %indvars.iv343.tr = trunc i64 %indvars.iv343 to i32
+  %65 = shl i32 %indvars.iv343.tr, 1
   %66 = add i32 %65, %factor.op.mul.reass.us
-  %67 = add i64 %indvars.iv344, %48
+  %67 = add i64 %indvars.iv343, %48
   %68 = trunc i64 %67 to i32
   %69 = shl i32 %68, %27
   %70 = sext i32 %69 to i64
@@ -204,15 +204,15 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 .split.us284:                                     ; preds = %.split.us284.preheader, %.loopexit249.us
   %.not27.i.us = phi i32 [ -1, %.split.us284.preheader ], [ 1, %.loopexit249.us ]
   %72 = phi i1 [ true, %.split.us284.preheader ], [ false, %.loopexit249.us ]
-  %indvars.iv326.sroa.phi.sroa.speculated = phi i32 [ %15, %.split.us284.preheader ], [ %16, %.loopexit249.us ]
-  %indvars.iv326 = phi i64 [ 0, %.split.us284.preheader ], [ 1, %.loopexit249.us ]
+  %indvars.iv325.sroa.phi.sroa.speculated = phi i32 [ %15, %.split.us284.preheader ], [ %16, %.loopexit249.us ]
+  %indvars.iv325 = phi i64 [ 0, %.split.us284.preheader ], [ 1, %.loopexit249.us ]
   %.2200266.us280 = phi i32 [ %.1199272.us, %.split.us284.preheader ], [ %.3.us283, %.loopexit249.us ]
-  %73 = and i32 %indvars.iv326.sroa.phi.sroa.speculated, %.fr316
+  %73 = and i32 %indvars.iv325.sroa.phi.sroa.speculated, %.fr
   %.not223.us282 = icmp eq i32 %73, 0
   br i1 %.not223.us282, label %.loopexit249.us, label %.preheader248.us
 
 .preheader248.us:                                 ; preds = %.split.us284
-  %74 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv326
+  %74 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv325
   %75 = load ptr, ptr %74, align 8, !tbaa !40
   %76 = sext i32 %.2200266.us280 to i64
   br label %77
@@ -283,33 +283,33 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .split268.us278:                                  ; preds = %.loopexit249.us, %.loopexit247.us.us, %.loopexit.us.us.us, %221
   %.us-phi.us = phi i32 [ %.3.us.us.us.us, %221 ], [ %.3.us.us.us295, %.loopexit.us.us.us ], [ %.3.us.us288, %.loopexit247.us.us ], [ %.3.us283, %.loopexit249.us ]
-  %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
-  %exitcond349.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count
-  br i1 %exitcond349.not, label %._crit_edge.us, label %53, !llvm.loop !60
+  %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
+  %exitcond348.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count
+  br i1 %exitcond348.not, label %._crit_edge.us, label %53, !llvm.loop !60
 
 .split.us.us:                                     ; preds = %53
-  %115 = and i32 %.fr316, 16
+  %115 = and i32 %.fr, 16
   %.not225.us = icmp eq i32 %115, 0
   br i1 %.not225.us, label %.split.us.split.us.us, label %.split.us.split.us291
 
 .split.us.split.us291:                            ; preds = %.split.us.us, %.loopexit247.us.us
   %.not27.i234.us.us = phi i32 [ 1, %.loopexit247.us.us ], [ -1, %.split.us.us ]
   %116 = phi i1 [ false, %.loopexit247.us.us ], [ true, %.split.us.us ]
-  %indvars.iv332.sroa.phi.sroa.speculated = phi i32 [ %16, %.loopexit247.us.us ], [ %15, %.split.us.us ]
-  %indvars.iv332 = phi i64 [ 1, %.loopexit247.us.us ], [ 0, %.split.us.us ]
+  %indvars.iv331.sroa.phi.sroa.speculated = phi i32 [ %16, %.loopexit247.us.us ], [ %15, %.split.us.us ]
+  %indvars.iv331 = phi i64 [ 1, %.loopexit247.us.us ], [ 0, %.split.us.us ]
   %.2200266.us.us285 = phi i32 [ %.3.us.us288, %.loopexit247.us.us ], [ %.1199272.us, %.split.us.us ]
-  %117 = and i32 %indvars.iv332.sroa.phi.sroa.speculated, %.fr316
+  %117 = and i32 %indvars.iv331.sroa.phi.sroa.speculated, %.fr
   %.not223.us.us287 = icmp eq i32 %117, 0
   br i1 %.not223.us.us287, label %.loopexit247.us.us, label %.preheader246.us.us
 
 .preheader246.us.us:                              ; preds = %.split.us.split.us291
-  %118 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv332
+  %118 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv331
   %119 = load ptr, ptr %118, align 8, !tbaa !40
   %120 = sext i32 %.2200266.us.us285 to i64
   br label %121
 
 121:                                              ; preds = %121, %.preheader246.us.us
-  %indvars.iv329 = phi i64 [ %indvars.iv.next330, %121 ], [ %120, %.preheader246.us.us ]
+  %indvars.iv328 = phi i64 [ %indvars.iv.next329, %121 ], [ %120, %.preheader246.us.us ]
   %122 = phi i1 [ false, %121 ], [ true, %.preheader246.us.us ]
   %.1204258.us.us = phi i32 [ 1, %121 ], [ 0, %.preheader246.us.us ]
   %123 = shl nuw nsw i32 %.1204258.us.us, 3
@@ -326,7 +326,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %133 = load i16, ptr %132, align 2, !tbaa !43
   %134 = sext i16 %133 to i32
   %spec.select.us.us = shl nsw i32 %134, %59
-  %135 = getelementptr inbounds %struct.AVMotionVector, ptr %33, i64 %indvars.iv329
+  %135 = getelementptr inbounds %struct.AVMotionVector, ptr %33, i64 %indvars.iv328
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   store i8 %61, ptr %136, align 4, !tbaa !45
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 5
@@ -355,11 +355,11 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   store i32 %.not27.i234.us.us, ptr %135, align 8, !tbaa !55
   %152 = getelementptr inbounds nuw i8, ptr %135, i64 16
   store i64 0, ptr %152, align 8, !tbaa !56
-  %indvars.iv.next330 = add nsw i64 %indvars.iv329, 1
+  %indvars.iv.next329 = add nsw i64 %indvars.iv328, 1
   br i1 %122, label %121, label %.loopexit247.us.us.loopexit, !llvm.loop !61
 
 .loopexit247.us.us.loopexit:                      ; preds = %121
-  %153 = trunc nsw i64 %indvars.iv.next330 to i32
+  %153 = trunc nsw i64 %indvars.iv.next329 to i32
   br label %.loopexit247.us.us
 
 .loopexit247.us.us:                               ; preds = %.loopexit247.us.us.loopexit, %.split.us.split.us291
@@ -376,21 +376,21 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 .split.us.split.us.split.us298:                   ; preds = %.split.us.split.us.split.us298.preheader, %.loopexit.us.us.us
   %.not27.i237.us.us.us = phi i32 [ -1, %.split.us.split.us.split.us298.preheader ], [ 1, %.loopexit.us.us.us ]
   %155 = phi i1 [ true, %.split.us.split.us.split.us298.preheader ], [ false, %.loopexit.us.us.us ]
-  %indvars.iv338.sroa.phi.sroa.speculated = phi i32 [ %15, %.split.us.split.us.split.us298.preheader ], [ %16, %.loopexit.us.us.us ]
-  %indvars.iv338 = phi i64 [ 0, %.split.us.split.us.split.us298.preheader ], [ 1, %.loopexit.us.us.us ]
+  %indvars.iv337.sroa.phi.sroa.speculated = phi i32 [ %15, %.split.us.split.us.split.us298.preheader ], [ %16, %.loopexit.us.us.us ]
+  %indvars.iv337 = phi i64 [ 0, %.split.us.split.us.split.us298.preheader ], [ 1, %.loopexit.us.us.us ]
   %.2200266.us.us.us292 = phi i32 [ %.1199272.us, %.split.us.split.us.split.us298.preheader ], [ %.3.us.us.us295, %.loopexit.us.us.us ]
-  %156 = and i32 %indvars.iv338.sroa.phi.sroa.speculated, %.fr316
+  %156 = and i32 %indvars.iv337.sroa.phi.sroa.speculated, %.fr
   %.not223.us.us.us294 = icmp eq i32 %156, 0
   br i1 %.not223.us.us.us294, label %.loopexit.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.split.us.split.us.split.us298
-  %157 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv338
+  %157 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv337
   %158 = load ptr, ptr %157, align 8, !tbaa !40
   %159 = sext i32 %.2200266.us.us.us292 to i64
   br label %160
 
 160:                                              ; preds = %160, %.preheader.us.us.us
-  %indvars.iv335 = phi i64 [ %indvars.iv.next336, %160 ], [ %159, %.preheader.us.us.us ]
+  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %160 ], [ %159, %.preheader.us.us.us ]
   %161 = phi i1 [ false, %160 ], [ true, %.preheader.us.us.us ]
   %.2205262.us.us.us = phi i32 [ 1, %160 ], [ 0, %.preheader.us.us.us ]
   %162 = shl nuw nsw i32 %.2205262.us.us.us, 3
@@ -405,7 +405,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %170 = load i16, ptr %169, align 2, !tbaa !43
   %171 = sext i16 %170 to i32
   %spec.select229.us.us.us = shl nsw i32 %171, %59
-  %172 = getelementptr inbounds %struct.AVMotionVector, ptr %33, i64 %indvars.iv335
+  %172 = getelementptr inbounds %struct.AVMotionVector, ptr %33, i64 %indvars.iv334
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i8 8, ptr %173, align 4, !tbaa !45
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 5
@@ -434,11 +434,11 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   store i32 %.not27.i237.us.us.us, ptr %172, align 8, !tbaa !55
   %189 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store i64 0, ptr %189, align 8, !tbaa !56
-  %indvars.iv.next336 = add nsw i64 %indvars.iv335, 1
+  %indvars.iv.next335 = add nsw i64 %indvars.iv334, 1
   br i1 %161, label %160, label %.loopexit.us.us.us.loopexit, !llvm.loop !62
 
 .loopexit.us.us.us.loopexit:                      ; preds = %160
-  %190 = trunc nsw i64 %indvars.iv.next336 to i32
+  %190 = trunc nsw i64 %indvars.iv.next335 to i32
   br label %.loopexit.us.us.us
 
 .loopexit.us.us.us:                               ; preds = %.loopexit.us.us.us.loopexit, %.split.us.split.us.split.us298
@@ -448,15 +448,15 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 .split.us.split.us.split.us.us:                   ; preds = %.split.us.split.us.us, %221
   %.not27.i240.us.us.us.us = phi i32 [ 1, %221 ], [ -1, %.split.us.split.us.us ]
   %191 = phi i1 [ false, %221 ], [ true, %.split.us.split.us.us ]
-  %indvars.iv341.sroa.phi.sroa.speculated = phi i32 [ %16, %221 ], [ %15, %.split.us.split.us.us ]
-  %indvars.iv341 = phi i64 [ 1, %221 ], [ 0, %.split.us.split.us.us ]
+  %indvars.iv340.sroa.phi.sroa.speculated = phi i32 [ %16, %221 ], [ %15, %.split.us.split.us.us ]
+  %indvars.iv340 = phi i64 [ 1, %221 ], [ 0, %.split.us.split.us.us ]
   %.2200266.us.us.us.us = phi i32 [ %.3.us.us.us.us, %221 ], [ %.1199272.us, %.split.us.split.us.us ]
-  %192 = and i32 %indvars.iv341.sroa.phi.sroa.speculated, %.fr316
+  %192 = and i32 %indvars.iv340.sroa.phi.sroa.speculated, %.fr
   %.not223.us.us.us.us = icmp eq i32 %192, 0
   br i1 %.not223.us.us.us.us, label %221, label %193
 
 193:                                              ; preds = %.split.us.split.us.split.us.us
-  %194 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv341
+  %194 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv340
   %195 = load ptr, ptr %194, align 8, !tbaa !40
   %196 = getelementptr inbounds [2 x i16], ptr %195, i64 %70
   %197 = load i16, ptr %196, align 2, !tbaa !43
@@ -501,9 +501,9 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %191, label %.split.us.split.us.split.us.us, label %.split268.us278, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %.split268.us278
-  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %exitcond356.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count355
-  br i1 %exitcond356.not, label %._crit_edge276, label %.preheader250.us, !llvm.loop !63
+  %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
+  %exitcond355.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count354
+  br i1 %exitcond355.not, label %._crit_edge276, label %.preheader250.us, !llvm.loop !63
 
 ._crit_edge276:                                   ; preds = %._crit_edge.us
   %.not215 = icmp eq i32 %.us-phi.us, 0
@@ -614,23 +614,23 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph310.us.preheader:                           ; preds = %.lr.ph314
   %264 = sext i32 %7 to i64
-  %wide.trip.count366 = zext nneg i32 %6 to i64
-  %wide.trip.count361 = zext nneg i32 %5 to i64
+  %wide.trip.count365 = zext nneg i32 %6 to i64
+  %wide.trip.count360 = zext nneg i32 %5 to i64
   br label %.lr.ph310.us
 
 .lr.ph310.us:                                     ; preds = %.lr.ph310.us.preheader, %._crit_edge311.us
-  %indvars.iv363 = phi i64 [ 0, %.lr.ph310.us.preheader ], [ %indvars.iv.next364, %._crit_edge311.us ]
+  %indvars.iv362 = phi i64 [ 0, %.lr.ph310.us.preheader ], [ %indvars.iv.next363, %._crit_edge311.us ]
   call void @av_bprint_clear(ptr noundef nonnull %11) #6
-  %265 = trunc nuw nsw i64 %indvars.iv363 to i32
+  %265 = trunc nuw nsw i64 %indvars.iv362 to i32
   %266 = shl i32 %265, 4
-  %267 = mul nsw i64 %indvars.iv363, %264
-  %invariant.gep381 = getelementptr i8, ptr %3, i64 %267
-  %invariant.gep383 = getelementptr i32, ptr %2, i64 %267
+  %267 = mul nsw i64 %indvars.iv362, %264
+  %invariant.gep380 = getelementptr i8, ptr %3, i64 %267
+  %invariant.gep382 = getelementptr i32, ptr %2, i64 %267
   br label %268
 
 268:                                              ; preds = %.lr.ph310.us, %309
-  %indvars.iv358 = phi i64 [ 0, %.lr.ph310.us ], [ %indvars.iv.next359, %309 ]
-  %269 = icmp eq i64 %indvars.iv358, 0
+  %indvars.iv357 = phi i64 [ 0, %.lr.ph310.us ], [ %indvars.iv.next358, %309 ]
+  %269 = icmp eq i64 %indvars.iv357, 0
   br i1 %269, label %270, label %271
 
 270:                                              ; preds = %268
@@ -644,8 +644,8 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not221.us, label %277, label %274
 
 274:                                              ; preds = %271
-  %gep382 = getelementptr i8, ptr %invariant.gep381, i64 %indvars.iv358
-  %275 = load i8, ptr %gep382, align 1, !tbaa !73
+  %gep381 = getelementptr i8, ptr %invariant.gep380, i64 %indvars.iv357
+  %275 = load i8, ptr %gep381, align 1, !tbaa !73
   %276 = sext i8 %275 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %276) #6
   %.pre = load i32, ptr %237, align 4, !tbaa !68
@@ -658,8 +658,8 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not222.us, label %309, label %280
 
 280:                                              ; preds = %277
-  %gep384 = getelementptr i32, ptr %invariant.gep383, i64 %indvars.iv358
-  %281 = load i32, ptr %gep384, align 4, !tbaa !35
+  %gep383 = getelementptr i32, ptr %invariant.gep382, i64 %indvars.iv357
+  %281 = load i32, ptr %gep383, align 4, !tbaa !35
   %282 = and i32 %281, 4
   %.not.i241.us = icmp eq i32 %282, 0
   br i1 %.not.i241.us, label %283, label %get_type_mv_char.exit.us
@@ -739,16 +739,16 @@ get_segmentation_char.exit.us:                    ; preds = %304, %302, %300, %g
   br label %309
 
 309:                                              ; preds = %get_segmentation_char.exit.us, %277
-  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %._crit_edge311.us, label %268, !llvm.loop !74
+  %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
+  %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
+  br i1 %exitcond361.not, label %._crit_edge311.us, label %268, !llvm.loop !74
 
 ._crit_edge311.us:                                ; preds = %309
   %310 = load ptr, ptr %11, align 8, !tbaa !71
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %310) #6
-  %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
-  br i1 %exitcond367.not, label %._crit_edge315, label %.lr.ph310.us, !llvm.loop !75
+  %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
+  %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
+  br i1 %exitcond366.not, label %._crit_edge315, label %.lr.ph310.us, !llvm.loop !75
 
 .lr.ph314.split:                                  ; preds = %.lr.ph314, %.lr.ph314.split
   %.0195312 = phi i32 [ %312, %.lr.ph314.split ], [ 0, %.lr.ph314 ]
@@ -756,8 +756,8 @@ get_segmentation_char.exit.us:                    ; preds = %304, %302, %300, %g
   %311 = load ptr, ptr %11, align 8, !tbaa !71
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %311) #6
   %312 = add nuw nsw i32 %.0195312, 1
-  %exitcond357.not = icmp eq i32 %312, %6
-  br i1 %exitcond357.not, label %._crit_edge315, label %.lr.ph314.split, !llvm.loop !75
+  %exitcond356.not = icmp eq i32 %312, %6
+  br i1 %exitcond356.not, label %._crit_edge315, label %.lr.ph314.split, !llvm.loop !75
 
 ._crit_edge315:                                   ; preds = %.lr.ph314.split, %._crit_edge311.us, %._crit_edge307
   %313 = call i32 @av_bprint_finalize(ptr noundef nonnull %11, ptr noundef null) #6

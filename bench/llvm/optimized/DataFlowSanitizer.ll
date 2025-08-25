@@ -15193,13 +15193,13 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %74, %_ZN4llvm8Funct
   %82 = load ptr, ptr %81, align 8, !tbaa !92
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
-  %.fr8.i.i = freeze i32 %84
-  %85 = and i32 %.fr8.i.i, 255
+  %.fr.i.i = freeze i32 %84
+  %85 = and i32 %.fr.i.i, 255
   %86 = icmp eq i32 %85, 12
   br i1 %86, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %87
 
 87:                                               ; preds = %80
-  %trunc.i.i.i.i = trunc i32 %.fr8.i.i to i8
+  %trunc.i.i.i.i = trunc i32 %.fr.i.i to i8
   switch i8 %trunc.i.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i
@@ -15209,7 +15209,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %74, %_ZN4llvm8Funct
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i:     ; preds = %87
-  %88 = and i32 %.fr8.i.i, 253
+  %88 = and i32 %.fr.i.i, 253
   %spec.select.i.i.i = icmp eq i32 %88, 4
   br i1 %spec.select.i.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread.i, label %switch.early.test.i.i
 
@@ -17151,13 +17151,13 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117DataFlowSanitizer11getSha
   %3 = alloca %"class.llvm::SmallVector.329", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
-  %.fr8.i = freeze i32 %5
-  %6 = and i32 %.fr8.i, 255
+  %.fr.i = freeze i32 %5
+  %6 = and i32 %.fr.i, 255
   %7 = icmp eq i32 %6, 12
   br i1 %7, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %8
 
 8:                                                ; preds = %2
-  %trunc.i.i.i = trunc i32 %.fr8.i to i8
+  %trunc.i.i.i = trunc i32 %.fr.i to i8
   switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -17167,7 +17167,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117DataFlowSanitizer11getSha
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %8
-  %9 = and i32 %.fr8.i, 253
+  %9 = and i32 %.fr.i, 253
   %spec.select.i.i = icmp eq i32 %9, 4
   br i1 %spec.select.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
@@ -17196,7 +17196,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread27: ; preds = %sw
   br label %common.ret47
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %8, %8, %8, %8, %8, %2, %switch.early.test.i, %switch.early.test.i
-  %13 = phi i32 [ %.pre, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge ], [ %.fr8.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ %.fr8.i, %8 ], [ %.fr8.i, %8 ], [ %.fr8.i, %8 ], [ %.fr8.i, %8 ], [ %.fr8.i, %8 ], [ %.fr8.i, %2 ], [ %.fr8.i, %switch.early.test.i ], [ %.fr8.i, %switch.early.test.i ]
+  %13 = phi i32 [ %.pre, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit._ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread_crit_edge ], [ %.fr.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i ], [ %.fr.i, %8 ], [ %.fr.i, %8 ], [ %.fr.i, %8 ], [ %.fr.i, %8 ], [ %.fr.i, %8 ], [ %.fr.i, %2 ], [ %.fr.i, %switch.early.test.i ], [ %.fr.i, %switch.early.test.i ]
   %14 = and i32 %13, 255
   %15 = icmp eq i32 %14, 12
   br i1 %15, label %16, label %19

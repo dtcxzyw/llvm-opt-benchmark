@@ -1659,13 +1659,13 @@ prefs_set_module_effect_flags.exit:               ; preds = %7, %15
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %prefs_set_module_effect_flags.exit
   %24 = phi ptr [ @.str.479, %prefs_set_module_effect_flags.exit ], [ %28, %._crit_edge.i ]
-  %.02638.i = phi i64 [ 0, %prefs_set_module_effect_flags.exit ], [ %26, %._crit_edge.i ]
+  %.02637.i = phi i64 [ 0, %prefs_set_module_effect_flags.exit ], [ %26, %._crit_edge.i ]
   %25 = load i8, ptr %24, align 1
-  %.not2935.i = icmp eq i8 %25, 0
-  br i1 %.not2935.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not2934.i = icmp eq i8 %25, 0
+  br i1 %.not2934.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %36, %.preheader.i
-  %26 = add nuw nsw i64 %.02638.i, 1
+  %26 = add nuw nsw i64 %.02637.i, 1
   %27 = getelementptr %struct.enum_val_t, ptr @gui_console_open_type, i64 %26
   %28 = load ptr, ptr %27, align 8
   %exitcond = icmp eq i64 %26, 3
@@ -1673,12 +1673,12 @@ prefs_set_module_effect_flags.exit:               ; preds = %7, %15
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %36
   %29 = phi i8 [ %38, %36 ], [ %25, %.preheader.i ]
-  %.036.i = phi ptr [ %37, %36 ], [ %24, %.preheader.i ]
+  %.035.i = phi ptr [ %37, %36 ], [ %24, %.preheader.i ]
   %30 = zext i8 %29 to i64
   %31 = getelementptr i16, ptr %23, i64 %30
   %32 = load i16, ptr %31, align 2
-  %.fr33.i = freeze i16 %32
-  %33 = and i16 %.fr33.i, 1
+  %.fr.i = freeze i16 %32
+  %33 = and i16 %.fr.i, 1
   %.not30.not.i = icmp eq i16 %33, 0
   br i1 %.not30.not.i, label %switch.early.test.i, label %36
 
@@ -1695,7 +1695,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   unreachable
 
 36:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %37 = getelementptr i8, ptr %.036.i, i64 1
+  %37 = getelementptr i8, ptr %.035.i, i64 1
   %38 = load i8, ptr %37, align 1
   %.not29.i = icmp eq i8 %38, 0
   br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
@@ -1992,13 +1992,13 @@ prefs_register_subtree.exit81:                    ; preds = %.split6.i80, %.spli
 
 .preheader.i84:                                   ; preds = %.preheader.i84.preheader, %._crit_edge.i92
   %163 = phi ptr [ %167, %._crit_edge.i92 ], [ @.str.486, %.preheader.i84.preheader ]
-  %.02638.i85 = phi i64 [ %165, %._crit_edge.i92 ], [ 0, %.preheader.i84.preheader ]
+  %.02637.i85 = phi i64 [ %165, %._crit_edge.i92 ], [ 0, %.preheader.i84.preheader ]
   %164 = load i8, ptr %163, align 1
-  %.not2935.i86 = icmp eq i8 %164, 0
-  br i1 %.not2935.i86, label %._crit_edge.i92, label %.lr.ph.i87
+  %.not2934.i86 = icmp eq i8 %164, 0
+  br i1 %.not2934.i86, label %._crit_edge.i92, label %.lr.ph.i87
 
 ._crit_edge.i92:                                  ; preds = %175, %.preheader.i84
-  %165 = add nuw nsw i64 %.02638.i85, 1
+  %165 = add nuw nsw i64 %.02637.i85, 1
   %166 = getelementptr %struct.enum_val_t, ptr @gui_color_scheme, i64 %165
   %167 = load ptr, ptr %166, align 8
   %exitcond484 = icmp eq i64 %165, 3
@@ -2006,12 +2006,12 @@ prefs_register_subtree.exit81:                    ; preds = %.split6.i80, %.spli
 
 .lr.ph.i87:                                       ; preds = %.preheader.i84, %175
   %168 = phi i8 [ %177, %175 ], [ %164, %.preheader.i84 ]
-  %.036.i88 = phi ptr [ %176, %175 ], [ %163, %.preheader.i84 ]
+  %.035.i88 = phi ptr [ %176, %175 ], [ %163, %.preheader.i84 ]
   %169 = zext i8 %168 to i64
   %170 = getelementptr i16, ptr %23, i64 %169
   %171 = load i16, ptr %170, align 2
-  %.fr33.i89 = freeze i16 %171
-  %172 = and i16 %.fr33.i89, 1
+  %.fr.i89 = freeze i16 %171
+  %172 = and i16 %.fr.i89, 1
   %.not30.not.i90 = icmp eq i16 %172, 0
   br i1 %.not30.not.i90, label %switch.early.test.i94, label %175
 
@@ -2028,7 +2028,7 @@ switch.early.test.i94:                            ; preds = %.lr.ph.i87
   unreachable
 
 175:                                              ; preds = %switch.early.test.i94, %switch.early.test.i94, %switch.early.test.i94, %.lr.ph.i87
-  %176 = getelementptr i8, ptr %.036.i88, i64 1
+  %176 = getelementptr i8, ptr %.035.i88, i64 1
   %177 = load i8, ptr %176, align 1
   %.not29.i91 = icmp eq i8 %177, 0
   br i1 %.not29.i91, label %._crit_edge.i92, label %.lr.ph.i87, !llvm.loop !13
@@ -2061,13 +2061,13 @@ prefs_register_enum_preference.exit95:            ; preds = %._crit_edge.i92
 
 .preheader.i96:                                   ; preds = %._crit_edge.i104, %prefs_register_enum_preference.exit95
   %193 = phi ptr [ @.str.493, %prefs_register_enum_preference.exit95 ], [ %197, %._crit_edge.i104 ]
-  %.02638.i97 = phi i64 [ 0, %prefs_register_enum_preference.exit95 ], [ %195, %._crit_edge.i104 ]
+  %.02637.i97 = phi i64 [ 0, %prefs_register_enum_preference.exit95 ], [ %195, %._crit_edge.i104 ]
   %194 = load i8, ptr %193, align 1
-  %.not2935.i98 = icmp eq i8 %194, 0
-  br i1 %.not2935.i98, label %._crit_edge.i104, label %.lr.ph.i99
+  %.not2934.i98 = icmp eq i8 %194, 0
+  br i1 %.not2934.i98, label %._crit_edge.i104, label %.lr.ph.i99
 
 ._crit_edge.i104:                                 ; preds = %205, %.preheader.i96
-  %195 = add nuw nsw i64 %.02638.i97, 1
+  %195 = add nuw nsw i64 %.02637.i97, 1
   %196 = getelementptr %struct.enum_val_t, ptr @gui_selection_style, i64 %195
   %197 = load ptr, ptr %196, align 8
   %exitcond485 = icmp eq i64 %195, 3
@@ -2075,12 +2075,12 @@ prefs_register_enum_preference.exit95:            ; preds = %._crit_edge.i92
 
 .lr.ph.i99:                                       ; preds = %.preheader.i96, %205
   %198 = phi i8 [ %207, %205 ], [ %194, %.preheader.i96 ]
-  %.036.i100 = phi ptr [ %206, %205 ], [ %193, %.preheader.i96 ]
+  %.035.i100 = phi ptr [ %206, %205 ], [ %193, %.preheader.i96 ]
   %199 = zext i8 %198 to i64
   %200 = getelementptr i16, ptr %23, i64 %199
   %201 = load i16, ptr %200, align 2
-  %.fr33.i101 = freeze i16 %201
-  %202 = and i16 %.fr33.i101, 1
+  %.fr.i101 = freeze i16 %201
+  %202 = and i16 %.fr.i101, 1
   %.not30.not.i102 = icmp eq i16 %202, 0
   br i1 %.not30.not.i102, label %switch.early.test.i106, label %205
 
@@ -2097,7 +2097,7 @@ switch.early.test.i106:                           ; preds = %.lr.ph.i99
   unreachable
 
 205:                                              ; preds = %switch.early.test.i106, %switch.early.test.i106, %switch.early.test.i106, %.lr.ph.i99
-  %206 = getelementptr i8, ptr %.036.i100, i64 1
+  %206 = getelementptr i8, ptr %.035.i100, i64 1
   %207 = load i8, ptr %206, align 1
   %.not29.i103 = icmp eq i8 %207, 0
   br i1 %.not29.i103, label %._crit_edge.i104, label %.lr.ph.i99, !llvm.loop !13
@@ -2130,13 +2130,13 @@ prefs_register_enum_preference.exit107:           ; preds = %._crit_edge.i104
 
 .preheader.i108:                                  ; preds = %._crit_edge.i116, %prefs_register_enum_preference.exit107
   %223 = phi ptr [ @.str.493, %prefs_register_enum_preference.exit107 ], [ %227, %._crit_edge.i116 ]
-  %.02638.i109 = phi i64 [ 0, %prefs_register_enum_preference.exit107 ], [ %225, %._crit_edge.i116 ]
+  %.02637.i109 = phi i64 [ 0, %prefs_register_enum_preference.exit107 ], [ %225, %._crit_edge.i116 ]
   %224 = load i8, ptr %223, align 1
-  %.not2935.i110 = icmp eq i8 %224, 0
-  br i1 %.not2935.i110, label %._crit_edge.i116, label %.lr.ph.i111
+  %.not2934.i110 = icmp eq i8 %224, 0
+  br i1 %.not2934.i110, label %._crit_edge.i116, label %.lr.ph.i111
 
 ._crit_edge.i116:                                 ; preds = %235, %.preheader.i108
-  %225 = add nuw nsw i64 %.02638.i109, 1
+  %225 = add nuw nsw i64 %.02637.i109, 1
   %226 = getelementptr %struct.enum_val_t, ptr @gui_selection_style, i64 %225
   %227 = load ptr, ptr %226, align 8
   %exitcond486 = icmp eq i64 %225, 3
@@ -2144,12 +2144,12 @@ prefs_register_enum_preference.exit107:           ; preds = %._crit_edge.i104
 
 .lr.ph.i111:                                      ; preds = %.preheader.i108, %235
   %228 = phi i8 [ %237, %235 ], [ %224, %.preheader.i108 ]
-  %.036.i112 = phi ptr [ %236, %235 ], [ %223, %.preheader.i108 ]
+  %.035.i112 = phi ptr [ %236, %235 ], [ %223, %.preheader.i108 ]
   %229 = zext i8 %228 to i64
   %230 = getelementptr i16, ptr %23, i64 %229
   %231 = load i16, ptr %230, align 2
-  %.fr33.i113 = freeze i16 %231
-  %232 = and i16 %.fr33.i113, 1
+  %.fr.i113 = freeze i16 %231
+  %232 = and i16 %.fr.i113, 1
   %.not30.not.i114 = icmp eq i16 %232, 0
   br i1 %.not30.not.i114, label %switch.early.test.i118, label %235
 
@@ -2166,7 +2166,7 @@ switch.early.test.i118:                           ; preds = %.lr.ph.i111
   unreachable
 
 235:                                              ; preds = %switch.early.test.i118, %switch.early.test.i118, %switch.early.test.i118, %.lr.ph.i111
-  %236 = getelementptr i8, ptr %.036.i112, i64 1
+  %236 = getelementptr i8, ptr %.035.i112, i64 1
   %237 = load i8, ptr %236, align 1
   %.not29.i115 = icmp eq i8 %237, 0
   br i1 %.not29.i115, label %._crit_edge.i116, label %.lr.ph.i111, !llvm.loop !13
@@ -2313,13 +2313,13 @@ prefs_register_enum_preference.exit119:           ; preds = %._crit_edge.i116
 
 .preheader.i122:                                  ; preds = %._crit_edge.i130, %prefs_register_enum_preference.exit119
   %311 = phi ptr [ @.str.497, %prefs_register_enum_preference.exit119 ], [ %315, %._crit_edge.i130 ]
-  %.02638.i123 = phi i64 [ 0, %prefs_register_enum_preference.exit119 ], [ %313, %._crit_edge.i130 ]
+  %.02637.i123 = phi i64 [ 0, %prefs_register_enum_preference.exit119 ], [ %313, %._crit_edge.i130 ]
   %312 = load i8, ptr %311, align 1
-  %.not2935.i124 = icmp eq i8 %312, 0
-  br i1 %.not2935.i124, label %._crit_edge.i130, label %.lr.ph.i125
+  %.not2934.i124 = icmp eq i8 %312, 0
+  br i1 %.not2934.i124, label %._crit_edge.i130, label %.lr.ph.i125
 
 ._crit_edge.i130:                                 ; preds = %323, %.preheader.i122
-  %313 = add nuw nsw i64 %.02638.i123, 1
+  %313 = add nuw nsw i64 %.02637.i123, 1
   %314 = getelementptr %struct.enum_val_t, ptr @gui_fileopen_style, i64 %313
   %315 = load ptr, ptr %314, align 8
   %exitcond487 = icmp eq i64 %313, 3
@@ -2327,12 +2327,12 @@ prefs_register_enum_preference.exit119:           ; preds = %._crit_edge.i116
 
 .lr.ph.i125:                                      ; preds = %.preheader.i122, %323
   %316 = phi i8 [ %325, %323 ], [ %312, %.preheader.i122 ]
-  %.036.i126 = phi ptr [ %324, %323 ], [ %311, %.preheader.i122 ]
+  %.035.i126 = phi ptr [ %324, %323 ], [ %311, %.preheader.i122 ]
   %317 = zext i8 %316 to i64
   %318 = getelementptr i16, ptr %23, i64 %317
   %319 = load i16, ptr %318, align 2
-  %.fr33.i127 = freeze i16 %319
-  %320 = and i16 %.fr33.i127, 1
+  %.fr.i127 = freeze i16 %319
+  %320 = and i16 %.fr.i127, 1
   %.not30.not.i128 = icmp eq i16 %320, 0
   br i1 %.not30.not.i128, label %switch.early.test.i132, label %323
 
@@ -2349,7 +2349,7 @@ switch.early.test.i132:                           ; preds = %.lr.ph.i125
   unreachable
 
 323:                                              ; preds = %switch.early.test.i132, %switch.early.test.i132, %switch.early.test.i132, %.lr.ph.i125
-  %324 = getelementptr i8, ptr %.036.i126, i64 1
+  %324 = getelementptr i8, ptr %.035.i126, i64 1
   %325 = load i8, ptr %324, align 1
   %.not29.i129 = icmp eq i8 %325, 0
   br i1 %.not29.i129, label %._crit_edge.i130, label %.lr.ph.i125, !llvm.loop !13
@@ -2487,13 +2487,13 @@ prefs_register_enum_preference.exit133:           ; preds = %._crit_edge.i130
 
 .preheader.i136:                                  ; preds = %._crit_edge.i144, %prefs_register_enum_preference.exit133
   %417 = phi ptr [ @.str.501, %prefs_register_enum_preference.exit133 ], [ %421, %._crit_edge.i144 ]
-  %.02638.i137 = phi i64 [ 0, %prefs_register_enum_preference.exit133 ], [ %419, %._crit_edge.i144 ]
+  %.02637.i137 = phi i64 [ 0, %prefs_register_enum_preference.exit133 ], [ %419, %._crit_edge.i144 ]
   %418 = load i8, ptr %417, align 1
-  %.not2935.i138 = icmp eq i8 %418, 0
-  br i1 %.not2935.i138, label %._crit_edge.i144, label %.lr.ph.i139
+  %.not2934.i138 = icmp eq i8 %418, 0
+  br i1 %.not2934.i138, label %._crit_edge.i144, label %.lr.ph.i139
 
 ._crit_edge.i144:                                 ; preds = %429, %.preheader.i136
-  %419 = add nuw nsw i64 %.02638.i137, 1
+  %419 = add nuw nsw i64 %.02637.i137, 1
   %420 = getelementptr %struct.enum_val_t, ptr @gui_toolbar_style, i64 %419
   %421 = load ptr, ptr %420, align 8
   %exitcond488 = icmp eq i64 %419, 3
@@ -2501,12 +2501,12 @@ prefs_register_enum_preference.exit133:           ; preds = %._crit_edge.i130
 
 .lr.ph.i139:                                      ; preds = %.preheader.i136, %429
   %422 = phi i8 [ %431, %429 ], [ %418, %.preheader.i136 ]
-  %.036.i140 = phi ptr [ %430, %429 ], [ %417, %.preheader.i136 ]
+  %.035.i140 = phi ptr [ %430, %429 ], [ %417, %.preheader.i136 ]
   %423 = zext i8 %422 to i64
   %424 = getelementptr i16, ptr %23, i64 %423
   %425 = load i16, ptr %424, align 2
-  %.fr33.i141 = freeze i16 %425
-  %426 = and i16 %.fr33.i141, 1
+  %.fr.i141 = freeze i16 %425
+  %426 = and i16 %.fr.i141, 1
   %.not30.not.i142 = icmp eq i16 %426, 0
   br i1 %.not30.not.i142, label %switch.early.test.i146, label %429
 
@@ -2523,7 +2523,7 @@ switch.early.test.i146:                           ; preds = %.lr.ph.i139
   unreachable
 
 429:                                              ; preds = %switch.early.test.i146, %switch.early.test.i146, %switch.early.test.i146, %.lr.ph.i139
-  %430 = getelementptr i8, ptr %.036.i140, i64 1
+  %430 = getelementptr i8, ptr %.035.i140, i64 1
   %431 = load i8, ptr %430, align 1
   %.not29.i143 = icmp eq i8 %431, 0
   br i1 %.not29.i143, label %._crit_edge.i144, label %.lr.ph.i139, !llvm.loop !13
@@ -2556,24 +2556,24 @@ prefs_register_enum_preference.exit147:           ; preds = %._crit_edge.i144
 .preheader.i148:                                  ; preds = %._crit_edge.i156, %prefs_register_enum_preference.exit147
   %448 = phi ptr [ @.str.505, %prefs_register_enum_preference.exit147 ], [ %451, %._crit_edge.i156 ]
   %exitcond489 = phi i1 [ false, %prefs_register_enum_preference.exit147 ], [ true, %._crit_edge.i156 ]
-  %.02638.i149 = phi i64 [ 1, %prefs_register_enum_preference.exit147 ], [ 2, %._crit_edge.i156 ]
+  %.02637.i149 = phi i64 [ 1, %prefs_register_enum_preference.exit147 ], [ 2, %._crit_edge.i156 ]
   %449 = load i8, ptr %448, align 1
-  %.not2935.i150 = icmp eq i8 %449, 0
-  br i1 %.not2935.i150, label %._crit_edge.i156, label %.lr.ph.i151
+  %.not2934.i150 = icmp eq i8 %449, 0
+  br i1 %.not2934.i150, label %._crit_edge.i156, label %.lr.ph.i151
 
 ._crit_edge.i156:                                 ; preds = %459, %.preheader.i148
-  %450 = getelementptr %struct.enum_val_t, ptr @gui_update_channel, i64 %.02638.i149
+  %450 = getelementptr %struct.enum_val_t, ptr @gui_update_channel, i64 %.02637.i149
   %451 = load ptr, ptr %450, align 8
   br i1 %exitcond489, label %prefs_register_enum_preference.exit159, label %.preheader.i148, !llvm.loop !12
 
 .lr.ph.i151:                                      ; preds = %.preheader.i148, %459
   %452 = phi i8 [ %461, %459 ], [ %449, %.preheader.i148 ]
-  %.036.i152 = phi ptr [ %460, %459 ], [ %448, %.preheader.i148 ]
+  %.035.i152 = phi ptr [ %460, %459 ], [ %448, %.preheader.i148 ]
   %453 = zext i8 %452 to i64
   %454 = getelementptr i16, ptr %23, i64 %453
   %455 = load i16, ptr %454, align 2
-  %.fr33.i153 = freeze i16 %455
-  %456 = and i16 %.fr33.i153, 1
+  %.fr.i153 = freeze i16 %455
+  %456 = and i16 %.fr.i153, 1
   %.not30.not.i154 = icmp eq i16 %456, 0
   br i1 %.not30.not.i154, label %switch.early.test.i158, label %459
 
@@ -2590,7 +2590,7 @@ switch.early.test.i158:                           ; preds = %.lr.ph.i151
   unreachable
 
 459:                                              ; preds = %switch.early.test.i158, %switch.early.test.i158, %switch.early.test.i158, %.lr.ph.i151
-  %460 = getelementptr i8, ptr %.036.i152, i64 1
+  %460 = getelementptr i8, ptr %.035.i152, i64 1
   %461 = load i8, ptr %460, align 1
   %.not29.i155 = icmp eq i8 %461, 0
   br i1 %.not29.i155, label %._crit_edge.i156, label %.lr.ph.i151, !llvm.loop !13
@@ -2677,13 +2677,13 @@ prefs_register_enum_preference.exit159:           ; preds = %._crit_edge.i156
 
 .preheader.i163:                                  ; preds = %._crit_edge.i171, %prefs_register_enum_preference.exit159
   %511 = phi ptr [ @.str.508, %prefs_register_enum_preference.exit159 ], [ %515, %._crit_edge.i171 ]
-  %.02638.i164 = phi i64 [ 0, %prefs_register_enum_preference.exit159 ], [ %513, %._crit_edge.i171 ]
+  %.02637.i164 = phi i64 [ 0, %prefs_register_enum_preference.exit159 ], [ %513, %._crit_edge.i171 ]
   %512 = load i8, ptr %511, align 1
-  %.not2935.i165 = icmp eq i8 %512, 0
-  br i1 %.not2935.i165, label %._crit_edge.i171, label %.lr.ph.i166
+  %.not2934.i165 = icmp eq i8 %512, 0
+  br i1 %.not2934.i165, label %._crit_edge.i171, label %.lr.ph.i166
 
 ._crit_edge.i171:                                 ; preds = %523, %.preheader.i163
-  %513 = add nuw nsw i64 %.02638.i164, 1
+  %513 = add nuw nsw i64 %.02637.i164, 1
   %514 = getelementptr %struct.enum_val_t, ptr @gui_version_placement_type, i64 %513
   %515 = load ptr, ptr %514, align 8
   %exitcond490 = icmp eq i64 %513, 4
@@ -2691,12 +2691,12 @@ prefs_register_enum_preference.exit159:           ; preds = %._crit_edge.i156
 
 .lr.ph.i166:                                      ; preds = %.preheader.i163, %523
   %516 = phi i8 [ %525, %523 ], [ %512, %.preheader.i163 ]
-  %.036.i167 = phi ptr [ %524, %523 ], [ %511, %.preheader.i163 ]
+  %.035.i167 = phi ptr [ %524, %523 ], [ %511, %.preheader.i163 ]
   %517 = zext i8 %516 to i64
   %518 = getelementptr i16, ptr %23, i64 %517
   %519 = load i16, ptr %518, align 2
-  %.fr33.i168 = freeze i16 %519
-  %520 = and i16 %.fr33.i168, 1
+  %.fr.i168 = freeze i16 %519
+  %520 = and i16 %.fr.i168, 1
   %.not30.not.i169 = icmp eq i16 %520, 0
   br i1 %.not30.not.i169, label %switch.early.test.i173, label %523
 
@@ -2713,7 +2713,7 @@ switch.early.test.i173:                           ; preds = %.lr.ph.i166
   unreachable
 
 523:                                              ; preds = %switch.early.test.i173, %switch.early.test.i173, %switch.early.test.i173, %.lr.ph.i166
-  %524 = getelementptr i8, ptr %.036.i167, i64 1
+  %524 = getelementptr i8, ptr %.035.i167, i64 1
   %525 = load i8, ptr %524, align 1
   %.not29.i170 = icmp eq i8 %525, 0
   br i1 %.not29.i170, label %._crit_edge.i171, label %.lr.ph.i166, !llvm.loop !13
@@ -2852,13 +2852,13 @@ prefs_find_preference.exit.i:                     ; preds = %585, %576
 
 .preheader.i182:                                  ; preds = %.preheader.i182.preheader, %._crit_edge.i190
   %592 = phi ptr [ %596, %._crit_edge.i190 ], [ @.str.512, %.preheader.i182.preheader ]
-  %.02638.i183 = phi i64 [ %594, %._crit_edge.i190 ], [ 0, %.preheader.i182.preheader ]
+  %.02637.i183 = phi i64 [ %594, %._crit_edge.i190 ], [ 0, %.preheader.i182.preheader ]
   %593 = load i8, ptr %592, align 1
-  %.not2935.i184 = icmp eq i8 %593, 0
-  br i1 %.not2935.i184, label %._crit_edge.i190, label %.lr.ph.i185
+  %.not2934.i184 = icmp eq i8 %593, 0
+  br i1 %.not2934.i184, label %._crit_edge.i190, label %.lr.ph.i185
 
 ._crit_edge.i190:                                 ; preds = %604, %.preheader.i182
-  %594 = add nuw nsw i64 %.02638.i183, 1
+  %594 = add nuw nsw i64 %.02637.i183, 1
   %595 = getelementptr %struct.enum_val_t, ptr @gui_layout_content, i64 %594
   %596 = load ptr, ptr %595, align 8
   %exitcond491 = icmp eq i64 %594, 5
@@ -2866,12 +2866,12 @@ prefs_find_preference.exit.i:                     ; preds = %585, %576
 
 .lr.ph.i185:                                      ; preds = %.preheader.i182, %604
   %597 = phi i8 [ %606, %604 ], [ %593, %.preheader.i182 ]
-  %.036.i186 = phi ptr [ %605, %604 ], [ %592, %.preheader.i182 ]
+  %.035.i186 = phi ptr [ %605, %604 ], [ %592, %.preheader.i182 ]
   %598 = zext i8 %597 to i64
   %599 = getelementptr i16, ptr %23, i64 %598
   %600 = load i16, ptr %599, align 2
-  %.fr33.i187 = freeze i16 %600
-  %601 = and i16 %.fr33.i187, 1
+  %.fr.i187 = freeze i16 %600
+  %601 = and i16 %.fr.i187, 1
   %.not30.not.i188 = icmp eq i16 %601, 0
   br i1 %.not30.not.i188, label %switch.early.test.i192, label %604
 
@@ -2888,7 +2888,7 @@ switch.early.test.i192:                           ; preds = %.lr.ph.i185
   unreachable
 
 604:                                              ; preds = %switch.early.test.i192, %switch.early.test.i192, %switch.early.test.i192, %.lr.ph.i185
-  %605 = getelementptr i8, ptr %.036.i186, i64 1
+  %605 = getelementptr i8, ptr %.035.i186, i64 1
   %606 = load i8, ptr %605, align 1
   %.not29.i189 = icmp eq i8 %606, 0
   br i1 %.not29.i189, label %._crit_edge.i190, label %.lr.ph.i185, !llvm.loop !13
@@ -2952,13 +2952,13 @@ prefs_find_preference.exit.i194:                  ; preds = %622, %613
 
 .preheader.i201:                                  ; preds = %.preheader.i201.preheader, %._crit_edge.i209
   %629 = phi ptr [ %633, %._crit_edge.i209 ], [ @.str.512, %.preheader.i201.preheader ]
-  %.02638.i202 = phi i64 [ %631, %._crit_edge.i209 ], [ 0, %.preheader.i201.preheader ]
+  %.02637.i202 = phi i64 [ %631, %._crit_edge.i209 ], [ 0, %.preheader.i201.preheader ]
   %630 = load i8, ptr %629, align 1
-  %.not2935.i203 = icmp eq i8 %630, 0
-  br i1 %.not2935.i203, label %._crit_edge.i209, label %.lr.ph.i204
+  %.not2934.i203 = icmp eq i8 %630, 0
+  br i1 %.not2934.i203, label %._crit_edge.i209, label %.lr.ph.i204
 
 ._crit_edge.i209:                                 ; preds = %641, %.preheader.i201
-  %631 = add nuw nsw i64 %.02638.i202, 1
+  %631 = add nuw nsw i64 %.02637.i202, 1
   %632 = getelementptr %struct.enum_val_t, ptr @gui_layout_content, i64 %631
   %633 = load ptr, ptr %632, align 8
   %exitcond492 = icmp eq i64 %631, 5
@@ -2966,12 +2966,12 @@ prefs_find_preference.exit.i194:                  ; preds = %622, %613
 
 .lr.ph.i204:                                      ; preds = %.preheader.i201, %641
   %634 = phi i8 [ %643, %641 ], [ %630, %.preheader.i201 ]
-  %.036.i205 = phi ptr [ %642, %641 ], [ %629, %.preheader.i201 ]
+  %.035.i205 = phi ptr [ %642, %641 ], [ %629, %.preheader.i201 ]
   %635 = zext i8 %634 to i64
   %636 = getelementptr i16, ptr %23, i64 %635
   %637 = load i16, ptr %636, align 2
-  %.fr33.i206 = freeze i16 %637
-  %638 = and i16 %.fr33.i206, 1
+  %.fr.i206 = freeze i16 %637
+  %638 = and i16 %.fr.i206, 1
   %.not30.not.i207 = icmp eq i16 %638, 0
   br i1 %.not30.not.i207, label %switch.early.test.i211, label %641
 
@@ -2988,7 +2988,7 @@ switch.early.test.i211:                           ; preds = %.lr.ph.i204
   unreachable
 
 641:                                              ; preds = %switch.early.test.i211, %switch.early.test.i211, %switch.early.test.i211, %.lr.ph.i204
-  %642 = getelementptr i8, ptr %.036.i205, i64 1
+  %642 = getelementptr i8, ptr %.035.i205, i64 1
   %643 = load i8, ptr %642, align 1
   %.not29.i208 = icmp eq i8 %643, 0
   br i1 %.not29.i208, label %._crit_edge.i209, label %.lr.ph.i204, !llvm.loop !13
@@ -3052,13 +3052,13 @@ prefs_find_preference.exit.i213:                  ; preds = %659, %650
 
 .preheader.i220:                                  ; preds = %.preheader.i220.preheader, %._crit_edge.i228
   %666 = phi ptr [ %670, %._crit_edge.i228 ], [ @.str.512, %.preheader.i220.preheader ]
-  %.02638.i221 = phi i64 [ %668, %._crit_edge.i228 ], [ 0, %.preheader.i220.preheader ]
+  %.02637.i221 = phi i64 [ %668, %._crit_edge.i228 ], [ 0, %.preheader.i220.preheader ]
   %667 = load i8, ptr %666, align 1
-  %.not2935.i222 = icmp eq i8 %667, 0
-  br i1 %.not2935.i222, label %._crit_edge.i228, label %.lr.ph.i223
+  %.not2934.i222 = icmp eq i8 %667, 0
+  br i1 %.not2934.i222, label %._crit_edge.i228, label %.lr.ph.i223
 
 ._crit_edge.i228:                                 ; preds = %678, %.preheader.i220
-  %668 = add nuw nsw i64 %.02638.i221, 1
+  %668 = add nuw nsw i64 %.02637.i221, 1
   %669 = getelementptr %struct.enum_val_t, ptr @gui_layout_content, i64 %668
   %670 = load ptr, ptr %669, align 8
   %exitcond493 = icmp eq i64 %668, 5
@@ -3066,12 +3066,12 @@ prefs_find_preference.exit.i213:                  ; preds = %659, %650
 
 .lr.ph.i223:                                      ; preds = %.preheader.i220, %678
   %671 = phi i8 [ %680, %678 ], [ %667, %.preheader.i220 ]
-  %.036.i224 = phi ptr [ %679, %678 ], [ %666, %.preheader.i220 ]
+  %.035.i224 = phi ptr [ %679, %678 ], [ %666, %.preheader.i220 ]
   %672 = zext i8 %671 to i64
   %673 = getelementptr i16, ptr %23, i64 %672
   %674 = load i16, ptr %673, align 2
-  %.fr33.i225 = freeze i16 %674
-  %675 = and i16 %.fr33.i225, 1
+  %.fr.i225 = freeze i16 %674
+  %675 = and i16 %.fr.i225, 1
   %.not30.not.i226 = icmp eq i16 %675, 0
   br i1 %.not30.not.i226, label %switch.early.test.i230, label %678
 
@@ -3088,7 +3088,7 @@ switch.early.test.i230:                           ; preds = %.lr.ph.i223
   unreachable
 
 678:                                              ; preds = %switch.early.test.i230, %switch.early.test.i230, %switch.early.test.i230, %.lr.ph.i223
-  %679 = getelementptr i8, ptr %.036.i224, i64 1
+  %679 = getelementptr i8, ptr %.035.i224, i64 1
   %680 = load i8, ptr %679, align 1
   %.not29.i227 = icmp eq i8 %680, 0
   br i1 %.not29.i227, label %._crit_edge.i228, label %.lr.ph.i223, !llvm.loop !13
@@ -3227,24 +3227,24 @@ prefs_set_effect_flags_by_name.exit245:           ; preds = %prefs_find_preferen
 .preheader.i246:                                  ; preds = %._crit_edge.i254, %prefs_set_effect_flags_by_name.exit245
   %739 = phi ptr [ @.str.518, %prefs_set_effect_flags_by_name.exit245 ], [ %742, %._crit_edge.i254 ]
   %exitcond494 = phi i1 [ false, %prefs_set_effect_flags_by_name.exit245 ], [ true, %._crit_edge.i254 ]
-  %.02638.i247 = phi i64 [ 1, %prefs_set_effect_flags_by_name.exit245 ], [ 2, %._crit_edge.i254 ]
+  %.02637.i247 = phi i64 [ 1, %prefs_set_effect_flags_by_name.exit245 ], [ 2, %._crit_edge.i254 ]
   %740 = load i8, ptr %739, align 1
-  %.not2935.i248 = icmp eq i8 %740, 0
-  br i1 %.not2935.i248, label %._crit_edge.i254, label %.lr.ph.i249
+  %.not2934.i248 = icmp eq i8 %740, 0
+  br i1 %.not2934.i248, label %._crit_edge.i254, label %.lr.ph.i249
 
 ._crit_edge.i254:                                 ; preds = %750, %.preheader.i246
-  %741 = getelementptr %struct.enum_val_t, ptr @gui_packet_dialog_layout, i64 %.02638.i247
+  %741 = getelementptr %struct.enum_val_t, ptr @gui_packet_dialog_layout, i64 %.02637.i247
   %742 = load ptr, ptr %741, align 8
   br i1 %exitcond494, label %prefs_register_enum_preference.exit257, label %.preheader.i246, !llvm.loop !12
 
 .lr.ph.i249:                                      ; preds = %.preheader.i246, %750
   %743 = phi i8 [ %752, %750 ], [ %740, %.preheader.i246 ]
-  %.036.i250 = phi ptr [ %751, %750 ], [ %739, %.preheader.i246 ]
+  %.035.i250 = phi ptr [ %751, %750 ], [ %739, %.preheader.i246 ]
   %744 = zext i8 %743 to i64
   %745 = getelementptr i16, ptr %23, i64 %744
   %746 = load i16, ptr %745, align 2
-  %.fr33.i251 = freeze i16 %746
-  %747 = and i16 %.fr33.i251, 1
+  %.fr.i251 = freeze i16 %746
+  %747 = and i16 %.fr.i251, 1
   %.not30.not.i252 = icmp eq i16 %747, 0
   br i1 %.not30.not.i252, label %switch.early.test.i256, label %750
 
@@ -3261,7 +3261,7 @@ switch.early.test.i256:                           ; preds = %.lr.ph.i249
   unreachable
 
 750:                                              ; preds = %switch.early.test.i256, %switch.early.test.i256, %switch.early.test.i256, %.lr.ph.i249
-  %751 = getelementptr i8, ptr %.036.i250, i64 1
+  %751 = getelementptr i8, ptr %.035.i250, i64 1
   %752 = load i8, ptr %751, align 1
   %.not29.i253 = icmp eq i8 %752, 0
   br i1 %.not29.i253, label %._crit_edge.i254, label %.lr.ph.i249, !llvm.loop !13
@@ -3282,13 +3282,13 @@ prefs_register_enum_preference.exit257:           ; preds = %._crit_edge.i254
 
 .preheader.i258:                                  ; preds = %._crit_edge.i266, %prefs_register_enum_preference.exit257
   %760 = phi ptr [ @.str.523, %prefs_register_enum_preference.exit257 ], [ %764, %._crit_edge.i266 ]
-  %.02638.i259 = phi i64 [ 0, %prefs_register_enum_preference.exit257 ], [ %762, %._crit_edge.i266 ]
+  %.02637.i259 = phi i64 [ 0, %prefs_register_enum_preference.exit257 ], [ %762, %._crit_edge.i266 ]
   %761 = load i8, ptr %760, align 1
-  %.not2935.i260 = icmp eq i8 %761, 0
-  br i1 %.not2935.i260, label %._crit_edge.i266, label %.lr.ph.i261
+  %.not2934.i260 = icmp eq i8 %761, 0
+  br i1 %.not2934.i260, label %._crit_edge.i266, label %.lr.ph.i261
 
 ._crit_edge.i266:                                 ; preds = %772, %.preheader.i258
-  %762 = add nuw nsw i64 %.02638.i259, 1
+  %762 = add nuw nsw i64 %.02637.i259, 1
   %763 = getelementptr %struct.enum_val_t, ptr @gui_packet_list_elide_mode, i64 %762
   %764 = load ptr, ptr %763, align 8
   %exitcond495 = icmp eq i64 %762, 4
@@ -3296,12 +3296,12 @@ prefs_register_enum_preference.exit257:           ; preds = %._crit_edge.i254
 
 .lr.ph.i261:                                      ; preds = %.preheader.i258, %772
   %765 = phi i8 [ %774, %772 ], [ %761, %.preheader.i258 ]
-  %.036.i262 = phi ptr [ %773, %772 ], [ %760, %.preheader.i258 ]
+  %.035.i262 = phi ptr [ %773, %772 ], [ %760, %.preheader.i258 ]
   %766 = zext i8 %765 to i64
   %767 = getelementptr i16, ptr %23, i64 %766
   %768 = load i16, ptr %767, align 2
-  %.fr33.i263 = freeze i16 %768
-  %769 = and i16 %.fr33.i263, 1
+  %.fr.i263 = freeze i16 %768
+  %769 = and i16 %.fr.i263, 1
   %.not30.not.i264 = icmp eq i16 %769, 0
   br i1 %.not30.not.i264, label %switch.early.test.i268, label %772
 
@@ -3318,7 +3318,7 @@ switch.early.test.i268:                           ; preds = %.lr.ph.i261
   unreachable
 
 772:                                              ; preds = %switch.early.test.i268, %switch.early.test.i268, %switch.early.test.i268, %.lr.ph.i261
-  %773 = getelementptr i8, ptr %.036.i262, i64 1
+  %773 = getelementptr i8, ptr %.035.i262, i64 1
   %774 = load i8, ptr %773, align 1
   %.not29.i265 = icmp eq i8 %774, 0
   br i1 %.not29.i265, label %._crit_edge.i266, label %.lr.ph.i261, !llvm.loop !13
@@ -3379,13 +3379,13 @@ prefs_register_enum_preference.exit269:           ; preds = %._crit_edge.i266
 
 .preheader.i270:                                  ; preds = %._crit_edge.i278, %prefs_register_enum_preference.exit269
   %809 = phi ptr [ @.str.502, %prefs_register_enum_preference.exit269 ], [ %813, %._crit_edge.i278 ]
-  %.02638.i271 = phi i64 [ 0, %prefs_register_enum_preference.exit269 ], [ %811, %._crit_edge.i278 ]
+  %.02637.i271 = phi i64 [ 0, %prefs_register_enum_preference.exit269 ], [ %811, %._crit_edge.i278 ]
   %810 = load i8, ptr %809, align 1
-  %.not2935.i272 = icmp eq i8 %810, 0
-  br i1 %.not2935.i272, label %._crit_edge.i278, label %.lr.ph.i273
+  %.not2934.i272 = icmp eq i8 %810, 0
+  br i1 %.not2934.i272, label %._crit_edge.i278, label %.lr.ph.i273
 
 ._crit_edge.i278:                                 ; preds = %821, %.preheader.i270
-  %811 = add nuw nsw i64 %.02638.i271, 1
+  %811 = add nuw nsw i64 %.02637.i271, 1
   %812 = getelementptr %struct.enum_val_t, ptr @gui_packet_list_copy_format_options_for_keyboard_shortcut, i64 %811
   %813 = load ptr, ptr %812, align 8
   %exitcond496 = icmp eq i64 %811, 4
@@ -3393,12 +3393,12 @@ prefs_register_enum_preference.exit269:           ; preds = %._crit_edge.i266
 
 .lr.ph.i273:                                      ; preds = %.preheader.i270, %821
   %814 = phi i8 [ %823, %821 ], [ %810, %.preheader.i270 ]
-  %.036.i274 = phi ptr [ %822, %821 ], [ %809, %.preheader.i270 ]
+  %.035.i274 = phi ptr [ %822, %821 ], [ %809, %.preheader.i270 ]
   %815 = zext i8 %814 to i64
   %816 = getelementptr i16, ptr %23, i64 %815
   %817 = load i16, ptr %816, align 2
-  %.fr33.i275 = freeze i16 %817
-  %818 = and i16 %.fr33.i275, 1
+  %.fr.i275 = freeze i16 %817
+  %818 = and i16 %.fr.i275, 1
   %.not30.not.i276 = icmp eq i16 %818, 0
   br i1 %.not30.not.i276, label %switch.early.test.i280, label %821
 
@@ -3415,7 +3415,7 @@ switch.early.test.i280:                           ; preds = %.lr.ph.i273
   unreachable
 
 821:                                              ; preds = %switch.early.test.i280, %switch.early.test.i280, %switch.early.test.i280, %.lr.ph.i273
-  %822 = getelementptr i8, ptr %.036.i274, i64 1
+  %822 = getelementptr i8, ptr %.035.i274, i64 1
   %823 = load i8, ptr %822, align 1
   %.not29.i277 = icmp eq i8 %823, 0
   br i1 %.not29.i277, label %._crit_edge.i278, label %.lr.ph.i273, !llvm.loop !13
@@ -3821,13 +3821,13 @@ capture_column_init_cb.exit:                      ; preds = %.lr.ph.i334, %prefs
 
 .preheader.i294:                                  ; preds = %._crit_edge.i302, %capture_column_init_cb.exit
   %1066 = phi ptr [ @.str.541, %capture_column_init_cb.exit ], [ %1070, %._crit_edge.i302 ]
-  %.02638.i295 = phi i64 [ 0, %capture_column_init_cb.exit ], [ %1068, %._crit_edge.i302 ]
+  %.02637.i295 = phi i64 [ 0, %capture_column_init_cb.exit ], [ %1068, %._crit_edge.i302 ]
   %1067 = load i8, ptr %1066, align 1
-  %.not2935.i296 = icmp eq i8 %1067, 0
-  br i1 %.not2935.i296, label %._crit_edge.i302, label %.lr.ph.i297
+  %.not2934.i296 = icmp eq i8 %1067, 0
+  br i1 %.not2934.i296, label %._crit_edge.i302, label %.lr.ph.i297
 
 ._crit_edge.i302:                                 ; preds = %1078, %.preheader.i294
-  %1068 = add nuw nsw i64 %.02638.i295, 1
+  %1068 = add nuw nsw i64 %.02637.i295, 1
   %1069 = getelementptr %struct.enum_val_t, ptr @st_sort_col_vals, i64 %1068
   %1070 = load ptr, ptr %1069, align 8
   %exitcond497 = icmp eq i64 %1068, 6
@@ -3835,12 +3835,12 @@ capture_column_init_cb.exit:                      ; preds = %.lr.ph.i334, %prefs
 
 .lr.ph.i297:                                      ; preds = %.preheader.i294, %1078
   %1071 = phi i8 [ %1080, %1078 ], [ %1067, %.preheader.i294 ]
-  %.036.i298 = phi ptr [ %1079, %1078 ], [ %1066, %.preheader.i294 ]
+  %.035.i298 = phi ptr [ %1079, %1078 ], [ %1066, %.preheader.i294 ]
   %1072 = zext i8 %1071 to i64
   %1073 = getelementptr i16, ptr %23, i64 %1072
   %1074 = load i16, ptr %1073, align 2
-  %.fr33.i299 = freeze i16 %1074
-  %1075 = and i16 %.fr33.i299, 1
+  %.fr.i299 = freeze i16 %1074
+  %1075 = and i16 %.fr.i299, 1
   %.not30.not.i300 = icmp eq i16 %1075, 0
   br i1 %.not30.not.i300, label %switch.early.test.i304, label %1078
 
@@ -3857,7 +3857,7 @@ switch.early.test.i304:                           ; preds = %.lr.ph.i297
   unreachable
 
 1078:                                             ; preds = %switch.early.test.i304, %switch.early.test.i304, %switch.early.test.i304, %.lr.ph.i297
-  %1079 = getelementptr i8, ptr %.036.i298, i64 1
+  %1079 = getelementptr i8, ptr %.035.i298, i64 1
   %1080 = load i8, ptr %1079, align 1
   %.not29.i301 = icmp eq i8 %1080, 0
   br i1 %.not29.i301, label %._crit_edge.i302, label %.lr.ph.i297, !llvm.loop !13
@@ -3928,13 +3928,13 @@ prefs_register_enum_preference.exit305:           ; preds = %._crit_edge.i302
 
 .preheader.i306:                                  ; preds = %._crit_edge.i314, %prefs_register_enum_preference.exit305
   %1123 = phi ptr [ @.str.479, %prefs_register_enum_preference.exit305 ], [ %1127, %._crit_edge.i314 ]
-  %.02638.i307 = phi i64 [ 0, %prefs_register_enum_preference.exit305 ], [ %1125, %._crit_edge.i314 ]
+  %.02637.i307 = phi i64 [ 0, %prefs_register_enum_preference.exit305 ], [ %1125, %._crit_edge.i314 ]
   %1124 = load i8, ptr %1123, align 1
-  %.not2935.i308 = icmp eq i8 %1124, 0
-  br i1 %.not2935.i308, label %._crit_edge.i314, label %.lr.ph.i309
+  %.not2934.i308 = icmp eq i8 %1124, 0
+  br i1 %.not2934.i308, label %._crit_edge.i314, label %.lr.ph.i309
 
 ._crit_edge.i314:                                 ; preds = %1135, %.preheader.i306
-  %1125 = add nuw nsw i64 %.02638.i307, 1
+  %1125 = add nuw nsw i64 %.02637.i307, 1
   %1126 = getelementptr %struct.enum_val_t, ptr @abs_time_format_options, i64 %1125
   %1127 = load ptr, ptr %1126, align 8
   %exitcond498 = icmp eq i64 %1125, 4
@@ -3942,12 +3942,12 @@ prefs_register_enum_preference.exit305:           ; preds = %._crit_edge.i302
 
 .lr.ph.i309:                                      ; preds = %.preheader.i306, %1135
   %1128 = phi i8 [ %1137, %1135 ], [ %1124, %.preheader.i306 ]
-  %.036.i310 = phi ptr [ %1136, %1135 ], [ %1123, %.preheader.i306 ]
+  %.035.i310 = phi ptr [ %1136, %1135 ], [ %1123, %.preheader.i306 ]
   %1129 = zext i8 %1128 to i64
   %1130 = getelementptr i16, ptr %23, i64 %1129
   %1131 = load i16, ptr %1130, align 2
-  %.fr33.i311 = freeze i16 %1131
-  %1132 = and i16 %.fr33.i311, 1
+  %.fr.i311 = freeze i16 %1131
+  %1132 = and i16 %.fr.i311, 1
   %.not30.not.i312 = icmp eq i16 %1132, 0
   br i1 %.not30.not.i312, label %switch.early.test.i316, label %1135
 
@@ -3964,7 +3964,7 @@ switch.early.test.i316:                           ; preds = %.lr.ph.i309
   unreachable
 
 1135:                                             ; preds = %switch.early.test.i316, %switch.early.test.i316, %switch.early.test.i316, %.lr.ph.i309
-  %1136 = getelementptr i8, ptr %.036.i310, i64 1
+  %1136 = getelementptr i8, ptr %.035.i310, i64 1
   %1137 = load i8, ptr %1136, align 1
   %.not29.i313 = icmp eq i8 %1137, 0
   br i1 %.not29.i313, label %._crit_edge.i314, label %.lr.ph.i309, !llvm.loop !13
@@ -4006,13 +4006,13 @@ prefs_register_enum_preference.exit317:           ; preds = %._crit_edge.i314
 
 .preheader.i318:                                  ; preds = %._crit_edge.i326, %prefs_register_enum_preference.exit317
   %1160 = phi ptr [ @.str.512, %prefs_register_enum_preference.exit317 ], [ %1164, %._crit_edge.i326 ]
-  %.02638.i319 = phi i64 [ 0, %prefs_register_enum_preference.exit317 ], [ %1162, %._crit_edge.i326 ]
+  %.02637.i319 = phi i64 [ 0, %prefs_register_enum_preference.exit317 ], [ %1162, %._crit_edge.i326 ]
   %1161 = load i8, ptr %1160, align 1
-  %.not2935.i320 = icmp eq i8 %1161, 0
-  br i1 %.not2935.i320, label %._crit_edge.i326, label %.lr.ph.i321
+  %.not2934.i320 = icmp eq i8 %1161, 0
+  br i1 %.not2934.i320, label %._crit_edge.i326, label %.lr.ph.i321
 
 ._crit_edge.i326:                                 ; preds = %1172, %.preheader.i318
-  %1162 = add nuw nsw i64 %.02638.i319, 1
+  %1162 = add nuw nsw i64 %.02637.i319, 1
   %1163 = getelementptr %struct.enum_val_t, ptr @conv_deint_options, i64 %1162
   %1164 = load ptr, ptr %1163, align 8
   %exitcond499 = icmp eq i64 %1162, 4
@@ -4020,12 +4020,12 @@ prefs_register_enum_preference.exit317:           ; preds = %._crit_edge.i314
 
 .lr.ph.i321:                                      ; preds = %.preheader.i318, %1172
   %1165 = phi i8 [ %1174, %1172 ], [ %1161, %.preheader.i318 ]
-  %.036.i322 = phi ptr [ %1173, %1172 ], [ %1160, %.preheader.i318 ]
+  %.035.i322 = phi ptr [ %1173, %1172 ], [ %1160, %.preheader.i318 ]
   %1166 = zext i8 %1165 to i64
   %1167 = getelementptr i16, ptr %23, i64 %1166
   %1168 = load i16, ptr %1167, align 2
-  %.fr33.i323 = freeze i16 %1168
-  %1169 = and i16 %.fr33.i323, 1
+  %.fr.i323 = freeze i16 %1168
+  %1169 = and i16 %.fr.i323, 1
   %.not30.not.i324 = icmp eq i16 %1169, 0
   br i1 %.not30.not.i324, label %switch.early.test.i328, label %1172
 
@@ -4042,7 +4042,7 @@ switch.early.test.i328:                           ; preds = %.lr.ph.i321
   unreachable
 
 1172:                                             ; preds = %switch.early.test.i328, %switch.early.test.i328, %switch.early.test.i328, %.lr.ph.i321
-  %1173 = getelementptr i8, ptr %.036.i322, i64 1
+  %1173 = getelementptr i8, ptr %.035.i322, i64 1
   %1174 = load i8, ptr %1173, align 1
   %.not29.i325 = icmp eq i8 %1174, 0
   br i1 %.not29.i325, label %._crit_edge.i326, label %.lr.ph.i321, !llvm.loop !13
@@ -4697,8 +4697,8 @@ define internal fastcc noundef ptr @register_preference(ptr noundef captures(add
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 %.sink, ptr %25, align 8
   %26 = load i8, ptr %1, align 1
-  %.not86107 = icmp eq i8 %26, 0
-  br i1 %.not86107, label %._crit_edge, label %.lr.ph
+  %.not86106 = icmp eq i8 %26, 0
+  br i1 %.not86106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %27 = load ptr, ptr @g_ascii_table, align 8
@@ -4706,12 +4706,12 @@ define internal fastcc noundef ptr @register_preference(ptr noundef captures(add
 
 28:                                               ; preds = %.lr.ph, %36
   %29 = phi i8 [ %26, %.lr.ph ], [ %38, %36 ]
-  %.076108 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
+  %.076107 = phi ptr [ %1, %.lr.ph ], [ %37, %36 ]
   %30 = zext i8 %29 to i64
   %31 = getelementptr i16, ptr %27, i64 %30
   %32 = load i16, ptr %31, align 2
-  %.fr106 = freeze i16 %32
-  %33 = and i16 %.fr106, 40
+  %.fr = freeze i16 %32
+  %33 = and i16 %.fr, 40
   %or.cond.not = icmp eq i16 %33, 0
   br i1 %or.cond.not, label %switch.early.test, label %36
 
@@ -4727,7 +4727,7 @@ switch.early.test:                                ; preds = %28
   unreachable
 
 36:                                               ; preds = %switch.early.test, %switch.early.test, %28
-  %37 = getelementptr i8, ptr %.076108, i64 1
+  %37 = getelementptr i8, ptr %.076107, i64 1
   %38 = load i8, ptr %37, align 1
   %.not86 = icmp eq i8 %38, 0
   br i1 %.not86, label %._crit_edge, label %28, !llvm.loop !17
@@ -4833,17 +4833,17 @@ prefs_find_preference.exit:                       ; preds = %40, %49
 76:                                               ; preds = %72
   %77 = load ptr, ptr %15, align 8
   %78 = load i8, ptr %77, align 1
-  %.not96109 = icmp eq i8 %78, 0
-  br i1 %.not96109, label %.loopexit, label %.lr.ph112
+  %.not96108 = icmp eq i8 %78, 0
+  br i1 %.not96108, label %.loopexit, label %.lr.ph111
 
-.lr.ph112:                                        ; preds = %76
+.lr.ph111:                                        ; preds = %76
   %79 = load ptr, ptr @g_utf8_skip, align 8
   br label %80
 
-80:                                               ; preds = %.lr.ph112, %86
-  %81 = phi i8 [ %78, %.lr.ph112 ], [ %92, %86 ]
-  %.0110 = phi ptr [ %77, %.lr.ph112 ], [ %91, %86 ]
-  %82 = call i32 @g_utf8_get_char(ptr noundef %.0110) #29
+80:                                               ; preds = %.lr.ph111, %86
+  %81 = phi i8 [ %78, %.lr.ph111 ], [ %92, %86 ]
+  %.0109 = phi ptr [ %77, %.lr.ph111 ], [ %91, %86 ]
+  %82 = call i32 @g_utf8_get_char(ptr noundef %.0109) #29
   %83 = call i32 @g_unichar_isprint(i32 noundef %82) #30
   %.not99 = icmp eq i32 %83, 0
   br i1 %.not99, label %84, label %86
@@ -4858,7 +4858,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
   %88 = getelementptr i8, ptr %79, i64 %87
   %89 = load i8, ptr %88, align 1
   %90 = sext i8 %89 to i64
-  %91 = getelementptr i8, ptr %.0110, i64 %90
+  %91 = getelementptr i8, ptr %.0109, i64 %90
   %92 = load i8, ptr %91, align 1
   %.not96 = icmp eq i8 %92, 0
   br i1 %.not96, label %.loopexit, label %80, !llvm.loop !18
@@ -5052,8 +5052,8 @@ define zeroext i1 @prefs_get_bool_value(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @prefs_register_enum_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr %5, align 8
-  %.not37 = icmp eq ptr %8, null
-  br i1 %.not37, label %._crit_edge39, label %.preheader.lr.ph
+  %.not36 = icmp eq ptr %8, null
+  br i1 %.not36, label %._crit_edge38, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %7
   %9 = load ptr, ptr @g_ascii_table, align 8
@@ -5061,12 +5061,12 @@ define void @prefs_register_enum_preference(ptr noundef captures(address_is_null
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %10 = phi ptr [ %8, %.preheader.lr.ph ], [ %21, %._crit_edge ]
-  %.02638 = phi i64 [ 0, %.preheader.lr.ph ], [ %19, %._crit_edge ]
+  %.02637 = phi i64 [ 0, %.preheader.lr.ph ], [ %19, %._crit_edge ]
   %11 = load i8, ptr %10, align 1
-  %.not2935 = icmp eq i8 %11, 0
-  br i1 %.not2935, label %._crit_edge, label %.lr.ph
+  %.not2934 = icmp eq i8 %11, 0
+  br i1 %.not2934, label %._crit_edge, label %.lr.ph
 
-._crit_edge39:                                    ; preds = %._crit_edge, %7
+._crit_edge38:                                    ; preds = %._crit_edge, %7
   %12 = zext i1 %6 to i8
   %13 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -5081,20 +5081,20 @@ define void @prefs_register_enum_preference(ptr noundef captures(address_is_null
   ret void
 
 ._crit_edge:                                      ; preds = %29, %.preheader
-  %19 = add i64 %.02638, 1
+  %19 = add i64 %.02637, 1
   %20 = getelementptr %struct.enum_val_t, ptr %5, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge39, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %._crit_edge38, label %.preheader, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %22 = phi i8 [ %31, %29 ], [ %11, %.preheader ]
-  %.036 = phi ptr [ %30, %29 ], [ %10, %.preheader ]
+  %.035 = phi ptr [ %30, %29 ], [ %10, %.preheader ]
   %23 = zext i8 %22 to i64
   %24 = getelementptr i16, ptr %9, i64 %23
   %25 = load i16, ptr %24, align 2
-  %.fr33 = freeze i16 %25
-  %26 = and i16 %.fr33, 1
+  %.fr = freeze i16 %25
+  %26 = and i16 %.fr, 1
   %.not30.not = icmp eq i16 %26, 0
   br i1 %.not30.not, label %switch.early.test, label %29
 
@@ -5111,7 +5111,7 @@ switch.early.test:                                ; preds = %.lr.ph
   unreachable
 
 29:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
-  %30 = getelementptr i8, ptr %.036, i64 1
+  %30 = getelementptr i8, ptr %.035, i64 1
   %31 = load i8, ptr %30, align 1
   %.not29 = icmp eq i8 %31, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !13

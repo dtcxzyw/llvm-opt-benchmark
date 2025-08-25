@@ -5070,8 +5070,8 @@ define hidden void @_ZN14Deoptimization23deoptimize_single_frameEP10JavaThread5f
   store i32 %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.pre.i = load i32, ptr %10, align 4
-  %.fr.i = freeze i32 %.pre.i
-  %11 = and i32 %.fr.i, -256
+  %.fr44.i = freeze i32 %.pre.i
+  %11 = and i32 %.fr44.i, -256
   %12 = add i32 %11, 256
   store i32 %12, ptr %10, align 4
   %13 = load i8, ptr @LogCompilation, align 1
@@ -5174,21 +5174,21 @@ define hidden void @_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_1
   %12 = getelementptr inbounds [6 x [1 x i32]], ptr %7, i64 0, i64 %11
   %.not = icmp eq i32 %2, -1
   %.pre = load i32, ptr %12, align 4
-  %.fr = freeze i32 %.pre
+  %.fr44 = freeze i32 %.pre
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %13 = and i32 %.fr, 255
+  %13 = and i32 %.fr44, 255
   %14 = icmp eq i32 %13, %2
-  %15 = or i32 %.fr, %2
+  %15 = or i32 %.fr44, %2
   br i1 %14, label %.split.us.thread, label %.preheader.split
 
 .preheader.split:                                 ; preds = %.preheader
-  %16 = icmp eq i32 %.fr, 0
+  %16 = icmp eq i32 %.fr44, 0
   br i1 %16, label %.split.us.thread, label %.thread
 
 .thread:                                          ; preds = %.preheader.split, %3
-  %17 = and i32 %.fr, -256
+  %17 = and i32 %.fr44, -256
   br label %.split.us.thread
 
 .split.us.thread:                                 ; preds = %.preheader.split, %.preheader, %.thread
@@ -6187,21 +6187,21 @@ _ZNK6Method12java_code_atEi.exit:                 ; preds = %127, %132
   %146 = getelementptr inbounds [6 x [1 x i32]], ptr %141, i64 0, i64 %145
   %.not.i251 = icmp eq i32 %137, -1
   %.pre.i = load i32, ptr %146, align 4
-  %.fr.i = freeze i32 %.pre.i
+  %.fr44.i = freeze i32 %.pre.i
   br i1 %.not.i251, label %.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK6Method12java_code_atEi.exit
-  %147 = and i32 %.fr.i, 255
+  %147 = and i32 %.fr44.i, 255
   %148 = icmp eq i32 %147, %137
-  %149 = or i32 %.fr.i, %137
+  %149 = or i32 %.fr44.i, %137
   br i1 %148, label %_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_11DeoptActionEN9Bytecodes4CodeE.exit, label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.preheader.i
-  %150 = icmp eq i32 %.fr.i, 0
+  %150 = icmp eq i32 %.fr44.i, 0
   br i1 %150, label %_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_11DeoptActionEN9Bytecodes4CodeE.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %.preheader.split.i, %_ZNK6Method12java_code_atEi.exit
-  %151 = and i32 %.fr.i, -256
+  %151 = and i32 %.fr44.i, -256
   br label %_ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_11DeoptActionEN9Bytecodes4CodeE.exit
 
 _ZN14Deoptimization17gather_statisticsENS_11DeoptReasonENS_11DeoptActionEN9Bytecodes4CodeE.exit: ; preds = %.preheader.i, %.preheader.split.i, %.thread.i

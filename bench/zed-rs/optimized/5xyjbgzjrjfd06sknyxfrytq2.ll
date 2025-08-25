@@ -42740,6 +42740,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   %.sroa.031.0.copyload.i = load i64, ptr %5, align 8, !noalias !11931
   %.sroa.432.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.432.0.copyload.i = load i64, ptr %.sroa.432.0..sroa_idx.i, align 8, !noalias !11931
+  %.sroa.432.0.copyload.i.fr = freeze i64 %.sroa.432.0.copyload.i
   %.sroa.634.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.634.0.copyload.i = load i64, ptr %.sroa.634.0..sroa_idx.i, align 8, !noalias !11931
   %.sroa.735.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -42756,21 +42757,21 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   %.sroa.14.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !noalias !11931
   %.sroa.15.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 96
   %.sroa.15.0.copyload.i = load i64, ptr %.sroa.15.0..sroa_idx.i, align 8, !noalias !11931
+  %.sroa.15.0.copyload.i.fr = freeze i64 %.sroa.15.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11931
   %trunc.i.i = trunc nuw i64 %.sroa.031.0.copyload.i to i1
   %12 = icmp ne ptr %.sroa.1240.0.copyload.i, null
   %13 = icmp ne ptr %.sroa.14.0.copyload.i, null
-  %14 = add i64 %.sroa.15.0.copyload.i, -1
+  %14 = add i64 %.sroa.15.0.copyload.i.fr, -1
   br i1 %trunc.i.i, label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.us.i", label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.i"
 
 "_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.us.i": ; preds = %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.i"
   tail call void @llvm.assume(i1 %12)
   tail call void @llvm.assume(i1 %13)
-  %15 = sub i64 %.sroa.15.0.copyload.i, %.sroa.634.0.copyload.i
-  %16 = add i64 %.sroa.432.0.copyload.i, -1
-  %.first_iter.i = icmp ult i64 %16, %.sroa.15.0.copyload.i
-  %.first_iter.i.fr = freeze i1 %.first_iter.i
-  %.not64.us.i = icmp eq i64 %.sroa.432.0.copyload.i, 0
+  %15 = sub i64 %.sroa.15.0.copyload.i.fr, %.sroa.634.0.copyload.i
+  %16 = add i64 %.sroa.432.0.copyload.i.fr, -1
+  %.first_iter.i = icmp ult i64 %16, %.sroa.15.0.copyload.i.fr
+  %.not64.us.i = icmp eq i64 %.sroa.432.0.copyload.i.fr, 0
   br label %17
 
 17:                                               ; preds = %101, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h24a4dd86c1d01abfE.exit.split.us.i"
@@ -42802,22 +42803,22 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br i1 %32, label %62, label %33
 
 33:                                               ; preds = %.lr.ph.i27.us.i
-  %.sroa.0.0.sroa.speculated.i.i29.us.i = call i64 @llvm.umax.i64(i64 %.sroa.432.0.copyload.i, i64 %23)
+  %.sroa.0.0.sroa.speculated.i.i29.us.i = call i64 @llvm.umax.i64(i64 %.sroa.432.0.copyload.i.fr, i64 %23)
   br label %34
 
 34:                                               ; preds = %53, %33
   %.sroa.04.0.i30.us.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i29.us.i, %33 ], [ %54, %53 ]
-  %35 = icmp ult i64 %.sroa.04.0.i30.us.i, %.sroa.15.0.copyload.i
+  %35 = icmp ult i64 %.sroa.04.0.i30.us.i, %.sroa.15.0.copyload.i.fr
   br i1 %35, label %50, label %.preheader67.us.i
 
 .preheader67.us.i:                                ; preds = %34, %43
-  %.sroa.59.0.i31.us.i = phi i64 [ %38, %43 ], [ %.sroa.432.0.copyload.i, %34 ]
+  %.sroa.59.0.i31.us.i = phi i64 [ %38, %43 ], [ %.sroa.432.0.copyload.i.fr, %34 ]
   %36 = icmp ult i64 %23, %.sroa.59.0.i31.us.i
   br i1 %36, label %37, label %.loopexit.i.us.i
 
 37:                                               ; preds = %.preheader67.us.i
   %38 = add i64 %.sroa.59.0.i31.us.i, -1
-  %39 = icmp ult i64 %38, %.sroa.15.0.copyload.i
+  %39 = icmp ult i64 %38, %.sroa.15.0.copyload.i.fr
   br i1 %39, label %40, label %.split132.us.invoke.i
 
 40:                                               ; preds = %37
@@ -42852,13 +42853,13 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br i1 %.not24.i34.us.i, label %34, label %59
 
 59:                                               ; preds = %53
-  %reass.sub = sub i64 %25, %.sroa.432.0.copyload.i
+  %reass.sub = sub i64 %25, %.sroa.432.0.copyload.i.fr
   %60 = add i64 %reass.sub, 1
   %61 = add i64 %60, %.sroa.04.0.i30.us.i
   br label %.sink.split.i.us.i
 
 62:                                               ; preds = %.lr.ph.i27.us.i
-  %63 = add i64 %25, %.sroa.15.0.copyload.i
+  %63 = add i64 %25, %.sroa.15.0.copyload.i.fr
   br label %.sink.split.i.us.i
 
 .sink.split.i.us.i:                               ; preds = %62, %59, %48
@@ -42886,15 +42887,15 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br i1 %75, label %119, label %.preheader66.us.i
 
 .preheader66.us.i:                                ; preds = %.lr.ph.i20.us.i, %110
-  %.sroa.04.0.i.us.i = phi i64 [ %111, %110 ], [ %.sroa.432.0.copyload.i, %.lr.ph.i20.us.i ]
-  %76 = icmp ult i64 %.sroa.04.0.i.us.i, %.sroa.15.0.copyload.i
+  %.sroa.04.0.i.us.i = phi i64 [ %111, %110 ], [ %.sroa.432.0.copyload.i.fr, %.lr.ph.i20.us.i ]
+  %76 = icmp ult i64 %.sroa.04.0.i.us.i, %.sroa.15.0.copyload.i.fr
   br i1 %76, label %107, label %.preheader.us.i.preheader
 
 .preheader.us.i.preheader:                        ; preds = %.preheader66.us.i
-  br i1 %.first_iter.i.fr, label %.preheader.us.i.us, label %.preheader.us.i.preheader.split
+  br i1 %.first_iter.i, label %.preheader.us.i.us, label %.preheader.us.i.preheader.split
 
 .preheader.us.i.us:                               ; preds = %.preheader.us.i.preheader, %81
-  %.sroa.59.0.i.us.i.us = phi i64 [ %78, %81 ], [ %.sroa.432.0.copyload.i, %.preheader.us.i.preheader ]
+  %.sroa.59.0.i.us.i.us = phi i64 [ %78, %81 ], [ %.sroa.432.0.copyload.i.fr, %.preheader.us.i.preheader ]
   %.not64.us.i.us = icmp eq i64 %.sroa.59.0.i.us.i.us, 0
   br i1 %.not64.us.i.us, label %.loopexit.i.us.i, label %77
 
@@ -42922,7 +42923,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
 .loopexit.i.us.i:                                 ; preds = %.preheader67.us.i, %.preheader.us.i.us, %.preheader.us.i.preheader.split
   %.sroa.307.3.us.i = phi i64 [ -1, %.preheader.us.i.preheader.split ], [ -1, %.preheader.us.i.us ], [ 0, %.preheader67.us.i ]
   %.sroa.743.4.us.i = phi i64 [ %68, %.preheader.us.i.preheader.split ], [ %68, %.preheader.us.i.us ], [ %25, %.preheader67.us.i ]
-  %.sroa.18.3.us.i = add i64 %.sroa.743.4.us.i, %.sroa.15.0.copyload.i
+  %.sroa.18.3.us.i = add i64 %.sroa.743.4.us.i, %.sroa.15.0.copyload.i.fr
   %87 = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.0.us.i
   %gepdiff.us.i = sub nsw i64 %.sroa.743.4.us.i, %.sroa.0.0.us.i
   %88 = load i64, ptr %6, align 8, !alias.scope !11972, !noalias !11931, !noundef !9
@@ -42983,13 +42984,13 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   br i1 %.not24.i.us.i, label %.preheader66.us.i, label %116
 
 116:                                              ; preds = %110
-  %reass.sub79 = sub i64 %68, %.sroa.432.0.copyload.i
+  %reass.sub79 = sub i64 %68, %.sroa.432.0.copyload.i.fr
   %117 = add i64 %reass.sub79, 1
   %118 = add i64 %117, %.sroa.04.0.i.us.i
   br label %121
 
 119:                                              ; preds = %.lr.ph.i20.us.i
-  %120 = add i64 %68, %.sroa.15.0.copyload.i
+  %120 = add i64 %68, %.sroa.15.0.copyload.i.fr
   br label %121
 
 121:                                              ; preds = %119, %116, %.split.us
@@ -43016,7 +43017,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.lr.ph.i
   %127 = phi i64 [ 0, %.lr.ph.i.lr.ph.i ], [ %219, %.preheader.i.i ]
   %.sroa.0.0147.i = phi i64 [ 0, %.lr.ph.i.lr.ph.i ], [ %.sroa.4.1194.i, %.preheader.i.i ]
-  %.sroa.4.0146.i = phi i64 [ %.sroa.432.0.copyload.i, %.lr.ph.i.lr.ph.i ], [ %.sroa.4.1194.i, %.preheader.i.i ]
+  %.sroa.4.0146.i = phi i64 [ %.sroa.432.0.copyload.i.fr, %.lr.ph.i.lr.ph.i ], [ %.sroa.4.1194.i, %.preheader.i.i ]
   %.sroa.83.sroa.0.0145.i = phi i1 [ %126, %.lr.ph.i.lr.ph.i ], [ false, %.preheader.i.i ]
   br label %128
 
@@ -43140,7 +43141,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
 
 .split132.us.invoke.i:                            ; preds = %.preheader.us.i.preheader.split, %40, %37, %77, %.split139.us.i, %.split127.us.i
   %192 = phi i64 [ %umax.i.i, %.split139.us.i ], [ %umax.i33.i, %.split127.us.i ], [ %79, %77 ], [ %41, %40 ], [ %38, %37 ], [ %16, %.preheader.us.i.preheader.split ]
-  %193 = phi i64 [ %.sroa.1341.0.copyload.i, %.split139.us.i ], [ %.sroa.1341.0.copyload.i, %.split127.us.i ], [ %.sroa.1341.0.copyload.i, %77 ], [ %.sroa.1341.0.copyload.i, %40 ], [ %.sroa.15.0.copyload.i, %37 ], [ %.sroa.15.0.copyload.i, %.preheader.us.i.preheader.split ]
+  %193 = phi i64 [ %.sroa.1341.0.copyload.i, %.split139.us.i ], [ %.sroa.1341.0.copyload.i, %.split127.us.i ], [ %.sroa.1341.0.copyload.i, %77 ], [ %.sroa.1341.0.copyload.i, %40 ], [ %.sroa.15.0.copyload.i.fr, %37 ], [ %.sroa.15.0.copyload.i.fr, %.preheader.us.i.preheader.split ]
   %194 = phi ptr [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.92, %.split139.us.i ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.92, %.split127.us.i ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.90, %77 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.90, %40 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.89, %37 ], [ @anon.47b9bf00d99e324cf6cc5e3d2a10edd9.89, %.preheader.us.i.preheader.split ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %192, i64 noundef %193, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %194) #38
           to label %.split132.us.cont.i unwind label %.loopexit.split-lp.i, !noalias !11935
@@ -43149,7 +43150,7 @@ define hidden void @_ZN9languages11LanguageDir3get17h8cf7f543b20b18acE.llvm.3114
   unreachable
 
 .split139.us.i:                                   ; preds = %107
-  %195 = add i64 %68, %.sroa.432.0.copyload.i
+  %195 = add i64 %68, %.sroa.432.0.copyload.i.fr
   %umax.i.i = call i64 @llvm.umax.i64(i64 %.sroa.1341.0.copyload.i, i64 %195)
   br label %.split132.us.invoke.i
 

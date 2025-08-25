@@ -509,8 +509,8 @@ define range(i32 -1073741824, 1073741824) i32 @Gia_ManCountResub(ptr noundef rea
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
-  %.fr.i = freeze i32 %6
-  %7 = select i1 %4, i32 1, i32 %.fr.i
+  %.fr44.i = freeze i32 %6
+  %7 = select i1 %4, i32 1, i32 %.fr44.i
   %8 = select i1 %4, i32 0, i32 %5
   %9 = shl i32 %1, %8
   %10 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
@@ -769,8 +769,8 @@ define ptr @Gia_ManDeriveResub(ptr noundef readonly captures(none) %0, i32 nound
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
-  %.fr.i = freeze i32 %5
-  %6 = select i1 %3, i32 1, i32 %.fr.i
+  %.fr44.i = freeze i32 %5
+  %6 = select i1 %3, i32 1, i32 %.fr44.i
   %7 = select i1 %3, i32 0, i32 %4
   %8 = shl i32 %1, %7
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13

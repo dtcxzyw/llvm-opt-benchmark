@@ -307,8 +307,8 @@ av_sample_fmt_is_planar.exit.i:                   ; preds = %7
 
 av_samples_get_buffer_size.exit:                  ; preds = %23
   %32 = shl nuw nsw i64 1, %8
-  %.fr = freeze i64 %32
-  %33 = and i64 %.fr, 1055
+  %.fr37 = freeze i64 %32
+  %33 = and i64 %.fr37, 1055
   %.not42.not.i = icmp eq i64 %33, 0
   %34 = select i1 %.not42.not.i, i32 1, i32 %3
   %.sink55.v.i = mul i32 %11, %34
@@ -331,7 +331,7 @@ av_samples_get_buffer_size.exit:                  ; preds = %23
   br label %44
 
 44:                                               ; preds = %43, %42
-  %45 = and i64 %.fr, 3040
+  %45 = and i64 %.fr37, 3040
   %46 = icmp ne i64 %45, 0
   %47 = shl nuw nsw i64 %24, 3
   %48 = select i1 %46, i64 %47, i64 8
@@ -416,8 +416,8 @@ av_sample_fmt_is_planar.exit.i:                   ; preds = %6
 
 av_samples_get_buffer_size.exit:                  ; preds = %22
   %31 = shl nuw nsw i64 1, %7
-  %.fr.i = freeze i64 %31
-  %32 = and i64 %.fr.i, 1055
+  %.fr37.i = freeze i64 %31
+  %32 = and i64 %.fr37.i, 1055
   %.not42.not.i = icmp eq i64 %32, 0
   %33 = select i1 %.not42.not.i, i32 1, i32 %2
   %.sink55.v.i = mul i32 %10, %33
@@ -467,7 +467,7 @@ av_sample_fmt_is_planar.exit.i.i:                 ; preds = %41
   br i1 %59, label %81, label %av_samples_get_buffer_size.exit.i
 
 av_samples_get_buffer_size.exit.i:                ; preds = %52
-  %60 = and i64 %.fr.i, 1055
+  %60 = and i64 %.fr37.i, 1055
   %.not42.not.i.i = icmp eq i64 %60, 0
   %61 = select i1 %.not42.not.i.i, i32 1, i32 %2
   %.sink55.v.i.i = mul i32 %10, %61
@@ -490,7 +490,7 @@ av_samples_get_buffer_size.exit.i:                ; preds = %52
   br label %71
 
 71:                                               ; preds = %69, %70
-  %72 = and i64 %.fr.i, 3040
+  %72 = and i64 %.fr37.i, 3040
   %73 = icmp ne i64 %72, 0
   %74 = shl nuw nsw i64 %23, 3
   %75 = select i1 %73, i64 %74, i64 8
@@ -557,8 +557,8 @@ define noundef i32 @av_samples_set_silence(ptr noundef readonly captures(none) %
 av_get_bytes_per_sample.exit:                     ; preds = %5
   %6 = zext nneg i32 %4 to i64
   %7 = shl nuw nsw i64 1, %6
-  %.fr25 = freeze i64 %7
-  %8 = and i64 %.fr25, 1055
+  %.fr = freeze i64 %7
+  %8 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %8, 0
   %9 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %6, i32 1
   %10 = load i32, ptr %9, align 4, !tbaa !15
@@ -607,8 +607,8 @@ define i32 @av_samples_alloc_array_and_samples(ptr noundef initializes((0, 8)) %
 av_sample_fmt_is_planar.exit:                     ; preds = %6
   %7 = zext nneg i32 %4 to i64
   %8 = shl nuw nsw i64 1, %7
-  %.fr19 = freeze i64 %8
-  %9 = and i64 %.fr19, 1055
+  %.fr = freeze i64 %8
+  %9 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %9, 0
   br i1 %.not.not, label %10, label %av_sample_fmt_is_planar.exit.thread
 
@@ -649,8 +649,8 @@ define noundef i32 @av_samples_copy(ptr noundef readonly captures(none) %0, ptr 
 av_get_bytes_per_sample.exit:                     ; preds = %7
   %8 = zext nneg i32 %6 to i64
   %9 = shl nuw nsw i64 1, %8
-  %.fr51 = freeze i64 %9
-  %10 = and i64 %.fr51, 1055
+  %.fr = freeze i64 %9
+  %10 = and i64 %.fr, 1055
   %.not.not = icmp eq i64 %10, 0
   %11 = select i1 %.not.not, i32 %5, i32 1
   %12 = getelementptr inbounds nuw [12 x %struct.SampleFmtInfo], ptr @sample_fmt_info, i64 0, i64 %8, i32 1
@@ -678,24 +678,24 @@ av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sa
   %30 = sext i32 %19 to i64
   %.not44 = icmp slt i64 %29, %30
   %31 = icmp sgt i32 %16, 0
-  br i1 %.not44, label %.preheader, label %.preheader52
+  br i1 %.not44, label %.preheader, label %.preheader51
 
-.preheader52:                                     ; preds = %av_get_bytes_per_sample.exit.thread
+.preheader51:                                     ; preds = %av_get_bytes_per_sample.exit.thread
   br i1 %31, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader52
+.lr.ph:                                           ; preds = %.preheader51
   %32 = sext i32 %20 to i64
   %33 = sext i32 %21 to i64
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %36
 
 .preheader:                                       ; preds = %av_get_bytes_per_sample.exit.thread
-  br i1 %31, label %.lr.ph56, label %.loopexit
+  br i1 %31, label %.lr.ph55, label %.loopexit
 
-.lr.ph56:                                         ; preds = %.preheader
+.lr.ph55:                                         ; preds = %.preheader
   %34 = sext i32 %20 to i64
   %35 = sext i32 %21 to i64
-  %wide.trip.count62 = zext nneg i32 %16 to i64
+  %wide.trip.count61 = zext nneg i32 %16 to i64
   br label %43
 
 36:                                               ; preds = %.lr.ph, %36
@@ -711,20 +711,20 @@ av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sa
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !24
 
-43:                                               ; preds = %.lr.ph56, %43
-  %indvars.iv59 = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next60, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv59
+43:                                               ; preds = %.lr.ph55, %43
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %43 ]
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv58
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = getelementptr inbounds i8, ptr %45, i64 %34
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv59
+  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv58
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   %49 = getelementptr inbounds i8, ptr %48, i64 %35
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %46, ptr align 1 %49, i64 %30, i1 false)
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
-  br i1 %exitcond63.not, label %.loopexit, label %43, !llvm.loop !25
+  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
+  br i1 %exitcond62.not, label %.loopexit, label %43, !llvm.loop !25
 
-.loopexit:                                        ; preds = %36, %43, %.preheader52, %.preheader
+.loopexit:                                        ; preds = %36, %43, %.preheader51, %.preheader
   ret i32 0
 }
 

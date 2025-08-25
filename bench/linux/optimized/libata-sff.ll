@@ -2165,8 +2165,8 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 
 .loopexit:                                        ; preds = %.loopexit.backedge, %44
   %57 = phi i8 [ %2, %44 ], [ %.be, %.loopexit.backedge ]
-  %.fr38 = freeze i8 %57
-  %58 = zext i8 %.fr38 to i32
+  %.fr37 = freeze i8 %57
+  %58 = zext i8 %.fr37 to i32
   %59 = and i32 %58, 8
   %60 = icmp eq i32 %59, 0
   %61 = and i32 %58, 33
@@ -2196,7 +2196,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @__SCT__tp_func_ata_sff_hsm_state(ptr noundef %74, ptr noundef %1, i8 noundef zeroext %.fr38) #13
+  %75 = tail call i32 @__SCT__tp_func_ata_sff_hsm_state(ptr noundef %74, ptr noundef %1, i8 noundef zeroext %.fr37) #13
   br label %76
 
 76:                                               ; preds = %72, %69
@@ -2253,7 +2253,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call i32 @__SCT__tp_func_ata_sff_hsm_state(ptr noundef %99, ptr noundef %1, i8 noundef zeroext %.fr38) #13
+  %100 = tail call i32 @__SCT__tp_func_ata_sff_hsm_state(ptr noundef %99, ptr noundef %1, i8 noundef zeroext %.fr37) #13
   br label %101
 
 101:                                              ; preds = %97, %94
@@ -2522,7 +2522,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 264:                                              ; preds = %261
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %266 = load ptr, ptr %265, align 8
-  %267 = tail call i32 @__SCT__tp_func_ata_sff_hsm_state(ptr noundef %266, ptr noundef %1, i8 noundef zeroext %.fr38) #13
+  %267 = tail call i32 @__SCT__tp_func_ata_sff_hsm_state(ptr noundef %266, ptr noundef %1, i8 noundef zeroext %.fr37) #13
   br label %268
 
 268:                                              ; preds = %264, %261
@@ -2563,13 +2563,13 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 
 .loopexit15.split.us.sink.split:                  ; preds = %278, %289, %382, %393, %395, %414, %437
   %.sink = phi i32 [ %446, %437 ], [ %416, %414 ], [ %397, %395 ], [ %394, %393 ], [ %384, %382 ], [ %291, %289 ], [ %281, %278 ]
-  %.ph83 = phi i8 [ %.fr38, %437 ], [ 127, %414 ], [ %.fr38, %395 ], [ %.fr38, %393 ], [ %.fr38, %382 ], [ %.fr38, %289 ], [ %.fr38, %278 ]
+  %.ph82 = phi i8 [ %.fr37, %437 ], [ 127, %414 ], [ %.fr37, %395 ], [ %.fr37, %393 ], [ %.fr37, %382 ], [ %.fr37, %289 ], [ %.fr37, %278 ]
   store i32 %.sink, ptr %46, align 4
   br label %.loopexit15.split.us
 
 .loopexit15.split.us:                             ; preds = %.loopexit15.split.us.sink.split, %85, %412, %385
   %282 = phi i32 [ 4, %385 ], [ 4, %412 ], [ 3, %85 ], [ 4, %.loopexit15.split.us.sink.split ]
-  %283 = phi i8 [ %.fr38, %385 ], [ %406, %412 ], [ %.fr38, %85 ], [ %.ph83, %.loopexit15.split.us.sink.split ]
+  %283 = phi i8 [ %.fr37, %385 ], [ %406, %412 ], [ %.fr37, %85 ], [ %.ph82, %.loopexit15.split.us.sink.split ]
   store i32 %282, ptr %45, align 16
   br label %.loopexit.backedge
 
@@ -2660,11 +2660,11 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
   tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_end\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #13, !srcloc !61
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 832
-  %.pre51 = load i32, ptr %.phi.trans.insert, align 64
+  %.pre50 = load i32, ptr %.phi.trans.insert, align 64
   br label %328
 
 328:                                              ; preds = %327, %322
-  %329 = phi i32 [ %.pre51, %327 ], [ %325, %322 ]
+  %329 = phi i32 [ %.pre50, %327 ], [ %325, %322 ]
   %330 = load ptr, ptr %48, align 8
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 360
   %332 = load ptr, ptr %331, align 8
@@ -2764,7 +2764,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 379:                                              ; preds = %275
   %380 = load i8, ptr %47, align 8
   %381 = icmp eq i8 %380, 9
-  br i1 %381, label %382, label %.thread71
+  br i1 %381, label %382, label %.thread70
 
 382:                                              ; preds = %379
   tail call void (ptr, ptr, ...) @ata_ehi_push_desc(ptr noundef nonnull %8, ptr noundef nonnull @.str.3, i32 noundef %58) #13
@@ -2796,7 +2796,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
   %397 = or i32 %396, 514
   br label %.loopexit15.split.us.sink.split
 
-.thread71:                                        ; preds = %379
+.thread70:                                        ; preds = %379
   %398 = load i32, ptr %46, align 4
   %399 = or i32 %398, 1
   store i32 %399, ptr %46, align 4
@@ -2805,15 +2805,15 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
   %402 = icmp eq i64 %401, 0
   br i1 %402, label %403, label %405
 
-403:                                              ; preds = %.thread71
+403:                                              ; preds = %.thread70
   tail call fastcc void @ata_pio_sectors(ptr noundef %1)
   %404 = tail call fastcc zeroext i8 @ata_wait_idle(ptr noundef %0)
-  %.pre52 = zext i8 %404 to i32
+  %.pre51 = zext i8 %404 to i32
   br label %405
 
-405:                                              ; preds = %403, %.thread71
-  %.pre-phi = phi i32 [ %.pre52, %403 ], [ %58, %.thread71 ]
-  %406 = phi i8 [ %404, %403 ], [ %.fr38, %.thread71 ]
+405:                                              ; preds = %403, %.thread70
+  %.pre-phi = phi i32 [ %.pre51, %403 ], [ %58, %.thread70 ]
+  %406 = phi i8 [ %404, %403 ], [ %.fr37, %.thread70 ]
   %407 = and i32 %.pre-phi, 136
   %408 = icmp eq i32 %407, 0
   br i1 %408, label %412, label %409
@@ -2865,7 +2865,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
   br i1 %434, label %.preheader, label %.loopexit.backedge, !llvm.loop !6
 
 .split31.us:                                      ; preds = %108, %275, %83
-  %435 = and i8 %.fr38, -23
+  %435 = and i8 %.fr37, -23
   %436 = icmp eq i8 %435, 64
   br i1 %436, label %447, label %437, !prof !26
 
@@ -2904,7 +2904,7 @@ define dso_local range(i32 0, 65) i32 @ata_sff_hsm_move(ptr noundef %0, ptr noun
 457:                                              ; preds = %454
   %458 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %459 = load ptr, ptr %458, align 8
-  %460 = tail call i32 @__SCT__tp_func_ata_sff_hsm_command_complete(ptr noundef %459, ptr noundef %1, i8 noundef zeroext %.fr38) #13
+  %460 = tail call i32 @__SCT__tp_func_ata_sff_hsm_command_complete(ptr noundef %459, ptr noundef %1, i8 noundef zeroext %.fr37) #13
   br label %461
 
 461:                                              ; preds = %457, %454

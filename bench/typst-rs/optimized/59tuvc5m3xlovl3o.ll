@@ -1918,13 +1918,13 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit: ; pr
   %.0.i = phi i16 [ %1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haff82546f6b9c655E.exit" ], [ %86, %_ZN10ttf_parser6tables4hvar16DeltaSetIndexMap3map17hd9b1c0fdda34a21fE.exit.i ]
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %88 = call { i32, float } @_ZN10ttf_parser9var_store18ItemVariationStore11parse_delta17h35617cf63f612860E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %87, i16 noundef %.015.i, i16 noundef %.0.i, ptr noalias noundef nonnull readonly align 2 %33, i64 noundef range(i64 0, 33) %36)
-  %.fr33 = freeze { i32, float } %88
-  %89 = extractvalue { i32, float } %.fr33, 0
+  %.fr = freeze { i32, float } %88
+  %89 = extractvalue { i32, float } %.fr, 0
   %90 = icmp eq i32 %89, 1
   br i1 %90, label %91, label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread
 
 91:                                               ; preds = %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit
-  %92 = extractvalue { i32, float } %.fr33, 1
+  %92 = extractvalue { i32, float } %.fr, 1
   %93 = fadd float %92, 5.000000e-01
   %94 = fadd float %93, %26
   br label %_ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.thread
@@ -54432,21 +54432,21 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   %.0.sroa.speculated.i27 = tail call noundef i64 @llvm.umax.i64(i64 %23, i64 %29)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.3.0.copyload.fr = freeze i64 %.sroa.3.0.copyload
   %.sroa.4106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.4107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.4107.0.copyload = load i64, ptr %.sroa.4107.0..sroa_idx, align 8
-  %.not.i = icmp ne i64 %.sroa.3.0.copyload, 0
-  %30 = icmp ne i64 %.sroa.4107.0.copyload, 0
-  %.0.i = select i1 %.not.i, i1 true, i1 %30
-  %.0.i.fr = freeze i1 %.0.i
+  %.sroa.4107.0.copyload.fr = freeze i64 %.sroa.4107.0.copyload
+  %30 = or i64 %.sroa.3.0.copyload.fr, %.sroa.4107.0.copyload.fr
+  %.0.i = icmp ne i64 %30, 0
   %.not.i28 = icmp eq i64 %19, 0
   %31 = add i64 %19, -1
   %32 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %17, i64 0, i64 %31
   %33 = load ptr, ptr %2, align 8, !nonnull !4, !align !556
-  %.not.i52 = icmp eq i64 %.sroa.3.0.copyload, 0
-  %34 = add i64 %.sroa.3.0.copyload, -1
+  %.not.i52 = icmp eq i64 %.sroa.3.0.copyload.fr, 0
+  %34 = add i64 %.sroa.3.0.copyload.fr, -1
   %35 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %33, i64 0, i64 %34
-  br i1 %.0.i.fr, label %.split.us, label %.split
+  br i1 %.0.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %10, %58
   %36 = phi i64 [ %63, %58 ], [ 0, %10 ]
@@ -54498,7 +54498,7 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   br i1 %.not.i52, label %"_ZN5typst6layout4grid6layout8CellGrid12new_internal28_$u7b$$u7b$closure$u7d$$u7d$17h01400811fa9dc311E.exit59.us", label %51
 
 51:                                               ; preds = %45
-  %.not2.not.i53.us = icmp ult i64 %.sroa.012.0114.us, %.sroa.3.0.copyload
+  %.not2.not.i53.us = icmp ult i64 %.sroa.012.0114.us, %.sroa.3.0.copyload.fr
   %52 = getelementptr inbounds { i64, [3 x i64] }, ptr %33, i64 %.sroa.012.0114.us
   %.1.i54.us = select i1 %.not2.not.i53.us, ptr %52, ptr %35
   %.sroa.07.0.copyload.i55.us = load i64, ptr %.1.i54.us, align 8, !alias.scope !9905, !noalias !9907
@@ -54611,8 +54611,8 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   %72 = add i64 %23, -1
   %73 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %21, i64 0, i64 %72
   %74 = load ptr, ptr %.sroa.4106.0..sroa_idx, align 8, !nonnull !4, !align !556
-  %.not.i38 = icmp eq i64 %.sroa.4107.0.copyload, 0
-  %75 = add i64 %.sroa.4107.0.copyload, -1
+  %.not.i38 = icmp eq i64 %.sroa.4107.0.copyload.fr, 0
+  %75 = add i64 %.sroa.4107.0.copyload.fr, -1
   %76 = getelementptr inbounds [0 x { i64, [3 x i64] }], ptr %74, i64 0, i64 %75
   br label %82
 
@@ -54633,7 +54633,7 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   br label %"_ZN5typst6layout4grid6layout8CellGrid12new_internal28_$u7b$$u7b$closure$u7d$$u7d$17h01400811fa9dc311E.exit"
 
 ._crit_edge:                                      ; preds = %121, %.preheader
-  br i1 %.0.i.fr, label %98, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hab8089374afe55ceE.exit37"
+  br i1 %.0.i, label %98, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hab8089374afe55ceE.exit37"
 
 82:                                               ; preds = %.lr.ph, %121
   %.sroa.018.0123 = phi i64 [ 0, %.lr.ph ], [ %83, %121 ]
@@ -54674,7 +54674,7 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %8, ptr %95, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %97 = zext i1 %.0.i.fr to i8
+  %97 = zext i1 %.0.i to i8
   store i8 %97, ptr %96, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -54732,7 +54732,7 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   %120 = add i64 %119, 1
   store i64 %120, ptr %16, align 8, !alias.scope !9935, !noalias !9938
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.580)
-  br i1 %.0.i.fr, label %122, label %121
+  br i1 %.0.i, label %122, label %121
 
 121:                                              ; preds = %130, %115
   %exitcond129.not = icmp eq i64 %83, %.0.sroa.speculated.i27
@@ -54743,7 +54743,7 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   br i1 %.not.i38, label %"_ZN5typst6layout4grid6layout8CellGrid12new_internal28_$u7b$$u7b$closure$u7d$$u7d$17h01400811fa9dc311E.exit45", label %123
 
 123:                                              ; preds = %122
-  %.not2.not.i39 = icmp ult i64 %.sroa.018.0123, %.sroa.4107.0.copyload
+  %.not2.not.i39 = icmp ult i64 %.sroa.018.0123, %.sroa.4107.0.copyload.fr
   %124 = getelementptr inbounds { i64, [3 x i64] }, ptr %74, i64 %.sroa.018.0123
   %.1.i40 = select i1 %.not2.not.i39, ptr %124, ptr %76
   %.sroa.07.0.copyload.i41 = load i64, ptr %.1.i40, align 8, !alias.scope !9943, !noalias !9945
@@ -82356,9 +82356,9 @@ _ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i: ; preds = %21
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %41 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %16, i32 noundef range(i32 1668311156, 2020108149) 1751216995, ptr noalias noundef nonnull readonly align 2 %40, i64 noundef %36), !noalias !14853
-  %.fr13.i.i.i = freeze { i32, float } %41
-  %42 = extractvalue { i32, float } %.fr13.i.i.i, 0
-  %43 = extractvalue { i32, float } %.fr13.i.i.i, 1
+  %.fr.i.i.i = freeze { i32, float } %41
+  %42 = extractvalue { i32, float } %.fr.i.i.i, 0
+  %43 = extractvalue { i32, float } %.fr.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !14859
   %switch.i.i.i = icmp eq i32 %42, 0
   br i1 %switch.i.i.i, label %.thread.i.i.i, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i
@@ -82570,9 +82570,9 @@ _ZN10ttf_parser4Face8ascender17h744955599b74332bE.exit: ; preds = %99, %86, %70,
 121:                                              ; preds = %115
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %123 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %12, i32 noundef range(i32 1668311156, 2020108149) 1668311156, ptr noalias noundef nonnull readonly align 2 %122, i64 noundef %118), !noalias !14942
-  %.fr13.i.i.i100 = freeze { i32, float } %123
-  %124 = extractvalue { i32, float } %.fr13.i.i.i100, 0
-  %125 = extractvalue { i32, float } %.fr13.i.i.i100, 1
+  %.fr.i.i.i100 = freeze { i32, float } %123
+  %124 = extractvalue { i32, float } %.fr.i.i.i100, 0
+  %125 = extractvalue { i32, float } %.fr.i.i.i100, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !14948
   %switch.i.i.i101 = icmp eq i32 %124, 0
   br i1 %switch.i.i.i101, label %.thread.i.i.i107, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i102
@@ -82652,9 +82652,9 @@ _ZN10ttf_parser4Face14capital_height17hf4f84181875d2ad1E.exit: ; preds = %106, %
 153:                                              ; preds = %147
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %155 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %11, i32 noundef range(i32 1668311156, 2020108149) 2020108148, ptr noalias noundef nonnull readonly align 2 %154, i64 noundef %150), !noalias !14968
-  %.fr13.i.i.i124 = freeze { i32, float } %155
-  %156 = extractvalue { i32, float } %.fr13.i.i.i124, 0
-  %157 = extractvalue { i32, float } %.fr13.i.i.i124, 1
+  %.fr.i.i.i124 = freeze { i32, float } %155
+  %156 = extractvalue { i32, float } %.fr.i.i.i124, 0
+  %157 = extractvalue { i32, float } %.fr.i.i.i124, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !14974
   %switch.i.i.i125 = icmp eq i32 %156, 0
   br i1 %switch.i.i.i125, label %.thread.i.i.i133, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i126
@@ -82741,9 +82741,9 @@ _ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i143: ; preds = %
 188:                                              ; preds = %182
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %190 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %10, i32 noundef range(i32 1668311156, 2020108149) 1751413603, ptr noalias noundef nonnull readonly align 2 %189, i64 noundef %185), !noalias !14990
-  %.fr13.i.i.i149 = freeze { i32, float } %190
-  %191 = extractvalue { i32, float } %.fr13.i.i.i149, 0
-  %192 = extractvalue { i32, float } %.fr13.i.i.i149, 1
+  %.fr.i.i.i149 = freeze { i32, float } %190
+  %191 = extractvalue { i32, float } %.fr.i.i.i149, 0
+  %192 = extractvalue { i32, float } %.fr.i.i.i149, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !14996
   %switch.i.i.i150 = icmp eq i32 %191, 0
   br i1 %switch.i.i.i150, label %.thread.i.i.i157, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i151
@@ -82973,9 +82973,9 @@ _ZN10ttf_parser6tables3os25Table17strikeout_metrics17ha8c832d56e872423E.exit.i: 
 278:                                              ; preds = %272
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %280 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %6, i32 noundef range(i32 1668311156, 2020108149) 1937011311, ptr noalias noundef nonnull readonly align 2 %279, i64 noundef %275), !noalias !15091
-  %.fr13.i.i.i192 = freeze { i32, float } %280
-  %281 = extractvalue { i32, float } %.fr13.i.i.i192, 0
-  %282 = extractvalue { i32, float } %.fr13.i.i.i192, 1
+  %.fr.i.i.i192 = freeze { i32, float } %280
+  %281 = extractvalue { i32, float } %.fr.i.i.i192, 0
+  %282 = extractvalue { i32, float } %.fr.i.i.i192, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !15093
   %switch.i.i.i193 = icmp eq i32 %281, 0
   br i1 %switch.i.i.i193, label %.thread.i.i.i201, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i194
@@ -83025,9 +83025,9 @@ _ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i194: ; pred
 298:                                              ; preds = %292
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %300 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %5, i32 noundef range(i32 1668311156, 2020108149) 1937011315, ptr noalias noundef nonnull readonly align 2 %299, i64 noundef %295), !noalias !15105
-  %.fr13.i.i15.i = freeze { i32, float } %300
-  %301 = extractvalue { i32, float } %.fr13.i.i15.i, 0
-  %302 = extractvalue { i32, float } %.fr13.i.i15.i, 1
+  %.fr.i.i15.i = freeze { i32, float } %300
+  %301 = extractvalue { i32, float } %.fr.i.i15.i, 0
+  %302 = extractvalue { i32, float } %.fr.i.i15.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !15103
   %switch.i.i16.i = icmp eq i32 %301, 0
   br i1 %switch.i.i16.i, label %.thread.i.i21.i, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i17.i
@@ -83101,9 +83101,9 @@ _ZN10ttf_parser4Face17strikeout_metrics17h817cf9fd24be31a9E.exit: ; preds = %_ZN
 324:                                              ; preds = %318
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %326 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4, i32 noundef range(i32 1668311156, 2020108149) 1970168943, ptr noalias noundef nonnull readonly align 2 %325, i64 noundef %321), !noalias !15120
-  %.fr13.i.i.i206 = freeze { i32, float } %326
-  %327 = extractvalue { i32, float } %.fr13.i.i.i206, 0
-  %328 = extractvalue { i32, float } %.fr13.i.i.i206, 1
+  %.fr.i.i.i206 = freeze { i32, float } %326
+  %327 = extractvalue { i32, float } %.fr.i.i.i206, 0
+  %328 = extractvalue { i32, float } %.fr.i.i.i206, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !15122
   %switch.i.i.i207 = icmp eq i32 %327, 0
   br i1 %switch.i.i.i207, label %.thread.i.i.i224, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i208
@@ -83153,9 +83153,9 @@ _ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i.i208: ; pred
 344:                                              ; preds = %338
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 2384
   %346 = call { i32, float } @_ZN10ttf_parser6tables4mvar5Table13metric_offset17hdd6d24f032ea50ceE(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %3, i32 noundef range(i32 1668311156, 2020108149) 1970168947, ptr noalias noundef nonnull readonly align 2 %345, i64 noundef %341), !noalias !15134
-  %.fr13.i.i18.i = freeze { i32, float } %346
-  %347 = extractvalue { i32, float } %.fr13.i.i18.i, 0
-  %348 = extractvalue { i32, float } %.fr13.i.i18.i, 1
+  %.fr.i.i18.i = freeze { i32, float } %346
+  %347 = extractvalue { i32, float } %.fr.i.i18.i, 0
+  %348 = extractvalue { i32, float } %.fr.i.i18.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !15132
   %switch.i.i19.i = icmp eq i32 %347, 0
   br i1 %switch.i.i19.i, label %.thread.i.i24.i, label %_ZN10ttf_parser4Face18metrics_var_offset17h0f26e5882f0f9fc2E.exit.i20.i

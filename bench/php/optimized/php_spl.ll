@@ -1572,8 +1572,8 @@ define internal fastcc ptr @spl_find_registered_function(ptr noundef readonly ca
   %12 = and i32 %11, 4
   %.not19 = icmp eq i32 %12, 0
   tail call void @llvm.assume(i1 %.not19)
-  %.not2044 = icmp eq i32 %7, 0
-  br i1 %.not2044, label %.thread38, label %.lr.ph
+  %.not2045 = icmp eq i32 %7, 0
+  br i1 %.not2045, label %.thread38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1582,14 +1582,14 @@ define internal fastcc ptr @spl_find_registered_function(ptr noundef readonly ca
   br label %16
 
 16:                                               ; preds = %.lr.ph, %.thread
-  %.01745 = phi ptr [ %5, %.lr.ph ], [ %74, %.thread ]
-  %17 = getelementptr inbounds nuw i8, ptr %.01745, i64 8
+  %.01746 = phi ptr [ %5, %.lr.ph ], [ %74, %.thread ]
+  %17 = getelementptr inbounds nuw i8, ptr %.01746, i64 8
   %18 = load i8, ptr %17, align 8, !tbaa !8
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %.thread, label %20, !prof !84
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %.01745, align 8, !tbaa !8
+  %21 = load ptr, ptr %.01746, align 8, !tbaa !8
   %22 = load ptr, ptr %21, align 8, !tbaa !63
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !8
@@ -1664,9 +1664,10 @@ define internal fastcc ptr @spl_find_registered_function(ptr noundef readonly ca
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !93
   %71 = load ptr, ptr %15, align 8, !tbaa !93
-  %72 = icmp eq ptr %70, %71
-  %cond.fr28 = freeze i1 %72
-  br i1 %cond.fr28, label %.thread38, label %.thread
+  %.fr = freeze ptr %70
+  %.fr44 = freeze ptr %71
+  %72 = icmp eq ptr %.fr, %.fr44
+  br i1 %72, label %.thread38, label %.thread
 
 autoload_func_info_equals.exit:                   ; preds = %51
   %73 = tail call zeroext i1 @zend_string_equal_val(ptr noundef nonnull %47, ptr noundef nonnull %49) #10
@@ -1674,12 +1675,12 @@ autoload_func_info_equals.exit:                   ; preds = %51
   br i1 %cond.fr, label %.thread38, label %.thread
 
 .thread:                                          ; preds = %autoload_func_info_equals.exit, %68, %40, %35, %30, %63, %58, %.critedge.i, %51, %16
-  %74 = getelementptr inbounds nuw i8, ptr %.01745, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %.01746, i64 32
   %.not20 = icmp eq ptr %74, %9
   br i1 %.not20, label %.thread38, label %16
 
 .thread38:                                        ; preds = %.thread, %45, %68, %autoload_func_info_equals.exit, %3, %1
-  %.015 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %.thread ], [ %.01745, %45 ], [ %.01745, %68 ], [ %.01745, %autoload_func_info_equals.exit ]
+  %.015 = phi ptr [ null, %1 ], [ null, %3 ], [ null, %.thread ], [ %.01746, %45 ], [ %.01746, %68 ], [ %.01746, %autoload_func_info_equals.exit ]
   ret ptr %.015
 }
 

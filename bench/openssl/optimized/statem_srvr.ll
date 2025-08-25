@@ -2566,8 +2566,8 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
   br i1 %.not210, label %.thread242.split.us.split.us, label %.thread242.split.us.split
 
 .thread242.split.us.split.us:                     ; preds = %.thread242.split.us, %165
-  %indvars.iv272 = phi i64 [ %indvars.iv.next273, %165 ], [ 0, %.thread242.split.us ]
-  %153 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv272
+  %indvars.iv271 = phi i64 [ %indvars.iv.next272, %165 ], [ 0, %.thread242.split.us ]
+  %153 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv271
   %154 = load ptr, ptr %153, align 8, !tbaa !175
   %.not196.us.us = icmp eq ptr %154, null
   br i1 %.not196.us.us, label %.critedge, label %155
@@ -2598,21 +2598,21 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
   %167 = load ptr, ptr %8, align 8, !tbaa !162
   %168 = call i32 @BN_bn2bin(ptr noundef %166, ptr noundef %167) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
-  %exitcond275.not = icmp eq i64 %indvars.iv.next273, 4
-  br i1 %exitcond275.not, label %.critedge, label %.thread242.split.us.split.us, !llvm.loop !176
+  %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
+  %exitcond274.not = icmp eq i64 %indvars.iv.next272, 4
+  br i1 %exitcond274.not, label %.critedge, label %.thread242.split.us.split.us, !llvm.loop !176
 
 .thread242.split.us.split:                        ; preds = %.thread242.split.us, %181
-  %indvars.iv268 = phi i64 [ %indvars.iv.next269, %181 ], [ 0, %.thread242.split.us ]
-  %169 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv268
+  %indvars.iv267 = phi i64 [ %indvars.iv.next268, %181 ], [ 0, %.thread242.split.us ]
+  %169 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv267
   %170 = load ptr, ptr %169, align 8, !tbaa !175
   %.not196.us = icmp eq ptr %170, null
   br i1 %.not196.us, label %.critedge, label %171
 
 171:                                              ; preds = %.thread242.split.us.split
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.not260 = icmp eq i64 %indvars.iv268, 2
-  %. = select i1 %.not260, i64 1, i64 2
+  %.not259 = icmp eq i64 %indvars.iv267, 2
+  %. = select i1 %.not259, i64 1, i64 2
   %172 = call i32 @WPACKET_start_sub_packet_len__(ptr noundef %1, i64 noundef %.) #12
   %.not211.us = icmp eq i32 %172, 0
   br i1 %.not211.us, label %.thread250, label %.thread246.us
@@ -2637,9 +2637,9 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
   %183 = load ptr, ptr %8, align 8, !tbaa !162
   %184 = call i32 @BN_bn2bin(ptr noundef %182, ptr noundef %183) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond271.not = icmp eq i64 %indvars.iv.next269, 4
-  br i1 %exitcond271.not, label %.critedge, label %.thread242.split.us.split, !llvm.loop !176
+  %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
+  %exitcond270.not = icmp eq i64 %indvars.iv.next268, 4
+  br i1 %exitcond270.not, label %.critedge, label %.thread242.split.us.split, !llvm.loop !176
 
 .thread242.split:                                 ; preds = %.thread242, %213
   %indvars.iv = phi i64 [ %indvars.iv.next, %213 ], [ 0, %.thread242 ]
@@ -2652,8 +2652,8 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %188 = icmp ne i64 %indvars.iv, 2
   %or.cond = or i1 %.not210, %188
-  %.303 = select i1 %or.cond, i64 2, i64 1
-  %189 = call i32 @WPACKET_start_sub_packet_len__(ptr noundef %1, i64 noundef %.303) #12
+  %.302 = select i1 %or.cond, i64 2, i64 1
+  %189 = call i32 @WPACKET_start_sub_packet_len__(ptr noundef %1, i64 noundef %.302) #12
   %.not211 = icmp eq i32 %189, 0
   br i1 %.not211, label %.thread250, label %190
 
@@ -2700,9 +2700,9 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
   br i1 %.not216, label %.thread250, label %213
 
 .thread250:                                       ; preds = %211, %.thread246, %201, %187, %.thread246.us, %179, %171, %.thread246.us.us, %163, %155
-  %.sink300 = phi i32 [ 2709, %155 ], [ 2732, %163 ], [ 2732, %.thread246.us.us ], [ 2709, %171 ], [ 2732, %179 ], [ 2732, %.thread246.us ], [ 2709, %187 ], [ 2723, %201 ], [ 2732, %.thread246 ], [ 2732, %211 ]
+  %.sink299 = phi i32 [ 2709, %155 ], [ 2732, %163 ], [ 2732, %.thread246.us.us ], [ 2709, %171 ], [ 2732, %179 ], [ 2732, %.thread246.us ], [ 2709, %187 ], [ 2723, %201 ], [ 2732, %.thread246 ], [ 2732, %211 ]
   call void @ERR_new() #12
-  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink300, ptr noundef nonnull @__func__.tls_construct_server_key_exchange) #12
+  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink299, ptr noundef nonnull @__func__.tls_construct_server_key_exchange) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread236
@@ -2886,11 +2886,11 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
   br label %.thread253.sink.split
 
 .thread253.sink.split:                            ; preds = %270, %274, %259, %249, %239, %231, %237, %306
-  %.sink302 = phi i32 [ 2808, %306 ], [ 2766, %237 ], [ 2766, %231 ], [ 2771, %239 ], [ 2776, %249 ], [ 2784, %259 ], [ 2790, %274 ], [ 2790, %270 ]
-  %.sink301 = phi i32 [ 786691, %306 ], [ 786691, %237 ], [ 786691, %231 ], [ 786691, %239 ], [ 786691, %249 ], [ 786691, %259 ], [ 524294, %274 ], [ 524294, %270 ]
+  %.sink301 = phi i32 [ 2808, %306 ], [ 2766, %237 ], [ 2766, %231 ], [ 2771, %239 ], [ 2776, %249 ], [ 2784, %259 ], [ 2790, %274 ], [ 2790, %270 ]
+  %.sink300 = phi i32 [ 786691, %306 ], [ 786691, %237 ], [ 786691, %231 ], [ 786691, %239 ], [ 786691, %249 ], [ 786691, %259 ], [ 524294, %274 ], [ 524294, %270 ]
   call void @ERR_new() #12
-  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink302, ptr noundef nonnull @__func__.tls_construct_server_key_exchange) #12
-  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink301, ptr noundef null) #12
+  call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink301, ptr noundef nonnull @__func__.tls_construct_server_key_exchange) #12
+  call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink300, ptr noundef null) #12
   br label %.thread253
 
 .thread253:                                       ; preds = %.thread253.sink.split, %278

@@ -804,8 +804,8 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatency
 
 ._crit_edge:                                      ; preds = %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.pre75 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre76 = trunc nuw i8 %.pre to i1
+  %.pre74 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre75 = trunc nuw i8 %.pre to i1
   br label %22
 
 16:                                               ; preds = %5
@@ -817,8 +817,8 @@ define dso_local noundef i32 @_ZNK4llvm16TargetSchedModel21computeOperandLatency
   br i1 %21, label %22, label %180
 
 22:                                               ; preds = %._crit_edge, %16
-  %.pre-phi = phi i1 [ %.pre76, %._crit_edge ], [ true, %16 ]
-  %23 = phi ptr [ %.pre75, %._crit_edge ], [ %19, %16 ]
+  %.pre-phi = phi i1 [ %.pre75, %._crit_edge ], [ true, %16 ]
+  %23 = phi ptr [ %.pre74, %._crit_edge ], [ %19, %16 ]
   %24 = icmp ne ptr %23, null
   %25 = select i1 %.pre-phi, i1 %24, i1 false
   br i1 %25, label %26, label %57
@@ -867,8 +867,8 @@ _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit: ; preds = %48, %27
   %storemerge = phi i64 [ %33, %27 ], [ %55, %48 ]
   %.sroa.0.0.extract.trunc = trunc i64 %storemerge to i32
   %56 = and i64 %storemerge, 4294967296
-  %.not70 = icmp eq i64 %56, 0
-  br i1 %.not70, label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, label %180
+  %.not69 = icmp eq i64 %56, 0
+  br i1 %.not69, label %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread, label %180
 
 _ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit.thread: ; preds = %34, %_ZNK4llvm18InstrItineraryData15getOperandCycleEjj.exit
   %.in.sroa.speculate.load.58.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %6, i32 %9)
@@ -1096,10 +1096,10 @@ _ZNK4llvm12MachineInstr11isTransientEv.exit:      ; preds = %173
   %176 = load ptr, ptr %58, align 8, !tbaa !114
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %178 = load i64, ptr %177, align 8, !tbaa !140
-  %.fr68 = freeze i64 %178
-  %179 = and i64 %.fr68, 16
-  %.not69 = icmp eq i64 %179, 0
-  br i1 %.not69, label %180, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
+  %.fr = freeze i64 %178
+  %179 = and i64 %.fr, 16
+  %.not68 = icmp eq i64 %179, 0
+  br i1 %.not68, label %180, label %_ZNK4llvm12MachineInstr11isTransientEv.exit.thread
 
 _ZNK4llvm12MachineInstr11isTransientEv.exit.thread: ; preds = %173, %173, %173, %173, %173, %173, %_ZNK4llvm12MachineInstr11isTransientEv.exit
   br label %180

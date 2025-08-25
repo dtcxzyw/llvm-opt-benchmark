@@ -36,8 +36,8 @@ $_ZN4llvm19ValueLatticeElement17markConstantRangeENS_13ConstantRangeENS0_12Merge
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm19ValueLatticeElement10getCompareENS_7CmpInst9PredicateEPNS_4TypeERKS0_RKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 1 %4) local_unnamed_addr #0 align 2 {
   %6 = load i16, ptr %0, align 8
-  %.fr37 = freeze i16 %6
-  %7 = and i16 %.fr37, 255
+  %.fr = freeze i16 %6
+  %7 = and i16 %.fr, 255
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit, label %9
 
@@ -110,7 +110,7 @@ define dso_local noundef ptr @_ZNK4llvm19ValueLatticeElement10getCompareENS_7Cmp
   br label %_ZNK4llvm19ValueLatticeElement15isConstantRangeEb.exit
 
 .thread29:                                        ; preds = %31, %.thread, %37, %23
-  %49 = and i16 %.fr37, 254
+  %49 = and i16 %.fr, 254
   %switch = icmp eq i16 %49, 4
   %50 = and i16 %10, 254
   %switch34 = icmp eq i16 %50, 4

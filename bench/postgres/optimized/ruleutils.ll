@@ -19870,8 +19870,8 @@ define internal fastcc ptr @get_rule_sortgroupclause(i32 noundef %0, ptr noundef
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %23 = load i32, ptr %22, align 8
-  %.fr34 = freeze i32 %23
-  %24 = and i32 %.fr34, 1
+  %.fr = freeze i32 %23
+  %24 = and i32 %.fr, 1
   %.not30.not = icmp eq i32 %24, 0
   br i1 %.not30.not, label %switch.early.test, label %switch.edge
 

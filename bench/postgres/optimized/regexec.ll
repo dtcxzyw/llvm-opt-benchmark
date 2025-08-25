@@ -606,8 +606,8 @@ freedfa.exit:                                     ; preds = %39, %43
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = load i8, ptr %50, align 1
-  %.fr69.i = freeze i8 %51
-  %52 = and i8 %.fr69.i, 2
+  %.fr.i = freeze i8 %51
+  %52 = and i8 %.fr.i, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %4, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -615,11 +615,11 @@ freedfa.exit:                                     ; preds = %39, %43
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not75.i = icmp eq i8 %52, 0
-  %.pre101.i = load ptr, ptr %55, align 8
+  %.pre100.i = load ptr, ptr %55, align 8
   br i1 %.not75.i, label %.split53.us.i, label %.split53.i
 
 .split53.us.i:                                    ; preds = %46, %._crit_edge.split.us.us.i
-  %57 = phi ptr [ %65, %._crit_edge.split.us.us.i ], [ %.pre101.i, %46 ]
+  %57 = phi ptr [ %65, %._crit_edge.split.us.us.i ], [ %.pre100.i, %46 ]
   %.068.us.i = phi ptr [ %64, %._crit_edge.split.us.us.i ], [ %54, %46 ]
   %58 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %.068.us.i, ptr noundef %.068.us.i, ptr noundef %57, ptr noundef nonnull %4, ptr noundef null)
   %59 = load i32, ptr %56, align 8
@@ -690,7 +690,7 @@ freedfa.exit:                                     ; preds = %39, %43
   br i1 %.not74.us.us.i, label %._crit_edge.split.us.us.i, label %.split.us.us.us.i, !llvm.loop !13
 
 .split53.i:                                       ; preds = %46, %._crit_edge.split.i
-  %87 = phi ptr [ %144, %._crit_edge.split.i ], [ %.pre101.i, %46 ]
+  %87 = phi ptr [ %144, %._crit_edge.split.i ], [ %.pre100.i, %46 ]
   %.068.i = phi ptr [ %143, %._crit_edge.split.i ], [ %54, %46 ]
   %88 = call fastcc ptr @shortest(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %.068.i, ptr noundef %.068.i, ptr noundef %87, ptr noundef nonnull %4, ptr noundef null)
   %89 = load i32, ptr %56, align 8
@@ -733,7 +733,7 @@ freedfa.exit:                                     ; preds = %39, %43
   br label %.lr.ph.i
 
 .split14.loopexit.i:                              ; preds = %138
-  %.pre103.i = load ptr, ptr %4, align 8
+  %.pre102.i = load ptr, ptr %4, align 8
   br label %cfindloop.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %138
@@ -823,7 +823,7 @@ freedfa.exit:                                     ; preds = %39, %43
   br label %cfindloop.exit
 
 cfindloop.exit:                                   ; preds = %.split.i.preheader, %.split.i, %.split.us.us.us.i, %82, %.split14.loopexit.i, %.split22.i, %118, %.split55.us.i, %.split18.i, %.split58.us.i
-  %.049 = phi ptr [ %146, %.split58.us.i ], [ %134, %.split18.i ], [ %91, %.split55.us.i ], [ %115, %118 ], [ %115, %.split22.i ], [ %.pre103.i, %.split14.loopexit.i ], [ %spec.store.select.us.us.us.i, %82 ], [ %.promoted.us.us.i, %.split.us.us.us.i ], [ %spec.store.select.i, %.split.i ], [ null, %.split.i.preheader ]
+  %.049 = phi ptr [ %146, %.split58.us.i ], [ %134, %.split18.i ], [ %91, %.split55.us.i ], [ %115, %118 ], [ %115, %.split22.i ], [ %.pre102.i, %.split14.loopexit.i ], [ %spec.store.select.us.us.us.i, %82 ], [ %.promoted.us.us.i, %.split.us.us.us.i ], [ %spec.store.select.i, %.split.i ], [ null, %.split.i.preheader ]
   %.0.i = phi i32 [ 1, %.split58.us.i ], [ %.us-phi20.i, %.split18.i ], [ %90, %.split55.us.i ], [ 0, %118 ], [ 0, %.split22.i ], [ %141, %.split14.loopexit.i ], [ %85, %82 ], [ %69, %.split.us.us.us.i ], [ %101, %.split.i ], [ %98, %.split.i.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3434,8 +3434,8 @@ define internal fastcc ptr @miss(ptr noundef nonnull captures(none) %0, ptr noun
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds %struct.colordesc, ptr %34, i64 %11, i32 5
   %36 = load i32, ptr %35, align 4
-  %.fr = freeze i32 %36
-  %37 = and i32 %.fr, 2
+  %.fr275 = freeze i32 %36
+  %37 = and i32 %.fr275, 2
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %.not276 = icmp eq i32 %37, 0
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40

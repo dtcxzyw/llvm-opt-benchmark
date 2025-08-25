@@ -352,10 +352,11 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %146
   %150 = load i64, ptr %149, align 8, !tbaa !36
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %152 = load i32, ptr %151, align 8, !tbaa !43
-  %153 = sext i32 %152 to i64
-  %154 = mul i64 %150, %153
-  %.fr = freeze i64 %154
-  %155 = icmp eq i64 %.fr, 0
+  %.fr378 = freeze i32 %152
+  %153 = sext i32 %.fr378 to i64
+  %.fr = freeze i64 %150
+  %154 = mul i64 %.fr, %153
+  %155 = icmp eq i64 %154, 0
   br i1 %155, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %_ZN4ncnn3MataSERKS0_.exit.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %146, %_ZNK4ncnn3Mat5emptyEv.exit
@@ -948,11 +949,11 @@ _ZN4ncnn3MatD2Ev.exit299:                         ; preds = %356, %354, %362, %3
   %473 = mul i64 %471, %472
   %474 = add i32 %158, -3
   %or.cond8 = icmp ult i32 %474, 2
-  %.pre378 = load i32, ptr %167, align 8, !tbaa !43
+  %.pre379 = load i32, ptr %167, align 8, !tbaa !43
   br i1 %or.cond8, label %475, label %529
 
 475:                                              ; preds = %469
-  %476 = mul nsw i32 %.pre378, %17
+  %476 = mul nsw i32 %.pre379, %17
   %477 = icmp eq i32 %476, %.2231
   %478 = icmp eq i32 %17, %.0228
   %or.cond294 = select i1 %477, i1 %478, i1 false
@@ -1042,11 +1043,11 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %501, %500, %486, %4
   %522 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %523 = load i64, ptr %522, align 8, !tbaa !36
   store i64 %523, ptr %509, align 8, !tbaa !36
-  %.pre379 = load i32, ptr %143, align 4, !tbaa !49
+  %.pre380 = load i32, ptr %143, align 4, !tbaa !49
   br label %.thread375
 
 .thread375:                                       ; preds = %_ZN4ncnn3Mat7releaseEv.exit, %479
-  %524 = phi i32 [ %.pre379, %_ZN4ncnn3Mat7releaseEv.exit ], [ %372, %479 ]
+  %524 = phi i32 [ %.pre380, %_ZN4ncnn3Mat7releaseEv.exit ], [ %372, %479 ]
   %525 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %524, ptr %525, align 8, !tbaa !40
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 44
@@ -1086,7 +1087,7 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %501, %500, %486, %4
   %546 = load i32, ptr %165, align 4, !tbaa !51
   store i32 %546, ptr %545, align 4, !tbaa !51
   %547 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store i32 %.pre378, ptr %547, align 8, !tbaa !43
+  store i32 %.pre379, ptr %547, align 8, !tbaa !43
   %548 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %549 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %550 = load i64, ptr %549, align 8, !tbaa !36
@@ -1180,18 +1181,18 @@ _ZNK4ncnn3Mat5emptyEv.exit306:                    ; preds = %576
   %594 = mul nsw i32 %591, %593
   store i32 %594, ptr %14, align 4, !tbaa !31
   switch i32 %.0228, label %599 [
-    i32 8, label %.sink.split420
+    i32 8, label %.sink.split421
     i32 4, label %595
     i32 1, label %596
   ]
 
 595:                                              ; preds = %586
-  br label %.sink.split420
+  br label %.sink.split421
 
 596:                                              ; preds = %586
-  br label %.sink.split420
+  br label %.sink.split421
 
-.sink.split420:                                   ; preds = %586, %596, %595
+.sink.split421:                                   ; preds = %586, %596, %595
   %_ZNK4ncnn15Reshape_x86_avx7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink = phi ptr [ @_ZNK4ncnn15Reshape_x86_avx7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3, %595 ], [ @_ZNK4ncnn15Reshape_x86_avx7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.4, %596 ], [ @_ZNK4ncnn15Reshape_x86_avx7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.2, %586 ]
   %597 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %598 = load i32, ptr %597, align 4, !tbaa !54
@@ -1199,7 +1200,7 @@ _ZNK4ncnn3Mat5emptyEv.exit306:                    ; preds = %576
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull %_ZNK4ncnn15Reshape_x86_avx7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_outlined.3.sink, ptr nonnull %2, ptr nonnull %12, ptr nonnull %14)
   br label %599
 
-599:                                              ; preds = %.sink.split420, %586
+599:                                              ; preds = %.sink.split421, %586
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZNK4ncnn3Mat5emptyEv.exit306.thread
 

@@ -20151,8 +20151,8 @@ _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us: ; preds = %.lr.ph.
   %23 = load ptr, ptr %20, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %23, align 8, !tbaa !114
-  %.fr = freeze i64 %25
-  %26 = and i64 %.fr, 4294967295
+  %.fr40 = freeze i64 %25
+  %26 = and i64 %.fr40, 4294967295
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us28, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us
 
@@ -25094,8 +25094,8 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
 
 9:                                                ; preds = %4
   %10 = load i64, ptr %0, align 8
-  %.fr74 = freeze i64 %10
-  %11 = and i64 %.fr74, 32
+  %.fr = freeze i64 %10
+  %11 = and i64 %.fr, 32
   %.not19 = icmp eq i64 %11, 0
   %12 = and i32 %1, 2048
   %.not20 = icmp eq i32 %12, 0
@@ -25108,7 +25108,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   br i1 %or.cond35, label %17, label %191
 
 17:                                               ; preds = %9
-  %18 = and i64 %.fr74, 256
+  %18 = and i64 %.fr, 256
   %.not21 = icmp eq i64 %18, 0
   %19 = and i32 %1, 67108864
   %.not22 = icmp eq i32 %19, 0
@@ -25125,7 +25125,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %22 = and i64 %21, 4294967296
   %.not.i = icmp eq i64 %22, 0
   %23 = select i1 %.not.i, i32 1, i32 4
-  %24 = and i64 %.fr74, 2048
+  %24 = and i64 %.fr, 2048
   %.not34.i = icmp eq i64 %24, 0
   %25 = select i1 %.not34.i, i32 4, i32 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -25133,7 +25133,7 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %28 = trunc i64 %27 to i32
   %29 = lshr i32 %28, 6
   %30 = and i32 %29, 4
-  %31 = trunc i64 %.fr74 to i32
+  %31 = trunc i64 %.fr to i32
   %32 = lshr i32 %31, 6
   %33 = and i32 %32, 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -25163,9 +25163,9 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %57 = and i32 %56, 4
   %58 = lshr i32 %31, 16
   %59 = and i32 %58, 4
-  %60 = and i64 %.fr74, 536870912
+  %60 = and i64 %.fr, 536870912
   %.not43.i = icmp eq i64 %60, 0
-  %61 = and i64 %.fr74, 32768
+  %61 = and i64 %.fr, 32768
   %.not44.i = icmp eq i64 %61, 0
   %62 = lshr i32 %31, 10
   %..i = and i32 %62, 2
@@ -25177,28 +25177,28 @@ define internal fastcc noundef range(i32 1, 5) i32 @_ZL16getKeywordStatusRKN5cla
   %.not49.i = icmp eq i64 %67, 0
   %68 = select i1 %.not49.i, i32 4, i32 0
   %69 = select i1 %.not, i32 0, i32 %68
-  %70 = and i64 %.fr74, 1024
+  %70 = and i64 %.fr, 1024
   %.not50.i = icmp eq i64 %70, 0
   %71 = select i1 %.not50.i, i32 0, i32 3
   %72 = lshr i64 %51, 39
   %73 = trunc nuw nsw i64 %72 to i32
   %74 = and i32 %73, 4
-  %75 = and i64 %.fr74, 67108864
+  %75 = and i64 %.fr, 67108864
   %.not52.i = icmp eq i64 %75, 0
   %76 = select i1 %.not34.i, i32 2, i32 0
-  %77 = and i64 %.fr74, 128
+  %77 = and i64 %.fr, 128
   %.not54.i = icmp eq i64 %77, 0
   %78 = select i1 %.not54.i, i32 0, i32 3
-  %79 = and i64 %.fr74, 34359738368
+  %79 = and i64 %.fr, 34359738368
   %.not55.i = icmp eq i64 %79, 0
   %80 = select i1 %.not55.i, i32 0, i32 3
-  %81 = and i64 %.fr74, 4096
+  %81 = and i64 %.fr, 4096
   %.not58.i = icmp eq i64 %81, 0
   %82 = lshr i32 %31, 9
   %83 = and i32 %82, 4
-  %84 = and i64 %.fr74, 8
+  %84 = and i64 %.fr, 8
   %.not61.i = icmp eq i64 %84, 0
-  %85 = and i64 %.fr74, 1
+  %85 = and i64 %.fr, 1
   %.not63.i = icmp eq i64 %85, 0
   br i1 %.not43.i, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 

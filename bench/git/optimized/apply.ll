@@ -14183,9 +14183,9 @@ create_one_file.exit.thread:                      ; preds = %34, %29, %24, %2, %
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #22
   %82 = trunc i64 %81 to i32
   %83 = load i32, ptr %6, align 4, !tbaa !112
-  %.not30.i = icmp eq i32 %83, 0
-  %spec.select.i = select i1 %.not30.i, i32 33188, i32 %83
-  %spec.select.fr.i = freeze i32 %spec.select.i
+  %.fr52.i = freeze i32 %83
+  %.not30.i = icmp eq i32 %.fr52.i, 0
+  %spec.select.i = select i1 %.not30.i, i32 33188, i32 %.fr52.i
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %85 = load ptr, ptr %84, align 8, !tbaa !23
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 384
@@ -14194,17 +14194,17 @@ create_one_file.exit.thread:                      ; preds = %34, %29, %24, %2, %
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %sext.i = shl i64 %81, 32
   %90 = ashr exact i64 %sext.i, 32
-  %91 = and i32 %spec.select.fr.i, 61440
+  %91 = and i32 %spec.select.i, 61440
   %92 = icmp eq i32 %91, 40960
   %trunc.i.i = trunc nuw i32 %91 to i16
-  %93 = and i32 %spec.select.fr.i, 64
+  %93 = and i32 %spec.select.i, 64
   %.not.i32.i = icmp eq i32 %93, 0
   %94 = select i1 %.not.i32.i, i32 33188, i32 33261
   br i1 %92, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %79, %116
-  %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %116 ], [ 1, %79 ]
-  %95 = add nsw i64 %indvars.iv71.i, -1
+  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %116 ], [ 1, %79 ]
+  %95 = add nsw i64 %indvars.iv72.i, -1
   %96 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %89, i64 0, i64 %95
   %bcmp.i.us.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %96, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i.not.us.i = icmp eq i32 %bcmp.i.us.i, 0
@@ -14221,8 +14221,8 @@ create_ce_mode.exit.us.i:                         ; preds = %.split.us.i
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 52
   store i32 40960, ptr %103, align 4, !tbaa !34
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %indvars.iv71.tr.i = trunc nuw nsw i64 %indvars.iv71.i to i32
-  %105 = shl nuw nsw i32 %indvars.iv71.tr.i, 12
+  %indvars.iv72.tr.i = trunc nuw nsw i64 %indvars.iv72.i to i32
+  %105 = shl nuw nsw i32 %indvars.iv72.tr.i, 12
   store i32 %105, ptr %104, align 8, !tbaa !34
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 64
   store i32 %82, ptr %106, align 8, !tbaa !34
@@ -14240,17 +14240,17 @@ create_ce_mode.exit.us.i:                         ; preds = %.split.us.i
   br i1 %115, label %.split36.us.i, label %116
 
 116:                                              ; preds = %create_ce_mode.exit.us.i, %.split.us.i
-  %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
-  %exitcond74.not.i = icmp eq i64 %indvars.iv.next72.i, 4
-  br i1 %exitcond74.not.i, label %add_conflicted_stages_file.exit, label %.split.us.i, !llvm.loop !268
+  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
+  %exitcond75.not.i = icmp eq i64 %indvars.iv.next73.i, 4
+  br i1 %exitcond75.not.i, label %add_conflicted_stages_file.exit, label %.split.us.i, !llvm.loop !268
 
 .split.i:                                         ; preds = %79
-  %117 = icmp eq i32 %spec.select.fr.i, 16384
+  %117 = icmp eq i32 %spec.select.i, 16384
   br i1 %117, label %.split.split.us.i, label %.split.split.i
 
 .split.split.us.i:                                ; preds = %.split.i, %139
-  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %139 ], [ 1, %.split.i ]
-  %118 = add nsw i64 %indvars.iv67.i, -1
+  %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %139 ], [ 1, %.split.i ]
+  %118 = add nsw i64 %indvars.iv68.i, -1
   %119 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %89, i64 0, i64 %118
   %bcmp.i.us38.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %119, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i.not.us39.i = icmp eq i32 %bcmp.i.us38.i, 0
@@ -14267,8 +14267,8 @@ create_ce_mode.exit.us40.i:                       ; preds = %.split.split.us.i
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 52
   store i32 16384, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 56
-  %indvars.iv67.tr.i = trunc nuw nsw i64 %indvars.iv67.i to i32
-  %128 = shl nuw nsw i32 %indvars.iv67.tr.i, 12
+  %indvars.iv68.tr.i = trunc nuw nsw i64 %indvars.iv68.i to i32
+  %128 = shl nuw nsw i32 %indvars.iv68.tr.i, 12
   store i32 %128, ptr %127, align 8, !tbaa !34
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 64
   store i32 %82, ptr %129, align 8, !tbaa !34
@@ -14286,9 +14286,9 @@ create_ce_mode.exit.us40.i:                       ; preds = %.split.split.us.i
   br i1 %138, label %.split36.us.i, label %139
 
 139:                                              ; preds = %create_ce_mode.exit.us40.i, %.split.split.us.i
-  %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
-  %exitcond70.not.i = icmp eq i64 %indvars.iv.next68.i, 4
-  br i1 %exitcond70.not.i, label %add_conflicted_stages_file.exit, label %.split.split.us.i, !llvm.loop !268
+  %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
+  %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, 4
+  br i1 %exitcond71.not.i, label %add_conflicted_stages_file.exit, label %.split.split.us.i, !llvm.loop !268
 
 .split.split.i:                                   ; preds = %.split.i
   switch i16 %trunc.i.i, label %.split.split.split.i [
@@ -14342,8 +14342,8 @@ create_ce_mode.exit.us48.i:                       ; preds = %.split.split.split.
   br i1 %exitcond.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.us.i, !llvm.loop !268
 
 .split.split.split.i:                             ; preds = %.split.split.i, %188
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %188 ], [ 1, %.split.split.i ]
-  %162 = add nsw i64 %indvars.iv63.i, -1
+  %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %188 ], [ 1, %.split.split.i ]
+  %162 = add nsw i64 %indvars.iv64.i, -1
   %163 = getelementptr inbounds nuw [3 x %struct.object_id], ptr %89, i64 0, i64 %162
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %163, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
@@ -14360,8 +14360,8 @@ create_ce_mode.exit.i:                            ; preds = %.split.split.split.
   %170 = getelementptr inbounds nuw i8, ptr %167, i64 52
   store i32 %94, ptr %170, align 4, !tbaa !34
   %171 = getelementptr inbounds nuw i8, ptr %167, i64 56
-  %indvars.iv63.tr.i = trunc nuw nsw i64 %indvars.iv63.i to i32
-  %172 = shl nuw nsw i32 %indvars.iv63.tr.i, 12
+  %indvars.iv64.tr.i = trunc nuw nsw i64 %indvars.iv64.i to i32
+  %172 = shl nuw nsw i32 %indvars.iv64.tr.i, 12
   store i32 %172, ptr %171, align 8, !tbaa !34
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 64
   store i32 %82, ptr %173, align 8, !tbaa !34
@@ -14396,9 +14396,9 @@ _.exit.i25:                                       ; preds = %184, %.split36.us.i
   br label %add_conflicted_stages_file.exit
 
 188:                                              ; preds = %create_ce_mode.exit.i, %.split.split.split.i
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
-  %exitcond66.not.i = icmp eq i64 %indvars.iv.next64.i, 4
-  br i1 %exitcond66.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.i, !llvm.loop !268
+  %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
+  %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 4
+  br i1 %exitcond67.not.i, label %add_conflicted_stages_file.exit, label %.split.split.split.i, !llvm.loop !268
 
 189:                                              ; preds = %create_one_file.exit.thread
   br i1 %.not21, label %add_conflicted_stages_file.exit, label %190

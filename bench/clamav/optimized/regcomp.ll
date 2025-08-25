@@ -385,12 +385,12 @@ stripsnug.exit:                                   ; preds = %doemit.exit98
 
 107:                                              ; preds = %.preheader, %switch.early.test.i
   %.250.i = phi ptr [ %109, %switch.early.test.i ], [ %.048.i, %.preheader ]
-  %.1.i = phi i64 [ %.fr2.i, %switch.early.test.i ], [ %100, %.preheader ]
+  %.1.i = phi i64 [ %.fr.i, %switch.early.test.i ], [ %100, %.preheader ]
   %108 = and i64 %.1.i, 134217727
   %109 = getelementptr inbounds nuw i64, ptr %.250.i, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !29
-  %.fr2.i = freeze i64 %110
-  %111 = and i64 %.fr2.i, 4160749568
+  %.fr.i = freeze i64 %110
+  %111 = and i64 %.fr.i, 4160749568
   %.not1.i = icmp eq i64 %111, 1610612736
   br i1 %.not1.i, label %.loopexit.i, label %switch.early.test.i
 
@@ -409,7 +409,7 @@ switch.early.test.i:                              ; preds = %107
 
 .loopexit.i:                                      ; preds = %switch.early.test.i, %107, %98
   %.149.i = phi ptr [ %99, %98 ], [ %109, %107 ], [ %109, %switch.early.test.i ]
-  %.039.i = phi i64 [ %100, %98 ], [ %.fr2.i, %107 ], [ %.fr2.i, %switch.early.test.i ]
+  %.039.i = phi i64 [ %100, %98 ], [ %.fr.i, %107 ], [ %.fr.i, %switch.early.test.i ]
   %115 = load i32, ptr %54, align 8, !tbaa !34
   %116 = sext i32 %115 to i64
   %117 = icmp sgt i64 %.040.i, %116
@@ -465,13 +465,13 @@ switch.early.test.i:                              ; preds = %107
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %142, %.preheader.preheader.i
-  %.010.i = phi i64 [ %145, %142 ], [ %137, %.preheader.preheader.i ]
-  %.0389.i = phi ptr [ %144, %142 ], [ %131, %.preheader.preheader.i ]
-  %.48.i = phi ptr [ %139, %142 ], [ %.247.i, %.preheader.preheader.i ]
+  %.09.i = phi i64 [ %145, %142 ], [ %137, %.preheader.preheader.i ]
+  %.0388.i = phi ptr [ %144, %142 ], [ %131, %.preheader.preheader.i ]
+  %.47.i = phi ptr [ %139, %142 ], [ %.247.i, %.preheader.preheader.i ]
   br label %138
 
 138:                                              ; preds = %138, %.preheader.i
-  %.5.i = phi ptr [ %139, %138 ], [ %.48.i, %.preheader.i ]
+  %.5.i = phi ptr [ %139, %138 ], [ %.47.i, %.preheader.i ]
   %139 = getelementptr inbounds nuw i8, ptr %.5.i, i64 8
   %140 = load i64, ptr %.5.i, align 8, !tbaa !29
   %141 = and i64 %140, 4160749568
@@ -480,10 +480,10 @@ switch.early.test.i:                              ; preds = %107
 
 142:                                              ; preds = %138
   %143 = trunc i64 %140 to i8
-  %144 = getelementptr inbounds nuw i8, ptr %.0389.i, i64 1
-  store i8 %143, ptr %.0389.i, align 1, !tbaa !36
-  %145 = add nsw i64 %.010.i, -1
-  %146 = icmp sgt i64 %.010.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %.0388.i, i64 1
+  store i8 %143, ptr %.0388.i, align 1, !tbaa !36
+  %145 = add nsw i64 %.09.i, -1
+  %146 = icmp sgt i64 %.09.i, 1
   br i1 %146, label %.preheader.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %142, %134

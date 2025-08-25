@@ -34041,13 +34041,14 @@ _ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.i: ; preds = %1037
   %1050 = zext nneg i32 %1049 to i64
   %1051 = getelementptr inbounds nuw [513 x i8], ptr @_ZZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_E4Data, i64 0, i64 %1050
   %1052 = load i8, ptr %1051, align 1, !tbaa !116
-  %1053 = zext i8 %1052 to i32
+  %.fr493.i = freeze i8 %1052
+  %1053 = zext i8 %.fr493.i to i32
   %1054 = and i32 %1048, 7
   %1055 = shl nuw nsw i32 1, %1054
-  %1056 = and i32 %1055, %1053
-  %.fr.i = freeze i32 %1056
-  %.not493.i = icmp eq i32 %.fr.i, 0
-  br i1 %.not493.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i
+  %.fr.i = freeze i32 %1055
+  %1056 = and i32 %.fr.i, %1053
+  %.not494.i = icmp eq i32 %1056, 0
+  br i1 %.not494.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i
 
 1057:                                             ; preds = %998
   switch i8 %968, label %_ZNK4llvm10X86Operand14isImmSExti64i8Ev.exit.thread443.i [
@@ -35324,8 +35325,8 @@ _ZNK4llvm10X86Operand13isMem32_RC128Ev.exit.i:    ; preds = %1645
   %1664 = icmp ult i32 %.sroa.0.0.copyload.i.i, 151
   %1665 = add i32 %.sroa.0.0.copyload.i.i, -215
   %spec.select.i1.i324.i = icmp ult i32 %1665, 16
-  %or.cond494.i = or i1 %1664, %spec.select.i1.i324.i
-  br i1 %or.cond494.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %or.cond495.i = or i1 %1664, %spec.select.i1.i324.i
+  br i1 %or.cond495.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1666:                                             ; preds = %1057
   %1667 = icmp eq i32 %1000, 3
@@ -35362,8 +35363,8 @@ _ZNK4llvm10X86Operand13isMem32_RC256Ev.exit.i:    ; preds = %1666
   %1685 = icmp ult i32 %.sroa.0.0.copyload.i330.i, 207
   %1686 = add i32 %.sroa.0.0.copyload.i330.i, -231
   %spec.select.i1.i331.i = icmp ult i32 %1686, 16
-  %or.cond495.i = or i1 %1685, %spec.select.i1.i331.i
-  br i1 %or.cond495.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %or.cond496.i = or i1 %1685, %spec.select.i1.i331.i
+  br i1 %or.cond496.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1687:                                             ; preds = %1057
   %1688 = icmp eq i32 %1000, 3
@@ -35610,8 +35611,8 @@ _ZNK4llvm10X86Operand13isMem64_RC128Ev.exit.i:    ; preds = %1801
   %1820 = icmp ult i32 %.sroa.0.0.copyload.i348.i, 151
   %1821 = add i32 %.sroa.0.0.copyload.i348.i, -215
   %spec.select.i1.i349.i = icmp ult i32 %1821, 16
-  %or.cond496.i = or i1 %1820, %spec.select.i1.i349.i
-  br i1 %or.cond496.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %or.cond497.i = or i1 %1820, %spec.select.i1.i349.i
+  br i1 %or.cond497.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1822:                                             ; preds = %1057
   %1823 = icmp eq i32 %1000, 3
@@ -35648,8 +35649,8 @@ _ZNK4llvm10X86Operand13isMem64_RC256Ev.exit.i:    ; preds = %1822
   %1841 = icmp ult i32 %.sroa.0.0.copyload.i355.i, 207
   %1842 = add i32 %.sroa.0.0.copyload.i355.i, -231
   %spec.select.i1.i356.i = icmp ult i32 %1842, 16
-  %or.cond497.i = or i1 %1841, %spec.select.i1.i356.i
-  br i1 %or.cond497.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
+  %or.cond498.i = or i1 %1841, %spec.select.i1.i356.i
+  br i1 %or.cond498.i, label %_ZL10isSubclassN12_GLOBAL__N_114MatchClassKindES0_.exit.thread.i, label %_ZL20validateOperandClassRN4llvm18MCParsedAsmOperandEN12_GLOBAL__N_114MatchClassKindE.exit
 
 1843:                                             ; preds = %1057
   %1844 = icmp eq i32 %1000, 3

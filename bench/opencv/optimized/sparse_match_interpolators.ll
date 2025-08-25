@@ -1149,12 +1149,12 @@ _ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit:          ; preds = %257, %252, %246
 280:                                              ; preds = %272
   %281 = sdiv i32 %.062151, %233
   %282 = mul nsw i32 %281, %233
-  %.recomposed178 = srem i32 %.062151, %233
+  %.recomposed177 = srem i32 %.062151, %233
   %283 = load i64, ptr %235, align 8, !tbaa !69
   %284 = sext i32 %281 to i64
   %285 = mul i64 %283, %284
   %286 = getelementptr inbounds nuw i8, ptr %234, i64 %285
-  %287 = sext i32 %.recomposed178 to i64
+  %287 = sext i32 %.recomposed177 to i64
   %288 = getelementptr inbounds %"class.cv::Point_", ptr %286, i64 %287
   br label %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit126
 
@@ -1179,7 +1179,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS
 295:                                              ; preds = %.noexc122, %._crit_edge
   %296 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread174
+  br label %.thread173
 
 297:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -1222,7 +1222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %_Z
   %.pn77 = phi { ptr, i32 } [ %301, %300 ], [ %303, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i128 ], [ %303, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread174
+  br label %.thread173
 
 310:                                              ; preds = %.thread, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit
   %311 = phi ptr [ null, %.thread ], [ %211, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc11SparseMatchESt6vectorIS4_SaIS4_EEEEEvT_SA_.exit ]
@@ -1315,8 +1315,8 @@ _ZNK2cv11_InputArray6getMatEi.exit133:            ; preds = %315, %318
 345:                                              ; preds = %343
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %346 = load i32, ptr %312, align 8, !tbaa !62
-  %.fr = freeze i32 %346
-  %347 = sext i32 %.fr to i64
+  %.fr164 = freeze i32 %346
+  %347 = sext i32 %.fr164 to i64
   %348 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %347, i64 24)
   %349 = extractvalue { i64, i1 } %348, 1
   %350 = extractvalue { i64, i1 } %348, 0
@@ -1331,7 +1331,7 @@ _ZNK2cv11_InputArray6getMatEi.exit133:            ; preds = %315, %318
 357:                                              ; preds = %345
   store i64 %347, ptr %356, align 16
   %358 = getelementptr i8, ptr %356, i64 8
-  %359 = icmp eq i32 %.fr, 0
+  %359 = icmp eq i32 %.fr164, 0
   br i1 %359, label %.loopexit149, label %.loopexit149.loopexit
 
 .loopexit149.loopexit:                            ; preds = %357
@@ -1596,16 +1596,16 @@ _ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit: ; preds = %441, %442
   %.pn89.pn.pn.pn = phi { ptr, i32 } [ %.pn89.pn.pn, %445 ], [ %396, %395 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.not.i.i.i139 = icmp eq ptr %311, null
-  br i1 %.not.i.i.i139, label %_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140, label %.thread174
+  br i1 %.not.i.i.i139, label %_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140, label %.thread173
 
-.thread174:                                       ; preds = %295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %446
-  %.pn94177 = phi { ptr, i32 } [ %.pn89.pn.pn.pn, %446 ], [ %296, %295 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ]
+.thread173:                                       ; preds = %295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %446
+  %.pn94176 = phi { ptr, i32 } [ %.pn89.pn.pn.pn, %446 ], [ %296, %295 ], [ %.pn77, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ]
   %447 = phi ptr [ %311, %446 ], [ %211, %295 ], [ %211, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ]
   call void @_ZdlPv(ptr noundef nonnull %447) #33
   br label %_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140
 
-_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140: ; preds = %.thread174, %446, %239
-  %.pn94.pn = phi { ptr, i32 } [ %240, %239 ], [ %.pn89.pn.pn.pn, %446 ], [ %.pn94177, %.thread174 ]
+_ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EED2Ev.exit140: ; preds = %.thread173, %446, %239
+  %.pn94.pn = phi { ptr, i32 } [ %240, %239 ], [ %.pn89.pn.pn.pn, %446 ], [ %.pn94176, %.thread173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %448
 
@@ -4895,10 +4895,8 @@ _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit:     ; preds = %_ZN2cv8ximgproc8nod
   %137 = phi ptr [ %125, %.loopexit ], [ %97, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.loopexit ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %.sroa.0.0.copyload28.i = load i32, ptr %138, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %137, i64 12
-  %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !68
-  %139 = sext i32 %.sroa.2.0.copyload.i to i64
+  %.sroa.0.0.copyload28.i = load i64, ptr %138, align 4
+  %139 = ashr i64 %.sroa.0.0.copyload28.i, 32
   %140 = getelementptr inbounds i32, ptr %136, i64 %139
   store i32 0, ptr %140, align 4, !tbaa !68
   %141 = load i32, ptr %28, align 8, !tbaa !226
@@ -5015,13 +5013,16 @@ _ZN2cv8ximgproc8nodeHeap6getMinEv.exit:           ; preds = %._crit_edge.i, %._c
   %storemerge.in.i = phi i32 [ %210, %._crit_edge37.i ], [ %.025.lcssa.i, %._crit_edge.i ]
   %storemerge.i = add nsw i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %28, align 8, !tbaa !226
-  %216 = bitcast i32 %.sroa.0.0.copyload28.i to float
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload28.i to i32
+  %216 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %.sroa.6.0.extract.shift = lshr i64 %.sroa.0.0.copyload28.i, 32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %217 = getelementptr inbounds i8, ptr %30, i64 %139
   store i8 1, ptr %217, align 1, !tbaa !231
   %218 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv64
-  store i32 %.sroa.2.0.copyload.i, ptr %218, align 4, !tbaa !68
+  store i32 %.sroa.6.0.extract.trunc, ptr %218, align 4, !tbaa !68
   %219 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv64
-  store i32 %.sroa.0.0.copyload28.i, ptr %219, align 4, !tbaa !95
+  store i32 %.sroa.0.0.extract.trunc, ptr %219, align 4, !tbaa !95
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %220 = load ptr, ptr %8, align 8, !tbaa !108
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
@@ -16563,10 +16564,8 @@ _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i: ; preds = %_ZN2cv8ximgproc8n
   %145 = phi ptr [ %134, %.loopexit.i.i.i ], [ %113, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
   %indvars.iv32.i.i.i = phi i64 [ %indvars.iv.next33.i.i.i, %.loopexit.i.i.i ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %.sroa.0.0.copyload28.i.i.i.i = load i32, ptr %146, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 12
-  %.sroa.2.0.copyload.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 4, !tbaa !68
-  %147 = sext i32 %.sroa.2.0.copyload.i.i.i.i to i64
+  %.sroa.0.0.copyload28.i.i.i.i = load i64, ptr %146, align 4
+  %147 = ashr i64 %.sroa.0.0.copyload28.i.i.i.i, 32
   %148 = getelementptr inbounds i32, ptr %144, i64 %147
   store i32 0, ptr %148, align 4, !tbaa !68
   %149 = load i32, ptr %31, align 8, !tbaa !226
@@ -16683,13 +16682,16 @@ _ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i:     ; preds = %._crit_edge37.i.i.i
   %storemerge.in.i.i.i.i = phi i32 [ %218, %._crit_edge37.i.i.i.i ], [ %.025.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %storemerge.i.i.i.i = add nsw i32 %storemerge.in.i.i.i.i, -1
   store i32 %storemerge.i.i.i.i, ptr %31, align 8, !tbaa !226
-  %224 = bitcast i32 %.sroa.0.0.copyload28.i.i.i.i to float
+  %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload28.i.i.i.i to i32
+  %224 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i to float
+  %.sroa.6.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload28.i.i.i.i, 32
+  %.sroa.6.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.6.0.extract.shift.i.i.i to i32
   %225 = getelementptr inbounds nuw i32, ptr %.sroa.04.0.i.i.i, i64 %147
   store i32 1, ptr %225, align 4, !tbaa !68
   %226 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv32.i.i.i
-  store i32 %.sroa.2.0.copyload.i.i.i.i, ptr %226, align 4, !tbaa !68
+  store i32 %.sroa.6.0.extract.trunc.i.i.i, ptr %226, align 4, !tbaa !68
   %227 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv32.i.i.i
-  store i32 %.sroa.0.0.copyload28.i.i.i.i, ptr %227, align 4, !tbaa !95
+  store i32 %.sroa.0.0.extract.trunc.i.i.i, ptr %227, align 4, !tbaa !95
   %indvars.iv.next33.i.i.i = add nuw nsw i64 %indvars.iv32.i.i.i, 1
   %228 = load ptr, ptr %41, align 8, !tbaa !292
   %229 = getelementptr inbounds nuw %"class.std::vector.3", ptr %228, i64 %147

@@ -39465,7 +39465,7 @@ define dso_local void @_ZN5clang18SemaCodeCompletion25CodeCompleteNamespaceDeclE
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_19TranslationUnitDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %18)
   %21 = icmp eq ptr %20, null
-  %.pre67 = load ptr, ptr %9, align 8, !tbaa !1484
+  %.pre66 = load ptr, ptr %9, align 8, !tbaa !1484
   br i1 %21, label %.thread, label %..thread50_crit_edge
 
 ..thread50_crit_edge:                             ; preds = %13
@@ -39479,12 +39479,12 @@ define dso_local void @_ZN5clang18SemaCodeCompletion25CodeCompleteNamespaceDeclE
   %.not.i = icmp ne i32 %26, 0
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %28 = load ptr, ptr %27, align 8
-  %.not887 = icmp eq ptr %28, null
-  %.not8 = select i1 %.not.i, i1 true, i1 %.not887
+  %.not886 = icmp eq ptr %28, null
+  %.not8 = select i1 %.not.i, i1 true, i1 %.not886
   br i1 %.not8, label %.thread, label %.thread50
 
 .thread50:                                        ; preds = %..thread50_crit_edge, %23
-  %29 = phi ptr [ %10, %23 ], [ %.pre67, %..thread50_crit_edge ]
+  %29 = phi ptr [ %10, %23 ], [ %.pre66, %..thread50_crit_edge ]
   %.053 = phi ptr [ %28, %23 ], [ %22, %..thread50_crit_edge ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8
@@ -39495,13 +39495,13 @@ define dso_local void @_ZN5clang18SemaCodeCompletion25CodeCompleteNamespaceDeclE
 33:                                               ; preds = %.thread50
   %34 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %35 = load i16, ptr %34, align 8
-  %.fr56 = freeze i16 %35
-  %36 = and i16 %.fr56, 127
+  %.fr = freeze i16 %35
+  %36 = and i16 %.fr, 127
   %37 = icmp eq i16 %36, 0
   br label %.thread
 
 .thread:                                          ; preds = %13, %33, %.thread50, %23
-  %38 = phi ptr [ %29, %.thread50 ], [ %10, %23 ], [ %29, %33 ], [ %.pre67, %13 ]
+  %38 = phi ptr [ %29, %.thread50 ], [ %10, %23 ], [ %29, %33 ], [ %.pre66, %13 ]
   %.not849 = phi i1 [ false, %.thread50 ], [ true, %23 ], [ false, %33 ], [ true, %13 ]
   %.048 = phi ptr [ %.053, %.thread50 ], [ null, %23 ], [ %.053, %33 ], [ null, %13 ]
   %cond.fr = phi i1 [ false, %.thread50 ], [ false, %23 ], [ %37, %33 ], [ false, %13 ]
@@ -39621,10 +39621,10 @@ _ZN5clang21CodeCompletionContextD2Ev.exit:        ; preds = %_ZN4llvm19SmallPtrS
   %96 = add i64 %95, 1
   store i64 %96, ptr %94, align 8, !tbaa !1509
   %97 = load ptr, ptr %79, align 8, !tbaa !2119
-  %.not5962 = icmp eq ptr %97, %77
-  br i1 %.not5962, label %._crit_edge66, label %.lr.ph65
+  %.not5861 = icmp eq ptr %97, %77
+  br i1 %.not5861, label %._crit_edge65, label %.lr.ph64
 
-.lr.ph65:                                         ; preds = %._crit_edge
+.lr.ph64:                                         ; preds = %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -39637,15 +39637,15 @@ _ZN5clang21CodeCompletionContextD2Ev.exit:        ; preds = %_ZN4llvm19SmallPtrS
   br label %122
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13NamespaceDeclEEppEv.exit
-  %.sroa.038.061 = phi ptr [ %.sroa.038.4, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13NamespaceDeclEEppEv.exit ], [ %.sroa.038.1, %.lr.ph.i.i ]
+  %.sroa.038.060 = phi ptr [ %.sroa.038.4, %_ZN5clang11DeclContext22specific_decl_iteratorINS_13NamespaceDeclEEppEv.exit ], [ %.sroa.038.1, %.lr.ph.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.038.061, i64 88
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.038.060, i64 88
   %108 = load ptr, ptr %107, align 8, !tbaa !2123
   store ptr %108, ptr %7, align 8, !tbaa !2126
   %109 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIPN5clang13NamespaceDeclES2_St4lessIS2_ESaISt4pairIKS2_S2_EEEixEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr %.sroa.038.061, ptr %109, align 8, !tbaa !2126
+  store ptr %.sroa.038.060, ptr %109, align 8, !tbaa !2126
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.038.061, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.038.060, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %110, align 8
   %111 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %112 = inttoptr i64 %111 to ptr
@@ -39673,16 +39673,16 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_13NamespaceDeclEEppEv.exit: ; 
   %.not = icmp eq ptr %.sroa.038.4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2127
 
-._crit_edge66:                                    ; preds = %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit, %._crit_edge
+._crit_edge65:                                    ; preds = %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit, %._crit_edge
   call fastcc void @_ZN12_GLOBAL__N_113ResultBuilder9ExitScopeEv(ptr noundef nonnull align 8 dereferenceable(496) %4)
   %121 = load ptr, ptr %78, align 8, !tbaa !2118
   call void @_ZNSt8_Rb_treeIPN5clang13NamespaceDeclESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %121)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %151
 
-122:                                              ; preds = %.lr.ph65, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
-  %.sroa.033.063 = phi ptr [ %97, %.lr.ph65 ], [ %150, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit ]
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.033.063, i64 40
+122:                                              ; preds = %.lr.ph64, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
+  %.sroa.033.062 = phi ptr [ %97, %.lr.ph64 ], [ %150, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit ]
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.033.062, i64 40
   %124 = load ptr, ptr %123, align 8, !tbaa !2128
   %125 = call fastcc noundef i32 @_ZN12_GLOBAL__N_113ResultBuilder15getBasePriorityEPKN5clang9NamedDeclE(ptr noundef %124)
   store ptr %124, ptr %8, align 8, !tbaa !756
@@ -39750,11 +39750,11 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
   br label %_ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5clang9FixItHintESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i, %145
-  %150 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.033.063) #31
-  %.not59 = icmp eq ptr %150, %77
-  br i1 %.not59, label %._crit_edge66, label %122, !llvm.loop !2130
+  %150 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.033.062) #31
+  %.not58 = icmp eq ptr %150, %77
+  br i1 %.not58, label %._crit_edge65, label %122, !llvm.loop !2130
 
-151:                                              ; preds = %._crit_edge66, %70, %_ZN5clang21CodeCompletionContextD2Ev.exit
+151:                                              ; preds = %._crit_edge65, %70, %_ZN5clang21CodeCompletionContextD2Ev.exit
   %152 = load ptr, ptr %0, align 8, !tbaa !1483
   %153 = load ptr, ptr %9, align 8, !tbaa !1484
   %.val11 = load ptr, ptr %4, align 8, !tbaa !1543
@@ -54210,8 +54210,8 @@ define dso_local void @_ZN5clang18SemaCodeCompletion29CodeCompleteObjCPropertyFl
 
 27:                                               ; preds = %3
   %28 = load i32, ptr %2, align 8
-  %.fr389 = freeze i32 %28
-  %29 = lshr i32 %.fr389, 7
+  %.fr = freeze i32 %28
+  %29 = lshr i32 %.fr, 7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = load ptr, ptr %0, align 8, !tbaa !1483
   %31 = load ptr, ptr %26, align 8, !tbaa !868
@@ -54281,12 +54281,12 @@ _ZN5clang21CodeCompletionContextD2Ev.exit:        ; preds = %_ZN4llvm19SmallPtrS
   %65 = load i64, ptr %64, align 8, !tbaa !1509
   %66 = add i64 %65, 1
   store i64 %66, ptr %64, align 8, !tbaa !1509
-  %67 = and i32 %.fr389, 1152
-  %or.cond390 = icmp eq i32 %67, 0
-  br i1 %or.cond390, label %_ZL25ObjCPropertyFlagConflictsjj.exit, label %_ZN5clang20CodeCompletionResultD2Ev.exit
+  %67 = and i32 %.fr, 1152
+  %or.cond389 = icmp eq i32 %67, 0
+  br i1 %or.cond389, label %_ZL25ObjCPropertyFlagConflictsjj.exit, label %_ZN5clang20CodeCompletionResultD2Ev.exit
 
 _ZL25ObjCPropertyFlagConflictsjj.exit:            ; preds = %_ZN5clang21CodeCompletionContextD2Ev.exit
-  %68 = and i32 %.fr389, 464896
+  %68 = and i32 %.fr, 464896
   %or.cond.i.not = icmp eq i32 %68, 0
   br i1 %or.cond.i.not, label %70, label %switch.early.test
 
@@ -54397,13 +54397,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit
 
 _ZN5clang20CodeCompletionResultD2Ev.exit:         ; preds = %switch.early.test, %_ZN5clang21CodeCompletionContextD2Ev.exit, %107, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i
-  %113 = and i32 %.fr389, 512
+  %113 = and i32 %.fr, 512
   %.not.i25 = icmp eq i32 %113, 0
   br i1 %.not.i25, label %114, label %_ZN5clang20CodeCompletionResultD2Ev.exit48
 
 114:                                              ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit
   %or.cond27.not.i27 = icmp eq i32 %67, 1152
-  %115 = and i32 %.fr389, 464896
+  %115 = and i32 %.fr, 464896
   %or.cond.i28 = icmp ne i32 %115, 0
   %or.cond = or i1 %or.cond27.not.i27, %or.cond.i28
   br i1 %or.cond, label %_ZN5clang20CodeCompletionResultD2Ev.exit48, label %116
@@ -54505,13 +54505,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i45: ; preds = %_ZSt8
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit48
 
 _ZN5clang20CodeCompletionResultD2Ev.exit48:       ; preds = %114, %_ZN5clang20CodeCompletionResultD2Ev.exit, %153, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i45
-  %159 = and i32 %.fr389, 262144
+  %159 = and i32 %.fr, 262144
   %.not.i49 = icmp eq i32 %159, 0
   br i1 %.not.i49, label %160, label %_ZN5clang20CodeCompletionResultD2Ev.exit72
 
 160:                                              ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit48
   %or.cond27.not.i51 = icmp eq i32 %67, 1152
-  %161 = and i32 %.fr389, 203264
+  %161 = and i32 %.fr, 203264
   %162 = icmp ne i32 %161, 0
   %or.cond372 = or i1 %or.cond27.not.i51, %162
   br i1 %or.cond372, label %_ZN5clang20CodeCompletionResultD2Ev.exit72, label %163
@@ -54613,10 +54613,10 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i69: ; preds = %_ZSt8
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit72
 
 _ZN5clang20CodeCompletionResultD2Ev.exit72:       ; preds = %160, %_ZN5clang20CodeCompletionResultD2Ev.exit48, %200, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i69
-  br i1 %or.cond390, label %_ZL25ObjCPropertyFlagConflictsjj.exit82, label %_ZN5clang20CodeCompletionResultD2Ev.exit96
+  br i1 %or.cond389, label %_ZL25ObjCPropertyFlagConflictsjj.exit82, label %_ZN5clang20CodeCompletionResultD2Ev.exit96
 
 _ZL25ObjCPropertyFlagConflictsjj.exit82:          ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit72
-  %206 = and i32 %.fr389, 464896
+  %206 = and i32 %.fr, 464896
   %or.cond.i76.not = icmp eq i32 %206, 0
   br i1 %or.cond.i76.not, label %208, label %switch.early.test373
 
@@ -54727,13 +54727,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i93: ; preds = %_ZSt8
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit96
 
 _ZN5clang20CodeCompletionResultD2Ev.exit96:       ; preds = %switch.early.test373, %_ZN5clang20CodeCompletionResultD2Ev.exit72, %245, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i93
-  %251 = and i32 %.fr389, 2048
+  %251 = and i32 %.fr, 2048
   %.not.i97 = icmp eq i32 %251, 0
   br i1 %.not.i97, label %252, label %_ZN5clang20CodeCompletionResultD2Ev.exit120
 
 252:                                              ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit96
   %or.cond27.not.i99 = icmp eq i32 %67, 1152
-  %253 = and i32 %.fr389, 463360
+  %253 = and i32 %.fr, 463360
   %254 = icmp ne i32 %253, 0
   %or.cond375 = or i1 %or.cond27.not.i99, %254
   br i1 %or.cond375, label %_ZN5clang20CodeCompletionResultD2Ev.exit120, label %255
@@ -54835,13 +54835,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i117: ; preds = %_ZSt
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit120
 
 _ZN5clang20CodeCompletionResultD2Ev.exit120:      ; preds = %252, %_ZN5clang20CodeCompletionResultD2Ev.exit96, %292, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i117
-  %298 = and i32 %.fr389, 131072
+  %298 = and i32 %.fr, 131072
   %.not.i121 = icmp eq i32 %298, 0
   br i1 %.not.i121, label %299, label %_ZN5clang20CodeCompletionResultD2Ev.exit144
 
 299:                                              ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit120
   %or.cond27.not.i123 = icmp eq i32 %67, 1152
-  %300 = and i32 %.fr389, 334336
+  %300 = and i32 %.fr, 334336
   %301 = icmp ne i32 %300, 0
   %or.cond377 = or i1 %or.cond27.not.i123, %301
   br i1 %or.cond377, label %_ZN5clang20CodeCompletionResultD2Ev.exit144, label %302
@@ -54943,13 +54943,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i141: ; preds = %_ZSt
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit144
 
 _ZN5clang20CodeCompletionResultD2Ev.exit144:      ; preds = %299, %_ZN5clang20CodeCompletionResultD2Ev.exit120, %339, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i141
-  %345 = and i32 %.fr389, 4096
+  %345 = and i32 %.fr, 4096
   %.not.i145 = icmp eq i32 %345, 0
   br i1 %.not.i145, label %346, label %_ZN5clang20CodeCompletionResultD2Ev.exit168
 
 346:                                              ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit144
   %or.cond27.not.i147 = icmp eq i32 %67, 1152
-  %347 = and i32 %.fr389, 461312
+  %347 = and i32 %.fr, 461312
   %348 = icmp ne i32 %347, 0
   %or.cond379 = or i1 %or.cond27.not.i147, %348
   br i1 %or.cond379, label %_ZN5clang20CodeCompletionResultD2Ev.exit168, label %349
@@ -55051,14 +55051,14 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i165: ; preds = %_ZSt
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit168
 
 _ZN5clang20CodeCompletionResultD2Ev.exit168:      ; preds = %346, %_ZN5clang20CodeCompletionResultD2Ev.exit144, %386, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i165
-  %392 = and i32 %.fr389, 8192
+  %392 = and i32 %.fr, 8192
   %.not.i169 = icmp ne i32 %392, 0
   %or.cond27.not.i171 = icmp eq i32 %67, 1152
-  %or.cond392 = or i1 %.not.i169, %or.cond27.not.i171
-  br i1 %or.cond392, label %_ZN5clang20CodeCompletionResultD2Ev.exit192, label %_ZL25ObjCPropertyFlagConflictsjj.exit178
+  %or.cond391 = or i1 %.not.i169, %or.cond27.not.i171
+  br i1 %or.cond391, label %_ZN5clang20CodeCompletionResultD2Ev.exit192, label %_ZL25ObjCPropertyFlagConflictsjj.exit178
 
 _ZL25ObjCPropertyFlagConflictsjj.exit178:         ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit168
-  %393 = and i32 %.fr389, 464896
+  %393 = and i32 %.fr, 464896
   %or.cond.i172.not = icmp eq i32 %393, 0
   br i1 %or.cond.i172.not, label %395, label %switch.early.test380
 
@@ -55169,13 +55169,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i189: ; preds = %_ZSt
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit192
 
 _ZN5clang20CodeCompletionResultD2Ev.exit192:      ; preds = %switch.early.test380, %_ZN5clang20CodeCompletionResultD2Ev.exit168, %432, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i189
-  %438 = and i32 %.fr389, 32768
+  %438 = and i32 %.fr, 32768
   %.not.i193 = icmp ne i32 %438, 0
-  %or.cond393 = or i1 %.not.i193, %or.cond27.not.i171
-  br i1 %or.cond393, label %_ZN5clang20CodeCompletionResultD2Ev.exit216, label %_ZL25ObjCPropertyFlagConflictsjj.exit202
+  %or.cond392 = or i1 %.not.i193, %or.cond27.not.i171
+  br i1 %or.cond392, label %_ZN5clang20CodeCompletionResultD2Ev.exit216, label %_ZL25ObjCPropertyFlagConflictsjj.exit202
 
 _ZL25ObjCPropertyFlagConflictsjj.exit202:         ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit192
-  %439 = and i32 %.fr389, 464896
+  %439 = and i32 %.fr, 464896
   %or.cond.i196.not = icmp eq i32 %439, 0
   br i1 %or.cond.i196.not, label %441, label %switch.early.test381
 
@@ -55299,18 +55299,18 @@ _ZN5clang20CodeCompletionResultD2Ev.exit216:      ; preds = %switch.early.test38
   %491 = load i32, ptr %490, align 8
   %492 = and i32 %491, 192
   %.not15 = icmp ne i32 %492, 0
-  %493 = and i32 %.fr389, 65536
+  %493 = and i32 %.fr, 65536
   %.not.i217 = icmp eq i32 %493, 0
   %or.cond382 = and i1 %.not.i217, %.not15
   br i1 %or.cond382, label %496, label %_ZN5clang20CodeCompletionResultD2Ev.exit240
 
 494:                                              ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit216
-  %495 = and i32 %.fr389, 65536
+  %495 = and i32 %.fr, 65536
   %.not.i217.old = icmp eq i32 %495, 0
   br i1 %.not.i217.old, label %496, label %_ZN5clang20CodeCompletionResultD2Ev.exit240
 
 496:                                              ; preds = %488, %494
-  %497 = and i32 %.fr389, 399872
+  %497 = and i32 %.fr, 399872
   %498 = icmp ne i32 %497, 0
   %or.cond385 = or i1 %or.cond27.not.i171, %498
   br i1 %or.cond385, label %_ZN5clang20CodeCompletionResultD2Ev.exit240, label %499
@@ -55412,13 +55412,13 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i237: ; preds = %_ZSt
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit240
 
 _ZN5clang20CodeCompletionResultD2Ev.exit240:      ; preds = %496, %494, %536, %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i237, %488
-  %542 = and i32 %.fr389, 16384
+  %542 = and i32 %.fr, 16384
   %.not.i241 = icmp ne i32 %542, 0
-  %or.cond394 = or i1 %.not.i241, %or.cond27.not.i171
-  br i1 %or.cond394, label %_ZL25ObjCPropertyFlagConflictsjj.exit250.thread, label %_ZL25ObjCPropertyFlagConflictsjj.exit250
+  %or.cond393 = or i1 %.not.i241, %or.cond27.not.i171
+  br i1 %or.cond393, label %_ZL25ObjCPropertyFlagConflictsjj.exit250.thread, label %_ZL25ObjCPropertyFlagConflictsjj.exit250
 
 _ZL25ObjCPropertyFlagConflictsjj.exit250:         ; preds = %_ZN5clang20CodeCompletionResultD2Ev.exit240
-  %543 = and i32 %.fr389, 464896
+  %543 = and i32 %.fr, 464896
   %or.cond.i244.not = icmp eq i32 %543, 0
   br i1 %or.cond.i244.not, label %545, label %switch.early.test386
 
@@ -55579,13 +55579,13 @@ _ZN5clang21CodeCompletionBuilderD2Ev.exit:        ; preds = %_ZN4llvm11SmallVect
   br label %_ZL25ObjCPropertyFlagConflictsjj.exit250.thread
 
 _ZL25ObjCPropertyFlagConflictsjj.exit250.thread:  ; preds = %switch.early.test386, %_ZN5clang20CodeCompletionResultD2Ev.exit240, %_ZN5clang21CodeCompletionBuilderD2Ev.exit
-  %607 = and i32 %.fr389, 256
+  %607 = and i32 %.fr, 256
   %.not.i265 = icmp ne i32 %607, 0
-  %or.cond395 = or i1 %.not.i265, %or.cond27.not.i171
-  br i1 %or.cond395, label %_ZL25ObjCPropertyFlagConflictsjj.exit274.thread, label %_ZL25ObjCPropertyFlagConflictsjj.exit274
+  %or.cond394 = or i1 %.not.i265, %or.cond27.not.i171
+  br i1 %or.cond394, label %_ZL25ObjCPropertyFlagConflictsjj.exit274.thread, label %_ZL25ObjCPropertyFlagConflictsjj.exit274
 
 _ZL25ObjCPropertyFlagConflictsjj.exit274:         ; preds = %_ZL25ObjCPropertyFlagConflictsjj.exit250.thread
-  %608 = and i32 %.fr389, 464896
+  %608 = and i32 %.fr, 464896
   %or.cond.i268.not = icmp eq i32 %608, 0
   br i1 %or.cond.i268.not, label %610, label %switch.early.test387
 
@@ -55746,13 +55746,13 @@ _ZN5clang21CodeCompletionBuilderD2Ev.exit290:     ; preds = %_ZN4llvm11SmallVect
   br label %_ZL25ObjCPropertyFlagConflictsjj.exit274.thread
 
 _ZL25ObjCPropertyFlagConflictsjj.exit274.thread:  ; preds = %switch.early.test387, %_ZL25ObjCPropertyFlagConflictsjj.exit250.thread, %_ZN5clang21CodeCompletionBuilderD2Ev.exit290
-  %672 = and i32 %.fr389, 524288
+  %672 = and i32 %.fr, 524288
   %.not.i291 = icmp ne i32 %672, 0
-  %or.cond396 = or i1 %.not.i291, %or.cond27.not.i171
-  br i1 %or.cond396, label %_ZN5clang20CodeCompletionResultD2Ev.exit356, label %_ZL25ObjCPropertyFlagConflictsjj.exit300
+  %or.cond395 = or i1 %.not.i291, %or.cond27.not.i171
+  br i1 %or.cond395, label %_ZN5clang20CodeCompletionResultD2Ev.exit356, label %_ZL25ObjCPropertyFlagConflictsjj.exit300
 
 _ZL25ObjCPropertyFlagConflictsjj.exit300:         ; preds = %_ZL25ObjCPropertyFlagConflictsjj.exit274.thread
-  %673 = and i32 %.fr389, 464896
+  %673 = and i32 %.fr, 464896
   %or.cond.i294.not = icmp eq i32 %673, 0
   br i1 %or.cond.i294.not, label %675, label %switch.early.test388
 
@@ -87773,7 +87773,7 @@ define internal fastcc void @"_ZZL17AddObjCPropertiesRKN5clang21CodeCompletionCo
   %.02937.i.i = phi ptr [ %46, %.critedge.i.i ], [ %40, %39 ]
   %45 = load ptr, ptr %.02937.i.i, align 8, !tbaa !20, !noalias !2847
   %.not17.i.i = icmp eq ptr %45, %.0.i.i
-  br i1 %.not17.i.i, label %.critedge307, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge306, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -87796,7 +87796,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %51 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %29, ptr noundef %.0.i.i) #30, !noalias !2847
   %52 = extractvalue { ptr, i8 } %51, 1
   %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %54, label %.critedge307
+  br i1 %53, label %54, label %.critedge306
 
 54:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -88067,7 +88067,7 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i39: ; preds = %_ZSt8
 
 _ZN5clang20CodeCompletionResultD2Ev.exit42:       ; preds = %_ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i39, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.critedge307
+  br label %.critedge306
 
 178:                                              ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -88844,8 +88844,8 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %457, %492
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit
   %532 = load i32, ptr %529, align 16
-  %.fr206 = freeze i32 %532
-  %533 = and i32 %.fr206, 267911168
+  %.fr = freeze i32 %532
+  %533 = and i32 %.fr, 267911168
   %534 = icmp eq i32 %533, 227540992
   %spec.select = select i1 %534, i32 3, i32 -3
   br label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
@@ -89212,9 +89212,9 @@ _ZN5clang21CodeCompletionBuilderD2Ev.exit136:     ; preds = %_ZN4llvm11SmallVect
 681:                                              ; preds = %_ZN5clang21CodeCompletionBuilderD2Ev.exit136, %_ZN5clang20CodeCompletionResultD2Ev.exit78
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.critedge307
+  br label %.critedge306
 
-.critedge307:                                     ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %681, %_ZN5clang20CodeCompletionResultD2Ev.exit42
+.critedge306:                                     ; preds = %.lr.ph.i.i, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %681, %_ZN5clang20CodeCompletionResultD2Ev.exit42
   ret void
 }
 

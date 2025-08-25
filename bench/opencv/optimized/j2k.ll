@@ -9249,8 +9249,8 @@ opj_j2k_setup_end_compress.exit:                  ; preds = %16
 25:                                               ; preds = %.lr.ph.i
   %26 = load ptr, ptr %.01215.i, align 8, !tbaa !178
   %27 = tail call i32 %26(ptr noundef %0, ptr noundef %1, ptr noundef %2) #21
-  %.fr14 = freeze i32 %27
-  %28 = icmp ne i32 %.fr14, 0
+  %.fr13 = freeze i32 %27
+  %28 = icmp ne i32 %.fr13, 0
   %29 = zext i1 %28 to i32
   br label %30
 
@@ -9293,8 +9293,8 @@ define hidden range(i32 0, 2) i32 @opj_j2k_start_compress(ptr noundef initialize
 .preheader:                                       ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !58
-  %.not63 = icmp eq i32 %13, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph.preheader
+  %.not62 = icmp eq i32 %13, 0
+  br i1 %.not62, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext i32 %13 to i64
@@ -9520,8 +9520,8 @@ opj_j2k_exec.exit50.thread:                       ; preds = %106
 110:                                              ; preds = %.lr.ph.i43
   %111 = load ptr, ptr %.01215.i45, align 8, !tbaa !178
   %112 = tail call i32 %111(ptr noundef %0, ptr noundef %1, ptr noundef %3) #21
-  %.fr61 = freeze i32 %112
-  %113 = icmp ne i32 %.fr61, 0
+  %.fr60 = freeze i32 %112
+  %113 = icmp ne i32 %.fr60, 0
   %114 = zext i1 %113 to i32
   br label %115
 

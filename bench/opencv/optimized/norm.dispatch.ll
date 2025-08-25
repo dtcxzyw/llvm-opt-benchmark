@@ -3062,10 +3062,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264: ; preds = %_Z
 238:                                              ; preds = %236
   %239 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %240 = load i64, ptr %239, align 8, !tbaa !118
-  %.fr367 = freeze i64 %240
-  %241 = trunc i64 %.fr367 to i32
+  %.fr = freeze i64 %240
+  %241 = trunc i64 %.fr to i32
   %242 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %wide.trip.count.i267 = and i64 %.fr367, 2147483647
+  %wide.trip.count.i267 = and i64 %.fr, 2147483647
   br i1 %208, label %.split350.us, label %.split350
 
 .split350.us:                                     ; preds = %238, %_ZN2cv3hal11normHammingEPKhii.exit274.us
@@ -3234,9 +3234,9 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %289, %292
   store i32 0, ptr %29, align 4, !tbaa !11
   %304 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %invariant.op = sub nsw i32 %303, %.sroa.speculated304
-  %.not393 = icmp eq i64 %.fr365, 0
+  %.not392 = icmp eq i64 %.fr365, 0
   %305 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  br i1 %.not393, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
+  br i1 %.not392, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %._crit_edge.us340
   %.0184.us = phi i32 [ %.2186.us, %._crit_edge.us340 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
@@ -3246,8 +3246,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSiz
   br i1 %307, label %.preheader.us, label %.split342.us
 
 308:                                              ; preds = %.preheader.us, %331
-  %309 = phi ptr [ %.pre376, %.preheader.us ], [ %332, %331 ]
-  %310 = phi ptr [ %.pre375, %.preheader.us ], [ %327, %331 ]
+  %309 = phi ptr [ %.pre375, %.preheader.us ], [ %332, %331 ]
+  %310 = phi ptr [ %.pre374, %.preheader.us ], [ %327, %331 ]
   %.0182339.us = phi i32 [ 0, %.preheader.us ], [ %333, %331 ]
   %.1185338.us = phi i32 [ %.0184.us, %.preheader.us ], [ %.2186.us, %331 ]
   %311 = sub nsw i32 %300, %.0182339.us
@@ -3301,8 +3301,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSiz
 
 .preheader.us:                                    ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split.us
   %335 = add nuw i64 %.0183.us, 1
-  %.pre375 = load ptr, ptr %26, align 16, !tbaa !124
-  %.pre376 = load ptr, ptr %305, align 8, !tbaa !124
+  %.pre374 = load ptr, ptr %26, align 16, !tbaa !124
+  %.pre375 = load ptr, ptr %305, align 8, !tbaa !124
   br label %308
 
 ._crit_edge.us340:                                ; preds = %331
@@ -3475,8 +3475,8 @@ _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split:      ; preds = %_ZN2cv10AutoBufferI
   %399 = load ptr, ptr %30, align 8, !tbaa !130
   %.not.i.i280 = icmp eq ptr %399, %364
   %400 = icmp eq ptr %399, null
-  %or.cond401 = or i1 %.not.i.i280, %400
-  br i1 %or.cond401, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit, label %401
+  %or.cond400 = or i1 %.not.i.i280, %400
+  br i1 %or.cond400, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit, label %401
 
 401:                                              ; preds = %.split.us
   call void @_ZdaPv(ptr noundef nonnull %399) #19
@@ -3501,8 +3501,8 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit:            ; preds = %401, %.split.us
   %406 = load ptr, ptr %30, align 8, !tbaa !130
   %.not.i.i282 = icmp eq ptr %406, %364
   %407 = icmp eq ptr %406, null
-  %or.cond402 = or i1 %.not.i.i282, %407
-  br i1 %or.cond402, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit283, label %408
+  %or.cond401 = or i1 %.not.i.i282, %407
+  br i1 %or.cond401, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit283, label %408
 
 408:                                              ; preds = %405
   call void @_ZdaPv(ptr noundef nonnull %406) #19

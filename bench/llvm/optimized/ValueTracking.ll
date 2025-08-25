@@ -61309,13 +61309,13 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit: ; preds
   %.1.i836 = phi ptr [ %1656, %1654 ], [ %1653, %1651 ], [ %1625, %1647 ]
   %1657 = getelementptr inbounds nuw i8, ptr %.1.i836, i64 8
   %1658 = load i32, ptr %1657, align 8
-  %.fr8.i = freeze i32 %1658
-  %1659 = and i32 %.fr8.i, 255
+  %.fr.i = freeze i32 %1658
+  %1659 = and i32 %.fr.i, 255
   %1660 = icmp eq i32 %1659, 12
   br i1 %1660, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %1661
 
 1661:                                             ; preds = %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit
-  %trunc.i.i.i837 = trunc i32 %.fr8.i to i8
+  %trunc.i.i.i837 = trunc i32 %.fr.i to i8
   switch i8 %trunc.i.i.i837, label %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i [
     i8 3, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 2, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
@@ -61325,7 +61325,7 @@ _ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE14getIndexedTypeEv.exit: ; preds
   ]
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %1661
-  %1662 = and i32 %.fr8.i, 253
+  %1662 = and i32 %.fr.i, 253
   %spec.select.i.i839 = icmp eq i32 %1662, 4
   br i1 %spec.select.i.i839, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 

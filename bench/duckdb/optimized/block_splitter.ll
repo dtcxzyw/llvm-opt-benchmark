@@ -1282,7 +1282,7 @@ _ZL20ClusterBlocksLiteralPN13duckdb_brotli13MemoryManagerEPKhmmPhPNS_10BlockSpli
 _ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit: ; preds = %.thread465, %_ZL20ClusterBlocksLiteralPN13duckdb_brotli13MemoryManagerEPKhmmPhPNS_10BlockSplitE.exit.i
   %602 = phi ptr [ %47, %.thread465 ], [ %.ph, %_ZL20ClusterBlocksLiteralPN13duckdb_brotli13MemoryManagerEPKhmmPhPNS_10BlockSplitE.exit.i ]
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %602)
-  br i1 %.not.i, label %.thread648, label %.lr.ph.preheader
+  br i1 %.not.i, label %.thread647, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit.thread, %_ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit
   %603 = shl i64 %2, 1
@@ -1290,19 +1290,19 @@ _ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEn
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.055488 = phi i64 [ %608, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %605 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %1, i64 %.055488, i32 3
+  %.055487 = phi i64 [ %608, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %605 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %1, i64 %.055487, i32 3
   %606 = load i16, ptr %605, align 4, !tbaa !85
-  %607 = getelementptr inbounds nuw i16, ptr %604, i64 %.055488
+  %607 = getelementptr inbounds nuw i16, ptr %604, i64 %.055487
   store i16 %606, ptr %607, align 2, !tbaa !62
-  %608 = add nuw i64 %.055488, 1
+  %608 = add nuw i64 %.055487, 1
   %exitcond.not = icmp eq i64 %608, %2
   br i1 %exitcond.not, label %609, label %.lr.ph, !llvm.loop !86
 
-.thread648:                                       ; preds = %_ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit
+.thread647:                                       ; preds = %_ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit
   store i64 1, ptr %8, align 8, !tbaa !20
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef null)
-  br label %.thread657
+  br label %.thread656
 
 609:                                              ; preds = %.lr.ph
   %.lhs.trunc.i66 = trunc i64 %2 to i16
@@ -1362,7 +1362,7 @@ _ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEn
   %637 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %638 = load i64, ptr %637, align 8, !tbaa !24
   %639 = icmp ult i64 %638, %.pre-phi.i232
-  br i1 %639, label %640, label %.thread649
+  br i1 %639, label %640, label %.thread648
 
 640:                                              ; preds = %635
   %641 = icmp eq i64 %638, 0
@@ -1396,9 +1396,9 @@ _ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEn
   store ptr %647, ptr %654, align 8, !tbaa !11
   store i64 %.0136.i234, ptr %637, align 8, !tbaa !24
   %.pre186.i = load i64, ptr %617, align 8, !tbaa !22
-  br label %.thread649
+  br label %.thread648
 
-.thread649:                                       ; preds = %653, %635
+.thread648:                                       ; preds = %653, %635
   %656 = phi i64 [ %.pre186.i, %653 ], [ %636, %635 ]
   store i64 1, ptr %8, align 8, !tbaa !20
   %657 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1416,7 +1416,7 @@ _ZL22SplitByteVectorLiteralPN13duckdb_brotli13MemoryManagerEPKhmmmmdPK19BrotliEn
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef nonnull %604)
   %.pre = shl nuw nsw i64 %2, 1
   %666 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %.pre)
-  br label %.lr.ph492.preheader
+  br label %.lr.ph491.preheader
 
 667:                                              ; preds = %609
   %668 = mul nuw nsw i64 %spec.select.i68, 2832
@@ -2475,23 +2475,23 @@ _ZL27BuildBlockHistogramsCommandPKtmPKhmPN13duckdb_brotli16HistogramCommandE.exi
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %739)
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %604)
   %1169 = tail call noundef ptr @_ZN13duckdb_brotli14BrotliAllocateEPNS_13MemoryManagerEm(ptr noundef %0, i64 noundef %703)
-  br i1 %.not.i, label %.thread657, label %.lr.ph492.preheader
+  br i1 %.not.i, label %.thread656, label %.lr.ph491.preheader
 
-.lr.ph492.preheader:                              ; preds = %.thread649, %1167
-  %1170 = phi ptr [ %666, %.thread649 ], [ %1169, %1167 ]
-  br label %.lr.ph492
+.lr.ph491.preheader:                              ; preds = %.thread648, %1167
+  %1170 = phi ptr [ %666, %.thread648 ], [ %1169, %1167 ]
+  br label %.lr.ph491
 
-.lr.ph492:                                        ; preds = %.lr.ph492.preheader, %1185
-  %.0490 = phi i64 [ %1186, %1185 ], [ 0, %.lr.ph492.preheader ]
-  %.054489 = phi i64 [ %.1, %1185 ], [ 0, %.lr.ph492.preheader ]
-  %1171 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %1, i64 %.0490
+.lr.ph491:                                        ; preds = %.lr.ph491.preheader, %1185
+  %.0489 = phi i64 [ %1186, %1185 ], [ 0, %.lr.ph491.preheader ]
+  %.054488 = phi i64 [ %.1, %1185 ], [ 0, %.lr.ph491.preheader ]
+  %1171 = getelementptr inbounds nuw %"struct.duckdb_brotli::Command", ptr %1, i64 %.0489
   %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 4
   %1173 = load i32, ptr %1172, align 4, !tbaa !18
   %1174 = and i32 %1173, 33554431
   %.not60 = icmp eq i32 %1174, 0
   br i1 %.not60, label %1185, label %1175
 
-1175:                                             ; preds = %.lr.ph492
+1175:                                             ; preds = %.lr.ph491
   %1176 = getelementptr inbounds nuw i8, ptr %1171, i64 12
   %1177 = load i16, ptr %1176, align 4, !tbaa !85
   %1178 = icmp ugt i16 %1177, 127
@@ -2501,18 +2501,18 @@ _ZL27BuildBlockHistogramsCommandPKtmPKhmPN13duckdb_brotli16HistogramCommandE.exi
   %1180 = getelementptr inbounds nuw i8, ptr %1171, i64 14
   %1181 = load i16, ptr %1180, align 2, !tbaa !125
   %1182 = and i16 %1181, 1023
-  %1183 = add i64 %.054489, 1
-  %1184 = getelementptr inbounds nuw i16, ptr %1170, i64 %.054489
+  %1183 = add i64 %.054488, 1
+  %1184 = getelementptr inbounds nuw i16, ptr %1170, i64 %.054488
   store i16 %1182, ptr %1184, align 2, !tbaa !62
   br label %1185
 
-1185:                                             ; preds = %1179, %1175, %.lr.ph492
-  %.1 = phi i64 [ %1183, %1179 ], [ %.054489, %1175 ], [ %.054489, %.lr.ph492 ]
-  %1186 = add nuw i64 %.0490, 1
-  %exitcond513.not = icmp eq i64 %1186, %2
-  br i1 %exitcond513.not, label %._crit_edge493, label %.lr.ph492, !llvm.loop !126
+1185:                                             ; preds = %1179, %1175, %.lr.ph491
+  %.1 = phi i64 [ %1183, %1179 ], [ %.054488, %1175 ], [ %.054488, %.lr.ph491 ]
+  %1186 = add nuw i64 %.0489, 1
+  %exitcond512.not = icmp eq i64 %1186, %2
+  br i1 %exitcond512.not, label %._crit_edge492, label %.lr.ph491, !llvm.loop !126
 
-._crit_edge493:                                   ; preds = %1185
+._crit_edge492:                                   ; preds = %1185
   %.lhs.trunc.i240 = trunc i64 %.1 to i16
   %1187 = udiv i16 %.lhs.trunc.i240, 544
   %narrow.i241 = add nuw nsw i16 %1187, 1
@@ -2520,14 +2520,14 @@ _ZL27BuildBlockHistogramsCommandPKtmPKhmPN13duckdb_brotli16HistogramCommandE.exi
   %1189 = icmp ugt i64 %.1, 27199
   %spec.select = select i1 %1189, i64 50, i64 %1188
   %1190 = icmp eq i64 %.1, 0
-  br i1 %1190, label %.thread657, label %1192
+  br i1 %1190, label %.thread656, label %1192
 
-.thread657:                                       ; preds = %1167, %.thread648, %._crit_edge493
-  %1191 = phi ptr [ %1170, %._crit_edge493 ], [ null, %.thread648 ], [ %1169, %1167 ]
+.thread656:                                       ; preds = %1167, %.thread647, %._crit_edge492
+  %1191 = phi ptr [ %1170, %._crit_edge492 ], [ null, %.thread647 ], [ %1169, %1167 ]
   store i64 1, ptr %9, align 8, !tbaa !20
   br label %_ZL23SplitByteVectorDistancePN13duckdb_brotli13MemoryManagerEPKtmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit
 
-1192:                                             ; preds = %._crit_edge493
+1192:                                             ; preds = %._crit_edge492
   %1193 = icmp ult i64 %.1, 128
   br i1 %1193, label %1194, label %1247
 
@@ -3689,8 +3689,8 @@ _ZL21ClusterBlocksDistancePN13duckdb_brotli13MemoryManagerEPKtmmPhPNS_10BlockSpl
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %1319)
   br label %_ZL23SplitByteVectorDistancePN13duckdb_brotli13MemoryManagerEPKtmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit
 
-_ZL23SplitByteVectorDistancePN13duckdb_brotli13MemoryManagerEPKtmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit: ; preds = %.thread657, %1236, %_ZL21ClusterBlocksDistancePN13duckdb_brotli13MemoryManagerEPKtmmPhPNS_10BlockSplitE.exit.i
-  %1748 = phi ptr [ %1191, %.thread657 ], [ %1170, %1236 ], [ %1170, %_ZL21ClusterBlocksDistancePN13duckdb_brotli13MemoryManagerEPKtmmPhPNS_10BlockSplitE.exit.i ]
+_ZL23SplitByteVectorDistancePN13duckdb_brotli13MemoryManagerEPKtmmmmdPK19BrotliEncoderParamsPNS_10BlockSplitE.exit: ; preds = %.thread656, %1236, %_ZL21ClusterBlocksDistancePN13duckdb_brotli13MemoryManagerEPKtmmPhPNS_10BlockSplitE.exit.i
+  %1748 = phi ptr [ %1191, %.thread656 ], [ %1170, %1236 ], [ %1170, %_ZL21ClusterBlocksDistancePN13duckdb_brotli13MemoryManagerEPKtmmPhPNS_10BlockSplitE.exit.i ]
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %1748)
   ret void
 }

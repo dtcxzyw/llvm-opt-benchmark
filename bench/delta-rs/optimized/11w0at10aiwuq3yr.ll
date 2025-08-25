@@ -105700,9 +105700,9 @@ _ZN14deltalake_core5table6config11TableConfig13stats_columns17hf30c3bec1d105614E
           to label %.noexc58 unwind label %65
 
 .noexc58:                                         ; preds = %81
-  %.fr12.i = freeze { i32, i32 } %82
-  %83 = extractvalue { i32, i32 } %.fr12.i, 0
-  %84 = extractvalue { i32, i32 } %.fr12.i, 1
+  %.fr.i = freeze { i32, i32 } %82
+  %83 = extractvalue { i32, i32 } %.fr.i, 0
+  %84 = extractvalue { i32, i32 } %.fr.i, 1
   %switch.i = icmp eq i32 %83, 0
   br i1 %switch.i, label %.thread.i, label %85
 
@@ -125583,9 +125583,9 @@ default.unreachable146:                           ; preds = %813, %738, %468, %1
           to label %.noexc21.i.i unwind label %173, !noalias !31114
 
 .noexc21.i.i:                                     ; preds = %184
-  %.fr12.i.i.i = freeze { i32, i32 } %185
-  %186 = extractvalue { i32, i32 } %.fr12.i.i.i, 0
-  %187 = extractvalue { i32, i32 } %.fr12.i.i.i, 1
+  %.fr.i.i.i = freeze { i32, i32 } %185
+  %186 = extractvalue { i32, i32 } %.fr.i.i.i, 0
+  %187 = extractvalue { i32, i32 } %.fr.i.i.i, 1
   %switch.i.i.i = icmp eq i32 %186, 0
   br i1 %switch.i.i.i, label %.thread.i.i, label %_ZN14deltalake_core5table6config11TableConfig19checkpoint_interval17h1523ebb486098da9E.exit.i.i
 

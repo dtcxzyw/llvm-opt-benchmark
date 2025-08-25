@@ -18417,9 +18417,6 @@ _ZN3exr5block5chunk27CompressedDeepScanLineBlock4read17he3d368247216b887E.exit: 
   %.sroa.68.i.sroa.0.0.copyload368 = load i64, ptr %129, align 8, !noalias !3602
   %.sroa.68.i.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.sroa.68.i.sroa.8.0.copyload369 = load i64, ptr %.sroa.68.i.sroa.8.0..sroa_idx, align 8, !noalias !3602
-  %.sroa.68.i.sroa.8.sroa.0.0.extract.trunc372 = trunc i64 %.sroa.68.i.sroa.8.0.copyload369 to i32
-  %.sroa.68.i.sroa.8.sroa.7.0.extract.shift373 = lshr i64 %.sroa.68.i.sroa.8.0.copyload369, 32
-  %.sroa.68.i.sroa.8.sroa.7.0.extract.trunc374 = trunc nuw i64 %.sroa.68.i.sroa.8.sroa.7.0.extract.shift373 to i32
   %.sroa.68.i.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 24
   %.sroa.68.i.sroa.11.0.copyload370 = load i64, ptr %.sroa.68.i.sroa.11.0..sroa_idx, align 8, !noalias !3602
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !3602
@@ -18448,7 +18445,7 @@ _ZN3exr5block5chunk27CompressedDeepScanLineBlock4read17he3d368247216b887E.exit: 
   br label %198
 
 132:                                              ; preds = %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit, %195, %133, %128
-  %.sroa.828.sroa.8.sroa.8.sroa.0.0 = phi i32 [ %.sroa.5120.sroa.0.4.extract.trunc, %133 ], [ %.sroa.68.i.sroa.8.sroa.7.0.extract.trunc374, %128 ], [ %.sroa.6125.sroa.0.4.extract.trunc, %195 ], [ %.sroa.6.i.sroa.8.0.copyload412, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
+  %.sroa.828.sroa.8.sroa.8.sroa.0.0.in.in = phi i64 [ %126, %133 ], [ %.sroa.68.i.sroa.8.0.copyload369, %128 ], [ %.sroa.6.0.copyload.i167, %195 ], [ %.sroa.6.i.sroa.7.0.copyload409, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.8.sroa.8.sroa.8.0 = phi i64 [ %.sroa.6.0.copyload.i, %133 ], [ %.sroa.68.i.sroa.11.0.copyload370, %128 ], [ %.sroa.639.i.sroa.0.0.copyload441, %195 ], [ %.sroa.6.i.sroa.9.0.copyload415, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.9.sroa.0.0 = phi i64 [ %.sroa.648.i.sroa.9.0.copyload382, %133 ], [ undef, %128 ], [ %.sroa.5.i159.sroa.0.0.copyload424, %195 ], [ %.sroa.5.i.sroa.8.0.copyload, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.9.sroa.7.0 = phi i64 [ %106, %133 ], [ undef, %128 ], [ %.sroa.5.i159.sroa.7.0.copyload428, %195 ], [ %.sroa.5.i.sroa.10.0.copyload, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
@@ -18457,10 +18454,12 @@ _ZN3exr5block5chunk27CompressedDeepScanLineBlock4read17he3d368247216b887E.exit: 
   %.sroa.828.sroa.8.sroa.11.0 = phi i64 [ %.sroa.648.i.sroa.7.0.copyload380, %133 ], [ undef, %128 ], [ %.sroa.639.i.sroa.9.0.copyload445, %195 ], [ %.sroa.5.i.sroa.7.0.copyload389, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.8.sroa.10.0 = phi i32 [ %.sroa.5120.sroa.8.20.extract.trunc, %133 ], [ undef, %128 ], [ %.sroa.6125.sroa.8.20.extract.trunc, %195 ], [ %.sroa.9.28.extract.trunc, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.8.sroa.9.0 = phi i32 [ %.sroa.5120.sroa.8.16.extract.trunc, %133 ], [ %72, %128 ], [ %.sroa.6125.sroa.8.16.extract.trunc, %195 ], [ %.sroa.9.24.extract.trunc, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
-  %.sroa.828.sroa.8.sroa.0.0 = phi i32 [ %.sroa.5120.sroa.0.0.extract.trunc, %133 ], [ %.sroa.68.i.sroa.8.sroa.0.0.extract.trunc372, %128 ], [ %.sroa.6125.sroa.0.0.extract.trunc, %195 ], [ %.sroa.6.i.sroa.7.0.copyload409, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.026.0 = phi i64 [ -9223372036854775806, %133 ], [ -9223372036854775808, %128 ], [ %.sroa.0118.0.copyload.i, %195 ], [ -9223372036854775807, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.0.0 = phi i64 [ %.sroa.0136.0.copyload.i, %133 ], [ %.sroa.68.i.sroa.0.0.copyload368, %128 ], [ %192, %195 ], [ %.sroa.6.i.sroa.0.0.copyload407, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.10.0 = phi i64 [ %.sroa.36.56.insert.ext, %133 ], [ undef, %128 ], [ %156, %195 ], [ undef, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
+  %.sroa.828.sroa.8.sroa.0.0 = trunc i64 %.sroa.828.sroa.8.sroa.8.sroa.0.0.in.in to i32
+  %.sroa.828.sroa.8.sroa.8.sroa.0.0.in = lshr i64 %.sroa.828.sroa.8.sroa.8.sroa.0.0.in.in, 32
+  %.sroa.828.sroa.8.sroa.8.sroa.0.0 = trunc nuw i64 %.sroa.828.sroa.8.sroa.8.sroa.0.0.in to i32
   store i64 %.sroa.026.0, ptr %0, align 8
   %.sroa.024.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.828.sroa.0.0, ptr %.sroa.024.sroa.2.0..sroa_idx, align 8
@@ -18492,9 +18491,6 @@ _ZN3exr5block5chunk27CompressedDeepScanLineBlock4read17he3d368247216b887E.exit: 
 
 133:                                              ; preds = %_ZN3exr5block5chunk27CompressedDeepScanLineBlock4read17he3d368247216b887E.exit
   %.sroa.36.56.insert.ext = zext i32 %88 to i64
-  %.sroa.5120.sroa.0.0.extract.trunc = trunc i64 %126 to i32
-  %.sroa.5120.sroa.0.4.extract.shift = lshr i64 %126, 32
-  %.sroa.5120.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.5120.sroa.0.4.extract.shift to i32
   %.sroa.5120.sroa.8.16.extract.trunc = trunc i64 %.sroa.648.i.sroa.0.0.copyload378 to i32
   %.sroa.5120.sroa.8.20.extract.shift = lshr i64 %.sroa.648.i.sroa.0.0.copyload378, 32
   %.sroa.5120.sroa.8.20.extract.trunc = trunc nuw i64 %.sroa.5120.sroa.8.20.extract.shift to i32
@@ -18619,16 +18615,10 @@ _ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit: ; preds 
   %150 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.6.i.sroa.0.0.copyload407 = load i64, ptr %150, align 8, !noalias !3681
   %.sroa.6.i.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sroa.6.i.sroa.7.0.copyload409 = load i32, ptr %.sroa.6.i.sroa.7.0..sroa_idx, align 8, !noalias !3681
-  %.sroa.6.i.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
-  %.sroa.6.i.sroa.8.0.copyload412 = load i32, ptr %.sroa.6.i.sroa.8.0..sroa_idx, align 4, !noalias !3681
+  %.sroa.6.i.sroa.7.0.copyload409 = load i64, ptr %.sroa.6.i.sroa.7.0..sroa_idx, align 8
   %.sroa.6.i.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   %.sroa.6.i.sroa.9.0.copyload415 = load i64, ptr %.sroa.6.i.sroa.9.0..sroa_idx, align 8, !noalias !3681
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3681
-  %.sroa.4419.8.insert.ext = zext i32 %.sroa.6.i.sroa.7.0.copyload409 to i64
-  %.sroa.4419.12.insert.ext = zext i32 %.sroa.6.i.sroa.8.0.copyload412 to i64
-  %.sroa.4419.12.insert.shift = shl nuw i64 %.sroa.4419.12.insert.ext, 32
-  %.sroa.4419.12.insert.insert = or disjoint i64 %.sroa.4419.12.insert.shift, %.sroa.4419.8.insert.ext
   %.sroa.9.24.extract.trunc = trunc i64 %.sroa.5.i.sroa.0.0.copyload385 to i32
   %.sroa.9.28.extract.shift = lshr i64 %.sroa.5.i.sroa.0.0.copyload385, 32
   %.sroa.9.28.extract.trunc = trunc nuw i64 %.sroa.9.28.extract.shift to i32
@@ -18809,7 +18799,7 @@ _ZN3exr5block5chunk23CompressedDeepTileBlock4read17hfe2931addf9090baE.exit: ; pr
   br i1 %193, label %_ZN3exr5block5chunk23CompressedDeepTileBlock4read17hfe2931addf9090baE.exit.thread, label %195
 
 _ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit.thread: ; preds = %.sink.split.i151, %148, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit
-  %.sroa.7179.0490 = phi i64 [ %.sroa.4419.12.insert.insert, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ], [ %149, %.sink.split.i151 ], [ %.sroa.5.i.sroa.0.0.copyload385, %148 ]
+  %.sroa.7179.0490 = phi i64 [ %.sroa.6.i.sroa.7.0.copyload409, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ], [ %149, %.sink.split.i151 ], [ %.sroa.5.i.sroa.0.0.copyload385, %148 ]
   %.sroa.11182.sroa.10.0489 = phi i64 [ %.sroa.5.i.sroa.7.0.copyload389, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ], [ %.sroa.6.i.sroa.9.0.copyload, %.sink.split.i151 ], [ %.sroa.5.i.sroa.10.0.copyload401, %148 ]
   %.sroa.11182.sroa.9.0488 = phi i32 [ %.sroa.9.28.extract.trunc, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ], [ %.sroa.6.i.sroa.8.0.copyload, %.sink.split.i151 ], [ %.sroa.5.i.sroa.9.0.copyload397, %148 ]
   %.sroa.11182.sroa.8.0487 = phi i32 [ %.sroa.9.24.extract.trunc, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ], [ %.sroa.6.i.sroa.7.0.copyload, %.sink.split.i151 ], [ %.sroa.5.i.sroa.8.0.copyload393, %148 ]
@@ -18828,9 +18818,6 @@ _ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit.thread: ;
   br label %198
 
 195:                                              ; preds = %_ZN3exr5block5chunk23CompressedDeepTileBlock4read17hfe2931addf9090baE.exit
-  %.sroa.6125.sroa.0.0.extract.trunc = trunc i64 %.sroa.6.0.copyload.i167 to i32
-  %.sroa.6125.sroa.0.4.extract.shift = lshr i64 %.sroa.6.0.copyload.i167, 32
-  %.sroa.6125.sroa.0.4.extract.trunc = trunc nuw i64 %.sroa.6125.sroa.0.4.extract.shift to i32
   %.sroa.6125.sroa.8.16.extract.trunc = trunc i64 %.sroa.639.i.sroa.7.0.copyload443 to i32
   %.sroa.6125.sroa.8.20.extract.shift = lshr i64 %.sroa.639.i.sroa.7.0.copyload443, 32
   %.sroa.6125.sroa.8.20.extract.trunc = trunc nuw i64 %.sroa.6125.sroa.8.20.extract.shift to i32

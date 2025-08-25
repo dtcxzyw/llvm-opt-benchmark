@@ -22,8 +22,8 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   store i32 0, ptr %2, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i32, ptr %5, align 8, !tbaa !8
-  %.fr160 = freeze i32 %6
-  %7 = and i32 %.fr160, 524288
+  %.fr159 = freeze i32 %6
+  %7 = and i32 %.fr159, 524288
   %8 = icmp ne i32 %7, 0
   %.lobit = lshr exact i32 %7, 19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -36,7 +36,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   br i1 %15, label %16, label %162
 
 16:                                               ; preds = %1
-  %17 = lshr i32 %.fr160, 17
+  %17 = lshr i32 %.fr159, 17
   %.lobit105 = and i32 %17, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !4
@@ -53,7 +53,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = and i32 %.fr160, 655360
+  %22 = and i32 %.fr159, 655360
   %or.cond6.not = icmp eq i32 %22, 0
   br i1 %or.cond6.not, label %.split.us, label %.split
 
@@ -129,10 +129,10 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %48 = zext nneg i32 %.089.frozen.us.us to i64
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !17
-  %51 = zext i8 %50 to i32
+  %.fr = freeze i8 %50
+  %51 = zext i8 %.fr to i32
   %.not109.us.us = icmp eq i32 %.098149.us.us, %51
-  %cond.fr.us.us = freeze i1 %.not109.us.us
-  br i1 %cond.fr.us.us, label %.thread120.us.us, label %.thread127
+  br i1 %.not109.us.us, label %.thread120.us.us, label %.thread127
 
 .thread120.us.us:                                 ; preds = %45, %41, %.split.us.split.us
   %.5126.us.us = phi i32 [ %.093150.us.us, %.split.us.split.us ], [ %.093150.us.us, %41 ], [ %.089.frozen.us.us, %45 ]
@@ -215,10 +215,10 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   %82 = zext nneg i32 %.089.frozen.us to i64
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !17
-  %85 = zext i8 %84 to i32
+  %.fr160 = freeze i8 %84
+  %85 = zext i8 %.fr160 to i32
   %.not109.us = icmp eq i32 %.098149.us, %85
-  %cond.fr.us = freeze i1 %.not109.us
-  br i1 %cond.fr.us, label %.thread120.us, label %.thread127
+  br i1 %.not109.us, label %.thread120.us, label %.thread127
 
 .thread120.us:                                    ; preds = %79, %75, %.split.us.split
   %.5126.us = phi i32 [ %.093150.us, %.split.us.split ], [ %.093150.us, %75 ], [ %.089.frozen.us, %79 ]
@@ -333,9 +333,9 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
 
 139:                                              ; preds = %135, %128
   %.084 = phi i32 [ %138, %135 ], [ %134, %128 ]
-  %.not109 = icmp eq i32 %.084, %.098149
-  %cond.fr = freeze i1 %.not109
-  br i1 %cond.fr, label %.thread120, label %.thread127
+  %.084.fr = freeze i32 %.084
+  %.not109 = icmp eq i32 %.084.fr, %.098149
+  br i1 %.not109, label %.thread120, label %.thread127
 
 .thread120:                                       ; preds = %139, %109, %.split
   %.5126 = phi i32 [ %.093150, %.split ], [ %.093150, %109 ], [ %.089.frozen, %139 ]

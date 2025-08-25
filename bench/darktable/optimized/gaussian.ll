@@ -1467,8 +1467,7 @@ _calc_9x9_gauss_coeffs.exit.i:                    ; preds = %53
   %97 = icmp samesign ugt i64 %indvars.iv287.i, 3
   %98 = icmp slt i64 %indvars.iv287.i, %95
   %99 = trunc nuw nsw i64 %indvars.iv287.i to i32
-  %.fr = freeze i1 %98
-  %100 = and i1 %.fr, %97
+  %100 = and i1 %98, %97
   br i1 %100, label %.preheader269.us.i.split, label %.preheader267.us.preheader.i.us.preheader
 
 .preheader267.us.preheader.i.us.preheader:        ; preds = %.preheader269.us.i

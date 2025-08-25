@@ -3228,11 +3228,12 @@ _ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_
 1202:                                             ; preds = %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815, %1178
   %1203 = phi ptr [ %.pre1397, %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815 ], [ %1179, %1178 ]
   %1204 = phi ptr [ %.pre1396, %_ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit815 ], [ %1181, %1178 ]
-  %1205 = ptrtoint ptr %1204 to i64
-  %1206 = ptrtoint ptr %1203 to i64
+  %.fr1570 = freeze ptr %1203
+  %.fr1569 = freeze ptr %1204
+  %1205 = ptrtoint ptr %.fr1569 to i64
+  %1206 = ptrtoint ptr %.fr1570 to i64
   %1207 = sub i64 %1205, %1206
-  %.fr1570 = freeze i64 %1207
-  %1208 = sdiv i64 %.fr1570, 1072
+  %1208 = sdiv i64 %1207, 1072
   %1209 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1208, i64 24)
   %1210 = extractvalue { i64, i1 } %1209, 1
   %1211 = extractvalue { i64, i1 } %1209, 0
@@ -3247,7 +3248,7 @@ _ZNSt6vectorIN6Assimp11Q3DImporter8MaterialESaIS2_EE12emplace_backIJEEERS2_DpOT_
 1218:                                             ; preds = %1202
   store i64 %1208, ptr %1217, align 16
   %.ptr502 = getelementptr i8, ptr %1217, i64 8
-  %1219 = icmp eq ptr %1204, %1203
+  %1219 = icmp eq ptr %.fr1569, %.fr1570
   br i1 %1219, label %.loopexit923, label %.loopexit923.loopexit
 
 .loopexit923.loopexit:                            ; preds = %1218

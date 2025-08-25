@@ -19205,8 +19205,8 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   br i1 %69, label %.loopexit37, label %.preheader36
 
 .preheader36:                                     ; preds = %58, %.preheader36.backedge
-  %70 = phi i64 [ %.be197, %.preheader36.backedge ], [ 0, %58 ]
-  %71 = phi i32 [ %.be198, %.preheader36.backedge ], [ 0, %58 ]
+  %70 = phi i64 [ %.be196, %.preheader36.backedge ], [ 0, %58 ]
+  %71 = phi i32 [ %.be197, %.preheader36.backedge ], [ 0, %58 ]
   %72 = getelementptr [3 x %struct.ma_state], ptr %3, i64 0, i64 %70
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %74 = load i32, ptr %73, align 8
@@ -19219,12 +19219,12 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
 
 ..loopexit35_crit_edge:                           ; preds = %76
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %.pre78 = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre82 = ptrtoint ptr %.pre78 to i64
-  %.pre83 = trunc i64 %.pre82 to i32
-  %.pre85 = lshr i32 %.pre83, 3
-  %.pre87 = and i64 %.pre82, -256
-  %.pre89 = inttoptr i64 %.pre87 to ptr
+  %.pre77 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre81 = ptrtoint ptr %.pre77 to i64
+  %.pre82 = trunc i64 %.pre81 to i32
+  %.pre84 = lshr i32 %.pre82, 3
+  %.pre86 = and i64 %.pre81, -256
+  %.pre88 = inttoptr i64 %.pre86 to ptr
   br label %.loopexit35
 
 78:                                               ; preds = %76
@@ -19416,12 +19416,12 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   br label %.loopexit35
 
 .loopexit35:                                      ; preds = %176, %..loopexit35_crit_edge, %.loopexit32
-  %.pre-phi90 = phi ptr [ %.pre89, %..loopexit35_crit_edge ], [ %88, %.loopexit32 ], [ %88, %176 ]
-  %.pre-phi88 = phi i64 [ %.pre87, %..loopexit35_crit_edge ], [ %87, %.loopexit32 ], [ %87, %176 ]
-  %.pre-phi86 = phi i32 [ %.pre85, %..loopexit35_crit_edge ], [ %85, %.loopexit32 ], [ %85, %176 ]
-  %.pre-phi84 = phi i32 [ %.pre83, %..loopexit35_crit_edge ], [ %84, %.loopexit32 ], [ %84, %176 ]
+  %.pre-phi89 = phi ptr [ %.pre88, %..loopexit35_crit_edge ], [ %88, %.loopexit32 ], [ %88, %176 ]
+  %.pre-phi87 = phi i64 [ %.pre86, %..loopexit35_crit_edge ], [ %87, %.loopexit32 ], [ %87, %176 ]
+  %.pre-phi85 = phi i32 [ %.pre84, %..loopexit35_crit_edge ], [ %85, %.loopexit32 ], [ %85, %176 ]
+  %.pre-phi83 = phi i32 [ %.pre82, %..loopexit35_crit_edge ], [ %84, %.loopexit32 ], [ %84, %176 ]
   %190 = phi i32 [ 3, %..loopexit35_crit_edge ], [ %189, %.loopexit32 ], [ 3, %176 ]
-  %191 = and i32 %.pre-phi86, 15
+  %191 = and i32 %.pre-phi85, 15
   switch i32 %191, label %.thread4.thread9.i [
     i32 3, label %.thread3.i
     i32 2, label %195
@@ -19430,14 +19430,14 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   ]
 
 .thread3.i:                                       ; preds = %.loopexit35
-  %192 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 80
-  %193 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 240
+  %192 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 80
+  %193 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 240
   %194 = load i8, ptr %193, align 16
   br label %.thread4.thread9.i
 
 195:                                              ; preds = %.loopexit35, %.loopexit35
-  %196 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 128
-  %197 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 128
+  %197 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 8
   %198 = zext nneg i32 %191 to i64
   %199 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %198
   %200 = load i8, ptr %199, align 1
@@ -19449,7 +19449,7 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   br i1 %205, label %206, label %209, !prof !11
 
 206:                                              ; preds = %195
-  %207 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 248
+  %207 = getelementptr inbounds nuw i8, ptr %.pre-phi89, i64 248
   %208 = load i8, ptr %207, align 8
   br label %.thread4.i
 
@@ -19469,11 +19469,11 @@ define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr 
   %215 = phi i8 [ %194, %.thread3.i ], [ %214, %.thread4.i ], [ 0, %.loopexit35 ]
   %216 = phi ptr [ %192, %.thread3.i ], [ %196, %.thread4.i ], [ null, %.loopexit35 ]
   %217 = zext i8 %215 to i64
-  %218 = and i32 %.pre-phi84, 112
+  %218 = and i32 %.pre-phi83, 112
   %219 = icmp eq i32 %218, 16
   %220 = select i1 %219, i32 3, i32 0, !prof !68
   %221 = select i1 %219, i64 6, i64 0, !prof !68
-  %invariant.op = or disjoint i64 %221, %.pre-phi88
+  %invariant.op = or disjoint i64 %221, %.pre-phi87
   br label %222
 
 222:                                              ; preds = %222, %.thread4.thread9.i
@@ -19536,8 +19536,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   br i1 %249, label %.loopexit37, label %.preheader36.backedge
 
 .preheader36.backedge:                            ; preds = %.loopexit33, %mas_adopt_children.exit
-  %.be197 = phi i64 [ %237, %mas_adopt_children.exit ], [ 0, %.loopexit33 ]
-  %.be198 = phi i32 [ %236, %mas_adopt_children.exit ], [ 0, %.loopexit33 ]
+  %.be196 = phi i64 [ %237, %mas_adopt_children.exit ], [ 0, %.loopexit33 ]
+  %.be197 = phi i32 [ %236, %mas_adopt_children.exit ], [ 0, %.loopexit33 ]
   br label %.preheader36, !llvm.loop !162
 
 250:                                              ; preds = %250, %243
@@ -19684,8 +19684,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %326 = load ptr, ptr %0, align 8
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
   %328 = load i32, ptr %327, align 4
-  %.fr56 = freeze i32 %328
-  %329 = and i32 %.fr56, 2
+  %.fr55 = freeze i32 %328
+  %329 = and i32 %.fr55, 2
   %.not = icmp eq i32 %329, 0
   %330 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %331 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -19694,7 +19694,7 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
 
 333:                                              ; preds = %.backedge, %325
   %334 = phi i64 [ 0, %325 ], [ %.be, %.backedge ]
-  %335 = phi i32 [ 0, %325 ], [ %.be185, %.backedge ]
+  %335 = phi i32 [ 0, %325 ], [ %.be184, %.backedge ]
   %336 = phi ptr [ null, %325 ], [ %481, %.backedge ]
   %337 = phi ptr [ null, %325 ], [ %480, %.backedge ]
   %338 = getelementptr [3 x %struct.ma_state], ptr %3, i64 0, i64 %334
@@ -19710,8 +19710,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   %345 = getelementptr inbounds nuw i8, ptr %338, i64 61
   %.promoted52 = load i8, ptr %345, align 1
   %346 = getelementptr inbounds nuw i8, ptr %338, i64 40
-  %.pre79 = load ptr, ptr %344, align 8
-  %347 = ptrtoint ptr %.pre79 to i64
+  %.pre78 = load ptr, ptr %344, align 8
+  %347 = ptrtoint ptr %.pre78 to i64
   %348 = trunc i64 %347 to i32
   %349 = lshr i32 %348, 3
   %350 = and i32 %349, 15
@@ -19858,8 +19858,8 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   br i1 %433, label %._crit_edge, label %434
 
 ._crit_edge:                                      ; preds = %430
-  %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %367, i64 32
-  %.pre81 = load i64, ptr %.phi.trans.insert80, align 16
+  %.phi.trans.insert79 = getelementptr inbounds nuw i8, ptr %367, i64 32
+  %.pre80 = load i64, ptr %.phi.trans.insert79, align 16
   br label %443
 
 434:                                              ; preds = %430
@@ -19879,7 +19879,7 @@ mas_adopt_children.exit:                          ; preds = %222, %.preheader36
   br i1 %.not8.i17, label %mas_find_child.exit21.thread, label %395, !llvm.loop !157
 
 443:                                              ; preds = %._crit_edge, %434
-  %444 = phi i64 [ %.pre81, %._crit_edge ], [ %439, %434 ]
+  %444 = phi i64 [ %.pre80, %._crit_edge ], [ %439, %434 ]
   %445 = zext nneg i32 %417 to i64
   %446 = getelementptr [4 x i8], ptr @mt_pivots, i64 0, i64 %445
   %447 = load i8, ptr %446, align 1
@@ -20120,7 +20120,7 @@ mas_topiary_node.exit:                            ; preds = %.loopexit, %512, %5
 
 .backedge:                                        ; preds = %572, %mas_find_child.exit21.thread
   %.be = phi i64 [ %483, %mas_find_child.exit21.thread ], [ 0, %572 ]
-  %.be185 = phi i32 [ %482, %mas_find_child.exit21.thread ], [ 0, %572 ]
+  %.be184 = phi i32 [ %482, %mas_find_child.exit21.thread ], [ 0, %572 ]
   br label %333, !llvm.loop !169
 
 .loopexit31:                                      ; preds = %572, %491
@@ -20287,8 +20287,8 @@ mas_topiary_node.exit26:                          ; preds = %.split, %658
   %663 = load ptr, ptr %0, align 8
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 4
   %665 = load i32, ptr %664, align 4
-  %.fr = freeze i32 %665
-  %666 = and i32 %.fr, 2
+  %.fr56 = freeze i32 %665
+  %666 = and i32 %.fr56, 2
   %667 = icmp eq i32 %666, 0
   br i1 %667, label %.preheader.split.us, label %.preheader.split
 

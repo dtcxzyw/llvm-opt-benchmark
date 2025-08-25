@@ -7138,7 +7138,6 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit: ; preds = %21, %2
   %91 = add nsw i8 %90, -2
   %92 = icmp ult i8 %91, 6
   %narrow15.i.i.i21 = select i1 %92, i8 %91, i8 1
-  %narrow15.i.i.i21.fr = freeze i8 %narrow15.i.i.i21
   switch i8 %narrow.i.i.i20, label %93 [
     i8 1, label %94
     i8 2, label %96
@@ -7152,27 +7151,27 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit: ; preds = %21, %2
   unreachable
 
 94:                                               ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit
-  %95 = icmp eq i8 %narrow15.i.i.i21.fr, 1
+  %95 = icmp eq i8 %narrow15.i.i.i21, 1
   br i1 %95, label %111, label %104
 
 96:                                               ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit
-  %97 = icmp eq i8 %narrow15.i.i.i21.fr, 2
+  %97 = icmp eq i8 %narrow15.i.i.i21, 2
   br i1 %97, label %143, label %104
 
 98:                                               ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit
-  %99 = icmp eq i8 %narrow15.i.i.i21.fr, 3
+  %99 = icmp eq i8 %narrow15.i.i.i21, 3
   br i1 %99, label %159, label %104
 
 100:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit
-  %101 = icmp eq i8 %narrow15.i.i.i21.fr, 4
+  %101 = icmp eq i8 %narrow15.i.i.i21, 4
   br i1 %101, label %175, label %104
 
 102:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit
-  %103 = icmp eq i8 %narrow15.i.i.i21.fr, 5
+  %103 = icmp eq i8 %narrow15.i.i.i21, 5
   br i1 %103, label %191, label %104
 
 104:                                              ; preds = %102, %100, %98, %96, %94, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit
-  %105 = icmp ult i8 %narrow.i.i.i20, %narrow15.i.i.i21.fr
+  %105 = icmp samesign ult i8 %narrow.i.i.i20, %narrow15.i.i.i21
   %106 = zext i1 %.sroa.0.0.i.i.i to i64
   %107 = getelementptr inbounds nuw { i8, [2 x i8] }, ptr %0, i64 %106
   %108 = xor i1 %.sroa.0.0.i.i.i, true
@@ -7505,7 +7504,6 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47: ; preds = %237,
   %305 = add nsw i8 %304, -2
   %306 = icmp ult i8 %305, 6
   %narrow15.i.i.i49 = select i1 %306, i8 %305, i8 1
-  %narrow15.i.i.i49.fr = freeze i8 %narrow15.i.i.i49
   switch i8 %narrow.i.i.i48, label %307 [
     i8 1, label %308
     i8 2, label %310
@@ -7519,27 +7517,27 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47: ; preds = %237,
   unreachable
 
 308:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47
-  %309 = icmp eq i8 %narrow15.i.i.i49.fr, 1
+  %309 = icmp eq i8 %narrow15.i.i.i49, 1
   br i1 %309, label %320, label %318
 
 310:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47
-  %311 = icmp eq i8 %narrow15.i.i.i49.fr, 2
+  %311 = icmp eq i8 %narrow15.i.i.i49, 2
   br i1 %311, label %337, label %318
 
 312:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47
-  %313 = icmp eq i8 %narrow15.i.i.i49.fr, 3
+  %313 = icmp eq i8 %narrow15.i.i.i49, 3
   br i1 %313, label %348, label %318
 
 314:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47
-  %315 = icmp eq i8 %narrow15.i.i.i49.fr, 4
+  %315 = icmp eq i8 %narrow15.i.i.i49, 4
   br i1 %315, label %359, label %318
 
 316:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47
-  %317 = icmp eq i8 %narrow15.i.i.i49.fr, 5
+  %317 = icmp eq i8 %narrow15.i.i.i49, 5
   br i1 %317, label %370, label %318
 
 318:                                              ; preds = %316, %314, %312, %310, %308, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit47
-  %319 = icmp ult i8 %narrow.i.i.i48, %narrow15.i.i.i49.fr
+  %319 = icmp samesign ult i8 %narrow.i.i.i48, %narrow15.i.i.i49
   %.22 = select i1 %.sroa.0.0.i.i.i36, ptr %215, ptr %216
   br i1 %319, label %381, label %382
 
@@ -7697,7 +7695,6 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit61: ; preds = %320,
   %390 = add nsw i8 %389, -2
   %391 = icmp ult i8 %390, 6
   %narrow15.i.i.i63 = select i1 %391, i8 %390, i8 1
-  %narrow15.i.i.i63.fr = freeze i8 %narrow15.i.i.i63
   switch i8 %narrow.i.i.i62, label %392 [
     i8 1, label %393
     i8 2, label %395
@@ -7711,27 +7708,27 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit61: ; preds = %320,
   unreachable
 
 393:                                              ; preds = %383
-  %394 = icmp eq i8 %narrow15.i.i.i63.fr, 1
+  %394 = icmp eq i8 %narrow15.i.i.i63, 1
   br i1 %394, label %405, label %403
 
 395:                                              ; preds = %383
-  %396 = icmp eq i8 %narrow15.i.i.i63.fr, 2
+  %396 = icmp eq i8 %narrow15.i.i.i63, 2
   br i1 %396, label %422, label %403
 
 397:                                              ; preds = %383
-  %398 = icmp eq i8 %narrow15.i.i.i63.fr, 3
+  %398 = icmp eq i8 %narrow15.i.i.i63, 3
   br i1 %398, label %433, label %403
 
 399:                                              ; preds = %383
-  %400 = icmp eq i8 %narrow15.i.i.i63.fr, 4
+  %400 = icmp eq i8 %narrow15.i.i.i63, 4
   br i1 %400, label %444, label %403
 
 401:                                              ; preds = %383
-  %402 = icmp eq i8 %narrow15.i.i.i63.fr, 5
+  %402 = icmp eq i8 %narrow15.i.i.i63, 5
   br i1 %402, label %455, label %403
 
 403:                                              ; preds = %401, %399, %397, %395, %393, %383
-  %404 = icmp ult i8 %narrow.i.i.i62, %narrow15.i.i.i63.fr
+  %404 = icmp samesign ult i8 %narrow.i.i.i62, %narrow15.i.i.i63
   br i1 %404, label %.thread82, label %.thread60
 
 405:                                              ; preds = %393
@@ -13100,7 +13097,6 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %18 = add nsw i8 %17, -2
   %19 = icmp ult i8 %18, 6
   %narrow15.i.i.i = select i1 %19, i8 %18, i8 1
-  %narrow15.i.i.i.fr = freeze i8 %narrow15.i.i.i
   switch i8 %narrow.i.i.i, label %20 [
     i8 1, label %21
     i8 2, label %23
@@ -13114,27 +13110,27 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   unreachable
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp eq i8 %narrow15.i.i.i.fr, 1
+  %22 = icmp eq i8 %narrow15.i.i.i, 1
   br i1 %22, label %33, label %31
 
 23:                                               ; preds = %.lr.ph
-  %24 = icmp eq i8 %narrow15.i.i.i.fr, 2
+  %24 = icmp eq i8 %narrow15.i.i.i, 2
   br i1 %24, label %50, label %31
 
 25:                                               ; preds = %.lr.ph
-  %26 = icmp eq i8 %narrow15.i.i.i.fr, 3
+  %26 = icmp eq i8 %narrow15.i.i.i, 3
   br i1 %26, label %61, label %31
 
 27:                                               ; preds = %.lr.ph
-  %28 = icmp eq i8 %narrow15.i.i.i.fr, 4
+  %28 = icmp eq i8 %narrow15.i.i.i, 4
   br i1 %28, label %72, label %31
 
 29:                                               ; preds = %.lr.ph
-  %30 = icmp eq i8 %narrow15.i.i.i.fr, 5
+  %30 = icmp eq i8 %narrow15.i.i.i, 5
   br i1 %30, label %83, label %31
 
 31:                                               ; preds = %29, %27, %25, %23, %21, %.lr.ph
-  %32 = icmp ult i8 %narrow.i.i.i, %narrow15.i.i.i.fr
+  %32 = icmp samesign ult i8 %narrow.i.i.i, %narrow15.i.i.i
   br i1 %32, label %94, label %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
 
 33:                                               ; preds = %21
@@ -13266,7 +13262,6 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread: ; preds = 
   %106 = add nsw i8 %105, -2
   %107 = icmp ult i8 %106, 6
   %narrow15.i.i.i25 = select i1 %107, i8 %106, i8 1
-  %narrow15.i.i.i25.fr = freeze i8 %narrow15.i.i.i25
   switch i8 %narrow.i.i.i24, label %108 [
     i8 1, label %109
     i8 2, label %111
@@ -13280,27 +13275,27 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread: ; preds = 
   unreachable
 
 109:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
-  %110 = icmp eq i8 %narrow15.i.i.i25.fr, 1
+  %110 = icmp eq i8 %narrow15.i.i.i25, 1
   br i1 %110, label %121, label %119
 
 111:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
-  %112 = icmp eq i8 %narrow15.i.i.i25.fr, 2
+  %112 = icmp eq i8 %narrow15.i.i.i25, 2
   br i1 %112, label %138, label %119
 
 113:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
-  %114 = icmp eq i8 %narrow15.i.i.i25.fr, 3
+  %114 = icmp eq i8 %narrow15.i.i.i25, 3
   br i1 %114, label %149, label %119
 
 115:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
-  %116 = icmp eq i8 %narrow15.i.i.i25.fr, 4
+  %116 = icmp eq i8 %narrow15.i.i.i25, 4
   br i1 %116, label %160, label %119
 
 117:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
-  %118 = icmp eq i8 %narrow15.i.i.i25.fr, 5
+  %118 = icmp eq i8 %narrow15.i.i.i25, 5
   br i1 %118, label %171, label %119
 
 119:                                              ; preds = %117, %115, %113, %111, %109, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit.thread
-  %120 = icmp ult i8 %narrow.i.i.i24, %narrow15.i.i.i25.fr
+  %120 = icmp samesign ult i8 %narrow.i.i.i24, %narrow15.i.i.i25
   br i1 %120, label %182, label %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit37.thread
 
 121:                                              ; preds = %109

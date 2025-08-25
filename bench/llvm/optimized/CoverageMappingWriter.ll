@@ -2416,26 +2416,26 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20Cou
   %9 = alloca %"struct.llvm::coverage::CounterMappingRegion", align 4
   %10 = icmp eq i64 %3, 0
   %11 = icmp eq i64 %4, 0
-  %or.cond87 = or i1 %10, %11
-  br i1 %or.cond87, label %.loopexit, label %.lr.ph
+  %or.cond90 = or i1 %10, %11
+  br i1 %or.cond90, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %12 = ptrtoint ptr %2 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit
-  %.tr8191 = phi i64 [ %4, %.lr.ph ], [ %183, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
-  %.tr8090 = phi i64 [ %3, %.lr.ph ], [ %182, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
-  %.tr7889 = phi ptr [ %1, %.lr.ph ], [ %.073, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
-  %.tr88 = phi ptr [ %0, %.lr.ph ], [ %.041.i.i, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
-  %14 = add nsw i64 %.tr8191, %.tr8090
+  %.tr8494 = phi i64 [ %4, %.lr.ph ], [ %183, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
+  %.tr8393 = phi i64 [ %3, %.lr.ph ], [ %182, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
+  %.tr8192 = phi ptr [ %1, %.lr.ph ], [ %.076, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
+  %.tr91 = phi ptr [ %0, %.lr.ph ], [ %.041.i.i, %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit ]
+  %14 = add nsw i64 %.tr8494, %.tr8393
   %15 = icmp eq i64 %14, 2
   br i1 %15, label %16, label %46
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.tr7889, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.tr8192, i64 28
   %18 = load i32, ptr %17, align 4, !tbaa !65
-  %19 = getelementptr inbounds nuw i8, ptr %.tr88, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %.tr91, i64 28
   %20 = load i32, ptr %19, align 4, !tbaa !65
   %.not.i.i = icmp eq i32 %18, %20
   br i1 %.not.i.i, label %23, label %21
@@ -2445,11 +2445,11 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20Cou
   br i1 %22, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread", label %.loopexit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds nuw i8, ptr %.tr7889, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %.tr8192, i64 36
   %25 = load i64, ptr %24, align 4
   %.sroa.06.0.extract.trunc.i.i = trunc i64 %25 to i32
   %.sroa.47.0.extract.shift.i.i = lshr i64 %25, 32
-  %26 = getelementptr inbounds nuw i8, ptr %.tr88, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %.tr91, i64 36
   %27 = load i64, ptr %26, align 4
   %.sroa.04.0.extract.trunc.i.i = trunc i64 %27 to i32
   %.sroa.45.0.extract.shift.i.i = lshr i64 %27, 32
@@ -2463,12 +2463,12 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20Cou
   br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit"
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds nuw i8, ptr %.tr7889, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %.tr8192, i64 52
   %34 = load i32, ptr %33, align 4, !tbaa !76
   %35 = icmp eq i32 %34, 5
   %36 = shl nsw i32 %34, 1
   %37 = select i1 %35, i32 1, i32 %36
-  %38 = getelementptr inbounds nuw i8, ptr %.tr88, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %.tr91, i64 52
   %39 = load i32, ptr %38, align 4, !tbaa !76
   %40 = icmp eq i32 %39, 5
   %41 = shl nsw i32 %39, 1
@@ -2484,20 +2484,20 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20Cou
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread": ; preds = %30, %32, %21, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(56) %.tr88, i64 56, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.tr88, ptr noundef nonnull align 4 dereferenceable(56) %.tr7889, i64 56, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.tr7889, ptr noundef nonnull align 4 dereferenceable(56) %9, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %9, ptr noundef nonnull align 4 dereferenceable(56) %.tr91, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.tr91, ptr noundef nonnull align 4 dereferenceable(56) %.tr8192, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.tr8192, ptr noundef nonnull align 4 dereferenceable(56) %9, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 46:                                               ; preds = %13
-  %47 = icmp sgt i64 %.tr8090, %.tr8191
-  %48 = ptrtoint ptr %.tr7889 to i64
+  %47 = icmp sgt i64 %.tr8393, %.tr8494
+  %48 = ptrtoint ptr %.tr8192 to i64
   br i1 %47, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit: ; preds = %46
-  %49 = sdiv i64 %.tr8090, 2
-  %50 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr88, i64 %49
+  %49 = sdiv i64 %.tr8393, 2
+  %50 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr91, i64 %49
   %51 = sub i64 %12, %48
   %52 = icmp sgt i64 %51, 0
   br i1 %52, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
@@ -2506,37 +2506,41 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i: ; pr
   %53 = udiv exact i64 %51, 56
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %55 = load i32, ptr %54, align 4, !tbaa !65
+  %.fr26.i = freeze i32 %55
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 36
   %57 = load i64, ptr %56, align 4
-  %.sroa.04.0.extract.trunc.i.i.i = trunc i64 %57 to i32
-  %.sroa.45.0.extract.shift.i.i.i = lshr i64 %57, 32
+  %.fr31.i = freeze i64 %57
+  %.sroa.04.0.extract.trunc.i.i.i = trunc i64 %.fr31.i to i32
+  %.sroa.45.0.extract.shift.i.i.i = lshr i64 %.fr31.i, 32
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 52
   %59 = load i32, ptr %58, align 4
-  %60 = icmp eq i32 %59, 5
-  %61 = shl nsw i32 %59, 1
+  %.fr29.i = freeze i32 %59
+  %60 = icmp eq i32 %.fr29.i, 5
+  %61 = shl i32 %.fr29.i, 1
   %62 = select i1 %60, i32 1, i32 %61
   br label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = %91, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i
-  %.027.i = phi ptr [ %.tr7889, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %93, %91 ]
-  %.01126.i = phi i64 [ %53, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %92, %91 ]
-  %63 = lshr i64 %.01126.i, 1
-  %64 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i, i64 %63
+  %.036.i = phi ptr [ %.tr8192, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %93, %91 ]
+  %.01135.i = phi i64 [ %53, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %92, %91 ]
+  %63 = lshr i64 %.01135.i, 1
+  %64 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.036.i, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %66 = load i32, ptr %65, align 4, !tbaa !65
-  %.not.i.i.i = icmp eq i32 %66, %55
+  %.fr.i = freeze i32 %66
+  %.not.i.i.i = icmp eq i32 %.fr.i, %.fr26.i
   br i1 %.not.i.i.i, label %69, label %67
 
 67:                                               ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i
-  %68 = icmp ult i32 %66, %55
-  %cond.fr1621.i = freeze i1 %68
-  br i1 %cond.fr1621.i, label %88, label %91
+  %68 = icmp ult i32 %.fr.i, %.fr26.i
+  br i1 %68, label %88, label %91
 
 69:                                               ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 36
   %71 = load i64, ptr %70, align 4
-  %.sroa.06.0.extract.trunc.i.i.i = trunc i64 %71 to i32
-  %.sroa.47.0.extract.shift.i.i.i = lshr i64 %71, 32
+  %.fr32.i = freeze i64 %71
+  %.sroa.06.0.extract.trunc.i.i.i = trunc i64 %.fr32.i to i32
+  %.sroa.47.0.extract.shift.i.i.i = lshr i64 %.fr32.i, 32
   %72 = icmp ne i32 %.sroa.06.0.extract.trunc.i.i.i, %.sroa.04.0.extract.trunc.i.i.i
   %73 = icmp ne i64 %.sroa.47.0.extract.shift.i.i.i, %.sroa.45.0.extract.shift.i.i.i
   %.not3.i.i.i.i = or i1 %72, %73
@@ -2549,35 +2553,34 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
 .thread.i:                                        ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %77 = xor i64 %63, -1
-  %78 = add nsw i64 %.01126.i, %77
+  %78 = add nsw i64 %.01135.i, %77
   br label %91
 
 79:                                               ; preds = %69
   %80 = getelementptr inbounds nuw i8, ptr %64, i64 52
   %81 = load i32, ptr %80, align 4, !tbaa !76
-  %82 = icmp eq i32 %81, 5
-  %83 = shl nsw i32 %81, 1
+  %.fr27.i = freeze i32 %81
+  %82 = icmp eq i32 %.fr27.i, 5
+  %83 = shl i32 %.fr27.i, 1
   %84 = select i1 %82, i32 1, i32 %83
   %85 = icmp slt i32 %84, %62
-  %cond.fr1622.i = freeze i1 %85
-  br i1 %cond.fr1622.i, label %88, label %91
+  br i1 %85, label %88, label %91
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i": ; preds = %74
   %86 = icmp uge i32 %.sroa.04.0.extract.trunc.i.i.i, %.sroa.06.0.extract.trunc.i.i.i
   %87 = icmp samesign ult i64 %.sroa.47.0.extract.shift.i.i.i, %.sroa.45.0.extract.shift.i.i.i
-  %spec.select.i.i.i = select i1 %86, i1 %87, i1 false
-  %cond.fr16.i = freeze i1 %spec.select.i.i.i
-  br i1 %cond.fr16.i, label %88, label %91
+  %spec.select.i.i.i = and i1 %86, %87
+  br i1 %spec.select.i.i.i, label %88, label %91
 
 88:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i", %79, %67
   %89 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %.pn.i = xor i64 %63, -1
-  %90 = add nsw i64 %.01126.i, %.pn.i
+  %90 = add nsw i64 %.01135.i, %.pn.i
   br label %91
 
 91:                                               ; preds = %88, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i", %79, %.thread.i, %67
   %92 = phi i64 [ %63, %79 ], [ %63, %67 ], [ %63, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i" ], [ %90, %88 ], [ %78, %.thread.i ]
-  %93 = phi ptr [ %.027.i, %79 ], [ %.027.i, %67 ], [ %.027.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i" ], [ %89, %88 ], [ %76, %.thread.i ]
+  %93 = phi ptr [ %.036.i, %79 ], [ %.036.i, %67 ], [ %.036.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i" ], [ %89, %88 ], [ %76, %.thread.i ]
   %94 = icmp sgt i64 %92, 0
   br i1 %94, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !109
 
@@ -2587,15 +2590,15 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
 
 "_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %48, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit ]
-  %.0.lcssa.i = phi ptr [ %93, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr7889, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit ]
+  %.0.lcssa.i = phi ptr [ %93, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr8192, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit ]
   %95 = sub i64 %.pre-phi, %48
   %96 = sdiv exact i64 %95, 56
   br label %142
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42: ; preds = %46
-  %97 = sdiv i64 %.tr8191, 2
-  %98 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr7889, i64 %97
-  %99 = ptrtoint ptr %.tr88 to i64
+  %97 = sdiv i64 %.tr8494, 2
+  %98 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr8192, i64 %97
+  %99 = ptrtoint ptr %.tr91 to i64
   %100 = sub i64 %48, %99
   %101 = icmp sgt i64 %100, 0
   br i1 %101, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44, label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
@@ -2604,104 +2607,107 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44: ; 
   %102 = udiv exact i64 %100, 56
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %104 = load i32, ptr %103, align 4, !tbaa !65
+  %.fr.i45 = freeze i32 %104
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 36
   %106 = load i64, ptr %105, align 4
-  %.sroa.06.0.extract.trunc.i.i.i45 = trunc i64 %106 to i32
-  %.sroa.47.0.extract.shift.i.i.i46 = lshr i64 %106, 32
+  %.fr32.i46 = freeze i64 %106
+  %.sroa.06.0.extract.trunc.i.i.i47 = trunc i64 %.fr32.i46 to i32
+  %.sroa.47.0.extract.shift.i.i.i48 = lshr i64 %.fr32.i46, 32
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 52
   %108 = load i32, ptr %107, align 4
-  %109 = icmp eq i32 %108, 5
-  %110 = shl nsw i32 %108, 1
+  %.fr27.i49 = freeze i32 %108
+  %109 = icmp eq i32 %.fr27.i49, 5
+  %110 = shl i32 %.fr27.i49, 1
   %111 = select i1 %109, i32 1, i32 %110
-  br label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47
+  br label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i50
 
-_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds = %.thread.i55, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44
-  %.027.i48 = phi ptr [ %.tr88, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44 ], [ %138, %.thread.i55 ]
-  %.01126.i49 = phi i64 [ %102, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44 ], [ %137, %.thread.i55 ]
-  %112 = lshr i64 %.01126.i49, 1
-  %113 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i48, i64 %112
+_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i50: ; preds = %.thread.i58, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44
+  %.036.i51 = phi ptr [ %.tr91, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44 ], [ %138, %.thread.i58 ]
+  %.01135.i52 = phi i64 [ %102, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44 ], [ %137, %.thread.i58 ]
+  %112 = lshr i64 %.01135.i52, 1
+  %113 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.036.i51, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %115 = load i32, ptr %114, align 4, !tbaa !65
-  %.not.i.i.i52 = icmp eq i32 %104, %115
-  br i1 %.not.i.i.i52, label %118, label %116
+  %.fr26.i55 = freeze i32 %115
+  %.not.i.i.i56 = icmp eq i32 %.fr.i45, %.fr26.i55
+  br i1 %.not.i.i.i56, label %118, label %116
 
-116:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47
-  %117 = icmp ult i32 %104, %115
-  %cond.fr1621.i53 = freeze i1 %117
-  br i1 %cond.fr1621.i53, label %.thread.i55, label %134
+116:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i50
+  %117 = icmp ult i32 %.fr.i45, %.fr26.i55
+  br i1 %117, label %.thread.i58, label %134
 
-118:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47
+118:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i50
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 36
   %120 = load i64, ptr %119, align 4
-  %.sroa.04.0.extract.trunc.i.i.i56 = trunc i64 %120 to i32
-  %.sroa.45.0.extract.shift.i.i.i57 = lshr i64 %120, 32
-  %121 = icmp ne i32 %.sroa.06.0.extract.trunc.i.i.i45, %.sroa.04.0.extract.trunc.i.i.i56
-  %122 = icmp ne i64 %.sroa.47.0.extract.shift.i.i.i46, %.sroa.45.0.extract.shift.i.i.i57
-  %.not3.i.i.i.i58 = or i1 %121, %122
-  br i1 %.not3.i.i.i.i58, label %123, label %125
+  %.fr31.i59 = freeze i64 %120
+  %.sroa.04.0.extract.trunc.i.i.i60 = trunc i64 %.fr31.i59 to i32
+  %.sroa.45.0.extract.shift.i.i.i61 = lshr i64 %.fr31.i59, 32
+  %121 = icmp ne i32 %.sroa.06.0.extract.trunc.i.i.i47, %.sroa.04.0.extract.trunc.i.i.i60
+  %122 = icmp ne i64 %.sroa.47.0.extract.shift.i.i.i48, %.sroa.45.0.extract.shift.i.i.i61
+  %.not3.i.i.i.i62 = or i1 %121, %122
+  br i1 %.not3.i.i.i.i62, label %123, label %125
 
 123:                                              ; preds = %118
-  %124 = icmp ult i32 %.sroa.06.0.extract.trunc.i.i.i45, %.sroa.04.0.extract.trunc.i.i.i56
-  br i1 %124, label %.thread.i55, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i"
+  %124 = icmp ult i32 %.sroa.06.0.extract.trunc.i.i.i47, %.sroa.04.0.extract.trunc.i.i.i60
+  br i1 %124, label %.thread.i58, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i"
 
 125:                                              ; preds = %118
   %126 = getelementptr inbounds nuw i8, ptr %113, i64 52
   %127 = load i32, ptr %126, align 4, !tbaa !76
-  %128 = icmp eq i32 %127, 5
-  %129 = shl nsw i32 %127, 1
+  %.fr29.i63 = freeze i32 %127
+  %128 = icmp eq i32 %.fr29.i63, 5
+  %129 = shl i32 %.fr29.i63, 1
   %130 = select i1 %128, i32 1, i32 %129
   %131 = icmp slt i32 %111, %130
-  %cond.fr1622.i59 = freeze i1 %131
-  br i1 %cond.fr1622.i59, label %.thread.i55, label %134
+  br i1 %131, label %.thread.i58, label %134
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i": ; preds = %123
-  %132 = icmp uge i32 %.sroa.04.0.extract.trunc.i.i.i56, %.sroa.06.0.extract.trunc.i.i.i45
-  %133 = icmp samesign ult i64 %.sroa.47.0.extract.shift.i.i.i46, %.sroa.45.0.extract.shift.i.i.i57
-  %spec.select.i.i.i60 = select i1 %132, i1 %133, i1 false
-  %cond.fr16.i61 = freeze i1 %spec.select.i.i.i60
-  br i1 %cond.fr16.i61, label %.thread.i55, label %134
+  %132 = icmp uge i32 %.sroa.04.0.extract.trunc.i.i.i60, %.sroa.06.0.extract.trunc.i.i.i47
+  %133 = icmp samesign ult i64 %.sroa.47.0.extract.shift.i.i.i48, %.sroa.45.0.extract.shift.i.i.i61
+  %spec.select.i.i.i64 = and i1 %132, %133
+  br i1 %spec.select.i.i.i64, label %.thread.i58, label %134
 
 134:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i", %125, %116
   %135 = getelementptr inbounds nuw i8, ptr %113, i64 56
-  %.pn.i54 = xor i64 %112, -1
-  %136 = add nsw i64 %.01126.i49, %.pn.i54
-  br label %.thread.i55
+  %.pn.i57 = xor i64 %112, -1
+  %136 = add nsw i64 %.01135.i52, %.pn.i57
+  br label %.thread.i58
 
-.thread.i55:                                      ; preds = %134, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i", %125, %123, %116
+.thread.i58:                                      ; preds = %134, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i", %125, %123, %116
   %137 = phi i64 [ %136, %134 ], [ %112, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i" ], [ %112, %116 ], [ %112, %125 ], [ %112, %123 ]
-  %138 = phi ptr [ %135, %134 ], [ %.027.i48, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i" ], [ %.027.i48, %116 ], [ %.027.i48, %125 ], [ %.027.i48, %123 ]
+  %138 = phi ptr [ %135, %134 ], [ %.036.i51, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i" ], [ %.036.i51, %116 ], [ %.036.i51, %125 ], [ %.036.i51, %123 ]
   %139 = icmp sgt i64 %137, 0
-  br i1 %139, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47, label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !110
+  br i1 %139, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i50, label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !110
 
-"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %.thread.i55
-  %.pre97 = ptrtoint ptr %138 to i64
+"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %.thread.i58
+  %.pre100 = ptrtoint ptr %138 to i64
   br label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42
-  %.pre-phi98 = phi i64 [ %.pre97, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %99, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42 ]
-  %.0.lcssa.i43 = phi ptr [ %138, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr88, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42 ]
-  %140 = sub i64 %.pre-phi98, %99
+  %.pre-phi101 = phi i64 [ %.pre100, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %99, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42 ]
+  %.0.lcssa.i43 = phi ptr [ %138, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr91, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42 ]
+  %140 = sub i64 %.pre-phi101, %99
   %141 = sdiv exact i64 %140, 56
   br label %142
 
 142:                                              ; preds = %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
-  %.074 = phi ptr [ %50, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %.0.lcssa.i43, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %.073 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %98, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.077 = phi ptr [ %50, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %.0.lcssa.i43, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.076 = phi ptr [ %.0.lcssa.i, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %98, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
   %.036 = phi i64 [ %96, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %97, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %49, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %141, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %143 = icmp eq ptr %.074, %.tr7889
+  %143 = icmp eq ptr %.077, %.tr8192
   br i1 %143, label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit, label %144
 
 144:                                              ; preds = %142
-  %145 = icmp eq ptr %.073, %.tr7889
+  %145 = icmp eq ptr %.076, %.tr8192
   br i1 %145, label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit, label %146
 
 146:                                              ; preds = %144
-  %147 = ptrtoint ptr %.073 to i64
-  %148 = ptrtoint ptr %.074 to i64
+  %147 = ptrtoint ptr %.076 to i64
+  %148 = ptrtoint ptr %.077 to i64
   %149 = sub i64 %147, %148
   %150 = sdiv exact i64 %149, 56
-  %151 = ptrtoint ptr %.tr7889 to i64
+  %151 = ptrtoint ptr %.tr8192 to i64
   %152 = sub i64 %151, %148
   %153 = sdiv exact i64 %152, 56
   %154 = sub nsw i64 %150, %153
@@ -2709,8 +2715,8 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
   br i1 %155, label %.lr.ph.i.i.i, label %158
 
 .lr.ph.i.i.i:                                     ; preds = %146, %.lr.ph.i.i.i
-  %.010.i.i.i = phi ptr [ %157, %.lr.ph.i.i.i ], [ %.tr7889, %146 ]
-  %.079.i.i.i = phi ptr [ %156, %.lr.ph.i.i.i ], [ %.074, %146 ]
+  %.010.i.i.i = phi ptr [ %157, %.lr.ph.i.i.i ], [ %.tr8192, %146 ]
+  %.079.i.i.i = phi ptr [ %156, %.lr.ph.i.i.i ], [ %.077, %146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(56) %.079.i.i.i, i64 56, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %.079.i.i.i, ptr noundef nonnull align 4 dereferenceable(56) %.010.i.i.i, i64 56, i1 false)
@@ -2718,18 +2724,18 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %156 = getelementptr inbounds nuw i8, ptr %.079.i.i.i, i64 56
   %157 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 56
-  %.not.i.i.i63 = icmp eq ptr %156, %.tr7889
-  br i1 %.not.i.i.i63, label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit, label %.lr.ph.i.i.i, !llvm.loop !111
+  %.not.i.i.i66 = icmp eq ptr %156, %.tr8192
+  br i1 %.not.i.i.i66, label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit, label %.lr.ph.i.i.i, !llvm.loop !111
 
 158:                                              ; preds = %146
   %159 = sub i64 %147, %151
-  %160 = getelementptr inbounds i8, ptr %.074, i64 %159
+  %160 = getelementptr inbounds i8, ptr %.077, i64 %159
   br label %161
 
 161:                                              ; preds = %.backedge, %158
   %.070.i.i = phi i64 [ %150, %158 ], [ %.070.i.i.be, %.backedge ]
   %.066.i.i = phi i64 [ %153, %158 ], [ %.066.i.i.be, %.backedge ]
-  %.042.i.i = phi ptr [ %.074, %158 ], [ %.042.i.i.be, %.backedge ]
+  %.042.i.i = phi ptr [ %.077, %158 ], [ %.042.i.i.be, %.backedge ]
   %162 = sub nsw i64 %.070.i.i, %.066.i.i
   %163 = icmp slt i64 %.066.i.i, %162
   br i1 %163, label %164, label %173
@@ -2777,8 +2783,8 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %173
   %.345.lcssa.i.i = phi ptr [ %176, %173 ], [ %.042.i.i, %.lr.ph.i.i ]
   %178 = srem i64 %.070.i.i, %162
-  %.not.i.i62 = icmp eq i64 %178, 0
-  br i1 %.not.i.i62, label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit, label %.backedge
+  %.not.i.i65 = icmp eq i64 %178, 0
+  br i1 %.not.i.i65, label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge.i.i, %171
   %.070.i.i.be = phi i64 [ %.066.i.i, %171 ], [ %162, %._crit_edge.i.i ]
@@ -2802,10 +2808,10 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !114
 
 _ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit: ; preds = %._crit_edge90.i.i, %._crit_edge.i.i, %.lr.ph.i.i.i, %142, %144
-  %.041.i.i = phi ptr [ %.073, %142 ], [ %.074, %144 ], [ %.tr7889, %.lr.ph.i.i.i ], [ %160, %._crit_edge.i.i ], [ %160, %._crit_edge90.i.i ]
-  tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20CounterMappingRegionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_SC_T0_SD_T1_"(ptr noundef %.tr88, ptr noundef %.074, ptr noundef %.041.i.i, i64 noundef %.0, i64 noundef %.036)
-  %182 = sub nsw i64 %.tr8090, %.0
-  %183 = sub nsw i64 %.tr8191, %.036
+  %.041.i.i = phi ptr [ %.076, %142 ], [ %.077, %144 ], [ %.tr8192, %.lr.ph.i.i.i ], [ %160, %._crit_edge.i.i ], [ %160, %._crit_edge90.i.i ]
+  tail call fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20CounterMappingRegionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_SC_T0_SD_T1_"(ptr noundef %.tr91, ptr noundef %.077, ptr noundef %.041.i.i, i64 noundef %.0, i64 noundef %.036)
+  %182 = sub nsw i64 %.tr8393, %.0
+  %183 = sub nsw i64 %.tr8494, %.036
   %184 = icmp eq i64 %182, 0
   %185 = icmp eq i64 %183, 0
   %or.cond = or i1 %184, %185
@@ -2817,10 +2823,10 @@ _ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm8coverage20CounterMappingRegionElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_SC_T0_SD_T1_SD_T2_"(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #2 {
-  %.not143 = icmp sgt i64 %3, %4
-  %.not70144 = icmp sgt i64 %3, %6
-  %or.cond145 = or i1 %.not70144, %.not143
-  br i1 %or.cond145, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not146 = icmp sgt i64 %3, %4
+  %.not70147 = icmp sgt i64 %3, %6
+  %or.cond148 = or i1 %.not70147, %.not146
+  br i1 %or.cond148, label %.lr.ph, label %tailrecurse._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %8 = ptrtoint ptr %2 to i64
@@ -2828,11 +2834,11 @@ define internal fastcc void @"_ZSt16__merge_adaptiveIPN4llvm8coverage20CounterMa
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
   %.tr.lcssa = phi ptr [ %0, %7 ], [ %204, %tailrecurse ]
-  %.tr130.lcssa = phi ptr [ %1, %7 ], [ %.0126, %tailrecurse ]
-  %9 = ptrtoint ptr %.tr130.lcssa to i64
+  %.tr133.lcssa = phi ptr [ %1, %7 ], [ %.0129, %tailrecurse ]
+  %9 = ptrtoint ptr %.tr133.lcssa to i64
   %10 = ptrtoint ptr %.tr.lcssa to i64
   %11 = sub i64 %9, %10
-  %.not.i.i.i.i.i = icmp eq ptr %.tr130.lcssa, %.tr.lcssa
+  %.not.i.i.i.i.i = icmp eq ptr %.tr133.lcssa, %.tr.lcssa
   br i1 %.not.i.i.i.i.i, label %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit, label %12
 
 12:                                               ; preds = %tailrecurse._crit_edge
@@ -2841,15 +2847,15 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 
 _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit: ; preds = %tailrecurse._crit_edge, %12
   %13 = getelementptr inbounds i8, ptr %5, i64 %11
-  %14 = icmp ne ptr %.tr130.lcssa, %.tr.lcssa
-  %15 = icmp ne ptr %.tr130.lcssa, %2
+  %14 = icmp ne ptr %.tr133.lcssa, %.tr.lcssa
+  %15 = icmp ne ptr %.tr133.lcssa, %2
   %16 = and i1 %14, %15
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit, %49
   %.025.i = phi ptr [ %50, %49 ], [ %.tr.lcssa, %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit ]
   %.01824.i = phi ptr [ %.1.i, %49 ], [ %5, %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit ]
-  %.01923.i = phi ptr [ %.120.i, %49 ], [ %.tr130.lcssa, %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit ]
+  %.01923.i = phi ptr [ %.120.i, %49 ], [ %.tr133.lcssa, %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 28
   %18 = load i32, ptr %17, align 4, !tbaa !65
   %19 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 28
@@ -2932,24 +2938,24 @@ _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit.i: ; preds
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm8coverage20CounterMappingRegionES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit"
 
 57:                                               ; preds = %.lr.ph, %tailrecurse
-  %.not150 = phi i1 [ %.not143, %.lr.ph ], [ %.not, %tailrecurse ]
-  %.tr133149 = phi i64 [ %4, %.lr.ph ], [ %205, %tailrecurse ]
-  %.tr132148 = phi i64 [ %3, %.lr.ph ], [ %203, %tailrecurse ]
-  %.tr130147 = phi ptr [ %1, %.lr.ph ], [ %.0126, %tailrecurse ]
-  %.tr146 = phi ptr [ %0, %.lr.ph ], [ %204, %tailrecurse ]
-  %.not71 = icmp sgt i64 %.tr133149, %6
+  %.not153 = phi i1 [ %.not146, %.lr.ph ], [ %.not, %tailrecurse ]
+  %.tr136152 = phi i64 [ %4, %.lr.ph ], [ %205, %tailrecurse ]
+  %.tr135151 = phi i64 [ %3, %.lr.ph ], [ %203, %tailrecurse ]
+  %.tr133150 = phi ptr [ %1, %.lr.ph ], [ %.0129, %tailrecurse ]
+  %.tr149 = phi ptr [ %0, %.lr.ph ], [ %204, %tailrecurse ]
+  %.not71 = icmp sgt i64 %.tr136152, %6
   br i1 %.not71, label %108, label %58
 
 58:                                               ; preds = %57
-  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr130147
+  %.not.i.i.i.i.i72 = icmp eq ptr %2, %.tr133150
   br i1 %.not.i.i.i.i.i72, label %"_ZSt21__move_merge_adaptiveIPN4llvm8coverage20CounterMappingRegionES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit", label %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit73.thread
 
 _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit73.thread: ; preds = %58
-  %59 = ptrtoint ptr %.tr130147 to i64
+  %59 = ptrtoint ptr %.tr133150 to i64
   %60 = sub i64 %8, %59
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr130147, i64 %60, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %5, ptr align 4 %.tr133150, i64 %60, i1 false)
   %61 = getelementptr inbounds i8, ptr %5, i64 %60
-  %62 = icmp eq ptr %.tr146, %.tr130147
+  %62 = icmp eq ptr %.tr149, %.tr133150
   br i1 %62, label %_ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit.sink.split.i, label %63
 
 63:                                               ; preds = %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit73.thread
@@ -2957,7 +2963,7 @@ _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit73.thread: 
   br label %.outer
 
 .outer:                                           ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76", %63
-  %.026.i.ph.pn = phi ptr [ %.tr130147, %63 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76" ]
+  %.026.i.ph.pn = phi ptr [ %.tr133150, %63 ], [ %.026.i.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76" ]
   %.024.i.ph = phi ptr [ %64, %63 ], [ %.024.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76" ]
   %.0.i.ph = phi ptr [ %2, %63 ], [ %95, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76" ]
   %.026.i.ph = getelementptr inbounds i8, ptr %.026.i.ph.pn, i64 -56
@@ -3018,7 +3024,7 @@ _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit73.thread: 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.i82", %82, %80, %72
   %95 = getelementptr inbounds i8, ptr %.0.i, i64 -56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %95, ptr noundef nonnull align 4 dereferenceable(56) %.026.i.ph, i64 56, i1 false)
-  %96 = icmp eq ptr %.tr146, %.026.i.ph
+  %96 = icmp eq ptr %.tr149, %.026.i.ph
   br i1 %96, label %97, label %.outer, !llvm.loop !116
 
 97:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionESB_EEbT_T0_.exit.thread.i76"
@@ -3048,12 +3054,12 @@ _ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit.
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm8coverage20CounterMappingRegionES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit"
 
 108:                                              ; preds = %57
-  %109 = ptrtoint ptr %.tr130147 to i64
-  br i1 %.not150, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96
+  %109 = ptrtoint ptr %.tr133150 to i64
+  br i1 %.not153, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit: ; preds = %108
-  %110 = sdiv i64 %.tr132148, 2
-  %111 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr146, i64 %110
+  %110 = sdiv i64 %.tr135151, 2
+  %111 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr149, i64 %110
   %112 = sub i64 %8, %109
   %113 = icmp sgt i64 %112, 0
   br i1 %113, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
@@ -3062,37 +3068,41 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i: ; pr
   %114 = udiv exact i64 %112, 56
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 28
   %116 = load i32, ptr %115, align 4, !tbaa !65
+  %.fr26.i = freeze i32 %116
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 36
   %118 = load i64, ptr %117, align 4
-  %.sroa.04.0.extract.trunc.i.i.i86 = trunc i64 %118 to i32
-  %.sroa.45.0.extract.shift.i.i.i87 = lshr i64 %118, 32
+  %.fr31.i = freeze i64 %118
+  %.sroa.04.0.extract.trunc.i.i.i86 = trunc i64 %.fr31.i to i32
+  %.sroa.45.0.extract.shift.i.i.i87 = lshr i64 %.fr31.i, 32
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 52
   %120 = load i32, ptr %119, align 4
-  %121 = icmp eq i32 %120, 5
-  %122 = shl nsw i32 %120, 1
+  %.fr29.i = freeze i32 %120
+  %121 = icmp eq i32 %.fr29.i, 5
+  %122 = shl i32 %.fr29.i, 1
   %123 = select i1 %121, i32 1, i32 %122
   br label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = %152, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i
-  %.027.i = phi ptr [ %.tr130147, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %154, %152 ]
-  %.01126.i = phi i64 [ %114, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %153, %152 ]
-  %124 = lshr i64 %.01126.i, 1
-  %125 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i, i64 %124
+  %.036.i = phi ptr [ %.tr133150, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %154, %152 ]
+  %.01135.i = phi i64 [ %114, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %153, %152 ]
+  %124 = lshr i64 %.01135.i, 1
+  %125 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.036.i, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %127 = load i32, ptr %126, align 4, !tbaa !65
-  %.not.i.i.i88 = icmp eq i32 %127, %116
+  %.fr.i = freeze i32 %127
+  %.not.i.i.i88 = icmp eq i32 %.fr.i, %.fr26.i
   br i1 %.not.i.i.i88, label %130, label %128
 
 128:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i
-  %129 = icmp ult i32 %127, %116
-  %cond.fr1621.i = freeze i1 %129
-  br i1 %cond.fr1621.i, label %149, label %152
+  %129 = icmp ult i32 %.fr.i, %.fr26.i
+  br i1 %129, label %149, label %152
 
 130:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 36
   %132 = load i64, ptr %131, align 4
-  %.sroa.06.0.extract.trunc.i.i.i89 = trunc i64 %132 to i32
-  %.sroa.47.0.extract.shift.i.i.i90 = lshr i64 %132, 32
+  %.fr32.i = freeze i64 %132
+  %.sroa.06.0.extract.trunc.i.i.i89 = trunc i64 %.fr32.i to i32
+  %.sroa.47.0.extract.shift.i.i.i90 = lshr i64 %.fr32.i, 32
   %133 = icmp ne i32 %.sroa.06.0.extract.trunc.i.i.i89, %.sroa.04.0.extract.trunc.i.i.i86
   %134 = icmp ne i64 %.sroa.47.0.extract.shift.i.i.i90, %.sroa.45.0.extract.shift.i.i.i87
   %.not3.i.i.i.i91 = or i1 %133, %134
@@ -3105,35 +3115,34 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
 .thread.i:                                        ; preds = %135
   %137 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %138 = xor i64 %124, -1
-  %139 = add nsw i64 %.01126.i, %138
+  %139 = add nsw i64 %.01135.i, %138
   br label %152
 
 140:                                              ; preds = %130
   %141 = getelementptr inbounds nuw i8, ptr %125, i64 52
   %142 = load i32, ptr %141, align 4, !tbaa !76
-  %143 = icmp eq i32 %142, 5
-  %144 = shl nsw i32 %142, 1
+  %.fr27.i = freeze i32 %142
+  %143 = icmp eq i32 %.fr27.i, 5
+  %144 = shl i32 %.fr27.i, 1
   %145 = select i1 %143, i32 1, i32 %144
   %146 = icmp slt i32 %145, %123
-  %cond.fr1622.i = freeze i1 %146
-  br i1 %cond.fr1622.i, label %149, label %152
+  br i1 %146, label %149, label %152
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i": ; preds = %135
   %147 = icmp uge i32 %.sroa.04.0.extract.trunc.i.i.i86, %.sroa.06.0.extract.trunc.i.i.i89
   %148 = icmp samesign ult i64 %.sroa.47.0.extract.shift.i.i.i90, %.sroa.45.0.extract.shift.i.i.i87
-  %spec.select.i.i.i92 = select i1 %147, i1 %148, i1 false
-  %cond.fr16.i = freeze i1 %spec.select.i.i.i92
-  br i1 %cond.fr16.i, label %149, label %152
+  %spec.select.i.i.i92 = and i1 %147, %148
+  br i1 %spec.select.i.i.i92, label %149, label %152
 
 149:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i", %140, %128
   %150 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %.pn.i = xor i64 %124, -1
-  %151 = add nsw i64 %.01126.i, %.pn.i
+  %151 = add nsw i64 %.01135.i, %.pn.i
   br label %152
 
 152:                                              ; preds = %149, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i", %140, %.thread.i, %128
   %153 = phi i64 [ %124, %140 ], [ %124, %128 ], [ %124, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i" ], [ %151, %149 ], [ %139, %.thread.i ]
-  %154 = phi ptr [ %.027.i, %140 ], [ %.027.i, %128 ], [ %.027.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i" ], [ %150, %149 ], [ %137, %.thread.i ]
+  %154 = phi ptr [ %.036.i, %140 ], [ %.036.i, %128 ], [ %.036.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIPNS3_20CounterMappingRegionEKSA_EEbT_RT0_.exit.i" ], [ %150, %149 ], [ %137, %.thread.i ]
   %155 = icmp sgt i64 %153, 0
   br i1 %155, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i, label %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !109
 
@@ -3143,15 +3152,15 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
 
 "_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit
   %.pre-phi = phi i64 [ %.pre, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %109, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit ]
-  %.0.lcssa.i85 = phi ptr [ %154, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr130147, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit ]
+  %.0.lcssa.i85 = phi ptr [ %154, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr133150, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit ]
   %156 = sub i64 %.pre-phi, %109
   %157 = sdiv exact i64 %156, 56
   br label %tailrecurse
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96: ; preds = %108
-  %158 = sdiv i64 %.tr133149, 2
-  %159 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr130147, i64 %158
-  %160 = ptrtoint ptr %.tr146 to i64
+  %158 = sdiv i64 %.tr136152, 2
+  %159 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr133150, i64 %158
+  %160 = ptrtoint ptr %.tr149 to i64
   %161 = sub i64 %109, %160
   %162 = icmp sgt i64 %161, 0
   br i1 %162, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99, label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
@@ -3160,95 +3169,98 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99: ; 
   %163 = udiv exact i64 %161, 56
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 28
   %165 = load i32, ptr %164, align 4, !tbaa !65
+  %.fr.i100 = freeze i32 %165
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 36
   %167 = load i64, ptr %166, align 4
-  %.sroa.06.0.extract.trunc.i.i.i100 = trunc i64 %167 to i32
-  %.sroa.47.0.extract.shift.i.i.i101 = lshr i64 %167, 32
+  %.fr32.i101 = freeze i64 %167
+  %.sroa.06.0.extract.trunc.i.i.i102 = trunc i64 %.fr32.i101 to i32
+  %.sroa.47.0.extract.shift.i.i.i103 = lshr i64 %.fr32.i101, 32
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 52
   %169 = load i32, ptr %168, align 4
-  %170 = icmp eq i32 %169, 5
-  %171 = shl nsw i32 %169, 1
+  %.fr27.i104 = freeze i32 %169
+  %170 = icmp eq i32 %.fr27.i104, 5
+  %171 = shl i32 %.fr27.i104, 1
   %172 = select i1 %170, i32 1, i32 %171
-  br label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i102
+  br label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i105
 
-_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i102: ; preds = %.thread.i110, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99
-  %.027.i103 = phi ptr [ %.tr146, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99 ], [ %199, %.thread.i110 ]
-  %.01126.i104 = phi i64 [ %163, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99 ], [ %198, %.thread.i110 ]
-  %173 = lshr i64 %.01126.i104, 1
-  %174 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i103, i64 %173
+_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i105: ; preds = %.thread.i113, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99
+  %.036.i106 = phi ptr [ %.tr149, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99 ], [ %199, %.thread.i113 ]
+  %.01135.i107 = phi i64 [ %163, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99 ], [ %198, %.thread.i113 ]
+  %173 = lshr i64 %.01135.i107, 1
+  %174 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.036.i106, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 28
   %176 = load i32, ptr %175, align 4, !tbaa !65
-  %.not.i.i.i107 = icmp eq i32 %165, %176
-  br i1 %.not.i.i.i107, label %179, label %177
+  %.fr26.i110 = freeze i32 %176
+  %.not.i.i.i111 = icmp eq i32 %.fr.i100, %.fr26.i110
+  br i1 %.not.i.i.i111, label %179, label %177
 
-177:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i102
-  %178 = icmp ult i32 %165, %176
-  %cond.fr1621.i108 = freeze i1 %178
-  br i1 %cond.fr1621.i108, label %.thread.i110, label %195
+177:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i105
+  %178 = icmp ult i32 %.fr.i100, %.fr26.i110
+  br i1 %178, label %.thread.i113, label %195
 
-179:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i102
+179:                                              ; preds = %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i105
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 36
   %181 = load i64, ptr %180, align 4
-  %.sroa.04.0.extract.trunc.i.i.i111 = trunc i64 %181 to i32
-  %.sroa.45.0.extract.shift.i.i.i112 = lshr i64 %181, 32
-  %182 = icmp ne i32 %.sroa.06.0.extract.trunc.i.i.i100, %.sroa.04.0.extract.trunc.i.i.i111
-  %183 = icmp ne i64 %.sroa.47.0.extract.shift.i.i.i101, %.sroa.45.0.extract.shift.i.i.i112
-  %.not3.i.i.i.i113 = or i1 %182, %183
-  br i1 %.not3.i.i.i.i113, label %184, label %186
+  %.fr31.i114 = freeze i64 %181
+  %.sroa.04.0.extract.trunc.i.i.i115 = trunc i64 %.fr31.i114 to i32
+  %.sroa.45.0.extract.shift.i.i.i116 = lshr i64 %.fr31.i114, 32
+  %182 = icmp ne i32 %.sroa.06.0.extract.trunc.i.i.i102, %.sroa.04.0.extract.trunc.i.i.i115
+  %183 = icmp ne i64 %.sroa.47.0.extract.shift.i.i.i103, %.sroa.45.0.extract.shift.i.i.i116
+  %.not3.i.i.i.i117 = or i1 %182, %183
+  br i1 %.not3.i.i.i.i117, label %184, label %186
 
 184:                                              ; preds = %179
-  %185 = icmp ult i32 %.sroa.06.0.extract.trunc.i.i.i100, %.sroa.04.0.extract.trunc.i.i.i111
-  br i1 %185, label %.thread.i110, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i"
+  %185 = icmp ult i32 %.sroa.06.0.extract.trunc.i.i.i102, %.sroa.04.0.extract.trunc.i.i.i115
+  br i1 %185, label %.thread.i113, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i"
 
 186:                                              ; preds = %179
   %187 = getelementptr inbounds nuw i8, ptr %174, i64 52
   %188 = load i32, ptr %187, align 4, !tbaa !76
-  %189 = icmp eq i32 %188, 5
-  %190 = shl nsw i32 %188, 1
+  %.fr29.i118 = freeze i32 %188
+  %189 = icmp eq i32 %.fr29.i118, 5
+  %190 = shl i32 %.fr29.i118, 1
   %191 = select i1 %189, i32 1, i32 %190
   %192 = icmp slt i32 %172, %191
-  %cond.fr1622.i114 = freeze i1 %192
-  br i1 %cond.fr1622.i114, label %.thread.i110, label %195
+  br i1 %192, label %.thread.i113, label %195
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i": ; preds = %184
-  %193 = icmp uge i32 %.sroa.04.0.extract.trunc.i.i.i111, %.sroa.06.0.extract.trunc.i.i.i100
-  %194 = icmp samesign ult i64 %.sroa.47.0.extract.shift.i.i.i101, %.sroa.45.0.extract.shift.i.i.i112
-  %spec.select.i.i.i115 = select i1 %193, i1 %194, i1 false
-  %cond.fr16.i116 = freeze i1 %spec.select.i.i.i115
-  br i1 %cond.fr16.i116, label %.thread.i110, label %195
+  %193 = icmp uge i32 %.sroa.04.0.extract.trunc.i.i.i115, %.sroa.06.0.extract.trunc.i.i.i102
+  %194 = icmp samesign ult i64 %.sroa.47.0.extract.shift.i.i.i103, %.sroa.45.0.extract.shift.i.i.i116
+  %spec.select.i.i.i119 = and i1 %193, %194
+  br i1 %spec.select.i.i.i119, label %.thread.i113, label %195
 
 195:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i", %186, %177
   %196 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %.pn.i109 = xor i64 %173, -1
-  %197 = add nsw i64 %.01126.i104, %.pn.i109
-  br label %.thread.i110
+  %.pn.i112 = xor i64 %173, -1
+  %197 = add nsw i64 %.01135.i107, %.pn.i112
+  br label %.thread.i113
 
-.thread.i110:                                     ; preds = %195, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i", %186, %184, %177
+.thread.i113:                                     ; preds = %195, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i", %186, %184, %177
   %198 = phi i64 [ %197, %195 ], [ %173, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i" ], [ %173, %177 ], [ %173, %186 ], [ %173, %184 ]
-  %199 = phi ptr [ %196, %195 ], [ %.027.i103, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i" ], [ %.027.i103, %177 ], [ %.027.i103, %186 ], [ %.027.i103, %184 ]
+  %199 = phi ptr [ %196, %195 ], [ %.036.i106, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4llvm8coverage21CoverageMappingWriter5writeERNS2_11raw_ostreamEE3$_0EclIKNS3_20CounterMappingRegionEPSA_EEbRT_T0_.exit.i" ], [ %.036.i106, %177 ], [ %.036.i106, %186 ], [ %.036.i106, %184 ]
   %200 = icmp sgt i64 %198, 0
-  br i1 %200, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i102, label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !110
+  br i1 %200, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i105, label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", !llvm.loop !110
 
-"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %.thread.i110
-  %.pre160 = ptrtoint ptr %199 to i64
+"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit": ; preds = %.thread.i113
+  %.pre163 = ptrtoint ptr %199 to i64
   br label %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
 
 "_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit": ; preds = %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit", %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96
-  %.pre-phi161 = phi i64 [ %.pre160, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %160, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96 ]
-  %.0.lcssa.i98 = phi ptr [ %199, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr146, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96 ]
-  %201 = sub i64 %.pre-phi161, %160
+  %.pre-phi164 = phi i64 [ %.pre163, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %160, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96 ]
+  %.0.lcssa.i98 = phi ptr [ %199, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit.loopexit" ], [ %.tr149, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96 ]
+  %201 = sub i64 %.pre-phi164, %160
   %202 = sdiv exact i64 %201, 56
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit", %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
-  %.0127 = phi ptr [ %111, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %.0.lcssa.i98, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %.0126 = phi ptr [ %.0.lcssa.i85, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %159, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.0130 = phi ptr [ %111, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %.0.lcssa.i98, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
+  %.0129 = phi ptr [ %.0.lcssa.i85, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %159, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
   %.066 = phi i64 [ %157, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %158, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
   %.0 = phi i64 [ %110, %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ], [ %202, %"_ZSt13__upper_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Val_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit" ]
-  %203 = sub nsw i64 %.tr132148, %.0
-  %204 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm8coverage20CounterMappingRegionES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0127, ptr noundef %.tr130147, ptr noundef %.0126, i64 noundef %203, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm8coverage20CounterMappingRegionElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_SC_T0_SD_T1_SD_T2_"(ptr noundef %.tr146, ptr noundef %.0127, ptr noundef %204, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
-  %205 = sub nsw i64 %.tr133149, %.066
+  %203 = sub nsw i64 %.tr135151, %.0
+  %204 = tail call noundef ptr @_ZSt17__rotate_adaptiveIPN4llvm8coverage20CounterMappingRegionES3_lET_S4_S4_S4_T1_S5_T0_S5_(ptr noundef %.0130, ptr noundef %.tr133150, ptr noundef %.0129, i64 noundef %203, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  tail call fastcc void @"_ZSt16__merge_adaptiveIPN4llvm8coverage20CounterMappingRegionElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_SC_T0_SD_T1_SD_T2_"(ptr noundef %.tr149, ptr noundef %.0130, ptr noundef %204, i64 noundef %.0, i64 noundef %.066, ptr noundef %5, i64 noundef %6)
+  %205 = sub nsw i64 %.tr136152, %.066
   %.not = icmp sgt i64 %203, %205
   %.not70 = icmp sgt i64 %203, %6
   %or.cond = or i1 %.not70, %.not

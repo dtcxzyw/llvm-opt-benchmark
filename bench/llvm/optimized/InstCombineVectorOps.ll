@@ -3412,9 +3412,9 @@ define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr d
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %13, %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.018.036 = load ptr, ptr %15, align 8, !tbaa !11
-  %.not37 = icmp eq ptr %.sroa.018.036, null
-  br i1 %.not37, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %.lr.ph
+  %.sroa.018.038 = load ptr, ptr %15, align 8, !tbaa !11
+  %.not39 = icmp eq ptr %.sroa.018.038, null
+  br i1 %.not39, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3423,8 +3423,8 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %13, %14
   br label %19
 
 19:                                               ; preds = %.lr.ph, %179
-  %.sroa.018.038 = phi ptr [ %.sroa.018.036, %.lr.ph ], [ %.sroa.018.0, %179 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 24
+  %.sroa.018.040 = phi ptr [ %.sroa.018.038, %.lr.ph ], [ %.sroa.018.0, %179 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.018.040, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !13
   %22 = load i8, ptr %21, align 8, !tbaa !18
   %23 = icmp ult i8 %22, 29
@@ -3588,8 +3588,8 @@ _ZN4llvm5APIntD2Ev.exit46.i:                      ; preds = %91, %88, %_ZN4llvm5
   %92 = load i64, ptr %4, align 8, !noalias !204
   store i64 %92, ptr %5, align 8, !alias.scope !204
   %93 = load i32, ptr %17, align 8, !tbaa !118, !noalias !204
-  %.fr41 = freeze i32 %93
-  store i32 %.fr41, ptr %16, align 8, !tbaa !118, !alias.scope !204
+  %.fr43 = freeze i32 %93
+  store i32 %.fr43, ptr %16, align 8, !tbaa !118, !alias.scope !204
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !204
   %.not52.i = icmp eq i32 %83, 0
   br i1 %.not52.i, label %_ZL28findDemandedEltsBySingleUserPN4llvm5ValueEPNS_11InstructionE.exit, label %.lr.ph.i
@@ -3601,7 +3601,7 @@ _ZN4llvm5APIntD2Ev.exit46.i:                      ; preds = %91, %88, %_ZN4llvm5
   %97 = getelementptr inbounds i8, ptr %21, i64 -64
   %98 = getelementptr inbounds i8, ptr %21, i64 -32
   %wide.trip.count.i = zext i32 %83 to i64
-  %99 = icmp ult i32 %.fr41, 65
+  %99 = icmp ult i32 %.fr43, 65
   br i1 %99, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvm5APInt6setBitEj.exit47.i.us
@@ -3669,12 +3669,12 @@ _ZN4llvm5APInt6setBitEj.exit.i:                   ; preds = %118
   br label %_ZN4llvm5APInt6setBitEj.exit47.i.sink.split
 
 _ZN4llvm5APInt6setBitEj.exit47.i.sink.split:      ; preds = %118, %124
-  %.sink66 = phi i32 [ %125, %124 ], [ %117, %118 ]
-  %126 = and i32 %.sink66, 63
+  %.sink68 = phi i32 [ %125, %124 ], [ %117, %118 ]
+  %126 = and i32 %.sink68, 63
   %127 = zext nneg i32 %126 to i64
   %128 = shl nuw i64 1, %127
   %129 = load ptr, ptr %5, align 8, !tbaa !52, !alias.scope !204
-  %130 = lshr i32 %.sink66, 6
+  %130 = lshr i32 %.sink68, 6
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw i64, ptr %129, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !184
@@ -3776,9 +3776,10 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %150, %157
   %173 = sub nuw nsw i32 64, %.fr
   %174 = zext nneg i32 %173 to i64
   %175 = lshr i64 -1, %174
-  %176 = icmp eq i64 %172, %175
-  %cond.fr30 = freeze i1 %176
-  br i1 %cond.fr30, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %179
+  %.fr35 = freeze i64 %172
+  %.fr36 = freeze i64 %175
+  %176 = icmp eq i64 %.fr35, %.fr36
+  br i1 %176, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %179
 
 _ZNK4llvm5APInt9isAllOnesEv.exit:                 ; preds = %169
   %177 = call noundef i32 @_ZNK4llvm5APInt25countTrailingOnesSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #18
@@ -3786,7 +3787,7 @@ _ZNK4llvm5APInt9isAllOnesEv.exit:                 ; preds = %169
   br i1 %178, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %179
 
 179:                                              ; preds = %_ZNK4llvm5APInt9isAllOnesEv.exit, %171
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.018.038, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.018.040, i64 8
   %.sroa.018.0 = load ptr, ptr %180, align 8, !tbaa !11
   %.not = icmp eq ptr %.sroa.018.0, null
   br i1 %.not, label %_ZNK4llvm5APInt9isAllOnesEv.exit.thread, label %19

@@ -1943,8 +1943,10 @@ select.unfold158:                                 ; preds = %86
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZNSt3_V28__rotateIN3tbb6detail2d115vector_iteratorINS3_17concurrent_vectorIPN4mold11TimerRecordENS3_23cache_aligned_allocatorIS8_EEEES8_EEEET_SD_SD_SD_St26random_access_iterator_tag(ptr dead_on_unwind noalias writable sret(%"class.tbb::detail::d1::vector_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 comdat {
   %5 = load ptr, ptr %1, align 8, !tbaa !127
+  %.fr215 = freeze ptr %5
   %6 = load ptr, ptr %2, align 8, !tbaa !127
-  %7 = icmp eq ptr %5, %6
+  %.fr216 = freeze ptr %6
+  %7 = icmp eq ptr %.fr215, %.fr216
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1967,7 +1969,7 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateIN3tbb6detail2d115vector_i
   br label %.critedge
 
 22:                                               ; preds = %4
-  %23 = icmp eq ptr %14, %6
+  %23 = icmp eq ptr %14, %.fr216
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, %11
@@ -1975,7 +1977,7 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateIN3tbb6detail2d115vector_i
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %22
-  store ptr %5, ptr %0, align 8, !tbaa !127
+  store ptr %.fr215, ptr %0, align 8, !tbaa !127
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %9, ptr %29, align 8, !tbaa !130
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1993,23 +1995,22 @@ define linkonce_odr dso_local void @_ZNSt3_V28__rotateIN3tbb6detail2d115vector_i
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %40 = icmp ne ptr %5, %6
-  %.fr = freeze i1 %40
+  %40 = icmp ne ptr %.fr215, %.fr216
   %41 = icmp ne i64 %9, %11
-  %.not3.i8.i = select i1 %.fr, i1 true, i1 %41
-  %.pre227 = load ptr, ptr %39, align 8, !tbaa !131
+  %.not3.i8.i = select i1 %40, i1 true, i1 %41
+  %.pre229 = load ptr, ptr %39, align 8, !tbaa !131
   br i1 %.not3.i8.i, label %.lr.ph.i.preheader, label %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit
 
 .lr.ph.i.preheader:                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !131
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br i1 %.fr, label %.lr.ph.i.us, label %.lr.ph.i
+  %44 = getelementptr inbounds nuw i8, ptr %.fr215, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.fr216, i64 16
+  br i1 %40, label %.lr.ph.i.us, label %.lr.ph.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us
   %.sroa.3156.0.us = phi i64 [ %72, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us ], [ %11, %.lr.ph.i.preheader ]
-  %.sroa.8.0.us = phi ptr [ %.sroa.8.1.us, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us ], [ %.pre227, %.lr.ph.i.preheader ]
+  %.sroa.8.0.us = phi ptr [ %.sroa.8.1.us, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us ], [ %.pre229, %.lr.ph.i.preheader ]
   %.sroa.3166.0.us = phi i64 [ %66, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us ], [ %9, %.lr.ph.i.preheader ]
   %.sroa.8169.0.us = phi ptr [ %.sroa.8169.0.us.be, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i.us ], [ %43, %.lr.ph.i.preheader ]
   %46 = icmp eq ptr %.sroa.8169.0.us, null
@@ -2068,7 +2069,7 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i
   %.sroa.3156.0 = phi i64 [ %104, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i ], [ %11, %.lr.ph.i.preheader ]
-  %.sroa.8.0 = phi ptr [ %.sroa.8.1, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i ], [ %.pre227, %.lr.ph.i.preheader ]
+  %.sroa.8.0 = phi ptr [ %.sroa.8.1, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i ], [ %.pre229, %.lr.ph.i.preheader ]
   %.sroa.3166.0 = phi i64 [ %98, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i ], [ %9, %.lr.ph.i.preheader ]
   %.sroa.8169.0 = phi ptr [ %.sroa.8169.1, %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i ], [ %43, %.lr.ph.i.preheader ]
   %78 = icmp eq ptr %.sroa.8169.0, null
@@ -2123,19 +2124,19 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 8
   %109 = select i1 %87, i1 true, i1 %107
   %.sroa.8.1 = select i1 %109, ptr null, ptr %108
-  %.not215 = icmp eq i64 %98, %11
-  br i1 %.not215, label %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, label %.lr.ph.i, !llvm.loop !168
+  %.not217 = icmp eq i64 %98, %11
+  br i1 %.not217, label %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, label %.lr.ph.i, !llvm.loop !168
 
 _ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit: ; preds = %_ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_EvT_T0_.exit.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !127
-  %.pre225 = load i64, ptr %10, align 8, !tbaa !130
-  %.pre226 = load ptr, ptr %39, align 8, !tbaa !131
+  %.pre227 = load i64, ptr %10, align 8, !tbaa !130
+  %.pre228 = load ptr, ptr %39, align 8, !tbaa !131
   br label %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit
 
 _ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit: ; preds = %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit, %38
-  %110 = phi ptr [ %.pre226, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %.pre227, %38 ]
-  %111 = phi i64 [ %.pre225, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %9, %38 ]
-  %112 = phi ptr [ %.pre, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %6, %38 ]
+  %110 = phi ptr [ %.pre228, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %.pre229, %38 ]
+  %111 = phi i64 [ %.pre227, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %9, %38 ]
+  %112 = phi ptr [ %.pre, %_ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold11TimerRecordENS2_23cache_aligned_allocatorIS7_EEEES7_EESB_ET0_T_SD_SC_.exit.loopexit ], [ %.fr216, %38 ]
   store ptr %112, ptr %0, align 8, !tbaa !127
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %111, ptr %113, align 8, !tbaa !130
@@ -2148,12 +2149,12 @@ _ZSt11swap_rangesIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mo
   %117 = load ptr, ptr %116, align 8, !tbaa !131
   %118 = sub i64 %9, %11
   %119 = add i64 %118, %25
-  store ptr %5, ptr %0, align 8, !tbaa !127, !alias.scope !169
+  store ptr %.fr215, ptr %0, align 8, !tbaa !127, !alias.scope !169
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %119, ptr %120, align 8, !tbaa !130, !alias.scope !169
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %121, align 8, !tbaa !131, !alias.scope !169
-  %122 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.fr215, i64 16
   br label %123
 
 123:                                              ; preds = %.backedge, %115
@@ -2311,8 +2312,8 @@ _ZSt9iter_swapIN3tbb6detail2d115vector_iteratorINS2_17concurrent_vectorIPN4mold1
   %.sroa.38.4 = select i1 %202, ptr null, ptr %201
   %203 = add i64 %.sroa.5.0206, 1
   %204 = add nuw nsw i64 %.09210, 1
-  %exitcond224.not = icmp eq i64 %204, %124
-  br i1 %exitcond224.not, label %._crit_edge212, label %.lr.ph, !llvm.loop !184
+  %exitcond226.not = icmp eq i64 %204, %124
+  br i1 %exitcond226.not, label %._crit_edge212, label %.lr.ph, !llvm.loop !184
 
 205:                                              ; preds = %._crit_edge212
   %206 = sub nsw i64 %.0192, %178

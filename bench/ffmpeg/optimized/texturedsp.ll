@@ -1059,6 +1059,8 @@ define internal fastcc void @dxt5_block_internal(ptr noundef writeonly captures(
   br i1 %17, label %16, label %decompress_indices.exit, !llvm.loop !73
 
 decompress_indices.exit:                          ; preds = %32
+  %.fr63 = freeze i8 %12
+  %.fr64 = freeze i8 %14
   %35 = zext i16 %7 to i32
   %36 = lshr i32 %35, 11
   %37 = mul nuw nsw i32 %36, 255
@@ -1156,23 +1158,22 @@ decompress_indices.exit:                          ; preds = %32
   %114 = or disjoint i32 %113, %107
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %114, ptr %115, align 4, !tbaa !67
-  %116 = zext i8 %12 to i32
-  %117 = zext i8 %14 to i32
-  %118 = icmp ugt i8 %12, %14
-  %.fr = freeze i1 %118
-  br i1 %.fr, label %.preheader.us, label %.preheader
+  %116 = zext i8 %.fr63 to i32
+  %117 = zext i8 %.fr64 to i32
+  %118 = icmp ugt i8 %.fr63, %.fr64
+  br i1 %118, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %decompress_indices.exit, %.split.us.us
-  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.split.us.us ], [ 0, %decompress_indices.exit ]
+  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %.split.us.us ], [ 0, %decompress_indices.exit ]
   %.03760.us = phi ptr [ %143, %.split.us.us ], [ %0, %decompress_indices.exit ]
   %.04058.us = phi i32 [ %140, %.split.us.us ], [ %11, %decompress_indices.exit ]
-  %119 = shl nuw nsw i64 %indvars.iv74, 2
+  %119 = shl nuw nsw i64 %indvars.iv76, 2
   br label %120
 
 120:                                              ; preds = %133, %.preheader.us
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %133 ], [ 0, %.preheader.us ]
+  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %133 ], [ 0, %.preheader.us ]
   %.156.us.us = phi i32 [ %140, %133 ], [ %.04058.us, %.preheader.us ]
-  %121 = add nuw nsw i64 %indvars.iv70, %119
+  %121 = add nuw nsw i64 %indvars.iv72, %119
   %122 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !23
   switch i8 %123, label %125 [
@@ -1203,24 +1204,24 @@ decompress_indices.exit:                          ; preds = %32
   %138 = shl nuw i32 %.pre-phi, 24
   %139 = or i32 %138, %137
   %140 = lshr i32 %.156.us.us, 2
-  %141 = shl nuw nsw i64 %indvars.iv70, 2
+  %141 = shl nuw nsw i64 %indvars.iv72, 2
   %142 = getelementptr inbounds nuw i8, ptr %.03760.us, i64 %141
   store i32 %139, ptr %142, align 1, !tbaa !23
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.split.us.us, label %120, !llvm.loop !74
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next73, 4
+  br i1 %exitcond75.not, label %.split.us.us, label %120, !llvm.loop !74
 
 .split.us.us:                                     ; preds = %133
   %143 = getelementptr inbounds i8, ptr %.03760.us, i64 %1
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond77.not = icmp eq i64 %indvars.iv.next75, 4
-  br i1 %exitcond77.not, label %.split62.us, label %.preheader.us, !llvm.loop !75
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond79.not = icmp eq i64 %indvars.iv.next77, 4
+  br i1 %exitcond79.not, label %.split62.us, label %.preheader.us, !llvm.loop !75
 
 .preheader:                                       ; preds = %decompress_indices.exit, %.split
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.split ], [ 0, %decompress_indices.exit ]
+  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.split ], [ 0, %decompress_indices.exit ]
   %.03760 = phi ptr [ %171, %.split ], [ %0, %decompress_indices.exit ]
   %.04058 = phi i32 [ %168, %.split ], [ %11, %decompress_indices.exit ]
-  %144 = shl nuw nsw i64 %indvars.iv66, 2
+  %144 = shl nuw nsw i64 %indvars.iv68, 2
   br label %145
 
 145:                                              ; preds = %.preheader, %160
@@ -1257,7 +1258,7 @@ decompress_indices.exit:                          ; preds = %32
   br label %160
 
 160:                                              ; preds = %145, %.fold.split, %149, %151, %150
-  %.0 = phi i8 [ %14, %149 ], [ -1, %150 ], [ %159, %151 ], [ %12, %145 ], [ 0, %.fold.split ]
+  %.0 = phi i8 [ %.fr64, %149 ], [ -1, %150 ], [ %159, %151 ], [ %.fr63, %145 ], [ 0, %.fold.split ]
   %161 = and i32 %.156, 3
   %162 = zext nneg i32 %161 to i64
   %163 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %162
@@ -1275,9 +1276,9 @@ decompress_indices.exit:                          ; preds = %32
 
 .split:                                           ; preds = %160
   %171 = getelementptr inbounds i8, ptr %.03760, i64 %1
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %.split62.us, label %.preheader, !llvm.loop !75
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
+  %exitcond71.not = icmp eq i64 %indvars.iv.next69, 4
+  br i1 %exitcond71.not, label %.split62.us, label %.preheader, !llvm.loop !75
 
 .split62.us:                                      ; preds = %.split, %.split.us.us
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

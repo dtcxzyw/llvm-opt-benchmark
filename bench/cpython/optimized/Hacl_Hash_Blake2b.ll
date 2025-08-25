@@ -2579,153 +2579,136 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_hash_with_key_and_params(pt
   store i64 2270897969802886507, ptr %18, align 16, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 120
   store i64 6620516959819538809, ptr %19, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !19
-  %22 = load i8, ptr %3, align 8, !tbaa !22
+  %20 = load i64, ptr %3, align 8
+  %21 = lshr i64 %20, 8
+  %22 = trunc i64 %21 to i8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !23
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
   %.val87 = load i64, ptr %24, align 1
   %25 = getelementptr i8, ptr %24, i64 8
   %.val86 = load i64, ptr %25, align 1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !24
+  %27 = load ptr, ptr %26, align 8, !tbaa !23
   %.val85 = load i64, ptr %27, align 1
   %28 = getelementptr i8, ptr %27, i64 8
   %.val = load i64, ptr %28, align 1
-  %29 = zext i8 %22 to i64
-  %30 = zext i8 %21 to i64
-  %31 = shl nuw nsw i64 %30, 8
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %33 = load i8, ptr %32, align 2, !tbaa !25
-  %34 = zext i8 %33 to i64
-  %35 = shl nuw nsw i64 %34, 16
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %37 = load i8, ptr %36, align 1, !tbaa !26
-  %38 = zext i8 %37 to i64
-  %39 = shl nuw nsw i64 %38, 24
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !27
-  %42 = zext i32 %41 to i64
-  %43 = shl nuw i64 %42, 32
-  %44 = or disjoint i64 %31, %35
-  %45 = or disjoint i64 %44, %39
-  %46 = or disjoint i64 %45, %43
-  %47 = or disjoint i64 %46, %29
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !28
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %51 = load i16, ptr %50, align 8
-  %52 = zext i16 %51 to i64
-  %53 = xor i64 %47, 7640891576956012808
-  %54 = xor i64 %49, -4942790177534073029
-  %55 = xor i64 %52, 4354685564936845355
-  %56 = xor i64 %.val87, 5840696475078001361
-  %57 = xor i64 %.val86, -7276294671716946913
-  %58 = xor i64 %.val85, 2270897969802886507
-  %59 = xor i64 %.val, 6620516959819538809
-  store i64 %53, ptr %9, align 16, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %54, ptr %60, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %55, ptr %61, align 16, !tbaa !3
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 -6534734903238641935, ptr %62, align 8, !tbaa !3
-  store i64 %56, ptr %11, align 16, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i64 %57, ptr %63, align 8, !tbaa !3
-  %64 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i64 %58, ptr %64, align 16, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store i64 %59, ptr %65, align 8, !tbaa !3
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %73, label %66
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = load i16, ptr %31, align 8
+  %33 = zext i16 %32 to i64
+  %34 = xor i64 %20, 7640891576956012808
+  %35 = xor i64 %30, -4942790177534073029
+  %36 = xor i64 %33, 4354685564936845355
+  %37 = xor i64 %.val87, 5840696475078001361
+  %38 = xor i64 %.val86, -7276294671716946913
+  %39 = xor i64 %.val85, 2270897969802886507
+  %40 = xor i64 %.val, 6620516959819538809
+  store i64 %34, ptr %9, align 16, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %35, ptr %41, align 8, !tbaa !3
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %36, ptr %42, align 16, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 -6534734903238641935, ptr %43, align 8, !tbaa !3
+  store i64 %37, ptr %11, align 16, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i64 %38, ptr %44, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store i64 %39, ptr %45, align 16, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  store i64 %40, ptr %46, align 8, !tbaa !3
+  %.not.i = icmp eq i8 %22, 0
+  br i1 %.not.i, label %55, label %47
 
-66:                                               ; preds = %5
+47:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %67 = icmp slt i8 %21, 0
-  %68 = sub nsw i64 128, %30
-  %69 = select i1 %67, i64 0, i64 %68
-  %70 = getelementptr i8, ptr %8, i64 %30
-  call void @llvm.memset.p0.i64(ptr align 1 %70, i8 0, i64 %69, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %30, i1 false)
-  %71 = icmp eq i32 %2, 0
-  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext %71, i1 noundef zeroext false, i64 128, i64 0, ptr noundef nonnull %8)
+  %48 = and i64 %21, 255
+  %49 = icmp slt i8 %22, 0
+  %50 = sub nsw i64 128, %48
+  %51 = select i1 %49, i64 0, i64 %50
+  %52 = getelementptr i8, ptr %8, i64 %48
+  call void @llvm.memset.p0.i64(ptr align 1 %52, i8 0, i64 %51, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %48, i1 false)
+  %53 = icmp eq i32 %2, 0
+  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext %53, i1 noundef zeroext false, i64 128, i64 0, ptr noundef nonnull %8)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 128) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %71, label %update.exit, label %72
+  br i1 %53, label %update.exit, label %54
 
-72:                                               ; preds = %66
+54:                                               ; preds = %47
   call fastcc void @update_blocks(i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %9, i64 128, ptr noundef readonly %1)
   br label %update.exit
 
-73:                                               ; preds = %5
-  %74 = lshr i32 %2, 7
-  %75 = and i32 %2, 127
-  %76 = icmp eq i32 %75, 0
-  %77 = icmp ugt i32 %2, 127
-  %or.cond.i = and i1 %77, %76
-  %78 = sext i1 %or.cond.i to i32
-  %.023.i = add nsw i32 %74, %78
+55:                                               ; preds = %5
+  %56 = lshr i32 %2, 7
+  %57 = and i32 %2, 127
+  %58 = icmp eq i32 %57, 0
+  %59 = icmp ugt i32 %2, 127
+  %or.cond.i = and i1 %59, %58
+  %60 = sext i1 %or.cond.i to i32
+  %.023.i = add nsw i32 %56, %60
   %.not.i.i = icmp eq i32 %.023.i, 0
   br i1 %.not.i.i, label %update_blocks.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %73
+.lr.ph.preheader.i.i:                             ; preds = %55
   %wide.trip.count.i.i = zext i32 %.023.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %79 = shl i64 %indvars.iv.next.i.i, 7
-  %80 = and i64 %79, 4294967168
-  %81 = shl i64 %indvars.iv.i.i, 7
-  %82 = and i64 %81, 4294967168
-  %83 = getelementptr i8, ptr %1, i64 %82
-  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, i64 %80, i64 0, ptr noundef readonly %83)
+  %61 = shl i64 %indvars.iv.next.i.i, 7
+  %62 = and i64 %61, 4294967168
+  %63 = shl i64 %indvars.iv.i.i, 7
+  %64 = and i64 %63, 4294967168
+  %65 = getelementptr i8, ptr %1, i64 %64
+  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, i64 %62, i64 0, ptr noundef readonly %65)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %update_blocks.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-update_blocks.exit:                               ; preds = %.lr.ph.i.i, %73
+update_blocks.exit:                               ; preds = %.lr.ph.i.i, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  %84 = zext i32 %2 to i64
-  %85 = getelementptr i8, ptr %1, i64 %84
-  %86 = zext nneg i32 %75 to i64
-  %87 = select i1 %or.cond.i, i64 128, i64 %86
-  %88 = sub nsw i64 0, %87
-  %89 = getelementptr i8, ptr %85, i64 %88
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %89, i64 %87, i1 false)
-  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false, i64 %84, i64 0, ptr noundef nonnull %6)
+  %66 = zext i32 %2 to i64
+  %67 = getelementptr i8, ptr %1, i64 %66
+  %68 = zext nneg i32 %57 to i64
+  %69 = select i1 %or.cond.i, i64 128, i64 %68
+  %70 = sub nsw i64 0, %69
+  %71 = getelementptr i8, ptr %67, i64 %70
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %71, i64 %69, i1 false)
+  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false, i64 %66, i64 0, ptr noundef nonnull %6)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 128) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %update.exit
 
-update.exit:                                      ; preds = %66, %72, %update_blocks.exit
+update.exit:                                      ; preds = %47, %54, %update_blocks.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %91 = load i64, ptr %9, align 16, !tbaa !3
-  store i64 %91, ptr %7, align 16
-  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %93 = load i64, ptr %60, align 8, !tbaa !3
-  store i64 %93, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %95 = load i64, ptr %61, align 16, !tbaa !3
-  store i64 %95, ptr %94, align 16
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %97 = load i64, ptr %62, align 8, !tbaa !3
-  store i64 %97, ptr %96, align 8
-  %98 = load i64, ptr %11, align 16, !tbaa !3
-  store i64 %98, ptr %90, align 16
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %100 = load i64, ptr %63, align 8, !tbaa !3
-  store i64 %100, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %102 = load i64, ptr %64, align 16, !tbaa !3
-  store i64 %102, ptr %101, align 16
-  %103 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %104 = load i64, ptr %65, align 8, !tbaa !3
-  store i64 %104, ptr %103, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %7, i64 %29, i1 false)
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %73 = load i64, ptr %9, align 16, !tbaa !3
+  store i64 %73, ptr %7, align 16
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %75 = load i64, ptr %41, align 8, !tbaa !3
+  store i64 %75, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %77 = load i64, ptr %42, align 16, !tbaa !3
+  store i64 %77, ptr %76, align 16
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %79 = load i64, ptr %43, align 8, !tbaa !3
+  store i64 %79, ptr %78, align 8
+  %80 = load i64, ptr %11, align 16, !tbaa !3
+  store i64 %80, ptr %72, align 16
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %82 = load i64, ptr %44, align 8, !tbaa !3
+  store i64 %82, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %84 = load i64, ptr %45, align 16, !tbaa !3
+  store i64 %84, ptr %83, align 16
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %86 = load i64, ptr %46, align 8, !tbaa !3
+  store i64 %86, ptr %85, align 8
+  %87 = and i64 %20, 255
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %7, i64 %87, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %10, i64 noundef 128) #19
@@ -2847,10 +2830,6 @@ attributes #21 = { nounwind allocsize(0) }
 !19 = !{!20, !5, i64 1}
 !20 = !{!"Hacl_Hash_Blake2b_blake2_params_s", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !18, i64 4, !4, i64 8, !5, i64 16, !5, i64 17, !16, i64 24, !16, i64 32}
 !21 = !{i64 0, i64 1, !9, i64 1, i64 1, !9, i64 2, i64 1, !10, i64 8, i64 8, !12, i64 16, i64 8, !12, i64 24, i64 8, !15, i64 32, i64 8, !3}
-!22 = !{!20, !5, i64 0}
-!23 = !{!20, !16, i64 24}
-!24 = !{!20, !16, i64 32}
-!25 = !{!20, !5, i64 2}
-!26 = !{!20, !5, i64 3}
-!27 = !{!20, !18, i64 4}
-!28 = !{!20, !4, i64 8}
+!22 = !{!20, !16, i64 24}
+!23 = !{!20, !16, i64 32}
+!24 = !{!20, !4, i64 8}

@@ -132,10 +132,9 @@ define hidden noundef i32 @_ZN2cv3dnn12cpu_baseline17fastGemmPackBSizeEii(i32 no
   %4 = add nsw i32 %3, 11
   %5 = srem i32 %4, 12
   %6 = sub nsw i32 %4, %5
-  %.fr = freeze i32 %6
   %7 = add i32 %0, -1
-  %8 = add i32 %7, %.fr
-  %9 = srem i32 %8, %.fr
+  %8 = add i32 %7, %6
+  %9 = srem i32 %8, %6
   %10 = sub nsw i32 %8, %9
   %11 = mul nsw i32 %10, %1
   ret i32 %11
@@ -152,12 +151,12 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmPackBKernelEPKcPciiiii(ptr
   %13 = add i32 %2, -1
   %14 = add i32 %13, %12
   %15 = sdiv i32 %14, %12
-  %factor.op.mul59 = mul i32 %6, %5
+  %factor.op.mul58 = mul i32 %6, %5
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph63, label %._crit_edge64
+  br i1 %16, label %.lr.ph62, label %._crit_edge63
 
-.lr.ph63:                                         ; preds = %7
-  %factor.op.mul55 = mul i32 %4, %6
+.lr.ph62:                                         ; preds = %7
+  %factor.op.mul54 = mul i32 %4, %6
   %17 = icmp sgt i32 %3, 0
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -192,56 +191,55 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmPackBKernelEPKcPciiiii(ptr
   %48 = sext i32 %36 to i64
   %49 = sext i32 %37 to i64
   %50 = sext i32 %38 to i64
-  br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge64
+  br i1 %17, label %.lr.ph.us.preheader, label %._crit_edge63
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph63
+.lr.ph.us.preheader:                              ; preds = %.lr.ph62
   %51 = zext nneg i32 %3 to i64
   %52 = tail call i64 @llvm.umin.i64(i64 %51, i64 64)
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %.061.us = phi ptr [ %.us-phi.us, %._crit_edge.us ], [ %1, %.lr.ph.us.preheader ]
-  %.04760.us = phi i32 [ %69, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %53 = mul nsw i32 %.04760.us, %12
-  %54 = sub nsw i32 %2, %53
+  %.060.us = phi ptr [ %.us-phi.us, %._crit_edge.us ], [ %1, %.lr.ph.us.preheader ]
+  %.04759.us = phi i32 [ %69, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
+  %53 = mul i32 %.04759.us, %12
+  %54 = sub i32 %2, %53
   %55 = tail call i32 @llvm.smin.i32(i32 %54, i32 %12)
-  %.fr49.us = freeze i32 %55
-  %56 = add i32 %.fr49.us, 11
+  %56 = add nsw i32 %55, 11
   %57 = srem i32 %56, 12
   %58 = sub nsw i32 %56, %57
   %59 = mul nsw i32 %58, %6
-  %factor.op.mul.reass.us = mul i32 %53, %factor.op.mul59
-  %60 = icmp sgt i32 %.fr49.us, 0
-  %61 = zext nneg i32 %.fr49.us to i64
+  %factor.op.mul.reass.us = mul i32 %53, %factor.op.mul58
+  %60 = icmp sgt i32 %55, 0
+  %61 = zext nneg i32 %55 to i64
   br i1 %60, label %.lr.ph109.i.us.us, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us
 
 _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.lr.ph.us, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us
-  %.158.us65 = phi ptr [ %66, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ %.061.us, %.lr.ph.us ]
-  %.04657.us66 = phi i32 [ %67, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ 0, %.lr.ph.us ]
-  %62 = sub nsw i32 %3, %.04657.us66
+  %.157.us64 = phi ptr [ %66, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ %.060.us, %.lr.ph.us ]
+  %.04656.us65 = phi i32 [ %67, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ], [ 0, %.lr.ph.us ]
+  %62 = sub nsw i32 %3, %.04656.us65
   %63 = tail call i32 @llvm.smin.i32(i32 %62, i32 %.sroa.speculated)
   %64 = mul nsw i32 %59, %63
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %.158.us65, i64 %65
-  %67 = add nuw nsw i32 %.04657.us66, %.sroa.speculated
+  %66 = getelementptr inbounds i8, ptr %.157.us64, i64 %65
+  %67 = add nuw nsw i32 %.04656.us65, %.sroa.speculated
   %68 = icmp slt i32 %67, %3
   br i1 %68, label %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us, label %._crit_edge.us, !llvm.loop !3
 
 ._crit_edge.us:                                   ; preds = %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us
   %.us-phi.us = phi ptr [ %151, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ %66, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us ]
-  %69 = add nuw nsw i32 %.04760.us, 1
+  %69 = add nuw nsw i32 %.04759.us, 1
   %exitcond.not = icmp eq i32 %69, %15
-  br i1 %exitcond.not, label %._crit_edge64, label %.lr.ph.us, !llvm.loop !5
+  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph.us, !llvm.loop !5
 
 .lr.ph109.i.us.us:                                ; preds = %.lr.ph.us, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ 0, %.lr.ph.us ]
-  %.158.us.us = phi ptr [ %151, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ %.061.us, %.lr.ph.us ]
+  %.157.us.us = phi ptr [ %151, %_ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us ], [ %.060.us, %.lr.ph.us ]
   %70 = trunc i64 %indvars.iv to i32
   %71 = sub i32 %3, %70
   %72 = tail call i32 @llvm.smin.i32(i32 %71, i32 %.sroa.speculated)
   %73 = trunc nsw i64 %indvars.iv to i32
-  %.reass56.us.us = mul i32 %factor.op.mul55, %73
-  %74 = add i32 %.reass56.us.us, %factor.op.mul.reass.us
+  %.reass55.us.us = mul i32 %factor.op.mul54, %73
+  %74 = add i32 %.reass55.us.us, %factor.op.mul.reass.us
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %0, i64 %75
   %77 = mul nsw i32 %72, %4
@@ -251,7 +249,7 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.l
 
 80:                                               ; preds = %.loopexit.i.us.us, %.lr.ph109.i.us.us
   %indvars.iv119.i.us.us = phi i64 [ 0, %.lr.ph109.i.us.us ], [ %indvars.iv.next120.i.us.us, %.loopexit.i.us.us ]
-  %.0107.i.us.us = phi ptr [ %.158.us.us, %.lr.ph109.i.us.us ], [ %.3.i.us.us, %.loopexit.i.us.us ]
+  %.0107.i.us.us = phi ptr [ %.157.us.us, %.lr.ph109.i.us.us ], [ %.3.i.us.us, %.loopexit.i.us.us ]
   %indvars.iv.next120.i.us.us = add nuw nsw i64 %indvars.iv119.i.us.us, 12
   %81 = add nuw nsw i64 %indvars.iv119.i.us.us, 11
   %82 = icmp samesign ult i64 %81, %61
@@ -433,12 +431,12 @@ _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.us: ; preds = %.l
 _ZN2cv3dnn12cpu_baselineL20fast_gemm_pack12_f32EiiPKviiPv.exit.loopexit.us.us: ; preds = %.loopexit.i.us.us
   %149 = mul nsw i32 %59, %72
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds i8, ptr %.158.us.us, i64 %150
+  %151 = getelementptr inbounds i8, ptr %.157.us.us, i64 %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %52
   %152 = icmp samesign ult i64 %indvars.iv.next, %51
   br i1 %152, label %.lr.ph109.i.us.us, label %._crit_edge.us, !llvm.loop !3
 
-._crit_edge64:                                    ; preds = %._crit_edge.us, %.lr.ph63, %7
+._crit_edge63:                                    ; preds = %._crit_edge.us, %.lr.ph62, %7
   ret void
 }
 
@@ -1611,12 +1609,12 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %89, %91
   %97 = landingpad { ptr, i32 }
           cleanup
   %98 = load ptr, ptr %85, align 8, !tbaa !42
-  %.not.i18 = icmp eq ptr %98, null
-  br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit19, label %99
+  %.not.i19 = icmp eq ptr %98, null
+  br i1 %.not.i19, label %_ZNSt14_Function_baseD2Ev.exit20, label %99
 
 99:                                               ; preds = %96
   %100 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit19 unwind label %101
+          to label %_ZNSt14_Function_baseD2Ev.exit20 unwind label %101
 
 101:                                              ; preds = %99
   %102 = landingpad { ptr, i32 }
@@ -1625,7 +1623,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %89, %91
   call void @__clang_call_terminate(ptr %103) #26
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit19:                 ; preds = %96, %99
+_ZNSt14_Function_baseD2Ev.exit20:                 ; preds = %96, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -1675,10 +1673,11 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
 13:                                               ; preds = %11, %9
   %14 = phi ptr [ %10, %9 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = icmp slt i32 %.0.val, %.4.val
-  br i1 %16, label %.lr.ph13, label %._crit_edge14
+  %.0.val.fr = freeze i32 %.0.val
+  %16 = icmp slt i32 %.0.val.fr, %.4.val
+  br i1 %16, label %.lr.ph17, label %._crit_edge18
 
-.lr.ph13:                                         ; preds = %13
+.lr.ph17:                                         ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1703,40 +1702,43 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.pre = load ptr, ptr %25, align 8, !tbaa !81
-  %.pre28 = load i32, ptr %.pre, align 4, !tbaa !17
+  %.pre34 = load i32, ptr %.pre, align 4, !tbaa !17
   br label %42
 
-._crit_edge14.loopexit:                           ; preds = %._crit_edge
-  %.pre37 = load ptr, ptr %0, align 8, !tbaa !78
-  %.pre38 = load i8, ptr %.pre37, align 1, !tbaa !23, !range !47
-  br label %._crit_edge14
+._crit_edge18.loopexit:                           ; preds = %._crit_edge
+  %.pre43 = load ptr, ptr %0, align 8, !tbaa !78
+  %.pre44 = load i8, ptr %.pre43, align 1, !tbaa !23, !range !47
+  br label %._crit_edge18
 
-._crit_edge14:                                    ; preds = %._crit_edge14.loopexit, %13
-  %40 = phi i8 [ %.pre38, %._crit_edge14.loopexit ], [ %4, %13 ]
+._crit_edge18:                                    ; preds = %._crit_edge18.loopexit, %13
+  %40 = phi i8 [ %.pre44, %._crit_edge18.loopexit ], [ %4, %13 ]
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %228, label %227
 
-42:                                               ; preds = %.lr.ph13, %._crit_edge
-  %43 = phi i32 [ %.pre28, %.lr.ph13 ], [ %115, %._crit_edge ]
-  %.05511 = phi i32 [ %.0.val, %.lr.ph13 ], [ %116, %._crit_edge ]
+42:                                               ; preds = %.lr.ph17, %._crit_edge
+  %43 = phi i32 [ %.pre34, %.lr.ph17 ], [ %115, %._crit_edge ]
+  %.05515 = phi i32 [ %.0.val.fr, %.lr.ph17 ], [ %116, %._crit_edge ]
   %44 = load ptr, ptr %17, align 8, !tbaa !82
   %45 = load i32, ptr %44, align 4, !tbaa !17
-  %46 = sdiv i32 %.05511, %45
+  %.fr1 = freeze i32 %45
+  %46 = sdiv i32 %.05515, %.fr1
   %47 = load ptr, ptr %18, align 8, !tbaa !83
   %48 = load i32, ptr %47, align 4, !tbaa !17
   %49 = mul i32 %48, %46
-  %50 = srem i32 %.05511, %45
+  %50 = srem i32 %.05515, %.fr1
   %51 = load ptr, ptr %19, align 8, !tbaa !84
   %52 = load i32, ptr %51, align 4, !tbaa !17
-  %53 = mul i32 %52, %50
+  %.fr2 = freeze i32 %52
+  %53 = mul i32 %.fr2, %50
   %54 = load ptr, ptr %20, align 8, !tbaa !85
   %55 = load i32, ptr %54, align 4, !tbaa !17
   %56 = sub i32 %55, %49
   %. = tail call i32 @llvm.smin.i32(i32 %56, i32 %48)
   %57 = load ptr, ptr %21, align 8, !tbaa !86
   %58 = load i32, ptr %57, align 4, !tbaa !17
-  %59 = sub i32 %58, %53
-  %60 = tail call i32 @llvm.smin.i32(i32 %59, i32 %52)
+  %.fr = freeze i32 %58
+  %59 = sub i32 %.fr, %53
+  %60 = tail call i32 @llvm.smin.i32(i32 %59, i32 %.fr2)
   %61 = load ptr, ptr %22, align 8, !tbaa !87
   %62 = load i32, ptr %61, align 4, !tbaa !17
   %63 = load ptr, ptr %23, align 8, !tbaa !88
@@ -1764,8 +1766,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   br i1 %81, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0587 = phi i32 [ %90, %.lr.ph ], [ 0, %.preheader ]
-  %82 = mul nsw i32 %.0587, %62
+  %.05810 = phi i32 [ %90, %.lr.ph ], [ 0, %.preheader ]
+  %82 = mul nsw i32 %.05810, %62
   %83 = load ptr, ptr %24, align 8, !tbaa !89
   %84 = load i32, ptr %83, align 4, !tbaa !17
   %85 = mul nsw i32 %82, %84
@@ -1774,27 +1776,27 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %88 = mul nsw i32 %84, %60
   %89 = sext i32 %88 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %87, i8 0, i64 %89, i1 false)
-  %90 = add nuw nsw i32 %.0587, 1
-  %exitcond26.not = icmp eq i32 %90, %.
-  br i1 %exitcond26.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !92
+  %90 = add nuw nsw i32 %.05810, 1
+  %exitcond32.not = icmp eq i32 %90, %.
+  br i1 %exitcond32.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !92
 
 91:                                               ; preds = %42
   %92 = fcmp une float %79, 1.000000e+00
   %93 = icmp sgt i32 %., 0
   %or.cond = select i1 %92, i1 %93, i1 false
   %94 = icmp sgt i32 %60, 0
-  %or.cond51 = select i1 %or.cond, i1 %94, i1 false
-  br i1 %or.cond51, label %.lr.ph.us.preheader, label %.loopexit
+  %or.cond57 = and i1 %or.cond, %94
+  br i1 %or.cond57, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %91
   %95 = sext i32 %62 to i64
-  %wide.trip.count24 = zext nneg i32 %. to i64
+  %wide.trip.count30 = zext nneg i32 %. to i64
   %wide.trip.count = zext nneg i32 %60 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv21 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next22, %._crit_edge.us ]
-  %96 = mul nsw i64 %indvars.iv21, %95
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
+  %96 = mul nsw i64 %indvars.iv27, %95
   %97 = getelementptr inbounds float, ptr %71, i64 %96
   br label %98
 
@@ -1810,51 +1812,54 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   br i1 %exitcond.not, label %._crit_edge.us, label %98, !llvm.loop !93
 
 ._crit_edge.us:                                   ; preds = %98
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !94
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !94
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %.pre29 = load ptr, ptr %24, align 8, !tbaa !89
-  %.pre30 = load i32, ptr %.pre29, align 4, !tbaa !17
-  %.pre31 = load ptr, ptr %25, align 8, !tbaa !81
-  %.pre32 = load i32, ptr %.pre31, align 4, !tbaa !17
+  %.pre35 = load ptr, ptr %24, align 8, !tbaa !89
+  %.pre36 = load i32, ptr %.pre35, align 4, !tbaa !17
+  %.pre37 = load ptr, ptr %25, align 8, !tbaa !81
+  %.pre38 = load i32, ptr %.pre37, align 4, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.loopexit, %.preheader, %91
-  %103 = phi i32 [ %.pre32, %.loopexit.loopexit ], [ %43, %.preheader ], [ %43, %91 ], [ %43, %._crit_edge.us ]
-  %104 = phi i32 [ %.pre30, %.loopexit.loopexit ], [ %68, %.preheader ], [ %68, %91 ], [ %68, %._crit_edge.us ]
+  %103 = phi i32 [ %.pre38, %.loopexit.loopexit ], [ %43, %.preheader ], [ %43, %91 ], [ %43, %._crit_edge.us ]
+  %104 = phi i32 [ %.pre36, %.loopexit.loopexit ], [ %68, %.preheader ], [ %68, %91 ], [ %68, %._crit_edge.us ]
   %105 = load ptr, ptr %27, align 8, !tbaa !95
   %106 = load i32, ptr %105, align 4, !tbaa !17
-  %107 = add nsw i32 %106, %60
-  %.fr67 = freeze i32 %107
-  %108 = add i32 %.fr67, -1
-  %109 = srem i32 %108, %106
+  %.fr68 = freeze i32 %106
+  %107 = add i32 %60, -1
+  %108 = add i32 %107, %.fr68
+  %109 = srem i32 %108, %.fr68
   %110 = sub nsw i32 %108, %109
   %111 = mul nsw i32 %110, %104
   %112 = icmp sgt i32 %103, 0
-  br i1 %112, label %.lr.ph10, label %._crit_edge
+  br i1 %112, label %.lr.ph14, label %._crit_edge
 
-.lr.ph10:                                         ; preds = %.loopexit
+.lr.ph14:                                         ; preds = %.loopexit
   %113 = icmp sgt i32 %., 0
   %114 = zext nneg i32 %. to i64
-  %.pre33 = load ptr, ptr %28, align 8, !tbaa !96
-  %.pre34 = load i32, ptr %.pre33, align 4, !tbaa !17
+  %.pre39 = load ptr, ptr %28, align 8, !tbaa !96
+  %.pre40 = load i32, ptr %.pre39, align 4, !tbaa !17
   br label %117
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit, %.loopexit
   %115 = phi i32 [ %103, %.loopexit ], [ %225, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %116 = add i32 %.05511, 1
-  %exitcond27.not = icmp eq i32 %116, %.4.val
-  br i1 %exitcond27.not, label %._crit_edge14.loopexit, label %42, !llvm.loop !97
+  %116 = add nsw i32 %.05515, 1
+  %exitcond33.not = icmp eq i32 %116, %.4.val
+  br i1 %exitcond33.not, label %._crit_edge18.loopexit, label %42, !llvm.loop !97
 
-117:                                              ; preds = %.lr.ph10, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
-  %118 = phi i32 [ %.pre34, %.lr.ph10 ], [ %222, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %119 = phi i32 [ %103, %.lr.ph10 ], [ %225, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %.09 = phi ptr [ %77, %.lr.ph10 ], [ %220, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %.0548 = phi i32 [ 0, %.lr.ph10 ], [ %223, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %120 = sub nsw i32 %119, %.0548
-  %.68 = tail call i32 @llvm.smin.i32(i32 %120, i32 %118)
+117:                                              ; preds = %.lr.ph14, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
+  %118 = phi i32 [ %.pre40, %.lr.ph14 ], [ %222, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %119 = phi i32 [ %103, %.lr.ph14 ], [ %225, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %.013 = phi ptr [ %77, %.lr.ph14 ], [ %220, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %.05412 = phi i32 [ 0, %.lr.ph14 ], [ %223, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %.05412.fr = freeze i32 %.05412
+  %.fr20 = freeze i32 %119
+  %120 = sub i32 %.fr20, %.05412.fr
+  %.fr21 = freeze i32 %118
+  %.69 = tail call i32 @llvm.smin.i32(i32 %120, i32 %.fr21)
   %121 = load ptr, ptr %29, align 8, !tbaa !98
   %122 = load ptr, ptr %121, align 8, !tbaa !19
   %123 = load ptr, ptr %30, align 8, !tbaa !99
@@ -1862,7 +1867,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   %125 = mul nsw i32 %124, %49
   %126 = load ptr, ptr %31, align 8, !tbaa !100
   %127 = load i32, ptr %126, align 4, !tbaa !17
-  %128 = mul nsw i32 %127, %.0548
+  %.fr19 = freeze i32 %127
+  %128 = mul nsw i32 %.fr19, %.05412.fr
   %129 = add nsw i32 %128, %125
   %130 = load ptr, ptr %24, align 8, !tbaa !89
   %131 = load i32, ptr %130, align 4, !tbaa !17
@@ -1872,17 +1878,16 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   br i1 %113, label %.lr.ph89.i, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
 
 .lr.ph89.i:                                       ; preds = %117
-  %135 = mul nsw i32 %127, %.68
-  %.fr15 = freeze i32 %135
-  %136 = icmp sgt i32 %.fr15, 0
+  %135 = mul i32 %.fr19, %.69
+  %136 = icmp sgt i32 %135, 0
   %137 = shl nsw i32 %124, 1
   %138 = mul nsw i32 %124, 3
   %139 = shl nsw i32 %124, 2
   %140 = mul nsw i32 %124, 5
   %141 = mul nsw i32 %124, 6
   %142 = mul nsw i32 %124, 7
-  %143 = sext i32 %127 to i64
-  %144 = sext i32 %.fr15 to i64
+  %143 = sext i32 %.fr19 to i64
+  %144 = sext i32 %135 to i64
   %145 = sext i32 %124 to i64
   %146 = sext i32 %137 to i64
   %147 = sext i32 %138 to i64
@@ -2061,31 +2066,31 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKci
   br i1 %214, label %.lr.ph89.i.split, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit, !llvm.loop !71
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit: ; preds = %.loopexit.i.us
-  %.pre35 = load ptr, ptr %24, align 8, !tbaa !89
-  %.pre36 = load i32, ptr %.pre35, align 4, !tbaa !17
+  %.pre41 = load ptr, ptr %24, align 8, !tbaa !89
+  %.pre42 = load i32, ptr %.pre41, align 4, !tbaa !17
   br label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loopexit.i, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit, %117
-  %215 = phi i32 [ %.pre36, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit ], [ %131, %117 ], [ %131, %.loopexit.i ]
+  %215 = phi i32 [ %.pre42, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit ], [ %131, %117 ], [ %131, %.loopexit.i ]
   %216 = load ptr, ptr %39, align 8, !tbaa !101
   %217 = load float, ptr %216, align 4, !tbaa !12
-  call fastcc void @_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii(i32 noundef %., i32 noundef %60, i32 noundef %.68, ptr noundef %14, ptr noundef %.09, float noundef %217, ptr noundef %71, i32 noundef %62, i32 noundef %215)
-  %218 = mul nsw i32 %111, %.68
+  call fastcc void @_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii(i32 noundef %., i32 noundef %60, i32 noundef %.69, ptr noundef %14, ptr noundef %.013, float noundef %217, ptr noundef %71, i32 noundef %62, i32 noundef %215)
+  %218 = mul nsw i32 %111, %.69
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds i8, ptr %.09, i64 %219
+  %220 = getelementptr inbounds i8, ptr %.013, i64 %219
   %221 = load ptr, ptr %28, align 8, !tbaa !96
   %222 = load i32, ptr %221, align 4, !tbaa !17
-  %223 = add nsw i32 %222, %.0548
+  %223 = add nsw i32 %222, %.05412.fr
   %224 = load ptr, ptr %25, align 8, !tbaa !81
   %225 = load i32, ptr %224, align 4, !tbaa !17
   %226 = icmp slt i32 %223, %225
   br i1 %226, label %117, label %._crit_edge, !llvm.loop !102
 
-227:                                              ; preds = %._crit_edge14
+227:                                              ; preds = %._crit_edge18
   call void @free(ptr noundef %14) #27
   br label %228
 
-228:                                              ; preds = %227, %._crit_edge14
+228:                                              ; preds = %227, %._crit_edge18
   ret void
 }
 
@@ -2482,12 +2487,12 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %78, %80
   %86 = landingpad { ptr, i32 }
           cleanup
   %87 = load ptr, ptr %74, align 8, !tbaa !42
-  %.not.i16 = icmp eq ptr %87, null
-  br i1 %.not.i16, label %_ZNSt14_Function_baseD2Ev.exit17, label %88
+  %.not.i17 = icmp eq ptr %87, null
+  br i1 %.not.i17, label %_ZNSt14_Function_baseD2Ev.exit18, label %88
 
 88:                                               ; preds = %85
   %89 = invoke noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit17 unwind label %90
+          to label %_ZNSt14_Function_baseD2Ev.exit18 unwind label %90
 
 90:                                               ; preds = %88
   %91 = landingpad { ptr, i32 }
@@ -2496,7 +2501,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %78, %80
   call void @__clang_call_terminate(ptr %92) #26
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit17:                 ; preds = %85, %88
+_ZNSt14_Function_baseD2Ev.exit18:                 ; preds = %85, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
@@ -2517,10 +2522,9 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN2cv3dnn17fastGe
   %7 = add nsw i32 %6, 11
   %8 = srem i32 %7, 12
   %9 = sub nsw i32 %7, %8
-  %.fr.i = freeze i32 %9
   %10 = add i32 %4, -1
-  %11 = add i32 %10, %.fr.i
-  %12 = srem i32 %11, %.fr.i
+  %11 = add i32 %10, %9
+  %12 = srem i32 %11, %9
   %13 = sub nsw i32 %11, %12
   %14 = mul nsw i32 %13, %5
   %15 = sext i32 %14 to i64
@@ -2628,10 +2632,9 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %28, %_ZN2cv3dnn14dn
   %40 = add nsw i32 %39, 11
   %41 = srem i32 %40, 12
   %42 = sub nsw i32 %40, %41
-  %.fr.i = freeze i32 %42
   %43 = add i32 %.062, -1
-  %44 = add i32 %43, %.fr.i
-  %45 = srem i32 %44, %.fr.i
+  %44 = add i32 %43, %42
+  %45 = srem i32 %44, %42
   %46 = sub nsw i32 %44, %45
   %47 = mul nsw i32 %46, %.063
   %48 = mul nsw i32 %47, %.024.i
@@ -6383,10 +6386,11 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
 13:                                               ; preds = %11, %9
   %14 = phi ptr [ %10, %9 ], [ %12, %11 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = icmp slt i32 %.0.val, %.4.val
-  br i1 %16, label %.lr.ph13, label %._crit_edge14
+  %.0.val.fr = freeze i32 %.0.val
+  %16 = icmp slt i32 %.0.val.fr, %.4.val
+  br i1 %16, label %.lr.ph17, label %._crit_edge18
 
-.lr.ph13:                                         ; preds = %13
+.lr.ph17:                                         ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -6415,45 +6419,48 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.pre = load ptr, ptr %28, align 8, !tbaa !207
-  %.pre28 = load i32, ptr %.pre, align 4, !tbaa !17
+  %.pre34 = load i32, ptr %.pre, align 4, !tbaa !17
   br label %46
 
-._crit_edge14.loopexit:                           ; preds = %._crit_edge
-  %.pre37 = load ptr, ptr %0, align 8, !tbaa !204
-  %.pre38 = load i8, ptr %.pre37, align 1, !tbaa !23, !range !47
-  br label %._crit_edge14
+._crit_edge18.loopexit:                           ; preds = %._crit_edge
+  %.pre43 = load ptr, ptr %0, align 8, !tbaa !204
+  %.pre44 = load i8, ptr %.pre43, align 1, !tbaa !23, !range !47
+  br label %._crit_edge18
 
-._crit_edge14:                                    ; preds = %._crit_edge14.loopexit, %13
-  %44 = phi i8 [ %.pre38, %._crit_edge14.loopexit ], [ %4, %13 ]
+._crit_edge18:                                    ; preds = %._crit_edge18.loopexit, %13
+  %44 = phi i8 [ %.pre44, %._crit_edge18.loopexit ], [ %4, %13 ]
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %256, label %255
 
-46:                                               ; preds = %.lr.ph13, %._crit_edge
-  %47 = phi i32 [ %.pre28, %.lr.ph13 ], [ %145, %._crit_edge ]
-  %.06311 = phi i32 [ %.0.val, %.lr.ph13 ], [ %146, %._crit_edge ]
+46:                                               ; preds = %.lr.ph17, %._crit_edge
+  %47 = phi i32 [ %.pre34, %.lr.ph17 ], [ %145, %._crit_edge ]
+  %.06315 = phi i32 [ %.0.val.fr, %.lr.ph17 ], [ %146, %._crit_edge ]
   %48 = load ptr, ptr %17, align 8, !tbaa !208
   %49 = load i32, ptr %48, align 4, !tbaa !17
-  %50 = sdiv i32 %.06311, %49
+  %50 = sdiv i32 %.06315, %49
   %51 = mul nsw i32 %50, %49
-  %.recomposed = srem i32 %.06311, %49
+  %.recomposed = srem i32 %.06315, %49
   %52 = load ptr, ptr %18, align 8, !tbaa !209
   %53 = load i32, ptr %52, align 4, !tbaa !17
-  %54 = sdiv i32 %.recomposed, %53
-  %55 = srem i32 %.06311, %53
+  %.fr1 = freeze i32 %53
+  %54 = sdiv i32 %.recomposed, %.fr1
+  %55 = srem i32 %.06315, %.fr1
   %56 = load ptr, ptr %19, align 8, !tbaa !210
   %57 = load i32, ptr %56, align 4, !tbaa !17
   %58 = mul i32 %57, %54
   %59 = load ptr, ptr %20, align 8, !tbaa !211
   %60 = load i32, ptr %59, align 4, !tbaa !17
-  %61 = mul i32 %60, %55
+  %.fr2 = freeze i32 %60
+  %61 = mul i32 %.fr2, %55
   %62 = load ptr, ptr %21, align 8, !tbaa !212
   %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = sub i32 %63, %58
   %. = tail call i32 @llvm.smin.i32(i32 %64, i32 %57)
   %65 = load ptr, ptr %22, align 8, !tbaa !213
   %66 = load i32, ptr %65, align 4, !tbaa !17
-  %67 = sub i32 %66, %61
-  %68 = tail call i32 @llvm.smin.i32(i32 %67, i32 %60)
+  %.fr = freeze i32 %66
+  %67 = sub i32 %.fr, %61
+  %68 = tail call i32 @llvm.smin.i32(i32 %67, i32 %.fr2)
   %69 = load ptr, ptr %23, align 8, !tbaa !214
   %70 = load i32, ptr %69, align 4, !tbaa !17
   %71 = load ptr, ptr %24, align 8, !tbaa !215
@@ -6503,8 +6510,8 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   br i1 %111, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0667 = phi i32 [ %120, %.lr.ph ], [ 0, %.preheader ]
-  %112 = mul nsw i32 %.0667, %70
+  %.06610 = phi i32 [ %120, %.lr.ph ], [ 0, %.preheader ]
+  %112 = mul nsw i32 %.06610, %70
   %113 = load ptr, ptr %26, align 8, !tbaa !217
   %114 = load i32, ptr %113, align 4, !tbaa !17
   %115 = mul nsw i32 %112, %114
@@ -6513,27 +6520,27 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   %118 = mul nsw i32 %114, %68
   %119 = sext i32 %118 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %117, i8 0, i64 %119, i1 false)
-  %120 = add nuw nsw i32 %.0667, 1
-  %exitcond26.not = icmp eq i32 %120, %.
-  br i1 %exitcond26.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !223
+  %120 = add nuw nsw i32 %.06610, 1
+  %exitcond32.not = icmp eq i32 %120, %.
+  br i1 %exitcond32.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !223
 
 121:                                              ; preds = %46
   %122 = fcmp une float %109, 1.000000e+00
   %123 = icmp sgt i32 %., 0
   %or.cond = select i1 %122, i1 %123, i1 false
   %124 = icmp sgt i32 %68, 0
-  %or.cond51 = select i1 %or.cond, i1 %124, i1 false
-  br i1 %or.cond51, label %.lr.ph.us.preheader, label %.loopexit
+  %or.cond57 = and i1 %or.cond, %124
+  br i1 %or.cond57, label %.lr.ph.us.preheader, label %.loopexit
 
 .lr.ph.us.preheader:                              ; preds = %121
   %125 = sext i32 %70 to i64
-  %wide.trip.count24 = zext nneg i32 %. to i64
+  %wide.trip.count30 = zext nneg i32 %. to i64
   %wide.trip.count = zext nneg i32 %68 to i64
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %indvars.iv21 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next22, %._crit_edge.us ]
-  %126 = mul nsw i64 %indvars.iv21, %125
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next28, %._crit_edge.us ]
+  %126 = mul nsw i64 %indvars.iv27, %125
   %127 = getelementptr inbounds float, ptr %107, i64 %126
   br label %128
 
@@ -6549,57 +6556,61 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   br i1 %exitcond.not, label %._crit_edge.us, label %128, !llvm.loop !224
 
 ._crit_edge.us:                                   ; preds = %128
-  %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !225
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
+  br i1 %exitcond31.not, label %.loopexit, label %.lr.ph.us, !llvm.loop !225
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %.pre29 = load ptr, ptr %26, align 8, !tbaa !217
-  %.pre30 = load i32, ptr %.pre29, align 4, !tbaa !17
-  %.pre31 = load ptr, ptr %28, align 8, !tbaa !207
-  %.pre32 = load i32, ptr %.pre31, align 4, !tbaa !17
+  %.pre35 = load ptr, ptr %26, align 8, !tbaa !217
+  %.pre36 = load i32, ptr %.pre35, align 4, !tbaa !17
+  %.pre37 = load ptr, ptr %28, align 8, !tbaa !207
+  %.pre38 = load i32, ptr %.pre37, align 4, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.loopexit.loopexit, %.preheader, %121
-  %133 = phi i32 [ %.pre32, %.loopexit.loopexit ], [ %47, %.preheader ], [ %47, %121 ], [ %47, %._crit_edge.us ]
-  %134 = phi i32 [ %.pre30, %.loopexit.loopexit ], [ %79, %.preheader ], [ %79, %121 ], [ %79, %._crit_edge.us ]
+  %133 = phi i32 [ %.pre38, %.loopexit.loopexit ], [ %47, %.preheader ], [ %47, %121 ], [ %47, %._crit_edge.us ]
+  %134 = phi i32 [ %.pre36, %.loopexit.loopexit ], [ %79, %.preheader ], [ %79, %121 ], [ %79, %._crit_edge.us ]
   %135 = load ptr, ptr %32, align 8, !tbaa !226
   %136 = load i32, ptr %135, align 4, !tbaa !17
-  %137 = add nsw i32 %136, %68
-  %.fr75 = freeze i32 %137
-  %138 = add i32 %.fr75, -1
-  %139 = srem i32 %138, %136
+  %.fr76 = freeze i32 %136
+  %137 = add i32 %68, -1
+  %138 = add i32 %137, %.fr76
+  %139 = srem i32 %138, %.fr76
   %140 = sub nsw i32 %138, %139
   %141 = mul nsw i32 %140, %134
   %142 = icmp sgt i32 %133, 0
-  br i1 %142, label %.lr.ph10, label %._crit_edge
+  br i1 %142, label %.lr.ph14, label %._crit_edge
 
-.lr.ph10:                                         ; preds = %.loopexit
+.lr.ph14:                                         ; preds = %.loopexit
   %143 = icmp sgt i32 %., 0
   %144 = zext nneg i32 %. to i64
-  %.pre33 = load ptr, ptr %33, align 8, !tbaa !227
-  %.pre34 = load i32, ptr %.pre33, align 4, !tbaa !17
+  %.pre39 = load ptr, ptr %33, align 8, !tbaa !227
+  %.pre40 = load i32, ptr %.pre39, align 4, !tbaa !17
   br label %147
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit, %.loopexit
   %145 = phi i32 [ %133, %.loopexit ], [ %253, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %146 = add i32 %.06311, 1
-  %exitcond27.not = icmp eq i32 %146, %.4.val
-  br i1 %exitcond27.not, label %._crit_edge14.loopexit, label %46, !llvm.loop !228
+  %146 = add nsw i32 %.06315, 1
+  %exitcond33.not = icmp eq i32 %146, %.4.val
+  br i1 %exitcond33.not, label %._crit_edge18.loopexit, label %46, !llvm.loop !228
 
-147:                                              ; preds = %.lr.ph10, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
-  %148 = phi i32 [ %.pre34, %.lr.ph10 ], [ %250, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %149 = phi i32 [ %133, %.lr.ph10 ], [ %253, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %.09 = phi ptr [ %94, %.lr.ph10 ], [ %248, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %.0628 = phi i32 [ 0, %.lr.ph10 ], [ %251, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
-  %150 = sub nsw i32 %149, %.0628
-  %.76 = tail call i32 @llvm.smin.i32(i32 %150, i32 %148)
+147:                                              ; preds = %.lr.ph14, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
+  %148 = phi i32 [ %.pre40, %.lr.ph14 ], [ %250, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %149 = phi i32 [ %133, %.lr.ph14 ], [ %253, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %.013 = phi ptr [ %94, %.lr.ph14 ], [ %248, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %.06212 = phi i32 [ 0, %.lr.ph14 ], [ %251, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit ]
+  %.06212.fr = freeze i32 %.06212
+  %.fr20 = freeze i32 %149
+  %150 = sub i32 %.fr20, %.06212.fr
+  %.fr21 = freeze i32 %148
+  %.77 = tail call i32 @llvm.smin.i32(i32 %150, i32 %.fr21)
   %151 = load ptr, ptr %34, align 8, !tbaa !229
   %152 = load i32, ptr %151, align 4, !tbaa !17
   %153 = mul nsw i32 %152, %58
   %154 = load ptr, ptr %35, align 8, !tbaa !230
   %155 = load i32, ptr %154, align 4, !tbaa !17
-  %156 = mul nsw i32 %155, %.0628
+  %.fr19 = freeze i32 %155
+  %156 = mul nsw i32 %.fr19, %.06212.fr
   %157 = add nsw i32 %156, %153
   %158 = load ptr, ptr %26, align 8, !tbaa !217
   %159 = load i32, ptr %158, align 4, !tbaa !17
@@ -6609,17 +6620,16 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   br i1 %143, label %.lr.ph89.i, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
 
 .lr.ph89.i:                                       ; preds = %147
-  %163 = mul nsw i32 %155, %.76
-  %.fr15 = freeze i32 %163
-  %164 = icmp sgt i32 %.fr15, 0
+  %163 = mul i32 %.fr19, %.77
+  %164 = icmp sgt i32 %163, 0
   %165 = shl nsw i32 %152, 1
   %166 = mul nsw i32 %152, 3
   %167 = shl nsw i32 %152, 2
   %168 = mul nsw i32 %152, 5
   %169 = mul nsw i32 %152, 6
   %170 = mul nsw i32 %152, 7
-  %171 = sext i32 %155 to i64
-  %172 = sext i32 %.fr15 to i64
+  %171 = sext i32 %.fr19 to i64
+  %172 = sext i32 %163 to i64
   %173 = sext i32 %152 to i64
   %174 = sext i32 %165 to i64
   %175 = sext i32 %166 to i64
@@ -6798,31 +6808,31 @@ define internal fastcc void @"_ZZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPK
   br i1 %242, label %.lr.ph89.i.split, label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit, !llvm.loop !71
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit: ; preds = %.loopexit.i.us
-  %.pre35 = load ptr, ptr %26, align 8, !tbaa !217
-  %.pre36 = load i32, ptr %.pre35, align 4, !tbaa !17
+  %.pre41 = load ptr, ptr %26, align 8, !tbaa !217
+  %.pre42 = load i32, ptr %.pre41, align 4, !tbaa !17
   br label %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit
 
 _ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit: ; preds = %.loopexit.i, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit, %147
-  %243 = phi i32 [ %.pre36, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit ], [ %159, %147 ], [ %159, %.loopexit.i ]
+  %243 = phi i32 [ %.pre42, %_ZN2cv3dnn12cpu_baselineL19fast_gemm_pack8_f32EiiPKviiPv.exit.loopexit ], [ %159, %147 ], [ %159, %.loopexit.i ]
   %244 = load ptr, ptr %43, align 8, !tbaa !231
   %245 = load float, ptr %244, align 4, !tbaa !12
-  call fastcc void @_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii(i32 noundef %., i32 noundef %68, i32 noundef %.76, ptr noundef %14, ptr noundef %.09, float noundef %245, ptr noundef %107, i32 noundef %70, i32 noundef %243)
-  %246 = mul nsw i32 %141, %.76
+  call fastcc void @_ZN2cv3dnn12cpu_baselineL22fast_gemm_macro_kernelEiiiPKcS3_fPcii(i32 noundef %., i32 noundef %68, i32 noundef %.77, ptr noundef %14, ptr noundef %.013, float noundef %245, ptr noundef %107, i32 noundef %70, i32 noundef %243)
+  %246 = mul nsw i32 %141, %.77
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i8, ptr %.09, i64 %247
+  %248 = getelementptr inbounds i8, ptr %.013, i64 %247
   %249 = load ptr, ptr %33, align 8, !tbaa !227
   %250 = load i32, ptr %249, align 4, !tbaa !17
-  %251 = add nsw i32 %250, %.0628
+  %251 = add nsw i32 %250, %.06212.fr
   %252 = load ptr, ptr %28, align 8, !tbaa !207
   %253 = load i32, ptr %252, align 4, !tbaa !17
   %254 = icmp slt i32 %251, %253
   br i1 %254, label %147, label %._crit_edge, !llvm.loop !232
 
-255:                                              ; preds = %._crit_edge14
+255:                                              ; preds = %._crit_edge18
   call void @free(ptr noundef %14) #27
   br label %256
 
-256:                                              ; preds = %255, %._crit_edge14
+256:                                              ; preds = %255, %._crit_edge18
   ret void
 }
 

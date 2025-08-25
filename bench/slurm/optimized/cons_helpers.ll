@@ -87,7 +87,7 @@ define dso_local ptr @cons_helpers_mark_avail_cores(ptr noundef %0, ptr noundef 
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 268), align 4
-  %.fr145 = freeze i32 %5
+  %.fr143 = freeze i32 %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 66
@@ -128,11 +128,11 @@ define dso_local ptr @cons_helpers_mark_avail_cores(ptr noundef %0, ptr noundef 
   br i1 %.not108141, label %._crit_edge, label %.lr.ph142
 
 .lr.ph142:                                        ; preds = %21
-  %25 = and i32 %.fr145, 8
+  %25 = and i32 %.fr143, 8
   %26 = icmp ne i32 %25, 0
   %27 = icmp eq i16 %.088, 0
   %or.cond4 = select i1 %26, i1 %27, i1 false
-  %28 = and i32 %.fr145, 8
+  %28 = and i32 %.fr143, 8
   %.not115 = icmp eq i32 %28, 0
   br label %29
 
@@ -174,8 +174,8 @@ define dso_local ptr @cons_helpers_mark_avail_cores(ptr noundef %0, ptr noundef 
 
 .preheader128:                                    ; preds = %41
   %47 = load i16, ptr %31, align 8
-  %.not146 = icmp eq i16 %47, 0
-  br i1 %.not146, label %.loopexit129, label %.lr.ph
+  %.not144 = icmp eq i16 %47, 0
+  br i1 %.not144, label %.loopexit129, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader128, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.preheader128 ]
@@ -227,50 +227,50 @@ switch.early.test:                                ; preds = %55
 
 .preheader126:                                    ; preds = %62
   %65 = load i16, ptr %31, align 8
-  %.not147 = icmp eq i16 %65, 0
-  br i1 %.not147, label %.loopexit, label %.lr.ph134
+  %.not145 = icmp eq i16 %65, 0
+  br i1 %.not145, label %.loopexit, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %.preheader126
   br i1 %.not115, label %.lr.ph134.split.us, label %.lr.ph134.split
 
 .lr.ph134.split.us:                               ; preds = %.lr.ph134, %69
-  %indvars.iv157 = phi i64 [ %indvars.iv.next158, %69 ], [ 0, %.lr.ph134 ]
+  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %69 ], [ 0, %.lr.ph134 ]
   %66 = load ptr, ptr %63, align 8
-  %67 = call i32 @slurm_bit_test(ptr noundef %66, i64 noundef %indvars.iv157) #3
+  %67 = call i32 @slurm_bit_test(ptr noundef %66, i64 noundef %indvars.iv155) #3
   %.not114.us = icmp eq i32 %67, 0
   br i1 %.not114.us, label %68, label %69
 
 68:                                               ; preds = %.lr.ph134.split.us
-  call void @slurm_bit_clear(ptr noundef %34, i64 noundef %indvars.iv157) #3
+  call void @slurm_bit_clear(ptr noundef %34, i64 noundef %indvars.iv155) #3
   br label %69
 
 69:                                               ; preds = %68, %.lr.ph134.split.us
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %70 = load i16, ptr %31, align 8
   %71 = zext i16 %70 to i64
-  %72 = icmp samesign ult i64 %indvars.iv.next158, %71
+  %72 = icmp samesign ult i64 %indvars.iv.next156, %71
   br i1 %72, label %.lr.ph134.split.us, label %.loopexit, !llvm.loop !13
 
 .lr.ph134.split:                                  ; preds = %.lr.ph134, %77
-  %indvars.iv154 = phi i64 [ %indvars.iv.next155, %77 ], [ 0, %.lr.ph134 ]
+  %indvars.iv152 = phi i64 [ %indvars.iv.next153, %77 ], [ 0, %.lr.ph134 ]
   %.1132 = phi i32 [ %.3, %77 ], [ %.092, %.lr.ph134 ]
   %73 = load ptr, ptr %63, align 8
-  %74 = call i32 @slurm_bit_test(ptr noundef %73, i64 noundef %indvars.iv154) #3
+  %74 = call i32 @slurm_bit_test(ptr noundef %73, i64 noundef %indvars.iv152) #3
   %.not114 = icmp eq i32 %74, 0
   br i1 %.not114, label %75, label %77
 
 75:                                               ; preds = %.lr.ph134.split
-  call void @slurm_bit_clear(ptr noundef %34, i64 noundef %indvars.iv154) #3
+  call void @slurm_bit_clear(ptr noundef %34, i64 noundef %indvars.iv152) #3
   %76 = add nsw i32 %.1132, -1
   %.not116 = icmp eq i32 %76, 0
   br i1 %.not116, label %.thread, label %77
 
 77:                                               ; preds = %.lr.ph134.split, %75
   %.3 = phi i32 [ %.1132, %.lr.ph134.split ], [ %76, %75 ]
-  %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
+  %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %78 = load i16, ptr %31, align 8
   %79 = zext i16 %78 to i64
-  %80 = icmp samesign ult i64 %indvars.iv.next155, %79
+  %80 = icmp samesign ult i64 %indvars.iv.next153, %79
   br i1 %80, label %.lr.ph134.split, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %77, %69, %.preheader126, %62
@@ -315,9 +315,9 @@ switch.early.test:                                ; preds = %55
   br i1 %102, label %.preheader.lr.ph, label %.thread
 
 .preheader.lr.ph:                                 ; preds = %99
-  %.not148 = icmp eq i32 %.094, %.095
+  %.not146 = icmp eq i32 %.094, %.095
   %103 = getelementptr inbounds nuw i8, ptr %30, i64 82
-  br i1 %.not148, label %.thread, label %.preheader.us
+  br i1 %.not146, label %.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.4140.us = phi i32 [ %.6.us, %._crit_edge.us ], [ %.093, %.preheader.lr.ph ]

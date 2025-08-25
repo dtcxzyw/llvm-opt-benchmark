@@ -942,8 +942,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   %308 = load ptr, ptr %307, align 8, !alias.scope !30, !noalias !31, !nonnull !3
   %309 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %310 = load i64, ptr %309, align 8, !alias.scope !30, !noalias !31
-  %.fr29.i.i.i.i = freeze i64 %310
-  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr29.i.i.i.i
+  %.fr26.i.i.i.i = freeze i64 %310
+  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr26.i.i.i.i
   %.idx.i.i.i.i.i = mul nuw nsw i64 %.fr25.i.i.i.i, 184
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i
   br i1 %311, label %.split.us.i.i.i.i, label %.split.i.i.i.i, !prof !5
@@ -954,7 +954,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 .split19.us.i.i.i.i:                              ; preds = %.split.us.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr29.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr26.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
           to label %.noexc103.i.i unwind label %338
 
 .noexc103.i.i:                                    ; preds = %.split19.us.i.i.i.i
@@ -2013,8 +2013,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   %308 = load ptr, ptr %307, align 8, !alias.scope !78, !noalias !79, !nonnull !3
   %309 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %310 = load i64, ptr %309, align 8, !alias.scope !78, !noalias !79
-  %.fr29.i.i.i.i = freeze i64 %310
-  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr29.i.i.i.i
+  %.fr26.i.i.i.i = freeze i64 %310
+  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr26.i.i.i.i
   %.idx.i.i.i.i.i = mul nuw nsw i64 %.fr25.i.i.i.i, 184
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i
   br i1 %311, label %.split.us.i.i.i.i, label %.split.i.i.i.i, !prof !5
@@ -2025,7 +2025,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 .split19.us.i.i.i.i:                              ; preds = %.split.us.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr29.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr26.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
           to label %.noexc103.i.i unwind label %338
 
 .noexc103.i.i:                                    ; preds = %.split19.us.i.i.i.i
@@ -3084,8 +3084,8 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
   %308 = load ptr, ptr %307, align 8, !alias.scope !123, !noalias !124, !nonnull !3
   %309 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %310 = load i64, ptr %309, align 8, !alias.scope !123, !noalias !124
-  %.fr29.i.i.i.i = freeze i64 %310
-  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr29.i.i.i.i
+  %.fr26.i.i.i.i = freeze i64 %310
+  %311 = icmp ugt i64 %.fr25.i.i.i.i, %.fr26.i.i.i.i
   %.idx.i.i.i.i.i = mul nuw nsw i64 %.fr25.i.i.i.i, 184
   %312 = getelementptr inbounds nuw i8, ptr %308, i64 %.idx.i.i.i.i.i
   br i1 %311, label %.split.us.i.i.i.i, label %.split.i.i.i.i, !prof !5
@@ -3096,7 +3096,7 @@ _ZN5salsa5zalsa5Zalsa17lookup_ingredient17hf45899e34c1ffe83E.exit.i.i: ; preds =
 
 .split19.us.i.i.i.i:                              ; preds = %.split.us.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr29.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %.fr25.i.i.i.i, i64 noundef %.fr26.i.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8696efbb51af1ab0a0d91346b691acb5.90) #16
           to label %.noexc103.i.i unwind label %338
 
 .noexc103.i.i:                                    ; preds = %.split19.us.i.i.i.i

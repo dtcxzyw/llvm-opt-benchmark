@@ -6367,13 +6367,13 @@ define void @_ZN17cranelift_codegen2ir12instructions9BlockCall9set_block17hbd0ad
   tail call void @llvm.experimental.noalias.scope.decl(metadata !697)
   %4 = load i32, ptr %0, align 4, !alias.scope !699, !noalias !700, !noundef !4
   %5 = tail call { i64, i64 } @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h204997370f423911E.llvm.10043242345734795027"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0)
-  %.fr9.i = freeze { i64, i64 } %5
-  %6 = extractvalue { i64, i64 } %.fr9.i, 0
+  %.fr.i = freeze { i64, i64 } %5
+  %6 = extractvalue { i64, i64 } %.fr.i, 0
   %switch.i.i = icmp eq i64 %6, 0
   br i1 %switch.i.i, label %20, label %7
 
 7:                                                ; preds = %3
-  %8 = extractvalue { i64, i64 } %.fr9.i, 1
+  %8 = extractvalue { i64, i64 } %.fr.i, 1
   %9 = zext i32 %4 to i64
   %10 = add i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8

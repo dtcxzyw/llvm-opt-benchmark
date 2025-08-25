@@ -1269,13 +1269,14 @@ define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef reado
 define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
-  %5 = icmp ult i16 %4, 24
+  %.fr = freeze i16 %4
+  %5 = icmp ult i16 %.fr, 24
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %8 = load i16, ptr %7, align 2
-  %9 = icmp ugt i16 %4, %8
+  %9 = icmp ugt i16 %.fr, %8
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %6
@@ -1310,132 +1311,131 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   unreachable
 
 31:                                               ; preds = %15
-  %32 = icmp eq i16 %4, 24
-  %33 = zext i16 %4 to i32
+  %32 = icmp eq i16 %.fr, 24
+  %33 = zext i16 %.fr to i32
   %34 = add nuw nsw i32 %33, 262120
   %35 = lshr i32 %34, 2
   %36 = trunc i32 %35 to i16
   %.0.i = select i1 %32, i16 0, i16 %36
-  %37 = freeze i16 %.0.i
-  %38 = zext i16 %1 to i32
-  %39 = add i16 %1, -1
-  %or.cond75.not = icmp ult i16 %39, %37
-  br i1 %or.cond75.not, label %43, label %40
+  %37 = zext i16 %1 to i32
+  %38 = add i16 %1, -1
+  %or.cond75.not = icmp ult i16 %38, %.0.i
+  br i1 %or.cond75.not, label %42, label %39
 
-40:                                               ; preds = %31
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %38) #12
+39:                                               ; preds = %31
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %40)
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %37) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1067, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
   unreachable
 
-43:                                               ; preds = %31
-  %44 = add nsw i32 %38, -1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = zext nneg i16 %1 to i64
-  %47 = add nsw i64 %46, -1
-  %48 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = lshr i32 %49, 17
-  %51 = zext nneg i32 %50 to i64
-  %52 = and i32 %49, 32767
-  %53 = zext i16 %8 to i32
-  %54 = icmp samesign ult i32 %52, %53
-  br i1 %54, label %62, label %55
+42:                                               ; preds = %31
+  %43 = add nsw i32 %37, -1
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = zext nneg i16 %1 to i64
+  %46 = add nsw i64 %45, -1
+  %47 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %44, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = lshr i32 %48, 17
+  %50 = zext nneg i32 %49 to i64
+  %51 = and i32 %48, 32767
+  %52 = zext i16 %8 to i32
+  %53 = icmp samesign ult i32 %51, %52
+  br i1 %53, label %61, label %54
 
-55:                                               ; preds = %43
-  %56 = zext nneg i32 %52 to i64
-  %57 = add nuw nsw i64 %56, %51
-  %58 = icmp samesign ugt i64 %57, %16
-  br i1 %58, label %62, label %59
+54:                                               ; preds = %42
+  %55 = zext nneg i32 %51 to i64
+  %56 = add nuw nsw i64 %55, %50
+  %57 = icmp samesign ugt i64 %56, %16
+  br i1 %57, label %61, label %58
 
-59:                                               ; preds = %55
-  %60 = add nuw nsw i64 %56, 7
-  %61 = and i64 %60, 65528
-  %.not72 = icmp eq i64 %61, %56
-  br i1 %.not72, label %66, label %62
+58:                                               ; preds = %54
+  %59 = add nuw nsw i64 %55, 7
+  %60 = and i64 %59, 65528
+  %.not72 = icmp eq i64 %60, %55
+  br i1 %.not72, label %65, label %61
 
-62:                                               ; preds = %59, %55, %43
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %50) #12
+61:                                               ; preds = %58, %54, %42
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %62)
+  %63 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %49) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1082, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
   unreachable
 
-66:                                               ; preds = %59
-  %67 = add nuw nsw i64 %51, 7
-  %68 = and i64 %67, 65528
-  %69 = zext i16 %4 to i64
-  %70 = shl nuw nsw i64 %46, 2
-  %reass.sub = sub nsw i64 %69, %70
-  %71 = icmp sgt i64 %reass.sub, 24
-  br i1 %71, label %72, label %77
+65:                                               ; preds = %58
+  %66 = add nuw nsw i64 %50, 7
+  %67 = and i64 %66, 65528
+  %68 = zext i16 %.fr to i64
+  %69 = shl nuw nsw i64 %45, 2
+  %reass.sub = sub nsw i64 %68, %69
+  %70 = icmp sgt i64 %reass.sub, 24
+  br i1 %70, label %71, label %76
 
-72:                                               ; preds = %66
-  %73 = add nsw i64 %reass.sub, -24
-  %74 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %46
-  %75 = zext nneg i32 %44 to i64
-  %76 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %75
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %76, ptr nonnull align 4 %74, i64 %73, i1 false)
-  br label %77
+71:                                               ; preds = %65
+  %72 = add nsw i64 %reass.sub, -24
+  %73 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %44, i64 0, i64 %45
+  %74 = zext nneg i32 %43 to i64
+  %75 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %44, i64 0, i64 %74
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr nonnull align 4 %73, i64 %72, i1 false)
+  br label %76
 
-77:                                               ; preds = %72, %66
-  %78 = icmp samesign ugt i32 %52, %53
-  br i1 %78, label %79, label %85
+76:                                               ; preds = %71, %65
+  %77 = icmp samesign ugt i32 %51, %52
+  br i1 %77, label %78, label %84
 
-79:                                               ; preds = %77
-  %80 = zext i16 %8 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %80
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %68
-  %83 = sub nuw nsw i32 %52, %53
-  %84 = zext nneg i32 %83 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %82, ptr align 1 %81, i64 %84, i1 false)
+78:                                               ; preds = %76
+  %79 = zext i16 %8 to i64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %67
+  %82 = sub nuw nsw i32 %51, %52
+  %83 = zext nneg i32 %82 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %81, ptr align 1 %80, i64 %83, i1 false)
   %.pre = load i16, ptr %7, align 2
-  %.pre81 = load i16, ptr %3, align 4
-  br label %85
+  %.pre82 = load i16, ptr %3, align 4
+  br label %84
 
-85:                                               ; preds = %79, %77
-  %86 = phi i16 [ %.pre81, %79 ], [ %4, %77 ]
-  %87 = phi i16 [ %.pre, %79 ], [ %8, %77 ]
-  %88 = trunc nuw i64 %68 to i16
-  %89 = add i16 %87, %88
-  store i16 %89, ptr %7, align 2
-  %90 = add i16 %86, -4
-  store i16 %90, ptr %3, align 4
-  %91 = icmp ugt i16 %90, 24
-  %.not73.not77 = icmp ugt i16 %37, 1
-  %or.cond79 = and i1 %91, %.not73.not77
-  br i1 %or.cond79, label %.lr.ph, label %.loopexit
+84:                                               ; preds = %78, %76
+  %85 = phi i16 [ %.pre82, %78 ], [ %.fr, %76 ]
+  %86 = phi i16 [ %.pre, %78 ], [ %8, %76 ]
+  %87 = trunc nuw i64 %67 to i16
+  %88 = add i16 %86, %87
+  store i16 %88, ptr %7, align 2
+  %89 = add i16 %85, -4
+  store i16 %89, ptr %3, align 4
+  %90 = icmp ugt i16 %89, 24
+  %.not73.not78 = icmp samesign ugt i16 %.0.i, 1
+  %or.cond80 = and i1 %90, %.not73.not78
+  br i1 %or.cond80, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %85
-  %92 = trunc nuw nsw i64 %68 to i32
-  %wide.trip.count = zext i16 %37 to i64
-  br label %93
+.lr.ph:                                           ; preds = %84
+  %91 = trunc nuw nsw i64 %67 to i32
+  %wide.trip.count = zext nneg i16 %.0.i to i64
+  br label %92
 
-93:                                               ; preds = %.lr.ph, %103
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %103 ]
-  %94 = add nsw i64 %indvars.iv, -1
-  %95 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 32767
-  %.not74 = icmp samesign ugt i32 %97, %52
-  br i1 %.not74, label %103, label %98
+92:                                               ; preds = %.lr.ph, %102
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %102 ]
+  %93 = add nsw i64 %indvars.iv, -1
+  %94 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %44, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4
+  %96 = and i32 %95, 32767
+  %.not74 = icmp samesign ugt i32 %96, %51
+  br i1 %.not74, label %102, label %97
 
-98:                                               ; preds = %93
-  %99 = add i32 %96, %92
-  %100 = and i32 %99, 32767
-  %101 = and i32 %96, -32768
-  %102 = or disjoint i32 %100, %101
-  store i32 %102, ptr %95, align 4
-  br label %103
+97:                                               ; preds = %92
+  %98 = add i32 %95, %91
+  %99 = and i32 %98, 32767
+  %100 = and i32 %95, -32768
+  %101 = or disjoint i32 %99, %100
+  store i32 %101, ptr %94, align 4
+  br label %102
 
-103:                                              ; preds = %98, %93
+102:                                              ; preds = %97, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %92, !llvm.loop !20
 
-.loopexit:                                        ; preds = %103, %85
+.loopexit:                                        ; preds = %102, %84
   ret void
 }
 
@@ -1655,13 +1655,14 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
 define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
-  %5 = icmp ult i16 %4, 24
+  %.fr = freeze i16 %4
+  %5 = icmp ult i16 %.fr, 24
   br i1 %5, label %19, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %8 = load i16, ptr %7, align 2
-  %9 = icmp ugt i16 %4, %8
+  %9 = icmp ugt i16 %.fr, %8
   br i1 %9, label %19, label %10
 
 10:                                               ; preds = %6
@@ -1696,134 +1697,133 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   unreachable
 
 31:                                               ; preds = %15
-  %32 = icmp eq i16 %4, 24
-  %33 = zext i16 %4 to i32
+  %32 = icmp eq i16 %.fr, 24
+  %33 = zext i16 %.fr to i32
   %34 = add nuw nsw i32 %33, 262120
   %35 = lshr i32 %34, 2
   %36 = trunc i32 %35 to i16
   %.0.i = select i1 %32, i16 0, i16 %36
-  %37 = freeze i16 %.0.i
-  %38 = zext nneg i16 %37 to i32
-  %39 = add i16 %1, -1
-  %or.cond71.not = icmp ult i16 %39, %37
-  br i1 %or.cond71.not, label %44, label %40
+  %37 = zext nneg i16 %.0.i to i32
+  %38 = add i16 %1, -1
+  %or.cond71.not = icmp ult i16 %38, %.0.i
+  br i1 %or.cond71.not, label %43, label %39
 
-40:                                               ; preds = %31
-  %41 = zext i16 %1 to i32
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %41) #12
+39:                                               ; preds = %31
+  %40 = zext i16 %1 to i32
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %40) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
   unreachable
 
-44:                                               ; preds = %31
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = zext nneg i16 %1 to i64
-  %47 = add nsw i64 %46, -1
-  %48 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = lshr i32 %49, 17
-  %51 = zext nneg i32 %50 to i64
-  %52 = and i32 %49, 32767
-  %53 = zext i16 %8 to i32
-  %54 = icmp samesign ult i32 %52, %53
-  br i1 %54, label %62, label %55
+43:                                               ; preds = %31
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %45 = zext nneg i16 %1 to i64
+  %46 = add nsw i64 %45, -1
+  %47 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %44, i64 0, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = lshr i32 %48, 17
+  %50 = zext nneg i32 %49 to i64
+  %51 = and i32 %48, 32767
+  %52 = zext i16 %8 to i32
+  %53 = icmp samesign ult i32 %51, %52
+  br i1 %53, label %61, label %54
 
-55:                                               ; preds = %44
-  %56 = zext nneg i32 %52 to i64
-  %57 = add nuw nsw i64 %56, %51
-  %58 = icmp samesign ugt i64 %57, %16
-  br i1 %58, label %62, label %59
+54:                                               ; preds = %43
+  %55 = zext nneg i32 %51 to i64
+  %56 = add nuw nsw i64 %55, %50
+  %57 = icmp samesign ugt i64 %56, %16
+  br i1 %57, label %61, label %58
 
-59:                                               ; preds = %55
-  %60 = add nuw nsw i64 %56, 7
-  %61 = and i64 %60, 65528
-  %.not67 = icmp eq i64 %61, %56
-  br i1 %.not67, label %66, label %62
+58:                                               ; preds = %54
+  %59 = add nuw nsw i64 %55, 7
+  %60 = and i64 %59, 65528
+  %.not67 = icmp eq i64 %60, %55
+  br i1 %.not67, label %65, label %61
 
-62:                                               ; preds = %59, %55, %44
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %50) #12
+61:                                               ; preds = %58, %54, %43
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %62)
+  %63 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %49) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1320, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
   unreachable
 
-66:                                               ; preds = %59
-  %67 = add nuw nsw i64 %51, 7
-  %68 = and i64 %67, 65528
-  %69 = icmp samesign ult i16 %1, %37
-  br i1 %69, label %70, label %71
+65:                                               ; preds = %58
+  %66 = add nuw nsw i64 %50, 7
+  %67 = and i64 %66, 65528
+  %68 = icmp samesign ult i16 %1, %.0.i
+  br i1 %68, label %69, label %70
 
-70:                                               ; preds = %66
-  store i32 0, ptr %48, align 4
-  br label %74
+69:                                               ; preds = %65
+  store i32 0, ptr %47, align 4
+  br label %73
 
-71:                                               ; preds = %66
-  %72 = add i16 %4, -4
-  store i16 %72, ptr %3, align 4
-  %73 = add nsw i32 %38, -1
-  br label %74
+70:                                               ; preds = %65
+  %71 = add i16 %.fr, -4
+  store i16 %71, ptr %3, align 4
+  %72 = add nsw i32 %37, -1
+  br label %73
 
-74:                                               ; preds = %71, %70
-  %.val7379 = phi i16 [ %4, %70 ], [ %72, %71 ]
-  %.059 = phi i32 [ %38, %70 ], [ %73, %71 ]
-  %75 = icmp samesign ugt i32 %52, %53
-  br i1 %75, label %76, label %82
+73:                                               ; preds = %70, %69
+  %.val7380 = phi i16 [ %.fr, %69 ], [ %71, %70 ]
+  %.059 = phi i32 [ %37, %69 ], [ %72, %70 ]
+  %74 = icmp samesign ugt i32 %51, %52
+  br i1 %74, label %75, label %81
 
-76:                                               ; preds = %74
-  %77 = zext i16 %8 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %77
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %68
-  %80 = sub nuw nsw i32 %52, %53
-  %81 = zext nneg i32 %80 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %79, ptr align 1 %78, i64 %81, i1 false)
+75:                                               ; preds = %73
+  %76 = zext i16 %8 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %76
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %67
+  %79 = sub nuw nsw i32 %51, %52
+  %80 = zext nneg i32 %79 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %78, ptr align 1 %77, i64 %80, i1 false)
   %.pre = load i16, ptr %7, align 2
   %.val73.pre = load i16, ptr %3, align 4
-  br label %82
+  br label %81
 
-82:                                               ; preds = %76, %74
-  %.val73 = phi i16 [ %.val73.pre, %76 ], [ %.val7379, %74 ]
-  %83 = phi i16 [ %.pre, %76 ], [ %8, %74 ]
-  %84 = trunc nuw i64 %68 to i16
-  %85 = add i16 %83, %84
-  store i16 %85, ptr %7, align 2
-  %86 = icmp ult i16 %.val73, 25
-  %.not6874 = icmp slt i32 %.059, 1
-  %or.cond76 = select i1 %86, i1 true, i1 %.not6874
-  br i1 %or.cond76, label %.loopexit, label %.lr.ph
+81:                                               ; preds = %75, %73
+  %.val73 = phi i16 [ %.val73.pre, %75 ], [ %.val7380, %73 ]
+  %82 = phi i16 [ %.pre, %75 ], [ %8, %73 ]
+  %83 = trunc nuw i64 %67 to i16
+  %84 = add i16 %82, %83
+  store i16 %84, ptr %7, align 2
+  %85 = icmp ult i16 %.val73, 25
+  %.not6875 = icmp slt i32 %.059, 1
+  %or.cond77 = select i1 %85, i1 true, i1 %.not6875
+  br i1 %or.cond77, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %82
-  %87 = trunc nuw nsw i64 %68 to i32
-  %88 = add nuw nsw i32 %.059, 1
-  %wide.trip.count = zext nneg i32 %88 to i64
-  br label %89
+.lr.ph:                                           ; preds = %81
+  %86 = trunc nuw nsw i64 %67 to i32
+  %87 = add nuw nsw i32 %.059, 1
+  %wide.trip.count = zext nneg i32 %87 to i64
+  br label %88
 
-89:                                               ; preds = %.lr.ph, %99
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %99 ]
-  %90 = add nsw i64 %indvars.iv, -1
-  %91 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %45, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4
-  %.not69 = icmp ult i32 %92, 131072
-  %93 = and i32 %92, 32767
-  %.not70 = icmp samesign ugt i32 %93, %52
+88:                                               ; preds = %.lr.ph, %98
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %98 ]
+  %89 = add nsw i64 %indvars.iv, -1
+  %90 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %44, i64 0, i64 %89
+  %91 = load i32, ptr %90, align 4
+  %.not69 = icmp ult i32 %91, 131072
+  %92 = and i32 %91, 32767
+  %.not70 = icmp samesign ugt i32 %92, %51
   %or.cond72 = select i1 %.not69, i1 true, i1 %.not70
-  br i1 %or.cond72, label %99, label %94
+  br i1 %or.cond72, label %98, label %93
 
-94:                                               ; preds = %89
-  %95 = add i32 %92, %87
-  %96 = and i32 %95, 32767
-  %97 = and i32 %92, -32768
-  %98 = or disjoint i32 %96, %97
-  store i32 %98, ptr %91, align 4
-  br label %99
+93:                                               ; preds = %88
+  %94 = add i32 %91, %86
+  %95 = and i32 %94, 32767
+  %96 = and i32 %91, -32768
+  %97 = or disjoint i32 %95, %96
+  store i32 %97, ptr %90, align 4
+  br label %98
 
-99:                                               ; preds = %94, %89
+98:                                               ; preds = %93, %88
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %89, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %88, !llvm.loop !23
 
-.loopexit:                                        ; preds = %99, %82
+.loopexit:                                        ; preds = %98, %81
   ret void
 }
 
@@ -1831,13 +1831,14 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
-  %7 = icmp ult i16 %6, 24
+  %.fr = freeze i16 %6
+  %7 = icmp ult i16 %.fr, 24
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %10 = load i16, ptr %9, align 2
-  %11 = icmp ugt i16 %6, %10
+  %11 = icmp ugt i16 %.fr, %10
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %8
@@ -1872,129 +1873,128 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   unreachable
 
 33:                                               ; preds = %17
-  %34 = icmp eq i16 %6, 24
-  %35 = zext i16 %6 to i32
+  %34 = icmp eq i16 %.fr, 24
+  %35 = zext i16 %.fr to i32
   %36 = add nuw nsw i32 %35, 262120
   %37 = lshr i32 %36, 2
   %38 = trunc i32 %37 to i16
   %.0.i = select i1 %34, i16 0, i16 %38
-  %39 = freeze i16 %.0.i
-  %40 = zext i16 %39 to i64
-  %41 = add i16 %1, -1
-  %or.cond82.not = icmp ult i16 %41, %39
-  br i1 %or.cond82.not, label %46, label %42
+  %39 = zext nneg i16 %.0.i to i64
+  %40 = add i16 %1, -1
+  %or.cond82.not = icmp ult i16 %40, %.0.i
+  br i1 %or.cond82.not, label %45, label %41
 
-42:                                               ; preds = %33
-  %43 = zext i16 %1 to i32
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %43) #12
+41:                                               ; preds = %33
+  %42 = zext i16 %1 to i32
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %43)
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %42) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
   unreachable
 
-46:                                               ; preds = %33
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = zext nneg i16 %1 to i64
-  %49 = add nsw i64 %48, -1
-  %50 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4
-  %52 = lshr i32 %51, 17
-  %53 = and i32 %51, 32767
-  %54 = zext i16 %10 to i32
-  %55 = icmp samesign ult i32 %53, %54
-  %56 = add nuw nsw i32 %53, %52
-  %57 = zext nneg i16 %14 to i32
-  %58 = icmp samesign ugt i32 %56, %57
-  %or.cond87 = select i1 %55, i1 true, i1 %58
-  br i1 %or.cond87, label %63, label %59
+45:                                               ; preds = %33
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = zext nneg i16 %1 to i64
+  %48 = add nsw i64 %47, -1
+  %49 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %46, i64 0, i64 %48
+  %50 = load i32, ptr %49, align 4
+  %51 = lshr i32 %50, 17
+  %52 = and i32 %50, 32767
+  %53 = zext i16 %10 to i32
+  %54 = icmp samesign ult i32 %52, %53
+  %55 = add nuw nsw i32 %52, %51
+  %56 = zext nneg i16 %14 to i32
+  %57 = icmp samesign ugt i32 %55, %56
+  %or.cond87 = select i1 %54, i1 true, i1 %57
+  br i1 %or.cond87, label %62, label %58
 
-59:                                               ; preds = %46
-  %60 = zext nneg i32 %53 to i64
-  %61 = add nuw nsw i64 %60, 7
-  %62 = and i64 %61, 65528
-  %.not77 = icmp eq i64 %62, %60
-  br i1 %.not77, label %67, label %63
+58:                                               ; preds = %45
+  %59 = zext nneg i32 %52 to i64
+  %60 = add nuw nsw i64 %59, 7
+  %61 = and i64 %60, 65528
+  %.not77 = icmp eq i64 %61, %59
+  br i1 %.not77, label %66, label %62
 
-63:                                               ; preds = %59, %46
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %53, i32 noundef %52) #12
+62:                                               ; preds = %58, %45
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %63)
+  %64 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %52, i32 noundef %51) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
   unreachable
 
-67:                                               ; preds = %59
-  %narrow = add nuw nsw i32 %52, 7
-  %68 = and i32 %narrow, 65528
-  %69 = add i64 %3, 7
-  %70 = and i64 %69, -8
-  %71 = sub nsw i32 %54, %35
-  %72 = add nsw i32 %71, %68
-  %73 = sext i32 %72 to i64
-  %74 = icmp ule i64 %70, %73
-  br i1 %74, label %75, label %107
+66:                                               ; preds = %58
+  %narrow = add nuw nsw i32 %51, 7
+  %67 = and i32 %narrow, 65528
+  %68 = add i64 %3, 7
+  %69 = and i64 %68, -8
+  %70 = sub nsw i32 %53, %35
+  %71 = add nsw i32 %70, %67
+  %72 = sext i32 %71 to i64
+  %73 = icmp ule i64 %69, %72
+  br i1 %73, label %74, label %106
 
-75:                                               ; preds = %67
-  %76 = trunc i64 %70 to i32
-  %77 = sub i32 %68, %76
-  %.not78 = icmp eq i32 %68, %76
+74:                                               ; preds = %66
+  %75 = trunc i64 %69 to i32
+  %76 = sub i32 %67, %75
+  %.not78 = icmp eq i32 %67, %75
   br i1 %.not78, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %75
-  %78 = zext i16 %10 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %78
-  %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  %82 = sub nsw i32 %53, %54
-  %83 = zext i32 %82 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %81, ptr align 1 %79, i64 %83, i1 false)
-  %84 = load i16, ptr %9, align 2
-  %85 = trunc i32 %77 to i16
-  %86 = add i16 %84, %85
-  store i16 %86, ptr %9, align 2
+.lr.ph.preheader:                                 ; preds = %74
+  %77 = zext i16 %10 to i64
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %77
+  %79 = sext i32 %76 to i64
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  %81 = sub nsw i32 %52, %53
+  %82 = zext i32 %81 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %80, ptr align 1 %78, i64 %82, i1 false)
+  %83 = load i16, ptr %9, align 2
+  %84 = trunc i32 %76 to i16
+  %85 = add i16 %83, %84
+  store i16 %85, ptr %9, align 2
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %96
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %96 ]
-  %87 = add nsw i64 %indvars.iv, -1
-  %88 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %47, i64 0, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %.not80 = icmp ult i32 %89, 131072
-  %90 = and i32 %89, 32767
-  %.not81 = icmp samesign ugt i32 %90, %53
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %95
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %95 ]
+  %86 = add nsw i64 %indvars.iv, -1
+  %87 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %46, i64 0, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %.not80 = icmp ult i32 %88, 131072
+  %89 = and i32 %88, 32767
+  %.not81 = icmp samesign ugt i32 %89, %52
   %or.cond83 = select i1 %.not80, i1 true, i1 %.not81
-  br i1 %or.cond83, label %96, label %91
+  br i1 %or.cond83, label %95, label %90
 
-91:                                               ; preds = %.lr.ph
-  %92 = add i32 %89, %77
-  %93 = and i32 %92, 32767
-  %94 = and i32 %89, -32768
-  %95 = or disjoint i32 %93, %94
-  store i32 %95, ptr %88, align 4
-  br label %96
+90:                                               ; preds = %.lr.ph
+  %91 = add i32 %88, %76
+  %92 = and i32 %91, 32767
+  %93 = and i32 %88, -32768
+  %94 = or disjoint i32 %92, %93
+  store i32 %94, ptr %87, align 4
+  br label %95
 
-96:                                               ; preds = %91, %.lr.ph
+95:                                               ; preds = %90, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv, %40
+  %exitcond = icmp eq i64 %indvars.iv, %39
   br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
-.loopexit:                                        ; preds = %96, %75
-  %97 = add i32 %77, %51
-  %98 = load i32, ptr %50, align 4
-  %99 = and i32 %97, 32767
-  %100 = and i32 %98, 98304
-  %101 = trunc i64 %3 to i32
-  %102 = shl i32 %101, 17
-  %103 = or disjoint i32 %100, %102
-  %104 = or disjoint i32 %103, %99
-  store i32 %104, ptr %50, align 4
-  %105 = zext nneg i32 %99 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %2, i64 %3, i1 false)
-  br label %107
+.loopexit:                                        ; preds = %95, %74
+  %96 = add i32 %76, %50
+  %97 = load i32, ptr %49, align 4
+  %98 = and i32 %96, 32767
+  %99 = and i32 %97, 98304
+  %100 = trunc i64 %3 to i32
+  %101 = shl i32 %100, 17
+  %102 = or disjoint i32 %99, %101
+  %103 = or disjoint i32 %102, %98
+  store i32 %103, ptr %49, align 4
+  %104 = zext nneg i32 %98 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 %104
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %2, i64 %3, i1 false)
+  br label %106
 
-107:                                              ; preds = %67, %.loopexit
-  ret i1 %74
+106:                                              ; preds = %66, %.loopexit
+  ret i1 %73
 }
 
 ; Function Attrs: nounwind uwtable

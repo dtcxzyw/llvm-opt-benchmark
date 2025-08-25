@@ -1175,22 +1175,22 @@ _ZN5clanglsINS_19AttributeCommonInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_
   br label %131
 
 131:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i, %.lr.ph.i
-  %.sroa.7108.0133.i = phi ptr [ %123, %.lr.ph.i ], [ %spec.select.i.i.i.i, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i ]
-  %.sroa.0105.0132.i = phi ptr [ %.val28.pre.i, %.lr.ph.i ], [ %spec.select.i1.i.i.i, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i ]
-  %132 = icmp eq ptr %.sroa.7108.0133.i, %122
+  %.sroa.7108.0134.i = phi ptr [ %123, %.lr.ph.i ], [ %spec.select.i.i.i.i, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i ]
+  %.sroa.0105.0133.i = phi ptr [ %.val28.pre.i, %.lr.ph.i ], [ %spec.select.i1.i.i.i, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i ]
+  %132 = icmp eq ptr %.sroa.7108.0134.i, %122
   br i1 %132, label %_ZN4llvm6detail13deref_or_noneIN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SP_.exit.i.i.i, label %133
 
 133:                                              ; preds = %131
-  %134 = load ptr, ptr %.sroa.7108.0133.i, align 8, !tbaa !751, !noalias !769
+  %134 = load ptr, ptr %.sroa.7108.0134.i, align 8, !tbaa !751, !noalias !769
   br label %_ZN4llvm6detail13deref_or_noneIN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SP_.exit.i.i.i
 
 _ZN4llvm6detail13deref_or_noneIN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SP_.exit.i.i.i: ; preds = %133, %131
   %.sroa.0.0.i.i.i.i = phi ptr [ %134, %133 ], [ undef, %131 ]
-  %135 = icmp eq ptr %.sroa.0105.0132.i, %.val29.pre.i
+  %135 = icmp eq ptr %.sroa.0105.0133.i, %.val29.pre.i
   br i1 %135, label %_ZNK4llvm6detail20zip_longest_iteratorIJN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEESD_EEdeEv.exit.i, label %136
 
 136:                                              ; preds = %_ZN4llvm6detail13deref_or_noneIN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SP_.exit.i.i.i
-  %137 = load ptr, ptr %.sroa.0105.0132.i, align 8, !tbaa !751, !noalias !769
+  %137 = load ptr, ptr %.sroa.0105.0133.i, align 8, !tbaa !751, !noalias !769
   br label %_ZNK4llvm6detail20zip_longest_iteratorIJN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEESD_EEdeEv.exit.i
 
 _ZNK4llvm6detail20zip_longest_iteratorIJN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEESD_EEdeEv.exit.i: ; preds = %136, %_ZN4llvm6detail13deref_or_noneIN9__gnu_cxx17__normal_iteratorIPKPKN5clang8CallExprESt6vectorIS7_SaIS7_EEEEEESt8optionalINSt12remove_constINSt16remove_referenceIDTdefp_EE4typeEE4typeEERKT_SP_.exit.i.i.i
@@ -1459,17 +1459,18 @@ _ZN5clanglsINS_19AttributeCommonInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_
 266:                                              ; preds = %_ZN5clanglsINS_19AttributeCommonInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit47.i
   %267 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %151) #18
   %268 = load ptr, ptr %267, align 8, !tbaa !718
+  %.fr.i = freeze ptr %268
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %270 = load i32, ptr %269, align 8, !tbaa !719
-  %271 = zext i32 %270 to i64
+  %.fr127.i = freeze i32 %270
+  %271 = zext i32 %.fr127.i to i64
   %.idx.i.i49.i = shl nuw nsw i64 %271, 3
-  %272 = getelementptr inbounds nuw i8, ptr %268, i64 %.idx.i.i49.i
-  %.fr.i = freeze ptr %272
-  %.not.i.i50.i = icmp eq i32 %270, 0
+  %272 = getelementptr i8, ptr %.fr.i, i64 %.idx.i.i49.i
+  %.not.i.i50.i = icmp eq i32 %.fr127.i, 0
   br i1 %.not.i.i50.i, label %_ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit56.thread122.i, label %.lr.ph.i.i.i.i.i51.i
 
 .lr.ph.i.i.i.i.i51.i:                             ; preds = %266, %277
-  %.sroa.07.1.i.i.i.i52.i = phi ptr [ %278, %277 ], [ %268, %266 ]
+  %.sroa.07.1.i.i.i.i52.i = phi ptr [ %278, %277 ], [ %.fr.i, %266 ]
   %273 = load ptr, ptr %.sroa.07.1.i.i.i.i52.i, align 8, !tbaa !760
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load i16, ptr %274, align 8
@@ -1478,12 +1479,12 @@ _ZN5clanglsINS_19AttributeCommonInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_
 
 277:                                              ; preds = %.lr.ph.i.i.i.i.i51.i
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i52.i, i64 8
-  %.not.i.i.i.i.i53.i = icmp eq ptr %278, %.fr.i
+  %.not.i.i.i.i.i53.i = icmp eq ptr %278, %272
   br i1 %.not.i.i.i.i.i53.i, label %_ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit56.thread122.i, label %.lr.ph.i.i.i.i.i51.i, !llvm.loop !774
 
 _ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit56.i: ; preds = %.lr.ph.i.i.i.i.i51.i
-  %.not127.i = icmp eq ptr %.sroa.07.1.i.i.i.i52.i, %.fr.i
-  %279 = select i1 %.not127.i, i64 1, i64 2
+  %.not128.i = icmp eq ptr %.sroa.07.1.i.i.i.i52.i, %272
+  %279 = select i1 %.not128.i, i64 1, i64 2
   br label %_ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit56.thread122.i
 
 _ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit56.thread122.i: ; preds = %277, %_ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit56.i, %266, %_ZN5clanglsINS_19AttributeCommonInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit47.i
@@ -1657,9 +1658,9 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i: ; preds = %_ZN
   br label %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i
 
 _ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.thread119.i: ; preds = %182, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i, %_ZNK5clang4Decl7hasAttrINS_11FlattenAttrEEEbv.exit.i, %171, %_ZNK5clang4Decl7hasAttrINS_12NoInlineAttrEEEbv.exit.thread117.i, %145, %138
-  %359 = getelementptr inbounds nuw i8, ptr %.sroa.7108.0133.i, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %.sroa.7108.0134.i, i64 8
   %spec.select.i.i.i.i = select i1 %132, ptr %122, ptr %359
-  %360 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0132.i, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %.sroa.0105.0133.i, i64 8
   %spec.select.i1.i.i.i = select i1 %135, ptr %.val29.pre.i, ptr %360
   %361 = icmp ne ptr %spec.select.i.i.i.i, %122
   %362 = icmp ne ptr %spec.select.i1.i.i.i, %.val29.pre.i

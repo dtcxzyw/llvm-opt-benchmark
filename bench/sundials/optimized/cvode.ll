@@ -4663,8 +4663,8 @@ cvInitialSetup.exit.thread:                       ; preds = %98, %99, %69, %85, 
 define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr noundef nonnull captures(none) %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load double, ptr %3, align 8, !tbaa !81
-  %.fr = freeze double %4
-  %5 = fsub double %1, %.fr
+  %.fr119 = freeze double %4
+  %5 = fsub double %1, %.fr119
   %6 = fcmp oeq double %5, 0.000000e+00
   br i1 %6, label %cvYddNorm.exit, label %7
 
@@ -4673,7 +4673,7 @@ define internal fastcc range(i32 -27, 1) i32 @cvHin(ptr noundef nonnull captures
   %9 = tail call double @llvm.fabs.f64(double %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8, !tbaa !18
-  %12 = tail call double @llvm.fabs.f64(double %.fr)
+  %12 = tail call double @llvm.fabs.f64(double %.fr119)
   %13 = tail call double @llvm.fabs.f64(double %1)
   %14 = fcmp ogt double %12, %13
   %. = select i1 %14, double %12, double %13

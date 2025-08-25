@@ -13968,22 +13968,22 @@ _ZN7cvflann12UniqueRandomC2Ei.exit:               ; preds = %._crit_edge.i.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %wide.trip.count119 = zext nneg i32 %1 to i64
+  %wide.trip.count118 = zext nneg i32 %1 to i64
   %sext = sext i32 %38 to i64
-  %sext114 = sext i32 %38 to i64
+  %sext113 = sext i32 %38 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %indvars.iv116 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next117, %.critedge ]
+  %indvars.iv115 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next116, %.critedge ]
   %42 = phi i32 [ 0, %.preheader.lr.ph ], [ %127, %.critedge ]
-  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv116
-  %.not = icmp eq i64 %indvars.iv116, 0
+  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv115
+  %.not = icmp eq i64 %indvars.iv115, 0
   %44 = load ptr, ptr %39, align 8
   %45 = load i64, ptr %40, align 8
   %46 = load i64, ptr %41, align 8
-  %.fr85 = freeze i64 %46
-  %47 = and i64 %.fr85, 7
-  %.idx.i = and i64 %.fr85, -8
+  %.fr = freeze i64 %46
+  %47 = and i64 %.fr, 7
+  %.idx.i = and i64 %.fr, -8
   %.not24.i = icmp eq i64 %.idx.i, 0
   br i1 %.not, label %.preheader.split, label %.preheader.split.us
 
@@ -14003,7 +14003,7 @@ _ZN7cvflann12UniqueRandomC2Ei.exit:               ; preds = %._crit_edge.i.i
   br label %.preheader.split.us.split.us.split
 
 .preheader.split.us.split.us.split.us.split:      ; preds = %.preheader.split.us.split.us
-  %50 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv115 to i32
   %51 = icmp eq i32 %42, %38
   br i1 %51, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader
 
@@ -14012,11 +14012,11 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader: ; preds = %.preheader.
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us:   ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader, %.lr.ph.us.us.us
-  %indvars.iv125 = phi i64 [ %52, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader ], [ %indvars.iv.next126, %.lr.ph.us.us.us ]
-  %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
-  %53 = trunc nsw i64 %indvars.iv.next126 to i32
+  %indvars.iv124 = phi i64 [ %52, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader ], [ %indvars.iv.next125, %.lr.ph.us.us.us ]
+  %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
+  %53 = trunc nsw i64 %indvars.iv.next125 to i32
   store i32 %53, ptr %35, align 4, !tbaa !338
-  %54 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv125
+  %54 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv124
   %55 = load i32, ptr %54, align 4, !tbaa !64
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread, label %.lr.ph.us.us.us
@@ -14030,18 +14030,18 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us:   ; preds = %_ZN7cvflann12Unique
   br i1 %60, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us
 
 .preheader.split.us.split.us.split:               ; preds = %.preheader.split.us.split.us.split.preheader, %..loopexit_crit_edge.split.us.split.us54.us
-  %indvars.iv112 = phi i64 [ %49, %.preheader.split.us.split.us.split.preheader ], [ %indvars.iv.next113, %..loopexit_crit_edge.split.us.split.us54.us ]
-  %61 = icmp eq i64 %indvars.iv112, %sext114
+  %indvars.iv111 = phi i64 [ %49, %.preheader.split.us.split.us.split.preheader ], [ %indvars.iv.next112, %..loopexit_crit_edge.split.us.split.us54.us ]
+  %61 = icmp eq i64 %indvars.iv111, %sext113
   br i1 %61, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.us.us:      ; preds = %.preheader.split.us.split.us.split
-  %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
-  %62 = trunc nsw i64 %indvars.iv.next113 to i32
+  %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
+  %62 = trunc nsw i64 %indvars.iv.next112 to i32
   store i32 %62, ptr %35, align 4, !tbaa !338
-  %63 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv112
+  %63 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv111
   %64 = load i32, ptr %63, align 4, !tbaa !64
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142, label %.lr.ph.us.us
+  br i1 %65, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141, label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
   %66 = zext nneg i32 %64 to i64
@@ -14055,9 +14055,9 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us:      ; preds = %.preheader.split.us
   br label %.lr.ph.i.preheader.us.us.us
 
 .lr.ph.i.preheader.us.us.us:                      ; preds = %.lr.ph.us.us, %._crit_edge.i.loopexit.us.us.us
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next109, %._crit_edge.i.loopexit.us.us.us ]
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next108, %._crit_edge.i.loopexit.us.us.us ]
   %.136.us.us.us = phi i1 [ false, %.lr.ph.us.us ], [ %spec.select.us.us.us, %._crit_edge.i.loopexit.us.us.us ]
-  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv108
+  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv107
   %74 = load i32, ptr %73, align 4, !tbaa !64
   %75 = sext i32 %74 to i64
   %76 = mul i64 %45, %75
@@ -14082,26 +14082,26 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us:      ; preds = %.preheader.split.us
 ._crit_edge.i.loopexit.us.us.us:                  ; preds = %.lr.ph.i.us.us.us
   %86 = icmp eq i32 %83, 0
   %spec.select.us.us.us = select i1 %86, i1 true, i1 %.136.us.us.us
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next109, %indvars.iv116
-  br i1 %exitcond111.not, label %..loopexit_crit_edge.split.us.split.us54.us, label %.lr.ph.i.preheader.us.us.us, !llvm.loop !340
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next108, %indvars.iv115
+  br i1 %exitcond110.not, label %..loopexit_crit_edge.split.us.split.us54.us, label %.lr.ph.i.preheader.us.us.us, !llvm.loop !340
 
 ..loopexit_crit_edge.split.us.split.us54.us:      ; preds = %._crit_edge.i.loopexit.us.us.us
   br i1 %spec.select.us.us.us, label %.preheader.split.us.split.us.split, label %.critedge, !llvm.loop !341
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us.split.preheader, %..loopexit_crit_edge.split.us50
-  %indvars.iv105 = phi i64 [ %48, %.preheader.split.us.split.preheader ], [ %indvars.iv.next106, %..loopexit_crit_edge.split.us50 ]
-  %87 = icmp eq i64 %indvars.iv105, %sext
-  br i1 %87, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us
+  %indvars.iv104 = phi i64 [ %48, %.preheader.split.us.split.preheader ], [ %indvars.iv.next105, %..loopexit_crit_edge.split.us50 ]
+  %87 = icmp eq i64 %indvars.iv104, %sext
+  br i1 %87, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %.preheader.split.us.split
-  %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
-  %88 = trunc nsw i64 %indvars.iv.next106 to i32
+  %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
+  %88 = trunc nsw i64 %indvars.iv.next105 to i32
   store i32 %88, ptr %35, align 4, !tbaa !338
-  %89 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %89 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv104
   %90 = load i32, ptr %89, align 4, !tbaa !64
   %91 = icmp slt i32 %90, 0
-  br i1 %91, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144, label %.lr.ph.us
+  br i1 %91, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us
   %92 = zext nneg i32 %90 to i64
@@ -14160,7 +14160,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %.preheader.split.us
   %117 = icmp slt i32 %116, 1
   %spec.select.us46 = select i1 %117, i1 true, i1 %.136.us40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv116
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv115
   br i1 %exitcond.not, label %..loopexit_crit_edge.split.us50, label %99, !llvm.loop !340
 
 ..loopexit_crit_edge.split.us50:                  ; preds = %._crit_edge.i.us
@@ -14188,33 +14188,33 @@ _ZN7cvflann12UniqueRandom4nextEv.exit:            ; preds = %.preheader.split
 
 .critedge:                                        ; preds = %..loopexit_crit_edge.split.us50, %..loopexit_crit_edge.split.us.split.us54.us, %.loopexit
   %127 = phi i32 [ %119, %.loopexit ], [ %62, %..loopexit_crit_edge.split.us.split.us54.us ], [ %88, %..loopexit_crit_edge.split.us50 ]
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread, label %.preheader, !llvm.loop !342
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread, label %.preheader, !llvm.loop !342
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
-  %128 = trunc nuw nsw i64 %indvars.iv116 to i32
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
+  %128 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us
-  %129 = trunc nuw nsw i64 %indvars.iv116 to i32
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us
+  %129 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit, %.lr.ph.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142
-  %.035.ph = phi i32 [ %128, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142 ], [ %129, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144 ], [ %50, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us ], [ %50, %.lr.ph.us.us.us ], [ 0, %_ZN7cvflann12UniqueRandom4nextEv.exit ]
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit, %.lr.ph.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141
+  %.035.ph = phi i32 [ %128, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141 ], [ %129, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143 ], [ %50, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us ], [ %50, %.lr.ph.us.us.us ], [ 0, %_ZN7cvflann12UniqueRandom4nextEv.exit ]
   store i32 %.035.ph, ptr %5, align 4, !tbaa !64
   br label %132
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit: ; preds = %.preheader.split.us.split.us.split
-  %130 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143: ; preds = %.preheader.split.us.split
-  %131 = trunc nuw nsw i64 %indvars.iv116 to i32
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142: ; preds = %.preheader.split.us.split
+  %131 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split.us.split
-  %.035 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143 ], [ 0, %.preheader.split ], [ %1, %.critedge ]
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split.us.split
+  %.035 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142 ], [ 0, %.preheader.split ], [ %1, %.critedge ]
   store i32 %.035, ptr %5, align 4, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZN7cvflann12UniqueRandomD2Ev.exit, label %132
@@ -22037,22 +22037,22 @@ _ZN7cvflann12UniqueRandomC2Ei.exit:               ; preds = %._crit_edge.i.i
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %wide.trip.count119 = zext nneg i32 %1 to i64
+  %wide.trip.count118 = zext nneg i32 %1 to i64
   %sext = sext i32 %38 to i64
-  %sext114 = sext i32 %38 to i64
+  %sext113 = sext i32 %38 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %indvars.iv116 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next117, %.critedge ]
+  %indvars.iv115 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next116, %.critedge ]
   %42 = phi i32 [ 0, %.preheader.lr.ph ], [ %127, %.critedge ]
-  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv116
-  %.not = icmp eq i64 %indvars.iv116, 0
+  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv115
+  %.not = icmp eq i64 %indvars.iv115, 0
   %44 = load ptr, ptr %39, align 8
   %45 = load i64, ptr %40, align 8
   %46 = load i64, ptr %41, align 8
-  %.fr85 = freeze i64 %46
-  %47 = and i64 %.fr85, 7
-  %.idx.i = and i64 %.fr85, -8
+  %.fr = freeze i64 %46
+  %47 = and i64 %.fr, 7
+  %.idx.i = and i64 %.fr, -8
   %.not24.i = icmp eq i64 %.idx.i, 0
   br i1 %.not, label %.preheader.split, label %.preheader.split.us
 
@@ -22072,7 +22072,7 @@ _ZN7cvflann12UniqueRandomC2Ei.exit:               ; preds = %._crit_edge.i.i
   br label %.preheader.split.us.split.us.split
 
 .preheader.split.us.split.us.split.us.split:      ; preds = %.preheader.split.us.split.us
-  %50 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %50 = trunc nuw nsw i64 %indvars.iv115 to i32
   %51 = icmp eq i32 %42, %38
   br i1 %51, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader
 
@@ -22081,11 +22081,11 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader: ; preds = %.preheader.
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us:   ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader, %.lr.ph.us.us.us
-  %indvars.iv125 = phi i64 [ %52, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader ], [ %indvars.iv.next126, %.lr.ph.us.us.us ]
-  %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
-  %53 = trunc nsw i64 %indvars.iv.next126 to i32
+  %indvars.iv124 = phi i64 [ %52, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us.preheader ], [ %indvars.iv.next125, %.lr.ph.us.us.us ]
+  %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
+  %53 = trunc nsw i64 %indvars.iv.next125 to i32
   store i32 %53, ptr %35, align 4, !tbaa !338
-  %54 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv125
+  %54 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv124
   %55 = load i32, ptr %54, align 4, !tbaa !64
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread, label %.lr.ph.us.us.us
@@ -22099,18 +22099,18 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us:   ; preds = %_ZN7cvflann12Unique
   br i1 %60, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us
 
 .preheader.split.us.split.us.split:               ; preds = %.preheader.split.us.split.us.split.preheader, %..loopexit_crit_edge.split.us.split.us54.us
-  %indvars.iv112 = phi i64 [ %49, %.preheader.split.us.split.us.split.preheader ], [ %indvars.iv.next113, %..loopexit_crit_edge.split.us.split.us54.us ]
-  %61 = icmp eq i64 %indvars.iv112, %sext114
+  %indvars.iv111 = phi i64 [ %49, %.preheader.split.us.split.us.split.preheader ], [ %indvars.iv.next112, %..loopexit_crit_edge.split.us.split.us54.us ]
+  %61 = icmp eq i64 %indvars.iv111, %sext113
   br i1 %61, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.us.us:      ; preds = %.preheader.split.us.split.us.split
-  %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
-  %62 = trunc nsw i64 %indvars.iv.next113 to i32
+  %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
+  %62 = trunc nsw i64 %indvars.iv.next112 to i32
   store i32 %62, ptr %35, align 4, !tbaa !338
-  %63 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv112
+  %63 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv111
   %64 = load i32, ptr %63, align 4, !tbaa !64
   %65 = icmp slt i32 %64, 0
-  br i1 %65, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142, label %.lr.ph.us.us
+  br i1 %65, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141, label %.lr.ph.us.us
 
 .lr.ph.us.us:                                     ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
   %66 = zext nneg i32 %64 to i64
@@ -22124,9 +22124,9 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us:      ; preds = %.preheader.split.us
   br label %.lr.ph.i.preheader.us.us.us
 
 .lr.ph.i.preheader.us.us.us:                      ; preds = %.lr.ph.us.us, %._crit_edge.i.loopexit.us.us.us
-  %indvars.iv108 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next109, %._crit_edge.i.loopexit.us.us.us ]
+  %indvars.iv107 = phi i64 [ 0, %.lr.ph.us.us ], [ %indvars.iv.next108, %._crit_edge.i.loopexit.us.us.us ]
   %.136.us.us.us = phi i1 [ false, %.lr.ph.us.us ], [ %spec.select.us.us.us, %._crit_edge.i.loopexit.us.us.us ]
-  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv108
+  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv107
   %74 = load i32, ptr %73, align 4, !tbaa !64
   %75 = sext i32 %74 to i64
   %76 = mul i64 %45, %75
@@ -22151,26 +22151,26 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us.us:      ; preds = %.preheader.split.us
 ._crit_edge.i.loopexit.us.us.us:                  ; preds = %.lr.ph.i.us.us.us
   %86 = icmp eq i32 %83, 0
   %spec.select.us.us.us = select i1 %86, i1 true, i1 %.136.us.us.us
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
-  %exitcond111.not = icmp eq i64 %indvars.iv.next109, %indvars.iv116
-  br i1 %exitcond111.not, label %..loopexit_crit_edge.split.us.split.us54.us, label %.lr.ph.i.preheader.us.us.us, !llvm.loop !505
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next108, %indvars.iv115
+  br i1 %exitcond110.not, label %..loopexit_crit_edge.split.us.split.us54.us, label %.lr.ph.i.preheader.us.us.us, !llvm.loop !505
 
 ..loopexit_crit_edge.split.us.split.us54.us:      ; preds = %._crit_edge.i.loopexit.us.us.us
   br i1 %spec.select.us.us.us, label %.preheader.split.us.split.us.split, label %.critedge, !llvm.loop !506
 
 .preheader.split.us.split:                        ; preds = %.preheader.split.us.split.preheader, %..loopexit_crit_edge.split.us50
-  %indvars.iv105 = phi i64 [ %48, %.preheader.split.us.split.preheader ], [ %indvars.iv.next106, %..loopexit_crit_edge.split.us50 ]
-  %87 = icmp eq i64 %indvars.iv105, %sext
-  br i1 %87, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us
+  %indvars.iv104 = phi i64 [ %48, %.preheader.split.us.split.preheader ], [ %indvars.iv.next105, %..loopexit_crit_edge.split.us50 ]
+  %87 = icmp eq i64 %indvars.iv104, %sext
+  br i1 %87, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142, label %_ZN7cvflann12UniqueRandom4nextEv.exit.us
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %.preheader.split.us.split
-  %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
-  %88 = trunc nsw i64 %indvars.iv.next106 to i32
+  %indvars.iv.next105 = add nsw i64 %indvars.iv104, 1
+  %88 = trunc nsw i64 %indvars.iv.next105 to i32
   store i32 %88, ptr %35, align 4, !tbaa !338
-  %89 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %89 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv104
   %90 = load i32, ptr %89, align 4, !tbaa !64
   %91 = icmp slt i32 %90, 0
-  br i1 %91, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144, label %.lr.ph.us
+  br i1 %91, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us
   %92 = zext nneg i32 %90 to i64
@@ -22229,7 +22229,7 @@ _ZN7cvflann12UniqueRandom4nextEv.exit.us:         ; preds = %.preheader.split.us
   %117 = icmp slt i32 %116, 1
   %spec.select.us46 = select i1 %117, i1 true, i1 %.136.us40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv116
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv115
   br i1 %exitcond.not, label %..loopexit_crit_edge.split.us50, label %99, !llvm.loop !505
 
 ..loopexit_crit_edge.split.us50:                  ; preds = %._crit_edge.i.us
@@ -22257,33 +22257,33 @@ _ZN7cvflann12UniqueRandom4nextEv.exit:            ; preds = %.preheader.split
 
 .critedge:                                        ; preds = %..loopexit_crit_edge.split.us50, %..loopexit_crit_edge.split.us.split.us54.us, %.loopexit
   %127 = phi i32 [ %119, %.loopexit ], [ %62, %..loopexit_crit_edge.split.us.split.us54.us ], [ %88, %..loopexit_crit_edge.split.us50 ]
-  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count119
-  br i1 %exitcond120.not, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread, label %.preheader, !llvm.loop !507
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread, label %.preheader, !llvm.loop !507
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
-  %128 = trunc nuw nsw i64 %indvars.iv116 to i32
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us
+  %128 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us
-  %129 = trunc nuw nsw i64 %indvars.iv116 to i32
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit.us
+  %129 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit, %.lr.ph.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142
-  %.035.ph = phi i32 [ %128, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit142 ], [ %129, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit144 ], [ %50, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us ], [ %50, %.lr.ph.us.us.us ], [ 0, %_ZN7cvflann12UniqueRandom4nextEv.exit ]
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread: ; preds = %_ZN7cvflann12UniqueRandom4nextEv.exit, %.lr.ph.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141
+  %.035.ph = phi i32 [ %128, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit141 ], [ %129, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.thread.loopexit143 ], [ %50, %_ZN7cvflann12UniqueRandom4nextEv.exit.us.us.us ], [ %50, %.lr.ph.us.us.us ], [ 0, %_ZN7cvflann12UniqueRandom4nextEv.exit ]
   store i32 %.035.ph, ptr %5, align 4, !tbaa !64
   br label %132
 
 _ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit: ; preds = %.preheader.split.us.split.us.split
-  %130 = trunc nuw nsw i64 %indvars.iv116 to i32
+  %130 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143: ; preds = %.preheader.split.us.split
-  %131 = trunc nuw nsw i64 %indvars.iv116 to i32
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142: ; preds = %.preheader.split.us.split
+  %131 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %_ZN7cvflann12UniqueRandom4nextEv.exit.thread
 
-_ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split.us.split
-  %.035 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit143 ], [ 0, %.preheader.split ], [ %1, %.critedge ]
+_ZN7cvflann12UniqueRandom4nextEv.exit.thread:     ; preds = %.critedge, %.preheader.split, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit, %_ZN7cvflann12UniqueRandomC2Ei.exit, %.preheader.split.us.split.us.split.us.split
+  %.035 = phi i32 [ %50, %.preheader.split.us.split.us.split.us.split ], [ 0, %_ZN7cvflann12UniqueRandomC2Ei.exit ], [ %130, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit ], [ %131, %_ZN7cvflann12UniqueRandom4nextEv.exit.thread.loopexit142 ], [ 0, %.preheader.split ], [ %1, %.critedge ]
   store i32 %.035, ptr %5, align 4, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i.i, label %_ZN7cvflann12UniqueRandomD2Ev.exit, label %132

@@ -3534,17 +3534,17 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %14
   %29 = zext i32 %28 to i64
   %.idx = shl nuw nsw i64 %29, 3
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
-  %.not20 = icmp eq i32 %28, 0
-  br i1 %.not20, label %._crit_edge.thread, label %.lr.ph
+  %.not21 = icmp eq i32 %28, 0
+  br i1 %.not21, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
   %spec.select = and i1 %47, %9
   br i1 %spec.select, label %49, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %25, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
-  %.01122 = phi i1 [ %47, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread ], [ false, %25 ]
-  %.01321 = phi ptr [ %48, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread ], [ %26, %25 ]
-  %31 = load ptr, ptr %.01321, align 8, !tbaa !28
+  %.01123 = phi i1 [ %47, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread ], [ false, %25 ]
+  %.01322 = phi ptr [ %48, %_ZNK10arith_util10is_numeralEPK4expr.exit.thread ], [ %26, %25 ]
+  %31 = load ptr, ptr %.01322, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 65535
@@ -3561,18 +3561,19 @@ _ZNK17arith_recognizers6is_mulEPK4expr.exit:      ; preds = %14
 
 _ZNK10arith_util10is_numeralEPK4expr.exit:        ; preds = %36
   %41 = load i32, ptr %40, align 8, !tbaa !176
-  %42 = icmp eq i32 %41, 5
+  %.fr = freeze i32 %41
+  %42 = icmp eq i32 %.fr, 5
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 0
-  %46 = select i1 %42, i1 %45, i1 false
-  %cond.fr = freeze i1 %46
-  %spec.select19 = select i1 %cond.fr, i1 true, i1 %.01122
+  %.fr20 = freeze i32 %44
+  %45 = icmp eq i32 %.fr20, 0
+  %46 = and i1 %42, %45
+  %spec.select19 = select i1 %46, i1 true, i1 %.01123
   br label %_ZNK10arith_util10is_numeralEPK4expr.exit.thread
 
 _ZNK10arith_util10is_numeralEPK4expr.exit.thread: ; preds = %_ZNK10arith_util10is_numeralEPK4expr.exit, %36, %.lr.ph
-  %47 = phi i1 [ %.01122, %.lr.ph ], [ %.01122, %36 ], [ %spec.select19, %_ZNK10arith_util10is_numeralEPK4expr.exit ]
-  %48 = getelementptr inbounds nuw i8, ptr %.01321, i64 8
+  %47 = phi i1 [ %.01123, %.lr.ph ], [ %.01123, %36 ], [ %spec.select19, %_ZNK10arith_util10is_numeralEPK4expr.exit ]
+  %48 = getelementptr inbounds nuw i8, ptr %.01322, i64 8
   %.not = icmp eq ptr %48, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3612,8 +3613,8 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %53, %59
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %25, %._crit_edge, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread
-  %.028 = phi i1 [ false, %._crit_edge ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread ], [ false, %25 ]
-  ret i1 %.028
+  %.029 = phi i1 [ false, %._crit_edge ], [ true, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ false, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.thread ], [ false, %25 ]
+  ret i1 %.029
 }
 
 ; Function Attrs: mustprogress uwtable

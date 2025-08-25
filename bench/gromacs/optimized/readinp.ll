@@ -6319,20 +6319,21 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 ; Function Attrs: mustprogress uwtable
 define void @_Z17replace_inp_entryN3gmx8ArrayRefI9t_inpfileEEPKcS4_(ptr %0, ptr %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %.not2426 = icmp eq ptr %0, %1
+  %.fr31 = freeze ptr %0
+  %.fr = freeze ptr %1
+  %.not2426 = icmp eq ptr %.fr31, %.fr
   br i1 %.not2426, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.not = icmp eq ptr %3, null
-  %6 = ptrtoint ptr %1 to i64
-  %7 = ptrtoint ptr %0 to i64
+  %6 = ptrtoint ptr %.fr to i64
+  %7 = ptrtoint ptr %.fr31 to i64
   %8 = sub i64 %6, %7
-  %.fr = freeze i64 %8
-  %9 = udiv exact i64 %.fr, 80
+  %9 = udiv exact i64 %8, 80
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %19
-  %.sroa.020.027.us = phi ptr [ %20, %19 ], [ %0, %.lr.ph ]
+  %.sroa.020.027.us = phi ptr [ %20, %19 ], [ %.fr31, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.020.027.us, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %2, ptr noundef %11)
@@ -6349,15 +6350,15 @@ define void @_Z17replace_inp_entryN3gmx8ArrayRefI9t_inpfileEEPKcS4_(ptr %0, ptr 
 
 19:                                               ; preds = %14, %.lr.ph.split.us
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.020.027.us, i64 80
-  %.not24.us = icmp eq ptr %20, %1
+  %.not24.us = icmp eq ptr %20, %.fr
   br i1 %.not24.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not9.i = icmp sgt i64 %.fr, 0
+  %.not9.i = icmp sgt i64 %8, 0
   br i1 %.not9.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %40
-  %.sroa.020.027.us28 = phi ptr [ %41, %40 ], [ %0, %.lr.ph.split ]
+  %.sroa.020.027.us28 = phi ptr [ %41, %40 ], [ %.fr31, %.lr.ph.split ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.020.027.us28, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   %23 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %2, ptr noundef %22)
@@ -6372,7 +6373,7 @@ define void @_Z17replace_inp_entryN3gmx8ArrayRefI9t_inpfileEEPKcS4_(ptr %0, ptr 
 
 .lr.ph.i.us:                                      ; preds = %32, %.lr.ph.preheader.i.us
   %.0610.i.us = phi i64 [ %33, %32 ], [ 0, %.lr.ph.preheader.i.us ]
-  %28 = getelementptr inbounds nuw %struct.t_inpfile, ptr %0, i64 %.0610.i.us, i32 5
+  %28 = getelementptr inbounds nuw %struct.t_inpfile, ptr %.fr31, i64 %.0610.i.us, i32 5
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %30 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef nonnull %3, ptr noundef %29)
   %31 = icmp eq i32 %30, 0
@@ -6397,14 +6398,14 @@ _Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread.us: ; preds = %32, %_
 
 40:                                               ; preds = %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread.us, %.lr.ph.split.split.us
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.020.027.us28, i64 80
-  %.not24.us29 = icmp eq ptr %41, %1
+  %.not24.us29 = icmp eq ptr %41, %.fr
   br i1 %.not24.us29, label %._crit_edge, label %.lr.ph.split.split.us
 
 ._crit_edge:                                      ; preds = %60, %40, %19, %4
   ret void
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %60
-  %.sroa.020.027 = phi ptr [ %61, %60 ], [ %0, %.lr.ph.split ]
+  %.sroa.020.027 = phi ptr [ %61, %60 ], [ %.fr31, %.lr.ph.split ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %44 = tail call noundef i32 @_Z18gmx_strcasecmp_minPKcS0_(ptr noundef %2, ptr noundef %43)
@@ -6426,7 +6427,7 @@ _Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread: ; preds = %.lr.ph.sp
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 1 dereferenceable(124) @.str.14, i8 noundef zeroext 2)
   %53 = load ptr, ptr %21, align 8, !tbaa !15
   %54 = and i64 %.0610.i.us, 2147483647
-  %55 = getelementptr inbounds nuw %struct.t_inpfile, ptr %0, i64 %54, i32 5
+  %55 = getelementptr inbounds nuw %struct.t_inpfile, ptr %.fr31, i64 %54, i32 5
   %56 = load ptr, ptr %55, align 8, !tbaa !15
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 266, ptr noundef nonnull @.str.25, ptr noundef %53, ptr noundef %56) #23
           to label %57 unwind label %58
@@ -6443,7 +6444,7 @@ _Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread: ; preds = %.lr.ph.sp
 
 60:                                               ; preds = %_Z11search_einpN3gmx8ArrayRefIK9t_inpfileEEPKc.exit.thread, %.lr.ph.split.split
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.020.027, i64 80
-  %.not24 = icmp eq ptr %61, %1
+  %.not24 = icmp eq ptr %61, %.fr
   br i1 %.not24, label %._crit_edge, label %.lr.ph.split.split
 }
 

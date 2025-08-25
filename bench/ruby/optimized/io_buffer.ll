@@ -451,8 +451,8 @@ rb_io_buffer_type_allocate.exit:                  ; preds = %3, %10
 RB_FL_ABLE.exit.i:                                ; preds = %rb_io_buffer_type_allocate.exit
   %19 = inttoptr i64 %1 to ptr
   %20 = load i64, ptr %19, align 8, !tbaa !28
-  %.fr16 = freeze i64 %20
-  %21 = and i64 %.fr16, 31
+  %.fr = freeze i64 %20
+  %21 = and i64 %.fr, 31
   %.not.i = icmp eq i64 %21, 27
   br i1 %.not.i, label %RB_OBJ_FROZEN.exit.thread, label %RB_OBJ_FROZEN.exit
 
@@ -461,9 +461,9 @@ RB_OBJ_FROZEN.exit.thread:                        ; preds = %RB_FL_ABLE.exit.i, 
   br label %24
 
 RB_OBJ_FROZEN.exit:                               ; preds = %RB_FL_ABLE.exit.i
-  %23 = and i64 %.fr16, 2048
-  %.not17 = icmp eq i64 %23, 0
-  %spec.select.v = select i1 %.not17, i32 1, i32 129
+  %23 = and i64 %.fr, 2048
+  %.not16 = icmp eq i64 %23, 0
+  %spec.select.v = select i1 %.not16, i32 1, i32 129
   %spec.select = or i32 %spec.select.v, %2
   br label %24
 

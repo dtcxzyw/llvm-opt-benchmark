@@ -4395,8 +4395,8 @@ rb_array_len.exit:                                ; preds = %29, %32
 
 40:                                               ; preds = %37
   %41 = and i64 %.0.i26, 1
-  %.not54 = icmp eq i64 %41, 0
-  br i1 %.not54, label %42, label %RB_FLOAT_TYPE_P.exit.thread42
+  %.not53 = icmp eq i64 %41, 0
+  br i1 %.not53, label %42, label %RB_FLOAT_TYPE_P.exit.thread42
 
 42:                                               ; preds = %40
   %43 = and i64 %.0.i26, 2
@@ -4413,8 +4413,8 @@ rb_array_len.exit:                                ; preds = %29, %32
 RB_FLOAT_TYPE_P.exit:                             ; preds = %44
   %49 = inttoptr i64 %.0.i26 to ptr
   %50 = load i64, ptr %49, align 8, !tbaa !20
-  %.fr52 = freeze i64 %50
-  %51 = and i64 %.fr52, 31
+  %.fr = freeze i64 %50
+  %51 = and i64 %.fr, 31
   %52 = icmp eq i64 %51, 4
   br i1 %52, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread42
 
@@ -4437,8 +4437,8 @@ RB_FLOAT_TYPE_P.exit.thread42:                    ; preds = %44, %RB_FLOAT_TYPE_
 RB_FLOAT_TYPE_P.exit30:                           ; preds = %56
   %61 = inttoptr i64 %.0.i26 to ptr
   %62 = load i64, ptr %61, align 8, !tbaa !20
-  %.fr53 = freeze i64 %62
-  %63 = and i64 %.fr53, 31
+  %.fr52 = freeze i64 %62
+  %63 = and i64 %.fr52, 31
   %64 = icmp eq i64 %63, 4
   br i1 %64, label %RB_FLOAT_TYPE_P.exit30.thread, label %RB_FLOAT_TYPE_P.exit30.thread48
 
@@ -4478,8 +4478,8 @@ RARRAY_ASET.exit:                                 ; preds = %70, %80
   %82 = load i8, ptr %71, align 8, !tbaa !48
   %83 = zext i8 %82 to i64
   %84 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %81) #14
-  %.idx55 = shl nuw nsw i64 %83, 4
-  %85 = getelementptr i8, ptr %84, i64 %.idx55
+  %.idx54 = shl nuw nsw i64 %83, 4
+  %85 = getelementptr i8, ptr %84, i64 %.idx54
   %86 = getelementptr i8, ptr %85, i64 8
   store i64 %.0.i34, ptr %86, align 8, !tbaa !7
   %87 = icmp eq i64 %.0.i34, 0
@@ -4947,9 +4947,9 @@ rb_uniform_is_less.exit90:                        ; preds = %120, %122, %.crited
 127:                                              ; preds = %109, %107, %82, %80, %rb_uniform_is_less.exit90, %rb_uniform_is_less.exit85, %rb_uniform_is_less.exit80, %rb_uniform_is_less.exit75
   %.in = phi ptr [ %61, %rb_uniform_is_less.exit75 ], [ %., %rb_uniform_is_less.exit80 ], [ %61, %rb_uniform_is_less.exit85 ], [ %.67, %rb_uniform_is_less.exit90 ], [ %61, %80 ], [ %61, %82 ], [ %61, %107 ], [ %61, %109 ]
   %128 = load i64, ptr %.in, align 8, !tbaa !53
-  %.fr132 = freeze i64 %128
+  %.fr = freeze i64 %128
   %129 = getelementptr i8, ptr %.tr101129, i64 -16
-  %130 = and i64 %.fr132, 1
+  %130 = and i64 %.fr, 1
   %.not9.i92 = icmp eq i64 %130, 0
   br i1 %.not9.i92, label %.split.us.us, label %.split
 
@@ -4982,12 +4982,12 @@ rb_uniform_is_less.exit90:                        ; preds = %120, %122, %.crited
   br i1 %.not.i91.us.us, label %rb_uniform_is_less.exit95.us.us, label %138
 
 138:                                              ; preds = %135
-  %139 = tail call i32 @rb_float_cmp(i64 noundef %.fr132, i64 noundef %136) #14
+  %139 = tail call i32 @rb_float_cmp(i64 noundef %.fr, i64 noundef %136) #14
   %140 = icmp sgt i32 %139, 0
   br i1 %140, label %143, label %rb_uniform_is_less.exit100.us.us.preheader
 
 rb_uniform_is_less.exit95.us.us:                  ; preds = %135
-  %141 = tail call i32 @rb_float_cmp(i64 noundef %136, i64 noundef %.fr132) #14
+  %141 = tail call i32 @rb_float_cmp(i64 noundef %136, i64 noundef %.fr) #14
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %rb_uniform_is_less.exit100.us.us.preheader
 
@@ -5005,7 +5005,7 @@ rb_uniform_is_less.exit100.us.us.preheader:       ; preds = %138, %rb_uniform_is
 rb_uniform_is_less.exit100.us.us:                 ; preds = %rb_uniform_is_less.exit100.us.us.preheader, %rb_uniform_is_less.exit100.us.us
   %.1.us.us = phi ptr [ %148, %rb_uniform_is_less.exit100.us.us ], [ %.0.us, %rb_uniform_is_less.exit100.us.us.preheader ]
   %145 = load i64, ptr %.1.us.us, align 8, !tbaa !53
-  %146 = tail call i32 @rb_float_cmp(i64 noundef %.fr132, i64 noundef %145) #14
+  %146 = tail call i32 @rb_float_cmp(i64 noundef %.fr, i64 noundef %145) #14
   %147 = icmp slt i32 %146, 0
   %148 = getelementptr i8, ptr %.1.us.us, i64 -16
   br i1 %147, label %rb_uniform_is_less.exit100.us.us, label %.split118.us122, !llvm.loop !109
@@ -5023,11 +5023,11 @@ rb_uniform_is_less.exit100.us.us:                 ; preds = %rb_uniform_is_less.
   br i1 %.not.i91, label %rb_uniform_is_less.exit95, label %152
 
 152:                                              ; preds = %149
-  %153 = icmp slt i64 %150, %.fr132
+  %153 = icmp slt i64 %150, %.fr
   br i1 %153, label %156, label %.preheader.split116.preheader
 
 rb_uniform_is_less.exit95:                        ; preds = %149
-  %154 = tail call i32 @rb_float_cmp(i64 noundef %150, i64 noundef %.fr132) #14
+  %154 = tail call i32 @rb_float_cmp(i64 noundef %150, i64 noundef %.fr) #14
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %.preheader.split116.preheader
 
@@ -5046,11 +5046,11 @@ rb_uniform_is_less.exit95:                        ; preds = %149
   br i1 %.not9.i97, label %162, label %160
 
 160:                                              ; preds = %.preheader.split116
-  %161 = icmp slt i64 %.fr132, %158
+  %161 = icmp slt i64 %.fr, %158
   br i1 %161, label %165, label %.split118.us
 
 162:                                              ; preds = %.preheader.split116
-  %163 = tail call i32 @rb_float_cmp(i64 noundef %158, i64 noundef %.fr132) #14
+  %163 = tail call i32 @rb_float_cmp(i64 noundef %158, i64 noundef %.fr) #14
   %164 = icmp sgt i32 %163, 0
   br i1 %164, label %165, label %.split118.us
 

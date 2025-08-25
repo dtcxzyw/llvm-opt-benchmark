@@ -28832,14 +28832,14 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 28:                                               ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %30 = load i32, ptr %29, align 8, !tbaa !53
-  %.fr269 = freeze i32 %30
-  %31 = and i32 %.fr269, 524288
+  %.fr = freeze i32 %30
+  %31 = and i32 %.fr, 524288
   %.not194 = icmp eq i32 %31, 0
   %32 = and i32 %2, 1
   %.not195 = icmp eq i32 %32, 0
   %33 = and i32 %2, 3
   %34 = icmp eq i32 %33, 2
-  %35 = and i32 %.fr269, 655360
+  %35 = and i32 %.fr, 655360
   %or.cond = icmp eq i32 %35, 0
   br i1 %or.cond, label %.preheader241, label %39
 
@@ -28886,8 +28886,8 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   ]
 
 51:                                               ; preds = %50, %50
-  %.not203.us270271 = icmp eq i8 %48, %45
-  br i1 %.not203.us270271, label %.loopexit.us, label %.thread239
+  %.not203.us269270 = icmp eq i8 %48, %45
+  br i1 %.not203.us269270, label %.loopexit.us, label %.thread239
 
 52:                                               ; preds = %50, %43
   %.not201.us = icmp eq i8 %45, %48
@@ -28918,18 +28918,18 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %72 = load i8, ptr %71, align 1, !tbaa !135
   %73 = zext i8 %72 to i64
   %74 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %73
-  br i1 %.not195, label %.preheader326, label %75
+  br i1 %.not195, label %.preheader325, label %75
 
 75:                                               ; preds = %70
   %76 = load i32, ptr %74, align 4, !tbaa !124
   %77 = icmp ult i32 %76, 128
-  br i1 %77, label %.thread239, label %.preheader326
+  br i1 %77, label %.thread239, label %.preheader325
 
-.preheader326:                                    ; preds = %75, %70
+.preheader325:                                    ; preds = %75, %70
   br label %78
 
-78:                                               ; preds = %.preheader326, %81
-  %.0159.us = phi ptr [ %82, %81 ], [ %74, %.preheader326 ]
+78:                                               ; preds = %.preheader325, %81
+  %.0159.us = phi ptr [ %82, %81 ], [ %74, %.preheader325 ]
   %79 = load i32, ptr %.0159.us, align 4, !tbaa !124
   %80 = icmp ugt i32 %79, %46
   br i1 %80, label %.thread239, label %81
@@ -29237,18 +29237,18 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   %307 = load i8, ptr %306, align 1, !tbaa !135
   %308 = zext i8 %307 to i64
   %309 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_caseless_sets_8, i64 %308
-  br i1 %.not195, label %.preheader332, label %310
+  br i1 %.not195, label %.preheader331, label %310
 
 310:                                              ; preds = %305
   %311 = load i32, ptr %309, align 4, !tbaa !124
   %312 = icmp ult i32 %311, 128
-  br i1 %312, label %.thread239, label %.preheader332
+  br i1 %312, label %.thread239, label %.preheader331
 
-.preheader332:                                    ; preds = %310, %305
+.preheader331:                                    ; preds = %310, %305
   br label %313
 
-313:                                              ; preds = %.preheader332, %316
-  %.0159 = phi ptr [ %317, %316 ], [ %309, %.preheader332 ]
+313:                                              ; preds = %.preheader331, %316
+  %.0159 = phi ptr [ %317, %316 ], [ %309, %.preheader331 ]
   %314 = load i32, ptr %.0159, align 4, !tbaa !124
   %315 = icmp ult i32 %.0163, %314
   br i1 %315, label %.thread239, label %316
@@ -29302,7 +29302,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
 .lr.ph267:                                        ; preds = %.preheader
   %337 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %338 = load ptr, ptr %337, align 8, !tbaa !49
-  %scevgep287 = getelementptr i8, ptr %20, i64 %27
+  %scevgep286 = getelementptr i8, ptr %20, i64 %27
   br label %339
 
 339:                                              ; preds = %.lr.ph267, %343
@@ -29344,7 +29344,7 @@ define internal fastcc range(i32 -1, 2) i32 @match_ref(i64 noundef %0, i32 nound
   br label %.thread230
 
 .thread230:                                       ; preds = %.loopexit, %.loopexit.us, %330, %343, %39, %.preheader241, %.preheader, %355
-  %.9174 = phi ptr [ %356, %355 ], [ %20, %.preheader ], [ %20, %.preheader241 ], [ %20, %39 ], [ %scevgep287, %343 ], [ %scevgep, %330 ], [ %44, %.loopexit.us ], [ %.2167, %.loopexit ]
+  %.9174 = phi ptr [ %356, %355 ], [ %20, %.preheader ], [ %20, %.preheader241 ], [ %20, %39 ], [ %scevgep286, %343 ], [ %scevgep, %330 ], [ %44, %.loopexit.us ], [ %.2167, %.loopexit ]
   %357 = ptrtoint ptr %.9174 to i64
   %358 = ptrtoint ptr %20 to i64
   %359 = sub i64 %357, %358

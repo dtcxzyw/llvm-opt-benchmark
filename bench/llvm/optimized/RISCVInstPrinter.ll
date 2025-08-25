@@ -1243,8 +1243,8 @@ define dso_local void @_ZN4llvm16RISCVInstPrinter22printCSRSystemRegisterEPKNS_6
 .lr.ph:                                           ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %20 = load i64, ptr %19, align 8
-  %.fr27 = freeze i64 %20
-  %21 = and i64 %.fr27, 4
+  %.fr = freeze i64 %20
+  %21 = and i64 %.fr, 4
   %.not.i = icmp eq i64 %21, 0
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 

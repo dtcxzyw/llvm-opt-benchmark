@@ -4853,11 +4853,11 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7Ir
   br i1 %.not6185.i.i, label %._crit_edge88.i.i, label %.lr.ph87.i.i
 
 ._crit_edge88.loopexit.i.i:                       ; preds = %_ZN4llvm16DenseMapIteratorIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_bEELb0EEppEv.exit74.i.i
-  %.pre96.i.i = load i32, ptr %23, align 8, !tbaa !26
+  %.pre97.i.i = load i32, ptr %23, align 8, !tbaa !26
   br label %._crit_edge88.i.i
 
 ._crit_edge88.i.i:                                ; preds = %._crit_edge88.loopexit.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit52.i.i
-  %281 = phi i32 [ %.pre96.i.i, %._crit_edge88.loopexit.i.i ], [ %176, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit52.i.i ]
+  %281 = phi i32 [ %.pre97.i.i, %._crit_edge88.loopexit.i.i ], [ %176, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E5beginEv.exit52.i.i ]
   %282 = icmp ult i32 %281, 2
   br i1 %282, label %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i, label %283
 
@@ -4928,20 +4928,21 @@ _ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEE
 _ZNK4llvm10bfi_detail16IrreducibleGraph7IrrNode8pred_endEv.exit59.i.i: ; preds = %318, %312
   %storemerge.i.i.i.i58.i.i = phi ptr [ %324, %318 ], [ %313, %312 ]
   %.not6280.i.i = icmp eq ptr %294, %storemerge.i.i.i.i58.i.i
-  %.pre95.i.i = load i32, ptr %292, align 4, !tbaa !115
+  %.pre96.i.i = load i32, ptr %292, align 4, !tbaa !115
   br i1 %.not6280.i.i, label %.loopexit.i.i, label %.lr.ph84.i.i
 
 .lr.ph84.i.i:                                     ; preds = %_ZNK4llvm10bfi_detail16IrreducibleGraph7IrrNode8pred_endEv.exit59.i.i
   %325 = load i32, ptr %5, align 8
-  %326 = and i32 %325, 1
+  %.fr89.i.i = freeze i32 %325
+  %326 = and i32 %.fr89.i.i, 1
   %.not.i.i.i.i.i.i60.i.i = icmp eq i32 %326, 0
   %327 = load ptr, ptr %.phi.trans.insert.i.i.ptr.i.i, align 8
   %328 = select i1 %.not.i.i.i.i.i.i60.i.i, ptr %327, ptr %.phi.trans.insert.i.i.ptr.i.i
   %329 = load i32, ptr %.phi.trans.insert3.i.i.i.i, align 8
-  %330 = select i1 %.not.i.i.i.i.i.i60.i.i, i32 %329, i32 8
-  %.fr89.i.i = freeze i32 %330
-  %331 = icmp eq i32 %.fr89.i.i, 0
-  %332 = add i32 %.fr89.i.i, -1
+  %.fr90.i.i = freeze i32 %329
+  %330 = select i1 %.not.i.i.i.i.i.i60.i.i, i32 %.fr90.i.i, i32 8
+  %331 = icmp eq i32 %330, 0
+  %332 = add i32 %330, -1
   br i1 %331, label %.lr.ph84.split.us.i.i, label %.lr.ph84.split.i.i
 
 .lr.ph84.split.us.i.i:                            ; preds = %.lr.ph84.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.us.i.i
@@ -4950,7 +4951,7 @@ _ZNK4llvm10bfi_detail16IrreducibleGraph7IrrNode8pred_endEv.exit59.i.i: ; preds =
   %.sroa.13.081.us.i.i = phi ptr [ %.sroa.13.1.us.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.us.i.i ], [ %299, %.lr.ph84.i.i ]
   %333 = load ptr, ptr %.sroa.01.083.us.i.i, align 8, !tbaa !203
   %334 = load i32, ptr %333, align 4, !tbaa !115
-  %335 = icmp ult i32 %334, %.pre95.i.i
+  %335 = icmp ult i32 %334, %.pre96.i.i
   br i1 %335, label %336, label %.critedge38.i.i
 
 336:                                              ; preds = %.lr.ph84.split.us.i.i
@@ -4977,7 +4978,7 @@ _ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_E
   %.sroa.13.081.i.i = phi ptr [ %.sroa.13.1.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.i.i ], [ %299, %.lr.ph84.i.i ]
   %343 = load ptr, ptr %.sroa.01.083.i.i, align 8, !tbaa !203
   %344 = load i32, ptr %343, align 4, !tbaa !115
-  %345 = icmp ult i32 %344, %.pre95.i.i
+  %345 = icmp ult i32 %344, %.pre96.i.i
   br i1 %345, label %380, label %346
 
 346:                                              ; preds = %.lr.ph84.split.i.i
@@ -5035,11 +5036,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_26BlockFrequencyInfoImplBase9BlockNodeELb1E
   %375 = load ptr, ptr %6, align 8, !tbaa !25
   %376 = zext i32 %374 to i64
   %377 = getelementptr inbounds nuw %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", ptr %375, i64 %376
-  store i32 %.pre95.i.i, ptr %377, align 1
+  store i32 %.pre96.i.i, ptr %377, align 1
   %378 = load i32, ptr %23, align 8, !tbaa !26
   %379 = add i32 %378, 1
   store i32 %379, ptr %23, align 8, !tbaa !26
-  %.pre94.i.i = load i32, ptr %292, align 4, !tbaa !115
+  %.pre95.i.i = load i32, ptr %292, align 4, !tbaa !115
   br label %.loopexit.i.i
 
 380:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbLj8ENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_bEEEES6_bS8_SB_E6lookupES6_.exit.i.i, %.lr.ph84.split.i.i
@@ -5061,7 +5062,7 @@ _ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_E
   br i1 %.not62.i.i, label %.loopexit.i.i, label %.lr.ph84.split.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.us.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_26BlockFrequencyInfoImplBase9BlockNodeELb1EE9push_backES2_.exit64.i.i, %_ZNK4llvm10bfi_detail16IrreducibleGraph7IrrNode8pred_endEv.exit59.i.i
-  %387 = phi i32 [ %.pre95.i.i, %_ZNK4llvm10bfi_detail16IrreducibleGraph7IrrNode8pred_endEv.exit59.i.i ], [ %.pre94.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_26BlockFrequencyInfoImplBase9BlockNodeELb1EE9push_backES2_.exit64.i.i ], [ %.pre95.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.us.i.i ], [ %.pre95.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.i.i ]
+  %387 = phi i32 [ %.pre96.i.i, %_ZNK4llvm10bfi_detail16IrreducibleGraph7IrrNode8pred_endEv.exit59.i.i ], [ %.pre95.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_26BlockFrequencyInfoImplBase9BlockNodeELb1EE9push_backES2_.exit64.i.i ], [ %.pre96.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.us.i.i ], [ %.pre96.i.i, %_ZNSt15_Deque_iteratorIPKN4llvm10bfi_detail16IrreducibleGraph7IrrNodeERKS5_PS6_EppEv.exit65.i.i ]
   %388 = load ptr, ptr %6, align 8, !tbaa !25
   %389 = load i32, ptr %23, align 8, !tbaa !26
   %390 = zext i32 %389 to i64
@@ -5120,11 +5121,11 @@ _ZN4llvm16DenseMapIteratorIPKNS_10bfi_detail16IrreducibleGraph7IrrNodeEbNS_12Den
   br i1 %.not61.i.i, label %._crit_edge88.loopexit.i.i, label %.lr.ph87.i.i
 
 _ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit.sink.split.i.i: ; preds = %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i, %259
-  %.sink145.i.i = phi ptr [ %6, %259 ], [ %7, %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i ]
-  %.sink144.in.i.i = phi i32 [ %176, %259 ], [ %286, %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i ]
-  %.sink144.i.i = zext i32 %.sink144.in.i.i to i64
-  %411 = load ptr, ptr %.sink145.i.i, align 8, !tbaa !25
-  call void @qsort(ptr noundef nonnull %411, i64 noundef %.sink144.i.i, i64 noundef 4, ptr noundef nonnull @_ZN4llvm25array_pod_sort_comparatorINS_26BlockFrequencyInfoImplBase9BlockNodeEEEiPKvS4_) #27
+  %.sink146.i.i = phi ptr [ %6, %259 ], [ %7, %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i ]
+  %.sink145.in.i.i = phi i32 [ %176, %259 ], [ %286, %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i ]
+  %.sink145.i.i = zext i32 %.sink145.in.i.i to i64
+  %411 = load ptr, ptr %.sink146.i.i, align 8, !tbaa !25
+  call void @qsort(ptr noundef nonnull %411, i64 noundef %.sink145.i.i, i64 noundef 4, ptr noundef nonnull @_ZN4llvm25array_pod_sort_comparatorINS_26BlockFrequencyInfoImplBase9BlockNodeEEEiPKvS4_) #27
   br label %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit.i.i
 
 _ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit.i.i: ; preds = %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit.sink.split.i.i, %_ZN4llvm4sortIRNS_11SmallVectorINS_26BlockFrequencyInfoImplBase9BlockNodeELj4EEEEEvOT_.exit56.i.i, %259

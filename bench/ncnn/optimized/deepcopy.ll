@@ -181,10 +181,11 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatD2Ev.ex
   %75 = load i64, ptr %74, align 8, !tbaa !24
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %77 = load i32, ptr %76, align 8, !tbaa !23
-  %78 = sext i32 %77 to i64
-  %79 = mul i64 %75, %78
-  %.fr = freeze i64 %79
-  %80 = icmp eq i64 %.fr, 0
+  %.fr22 = freeze i32 %77
+  %78 = sext i32 %.fr22 to i64
+  %.fr = freeze i64 %75
+  %79 = mul i64 %.fr, %78
+  %80 = icmp eq i64 %79, 0
   br i1 %80, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %81
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZNK4ncnn3Mat5emptyEv.exit

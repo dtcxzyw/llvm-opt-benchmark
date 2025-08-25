@@ -1204,16 +1204,16 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %71 = phi i64 [ %84, %75 ], [ 0, %.lr.ph.preheader.i ]
-  %.02532.i = phi ptr [ %85, %75 ], [ %.sroa.21.0, %.lr.ph.preheader.i ]
-  %72 = load i8, ptr %.02532.i, align 1, !tbaa !25
-  %.fr31.i = freeze i8 %72
-  %73 = sext i8 %.fr31.i to i32
-  %74 = add i8 %.fr31.i, -48
+  %.02531.i = phi ptr [ %85, %75 ], [ %.sroa.21.0, %.lr.ph.preheader.i ]
+  %72 = load i8, ptr %.02531.i, align 1, !tbaa !25
+  %.fr.i = freeze i8 %72
+  %73 = sext i8 %.fr.i to i32
+  %74 = add i8 %.fr.i, -48
   %or.cond.i = icmp ult i8 %74, 10
   br i1 %or.cond.i, label %75, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
-  switch i8 %.fr31.i, label %switch.early.test._crit_edge.i [
+  switch i8 %.fr.i, label %switch.early.test._crit_edge.i [
     i8 102, label %75
     i8 101, label %75
     i8 100, label %75
@@ -1230,7 +1230,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
 
 75:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
   %76 = shl i64 %71, 4
-  %77 = icmp samesign ult i8 %.fr31.i, 65
+  %77 = icmp samesign ult i8 %.fr.i, 65
   %78 = add nsw i32 %73, -48
   %79 = sext i32 %78 to i64
   %80 = and i32 %73, 15
@@ -1239,13 +1239,13 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %83 = select i1 %77, i64 %79, i64 %82
   %84 = or i64 %83, %76
   store i64 %84, ptr %2, align 8, !tbaa !22
-  %85 = getelementptr inbounds nuw i8, ptr %.02532.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.02531.i, i64 1
   %exitcond.not.i = icmp eq ptr %85, %62
   br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 switch.early.test._crit_edge.i:                   ; preds = %75, %switch.early.test.i, %68
   %86 = phi i64 [ 0, %68 ], [ %84, %75 ], [ %71, %switch.early.test.i ]
-  %.025.lcssa.i = phi ptr [ %.sroa.21.0, %68 ], [ %scevgep.i, %75 ], [ %.02532.i, %switch.early.test.i ]
+  %.025.lcssa.i = phi ptr [ %.sroa.21.0, %68 ], [ %scevgep.i, %75 ], [ %.02531.i, %switch.early.test.i ]
   %.not.i77 = icmp ugt ptr %.025.lcssa.i, %62
   br i1 %.not.i77, label %87, label %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit
 
@@ -1279,16 +1279,16 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit: ; preds = %switch.ea
 
 .lr.ph.i83:                                       ; preds = %100, %.lr.ph.preheader.i81
   %.1 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %109, %100 ]
-  %.02532.i84 = phi ptr [ %93, %.lr.ph.preheader.i81 ], [ %110, %100 ]
-  %97 = load i8, ptr %.02532.i84, align 1, !tbaa !25
-  %.fr31.i85 = freeze i8 %97
-  %98 = sext i8 %.fr31.i85 to i32
-  %99 = add i8 %.fr31.i85, -48
+  %.02531.i84 = phi ptr [ %93, %.lr.ph.preheader.i81 ], [ %110, %100 ]
+  %97 = load i8, ptr %.02531.i84, align 1, !tbaa !25
+  %.fr.i85 = freeze i8 %97
+  %98 = sext i8 %.fr.i85 to i32
+  %99 = add i8 %.fr.i85, -48
   %or.cond.i86 = icmp ult i8 %99, 10
   br i1 %or.cond.i86, label %100, label %switch.early.test.i87
 
 switch.early.test.i87:                            ; preds = %.lr.ph.i83
-  switch i8 %.fr31.i85, label %switch.early.test._crit_edge.i78.loopexit [
+  switch i8 %.fr.i85, label %switch.early.test._crit_edge.i78.loopexit [
     i8 102, label %100
     i8 101, label %100
     i8 100, label %100
@@ -1305,7 +1305,7 @@ switch.early.test.i87:                            ; preds = %.lr.ph.i83
 
 100:                                              ; preds = %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %switch.early.test.i87, %.lr.ph.i83
   %101 = shl i64 %.1, 4
-  %102 = icmp samesign ult i8 %.fr31.i85, 65
+  %102 = icmp samesign ult i8 %.fr.i85, 65
   %103 = add nsw i32 %98, -48
   %104 = sext i32 %103 to i64
   %105 = and i32 %98, 15
@@ -1313,13 +1313,13 @@ switch.early.test.i87:                            ; preds = %.lr.ph.i83
   %107 = zext nneg i32 %106 to i64
   %108 = select i1 %102, i64 %104, i64 %107
   %109 = or i64 %108, %101
-  %110 = getelementptr inbounds nuw i8, ptr %.02532.i84, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.02531.i84, i64 1
   %exitcond.not.i88 = icmp eq ptr %110, %62
   br i1 %exitcond.not.i88, label %switch.early.test._crit_edge.i78.loopexit, label %.lr.ph.i83, !llvm.loop !31
 
 switch.early.test._crit_edge.i78.loopexit:        ; preds = %switch.early.test.i87, %100
   %.0.ph = phi i64 [ %109, %100 ], [ %.1, %switch.early.test.i87 ]
-  %.025.lcssa.i79.ph = phi ptr [ %scevgep.i82, %100 ], [ %.02532.i84, %switch.early.test.i87 ]
+  %.025.lcssa.i79.ph = phi ptr [ %scevgep.i82, %100 ], [ %.02531.i84, %switch.early.test.i87 ]
   %111 = icmp ult i64 %1, %.0.ph
   br label %switch.early.test._crit_edge.i78
 
@@ -1788,16 +1788,16 @@ define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %8 = phi i64 [ %21, %12 ], [ 0, %.lr.ph.preheader ]
-  %.02532 = phi ptr [ %22, %12 ], [ %0, %.lr.ph.preheader ]
-  %9 = load i8, ptr %.02532, align 1, !tbaa !25
-  %.fr31 = freeze i8 %9
-  %10 = sext i8 %.fr31 to i32
-  %11 = add i8 %.fr31, -48
+  %.02531 = phi ptr [ %22, %12 ], [ %0, %.lr.ph.preheader ]
+  %9 = load i8, ptr %.02531, align 1, !tbaa !25
+  %.fr = freeze i8 %9
+  %10 = sext i8 %.fr to i32
+  %11 = add i8 %.fr, -48
   %or.cond = icmp ult i8 %11, 10
   br i1 %or.cond, label %12, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %.fr31, label %switch.early.test._crit_edge [
+  switch i8 %.fr, label %switch.early.test._crit_edge [
     i8 102, label %12
     i8 101, label %12
     i8 100, label %12
@@ -1814,7 +1814,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 12:                                               ; preds = %.lr.ph, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test
   %13 = shl i64 %8, 4
-  %14 = icmp samesign ult i8 %.fr31, 65
+  %14 = icmp samesign ult i8 %.fr, 65
   %15 = add nsw i32 %10, -48
   %16 = sext i32 %15 to i64
   %17 = and i32 %10, 15
@@ -1823,12 +1823,12 @@ switch.early.test:                                ; preds = %.lr.ph
   %20 = select i1 %14, i64 %16, i64 %19
   %21 = or i64 %13, %20
   store i64 %21, ptr %2, align 8, !tbaa !22
-  %22 = getelementptr inbounds nuw i8, ptr %.02532, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02531, i64 1
   %exitcond.not = icmp eq ptr %22, %1
   br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !31
 
 switch.early.test._crit_edge:                     ; preds = %12, %switch.early.test, %3
-  %.025.lcssa = phi ptr [ %0, %3 ], [ %.02532, %switch.early.test ], [ %scevgep, %12 ]
+  %.025.lcssa = phi ptr [ %0, %3 ], [ %.02531, %switch.early.test ], [ %scevgep, %12 ]
   %.not = icmp ugt ptr %.025.lcssa, %1
   br i1 %.not, label %23, label %24
 

@@ -923,11 +923,11 @@ rtl_dash_is_enabled.exit.thread16:                ; preds = %rtl_aspm_is_safe.ex
   %154 = load ptr, ptr %9, align 8
   %155 = getelementptr i8, ptr %154, i64 176
   %156 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %155) #19, !srcloc !16
-  %.fr25 = freeze i32 %156
-  %157 = and i32 %.fr25, 32768
-  %.not26 = icmp eq i32 %157, 0
+  %.fr24 = freeze i32 %156
+  %157 = and i32 %.fr24, 32768
+  %.not25 = icmp eq i32 %157, 0
   %158 = load i8, ptr %15, align 8
-  br i1 %.not26, label %195, label %192
+  br i1 %.not25, label %195, label %192
 
 159:                                              ; preds = %rtl_aspm_is_safe.exit.thread, %rtl_aspm_is_safe.exit.thread, %rtl_aspm_is_safe.exit.thread
   %160 = getelementptr i8, ptr %4, i64 2740
@@ -981,8 +981,8 @@ rtl_dash_is_enabled.exit:                         ; preds = %159, %183
   %187 = load ptr, ptr %9, align 8
   %188 = getelementptr i8, ptr %187, i64 112
   %189 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %188) #19, !srcloc !16
-  %.fr24 = freeze i32 %189
-  %190 = and i32 %.fr24, 1
+  %.fr = freeze i32 %189
+  %190 = and i32 %.fr, 1
   %.not = icmp eq i32 %190, 0
   %191 = load i8, ptr %15, align 8
   br i1 %.not, label %195, label %192
@@ -4222,8 +4222,8 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
   %39 = load i32, ptr %35, align 4
   %invariant.op = sub i32 %38, %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.reass21 = sub i32 %invariant.op, %33
-  %40 = icmp slt i32 %.reass21, 4
+  %.reass23 = sub i32 %invariant.op, %33
+  %40 = icmp slt i32 %.reass23, 4
   br i1 %40, label %.thread6, label %.lr.ph, !prof !5
 
 .lr.ph:                                           ; preds = %.split.us
@@ -4497,12 +4497,12 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
 
 202:                                              ; preds = %176, %197
   %203 = phi i16 [ %179, %176 ], [ %201, %197 ]
-  %204 = icmp eq i16 %203, 129
-  %205 = icmp eq i16 %203, -22392
+  %.fr18 = freeze i16 %203
+  %204 = icmp eq i16 %.fr18, 129
+  %205 = icmp eq i16 %.fr18, -22392
   %206 = or i1 %204, %205
   %207 = and i64 %177, 35184372089065
-  %cond.fr14 = freeze i1 %206
-  %spec.select17 = select i1 %cond.fr14, i64 %207, i64 %177
+  %spec.select17 = select i1 %206, i64 %207, i64 %177
   br label %.thread15
 
 .thread15:                                        ; preds = %202, %183, %193, %191

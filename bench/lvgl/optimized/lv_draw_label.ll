@@ -542,6 +542,7 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
 ._crit_edge:                                      ; preds = %89, %.thread
   %.0254.lcssa = phi i32 [ %83, %.thread ], [ %99, %89 ]
   %.1240.lcssa = phi i32 [ %.0239, %.thread ], [ %.0254346, %89 ]
+  %.1240.lcssa.fr = freeze i32 %.1240.lcssa
   switch i32 %spec.select332, label %141 [
     i32 2, label %118
     i32 3, label %129
@@ -549,9 +550,9 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
 
 118:                                              ; preds = %._crit_edge
   %119 = load ptr, ptr %23, align 8, !tbaa !37
-  %120 = zext i32 %.1240.lcssa to i64
+  %120 = zext i32 %.1240.lcssa.fr to i64
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 %120
-  %122 = sub i32 %.0254.lcssa, %.1240.lcssa
+  %122 = sub i32 %.0254.lcssa, %.1240.lcssa.fr
   %123 = load i32, ptr %79, align 8, !tbaa !60
   %124 = load i32, ptr %24, align 4, !tbaa !59
   %125 = call i32 @lv_text_get_width_with_flags(ptr noundef %121, i32 noundef %122, ptr noundef %18, i32 noundef %123, i32 noundef %124) #6
@@ -562,9 +563,9 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
 
 129:                                              ; preds = %._crit_edge
   %130 = load ptr, ptr %23, align 8, !tbaa !37
-  %131 = zext i32 %.1240.lcssa to i64
+  %131 = zext i32 %.1240.lcssa.fr to i64
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 %131
-  %133 = sub i32 %.0254.lcssa, %.1240.lcssa
+  %133 = sub i32 %.0254.lcssa, %.1240.lcssa.fr
   %134 = load i32, ptr %79, align 8, !tbaa !60
   %135 = load i32, ptr %24, align 4, !tbaa !59
   %136 = call i32 @lv_text_get_width_with_flags(ptr noundef %132, i32 noundef %133, ptr noundef %18, i32 noundef %134, i32 noundef %135) #6
@@ -661,7 +662,8 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
   %.sroa.6.0 = phi i8 [ %.sroa.6.0.extract.trunc, %141 ], [ %.sroa.6.1.lcssa, %378 ]
   %.sroa.029.0 = phi i8 [ %.sroa.029.0.extract.trunc, %141 ], [ %.sroa.029.1.lcssa, %378 ]
   %.0241 = phi i8 [ 0, %141 ], [ %.1242.lcssa, %378 ]
-  %.2 = phi i32 [ %.1240.lcssa, %141 ], [ %.1255, %378 ]
+  %.2 = phi i32 [ %.1240.lcssa.fr, %141 ], [ %.1255.fr, %378 ]
+  %.1255.fr = freeze i32 %.1255
   %.not278 = icmp eq i32 %.0253, 0
   br i1 %.not278, label %.critedge, label %192
 
@@ -678,10 +680,9 @@ lv_bidi_calculate_align.exit:                     ; preds = %4
   %199 = add nsw i32 %198, %47
   store i32 %199, ptr %7, align 4, !tbaa !39
   store i32 0, ptr %11, align 4, !tbaa !51
-  %200 = sub i32 %.1255, %.2
-  %.fr = freeze i32 %200
-  %invariant.umin = call i32 @llvm.umin.i32(i32 %.0253, i32 %.fr)
-  %or.cond343348.not = icmp eq i32 %.fr, 0
+  %200 = sub i32 %.1255.fr, %.2
+  %invariant.umin = call i32 @llvm.umin.i32(i32 %.0253, i32 %200)
+  %or.cond343348.not = icmp eq i32 %.1255.fr, %.2
   br i1 %or.cond343348.not, label %.critedge8, label %.lr.ph356
 
 .lr.ph356:                                        ; preds = %197, %342
@@ -908,7 +909,7 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
   %297 = add i32 %174, %294
   store i32 %297, ptr %175, align 4, !tbaa !49
   %298 = load i32, ptr %11, align 4, !tbaa !51
-  %.not285 = icmp ult i32 %298, %.fr
+  %.not285 = icmp ult i32 %298, %200
   br i1 %.not285, label %328, label %299
 
 299:                                              ; preds = %.thread326
@@ -1027,23 +1028,23 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
   %.sroa.6.1.lcssa = phi i8 [ %.sroa.6.0, %197 ], [ %.sroa.6.3, %342 ]
   %.sroa.029.1.lcssa = phi i8 [ %.sroa.029.0, %197 ], [ %.sroa.029.3, %342 ]
   %.1242.lcssa = phi i8 [ %.0241, %197 ], [ %.3, %342 ]
-  %.neg = sub i32 %.2, %.1255
+  %.neg = sub i32 %.2, %.1255.fr
   %344 = add i32 %.neg, %.0253
   %.not280 = icmp eq i32 %344, 0
   br i1 %.not280, label %353, label %345
 
 345:                                              ; preds = %.critedge8
   %346 = load ptr, ptr %23, align 8, !tbaa !37
-  %347 = zext i32 %.1255 to i64
+  %347 = zext i32 %.1255.fr to i64
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 %347
   %349 = load i32, ptr %79, align 8, !tbaa !60
   %350 = load i32, ptr %24, align 4, !tbaa !59
   %351 = call i32 @lv_text_get_next_line(ptr noundef %348, i32 noundef %344, ptr noundef %18, i32 noundef %349, i32 noundef %.0, ptr noundef null, i32 noundef %350) #6
-  %352 = add i32 %351, %.1255
+  %352 = add i32 %351, %.1255.fr
   br label %353
 
 353:                                              ; preds = %345, %.critedge8
-  %.2256 = phi i32 [ %352, %345 ], [ %.1255, %.critedge8 ]
+  %.2256 = phi i32 [ %352, %345 ], [ %.1255.fr, %.critedge8 ]
   %354 = load i32, ptr %2, align 4, !tbaa !40
   store i32 %354, ptr %7, align 4, !tbaa !39
   switch i32 %spec.select332, label %378 [
@@ -1053,9 +1054,9 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
 
 355:                                              ; preds = %353
   %356 = load ptr, ptr %23, align 8, !tbaa !37
-  %357 = zext i32 %.1255 to i64
+  %357 = zext i32 %.1255.fr to i64
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 %357
-  %359 = sub i32 %.2256, %.1255
+  %359 = sub i32 %.2256, %.1255.fr
   %360 = load i32, ptr %79, align 8, !tbaa !60
   %361 = load i32, ptr %24, align 4, !tbaa !59
   %362 = call i32 @lv_text_get_width_with_flags(ptr noundef %358, i32 noundef %359, ptr noundef %18, i32 noundef %360, i32 noundef %361) #6
@@ -1066,9 +1067,9 @@ hex_char_to_num.exit319..thread326_crit_edge:     ; preds = %hex_char_to_num.exi
 
 366:                                              ; preds = %353
   %367 = load ptr, ptr %23, align 8, !tbaa !37
-  %368 = zext i32 %.1255 to i64
+  %368 = zext i32 %.1255.fr to i64
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 %368
-  %370 = sub i32 %.2256, %.1255
+  %370 = sub i32 %.2256, %.1255.fr
   %371 = load i32, ptr %79, align 8, !tbaa !60
   %372 = load i32, ptr %24, align 4, !tbaa !59
   %373 = call i32 @lv_text_get_width_with_flags(ptr noundef %369, i32 noundef %370, ptr noundef %18, i32 noundef %371, i32 noundef %372) #6

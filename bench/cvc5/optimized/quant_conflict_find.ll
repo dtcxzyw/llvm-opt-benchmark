@@ -20861,9 +20861,9 @@ _ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4cvc58internal6theory11quantifiers8Mat
 _ZNSt3mapImSt10unique_ptrIN4cvc58internal6theory11quantifiers8MatchGenESt14default_deleteIS5_EESt4lessImESaISt4pairIKmS8_EEE4findERSC_.exit: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmSt10unique_ptrIN4cvc58internal6theory11quantifiers8MatchGenESt14default_deleteIS7_EEESt10_Select1stISB_ESt4lessImESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS1_.exit.i.i
   %875 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %876 = load i64, ptr %875, align 8, !tbaa !133
-  %877 = icmp ult i64 %.016181838, %876
-  %cond.fr2163 = freeze i1 %877
-  br i1 %cond.fr2163, label %878, label %880
+  %.fr = freeze i64 %876
+  %877 = icmp ult i64 %.016181838, %.fr
+  br i1 %877, label %878, label %880
 
 878:                                              ; preds = %_ZNSt3mapImSt10unique_ptrIN4cvc58internal6theory11quantifiers8MatchGenESt14default_deleteIS5_EESt4lessImESaISt4pairIKmS8_EEE4findERSC_.exit
   %879 = load ptr, ptr %.sroa.sel1493.sroa.sel1496.v.sroa.sel21782216, align 16, !tbaa !178
@@ -21121,7 +21121,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.body715
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit745:       ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i742, %948, %865
-  %974 = add nuw i64 %.016181838, 1
+  %974 = add i64 %.016181838, 1
   %exitcond.not = icmp eq i64 %974, %841
   br i1 %exitcond.not, label %._crit_edge1841.loopexit, label %851, !llvm.loop !738
 

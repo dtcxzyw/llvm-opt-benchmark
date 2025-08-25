@@ -258,14 +258,15 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %32 = load i32, ptr %31, align 8, !tbaa !38
   %33 = load i32, ptr %0, align 8, !tbaa !4
-  %.not14 = icmp slt i32 %32, %33
-  %cond.fr = freeze i1 %.not14
+  %.fr = freeze i32 %32
+  %.fr41 = freeze i32 %33
+  %.not14 = icmp slt i32 %.fr, %.fr41
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !47
   br i1 %30, label %36, label %41
 
 36:                                               ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
-  br i1 %cond.fr, label %.thread, label %.thread37
+  br i1 %.not14, label %.thread, label %.thread37
 
 .thread37:                                        ; preds = %36
   %37 = add i64 %27, %35
@@ -280,11 +281,11 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
 41:                                               ; preds = %_ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit
   %42 = add i64 %27, %35
   %43 = add i64 %42, 4
-  %spec.select = select i1 %cond.fr, i64 %42, i64 %43
+  %spec.select = select i1 %.not14, i64 %42, i64 %43
   br label %44
 
 44:                                               ; preds = %41, %.thread, %.thread37
-  %.not1535 = phi i1 [ false, %.thread37 ], [ true, %.thread ], [ %cond.fr, %41 ]
+  %.not1535 = phi i1 [ false, %.thread37 ], [ true, %.thread ], [ %.not14, %41 ]
   %45 = phi i64 [ %38, %.thread37 ], [ %40, %.thread ], [ %spec.select, %41 ]
   %46 = add i64 %45, 4
   %47 = icmp ugt i64 %23, 127

@@ -3433,7 +3433,8 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
   %6 = getelementptr i8, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 46
   %8 = load i16, ptr %7, align 2
-  %9 = zext i16 %8 to i32
+  %.fr3 = freeze i16 %8
+  %9 = zext i16 %.fr3 to i32
   %10 = select i1 %2, i32 -8, i32 0
   %11 = add nsw i32 %10, %9
   %12 = icmp eq i32 %11, 0
@@ -3460,12 +3461,12 @@ define internal fastcc void @blk_log_dump_pdu(ptr noundef %0, ptr noundef readon
 24:                                               ; preds = %21, %.preheader
   %25 = phi i32 [ -1, %21 ], [ %16, %.preheader ]
   tail call void @trace_seq_putc(ptr noundef %0, i8 noundef zeroext 40) #21
-  %26 = add nsw i32 %25, 1
+  %.fr2 = freeze i32 %25
+  %26 = add i32 %.fr2, 1
   %27 = icmp eq i32 %26, %14
   %28 = zext nneg i32 %26 to i64
   %29 = zext nneg i32 %11 to i64
-  %.fr = freeze i1 %27
-  br i1 %.fr, label %.split.us, label %.split
+  br i1 %27, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %24, %.split.us
   %30 = phi i64 [ %36, %.split.us ], [ 0, %24 ]

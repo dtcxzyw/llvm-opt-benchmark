@@ -9376,19 +9376,20 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %6 = load i8, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %8 = load i8, ptr %7, align 1
-  %9 = icmp slt i8 %6, %8
-  %.fr = freeze i1 %9
-  br i1 %.fr, label %.lr.ph75.us.preheader, label %.lr.ph75.preheader
+  %.fr90 = freeze i8 %6
+  %.fr91 = freeze i8 %8
+  %9 = icmp slt i8 %.fr90, %.fr91
+  br i1 %9, label %.lr.ph75.us.preheader, label %.lr.ph75.preheader
 
 .lr.ph75.us.preheader:                            ; preds = %.preheader.lr.ph, %._crit_edge76.split.us.us
   %10 = phi i32 [ %13, %._crit_edge76.split.us.us ], [ %3, %.preheader.lr.ph ]
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %._crit_edge76.split.us.us ], [ 0, %.preheader.lr.ph ]
-  %11 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv105
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge76.split.us.us ], [ 0, %.preheader.lr.ph ]
+  %11 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv107
   br label %.lr.ph75.us
 
 ._crit_edge76.split.us.us:                        ; preds = %._crit_edge.us.us
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %12 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next106
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %12 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next108
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = icmp ne i32 %13, -1
   %15 = icmp eq i32 %.2.us.us, 24
@@ -9396,7 +9397,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   br i1 %16, label %.lr.ph75.us.preheader, label %._crit_edge85, !llvm.loop !82
 
 .lr.ph75.us:                                      ; preds = %.lr.ph75.us.preheader, %._crit_edge.us.us
-  %indvars.iv102 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv.next103, %._crit_edge.us.us ]
+  %indvars.iv104 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv.next105, %._crit_edge.us.us ]
   %17 = phi i32 [ %10, %.lr.ph75.us.preheader ], [ %34, %._crit_edge.us.us ]
   %18 = phi ptr [ %11, %.lr.ph75.us.preheader ], [ %33, %._crit_edge.us.us ]
   %.174.us.us = phi i32 [ 24, %.lr.ph75.us.preheader ], [ %.2.us.us, %._crit_edge.us.us ]
@@ -9416,13 +9417,13 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   br i1 %.not60.us.us, label %._crit_edge.us.us, label %.lr.ph81.us, !llvm.loop !83
 
 .lr.ph81.us:                                      ; preds = %.lr.ph.us.us, %23
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %23 ], [ %20, %.lr.ph.us.us ]
+  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %23 ], [ %20, %.lr.ph.us.us ]
   %27 = phi i8 [ %26, %23 ], [ %37, %.lr.ph.us.us ]
   %.04264.us80.us = phi i32 [ %spec.select.us.us, %23 ], [ 0, %.lr.ph.us.us ]
   %28 = sext i8 %27 to i32
   %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.04264.us80.us, i32 %28)
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %29 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv.next101
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %29 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv.next103
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %.not59.us.us = icmp eq i32 %30, -1
   br i1 %.not59.us.us, label %._crit_edge.us.us, label %23, !llvm.loop !83
@@ -9436,8 +9437,8 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %spec.select88 = select i1 %19, i32 %32, i32 %17
   %.148.us.us = select i1 %or.cond.us.us, i32 %.042.lcssa.us.us, i32 %.04772.us.us
   %.2.us.us = select i1 %or.cond.us.us, i32 %spec.select88, i32 %.174.us.us
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %33 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %11, i64 0, i64 %indvars.iv.next103
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %33 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %11, i64 0, i64 %indvars.iv.next105
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %.not.us.us = icmp eq i32 %34, -1
   br i1 %.not.us.us, label %._crit_edge76.split.us.us, label %.lr.ph75.us, !llvm.loop !84
@@ -9451,8 +9452,8 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
 
 .lr.ph75.preheader:                               ; preds = %.preheader.lr.ph, %._crit_edge76.split
   %38 = phi i32 [ %41, %._crit_edge76.split ], [ %3, %.preheader.lr.ph ]
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %._crit_edge76.split ], [ 0, %.preheader.lr.ph ]
-  %39 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv97
+  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %._crit_edge76.split ], [ 0, %.preheader.lr.ph ]
+  %39 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv99
   br label %.lr.ph75
 
 ._crit_edge85:                                    ; preds = %._crit_edge76.split, %._crit_edge76.split.us.us, %2
@@ -9460,8 +9461,8 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   ret i32 %.0.lcssa
 
 ._crit_edge76.split:                              ; preds = %._crit_edge.thread
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %40 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next98
+  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
+  %40 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next100
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = icmp ne i32 %41, -1
   %43 = icmp eq i32 %.2, 24
@@ -9469,7 +9470,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   br i1 %44, label %.lr.ph75.preheader, label %._crit_edge85, !llvm.loop !82
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %._crit_edge.thread
-  %indvars.iv94 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next95, %._crit_edge.thread ]
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next97, %._crit_edge.thread ]
   %45 = phi i32 [ %38, %.lr.ph75.preheader ], [ %64, %._crit_edge.thread ]
   %46 = phi ptr [ %39, %.lr.ph75.preheader ], [ %63, %._crit_edge.thread ]
   %.174 = phi i32 [ 24, %.lr.ph75.preheader ], [ %.2, %._crit_edge.thread ]
@@ -9511,15 +9512,15 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %.174. = select i1 %.not61, i32 %.174, i32 %61
   %.3 = select i1 %47, i32 %.174., i32 %45
   %62 = icmp ne i32 %.174., %61
-  %.not91 = select i1 %47, i1 %62, i1 false
-  %spec.select62 = select i1 %.not91, i32 %.04772, i32 %.042.lcssa
+  %.not93 = select i1 %47, i1 %62, i1 false
+  %spec.select62 = select i1 %.not93, i32 %.04772, i32 %.042.lcssa
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %60, %._crit_edge
   %.148 = phi i32 [ %.04772, %._crit_edge ], [ %spec.select62, %60 ], [ %.04772, %.lr.ph ]
   %.2 = phi i32 [ %.174, %._crit_edge ], [ %.3, %60 ], [ %.174, %.lr.ph ]
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %63 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %39, i64 0, i64 %indvars.iv.next95
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %63 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %39, i64 0, i64 %indvars.iv.next97
   %64 = load i32, ptr %63, align 4, !tbaa !12
   %.not = icmp eq i32 %64, -1
   br i1 %.not, label %._crit_edge76.split, label %.lr.ph75, !llvm.loop !84

@@ -345,8 +345,8 @@ switch.early.test:                                ; preds = %14
 
 34:                                               ; preds = %switch.early.test
   %35 = load i16, ptr %1, align 8
-  %.fr211 = freeze i16 %35
-  %36 = and i16 %.fr211, 511
+  %.fr209 = freeze i16 %35
+  %36 = and i16 %.fr209, 511
   %37 = icmp eq i16 %36, 22
   br i1 %37, label %39, label %switch.early.test208
 
@@ -368,8 +368,8 @@ switch.lookup:                                    ; preds = %switch.early.test20
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i8, ptr %43, align 16
   %45 = icmp ne i8 %44, 41
-  %.not90212 = icmp eq ptr %42, null
-  %.not90 = or i1 %.not90212, %45
+  %.not90210 = icmp eq ptr %42, null
+  %.not90 = or i1 %.not90210, %45
   br i1 %.not90, label %.thread, label %46
 
 46:                                               ; preds = %39
@@ -396,8 +396,8 @@ switch.lookup:                                    ; preds = %switch.early.test20
 61:                                               ; preds = %57
   %62 = load i16, ptr %30, align 8
   %63 = and i16 %62, 511
-  %.not214 = icmp eq i16 %63, 4
-  br i1 %.not214, label %64, label %99
+  %.not212 = icmp eq i16 %63, 4
+  br i1 %.not212, label %64, label %99
 
 64:                                               ; preds = %61
   %65 = load i32, ptr %30, align 8
@@ -468,8 +468,8 @@ _ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %8
 
 _ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit: ; preds = %68
   call void @_ZNSt6vectorIN5clang9FixItHintESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %75, ptr noundef nonnull align 8 dereferenceable(57) %6)
-  %.pre218 = load ptr, ptr %70, align 8, !tbaa !702
-  %94 = icmp eq ptr %.pre218, %71
+  %.pre216 = load ptr, ptr %70, align 8, !tbaa !702
+  %94 = icmp eq ptr %.pre216, %71
   br i1 %94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit.thread, %_ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit
@@ -481,7 +481,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN5clang9FixItHintESaIS1_EE9push_backEOS1_.exit
   %97 = load i64, ptr %71, align 8, !tbaa !681
   %98 = add i64 %97, 1
-  call void @_ZdlPvm(ptr noundef %.pre218, i64 noundef %98) #18
+  call void @_ZdlPvm(ptr noundef %.pre216, i64 noundef %98) #18
   br label %_ZN5clang9FixItHintD2Ev.exit
 
 _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -585,8 +585,8 @@ _ZN5clang9FixItHintD2Ev.exit110:                  ; preds = %_ZNKSt7__cxx1112bas
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load i8, ptr %137, align 16
   %139 = icmp ne i8 %138, 41
-  %.not93215 = icmp eq ptr %136, null
-  %.not93 = or i1 %.not93215, %139
+  %.not93213 = icmp eq ptr %136, null
+  %.not93 = or i1 %.not93213, %139
   br i1 %.not93, label %.thread183, label %140
 
 140:                                              ; preds = %.thread
@@ -617,8 +617,8 @@ _ZN5clang9FixItHintD2Ev.exit110:                  ; preds = %_ZNKSt7__cxx1112bas
 156:                                              ; preds = %150
   %157 = load i16, ptr %30, align 8
   %158 = and i16 %157, 511
-  %.not217 = icmp eq i16 %158, 4
-  br i1 %.not217, label %159, label %175
+  %.not215 = icmp eq i16 %158, 4
+  br i1 %.not215, label %159, label %175
 
 159:                                              ; preds = %156
   %160 = load i32, ptr %30, align 8

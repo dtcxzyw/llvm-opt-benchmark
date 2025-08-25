@@ -30740,12 +30740,12 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %9
 
 9:                                                ; preds = %0, %.thread1362
-  %.0849.fr1812 = phi i32 [ 0, %0 ], [ %.0849.fr, %.thread1362 ]
-  %.0.fr1811 = phi i32 [ 3, %0 ], [ %.0.fr, %.thread1362 ]
+  %.0849.fr1809 = phi i32 [ 0, %0 ], [ %.0849.fr, %.thread1362 ]
+  %.0.fr1808 = phi i32 [ 3, %0 ], [ %.0.fr, %.thread1362 ]
   %10 = phi i1 [ true, %0 ], [ false, %.thread1362 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131104) %5, i8 0, i64 131104, i1 false)
-  %11 = icmp eq i32 %.0.fr1811, 4
-  %.0.off = add i32 %.0.fr1811, -1
+  %11 = icmp eq i32 %.0.fr1808, 4
+  %.0.off = add i32 %.0.fr1808, -1
   %switch = icmp ult i32 %.0.off, 4
   br i1 %switch, label %12, label %.thread1021
 
@@ -30755,7 +30755,7 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %12
-  switch i32 %.0.fr1811, label %.thread.thread1374 [
+  switch i32 %.0.fr1808, label %.thread.thread1374 [
     i32 4, label %.thread
     i32 2, label %.thread
   ]
@@ -30777,20 +30777,20 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
 27:                                               ; preds = %12
   %spec.select = select i1 %11, i32 2, i32 1
   %28 = sext i1 %11 to i32
-  %spec.select1727 = add i32 %.0849.fr1812, %28
+  %spec.select1727 = add i32 %.0849.fr1809, %28
   br label %.thread.thread
 
 .thread:                                          ; preds = %15, %15
-  %29 = icmp eq i32 %.0849.fr1812, 2
-  %spec.select1728 = select i1 %29, i32 1, i32 %.0849.fr1812
-  %.pre1815 = add i32 %.0849.fr1812, -1
-  %30 = icmp ult i32 %.pre1815, 4
-  %31 = icmp eq i32 %.0849.fr1812, 4
+  %29 = icmp eq i32 %.0849.fr1809, 2
+  %spec.select1728 = select i1 %29, i32 1, i32 %.0849.fr1809
+  %.pre1812 = add i32 %.0849.fr1809, -1
+  %30 = icmp ult i32 %.pre1812, 4
+  %31 = icmp eq i32 %.0849.fr1809, 4
   br i1 %30, label %.thread.thread, label %.thread1021
 
 .thread.thread:                                   ; preds = %27, %.thread
   %32 = phi i1 [ %31, %.thread ], [ false, %27 ]
-  %.21017 = phi i32 [ %.0849.fr1812, %.thread ], [ %spec.select, %27 ]
+  %.21017 = phi i32 [ %.0849.fr1809, %.thread ], [ %spec.select, %27 ]
   %.28511016 = phi i32 [ %spec.select1728, %.thread ], [ %spec.select1727, %27 ]
   %33 = load ptr, ptr %3, align 8, !tbaa !150
   %34 = call i32 @wolfSSL_set_group_messages(ptr noundef %33) #27
@@ -30829,8 +30829,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1021
 
 .thread1021:                                      ; preds = %9, %51, %49, %37, %.thread.thread1374, %.thread
-  %.4853 = phi i32 [ %spec.select1728, %.thread ], [ %.0849.fr1812, %.thread.thread1374 ], [ %.28511016, %37 ], [ %spec.select1729, %49 ], [ %spec.select1731, %51 ], [ %.0849.fr1812, %9 ]
-  %.4 = phi i32 [ %.0849.fr1812, %.thread ], [ 0, %.thread.thread1374 ], [ 0, %37 ], [ %spec.select1730, %49 ], [ %.28511016, %51 ], [ %.0.fr1811, %9 ]
+  %.4853 = phi i32 [ %spec.select1728, %.thread ], [ %.0849.fr1809, %.thread.thread1374 ], [ %.28511016, %37 ], [ %spec.select1729, %49 ], [ %spec.select1731, %51 ], [ %.0849.fr1809, %9 ]
+  %.4 = phi i32 [ %.0849.fr1809, %.thread ], [ 0, %.thread.thread1374 ], [ 0, %37 ], [ %spec.select1730, %49 ], [ %.28511016, %51 ], [ %.0.fr1808, %9 ]
   %.4853.fr = freeze i32 %.4853
   %53 = icmp eq i32 %.4, 4
   %.4.off = add i32 %.4, -1
@@ -30956,10 +30956,10 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1062
 
 114:                                              ; preds = %.thread1052
-  %.fr1805 = freeze i1 %97
-  %115 = sext i1 %.fr1805 to i32
+  %.fr = freeze i1 %97
+  %115 = sext i1 %.fr to i32
   %spec.select1738 = add i32 %.78561057.fr, %115
-  %spec.select1739 = select i1 %.fr1805, i32 2, i32 1
+  %spec.select1739 = select i1 %.fr, i32 2, i32 1
   br label %.thread1062
 
 116:                                              ; preds = %101, %101
@@ -31232,10 +31232,10 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1144
 
 246:                                              ; preds = %.thread1134
-  %.fr1806 = freeze i1 %229
-  %247 = sext i1 %.fr1806 to i32
+  %.fr1804 = freeze i1 %229
+  %247 = sext i1 %.fr1804 to i32
   %spec.select1756 = add i32 %.178661139.fr, %247
-  %spec.select1757 = select i1 %.fr1806, i32 2, i32 1
+  %spec.select1757 = select i1 %.fr1804, i32 2, i32 1
   br label %.thread1144
 
 248:                                              ; preds = %233, %233
@@ -31525,17 +31525,17 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1244
 
 380:                                              ; preds = %.thread1216
-  %.fr1807 = freeze i1 %363
-  %spec.select1774 = select i1 %.fr1807, i32 2, i32 1
-  %381 = sext i1 %.fr1807 to i32
+  %.fr1805 = freeze i1 %363
+  %spec.select1774 = select i1 %.fr1805, i32 2, i32 1
+  %381 = sext i1 %.fr1805 to i32
   %spec.select1775 = add i32 %.278761221.fr, %381
   br label %.thread1226.thread1433
 
 .thread1226:                                      ; preds = %367, %367
   %382 = icmp eq i32 %.278761221.fr, 2
   %spec.select1776 = select i1 %382, i32 1, i32 %.278761221.fr
-  %.pre1814 = add i32 %.278761221.fr, -1
-  %383 = icmp ult i32 %.pre1814, 4
+  %.pre1811 = add i32 %.278761221.fr, -1
+  %383 = icmp ult i32 %.pre1811, 4
   %384 = icmp eq i32 %.278761221.fr, 4
   br i1 %383, label %.thread1226.thread1433, label %.thread1244
 
@@ -31625,8 +31625,8 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
 .thread1255:                                      ; preds = %411, %411
   %425 = icmp eq i32 %.31880, 2
   %spec.select1782 = select i1 %425, i32 1, i32 %.31880
-  %.pre1813 = add i32 %.31880, -1
-  %426 = icmp ult i32 %.pre1813, 4
+  %.pre1810 = add i32 %.31880, -1
+  %426 = icmp ult i32 %.pre1810, 4
   %427 = icmp eq i32 %.31880, 4
   br i1 %426, label %.thread1255.thread, label %.thread1273
 
@@ -31748,10 +31748,10 @@ define internal range(i32 5, 4) i32 @test_read_write_hs() #0 {
   br label %.thread1303
 
 487:                                              ; preds = %.thread1293
-  %.fr = freeze i1 %471
-  %488 = sext i1 %.fr to i32
+  %.fr1806 = freeze i1 %471
+  %488 = sext i1 %.fr1806 to i32
   %spec.select1789 = add nsw i32 %.368851298.fr, %488
-  %spec.select1790 = select i1 %.fr, i32 2, i32 1
+  %spec.select1790 = select i1 %.fr1806, i32 2, i32 1
   br label %.thread1303
 
 489:                                              ; preds = %474, %474
@@ -32094,9 +32094,9 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br label %8
 
 8:                                                ; preds = %0, %.thread501
-  %.0303.fr609 = phi i32 [ 0, %0 ], [ %.0303.fr, %.thread501 ]
-  %.0.fr608 = phi i32 [ 3, %0 ], [ %.0.fr, %.thread501 ]
-  %.0322607 = phi i64 [ 0, %0 ], [ %212, %.thread501 ]
+  %.0303.fr607 = phi i32 [ 0, %0 ], [ %.0303.fr, %.thread501 ]
+  %.0.fr606 = phi i32 [ 3, %0 ], [ %.0.fr, %.thread501 ]
+  %.0322605 = phi i64 [ 0, %0 ], [ %212, %.thread501 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !149
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -32107,7 +32107,7 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   store ptr null, ptr %4, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = getelementptr inbounds nuw [3 x %struct.anon.4], ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 0, i64 %.0322607
+  %9 = getelementptr inbounds nuw [3 x %struct.anon.4], ptr @__const.test_wolfSSL_SendUserCanceled.params, i64 0, i64 %.0322605
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !164
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %11)
@@ -32121,7 +32121,7 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br i1 %17, label %30, label %18
 
 18:                                               ; preds = %8
-  switch i32 %.0.fr608, label %.thread.thread512 [
+  switch i32 %.0.fr606, label %.thread.thread512 [
     i32 4, label %.thread
     i32 2, label %.thread
   ]
@@ -32141,24 +32141,24 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br label %.thread501
 
 30:                                               ; preds = %8
-  %31 = icmp eq i32 %.0.fr608, 4
+  %31 = icmp eq i32 %.0.fr606, 4
   %32 = sext i1 %31 to i32
-  %spec.select = add i32 %.0303.fr609, %32
+  %spec.select = add i32 %.0303.fr607, %32
   %spec.select579 = select i1 %31, i32 2, i32 1
   br label %.thread.thread
 
 .thread:                                          ; preds = %18, %18
-  %33 = icmp eq i32 %.0303.fr609, 2
-  %spec.select580 = select i1 %33, i32 1, i32 %.0303.fr609
-  %34 = icmp eq i32 %.0303.fr609, 4
-  %.2.off = add i32 %.0303.fr609, -1
+  %33 = icmp eq i32 %.0303.fr607, 2
+  %spec.select580 = select i1 %33, i32 1, i32 %.0303.fr607
+  %34 = icmp eq i32 %.0303.fr607, 4
+  %.2.off = add i32 %.0303.fr607, -1
   %switch = icmp ult i32 %.2.off, 4
   br i1 %switch, label %.thread.thread, label %.thread501
 
 .thread.thread:                                   ; preds = %30, %.thread
   %35 = phi i1 [ %34, %.thread ], [ false, %30 ]
   %.fr = phi i32 [ %spec.select580, %.thread ], [ %spec.select, %30 ]
-  %.1362371 = phi i32 [ %.0303.fr609, %.thread ], [ %spec.select579, %30 ]
+  %.1362371 = phi i32 [ %.0303.fr607, %.thread ], [ %spec.select579, %30 ]
   %36 = load ptr, ptr %3, align 8, !tbaa !150
   %37 = call i32 @wolfSSL_negotiate(ptr noundef %36) #27
   %38 = icmp eq i32 %37, -1
@@ -32193,8 +32193,8 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
 .thread375:                                       ; preds = %39, %39
   %54 = icmp eq i32 %.fr, 2
   %spec.select583 = select i1 %54, i32 1, i32 %.fr
-  %.pre615 = add i32 %.fr, -1
-  %55 = icmp ult i32 %.pre615, 4
+  %.pre613 = add i32 %.fr, -1
+  %55 = icmp ult i32 %.pre613, 4
   %56 = icmp eq i32 %.fr, 4
   br i1 %55, label %.thread375.thread520, label %.thread501
 
@@ -32229,17 +32229,17 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br label %.thread501
 
 74:                                               ; preds = %.thread375.thread520
-  %.fr646 = freeze i1 %57
-  %spec.select584 = select i1 %.fr646, i32 2, i32 1
-  %75 = sext i1 %.fr646 to i32
+  %.fr643 = freeze i1 %57
+  %spec.select584 = select i1 %.fr643, i32 2, i32 1
+  %75 = sext i1 %.fr643 to i32
   %spec.select585 = add i32 %.4307388.fr, %75
   br label %.thread393.thread529
 
 .thread393:                                       ; preds = %61, %61
   %76 = icmp eq i32 %.4307388.fr, 2
   %spec.select586 = select i1 %76, i32 1, i32 %.4307388.fr
-  %.pre614 = add i32 %.4307388.fr, -1
-  %77 = icmp ult i32 %.pre614, 4
+  %.pre612 = add i32 %.4307388.fr, -1
+  %77 = icmp ult i32 %.pre612, 4
   %78 = icmp eq i32 %.4307388.fr, 4
   br i1 %77, label %.thread393.thread529, label %.thread501
 
@@ -32281,8 +32281,8 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
 .thread411:                                       ; preds = %83, %83
   %98 = icmp eq i32 %.6309406, 2
   %spec.select589 = select i1 %98, i32 1, i32 %.6309406
-  %.pre613 = add i32 %.6309406, -1
-  %99 = icmp ult i32 %.pre613, 4
+  %.pre611 = add i32 %.6309406, -1
+  %99 = icmp ult i32 %.pre611, 4
   %100 = icmp eq i32 %.6309406, 4
   br i1 %99, label %.thread411.thread538, label %.thread501
 
@@ -32324,8 +32324,8 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
 .thread429:                                       ; preds = %105, %105
   %120 = icmp eq i32 %.8311424, 2
   %spec.select592 = select i1 %120, i32 1, i32 %.8311424
-  %.pre612 = add i32 %.8311424, -1
-  %121 = icmp ult i32 %.pre612, 4
+  %.pre610 = add i32 %.8311424, -1
+  %121 = icmp ult i32 %.pre610, 4
   %122 = icmp eq i32 %.8311424, 4
   br i1 %121, label %.thread429.thread547, label %.thread501
 
@@ -32360,17 +32360,17 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br label %.thread501
 
 140:                                              ; preds = %.thread429.thread547
-  %.fr648 = freeze i1 %123
-  %spec.select593 = select i1 %.fr648, i32 2, i32 1
-  %141 = sext i1 %.fr648 to i32
+  %.fr644 = freeze i1 %123
+  %spec.select593 = select i1 %.fr644, i32 2, i32 1
+  %141 = sext i1 %.fr644 to i32
   %spec.select594 = add i32 %.10313442.fr, %141
   br label %.thread447.thread556
 
 .thread447:                                       ; preds = %127, %127
   %142 = icmp eq i32 %.10313442.fr, 2
   %spec.select595 = select i1 %142, i32 1, i32 %.10313442.fr
-  %.pre611 = add i32 %.10313442.fr, -1
-  %143 = icmp ult i32 %.pre611, 4
+  %.pre609 = add i32 %.10313442.fr, -1
+  %143 = icmp ult i32 %.pre609, 4
   %144 = icmp eq i32 %.10313442.fr, 4
   br i1 %143, label %.thread447.thread556, label %.thread501
 
@@ -32412,8 +32412,8 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
 .thread465:                                       ; preds = %149, %149
   %164 = icmp eq i32 %.12315460, 2
   %spec.select598 = select i1 %164, i32 1, i32 %.12315460
-  %.pre610 = add i32 %.12315460, -1
-  %165 = icmp ult i32 %.pre610, 4
+  %.pre608 = add i32 %.12315460, -1
+  %165 = icmp ult i32 %.pre608, 4
   %166 = icmp eq i32 %.12315460, 4
   br i1 %165, label %.thread465.thread565, label %.thread501
 
@@ -32500,8 +32500,8 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   br label %.thread501
 
 .thread501:                                       ; preds = %.thread, %.thread375, %.thread393, %.thread411, %.thread429, %.thread447, %.thread465, %206, %204, %40, %.thread.thread512, %62, %84, %106, %128, %150, %171, %192, %.thread483
-  %.18321 = phi i32 [ %spec.select601, %.thread483 ], [ %.16319496.fr, %192 ], [ %.14317478, %171 ], [ %.12315460, %150 ], [ %.10313442.fr, %128 ], [ %.8311424, %106 ], [ %.6309406, %84 ], [ %.4307388.fr, %62 ], [ %.fr, %40 ], [ %.0303.fr609, %.thread.thread512 ], [ %spec.select602, %204 ], [ %spec.select604, %206 ], [ %spec.select598, %.thread465 ], [ %spec.select595, %.thread447 ], [ %spec.select592, %.thread429 ], [ %spec.select589, %.thread411 ], [ %spec.select586, %.thread393 ], [ %spec.select583, %.thread375 ], [ %spec.select580, %.thread ]
-  %.18 = phi i32 [ %.14317478, %.thread483 ], [ 0, %192 ], [ 0, %171 ], [ 0, %150 ], [ 0, %128 ], [ 0, %106 ], [ 0, %84 ], [ 0, %62 ], [ 0, %40 ], [ 0, %.thread.thread512 ], [ %spec.select603, %204 ], [ %.16319496.fr, %206 ], [ %.12315460, %.thread465 ], [ %.10313442.fr, %.thread447 ], [ %.8311424, %.thread429 ], [ %.6309406, %.thread411 ], [ %.4307388.fr, %.thread393 ], [ %.fr, %.thread375 ], [ %.0303.fr609, %.thread ]
+  %.18321 = phi i32 [ %spec.select601, %.thread483 ], [ %.16319496.fr, %192 ], [ %.14317478, %171 ], [ %.12315460, %150 ], [ %.10313442.fr, %128 ], [ %.8311424, %106 ], [ %.6309406, %84 ], [ %.4307388.fr, %62 ], [ %.fr, %40 ], [ %.0303.fr607, %.thread.thread512 ], [ %spec.select602, %204 ], [ %spec.select604, %206 ], [ %spec.select598, %.thread465 ], [ %spec.select595, %.thread447 ], [ %spec.select592, %.thread429 ], [ %spec.select589, %.thread411 ], [ %spec.select586, %.thread393 ], [ %spec.select583, %.thread375 ], [ %spec.select580, %.thread ]
+  %.18 = phi i32 [ %.14317478, %.thread483 ], [ 0, %192 ], [ 0, %171 ], [ 0, %150 ], [ 0, %128 ], [ 0, %106 ], [ 0, %84 ], [ 0, %62 ], [ 0, %40 ], [ 0, %.thread.thread512 ], [ %spec.select603, %204 ], [ %.16319496.fr, %206 ], [ %.12315460, %.thread465 ], [ %.10313442.fr, %.thread447 ], [ %.8311424, %.thread429 ], [ %.6309406, %.thread411 ], [ %.4307388.fr, %.thread393 ], [ %.fr, %.thread375 ], [ %.0303.fr607, %.thread ]
   %208 = load ptr, ptr %3, align 8, !tbaa !150
   call void @wolfSSL_free(ptr noundef %208) #27
   %209 = load ptr, ptr %4, align 8, !tbaa !150
@@ -32516,10 +32516,10 @@ define internal range(i32 5, 4) i32 @test_wolfSSL_SendUserCanceled() #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %212 = add nuw nsw i64 %.0322607, 1
+  %212 = add nuw nsw i64 %.0322605, 1
   %.0.fr = freeze i32 %.18
   %.0303.fr = freeze i32 %.18321
-  %213 = icmp samesign ult i64 %.0322607, 2
+  %213 = icmp samesign ult i64 %.0322605, 2
   %.0.off = add i32 %.0.fr, -1
   %switch357 = icmp ult i32 %.0.off, 4
   %or.cond = and i1 %213, %switch357
@@ -32682,9 +32682,9 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %9
 
 9:                                                ; preds = %0, %.thread382
-  %.0255.fr429 = phi i32 [ 0, %0 ], [ %.0255.fr, %.thread382 ]
-  %.0428 = phi i32 [ 3, %0 ], [ %.17, %.thread382 ]
-  %.0273427 = phi i64 [ 0, %0 ], [ %187, %.thread382 ]
+  %.0255.fr428 = phi i32 [ 0, %0 ], [ %.0255.fr, %.thread382 ]
+  %.0427 = phi i32 [ 3, %0 ], [ %.17, %.thread382 ]
+  %.0273426 = phi i64 [ 0, %0 ], [ %187, %.thread382 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr null, ptr %1, align 8, !tbaa !149
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -32694,7 +32694,7 @@ define internal i32 @test_wolfSSL_inject() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %10 = getelementptr inbounds nuw [3 x %struct.anon.5], ptr @__const.test_wolfSSL_inject.params, i64 0, i64 %.0273427
+  %10 = getelementptr inbounds nuw [3 x %struct.anon.5], ptr @__const.test_wolfSSL_inject.params, i64 0, i64 %.0273426
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !164
   %13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2136, ptr noundef %12)
@@ -32707,7 +32707,7 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br i1 %18, label %32, label %19
 
 19:                                               ; preds = %9
-  switch i32 %.0428, label %20 [
+  switch i32 %.0427, label %20 [
     i32 4, label %35
     i32 2, label %35
   ]
@@ -32727,28 +32727,28 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread.preheader
 
 32:                                               ; preds = %9
-  %33 = icmp eq i32 %.0428, 4
+  %33 = icmp eq i32 %.0427, 4
   %spec.select = select i1 %33, i32 2, i32 1
   %34 = sext i1 %33 to i32
-  %spec.select399 = add i32 %.0255.fr429, %34
+  %spec.select399 = add i32 %.0255.fr428, %34
   br label %.thread.preheader
 
 35:                                               ; preds = %19, %19
-  %36 = icmp eq i32 %.0255.fr429, 2
-  %spec.select400 = select i1 %36, i32 1, i32 %.0255.fr429
+  %36 = icmp eq i32 %.0255.fr428, 2
+  %spec.select400 = select i1 %36, i32 1, i32 %.0255.fr428
   br label %.thread.preheader
 
 .thread.preheader:                                ; preds = %35, %32, %20
-  %.3258.fr426.ph = phi i32 [ %spec.select400, %35 ], [ %spec.select399, %32 ], [ %.0255.fr429, %20 ]
-  %.3.fr425.ph = phi i32 [ %.0255.fr429, %35 ], [ %spec.select, %32 ], [ 0, %20 ]
+  %.3258.fr425.ph = phi i32 [ %spec.select400, %35 ], [ %spec.select399, %32 ], [ %.0255.fr428, %20 ]
+  %.3.fr424.ph = phi i32 [ %.0255.fr428, %35 ], [ %spec.select, %32 ], [ 0, %20 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %138
-  %.3258.fr426 = phi i32 [ %.11266, %138 ], [ %.3258.fr426.ph, %.thread.preheader ]
-  %.3.fr425 = phi i32 [ %.11, %138 ], [ %.3.fr425.ph, %.thread.preheader ]
-  %.0274424 = phi i32 [ %139, %138 ], [ 0, %.thread.preheader ]
-  %37 = icmp eq i32 %.3.fr425, 4
-  %.3.off = add i32 %.3.fr425, -1
+  %.3258.fr425 = phi i32 [ %.11266, %138 ], [ %.3258.fr425.ph, %.thread.preheader ]
+  %.3.fr424 = phi i32 [ %.11, %138 ], [ %.3.fr424.ph, %.thread.preheader ]
+  %.0274423 = phi i32 [ %139, %138 ], [ 0, %.thread.preheader ]
+  %37 = icmp eq i32 %.3.fr424, 4
+  %.3.off = add i32 %.3.fr424, -1
   %switch = icmp ult i32 %.3.off, 4
   br i1 %switch, label %.critedge25, label %.thread382
 
@@ -32766,7 +32766,7 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br i1 %43, label %57, label %44
 
 44:                                               ; preds = %40
-  switch i32 %.3.fr425, label %45 [
+  switch i32 %.3.fr424, label %45 [
     i32 4, label %59
     i32 2, label %59
   ]
@@ -32787,18 +32787,18 @@ define internal i32 @test_wolfSSL_inject() #0 {
 
 57:                                               ; preds = %40
   %58 = sext i1 %37 to i32
-  %spec.select401 = add i32 %.3258.fr426, %58
+  %spec.select401 = add i32 %.3258.fr425, %58
   %spec.select402 = select i1 %37, i32 2, i32 1
   br label %.thread318
 
 59:                                               ; preds = %44, %44
-  %60 = icmp eq i32 %.3258.fr426, 2
-  %spec.select403 = select i1 %60, i32 1, i32 %.3258.fr426
+  %60 = icmp eq i32 %.3258.fr425, 2
+  %spec.select403 = select i1 %60, i32 1, i32 %.3258.fr425
   br label %.thread318
 
 .thread318:                                       ; preds = %59, %57, %45, %.critedge25
-  %.4259 = phi i32 [ %.3258.fr426, %.critedge25 ], [ %.3258.fr426, %45 ], [ %spec.select401, %57 ], [ %spec.select403, %59 ]
-  %.4 = phi i32 [ %.3.fr425, %.critedge25 ], [ 0, %45 ], [ %spec.select402, %57 ], [ %.3258.fr426, %59 ]
+  %.4259 = phi i32 [ %.3258.fr425, %.critedge25 ], [ %.3258.fr425, %45 ], [ %spec.select401, %57 ], [ %spec.select403, %59 ]
+  %.4 = phi i32 [ %.3.fr424, %.critedge25 ], [ 0, %45 ], [ %spec.select402, %57 ], [ %.3258.fr425, %59 ]
   call void @wolfSSL_SetLoggingPrefix(ptr noundef nonnull @.str.1017) #27
   %61 = load i32, ptr %6, align 8, !tbaa !161
   %62 = icmp sgt i32 %61, 0
@@ -32968,7 +32968,7 @@ define internal i32 @test_wolfSSL_inject() #0 {
   %.11266 = phi i32 [ %.13268, %.thread351 ], [ %.9264.fr, %.thread340 ]
   %.11 = phi i32 [ %.13, %.thread351 ], [ %.9.fr, %.thread340 ]
   call void @wolfSSL_SetLoggingPrefix(ptr noundef null) #27
-  %139 = add nuw nsw i32 %.0274424, 1
+  %139 = add nuw nsw i32 %.0274423, 1
   %exitcond.not = icmp eq i32 %139, 10
   br i1 %exitcond.not, label %.critedge23, label %.thread, !llvm.loop !186
 
@@ -33059,8 +33059,8 @@ define internal i32 @test_wolfSSL_inject() #0 {
   br label %.thread382
 
 .thread382:                                       ; preds = %.thread, %.critedge23, %181, %179, %167, %.critedge23.thread.thread394, %.critedge23.thread
-  %.17272 = phi i32 [ %spec.select415, %.critedge23.thread ], [ %.11266, %.critedge23.thread.thread394 ], [ %.15270377, %167 ], [ %spec.select416, %179 ], [ %spec.select418, %181 ], [ %.11266, %.critedge23 ], [ %.3258.fr426, %.thread ]
-  %.17 = phi i32 [ %.11266, %.critedge23.thread ], [ 0, %.critedge23.thread.thread394 ], [ 0, %167 ], [ %spec.select417, %179 ], [ %.15270377, %181 ], [ %.11, %.critedge23 ], [ %.3.fr425, %.thread ]
+  %.17272 = phi i32 [ %spec.select415, %.critedge23.thread ], [ %.11266, %.critedge23.thread.thread394 ], [ %.15270377, %167 ], [ %spec.select416, %179 ], [ %spec.select418, %181 ], [ %.11266, %.critedge23 ], [ %.3258.fr425, %.thread ]
+  %.17 = phi i32 [ %.11266, %.critedge23.thread ], [ 0, %.critedge23.thread.thread394 ], [ 0, %167 ], [ %spec.select417, %179 ], [ %.15270377, %181 ], [ %.11, %.critedge23 ], [ %.3.fr424, %.thread ]
   %183 = load ptr, ptr %3, align 8, !tbaa !150
   call void @wolfSSL_free(ptr noundef %183) #27
   %184 = load ptr, ptr %4, align 8, !tbaa !150
@@ -33074,9 +33074,9 @@ define internal i32 @test_wolfSSL_inject() #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %187 = add nuw nsw i64 %.0273427, 1
+  %187 = add nuw nsw i64 %.0273426, 1
   %.0255.fr = freeze i32 %.17272
-  %188 = icmp samesign ult i64 %.0273427, 2
+  %188 = icmp samesign ult i64 %.0273426, 2
   %.0.off = add i32 %.17, -1
   %switch305 = icmp ult i32 %.0.off, 4
   %or.cond = select i1 %188, i1 %switch305, i1 false

@@ -3802,12 +3802,12 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %26 = add i32 %25, 3
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %26)
   %27 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %23)
-  %.fr = freeze i8 %27
-  %28 = lshr i8 %.fr, 5
-  %29 = and i8 %.fr, 15
+  %.fr225 = freeze i8 %27
+  %28 = lshr i8 %.fr225, 5
+  %29 = and i8 %.fr225, 15
   call void @proto_tree_add_bitmask_list(ptr noundef %17, ptr noundef %0, i32 noundef %23, i32 noundef 1, ptr noundef nonnull @de_nas_5gs_sm_qos_rules.pkt_flt_flags, i32 noundef 0)
   %30 = add i32 %.0203219, 4
-  %31 = icmp ult i8 %.fr, 32
+  %31 = icmp ult i8 %.fr225, 32
   %32 = icmp eq i8 %28, 7
   %or.cond = or i1 %31, %32
   br i1 %or.cond, label %33, label %41

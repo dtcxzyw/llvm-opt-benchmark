@@ -502,10 +502,11 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   %267 = load i32, ptr %12, align 8, !tbaa !27
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 24
   %269 = load i32, ptr %268, align 8, !tbaa !31
-  %270 = add i32 %267, -1
-  %271 = add i32 %270, %269
-  %272 = sdiv i32 %271, %269
-  %.fr39.i = freeze i32 %272
+  %.fr40.i = freeze i32 %269
+  %.fr39.i = freeze i32 %267
+  %270 = add i32 %.fr39.i, -1
+  %271 = add i32 %270, %.fr40.i
+  %272 = sdiv i32 %271, %.fr40.i
   %273 = load i32, ptr %14, align 4, !tbaa !30
   %274 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %275 = load i32, ptr %274, align 8, !tbaa !31
@@ -516,8 +517,8 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br i1 %279, label %.lr.ph38.i, label %ljpeg_encode_yuv.exit.thread
 
 .lr.ph38.i:                                       ; preds = %265
-  %280 = mul nsw i32 %.fr39.i, 12
-  %281 = icmp sgt i32 %.fr39.i, 0
+  %280 = mul nsw i32 %272, 12
+  %281 = icmp sgt i32 %272, 0
   %282 = getelementptr inbounds nuw i8, ptr %266, i64 120
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %284 = getelementptr inbounds nuw i8, ptr %266, i64 100
@@ -1039,7 +1040,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 ljpeg_encode_yuv_mb.exit.us.i:                    ; preds = %._crit_edge152.i.us.i, %._crit_edge161.i.us.i
   %594 = add nuw nsw i32 %.02435.us.i, 1
-  %exitcond.not.i51 = icmp eq i32 %594, %.fr39.i
+  %exitcond.not.i51 = icmp eq i32 %594, %272
   br i1 %exitcond.not.i51, label %._crit_edge.us.i52, label %304, !llvm.loop !66
 
 .preheader.us.i50:                                ; preds = %.lr.ph38.split.us.i
@@ -1048,8 +1049,8 @@ ljpeg_encode_yuv_mb.exit.us.i:                    ; preds = %._crit_edge152.i.us
 
 ._crit_edge.us.i52:                               ; preds = %ljpeg_encode_yuv_mb.exit.us.i
   %596 = add nuw nsw i32 %.036.us.i, 1
-  %exitcond45.not.i = icmp eq i32 %596, %278
-  br i1 %exitcond45.not.i, label %ljpeg_encode_yuv.exit.thread, label %.lr.ph38.split.us.i, !llvm.loop !67
+  %exitcond47.not.i = icmp eq i32 %596, %278
+  br i1 %exitcond47.not.i, label %ljpeg_encode_yuv.exit.thread, label %.lr.ph38.split.us.i, !llvm.loop !67
 
 .lr.ph38.split.i:                                 ; preds = %.lr.ph38.i
   %597 = load ptr, ptr %57, align 8, !tbaa !39
@@ -1060,7 +1061,7 @@ ljpeg_encode_yuv_mb.exit.us.i:                    ; preds = %._crit_edge152.i.us
   %602 = add i64 %601, %64
   %603 = sub i64 %598, %602
   %604 = trunc i64 %603 to i32
-  %605 = mul nsw i32 %280, %269
+  %605 = mul nsw i32 %280, %.fr40.i
   %606 = mul nsw i32 %605, %275
   %607 = icmp sgt i32 %606, %604
   br i1 %607, label %ljpeg_encode_yuv.exit.thread54, label %ljpeg_encode_yuv.exit.thread

@@ -1042,12 +1042,12 @@ define i32 @ff_ivi_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writ
   br label %.preheader178
 
 .preheader178:                                    ; preds = %66, %._crit_edge
-  %indvars.iv331 = phi i64 [ 0, %66 ], [ %indvars.iv.next332, %._crit_edge ]
-  %80 = getelementptr inbounds nuw [3 x %struct.IVIPlaneDesc], ptr %56, i64 0, i64 %indvars.iv331
+  %indvars.iv329 = phi i64 [ 0, %66 ], [ %indvars.iv.next330, %._crit_edge ]
+  %80 = getelementptr inbounds nuw [3 x %struct.IVIPlaneDesc], ptr %56, i64 0, i64 %indvars.iv329
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i8, ptr %81, align 4, !tbaa !60
-  %.not257 = icmp eq i8 %82, 0
-  br i1 %.not257, label %._crit_edge, label %.lr.ph
+  %.not256 = icmp eq i8 %82, 0
+  br i1 %.not256, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader178
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -1364,11 +1364,12 @@ prepare_buf.exit210.i:                            ; preds = %147, %143, %139
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %251 = load i32, ptr %250, align 8, !tbaa !88
   %252 = load i32, ptr %231, align 4, !tbaa !87
-  %.not186.i = icmp eq i32 %251, %252
+  %.fr.i = freeze i32 %252
+  %.not186.i = icmp eq i32 %251, %.fr.i
   br i1 %.not186.i, label %254, label %253
 
 253:                                              ; preds = %247
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %252, i32 noundef %251) #10
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.22, i32 noundef %.fr.i, i32 noundef %251) #10
   br label %decode_band.exit.thread
 
 254:                                              ; preds = %247
@@ -1627,14 +1628,14 @@ prepare_buf.exit210.i:                            ; preds = %147, %143, %139
 
 402:                                              ; preds = %._crit_edge217.i.i
   %403 = load i32, ptr %240, align 8, !tbaa !154
-  %404 = icmp eq i32 %403, 8
+  %.fr286.i = freeze i32 %403
+  %404 = icmp eq i32 %.fr286.i, 8
   %405 = select i1 %404, ptr @ff_ivi_mc_8x8_no_delta, ptr @ff_ivi_mc_4x4_no_delta
   %406 = icmp sgt i32 %291, 0
   br i1 %406, label %.lr.ph225.i.preheader.i, label %ivi_process_empty_tile.exit.thread.i
 
 .lr.ph225.i.preheader.i:                          ; preds = %402
-  %.not188.i.i = icmp ne i32 %251, %403
-  %.not188.i.fr.i = freeze i1 %.not188.i.i
+  %.not188.i.not.i = icmp eq i32 %251, %.fr286.i
   br label %.lr.ph225.i.i
 
 .lr.ph225.i.i:                                    ; preds = %.split275.us.i, %.lr.ph225.i.preheader.i
@@ -1664,7 +1665,7 @@ prepare_buf.exit210.i:                            ; preds = %147, %143, %139
   %.0167.i.i = phi i32 [ %420, %414 ], [ %412, %.lr.ph225.i.i ]
   %.0166.i.i = phi i32 [ %419, %414 ], [ %409, %.lr.ph225.i.i ]
   %422 = getelementptr inbounds nuw i8, ptr %.2177223.i.i, i64 4
-  br i1 %.not188.i.fr.i, label %.split.i, label %.split.us.i
+  br i1 %.not188.i.not.i, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %421
   %423 = load i32, ptr %422, align 4, !tbaa !143
@@ -2497,9 +2498,9 @@ decode_band.exit:                                 ; preds = %166, %._crit_edge28
 
 decode_band.exit.thread:                          ; preds = %155, %prepare_buf.exit206.i, %decode_band.exit, %prepare_buf.exit206.thread.i, %.loopexit179, %253, %170
   %.0.i169 = phi i32 [ -12, %prepare_buf.exit206.thread.i ], [ -1094995529, %.loopexit179 ], [ -1094995529, %253 ], [ -1094995529, %170 ], [ %.0.i, %decode_band.exit ], [ -12, %155 ], [ -12, %prepare_buf.exit206.i ]
-  %926 = trunc i64 %indvars.iv331 to i32
-  %.0127250320 = trunc i64 %indvars.iv to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0127250320, i32 noundef %926) #10
+  %926 = trunc i64 %indvars.iv329 to i32
+  %.0127249318 = trunc i64 %indvars.iv to i32
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.10, i32 noundef %.0127249318, i32 noundef %926) #10
   br label %.loopexit
 
 927:                                              ; preds = %decode_band.exit
@@ -2510,8 +2511,8 @@ decode_band.exit.thread:                          ; preds = %155, %prepare_buf.e
   br i1 %930, label %84, label %._crit_edge, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %927, %.preheader178
-  %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next332, 3
+  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next330, 3
   br i1 %exitcond.not, label %931, label %.preheader178, !llvm.loop !174
 
 931:                                              ; preds = %._crit_edge
@@ -2528,13 +2529,13 @@ decode_band.exit.thread:                          ; preds = %155, %prepare_buf.e
   br i1 %.not140, label %.preheader171, label %.loopexit
 
 938:                                              ; preds = %.preheader171
-  %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334, 1
-  %exitcond337.not = icmp eq i64 %indvars.iv.next335, 3
-  br i1 %exitcond337.not, label %.loopexit172, label %.preheader171, !llvm.loop !176
+  %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
+  %exitcond335.not = icmp eq i64 %indvars.iv.next333, 3
+  br i1 %exitcond335.not, label %.loopexit172, label %.preheader171, !llvm.loop !176
 
 .preheader171:                                    ; preds = %935, %938
-  %indvars.iv334 = phi i64 [ %indvars.iv.next335, %938 ], [ 0, %935 ]
-  %939 = shl nuw nsw i64 %indvars.iv334, 4
+  %indvars.iv332 = phi i64 [ %indvars.iv.next333, %938 ], [ 0, %935 ]
+  %939 = shl nuw nsw i64 %indvars.iv332, 4
   %940 = getelementptr inbounds nuw i8, ptr %56, i64 %939
   %941 = getelementptr inbounds nuw i8, ptr %940, i64 8
   %942 = load ptr, ptr %941, align 8, !tbaa !61

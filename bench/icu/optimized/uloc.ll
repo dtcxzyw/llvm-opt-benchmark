@@ -4233,11 +4233,11 @@ define void @_Z21ulocimp_getSubtags_77St17basic_string_viewIcSt11char_traitsIcEE
 _ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %.thread63.i, %.thread63.i, %.thread63.i, %.thread63.i
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.11.069.i, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !20
-  %47 = icmp eq i8 %46, 95
-  %48 = icmp eq i8 %46, 45
+  %.fr.i = freeze i8 %46
+  %47 = icmp eq i8 %.fr.i, 95
+  %48 = icmp eq i8 %.fr.i, 45
   %49 = or i1 %47, %48
-  %cond.fr.i = freeze i1 %49
-  %spec.select.i = select i1 %cond.fr.i, i64 2, i64 0
+  %spec.select.i = select i1 %49, i64 2, i64 0
   br label %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i
 
 _ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.i, %.thread63.i, %42
@@ -4250,8 +4250,8 @@ _ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.t
   br i1 %52, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i, %57
-  %.04090.i = phi i64 [ %58, %57 ], [ %51, %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.11.07083.i, i64 %.04090.i
+  %.04091.i = phi i64 [ %58, %57 ], [ %51, %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.11.07083.i, i64 %.04091.i
   %54 = load i8, ptr %53, align 1, !tbaa !20
   switch i8 %54, label %55 [
     i8 64, label %.critedge.i
@@ -4261,25 +4261,25 @@ _ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.t
   ]
 
 55:                                               ; preds = %.lr.ph.i
-  %56 = icmp eq i64 %.04090.i, 11
+  %56 = icmp eq i64 %.04091.i, 11
   br i1 %56, label %_ZN12_GLOBAL__N_112_getLanguageESt17basic_string_viewIcSt11char_traitsIcEEPN6icu_778ByteSinkER10UErrorCode.exit.thread, label %57
 
 57:                                               ; preds = %55
-  %58 = add nuw nsw i64 %.04090.i, 1
+  %58 = add nuw nsw i64 %.04091.i, 1
   %exitcond.not.i = icmp eq i64 %58, %.sroa.043.06784.i
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !76
 
 .critedge.i:                                      ; preds = %57, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i
-  %.040.lcssa.i = phi i64 [ %51, %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ], [ %.sroa.043.06784.i, %57 ], [ %.04090.i, %.lr.ph.i ], [ %.04090.i, %.lr.ph.i ], [ %.04090.i, %.lr.ph.i ], [ %.04090.i, %.lr.ph.i ]
+  %.040.lcssa.i = phi i64 [ %51, %_ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.i ], [ %.sroa.043.06784.i, %57 ], [ %.04091.i, %.lr.ph.i ], [ %.04091.i, %.lr.ph.i ], [ %.04091.i, %.lr.ph.i ], [ %.04091.i, %.lr.ph.i ]
   %59 = icmp eq ptr %2, null
   %60 = icmp eq i64 %.040.lcssa.i, 0
   %or.cond.i = or i1 %59, %60
   br i1 %or.cond.i, label %.critedge.thread.i, label %62
 
 .critedge.thread.i:                               ; preds = %.critedge.i, %25
-  %.040.lcssa118.i = phi i64 [ %.040.lcssa.i, %.critedge.i ], [ 0, %25 ]
-  %.0397182112117.i = phi i64 [ %.0397182.i, %.critedge.i ], [ 4, %25 ]
-  %61 = add i64 %.0397182112117.i, %.040.lcssa118.i
+  %.040.lcssa119.i = phi i64 [ %.040.lcssa.i, %.critedge.i ], [ 0, %25 ]
+  %.0397182113118.i = phi i64 [ %.0397182.i, %.critedge.i ], [ 4, %25 ]
+  %61 = add i64 %.0397182113118.i, %.040.lcssa119.i
   br label %_ZN12_GLOBAL__N_112_getLanguageESt17basic_string_viewIcSt11char_traitsIcEEPN6icu_778ByteSinkER10UErrorCode.exit
 
 62:                                               ; preds = %.critedge.i
@@ -4298,15 +4298,15 @@ _ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.t
   br i1 %50, label %76, label %81
 
 70:                                               ; preds = %70, %62
-  %.03899.i = phi i64 [ 0, %62 ], [ %75, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.11.07083.i, i64 %.03899.i
+  %.038100.i = phi i64 [ 0, %62 ], [ %75, %70 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.11.07083.i, i64 %.038100.i
   %72 = load i8, ptr %71, align 1, !tbaa !20
   %73 = call signext i8 @uprv_asciitolower_77(i8 noundef signext %72)
-  %74 = getelementptr inbounds nuw i8, ptr %68, i64 %.03899.i
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 %.038100.i
   store i8 %73, ptr %74, align 1, !tbaa !20
-  %75 = add nuw i64 %.03899.i, 1
-  %exitcond101.not.i = icmp eq i64 %75, %.040.lcssa.i
-  br i1 %exitcond101.not.i, label %69, label %70, !llvm.loop !77
+  %75 = add nuw i64 %.038100.i, 1
+  %exitcond102.not.i = icmp eq i64 %75, %.040.lcssa.i
+  br i1 %exitcond102.not.i, label %69, label %70, !llvm.loop !77
 
 76:                                               ; preds = %69
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.11.07083.i, i64 1
@@ -4323,7 +4323,7 @@ _ZN12_GLOBAL__N_111_isIDPrefixESt17basic_string_viewIcSt11char_traitsIcEE.exit.t
 
 81:                                               ; preds = %79, %76, %69
   %82 = icmp eq i64 %.040.lcssa.i, 3
-  br i1 %82, label %83, label %.critedge87.i
+  br i1 %82, label %83, label %.critedge88.i
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %68, i64 3
@@ -4371,17 +4371,17 @@ _ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit.i:    ; preds = %.lr.ph.i.i
 ._crit_edge.i.i:                                  ; preds = %102, %.preheader.i.i
   %.1.lcssa.i.i = phi ptr [ %.0813.i.i, %.preheader.i.i ], [ %103, %102 ]
   %105 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i.i, i64 8
-  br i1 %exitcond.not.i.i, label %.critedge87.i, label %.preheader.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i, label %.critedge88.i, label %.preheader.i.i, !llvm.loop !58
 
-.critedge87.i:                                    ; preds = %._crit_edge.i.i, %81
+.critedge88.i:                                    ; preds = %._crit_edge.i.i, %81
   %106 = load ptr, ptr %2, align 8, !tbaa !32
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
   call void %108(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %68, i32 noundef %63)
   br label %109
 
-109:                                              ; preds = %.critedge87.i, %_ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit.i
-  %.040.pn.i = phi i64 [ %.040.lcssa.i, %.critedge87.i ], [ 3, %_ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit.i ]
+109:                                              ; preds = %.critedge88.i, %_ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit.i
+  %.040.pn.i = phi i64 [ %.040.lcssa.i, %.critedge88.i ], [ 3, %_ZN12_GLOBAL__N_110_findIndexEPKPKcS1_.exit.i ]
   %.2.i = add i64 %.040.pn.i, %.0397182.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

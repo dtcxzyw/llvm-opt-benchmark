@@ -95,22 +95,23 @@ define internal void @_ZN7rocksdbL17GetJemallocStatusEPvPKc(ptr noundef captures
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = load ptr, ptr %0, align 8, !tbaa !4
-  %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %.fr17 = freeze ptr %7
+  %.fr = freeze ptr %6
+  %8 = ptrtoint ptr %.fr to i64
+  %9 = ptrtoint ptr %.fr17 to i64
   %10 = sub i64 %8, %9
-  %11 = freeze i64 %10
-  %12 = add i64 %4, -1
-  %or.cond.not = icmp ult i64 %12, %11
-  br i1 %or.cond.not, label %13, label %.thread
+  %11 = add i64 %4, -1
+  %or.cond.not = icmp ult i64 %11, %10
+  br i1 %or.cond.not, label %12, label %.thread
 
-13:                                               ; preds = %3
-  %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %7, i64 noundef %11, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #14
-  %15 = load ptr, ptr %0, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %4
-  store ptr %16, ptr %0, align 8, !tbaa !4
+12:                                               ; preds = %3
+  %13 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.fr17, i64 noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #14
+  %14 = load ptr, ptr %0, align 8, !tbaa !4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 %4
+  store ptr %15, ptr %0, align 8, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %2, %3, %13
+.thread:                                          ; preds = %2, %3, %12
   ret void
 }
 

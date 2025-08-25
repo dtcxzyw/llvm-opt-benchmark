@@ -8019,11 +8019,11 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.val50 = load ptr, ptr %36, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i32, ptr %.val50, i64 %indvars.iv147
   %44 = load i32, ptr %43, align 4, !tbaa !31
-  %.fr = freeze i32 %44
+  %.fr110 = freeze i32 %44
   %.val49 = load ptr, ptr %37, align 8, !tbaa !30
   %45 = getelementptr inbounds nuw i32, ptr %.val49, i64 %indvars.iv147
   %46 = load i32, ptr %45, align 4, !tbaa !31
-  %47 = ashr i32 %.fr, 1
+  %47 = ashr i32 %.fr110, 1
   %.val51 = load ptr, ptr %38, align 8, !tbaa !76
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds ptr, ptr %.val51, i64 %48
@@ -8038,7 +8038,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %54 = and i32 %.fr, 1
+  %54 = and i32 %.fr110, 1
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -8176,7 +8176,7 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.04481.in = phi i64 [ %indvars.iv144, %84 ], [ %indvars.iv144, %73 ], [ %indvars.iv, %94 ], [ %indvars.iv, %104 ], [ %indvars.iv144, %.preheader85.i.i.us ], [ %indvars.iv144, %.preheader.i.i.us ], [ %indvars.iv, %.preheader88.i.i ], [ %indvars.iv, %.preheader91.i.i ]
   %.04481 = trunc i64 %.04481.in to i32
   %113 = shl i32 %.04481, 17
-  %114 = shl i32 %.fr, 1
+  %114 = shl i32 %.fr110, 1
   %.masked = and i32 %114, -65538
   %115 = or i32 %113, %.masked
   %116 = xor i32 %115, 65539
@@ -8300,17 +8300,17 @@ Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnes2.ex
   %.val54 = load ptr, ptr %35, align 8, !tbaa !30
   %38 = getelementptr inbounds nuw i32, ptr %.val54, i64 %indvars.iv155
   %39 = load i32, ptr %38, align 4, !tbaa !31
-  %.fr = freeze i32 %39
+  %.fr116 = freeze i32 %39
   %.val53 = load ptr, ptr %36, align 8, !tbaa !30
   %40 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv155
   %41 = load i32, ptr %40, align 4, !tbaa !31
-  %42 = and i32 %.fr, 1
+  %42 = and i32 %.fr116, 1
   %43 = shl nsw i32 %41, 1
   %44 = icmp slt i32 %43, %.0.lcssa.i
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %37
-  tail call void @Gia_ManDeriveDivPair(i32 noundef %.fr, ptr noundef %2, i32 noundef %3, ptr noundef %6)
+  tail call void @Gia_ManDeriveDivPair(i32 noundef %.fr116, ptr noundef %2, i32 noundef %3, ptr noundef %6)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %.val91 = load i32, ptr %33, align 4, !tbaa !28
   %46 = sext i32 %.val91 to i64
@@ -13365,8 +13365,8 @@ Vec_WrdFreeP.exit:                                ; preds = %Abc_Clock.exit, %25
   %29 = icmp slt i32 %.val135.val, 7
   %30 = add nsw i32 %.val135.val, -6
   %31 = shl nuw i32 1, %30
-  %.fr.i = freeze i32 %31
-  %32 = select i1 %29, i32 1, i32 %.fr.i
+  %.fr44.i = freeze i32 %31
+  %32 = select i1 %29, i32 1, i32 %.fr44.i
   %33 = select i1 %29, i32 0, i32 %30
   %34 = shl i32 %.val135.val, %33
   %35 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31

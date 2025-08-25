@@ -10424,8 +10424,8 @@ _ZN3std4sync6poison4once4Once9call_once17h7af23f1b83079907E.exit: ; preds = %3, 
   %89 = extractvalue { ptr, i64 } %86, 1
   %90 = icmp eq ptr %88, null
   %.not.i.i = icmp eq i64 %89, 0
-  %or.cond164 = select i1 %90, i1 true, i1 %.not.i.i
-  br i1 %or.cond164, label %.thread146, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0768c783e434544eE.exit.i"
+  %or.cond161 = select i1 %90, i1 true, i1 %.not.i.i
+  br i1 %or.cond161, label %.thread146, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0768c783e434544eE.exit.i"
 
 .thread146:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0768c783e434544eE.exit.i", %81, %109, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -10466,22 +10466,22 @@ _ZN3std4sync6poison4once4Once9call_once17h7af23f1b83079907E.exit: ; preds = %3, 
           to label %.backedge unwind label %.loopexit
 
 .backedge:                                        ; preds = %101, %105, %112, %116
-  %.sink170 = phi i64 [ %113, %116 ], [ %113, %112 ], [ %102, %105 ], [ %102, %101 ]
-  %.sink167 = phi ptr [ %111, %116 ], [ %111, %112 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %101 ]
+  %.sink167 = phi i64 [ %113, %116 ], [ %113, %112 ], [ %102, %105 ], [ %102, %101 ]
+  %.sink164 = phi ptr [ %111, %116 ], [ %111, %112 ], [ inttoptr (i64 1 to ptr), %105 ], [ inttoptr (i64 1 to ptr), %101 ]
   %.sink = phi i64 [ %110, %116 ], [ %110, %112 ], [ 0, %105 ], [ 0, %101 ]
   %106 = load ptr, ptr %75, align 8, !noalias !3, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds { ptr, i64 }, ptr %106, i64 %.sink170
-  store ptr %.sink167, ptr %107, align 8, !noalias !3
+  %107 = getelementptr inbounds { ptr, i64 }, ptr %106, i64 %.sink167
+  store ptr %.sink164, ptr %107, align 8, !noalias !3
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store i64 %.sink, ptr %108, align 8
-  %storemerge = add i64 %.sink170, 1
+  %storemerge = add i64 %.sink167, 1
   store i64 %storemerge, ptr %76, align 8, !noalias !3
   br label %78
 
 109:                                              ; preds = %99
-  %rhsc152 = load i8, ptr %98, align 1
-  %rhsc152.fr = freeze i8 %rhsc152
-  %.not = icmp eq i8 %rhsc152.fr, 32
+  %rhsc151 = load i8, ptr %98, align 1
+  %rhsc151.fr = freeze i8 %rhsc151
+  %.not = icmp eq i8 %rhsc151.fr, 32
   %110 = add i64 %89, -2
   %111 = getelementptr inbounds nuw i8, ptr %88, i64 2
   br i1 %.not, label %112, label %.thread146

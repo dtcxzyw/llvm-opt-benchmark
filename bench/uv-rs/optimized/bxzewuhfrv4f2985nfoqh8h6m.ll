@@ -525,6 +525,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
   %5 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [24 x i8], align 8
+  %.fr = freeze i64 %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
   %10 = icmp sgt i64 %9, -1
@@ -534,11 +535,11 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
   br i1 %trunc, label %12, label %24
 
 12:                                               ; preds = %4
-  %13 = icmp ugt i64 %3, -1025
+  %13 = icmp ugt i64 %.fr, -1025
   br i1 %13, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread", label %14, !prof !11
 
 14:                                               ; preds = %12
-  %15 = add nuw i64 %3, 1024
+  %15 = add nuw i64 %.fr, 1024
   %16 = and i64 %15, 8191
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread92", label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit"
@@ -546,8 +547,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit": ; preds = %14
   %18 = sub nuw nsw i64 8192, %16
   %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %18)
-  %.fr = freeze { i64, i1 } %19
-  %20 = extractvalue { i64, i1 } %.fr, 1
+  %20 = extractvalue { i64, i1 } %19, 1
   %21 = add nuw i64 %18, %15
   br i1 %20, label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread", label %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread92"
 
@@ -556,7 +556,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
 
 "_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread92": ; preds = %14, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit", %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread"
   %22 = phi i64 [ 8192, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread" ], [ %21, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit" ], [ %15, %14 ]
-  %23 = icmp eq i64 %3, 0
+  %23 = icmp eq i64 %.fr, 0
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %4, %"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u7d$17h520e8174480eaa43E.exit.thread92"
@@ -580,7 +580,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
 
 .outer:                                           ; preds = %116, %27
   %.ph = phi i64 [ %72, %116 ], [ %.pre133, %27 ]
-  %.ph176 = phi i64 [ %106, %116 ], [ %.pre, %27 ]
+  %.ph175 = phi i64 [ %106, %116 ], [ %.pre, %27 ]
   %.sroa.011.4.ph = phi i64 [ %105, %116 ], [ 0, %27 ]
   %.sroa.05.4.ph = phi i64 [ %.sroa.047.0, %116 ], [ %.sroa.05.3, %27 ]
   br label %38
@@ -604,7 +604,7 @@ define hidden { i64, ptr } @_ZN3std2io19default_read_to_end17h53afa522e8796afaE(
 
 38:                                               ; preds = %.backedge, %.outer
   %39 = phi i64 [ %.ph, %.outer ], [ %72, %.backedge ]
-  %40 = phi i64 [ %.ph176, %.outer ], [ %106, %.backedge ]
+  %40 = phi i64 [ %.ph175, %.outer ], [ %106, %.backedge ]
   %.sroa.011.4 = phi i64 [ %.sroa.011.4.ph, %.outer ], [ %105, %.backedge ]
   %41 = icmp sgt i64 %40, -1
   call void @llvm.assume(i1 %41)
