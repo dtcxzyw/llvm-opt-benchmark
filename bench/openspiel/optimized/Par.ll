@@ -261,7 +261,7 @@ switch.lookup90:                                  ; preds = %86
   br label %_Z18CalcMultiContractsii.exit
 
 _Z18CalcMultiContractsii.exit:                    ; preds = %86, %switch.lookup90, %84, %switch.lookup, %72, %88, %89
-  %.0.i = phi i32 [ %..i, %89 ], [ %switch.select14.i, %88 ], [ %83, %72 ], [ %switch.load, %switch.lookup ], [ 5, %84 ], [ %switch.load93, %switch.lookup90 ], [ 4, %86 ]
+  %.0.i = phi i32 [ %..i, %89 ], [ %83, %72 ], [ %switch.select14.i, %88 ], [ %switch.load, %switch.lookup ], [ 5, %84 ], [ %switch.load93, %switch.lookup90 ], [ 4, %86 ]
   %93 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.0.i) #13
   %94 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %95 = load i32, ptr %94, align 4
@@ -454,9 +454,9 @@ define range(i32 -1, 2) i32 @SidesParBin(ptr noundef readonly captures(none) %0,
   %58 = icmp slt i32 %.sroa.speculated, %.sink.i
   %.pn.i = select i1 %58, i32 50, i32 %21
   %.1.i = add nsw i32 %.pn.i, %.0.i
-  switch i32 %.sroa.speculated, label %_Z8rawscoreiii.exit [
-    i32 12, label %59
-    i32 13, label %61
+  switch i32 %47, label %_Z8rawscoreiii.exit [
+    i32 6, label %59
+    i32 7, label %61
   ]
 
 59:                                               ; preds = %57
@@ -610,9 +610,9 @@ _Z8rawscoreiii.exit:                              ; preds = %61, %59, %57, %_Z8r
   %124 = icmp slt i32 %93, %.sink.i489
   %.pn.i492 = select i1 %124, i32 50, i32 %21
   %.1.i493 = add nsw i32 %.pn.i492, %.0.i490
-  switch i32 %93, label %_Z8rawscoreiii.exit496 [
-    i32 12, label %125
-    i32 13, label %127
+  switch i32 %113, label %_Z8rawscoreiii.exit496 [
+    i32 6, label %125
+    i32 7, label %127
   ]
 
 125:                                              ; preds = %123
@@ -1540,53 +1540,50 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 -2147483648, 2147483642) i32 @_Z18CalcMultiContractsii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
-  switch i32 %1, label %10 [
-    i32 11, label %3
-    i32 10, label %5
-    i32 9, label %7
-    i32 8, label %8
+  %3 = add nsw i32 %1, -6
+  switch i32 %3, label %13 [
+    i32 5, label %4
+    i32 4, label %6
+    i32 3, label %8
+    i32 2, label %9
   ]
 
-3:                                                ; preds = %2
+4:                                                ; preds = %2
   %switch.tableidx = add i32 %0, -1
-  %4 = icmp ult i32 %switch.tableidx, 3
-  br i1 %4, label %switch.lookup, label %14
+  %5 = icmp ult i32 %switch.tableidx, 3
+  br i1 %5, label %switch.lookup, label %13
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   %switch.tableidx16 = add i32 %0, -1
-  %6 = icmp ult i32 %switch.tableidx16, 3
-  br i1 %6, label %switch.lookup15, label %14
+  %7 = icmp ult i32 %switch.tableidx16, 3
+  br i1 %7, label %switch.lookup15, label %13
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   %switch.selectcmp = icmp eq i32 %0, 1
   %switch.select = select i1 %switch.selectcmp, i32 23, i32 3
   %switch.selectcmp13 = icmp eq i32 %0, 2
   %switch.select14 = select i1 %switch.selectcmp13, i32 123, i32 %switch.select
-  br label %14
+  br label %13
 
-8:                                                ; preds = %2
-  %9 = icmp eq i32 %0, 1
-  %. = select i1 %9, i32 12, i32 2
-  br label %14
+9:                                                ; preds = %2
+  %10 = icmp eq i32 %0, 1
+  %. = select i1 %10, i32 12, i32 2
+  br label %13
 
-10:                                               ; preds = %2
-  %11 = add nsw i32 %1, -6
-  br label %14
-
-switch.lookup:                                    ; preds = %3
-  %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._Z18CalcMultiContractsii, i64 0, i64 %12
+switch.lookup:                                    ; preds = %4
+  %11 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x i32], ptr @switch.table._Z18CalcMultiContractsii, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %14
+  br label %13
 
-switch.lookup15:                                  ; preds = %5
-  %13 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep17 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._Z18CalcMultiContractsii.2, i64 0, i64 %13
+switch.lookup15:                                  ; preds = %6
+  %12 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep17 = getelementptr inbounds nuw [3 x i32], ptr @switch.table._Z18CalcMultiContractsii.2, i64 0, i64 %12
   %switch.load18 = load i32, ptr %switch.gep17, align 4
-  br label %14
+  br label %13
 
-14:                                               ; preds = %5, %switch.lookup15, %3, %switch.lookup, %7, %8, %10
-  %.0 = phi i32 [ %11, %10 ], [ %., %8 ], [ %switch.select14, %7 ], [ %switch.load, %switch.lookup ], [ 5, %3 ], [ %switch.load18, %switch.lookup15 ], [ 4, %5 ]
+13:                                               ; preds = %6, %switch.lookup15, %4, %switch.lookup, %8, %2, %9
+  %.0 = phi i32 [ %., %9 ], [ %3, %2 ], [ %switch.select14, %8 ], [ %switch.load, %switch.lookup ], [ 5, %4 ], [ %switch.load18, %switch.lookup15 ], [ 4, %6 ]
   ret i32 %.0
 }
 
@@ -1651,9 +1648,9 @@ define noundef range(i32 -2147483598, -2147483648) i32 @_Z8rawscoreiii(i32 nound
   %30 = select i1 %.not35, i32 300, i32 500
   %.pn = select i1 %29, i32 50, i32 %30
   %.1 = add nsw i32 %.0, %.pn
-  switch i32 %1, label %37 [
-    i32 12, label %31
-    i32 13, label %34
+  switch i32 %18, label %37 [
+    i32 6, label %31
+    i32 7, label %34
   ]
 
 31:                                               ; preds = %28

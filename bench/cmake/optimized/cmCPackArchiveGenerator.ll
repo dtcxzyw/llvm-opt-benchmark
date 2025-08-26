@@ -3853,7 +3853,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i
   %448 = phi ptr [ %446, %.noexc207 ], [ %442, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i ]
-  %cond = icmp eq i64 %436, 2
+  %cond = icmp eq i64 %444, 1
   br i1 %cond, label %449, label %451
 
 449:                                              ; preds = %._crit_edge.i.i.i

@@ -2012,14 +2012,14 @@ thread-pre-split:                                 ; preds = %520, %516, %490, %3
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 4, ptr %538, align 8
   store i64 29, ptr %0, align 8
-  switch i64 %161, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit" [
-    i64 27, label %553
-    i64 7, label %541
-    i64 9, label %543
-    i64 10, label %545
-    i64 20, label %547
-    i64 24, label %549
-    i64 25, label %551
+  switch i64 %162, label %"_ZN4core3ptr41drop_in_place$LT$quiche..frame..Frame$GT$17h3a613914d17b4c33E.exit" [
+    i64 25, label %553
+    i64 5, label %541
+    i64 7, label %543
+    i64 8, label %545
+    i64 18, label %547
+    i64 22, label %549
+    i64 23, label %551
   ]
 
 539:                                              ; preds = %.thread402
@@ -3795,14 +3795,16 @@ define noundef zeroext i1 @_ZN6quiche5frame5Frame13ack_eliciting17ha6a46ae69c40d
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define noundef zeroext i1 @_ZN6quiche5frame5Frame7probing17he2b9f440f325578fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !107, !noundef !12
-  %2 = icmp ne i64 %1, 4
-  tail call void @llvm.assume(i1 %2)
-  %switch.cast = trunc nuw i64 %1 to i29
-  %switch.downshift = lshr i29 13631492, %switch.cast
-  %switch.masked = trunc i29 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load i64, ptr %0, align 8, !range !107, !noundef !12
+  %3 = add nsw i64 %2, -2
+  %4 = icmp ne i64 %3, 2
+  tail call void @llvm.assume(i1 %4)
+  %5 = icmp ult i64 %3, 22
+  %switch.cast = trunc i64 %3 to i22
+  %switch.downshift = lshr i22 -786431, %switch.cast
+  %switch.masked = trunc i22 %switch.downshift to i1
+  %.sroa.0.0 = select i1 %5, i1 %switch.masked, i1 false
+  ret i1 %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

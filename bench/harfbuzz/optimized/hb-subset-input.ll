@@ -1132,10 +1132,10 @@ define dso_local range(i32 0, 2) i32 @hb_subset_axis_range_from_string(ptr nound
   br label %58
 
 .thread50:                                        ; preds = %32, %.thread55
-  %indvars6772 = trunc i64 %indvars.iv to i32
-  switch i32 %indvars6772, label %58 [
-    i32 1, label %49
-    i32 2, label %.thread50.thread
+  %indvars6570 = trunc i64 %indvars.iv.next to i32
+  switch i32 %indvars6570, label %58 [
+    i32 2, label %49
+    i32 3, label %.thread50.thread
   ]
 
 49:                                               ; preds = %.thread50

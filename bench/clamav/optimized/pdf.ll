@@ -9640,10 +9640,10 @@ aes_128cbc_encrypt.exit:                          ; preds = %36, %._crit_edge.i
   %53 = urem i32 %51, 3
   %54 = shl nuw nsw i32 %53, 4
   %55 = add nuw nsw i32 %54, 32
-  switch i32 %53, label %default.unreachable [
-    i32 0, label %56
-    i32 1, label %58
-    i32 2, label %60
+  switch i32 %55, label %62 [
+    i32 32, label %56
+    i32 48, label %58
+    i32 64, label %60
   ]
 
 56:                                               ; preds = %52
@@ -9661,10 +9661,7 @@ aes_128cbc_encrypt.exit:                          ; preds = %36, %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
   br label %62
 
-default.unreachable:                              ; preds = %52
-  unreachable
-
-62:                                               ; preds = %56, %58, %60
+62:                                               ; preds = %52, %56, %58, %60
   %63 = add nuw nsw i32 %.040, 1
   br label %15
 

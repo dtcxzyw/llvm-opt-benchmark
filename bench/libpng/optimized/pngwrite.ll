@@ -2763,11 +2763,10 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %.01223.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.6.us.i, %120 ]
   %90 = mul nuw nsw i64 %indvars.iv36.i, %89
   %91 = getelementptr inbounds nuw i8, ptr %.val161, i64 %90
-  switch i32 %66, label %default.unreachable [
-    i32 3, label %104
-    i32 2, label %110
-    i32 1, label %92
-    i32 0, label %98
+  switch i32 %67, label %98 [
+    i32 4, label %104
+    i32 3, label %110
+    i32 2, label %92
   ]
 
 92:                                               ; preds = %.lr.ph.split.us.split.i
@@ -2780,9 +2779,6 @@ define internal range(i32 0, 2) i32 @png_image_write_main(ptr noundef %0) #0 {
   %97 = add i32 %96, 1
   %spec.select130.us.i = select i1 %.not125.us.i, i32 %.01223.us.i, i32 %97
   br label %98
-
-default.unreachable:                              ; preds = %.lr.ph.split.us.split.i
-  unreachable
 
 98:                                               ; preds = %92, %.lr.ph.split.us.split.i
   %.4.us.i = phi i32 [ %.01223.us.i, %.lr.ph.split.us.split.i ], [ %spec.select130.us.i, %92 ]

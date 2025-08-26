@@ -953,10 +953,10 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
   %352 = sext i32 %.07793.i to i64
   %353 = getelementptr i8, ptr %324, i64 %352
   %354 = getelementptr i8, ptr %353, i64 1
-  switch i32 %.26596.i, label %374 [
-    i32 1, label %355
-    i32 2, label %360
-    i32 3, label %369
+  switch i32 %351, label %374 [
+    i32 2, label %355
+    i32 3, label %360
+    i32 4, label %369
   ]
 
 355:                                              ; preds = %350
@@ -994,14 +994,13 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %320
 .sink.split.i:                                    ; preds = %369, %367, %365
   %.sink.i = phi ptr [ %17, %367 ], [ %17, %365 ], [ %19, %369 ]
   %.171.ph.i = phi i1 [ %368, %367 ], [ %366, %365 ], [ %.07095.i, %369 ]
-  %.366.ph.i = phi i32 [ 3, %367 ], [ 3, %365 ], [ 4, %369 ]
   store i32 %348, ptr %.sink.i, align 4
   br label %374
 
 374:                                              ; preds = %.sink.split.i, %355, %350, %.lr.ph97.i
   %.178.i = phi i32 [ %.07793.i, %.lr.ph97.i ], [ %347, %350 ], [ %347, %355 ], [ %347, %.sink.split.i ]
   %.171.i = phi i1 [ %.07095.i, %.lr.ph97.i ], [ %.07095.i, %350 ], [ %.07095.i, %355 ], [ %.171.ph.i, %.sink.split.i ]
-  %.366.i = phi i32 [ %.26596.i, %.lr.ph97.i ], [ %351, %350 ], [ 2, %355 ], [ %.366.ph.i, %.sink.split.i ]
+  %.366.i = phi i32 [ %.26596.i, %.lr.ph97.i ], [ %351, %350 ], [ 2, %355 ], [ %351, %.sink.split.i ]
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next109.i, %wide.trip.count110.i
   br i1 %exitcond111.not.i, label %parse_eprt_request.exit, label %.lr.ph97.i, !llvm.loop !10

@@ -12072,11 +12072,11 @@ _ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16Mem
 
 1635:                                             ; preds = %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
   %1636 = call noundef zeroext i1 @_ZNK4llvm11Instruction15hasAllowReassocEv(ptr noundef nonnull align 8 dereferenceable(72) %258) #29
-  br i1 %1636, label %1637, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.thread.i
+  br i1 %1636, label %1637, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
 
 1637:                                             ; preds = %1635
   %1638 = call noundef zeroext i1 @_ZNK4llvm11Instruction16hasNoSignedZerosEv(ptr noundef nonnull align 8 dereferenceable(72) %258) #29
-  br i1 %1638, label %1639, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.thread.i
+  br i1 %1638, label %1639, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
 
 1639:                                             ; preds = %1637, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
   %1640 = getelementptr inbounds i8, ptr %.sroa.0325.0487, i64 -20
@@ -12106,11 +12106,11 @@ _ZNK4llvm4User10getOperandEj.exit90.i.i:          ; preds = %1646, %1643
   %spec.select.i.i186 = select i1 %1654, ptr %1651, ptr %1653
   %spec.select28.i.i = select i1 %1654, ptr %1653, ptr %1651
   %1655 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %spec.select28.i.i) #25
-  br i1 %1655, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.threadthread-pre-split.i, label %1656
+  br i1 %1655, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i, label %1656
 
 1656:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit90.i.i
   %1657 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %spec.select.i.i186) #25
-  br i1 %1657, label %1658, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.threadthread-pre-split.i
+  br i1 %1657, label %1658, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
 
 1658:                                             ; preds = %1656
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -12737,25 +12737,20 @@ _ZN4llvm11SmallVectorIPNS_14BinaryOperatorELj6EED2Ev.exit137.i.i: ; preds = %194
 
 _ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i: ; preds = %1944, %_ZN4llvm11SmallVectorIPNS_14BinaryOperatorELj6EED2Ev.exit137.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br i1 %.6.i.i, label %_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.threadthread-pre-split.i
+  br i1 %.6.i.i, label %_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
 
-_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.threadthread-pre-split.i: ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i, %1656, %_ZNK4llvm4User10getOperandEj.exit90.i.i
-  %.pr79.i = load i8, ptr %258, align 8, !tbaa !135
-  br label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
-
-_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i: ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.threadthread-pre-split.i, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
-  %1945 = phi i8 [ %.pr79.i, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.threadthread-pre-split.i ], [ %1634, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i ]
+_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i: ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i, %1656, %_ZNK4llvm4User10getOperandEj.exit90.i.i, %1637, %1635, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
+  %1945 = load i8, ptr %258, align 8, !tbaa !135
   %1946 = add i8 %1945, -60
   %1947 = icmp ult i8 %1946, -18
-  br i1 %1947, label %2087, label %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.thread.i
+  br i1 %1947, label %2087, label %1948
 
-_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.thread.i: ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i, %1637, %1635
-  %1948 = phi i8 [ %1945, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i ], [ 47, %1637 ], [ 47, %1635 ]
+1948:                                             ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
   %1949 = call noundef zeroext i1 @_ZNK4llvm11Instruction13isAssociativeEv(ptr noundef nonnull align 8 dereferenceable(72) %258) #29
-  br i1 %1949, label %1950, label %2087
+  br i1 %1949, label %1950, label %_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit
 
-1950:                                             ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.thread.i
-  %1951 = zext nneg i8 %1948 to i32
+1950:                                             ; preds = %1948
+  %1951 = zext nneg i8 %1945 to i32
   %1952 = add nsw i32 %1951, -29
   %1953 = getelementptr inbounds i8, ptr %.sroa.0325.0487, i64 -88
   %1954 = load ptr, ptr %1953, align 8, !tbaa !136
@@ -12766,17 +12761,17 @@ _ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInf
   %1959 = load i8, ptr %1958, align 8, !tbaa !135
   %1960 = add i8 %1959, -42
   %1961 = icmp ult i8 %1960, 18
-  %.not70.i.i = icmp eq i8 %1959, %1948
+  %.not70.i.i = icmp eq i8 %1959, %1945
   %or.cond.i65.i = and i1 %.not70.i.i, %1961
-  br i1 %or.cond.i65.i, label %1962, label %2087
+  br i1 %or.cond.i65.i, label %1962, label %thread-pre-split
 
 1962:                                             ; preds = %1950
   %1963 = call noundef zeroext i1 @_ZNK4llvm11Instruction13isAssociativeEv(ptr noundef nonnull align 8 dereferenceable(72) %1958) #29
-  br i1 %1963, label %1964, label %2087
+  br i1 %1963, label %1964, label %thread-pre-split
 
 1964:                                             ; preds = %1962
   %1965 = call noundef zeroext i1 @_ZNK4llvm5Value14hasNUsesOrMoreEj(ptr noundef nonnull align 8 dereferenceable(24) %1958, i32 noundef 3) #25
-  br i1 %1965, label %2087, label %1966
+  br i1 %1965, label %thread-pre-split, label %1966
 
 1966:                                             ; preds = %1964
   %1967 = getelementptr inbounds i8, ptr %1958, i64 -64
@@ -12800,15 +12795,15 @@ _ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInf
   %.013.i.i = phi ptr [ %1970, %1966 ], [ %spec.select.i68.i, %1976 ]
   %.012.i.i = phi ptr [ %1968, %1966 ], [ %spec.select14.i.i, %1976 ]
   %1979 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %.012.i.i) #25
-  br i1 %1979, label %2087, label %1980
+  br i1 %1979, label %thread-pre-split, label %1980
 
 1980:                                             ; preds = %1978
   %1981 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %.013.i.i) #25
-  br i1 %1981, label %1982, label %2087
+  br i1 %1981, label %1982, label %thread-pre-split
 
 1982:                                             ; preds = %1980
   %1983 = call noundef zeroext i1 @_ZNK4llvm4Loop15isLoopInvariantEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef %1974) #25
-  br i1 %1983, label %1984, label %2087
+  br i1 %1983, label %1984, label %thread-pre-split
 
 1984:                                             ; preds = %1982
   %1985 = call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getLoopPreheaderEv(ptr noundef nonnull align 8 dereferenceable(144) %6) #25
@@ -12846,10 +12841,10 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i66.i: ; preds = %1989, %1984
   store ptr @.str.102, ptr %205, align 8, !tbaa !296, !alias.scope !693
   %1998 = call noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef %1952, ptr noundef %.012.i.i, ptr noundef %1994, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr nonnull %.sroa.0325.0487, i64 0) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  switch i8 %1948, label %2016 [
-    i8 42, label %1999
-    i8 47, label %2008
-    i8 43, label %2008
+  switch i32 %1952, label %2016 [
+    i32 13, label %1999
+    i32 18, label %2008
+    i32 14, label %2008
   ]
 
 1999:                                             ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit.i66.i
@@ -13020,8 +13015,12 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit
 
-2087:                                             ; preds = %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.thread.i, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i, %1964, %1962, %1950, %1982, %1980, %1978
-  %2088 = load i8, ptr %258, align 8, !tbaa !135
+thread-pre-split:                                 ; preds = %1978, %1980, %1982, %1950, %1962, %1964
+  %.pr811 = load i8, ptr %258, align 8, !tbaa !135
+  br label %2087
+
+2087:                                             ; preds = %thread-pre-split, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i
+  %2088 = phi i8 [ %.pr811, %thread-pre-split ], [ %1945, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread.i ]
   %.not437 = icmp eq i8 %2088, 31
   br i1 %.not437, label %2089, label %_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit
 
@@ -13529,8 +13528,8 @@ _ZN12_GLOBAL__N_118ControlFlowHoister31registerPossiblyHoistableBranchEPN4llvm10
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit
 
-_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit179, %_ZN12_GLOBAL__N_118ControlFlowHoister31registerPossiblyHoistableBranchEPN4llvm10BranchInstE.exit, %2087, %._crit_edge, %1041, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit235, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread72.i, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit176, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
-  %.3 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit176 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit179 ], [ true, %._crit_edge ], [ %.2488, %_ZN12_GLOBAL__N_118ControlFlowHoister31registerPossiblyHoistableBranchEPN4llvm10BranchInstE.exit ], [ %.2488, %2087 ], [ true, %1041 ], [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit235 ], [ true, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread72.i ], [ true, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i ], [ true, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i ], [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit ]
+_ZL16hoistArithmeticsRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit: ; preds = %1948, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit179, %_ZN12_GLOBAL__N_118ControlFlowHoister31registerPossiblyHoistableBranchEPN4llvm10BranchInstE.exit, %2087, %._crit_edge, %1041, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit235, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread72.i, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit176, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit
+  %.3 = phi i1 [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit176 ], [ true, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit179 ], [ true, %._crit_edge ], [ %.2488, %_ZN12_GLOBAL__N_118ControlFlowHoister31registerPossiblyHoistableBranchEPN4llvm10BranchInstE.exit ], [ %.2488, %2087 ], [ true, %1041 ], [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit235 ], [ true, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.thread72.i ], [ true, %_ZL11hoistAddSubRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i ], [ true, %_ZL22hoistMulAddAssociationRN4llvm11InstructionERNS_4LoopERNS_17ICFLoopSafetyInfoERNS_16MemorySSAUpdaterEPNS_15AssumptionCacheEPNS_13DominatorTreeE.exit.i ], [ true, %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit ], [ %.2488, %1948 ]
   %.not434 = icmp eq ptr %257, %255
   br i1 %.not434, label %.critedge, label %.lr.ph490
 

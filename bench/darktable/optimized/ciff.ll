@@ -510,9 +510,9 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   %261 = zext i16 %260 to i32
   %262 = add nsw i32 %261, -2
   %263 = sdiv i32 %262, 8
-  %264 = add i16 %260, -10
-  %.not274 = icmp ult i16 %264, 8
-  br i1 %.not274, label %.preheader381.preheader, label %.preheader383
+  %264 = add nsw i32 %263, -1
+  %.not274 = icmp eq i32 %264, 0
+  br i1 %.not274, label %.loopexit384, label %.preheader383
 
 .preheader383:                                    ; preds = %259, %.preheader383
   %.2399 = phi i32 [ %271, %.preheader383 ], [ 0, %259 ]
@@ -527,19 +527,16 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   %exitcond440.not = icmp eq i32 %271, 4
   br i1 %exitcond440.not, label %.loopexit384, label %.preheader383, !llvm.loop !99
 
-.loopexit384:                                     ; preds = %.preheader383
+.loopexit384:                                     ; preds = %.preheader383, %259
   %272 = icmp ugt i16 %260, 65
-  br i1 %272, label %273, label %.preheader381.preheader
-
-.preheader381.preheader:                          ; preds = %259, %.loopexit384
-  br label %.preheader381
+  br i1 %272, label %273, label %.preheader381
 
 273:                                              ; preds = %.loopexit384
   tail call void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 0, i32 noundef 0)
   br label %.loopexit382
 
-.preheader381:                                    ; preds = %.preheader381.preheader, %.preheader381
-  %indvars.iv441 = phi i64 [ %indvars.iv.next442, %.preheader381 ], [ 0, %.preheader381.preheader ]
+.preheader381:                                    ; preds = %.loopexit384, %.preheader381
+  %indvars.iv441 = phi i64 [ %indvars.iv.next442, %.preheader381 ], [ 0, %.loopexit384 ]
   %274 = getelementptr inbounds nuw [4 x i32], ptr %54, i64 0, i64 %indvars.iv441
   %275 = load i32, ptr %274, align 4, !tbaa !98
   %276 = sitofp i32 %275 to float
@@ -550,9 +547,9 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   br i1 %exitcond444.not, label %.loopexit382, label %.preheader381, !llvm.loop !100
 
 .loopexit382:                                     ; preds = %.preheader381, %273
-  switch i32 %263, label %.loopexit372.preheader [
-    i32 8, label %278
-    i32 10, label %.preheader380
+  switch i32 %264, label %.loopexit372.preheader [
+    i32 7, label %278
+    i32 9, label %.preheader380
   ]
 
 278:                                              ; preds = %.loopexit382

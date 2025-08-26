@@ -65855,16 +65855,15 @@ _ZN5clang4Decl14getDeclContextEv.exit1067:        ; preds = %3527, %3532
   br i1 %3561, label %3562, label %_ZL12isStdBuiltinRN5clang10ASTContextEPNS_12FunctionDeclEj.exit.thread
 
 3562:                                             ; preds = %.critedge641
-  %trunc = trunc i32 %3514 to i16
-  switch i16 %trunc, label %_ZL12isStdBuiltinRN5clang10ASTContextEPNS_12FunctionDeclEj.exit.thread [
-    i16 686, label %3563
-    i16 157, label %3567
-    i16 1498, label %3567
-    i16 667, label %3567
-    i16 668, label %3567
-    i16 968, label %3567
-    i16 969, label %3567
-    i16 170, label %3567
+  switch i32 %3518, label %_ZL12isStdBuiltinRN5clang10ASTContextEPNS_12FunctionDeclEj.exit.thread [
+    i32 650, label %3563
+    i32 121, label %3567
+    i32 1462, label %3567
+    i32 631, label %3567
+    i32 632, label %3567
+    i32 932, label %3567
+    i32 933, label %3567
+    i32 134, label %3567
   ]
 
 3563:                                             ; preds = %3562

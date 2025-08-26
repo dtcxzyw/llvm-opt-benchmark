@@ -25569,29 +25569,30 @@ define hidden noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming6chec
 define hidden noundef zeroext i1 @_ZN11polars_lazy13physical_plan9streaming6checks15streamable_join17h7a3f7b389a11cc3fE(ptr noalias noundef readonly align 16 dereferenceable(192) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i64, ptr %2, align 16, !range !2681, !noundef !7
-  %4 = icmp ne i64 %3, -9223372036854775803
-  tail call void @llvm.assume(i1 %4)
-  switch i64 %3, label %12 [
-    i64 -9223372036854775807, label %5
-    i64 -9223372036854775806, label %8
-    i64 -9223372036854775804, label %8
-    i64 -9223372036854775799, label %8
+  %4 = add i64 %3, 9223372036854775807
+  %5 = icmp ne i64 %4, 4
+  tail call void @llvm.assume(i1 %5)
+  switch i64 %4, label %13 [
+    i64 0, label %6
+    i64 1, label %9
+    i64 3, label %9
+    i64 8, label %9
   ]
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 178
-  %7 = load i8, ptr %6, align 2, !range !245, !noundef !7
-  %switch = icmp samesign ult i8 %7, 2
-  br i1 %switch, label %8, label %12
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 178
+  %8 = load i8, ptr %7, align 2, !range !245, !noundef !7
+  %switch = icmp samesign ult i8 %8, 2
+  br i1 %switch, label %9, label %13
 
-8:                                                ; preds = %5, %1, %1, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %10 = tail call noundef zeroext i1 @_ZN10polars_ops5frame4join4args14JoinValidation12needs_checks17h142a40c615f3d9f9E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %9)
-  %11 = xor i1 %10, true
-  br label %12
+9:                                                ; preds = %6, %1, %1, %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %11 = tail call noundef zeroext i1 @_ZN10polars_ops5frame4join4args14JoinValidation12needs_checks17h142a40c615f3d9f9E(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %10)
+  %12 = xor i1 %11, true
+  br label %13
 
-12:                                               ; preds = %1, %5, %8
-  %.sroa.0.0 = phi i1 [ %11, %8 ], [ false, %5 ], [ false, %1 ]
+13:                                               ; preds = %1, %6, %9
+  %.sroa.0.0 = phi i1 [ %12, %9 ], [ false, %6 ], [ false, %1 ]
   ret i1 %.sroa.0.0
 }
 

@@ -1857,10 +1857,10 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %37, %39
   store i32 %16, ptr %46, align 4, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %.sink93, i64 48
   store ptr %0, ptr %47, align 8, !tbaa !57
-  switch i8 %4, label %142 [
-    i8 -49, label %48
-    i8 -50, label %80
-    i8 -51, label %111
+  switch i8 %5, label %142 [
+    i8 3, label %48
+    i8 2, label %80
+    i8 1, label %111
   ]
 
 48:                                               ; preds = %zend_vm_stack_push_call_frame_ex.exit
@@ -2614,9 +2614,9 @@ define dso_local ptr @zend_undefined_offset_write(ptr noundef %0, i64 noundef %1
   tail call void @llvm.assume(i1 %14)
   %15 = add i32 %13, -1
   store i32 %15, ptr %0, align 4, !tbaa !56
-  switch i32 %13, label %21 [
-    i32 2, label %17
-    i32 1, label %16
+  switch i32 %15, label %21 [
+    i32 1, label %17
+    i32 0, label %16
   ]
 
 16:                                               ; preds = %12
@@ -2687,9 +2687,9 @@ zend_string_addref.exit:                          ; preds = %9, %13
   tail call void @llvm.assume(i1 %20)
   %21 = add i32 %19, -1
   store i32 %21, ptr %0, align 4, !tbaa !56
-  switch i32 %19, label %27 [
-    i32 2, label %23
-    i32 1, label %22
+  switch i32 %21, label %27 [
+    i32 1, label %23
+    i32 0, label %22
   ]
 
 22:                                               ; preds = %18
@@ -160469,9 +160469,9 @@ define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert_w(ptr nound
   tail call void @llvm.assume(i1 %19)
   %20 = add i32 %18, -1
   store i32 %20, ptr %0, align 4, !tbaa !56
-  switch i32 %18, label %86 [
-    i32 2, label %22
-    i32 1, label %21
+  switch i32 %20, label %86 [
+    i32 1, label %22
+    i32 0, label %21
   ]
 
 21:                                               ; preds = %17
@@ -160544,9 +160544,9 @@ zend_dval_to_lval.exit:                           ; preds = %26, %33, %35
   tail call void @llvm.assume(i1 %53)
   %54 = add i32 %52, -1
   store i32 %54, ptr %0, align 4, !tbaa !56
-  switch i32 %52, label %86 [
-    i32 2, label %56
-    i32 1, label %55
+  switch i32 %54, label %86 [
+    i32 1, label %56
+    i32 0, label %55
   ]
 
 55:                                               ; preds = %51
@@ -160590,9 +160590,9 @@ zend_dval_to_lval.exit:                           ; preds = %26, %33, %35
   tail call void @llvm.assume(i1 %74)
   %75 = add i32 %73, -1
   store i32 %75, ptr %0, align 4, !tbaa !56
-  switch i32 %73, label %86 [
-    i32 2, label %77
-    i32 1, label %76
+  switch i32 %75, label %86 [
+    i32 1, label %77
+    i32 0, label %76
   ]
 
 76:                                               ; preds = %72

@@ -4733,9 +4733,9 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionI
   %6 = load i64, ptr %1, align 8, !tbaa !33
   %7 = add i64 %6, -1
   store i64 %7, ptr %1, align 8, !tbaa !33
-  switch i64 %6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i [
-    i64 1, label %8
-    i64 2, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
+  switch i64 %7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i [
+    i64 0, label %8
+    i64 1, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
   ]
 
 8:                                                ; preds = %2
@@ -4746,7 +4746,7 @@ define dso_local noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionI
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %5, ptr noundef nonnull readonly dereferenceable(2) @.str.11, i64 2)
   %10 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
 
 11:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 3
@@ -4756,107 +4756,103 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %2
   %14 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 2)
   br label %_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE.exit
 
-15:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %16 = icmp eq i64 %7, 0
-  br i1 %16, label %59, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
-
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %2, %15
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %2
   %lhsc = load i8, ptr %5, align 1
-  %17 = icmp eq i8 %lhsc, 95
-  br i1 %17, label %18, label %59
+  %15 = icmp eq i8 %lhsc, 95
+  br i1 %15, label %16, label %57
 
-18:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %19, ptr %3, align 8, !tbaa !39
-  %20 = add i64 %6, -2
-  store i64 %20, ptr %1, align 8, !tbaa !33
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %22, label %24
+16:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store ptr %17, ptr %3, align 8, !tbaa !39
+  %18 = add i64 %6, -2
+  store i64 %18, ptr %1, align 8, !tbaa !33
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %22
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %23, align 8, !tbaa !35
+20:                                               ; preds = %16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %21, align 8, !tbaa !35
   br label %_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE.exit
 
-24:                                               ; preds = %18
-  %25 = load i8, ptr %19, align 1, !tbaa !40
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store ptr %26, ptr %3, align 8, !tbaa !39
-  %27 = add i64 %6, -3
-  store i64 %27, ptr %1, align 8, !tbaa !33
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = add i8 %25, -48
-  %or.cond.i23.i = icmp ult i8 %29, 10
-  %30 = add i8 %25, -65
-  %or.cond5.i24.i = icmp ult i8 %30, 26
+22:                                               ; preds = %16
+  %23 = load i8, ptr %17, align 1, !tbaa !40
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store ptr %24, ptr %3, align 8, !tbaa !39
+  %25 = add i64 %6, -3
+  store i64 %25, ptr %1, align 8, !tbaa !33
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = add i8 %23, -48
+  %or.cond.i23.i = icmp ult i8 %27, 10
+  %28 = add i8 %23, -65
+  %or.cond5.i24.i = icmp ult i8 %28, 26
   %or.cond22.i25.i = or i1 %or.cond.i23.i, %or.cond5.i24.i
-  br i1 %or.cond22.i25.i, label %33, label %31
+  br i1 %or.cond22.i25.i, label %31, label %29
 
-31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %32, align 8, !tbaa !35
+29:                                               ; preds = %22
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %30, align 8, !tbaa !35
   br label %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i
 
-33:                                               ; preds = %24
-  %34 = zext nneg i8 %25 to i64
+31:                                               ; preds = %22
+  %32 = zext nneg i8 %23 to i64
   %.v.i27.i = select i1 %or.cond.i23.i, i64 -48, i64 -55
-  %35 = add nsw i64 %.v.i27.i, %34
-  %36 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %35
-  %.1.i28.i = load i8, ptr %36, align 1, !tbaa !127
+  %33 = add nsw i64 %.v.i27.i, %32
+  %34 = getelementptr inbounds [36 x i8], ptr @_ZZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupEE5Under, i64 0, i64 %33
+  %.1.i28.i = load i8, ptr %34, align 1, !tbaa !127
   br label %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i
 
-_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i: ; preds = %33, %31
-  %.0.i26.i = phi i8 [ %.1.i28.i, %33 ], [ 0, %31 ]
-  %37 = load ptr, ptr %28, align 8, !tbaa !3
-  %38 = load ptr, ptr %37, align 8, !tbaa !9
-  %39 = ptrtoint ptr %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !13
-  %42 = add i64 %39, 7
-  %43 = add i64 %42, %41
-  %44 = and i64 %43, -8
-  %reass.sub.i30.i = sub i64 %44, %39
-  %45 = add i64 %reass.sub.i30.i, 32
-  store i64 %45, ptr %40, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !14
-  %.not.i31.i = icmp ugt i64 %45, %47
-  br i1 %.not.i31.i, label %50, label %48
+_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i: ; preds = %31, %29
+  %.0.i26.i = phi i8 [ %.1.i28.i, %31 ], [ 0, %29 ]
+  %35 = load ptr, ptr %26, align 8, !tbaa !3
+  %36 = load ptr, ptr %35, align 8, !tbaa !9
+  %37 = ptrtoint ptr %36 to i64
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = load i64, ptr %38, align 8, !tbaa !13
+  %40 = add i64 %37, 7
+  %41 = add i64 %40, %39
+  %42 = and i64 %41, -8
+  %reass.sub.i30.i = sub i64 %42, %37
+  %43 = add i64 %reass.sub.i30.i, 32
+  store i64 %43, ptr %38, align 8, !tbaa !13
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %45 = load i64, ptr %44, align 8, !tbaa !14
+  %.not.i31.i = icmp ugt i64 %43, %45
+  br i1 %.not.i31.i, label %48, label %46
+
+46:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i
+  %47 = inttoptr i64 %42 to ptr
+  br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i
 
 48:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i
-  %49 = inttoptr i64 %44 to ptr
+  %49 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %50 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
+  store ptr %50, ptr %49, align 8, !tbaa !9
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  store ptr %35, ptr %51, align 8, !tbaa !15
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store i64 4096, ptr %52, align 8, !tbaa !14
+  store ptr %49, ptr %26, align 8, !tbaa !3
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 32, ptr %53, align 8, !tbaa !13
   br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i
 
-50:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler30translateIntrinsicFunctionCodeEcNS0_27FunctionIdentifierCodeGroupE.exit29.i
-  %51 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  %52 = tail call noalias noundef nonnull dereferenceable(4096) ptr @_Znam(i64 noundef 4096) #22
-  store ptr %52, ptr %51, align 8, !tbaa !9
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store ptr %37, ptr %53, align 8, !tbaa !15
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i64 4096, ptr %54, align 8, !tbaa !14
-  store ptr %51, ptr %28, align 8, !tbaa !3
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 32, ptr %55, align 8, !tbaa !13
-  br label %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i
-
-_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i: ; preds = %50, %48
-  %.sink15.i32.i = phi ptr [ %52, %50 ], [ %49, %48 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sink15.i32.i, i64 8
-  store i32 8, ptr %56, align 8, !tbaa !16
-  %57 = getelementptr inbounds nuw i8, ptr %.sink15.i32.i, i64 16
-  store ptr null, ptr %57, align 8, !tbaa !19
+_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i: ; preds = %48, %46
+  %.sink15.i32.i = phi ptr [ %50, %48 ], [ %47, %46 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sink15.i32.i, i64 8
+  store i32 8, ptr %54, align 8, !tbaa !16
+  %55 = getelementptr inbounds nuw i8, ptr %.sink15.i32.i, i64 16
+  store ptr null, ptr %55, align 8, !tbaa !19
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4llvm11ms_demangle31IntrinsicFunctionIdentifierNodeE, i64 16), ptr %.sink15.i32.i, align 8, !tbaa !22
-  %58 = getelementptr inbounds nuw i8, ptr %.sink15.i32.i, i64 24
-  store i8 %.0.i26.i, ptr %58, align 8, !tbaa !129
+  %56 = getelementptr inbounds nuw i8, ptr %.sink15.i32.i, i64 24
+  store i8 %.0.i26.i, ptr %56, align 8, !tbaa !129
   br label %_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE.exit
 
-59:                                               ; preds = %15, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
-  %60 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
+57:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i12
+  %58 = tail call noundef ptr @_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 0)
   br label %_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE.exit
 
-_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE.exit: ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i, %22, %59, %11, %8
-  %.0 = phi ptr [ null, %8 ], [ %14, %11 ], [ %60, %59 ], [ null, %22 ], [ %.sink15.i32.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i ]
+_ZN4llvm11ms_demangle9Demangler30demangleFunctionIdentifierCodeERSt17basic_string_viewIcSt11char_traitsIcEENS0_27FunctionIdentifierCodeGroupE.exit: ; preds = %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i, %20, %57, %11, %8
+  %.0 = phi ptr [ null, %8 ], [ %14, %11 ], [ %58, %57 ], [ null, %20 ], [ %.sink15.i32.i, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_31IntrinsicFunctionIdentifierNodeEJNS0_21IntrinsicFunctionKindEEEEPT_DpOT0_.exit33.i ]
   ret ptr %.0
 }
 

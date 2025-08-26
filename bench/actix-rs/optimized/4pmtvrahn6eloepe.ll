@@ -205,6 +205,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3dfc7285fed8fa297aed43441a3d1c46.1.llvm.10144161557925507027 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @str.0.llvm.10144161557925507027 = external hidden unnamed_addr constant [25 x i8]
 @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E = external local_unnamed_addr global [256 x float]
+@switch.table._ZN6brotli3enc17compress_fragment26BrotliCompressFragmentFast17hcd5548c609f0d180E = private unnamed_addr constant [7 x i64] [i64 15, i64 poison, i64 13, i64 poison, i64 11, i64 poison, i64 9], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h2219825847fd2d78E"(ptr noalias noundef writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -3851,13 +3852,13 @@ define hidden void @_ZN6brotli3enc17compress_fragment26BrotliCompressFragmentFas
 
 21:                                               ; preds = %18
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %7, i1 false)
-  %23 = xor i64 %22, 63
-  switch i64 %23, label %28 [
-    i64 9, label %.sink.split2
-    i64 11, label %.sink.split2
-    i64 13, label %.sink.split2
-    i64 15, label %.sink.split2
-  ]
+  %switch.tableidx = add nsw i64 %22, -48
+  %23 = icmp ult i64 %switch.tableidx, 7
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.shifted = lshr i8 85, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %28
 
 .sink.split:                                      ; preds = %18, %35
   tail call void @_ZN6brotli3enc26compress_fragment_two_pass15BrotliWriteBits17hf4851fa4b68a36a6E(i64 noundef 1, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
@@ -3871,11 +3872,13 @@ define hidden void @_ZN6brotli3enc17compress_fragment26BrotliCompressFragmentFas
 27:                                               ; preds = %.sink.split, %35
   ret void
 
-.sink.split2:                                     ; preds = %21, %21, %21, %21
-  tail call void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFastImpl17h24e109efb8be68e4E.llvm.2002727345234535996(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, i64 noundef %23, ptr noalias noundef nonnull align 1 %8, i64 noundef %9, ptr noalias noundef nonnull align 2 %10, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
+switch.lookup:                                    ; preds = %21
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN6brotli3enc17compress_fragment26BrotliCompressFragmentFast17hcd5548c609f0d180E, i64 0, i64 %switch.tableidx
+  %switch.load = load i64, ptr %switch.gep, align 8
+  tail call void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFastImpl17h24e109efb8be68e4E.llvm.2002727345234535996(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noalias noundef nonnull align 4 %5, i64 noundef %6, i64 noundef %switch.load, ptr noalias noundef nonnull align 1 %8, i64 noundef %9, ptr noalias noundef nonnull align 2 %10, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 1 %13, i64 noundef %14, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   br label %28
 
-28:                                               ; preds = %.sink.split2, %21
+28:                                               ; preds = %21, %switch.lookup
   %29 = load i64, ptr %15, align 8, !noundef !13
   %30 = sub i64 %29, %19
   %31 = shl i64 %3, 3

@@ -845,9 +845,9 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   ]
 
 38:                                               ; preds = %30
-  switch i32 %4, label %.thread138 [
-    i32 9, label %39
-    i32 5, label %.thread135
+  switch i32 %37, label %.thread138 [
+    i32 4, label %39
+    i32 0, label %.thread135
   ]
 
 39:                                               ; preds = %38
@@ -857,9 +857,9 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   br label %.thread135
 
 43:                                               ; preds = %30
-  switch i32 %4, label %.thread138 [
-    i32 21, label %44
-    i32 5, label %.thread135
+  switch i32 %37, label %.thread138 [
+    i32 16, label %44
+    i32 0, label %.thread135
   ]
 
 44:                                               ; preds = %43
@@ -881,9 +881,9 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   br label %55
 
 54:                                               ; preds = %48
-  switch i32 %4, label %.thread138 [
-    i32 11, label %55
-    i32 5, label %.thread135
+  switch i32 %37, label %.thread138 [
+    i32 6, label %55
+    i32 0, label %.thread135
   ]
 
 55:                                               ; preds = %54, %.thread
@@ -913,9 +913,10 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   %67 = icmp eq i32 %14, -2147481627
   %68 = select i1 %67, ptr @.str.2, ptr @.str.3
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull %68)
-  switch i32 %4, label %94 [
-    i32 17, label %69
-    i32 13, label %69
+  switch i32 %37, label %.thread138 [
+    i32 12, label %69
+    i32 8, label %69
+    i32 0, label %.thread135
   ]
 
 69:                                               ; preds = %66, %66
@@ -959,17 +960,17 @@ define hidden noundef i32 @dissect_snmp_engineid(ptr noundef %0, ptr noundef %1,
   %93 = add i32 %4, %3
   br label %.thread135
 
-94:                                               ; preds = %66, %30, %88
+94:                                               ; preds = %30, %88
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %.thread135, label %.thread138
 
-.thread138:                                       ; preds = %38, %43, %54, %59, %94
+.thread138:                                       ; preds = %66, %38, %43, %54, %59, %94
   %95 = tail call ptr @proto_tree_add_expert(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_snmp_rfc3411_non_conformant, ptr noundef %2, i32 noundef %36, i32 noundef %37)
   %96 = add i32 %4, %3
   br label %.thread135
 
-.thread135:                                       ; preds = %38, %43, %54, %79, %61, %55, %44, %39, %90, %22, %94, %.thread138, %28, %8, %5, %26
-  %.0124 = phi i32 [ %18, %26 ], [ %3, %5 ], [ %3, %8 ], [ %18, %28 ], [ %96, %.thread138 ], [ %36, %94 ], [ %87, %79 ], [ %64, %61 ], [ %58, %55 ], [ %47, %44 ], [ %42, %39 ], [ %93, %90 ], [ %25, %22 ], [ %36, %54 ], [ %36, %43 ], [ %36, %38 ]
+.thread135:                                       ; preds = %66, %38, %43, %54, %79, %61, %55, %44, %39, %90, %22, %94, %.thread138, %28, %8, %5, %26
+  %.0124 = phi i32 [ %18, %26 ], [ %3, %5 ], [ %3, %8 ], [ %18, %28 ], [ %96, %.thread138 ], [ %36, %94 ], [ %87, %79 ], [ %64, %61 ], [ %58, %55 ], [ %47, %44 ], [ %42, %39 ], [ %93, %90 ], [ %25, %22 ], [ %36, %54 ], [ %36, %43 ], [ %36, %38 ], [ %36, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0124
 }

@@ -112,7 +112,7 @@ $_ZNSt6vectorIN8facebook5velox10expression9calculate6Parser17stack_symbol_typeES
 @.str.51 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.52 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_TypeCalculation.yy.cc, ptr null }]
-@switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE = private unnamed_addr constant [4 x ptr] [ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 8
+@switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE = private unnamed_addr constant [5 x ptr] [ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10], align 8
 
 @_ZN8facebook5velox10expression9calculate6ParserC1EPNS2_7ScannerE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox10expression9calculate6ParserC2EPNS2_7ScannerE
 @_ZN8facebook5velox10expression9calculate6ParserD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox10expression9calculate6ParserD2Ev
@@ -2379,10 +2379,9 @@ _ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKN
   br i1 %17, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %_ZNK8facebook5velox10expression9calculate6Parser26yy_syntax_error_arguments_ERKNS3_7contextEPNS3_11symbol_kind16symbol_kind_typeEi.exit
-  %switch.tableidx = add nsw i32 %yycount.2.i.i, -1
   %switch.offset = add nuw nsw i32 %yycount.2.i.i, 1
-  %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE, i64 0, i64 %18
+  %18 = zext nneg i32 %yycount.2.i.i to i64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK8facebook5velox10expression9calculate6Parser15yysyntax_error_B5cxx11ERKNS3_7contextE, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog
 

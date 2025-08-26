@@ -3740,7 +3740,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   unreachable
 
 94:                                               ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h69da4ac27b65e72bE.exit"
-  %cond = icmp eq i64 %.sroa.46.0.i, 3
+  %cond = icmp eq i64 %91, 1
   %95 = load i8, ptr %92, align 1, !alias.scope !1071, !noalias !1074
   br i1 %cond, label %96, label %97
 
@@ -3763,7 +3763,11 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 3
   %100 = add i64 %.sroa.46.0.i, -3
   %101 = icmp ult i64 %91, 18
-  br i1 %101, label %.lr.ph.split.i.preheader, label %.lr.ph.preheader
+  br i1 %101, label %.lr.ph.split.i.preheader, label %.preheader51.i60
+
+.preheader51.i60:                                 ; preds = %98
+  %.not.i63107 = icmp eq i64 %100, 0
+  br i1 %.not.i63107, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread86", label %.lr.ph.preheader
 
 .preheader51.split.i:                             ; preds = %117
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i110, i64 1
@@ -3778,9 +3782,9 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   %108 = icmp ult i64 %91, 17
   br i1 %108, label %.lr.ph.split.i.preheader, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %98, %107
-  %.sroa.01.0.i110.ph = phi ptr [ %99, %98 ], [ %92, %107 ]
-  %.sroa.14.0.i109.ph = phi i64 [ %100, %98 ], [ %91, %107 ]
+.lr.ph.preheader:                                 ; preds = %107, %.preheader51.i60
+  %.sroa.01.0.i110.ph = phi ptr [ %92, %107 ], [ %99, %.preheader51.i60 ]
+  %.sroa.14.0.i109.ph = phi i64 [ %91, %107 ], [ %100, %.preheader51.i60 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader51.split.i
@@ -3826,8 +3830,8 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   %.not42.i = icmp eq i64 %129, 0
   br i1 %.not42.i, label %"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread86", label %.lr.ph.split.i
 
-"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread86": ; preds = %.preheader51.split.i, %127, %.preheader51.split.us.i, %80
-  %.sroa.16.092 = phi i64 [ %85, %80 ], [ %.sroa.013.0.us.i, %.preheader51.split.us.i ], [ %132, %127 ], [ %106, %.preheader51.split.i ]
+"_ZN4core3num21_$LT$impl$u20$u64$GT$16from_ascii_radix17h1058f2fa72d27353E.exit.thread86": ; preds = %.preheader51.split.i, %127, %.preheader51.split.us.i, %80, %.preheader51.i60
+  %.sroa.16.092 = phi i64 [ 0, %.preheader51.i60 ], [ %85, %80 ], [ %.sroa.013.0.us.i, %.preheader51.split.us.i ], [ %132, %127 ], [ %106, %.preheader51.split.i ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.16.092, ptr %133, align 8, !alias.scope !1076
   store i64 2, ptr %0, align 8, !alias.scope !1076

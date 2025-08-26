@@ -2291,9 +2291,9 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   %.4.add = add nuw nsw i64 %.4.idx, 1
   %.ptr128 = getelementptr inbounds nuw i8, ptr @unicode_script_ext_table, i64 %.4.add
   %110 = load i8, ptr %.4.ptr, align 1, !tbaa !13
-  switch i32 %.01929.i, label %.preheader [
-    i32 55, label %111
-    i32 24, label %111
+  switch i32 %24, label %.preheader [
+    i32 56, label %111
+    i32 25, label %111
   ]
 
 .preheader:                                       ; preds = %107
@@ -2374,9 +2374,9 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
   br i1 %141, label %.preheader259, label %142, !llvm.loop !49
 
 142:                                              ; preds = %.loopexit258
-  switch i32 %.01929.i, label %192 [
-    i32 55, label %143
-    i32 24, label %143
+  switch i32 %24, label %192 [
+    i32 56, label %143
+    i32 25, label %143
   ]
 
 143:                                              ; preds = %142, %142
@@ -3678,26 +3678,26 @@ unicode_find_name.exit:                           ; preds = %14
 
 22:                                               ; preds = %unicode_find_name.exit
   %23 = add nuw i32 %.01929.i, 16
-  switch i32 %.01929.i, label %112 [
-    i32 34, label %24
-    i32 36, label %51
-    i32 37, label %78
-    i32 49, label %80
-    i32 48, label %82
-    i32 50, label %84
-    i32 38, label %86
-    i32 35, label %88
-    i32 45, label %90
-    i32 46, label %92
-    i32 52, label %94
-    i32 51, label %96
-    i32 44, label %98
-    i32 41, label %100
-    i32 40, label %102
-    i32 43, label %104
-    i32 39, label %106
-    i32 42, label %108
-    i32 47, label %110
+  switch i32 %23, label %112 [
+    i32 50, label %24
+    i32 52, label %51
+    i32 53, label %78
+    i32 65, label %80
+    i32 64, label %82
+    i32 66, label %84
+    i32 54, label %86
+    i32 51, label %88
+    i32 61, label %90
+    i32 62, label %92
+    i32 68, label %94
+    i32 67, label %96
+    i32 60, label %98
+    i32 57, label %100
+    i32 56, label %102
+    i32 59, label %104
+    i32 55, label %106
+    i32 58, label %108
+    i32 63, label %110
   ]
 
 24:                                               ; preds = %22

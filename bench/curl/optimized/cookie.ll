@@ -1380,9 +1380,9 @@ sanitize_cookie_path.exit.i96:                    ; preds = %.thread.i.i99, %402
   br i1 %.not.i87, label %457, label %359, !llvm.loop !109
 
 457:                                              ; preds = %455
-  switch i32 %.2.i, label %parse_cookie_header.exit.thread [
-    i32 5, label %458
-    i32 6, label %parse_cookie_header.exit
+  switch i32 %456, label %parse_cookie_header.exit.thread [
+    i32 6, label %458
+    i32 7, label %parse_cookie_header.exit
   ]
 
 458:                                              ; preds = %457
@@ -1417,8 +1417,8 @@ parse_cookie_header.exit:                         ; preds = %457, %458, %337
 
 sub_0:                                            ; preds = %468
   %471 = load i8, ptr %470, align 1
-  %.not126 = icmp eq i8 %471, 47
-  br i1 %.not126, label %.tail, label %parse_cookie_header.exit.thread
+  %.not127 = icmp eq i8 %471, 47
+  br i1 %.not127, label %.tail, label %parse_cookie_header.exit.thread
 
 .tail:                                            ; preds = %sub_0
   %472 = getelementptr inbounds nuw i8, ptr %470, i64 1

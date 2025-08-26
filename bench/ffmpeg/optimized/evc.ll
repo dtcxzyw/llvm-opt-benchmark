@@ -92,15 +92,16 @@ evc_get_nalu_type.exit:                           ; preds = %34
   br i1 %39, label %evcc_write.exit, label %40
 
 40:                                               ; preds = %evc_get_nalu_type.exit
-  %switch.tableidx = add nsw i8 %36, -25
-  %41 = icmp ult i8 %switch.tableidx, 5
-  %switch.shifted = lshr i8 23, %switch.tableidx
+  %switch.tableidx = add nsw i32 %37, -25
+  %41 = icmp ult i32 %switch.tableidx, 5
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond = select i1 %41, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %.critedge
 
 switch.lookup:                                    ; preds = %40
-  %42 = zext nneg i8 %switch.tableidx to i64
+  %42 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.ff_isom_write_evcc, i64 0, i64 %42
   %switch.load = load i64, ptr %switch.gep, align 8
   %43 = trunc nuw nsw i32 %38 to i8

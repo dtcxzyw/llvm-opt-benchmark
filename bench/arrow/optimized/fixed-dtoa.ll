@@ -757,26 +757,26 @@ define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFracti
   br label %_ZN14arrow_vendored17double_conversionL7RoundUpENS0_6VectorIcEEPiS3_.exit
 
 57:                                               ; preds = %6
-  switch i32 %1, label %59 [
-    i32 -64, label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
-    i32 -128, label %58
+  %58 = sub nsw i32 -64, %1
+  switch i32 %58, label %60 [
+    i32 0, label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
+    i32 64, label %59
   ]
 
-58:                                               ; preds = %57
+59:                                               ; preds = %57
   br label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
 
-59:                                               ; preds = %57
-  %60 = sub nsw i32 -64, %1
-  %61 = zext nneg i32 %60 to i64
+60:                                               ; preds = %57
+  %61 = zext nneg i32 %58 to i64
   %62 = add nsw i32 %1, 128
   %63 = zext nneg i32 %62 to i64
   %64 = shl i64 %0, %63
   %65 = lshr i64 %0, %61
   br label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
 
-_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %58, %59
-  %.sroa.17.1 = phi i64 [ %64, %59 ], [ 0, %57 ], [ %0, %58 ]
-  %.sroa.0.1 = phi i64 [ %65, %59 ], [ %0, %57 ], [ 0, %58 ]
+_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %59, %60
+  %.sroa.17.1 = phi i64 [ %64, %60 ], [ 0, %57 ], [ %0, %59 ]
+  %.sroa.0.1 = phi i64 [ %65, %60 ], [ %0, %57 ], [ 0, %59 ]
   %66 = icmp sgt i32 %2, 0
   br i1 %66, label %.lr.ph.preheader, label %._crit_edge
 
