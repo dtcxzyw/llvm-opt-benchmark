@@ -6648,10 +6648,10 @@ _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i: 
   %68 = phi ptr [ %.sroa.420.0.copyload, %.lr.ph.i ], [ %76, %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i ]
   %69 = phi i32 [ %.sroa.218.0.copyload, %.lr.ph.i ], [ %75, %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i ]
   %70 = phi i32 [ %.sroa.521.0.copyload, %.lr.ph.i ], [ %77, %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i ]
-  %.not.i.i.i.i.i.i.not.i = icmp eq i32 %69, 0
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %69, 0
   %.not.i.i1.i.i.i.i.i = icmp eq i32 %70, 0
   %_hb_CrapPool..i = select i1 %.not.i.i1.i.i.i.i.i, ptr @_hb_CrapPool, ptr %68
-  %71 = or i1 %.not.i.i.i.i.i.i.not.i, %.not.i.i1.i.i.i.i.i
+  %71 = or i1 %.not.i.i.i.i.i.i.i, %.not.i.i1.i.i.i.i.i
   br i1 %71, label %72, label %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i
 
 72:                                               ; preds = %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i
@@ -6790,10 +6790,10 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common8CoverageEEEPT_S6_.exi
   br i1 %38, label %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i, label %"_ZNK13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EERK3$_5L24hb_function_sortedness_t1ELPv0EEneERKSD_.exit.thread.loopexit.i"
 
 _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i: ; preds = %"_ZNK13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EERK3$_5L24hb_function_sortedness_t1ELPv0EEneERKSD_.exit.i"
-  %.not.i.i.i.i.i.i.not.not.i = icmp eq i32 %.sroa.5.087.i, 0
-  %.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.not.not.i, ptr @_hb_CrapPool, ptr %.sroa.054.086.i
-  %.not.i.i1.i.i.i.i.not.not.i = icmp eq i32 %.sroa.14.089.i, 0
-  %39 = or i1 %.not.i.i1.i.i.i.i.not.not.i, %.not.i.i.i.i.i.i.not.not.i
+  %.not.i.i.i.i.i.i.not.i = icmp eq i32 %.sroa.5.087.i, 0
+  %.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.not.i, ptr @_hb_CrapPool, ptr %.sroa.054.086.i
+  %.not.i.i1.i.i.i.i.not.i = icmp eq i32 %.sroa.14.089.i, 0
+  %39 = or i1 %.not.i.i1.i.i.i.i.not.i, %.not.i.i.i.i.i.i.not.i
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i
@@ -6818,10 +6818,10 @@ _ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i: 
   %.not25.i = icmp ne i32 %45, %.pre99.i
   %46 = zext i1 %.not25.i to i32
   %spec.select26.i = add i32 %.02090.i, %46
-  %.sroa.054.1.idx.i = select i1 %.not.i.i.i.i.i.i.not.not.i, i64 0, i64 2
+  %.sroa.054.1.idx.i = select i1 %.not.i.i.i.i.i.i.not.i, i64 0, i64 2
   %.sroa.054.1.i = getelementptr inbounds nuw i8, ptr %.sroa.054.086.i, i64 %.sroa.054.1.idx.i
   %.sroa.5.1.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.5.087.i, i32 1)
-  %.sroa.11.1.idx.i = select i1 %.not.i.i1.i.i.i.i.not.not.i, i64 0, i64 2
+  %.sroa.11.1.idx.i = select i1 %.not.i.i1.i.i.i.i.not.i, i64 0, i64 2
   %.sroa.11.1.i = getelementptr inbounds nuw i8, ptr %.sroa.11.088.i, i64 %.sroa.11.1.idx.i
   %.sroa.14.1.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.14.089.i, i32 1)
   %.not.i.i.i.i = icmp ne ptr %.sroa.054.1.i, %33
@@ -6941,9 +6941,9 @@ _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i
   %96 = phi i32 [ %.sroa.4.sroa.0.0.extract.trunc, %.lr.ph.i.i.i.i ], [ %109, %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i.i.i.i ]
   %97 = phi ptr [ %.sroa.012.0.copyload, %.lr.ph.i.i.i.i ], [ %108, %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i.i.i.i ]
   %98 = phi i32 [ %.sroa.7.sroa.0.0.extract.trunc, %.lr.ph.i.i.i.i ], [ %110, %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i.i.i.i ]
-  %.not.i.i.i.i.i.i.not.i.i.i.i = icmp eq i32 %96, 0
-  %.not.i.i1.i.i.i.i.not.i.i.i.i = icmp eq i32 %98, 0
-  %99 = or i1 %.not.i.i.i.i.i.i.not.i.i.i.i, %.not.i.i1.i.i.i.i.not.i.i.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %96, 0
+  %.not.i.i1.i.i.i.i.i.i.i.i = icmp eq i32 %98, 0
+  %99 = or i1 %.not.i.i.i.i.i.i.i.i.i.i, %.not.i.i1.i.i.i.i.i.i.i.i
   br i1 %99, label %102, label %.thread.i.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i.i.i
@@ -6954,13 +6954,13 @@ _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i
   br label %105
 
 102:                                              ; preds = %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i.i.i
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.not.i.i.i.i, ptr @_hb_CrapPool, ptr %97
+  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, ptr @_hb_CrapPool, ptr %97
   store i16 %95, ptr @_hb_CrapPool, align 16
   %103 = getelementptr inbounds nuw [1 x %"struct.OT::HBGlyphID16"], ptr %56, i64 0, i64 %indvars.iv.i.i.i.i
   %104 = load i16, ptr %.0.i.i.i.i.i.i.i.i.i.i, align 1
   store i16 %104, ptr %103, align 1
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i.i.i.not.i.i.i.i, label %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i.i.i.i, label %105
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i.i.i.i.i, label %105
 
 105:                                              ; preds = %102, %.thread.i.i.i.i
   %indvars.iv.next33.i.i.i.i = phi i64 [ %indvars.iv.next32.i.i.i.i, %.thread.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %102 ]
@@ -7046,11 +7046,11 @@ _ZN22hb_serialize_context_t10extend_minIN2OT6Layout6Common17CoverageFormat2_4INS
   br i1 %136, label %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i, label %"_ZNK13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EERK3$_5L24hb_function_sortedness_t1ELPv0EEneERKSD_.exit.thread.i.i"
 
 _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i: ; preds = %"_ZNK13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EERK3$_5L24hb_function_sortedness_t1ELPv0EEneERKSD_.exit.i.i"
-  %.not.i.i.i.i.i.i.not.not.i.i = icmp eq i32 %.sroa.5121.0139.i.i, 0
-  %.0.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.not.not.i.i, ptr @_hb_CrapPool, ptr %.sroa.0118.0138.i.i
-  %.not.i.i1.i.i.i.i.not.not.i.i = icmp eq i32 %.sroa.14127.0141.i.i, 0
-  %.sroa.11125.1.idx.i.i = select i1 %.not.i.i1.i.i.i.i.not.not.i.i, i64 0, i64 2
-  %137 = or i1 %.not.i.i1.i.i.i.i.not.not.i.i, %.not.i.i.i.i.i.i.not.not.i.i
+  %.not.i.i.i.i.i.i.not.i.i = icmp eq i32 %.sroa.5121.0139.i.i, 0
+  %.0.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.not.i.i, ptr @_hb_CrapPool, ptr %.sroa.0118.0138.i.i
+  %.not.i.i1.i.i.i.i.not.i.i = icmp eq i32 %.sroa.14127.0141.i.i, 0
+  %.sroa.11125.1.idx.i.i = select i1 %.not.i.i1.i.i.i.i.not.i.i, i64 0, i64 2
+  %137 = or i1 %.not.i.i1.i.i.i.i.not.i.i, %.not.i.i.i.i.i.i.not.i.i
   br i1 %137, label %138, label %139
 
 138:                                              ; preds = %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i
@@ -7065,7 +7065,7 @@ _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i.i.i
   %.not34.i.i = icmp ne i32 %141, %142
   %143 = zext i1 %.not34.i.i to i32
   %spec.select.i.i = add i32 %.021143.i.i, %143
-  %.sroa.0118.1.idx.i.i = select i1 %.not.i.i.i.i.i.i.not.not.i.i, i64 0, i64 2
+  %.sroa.0118.1.idx.i.i = select i1 %.not.i.i.i.i.i.i.not.i.i, i64 0, i64 2
   %.sroa.0118.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0118.0138.i.i, i64 %.sroa.0118.1.idx.i.i
   %.sroa.5121.1.i.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.5121.0139.i.i, i32 1)
   %.sroa.11125.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.11125.0140.i.i, i64 %.sroa.11125.1.idx.i.i
@@ -7195,10 +7195,10 @@ _ZN2OT13SortedArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntT
   br i1 %187, label %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i68.i.i, label %"_ZNK13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EERK3$_5L24hb_function_sortedness_t1ELPv0EEneERKSD_.exit66.thread.i.i"
 
 _ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i68.i.i: ; preds = %"_ZNK13hb_map_iter_tI13hb_zip_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EE10hb_array_tIS3_EERK3$_5L24hb_function_sortedness_t1ELPv0EEneERKSD_.exit66.i.i"
-  %.not.i.i.i.i.i.i67.not.not.i.i = icmp eq i32 %.sroa.5.0147.i.i, 0
-  %.0.i.i.i.i.i.i69.i.i = select i1 %.not.i.i.i.i.i.i67.not.not.i.i, ptr @_hb_CrapPool, ptr %.sroa.097.0146.i.i
-  %.not.i.i1.i.i.i.i70.not.not.i.i = icmp eq i32 %.sroa.14.0149.i.i, 0
-  %188 = or i1 %.not.i.i1.i.i.i.i70.not.not.i.i, %.not.i.i.i.i.i.i67.not.not.i.i
+  %.not.i.i.i.i.i.i67.not.i.i = icmp eq i32 %.sroa.5.0147.i.i, 0
+  %.0.i.i.i.i.i.i69.i.i = select i1 %.not.i.i.i.i.i.i67.not.i.i, ptr @_hb_CrapPool, ptr %.sroa.097.0146.i.i
+  %.not.i.i1.i.i.i.i70.not.i.i = icmp eq i32 %.sroa.14.0149.i.i, 0
+  %188 = or i1 %.not.i.i1.i.i.i.i70.not.i.i, %.not.i.i.i.i.i.i67.not.i.i
   br i1 %188, label %189, label %190
 
 189:                                              ; preds = %_ZNK9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EdeEv.exit.i.i.i.i68.i.i
@@ -7239,10 +7239,10 @@ _ZNR9hb_iter_tI17hb_sorted_array_tIN2OT11HBGlyphID16EERS2_EppEv.exit.i.i.i.i73.i
   %200 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i.i
   store i16 %191, ptr %200, align 1
   %201 = add i16 %.028150.i.i, 1
-  %.sroa.097.1.idx.i.i = select i1 %.not.i.i.i.i.i.i67.not.not.i.i, i64 0, i64 2
+  %.sroa.097.1.idx.i.i = select i1 %.not.i.i.i.i.i.i67.not.i.i, i64 0, i64 2
   %.sroa.097.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.097.0146.i.i, i64 %.sroa.097.1.idx.i.i
   %.sroa.5.1.i.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.5.0147.i.i, i32 1)
-  %.sroa.11.1.idx.i.i = select i1 %.not.i.i1.i.i.i.i70.not.not.i.i, i64 0, i64 2
+  %.sroa.11.1.idx.i.i = select i1 %.not.i.i1.i.i.i.i70.not.i.i, i64 0, i64 2
   %.sroa.11.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.11.0148.i.i, i64 %.sroa.11.1.idx.i.i
   %.sroa.14.1.i.i = tail call i32 @llvm.usub.sat.i32(i32 %.sroa.14.0149.i.i, i32 1)
   %.not.i.i.i64.i.i = icmp ne ptr %.sroa.097.1.i.i, %131

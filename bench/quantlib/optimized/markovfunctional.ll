@@ -4095,10 +4095,10 @@ entry:
   %1 = lshr exact i32 %and, 2
   %2 = or i32 %0, %1
   %3 = and i32 %2, 144
-  %or.cond.not.not = icmp eq i32 %3, 144
+  %or.cond.not = icmp eq i32 %3, 144
   %or.i49 = or i32 %2, 64
-  %4 = select i1 %or.cond.not.not, i32 %or.i49, i32 %2
-  %5 = or i1 %cmp.not, %or.cond.not.not
+  %4 = select i1 %or.cond.not, i32 %or.i49, i32 %2
+  %5 = or i1 %cmp.not, %or.cond.not
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %entry

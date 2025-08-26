@@ -2249,7 +2249,7 @@ zmq_getsockopt.exit:                              ; preds = %_ZL16as_socket_base
 select.unfold:                                    ; preds = %select.unfold.outer, %263
   %.0122 = phi i1 [ false, %263 ], [ %.0122.ph, %select.unfold.outer ]
   %199 = invoke noundef i32 @_ZN3zmq15compute_timeoutEblmm(i1 noundef zeroext %.0122, i64 noundef %2, i64 noundef %.0133.ph, i64 noundef %.0131.ph.ph)
-          to label %200 unwind label %.loopexit395
+          to label %200 unwind label %.loopexit393
 
 200:                                              ; preds = %select.unfold
   %201 = load ptr, ptr %163, align 8, !tbaa !44
@@ -2266,18 +2266,18 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %208 = icmp eq i32 %207, 4
   br i1 %208, label %.thread247, label %.thread232
 
-.loopexit395:                                     ; preds = %select.unfold
+.loopexit393:                                     ; preds = %select.unfold
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %269
-  %lpad.loopexit397 = landingpad { ptr, i32 }
+  %lpad.loopexit395 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %265
-  %lpad.loopexit.split-lp398 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp396 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -2288,7 +2288,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 
 211:                                              ; preds = %203
   %212 = icmp slt i32 %202, 0
-  br i1 %212, label %..thread232_crit_edge, label %.preheader394, !prof !51
+  br i1 %212, label %..thread232_crit_edge, label %.preheader392, !prof !51
 
 ..thread232_crit_edge:                            ; preds = %211
   %.pre322 = tail call ptr @__errno_location() #20
@@ -2303,9 +2303,9 @@ select.unfold:                                    ; preds = %select.unfold.outer
   %217 = load ptr, ptr @stderr, align 8, !tbaa !11
   %218 = call i32 @fflush(ptr noundef %217)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %214)
-          to label %.preheader394 unwind label %219
+          to label %.preheader392 unwind label %219
 
-.preheader394:                                    ; preds = %211, %.thread232
+.preheader392:                                    ; preds = %211, %.thread232
   br label %221
 
 219:                                              ; preds = %.thread232
@@ -2313,9 +2313,9 @@ select.unfold:                                    ; preds = %select.unfold.outer
           cleanup
   br label %.loopexit.split-lp
 
-221:                                              ; preds = %.preheader394, %259
-  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %259 ], [ 0, %.preheader394 ]
-  %.2120289 = phi i32 [ %spec.select, %259 ], [ 0, %.preheader394 ]
+221:                                              ; preds = %.preheader392, %259
+  %indvars.iv315 = phi i64 [ %indvars.iv.next316, %259 ], [ 0, %.preheader392 ]
+  %.2120289 = phi i32 [ %spec.select, %259 ], [ 0, %.preheader392 ]
   %222 = getelementptr inbounds nuw %struct.zmq_pollitem_t, ptr %0, i64 %indvars.iv315
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 14
   store i16 0, ptr %223, align 2, !tbaa !31
@@ -2412,8 +2412,8 @@ condstore.split:                                  ; preds = %221
   %spec.select367 = or disjoint i16 %254, %256
   %.not160 = icmp ugt i16 %250, 7
   %spec.select369 = select i1 %.not160, i16 1, i16 %spec.select367
-  %.not372 = icmp eq i16 %250, 0
-  br i1 %.not372, label %259, label %257
+  %.not370 = icmp eq i16 %250, 0
+  br i1 %.not370, label %259, label %257
 
 257:                                              ; preds = %condstore.split
   %258 = or disjoint i16 %spec.select367, 4
@@ -2490,8 +2490,8 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit:    ; preds = %.thread247, %274
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %278
 
-.loopexit.split-lp:                               ; preds = %.loopexit395, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %229, %219, %209, %175
-  %.pn168.pn = phi { ptr, i32 } [ %176, %175 ], [ %230, %229 ], [ %220, %219 ], [ %210, %209 ], [ %lpad.loopexit, %.loopexit395 ], [ %lpad.loopexit397, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp398, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit393, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %229, %219, %209, %175
+  %.pn168.pn = phi { ptr, i32 } [ %176, %175 ], [ %230, %229 ], [ %220, %219 ], [ %210, %209 ], [ %lpad.loopexit, %.loopexit393 ], [ %lpad.loopexit395, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp396, %.loopexit.split-lp.loopexit.split-lp ]
   %275 = load ptr, ptr %163, align 8, !tbaa !44
   %.not.i182 = icmp eq ptr %275, %6
   %276 = icmp eq ptr %275, null

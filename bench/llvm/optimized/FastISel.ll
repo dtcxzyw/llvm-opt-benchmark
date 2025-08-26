@@ -5249,8 +5249,8 @@ _ZL14getReturnAttrsRN4llvm8FastISel16CallLoweringInfoE.exit: ; preds = %47, %56
   %.lobit = and i8 %114, 1
   store i8 %.lobit, ptr %82, align 8, !tbaa !550
   %115 = and i8 %113, 11
-  %.not234 = icmp eq i8 %115, 0
-  br i1 %.not234, label %124, label %116
+  %.not233 = icmp eq i8 %115, 0
+  br i1 %.not233, label %124, label %116
 
 116:                                              ; preds = %.lr.ph
   %117 = and i8 %113, 8

@@ -3391,14 +3391,14 @@ define range(i32 -1, 1) i32 @evbuffer_drain(ptr noundef %0, i64 noundef %1) loca
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
-  br i1 %11, label %65, label %12
+  br i1 %11, label %67, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i8, ptr %13, align 8
   %15 = and i8 %14, 2
   %.not62 = icmp eq i8 %15, 0
-  br i1 %.not62, label %16, label %65
+  br i1 %.not62, label %16, label %67
 
 16:                                               ; preds = %12
   %.not63 = icmp ult i64 %1, %10
@@ -3434,7 +3434,7 @@ HAS_PINNED_R.exit.thread:                         ; preds = %17, %HAS_PINNED_R.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %0, ptr %24, align 8
   store i64 0, ptr %9, align 8
-  br label %61
+  br label %63
 
 25:                                               ; preds = %HAS_PINNED_R.exit, %16
   %spec.select = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
@@ -3450,90 +3450,90 @@ HAS_PINNED_R.exit.thread:                         ; preds = %17, %HAS_PINNED_R.e
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %31
 
-31:                                               ; preds = %.lr.ph83, %50
-  %32 = phi i64 [ %29, %.lr.ph83 ], [ %52, %50 ]
-  %.05381 = phi i64 [ %spec.select, %.lr.ph83 ], [ %34, %50 ]
-  %.15680 = phi ptr [ %27, %.lr.ph83 ], [ %33, %50 ]
+31:                                               ; preds = %.lr.ph83, %52
+  %32 = phi i64 [ %29, %.lr.ph83 ], [ %54, %52 ]
+  %.05381 = phi i64 [ %spec.select, %.lr.ph83 ], [ %34, %52 ]
+  %.15680 = phi ptr [ %27, %.lr.ph83 ], [ %33, %52 ]
   %33 = load ptr, ptr %.15680, align 8
   %34 = sub nuw i64 %.05381, %32
   %35 = load ptr, ptr %30, align 8
   %36 = load ptr, ptr %35, align 8
-  %.not101 = icmp eq ptr %.15680, %36
-  %37 = select i1 %.not101, ptr %0, ptr %35
-  %.not102 = icmp eq ptr %.15680, %37
-  %38 = or i1 %.not101, %.not102
-  br i1 %38, label %39, label %40
+  %37 = icmp eq ptr %.15680, %36
+  %38 = select i1 %37, ptr %0, ptr %35
+  %39 = icmp eq ptr %.15680, %38
+  %40 = or i1 %37, %39
+  br i1 %40, label %41, label %42
 
-39:                                               ; preds = %31
-  %simplifycfg.merge = select i1 %.not102, ptr %0, ptr %37
+41:                                               ; preds = %31
+  %simplifycfg.merge = select i1 %39, ptr %0, ptr %38
   store ptr %simplifycfg.merge, ptr %30, align 8
-  br label %40
+  br label %42
 
-40:                                               ; preds = %31, %39
-  %41 = getelementptr inbounds nuw i8, ptr %.15680, i64 32
-  %42 = load i32, ptr %41, align 8
-  %43 = and i32 %42, 16
-  %.not67 = icmp eq i32 %43, 0
-  br i1 %.not67, label %50, label %44
+42:                                               ; preds = %31, %41
+  %43 = getelementptr inbounds nuw i8, ptr %.15680, i64 32
+  %44 = load i32, ptr %43, align 8
+  %45 = and i32 %44, 16
+  %.not67 = icmp eq i32 %45, 0
+  br i1 %.not67, label %52, label %46
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %.15680, i64 24
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.15680, i64 16
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %.15680, i64 24
   %48 = load i64, ptr %47, align 8
-  %49 = add i64 %48, %46
-  store i64 %49, ptr %47, align 8
-  store i64 0, ptr %45, align 8
-  br label %54
+  %49 = getelementptr inbounds nuw i8, ptr %.15680, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = add i64 %50, %48
+  store i64 %51, ptr %49, align 8
+  store i64 0, ptr %47, align 8
+  br label %56
 
-50:                                               ; preds = %40
+52:                                               ; preds = %42
   tail call fastcc void @evbuffer_chain_free(ptr noundef nonnull %.15680)
-  %51 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %52 = load i64, ptr %51, align 8
-  %.not66 = icmp ult i64 %34, %52
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %54 = load i64, ptr %53, align 8
+  %.not66 = icmp ult i64 %34, %54
   br i1 %.not66, label %.loopexit, label %31, !llvm.loop !21
 
-.loopexit:                                        ; preds = %50, %25
-  %.156.lcssa78 = phi ptr [ %27, %25 ], [ %33, %50 ]
-  %.053.lcssa = phi i64 [ %spec.select, %25 ], [ %34, %50 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.156.lcssa78, i64 24
-  br label %54
+.loopexit:                                        ; preds = %52, %25
+  %.156.lcssa78 = phi ptr [ %27, %25 ], [ %33, %52 ]
+  %.053.lcssa = phi i64 [ %spec.select, %25 ], [ %34, %52 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.156.lcssa78, i64 24
+  br label %56
 
-54:                                               ; preds = %.loopexit, %44
-  %.15673 = phi ptr [ %.15680, %44 ], [ %.156.lcssa78, %.loopexit ]
-  %55 = phi ptr [ %45, %44 ], [ %53, %.loopexit ]
-  %.154 = phi i64 [ %34, %44 ], [ %.053.lcssa, %.loopexit ]
+56:                                               ; preds = %.loopexit, %46
+  %.15673 = phi ptr [ %.15680, %46 ], [ %.156.lcssa78, %.loopexit ]
+  %57 = phi ptr [ %47, %46 ], [ %55, %.loopexit ]
+  %.154 = phi i64 [ %34, %46 ], [ %.053.lcssa, %.loopexit ]
   store ptr %.15673, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.15673, i64 16
-  %57 = load i64, ptr %56, align 8
-  %58 = add i64 %57, %.154
-  store i64 %58, ptr %56, align 8
-  %59 = load i64, ptr %55, align 8
-  %60 = sub i64 %59, %.154
-  store i64 %60, ptr %55, align 8
-  br label %61
+  %58 = getelementptr inbounds nuw i8, ptr %.15673, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = add i64 %59, %.154
+  store i64 %60, ptr %58, align 8
+  %61 = load i64, ptr %57, align 8
+  %62 = sub i64 %61, %.154
+  store i64 %62, ptr %57, align 8
+  br label %63
 
-61:                                               ; preds = %54, %._crit_edge
-  %.052 = phi i64 [ %spec.select, %54 ], [ %10, %._crit_edge ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %63 = load i64, ptr %62, align 8
-  %64 = add i64 %63, %.052
-  store i64 %64, ptr %62, align 8
+63:                                               ; preds = %56, %._crit_edge
+  %.052 = phi i64 [ %spec.select, %56 ], [ %10, %._crit_edge ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %65 = load i64, ptr %64, align 8
+  %66 = add i64 %65, %.052
+  store i64 %66, ptr %64, align 8
   tail call void @evbuffer_invoke_callbacks_(ptr noundef nonnull %0)
-  br label %65
+  br label %67
 
-65:                                               ; preds = %12, %8, %61
-  %.0 = phi i32 [ 0, %8 ], [ 0, %61 ], [ -1, %12 ]
-  %66 = load ptr, ptr %3, align 8
-  %.not68 = icmp eq ptr %66, null
-  br i1 %.not68, label %70, label %67
+67:                                               ; preds = %12, %8, %63
+  %.0 = phi i32 [ 0, %8 ], [ 0, %63 ], [ -1, %12 ]
+  %68 = load ptr, ptr %3, align 8
+  %.not68 = icmp eq ptr %68, null
+  br i1 %.not68, label %72, label %69
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %69 = tail call i32 %68(i32 noundef 0, ptr noundef nonnull %66) #16
-  br label %70
+69:                                               ; preds = %67
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %71 = tail call i32 %70(i32 noundef 0, ptr noundef nonnull %68) #16
+  br label %72
 
-70:                                               ; preds = %67, %65
+72:                                               ; preds = %69, %67
   ret i32 %.0
 }
 

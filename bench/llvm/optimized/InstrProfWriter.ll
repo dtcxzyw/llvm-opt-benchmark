@@ -5616,8 +5616,8 @@ _ZN4llvm15SmallVectorImplISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15Instr
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 5272
   %173 = load i32, ptr %172, align 8, !tbaa !60
   %174 = and i32 %173, 510
-  %.not452 = icmp eq i32 %174, 0
-  br i1 %.not452, label %198, label %178
+  %.not446 = icmp eq i32 %174, 0
+  br i1 %.not446, label %198, label %178
 
 .lr.ph277:                                        ; preds = %_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEELj2EEENS_10less_firstEEEvOT_T0_.exit, %.lr.ph277
   %.092276 = phi ptr [ %177, %.lr.ph277 ], [ %144, %_ZN4llvm4sortIRNS_11SmallVectorISt4pairINS_9StringRefEPKNS_13SmallDenseMapImNS_15InstrProfRecordELj4ENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEELj2EEENS_10less_firstEEEvOT_T0_.exit ]

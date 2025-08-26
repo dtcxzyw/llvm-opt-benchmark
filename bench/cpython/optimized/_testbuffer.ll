@@ -1844,42 +1844,42 @@ ptr_from_index.exit:                              ; preds = %18, %27, %30
 
 85:                                               ; preds = %82, %79
   %.not.i35 = phi i1 [ %84, %82 ], [ true, %79 ]
-  %.not45 = icmp ne i32 %73, 0
-  %.not46 = and i1 %.not45, %.not.i35
-  br i1 %.not46, label %90, label %86
+  %86 = icmp ne i32 %73, 0
+  %.not46 = and i1 %86, %.not.i35
+  br i1 %.not46, label %91, label %87
 
-86:                                               ; preds = %85
-  %87 = or disjoint i32 %62, 8
-  %88 = select i1 %.not45, i32 %62, i32 %87
-  %89 = or disjoint i32 %88, 16
-  %simplifycfg.merge = select i1 %.not.i35, i32 %88, i32 %89
+87:                                               ; preds = %85
+  %88 = or disjoint i32 %62, 8
+  %89 = select i1 %86, i32 %62, i32 %88
+  %90 = or disjoint i32 %89, 16
+  %simplifycfg.merge = select i1 %.not.i35, i32 %89, i32 %90
   store i32 %simplifycfg.merge, ptr %63, align 8, !tbaa !46
-  br label %90
+  br label %91
 
-90:                                               ; preds = %85, %86
-  %91 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %47, i8 noundef signext 67) #14
-  %.not8.i = icmp eq i32 %91, 0
-  br i1 %.not8.i, label %95, label %92
+91:                                               ; preds = %85, %87
+  %92 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %47, i8 noundef signext 67) #14
+  %.not8.i = icmp eq i32 %92, 0
+  br i1 %.not8.i, label %96, label %93
 
-92:                                               ; preds = %90
-  %93 = load i32, ptr %63, align 8, !tbaa !46
-  %94 = or i32 %93, 256
-  store i32 %94, ptr %63, align 8, !tbaa !46
-  br label %95
+93:                                               ; preds = %91
+  %94 = load i32, ptr %63, align 8, !tbaa !46
+  %95 = or i32 %94, 256
+  store i32 %95, ptr %63, align 8, !tbaa !46
+  br label %96
 
-95:                                               ; preds = %92, %90
-  %96 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %47, i8 noundef signext 70) #14
-  %.not9.i = icmp eq i32 %96, 0
-  br i1 %.not9.i, label %Py_DECREF.exit, label %97
+96:                                               ; preds = %93, %91
+  %97 = tail call i32 @PyBuffer_IsContiguous(ptr noundef nonnull %47, i8 noundef signext 70) #14
+  %.not9.i = icmp eq i32 %97, 0
+  br i1 %.not9.i, label %Py_DECREF.exit, label %98
 
-97:                                               ; preds = %95
-  %98 = load i32, ptr %63, align 8, !tbaa !46
-  %99 = or i32 %98, 4
-  store i32 %99, ptr %63, align 8, !tbaa !46
+98:                                               ; preds = %96
+  %99 = load i32, ptr %63, align 8, !tbaa !46
+  %100 = or i32 %99, 4
+  store i32 %100, ptr %63, align 8, !tbaa !46
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %41, %97, %95, %55, %52, %50, %ptr_from_index.exit.thread, %ptr_from_index.exit, %36, %8
-  %.0 = phi ptr [ null, %8 ], [ %40, %36 ], [ null, %ptr_from_index.exit ], [ null, %ptr_from_index.exit.thread ], [ null, %50 ], [ null, %52 ], [ null, %55 ], [ %42, %95 ], [ %42, %97 ], [ null, %41 ]
+Py_DECREF.exit:                                   ; preds = %41, %98, %96, %55, %52, %50, %ptr_from_index.exit.thread, %ptr_from_index.exit, %36, %8
+  %.0 = phi ptr [ null, %8 ], [ %40, %36 ], [ null, %ptr_from_index.exit ], [ null, %ptr_from_index.exit.thread ], [ null, %50 ], [ null, %52 ], [ null, %55 ], [ %42, %96 ], [ %42, %98 ], [ null, %41 ]
   ret ptr %.0
 }
 

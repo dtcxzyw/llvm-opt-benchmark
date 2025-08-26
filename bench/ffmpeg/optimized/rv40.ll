@@ -1054,7 +1054,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %70 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.not263.not = icmp eq i32 %1, 0
+  %.not263 = icmp eq i32 %1, 0
   %73 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %75 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1221,7 +1221,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %191 = and i32 %190, 61166
   %spec.select299 = select i1 %.not, i32 %191, i32 %190
   %192 = and i32 %183, -16
-  %.0258 = select i1 %.not263.not, i32 %192, i32 %183
+  %.0258 = select i1 %.not263, i32 %192, i32 %183
   %193 = icmp eq i32 %1, %109
   %.pre383.pre = load i32, ptr %20, align 16
   %.pre384.pre = load i32, ptr %73, align 4
@@ -1245,7 +1245,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %.pre-phi = phi i1 [ %.pre385.pre-phi, %196 ], [ false, %195 ]
   %.1259 = phi i32 [ %197, %196 ], [ %.0258, %195 ]
   %brmerge = select i1 %193, i1 true, i1 %.pre-phi
-  %199 = or i1 %.not263.not, %brmerge
+  %199 = or i1 %.not263, %brmerge
   br label %207
 
 .preheader339:                                    ; preds = %236
@@ -1300,7 +1300,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 
 232:                                              ; preds = %231
   %233 = and i32 %228, -4
-  %234 = select i1 %.not263.not, i32 %233, i32 %228
+  %234 = select i1 %.not263, i32 %233, i32 %228
   %235 = and i32 %234, -49
   %simplifycfg.merge = select i1 %brmerge, i32 %235, i32 %234
   store i32 %simplifycfg.merge, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71

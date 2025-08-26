@@ -2555,9 +2555,9 @@ define dso_local void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef in
   %84 = icmp slt i16 %83, 1
   %85 = and i32 %60, 67108864
   %.not587 = icmp ne i32 %85, 0
-  %or.cond636.not.not.not769 = or i1 %.not587, %84
-  %.not767 = and i1 %or.cond636.not.not.not769, %brmerge
-  br i1 %.not767, label %87, label %86
+  %or.cond636.not767 = or i1 %.not587, %84
+  %.not765 = and i1 %or.cond636.not767, %brmerge
+  br i1 %.not765, label %87, label %86
 
 86:                                               ; preds = %78
   store i8 1, ptr %36, align 1, !tbaa !288

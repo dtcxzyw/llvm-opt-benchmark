@@ -386,12 +386,12 @@ define dso_local void @diff_merges_default_to_first_parent(ptr noundef captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2251799813685248
-  %.not.not = icmp eq i64 %4, 0
+  %.not = icmp eq i64 %4, 0
   %5 = or i64 %3, 18014398509481984
-  %6 = select i1 %.not.not, i64 %5, i64 %3
+  %6 = select i1 %.not, i64 %5, i64 %3
   %7 = and i64 %6, 18014398509481984
   %.not4 = icmp ne i64 %7, 0
-  %8 = or i1 %.not.not, %.not4
+  %8 = or i1 %.not, %.not4
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
@@ -445,56 +445,56 @@ define dso_local void @diff_merges_setup_revs(ptr noundef captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 36028797018963968
-  %.not = icmp eq i64 %4, 0
-  %5 = and i64 %3, -180143985094819841
-  %6 = select i1 %.not, i64 %5, i64 %3
-  %7 = and i64 %6, 18014398509481984
-  %.not18 = icmp eq i64 %7, 0
-  %8 = and i64 %6, -306244774661193729
-  %9 = select i1 %.not18, i64 %8, i64 %6
-  %10 = or i1 %.not, %.not18
-  br i1 %10, label %11, label %12
+  %5 = icmp eq i64 %4, 0
+  %6 = and i64 %3, -180143985094819841
+  %7 = select i1 %5, i64 %6, i64 %3
+  %8 = and i64 %7, 18014398509481984
+  %9 = icmp eq i64 %8, 0
+  %10 = and i64 %7, -306244774661193729
+  %11 = select i1 %9, i64 %10, i64 %7
+  %12 = or i1 %5, %9
+  br i1 %12, label %13, label %14
 
-11:                                               ; preds = %1
-  store i64 %9, ptr %2, align 8
-  br label %12
+13:                                               ; preds = %1
+  store i64 %11, ptr %2, align 8
+  br label %14
 
-12:                                               ; preds = %1, %11
-  %13 = and i64 %9, 108086391056891904
-  %or.cond = icmp eq i64 %13, 72057594037927936
-  br i1 %or.cond, label %14, label %15
+14:                                               ; preds = %1, %13
+  %15 = and i64 %11, 108086391056891904
+  %or.cond = icmp eq i64 %15, 72057594037927936
+  br i1 %or.cond, label %16, label %17
 
-14:                                               ; preds = %12
+16:                                               ; preds = %14
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.8) #13
   unreachable
 
-15:                                               ; preds = %12
-  %16 = and i64 %9, 9007199254740992
-  %.not13 = icmp eq i64 %16, 0
-  br i1 %.not13, label %19, label %17
+17:                                               ; preds = %14
+  %18 = and i64 %11, 9007199254740992
+  %.not13 = icmp eq i64 %18, 0
+  br i1 %.not13, label %21, label %19
 
-17:                                               ; preds = %15
-  %18 = or i64 %9, 17592186044416
-  store i64 %18, ptr %2, align 8
-  br label %19
+19:                                               ; preds = %17
+  %20 = or i64 %11, 17592186044416
+  store i64 %20, ptr %2, align 8
+  br label %21
 
-19:                                               ; preds = %17, %15
-  %20 = phi i64 [ %18, %17 ], [ %9, %15 ]
-  %21 = and i64 %20, 13510798882111488
-  %or.cond17 = icmp eq i64 %21, 0
-  br i1 %or.cond17, label %26, label %22
+21:                                               ; preds = %19, %17
+  %22 = phi i64 [ %20, %19 ], [ %11, %17 ]
+  %23 = and i64 %22, 13510798882111488
+  %or.cond17 = icmp eq i64 %23, 0
+  br i1 %or.cond17, label %28, label %24
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1748
-  %24 = load i32, ptr %23, align 4, !tbaa !10
-  %.not16 = icmp eq i32 %24, 0
-  br i1 %.not16, label %25, label %26
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1748
+  %26 = load i32, ptr %25, align 4, !tbaa !10
+  %.not16 = icmp eq i32 %26, 0
+  br i1 %.not16, label %27, label %28
 
-25:                                               ; preds = %22
-  store i32 16, ptr %23, align 4, !tbaa !10
-  br label %26
+27:                                               ; preds = %24
+  store i32 16, ptr %25, align 4, !tbaa !10
+  br label %28
 
-26:                                               ; preds = %19, %22, %25
+28:                                               ; preds = %21, %24, %27
   ret void
 }
 

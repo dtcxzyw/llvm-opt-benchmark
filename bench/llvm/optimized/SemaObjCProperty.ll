@@ -2888,8 +2888,8 @@ _ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ;
 424:                                              ; preds = %.sink.split, %413
   %425 = phi i64 [ %420, %413 ], [ %423, %.sink.split ]
   %426 = and i32 %11, 28672
-  %.not332 = icmp eq i32 %426, 0
-  br i1 %.not332, label %435, label %427
+  %.not331 = icmp eq i32 %426, 0
+  br i1 %.not331, label %435, label %427
 
 427:                                              ; preds = %424
   %428 = and i32 %11, 4096

@@ -31978,66 +31978,66 @@ _ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_t
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %87, ptr %88, align 4, !tbaa !396
   %89 = load i32, ptr %0, align 8, !tbaa !440
-  %.not = icmp ugt i32 %89, %87
-  br i1 %.not, label %90, label %91, !prof !33
+  %90 = icmp ugt i32 %89, %87
+  br i1 %90, label %91, label %92, !prof !33
 
-90:                                               ; preds = %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
-  br label %91
+91:                                               ; preds = %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
+  br label %92
 
-91:                                               ; preds = %90, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
-  %92 = phi i32 [ %89, %90 ], [ %87, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit ]
-  %93 = sub i32 %92, %89
-  %94 = shl i32 %93, 1
-  %.not64 = icmp ugt i32 %94, %60
-  br i1 %.not64, label %95, label %98, !prof !33
+92:                                               ; preds = %91, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
+  %93 = phi i32 [ %89, %91 ], [ %87, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit ]
+  %94 = sub i32 %93, %89
+  %95 = shl i32 %94, 1
+  %96 = icmp ugt i32 %95, %60
+  br i1 %96, label %97, label %100, !prof !33
 
-95:                                               ; preds = %91
-  %96 = lshr exact i32 %60, 1
-  %97 = add i32 %89, %96
-  br label %98
+97:                                               ; preds = %92
+  %98 = lshr exact i32 %60, 1
+  %99 = add i32 %89, %98
+  br label %100
 
-98:                                               ; preds = %95, %91
-  %99 = phi i32 [ %97, %95 ], [ %92, %91 ]
-  %.not65.not = or i1 %.not, %.not64
-  %.not19.not = icmp eq i32 %89, 0
-  br i1 %.not19.not, label %100, label %101, !prof !33
+100:                                              ; preds = %97, %92
+  %101 = phi i32 [ %99, %97 ], [ %93, %92 ]
+  %102 = or i1 %90, %96
+  %.not19 = icmp eq i32 %89, 0
+  br i1 %.not19, label %103, label %104, !prof !33
 
-100:                                              ; preds = %98
-  br label %101
+103:                                              ; preds = %100
+  br label %104
 
-101:                                              ; preds = %100, %98
-  %102 = phi i32 [ 0, %100 ], [ %99, %98 ]
-  %103 = or i1 %.not65.not, %.not19.not
-  br i1 %103, label %104, label %105
+104:                                              ; preds = %103, %100
+  %105 = phi i32 [ 0, %103 ], [ %101, %100 ]
+  %106 = or i1 %102, %.not19
+  br i1 %106, label %107, label %108
 
-104:                                              ; preds = %101
-  store i32 %102, ptr %88, align 4, !tbaa !396
-  br label %105
+107:                                              ; preds = %104
+  store i32 %105, ptr %88, align 4, !tbaa !396
+  br label %108
 
-105:                                              ; preds = %101, %104
-  %106 = lshr exact i32 %60, 1
-  %.neg = add i32 %89, %106
-  %107 = sub i32 %.neg, %99
-  %108 = and i32 %107, 2147483647
-  %109 = add i32 %102, %108
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %109, ptr %110, align 8, !tbaa !441
-  %111 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %112 = load atomic i32, ptr %111 monotonic, align 4
-  %113 = icmp eq i32 %112, -1
-  br i1 %113, label %114, label %_ZNK9hb_face_t14get_num_glyphsEv.exit, !prof !33
+108:                                              ; preds = %104, %107
+  %109 = lshr exact i32 %60, 1
+  %.neg = add i32 %89, %109
+  %110 = sub i32 %.neg, %101
+  %111 = and i32 %110, 2147483647
+  %112 = add i32 %105, %111
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %112, ptr %113, align 8, !tbaa !441
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %115 = load atomic i32, ptr %114 monotonic, align 4
+  %116 = icmp eq i32 %115, -1
+  br i1 %116, label %117, label %_ZNK9hb_face_t14get_num_glyphsEv.exit, !prof !33
 
-114:                                              ; preds = %105
-  %115 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(440) %1) #20
-  %.pre = load i32, ptr %110, align 8, !tbaa !441
+117:                                              ; preds = %108
+  %118 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(440) %1) #20
+  %.pre = load i32, ptr %113, align 8, !tbaa !441
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
-_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %105, %114
-  %116 = phi i32 [ %.pre, %114 ], [ %109, %105 ]
-  %.0.i = phi i32 [ %115, %114 ], [ %112, %105 ]
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %.0.i, i32 %116)
-  store i32 %spec.store.select, ptr %117, align 4
+_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %108, %117
+  %119 = phi i32 [ %.pre, %117 ], [ %112, %108 ]
+  %.0.i = phi i32 [ %118, %117 ], [ %115, %108 ]
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %.0.i, i32 %119)
+  store i32 %spec.store.select, ptr %120, align 4
   ret void
 }
 
@@ -33004,66 +33004,66 @@ _ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_t
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %86, ptr %87, align 4, !tbaa !404
   %88 = load i32, ptr %0, align 8, !tbaa !462
-  %.not = icmp ugt i32 %88, %86
-  br i1 %.not, label %89, label %90, !prof !33
+  %89 = icmp ugt i32 %88, %86
+  br i1 %89, label %90, label %91, !prof !33
 
-89:                                               ; preds = %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
-  br label %90
+90:                                               ; preds = %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
+  br label %91
 
-90:                                               ; preds = %89, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
-  %91 = phi i32 [ %88, %89 ], [ %86, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit ]
-  %92 = sub i32 %91, %88
-  %93 = shl i32 %92, 1
-  %.not64 = icmp ugt i32 %93, %59
-  br i1 %.not64, label %94, label %97, !prof !33
+91:                                               ; preds = %90, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit
+  %92 = phi i32 [ %88, %90 ], [ %86, %_ZNK16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tLj2E9hb_blob_tEptEv.exit ]
+  %93 = sub i32 %92, %88
+  %94 = shl i32 %93, 1
+  %95 = icmp ugt i32 %94, %59
+  br i1 %95, label %96, label %99, !prof !33
 
-94:                                               ; preds = %90
-  %95 = lshr exact i32 %59, 1
-  %96 = add i32 %88, %95
-  br label %97
+96:                                               ; preds = %91
+  %97 = lshr exact i32 %59, 1
+  %98 = add i32 %88, %97
+  br label %99
 
-97:                                               ; preds = %94, %90
-  %98 = phi i32 [ %96, %94 ], [ %91, %90 ]
-  %.not65.not = or i1 %.not, %.not64
-  %.not19.not = icmp eq i32 %88, 0
-  br i1 %.not19.not, label %99, label %100, !prof !33
+99:                                               ; preds = %96, %91
+  %100 = phi i32 [ %98, %96 ], [ %92, %91 ]
+  %101 = or i1 %89, %95
+  %.not19 = icmp eq i32 %88, 0
+  br i1 %.not19, label %102, label %103, !prof !33
 
-99:                                               ; preds = %97
-  br label %100
+102:                                              ; preds = %99
+  br label %103
 
-100:                                              ; preds = %99, %97
-  %101 = phi i32 [ 0, %99 ], [ %98, %97 ]
-  %102 = or i1 %.not65.not, %.not19.not
-  br i1 %102, label %103, label %104
+103:                                              ; preds = %102, %99
+  %104 = phi i32 [ 0, %102 ], [ %100, %99 ]
+  %105 = or i1 %101, %.not19
+  br i1 %105, label %106, label %107
 
-103:                                              ; preds = %100
-  store i32 %101, ptr %87, align 4, !tbaa !404
-  br label %104
+106:                                              ; preds = %103
+  store i32 %104, ptr %87, align 4, !tbaa !404
+  br label %107
 
-104:                                              ; preds = %100, %103
-  %105 = lshr exact i32 %59, 1
-  %.neg = add i32 %88, %105
-  %106 = sub i32 %.neg, %98
-  %107 = and i32 %106, 2147483647
-  %108 = add i32 %101, %107
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %108, ptr %109, align 8, !tbaa !463
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %111 = load atomic i32, ptr %110 monotonic, align 4
-  %112 = icmp eq i32 %111, -1
-  br i1 %112, label %113, label %_ZNK9hb_face_t14get_num_glyphsEv.exit, !prof !33
+107:                                              ; preds = %103, %106
+  %108 = lshr exact i32 %59, 1
+  %.neg = add i32 %88, %108
+  %109 = sub i32 %.neg, %100
+  %110 = and i32 %109, 2147483647
+  %111 = add i32 %104, %110
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %111, ptr %112, align 8, !tbaa !463
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %114 = load atomic i32, ptr %113 monotonic, align 4
+  %115 = icmp eq i32 %114, -1
+  br i1 %115, label %116, label %_ZNK9hb_face_t14get_num_glyphsEv.exit, !prof !33
 
-113:                                              ; preds = %104
-  %114 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(440) %1) #20
-  %.pre = load i32, ptr %109, align 8, !tbaa !463
+116:                                              ; preds = %107
+  %117 = call noundef i32 @_ZNK9hb_face_t15load_num_glyphsEv(ptr noundef nonnull align 8 dereferenceable(440) %1) #20
+  %.pre = load i32, ptr %112, align 8, !tbaa !463
   br label %_ZNK9hb_face_t14get_num_glyphsEv.exit
 
-_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %104, %113
-  %115 = phi i32 [ %.pre, %113 ], [ %108, %104 ]
-  %.0.i = phi i32 [ %114, %113 ], [ %111, %104 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %.0.i, i32 %115)
-  store i32 %spec.store.select, ptr %116, align 4
+_ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %107, %116
+  %118 = phi i32 [ %.pre, %116 ], [ %111, %107 ]
+  %.0.i = phi i32 [ %117, %116 ], [ %114, %107 ]
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %.0.i, i32 %118)
+  store i32 %spec.store.select, ptr %119, align 4
   ret void
 }
 

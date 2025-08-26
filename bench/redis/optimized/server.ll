@@ -8125,8 +8125,8 @@ define dso_local range(i32 -1, 1) i32 @populateCommandStructure(ptr noundef %0) 
   %41 = and i64 %3, 256
   %.not20.i = icmp ne i64 %41, 0
   %42 = and i64 %.pre.i, 16384
-  %.not21.i.not = icmp eq i64 %42, 0
-  %43 = or i1 %.not20.i, %.not21.i.not
+  %.not21.i = icmp eq i64 %42, 0
+  %43 = or i1 %.not20.i, %.not21.i
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %._crit_edge.i
@@ -8134,7 +8134,7 @@ define dso_local range(i32 -1, 1) i32 @populateCommandStructure(ptr noundef %0) 
   %45 = shl nuw nsw i64 %41, 8
   %46 = or i64 %.pre.i, %45
   %47 = or i64 %46, 32768
-  %simplifycfg.merge = select i1 %.not21.i.not, i64 %47, i64 %46
+  %simplifycfg.merge = select i1 %.not21.i, i64 %47, i64 %46
   store i64 %simplifycfg.merge, ptr %.phi.trans.insert.i, align 8, !tbaa !464
   br label %48
 

@@ -1234,7 +1234,7 @@ define dso_local ptr @nlm_bind_host(ptr noundef %0) local_unnamed_addr #0 align 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %10 = load i16, ptr %9, align 4
   %11 = icmp eq i16 %10, 17
-  br i1 %11, label %12, label %81
+  br i1 %11, label %12, label %82
 
 12:                                               ; preds = %8
   %13 = load volatile i64, ptr @jiffies, align 64
@@ -1242,14 +1242,14 @@ define dso_local ptr @nlm_bind_host(ptr noundef %0) local_unnamed_addr #0 align 
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %13, %15
   %17 = icmp sgt i64 %16, -1
-  br i1 %17, label %18, label %81
+  br i1 %17, label %18, label %82
 
 18:                                               ; preds = %12
   tail call void @rpc_force_rebind(ptr noundef nonnull %6) #9
   %19 = load volatile i64, ptr @jiffies, align 64
   %20 = add i64 %19, 60000
   store i64 %20, ptr %14, align 8
-  br label %81
+  br label %82
 
 21:                                               ; preds = %1
   %22 = load i64, ptr @nlmsvc_timeout, align 8
@@ -1317,54 +1317,54 @@ define dso_local ptr @nlm_bind_host(ptr noundef %0) local_unnamed_addr #0 align 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   %60 = load i8, ptr %59, align 2
   %61 = and i8 %60, 6
-  %.not3 = icmp eq i8 %61, 2
-  br i1 %.not3, label %66, label %62
+  %.not = icmp eq i8 %61, 2
+  br i1 %.not, label %67, label %62
 
 62:                                               ; preds = %21
   %63 = and i8 %60, 4
-  %.not4 = icmp eq i8 %63, 0
+  %.not3 = icmp eq i8 %63, 0
   %64 = and i8 %60, 2
-  %.not = icmp eq i8 %64, 0
-  %65 = select i1 %.not, i64 2077, i64 2076
-  %simplifycfg.merge = select i1 %.not4, i64 2069, i64 %65
+  %65 = icmp eq i8 %64, 0
+  %66 = select i1 %65, i64 2077, i64 2076
+  %simplifycfg.merge = select i1 %.not3, i64 2069, i64 %66
   store i64 %simplifycfg.merge, ptr %53, align 8
-  br label %66
+  br label %67
 
-66:                                               ; preds = %21, %62
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %68 = load i64, ptr %67, align 8
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %72, label %70
+67:                                               ; preds = %21, %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %73, label %71
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr %71, ptr %40, align 8
-  br label %72
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store ptr %72, ptr %40, align 8
+  br label %73
 
-72:                                               ; preds = %70, %66
-  %73 = call ptr @rpc_create(ptr noundef nonnull %3) #9
-  %74 = icmp ugt ptr %73, inttoptr (i64 -4096 to ptr)
-  br i1 %74, label %76, label %75
+73:                                               ; preds = %71, %67
+  %74 = call ptr @rpc_create(ptr noundef nonnull %3) #9
+  %75 = icmp ugt ptr %74, inttoptr (i64 -4096 to ptr)
+  br i1 %75, label %77, label %76
 
-75:                                               ; preds = %72
-  store ptr %73, ptr %5, align 8
-  br label %79
+76:                                               ; preds = %73
+  store ptr %74, ptr %5, align 8
+  br label %80
 
-76:                                               ; preds = %72
-  %77 = load ptr, ptr %43, align 8
-  %78 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %77) #12
-  br label %79
+77:                                               ; preds = %73
+  %78 = load ptr, ptr %43, align 8
+  %79 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %78) #12
+  br label %80
 
-79:                                               ; preds = %76, %75
-  %80 = phi ptr [ null, %76 ], [ %73, %75 ]
+80:                                               ; preds = %77, %76
+  %81 = phi ptr [ null, %77 ], [ %74, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %79, %18, %12, %8
-  %82 = phi ptr [ %80, %79 ], [ %6, %8 ], [ %6, %12 ], [ %6, %18 ]
+82:                                               ; preds = %80, %18, %12, %8
+  %83 = phi ptr [ %81, %80 ], [ %6, %8 ], [ %6, %12 ], [ %6, %18 ]
   call void @mutex_unlock(ptr noundef nonnull %4) #9
-  ret ptr %82
+  ret ptr %83
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -6725,7 +6725,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %7 = call ptr @dma_alloc_attrs(ptr noundef nonnull %6, i64 noundef 8192, ptr noundef nonnull %3, i32 noundef 3264, i64 noundef 0) #27
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %176, label %9
+  br i1 %8, label %178, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4844
@@ -6766,7 +6766,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
   %34 = load volatile i64, ptr %33, align 8
   %35 = and i64 %34, 4096
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %37, label %171
+  br i1 %36, label %37, label %173
 
 37:                                               ; preds = %30
   %38 = load volatile i64, ptr %32, align 8
@@ -6871,148 +6871,148 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
   %97 = icmp ult i32 %96, 2
   %98 = and i32 %94, -16
   %99 = select i1 %97, i32 %98, i32 %94
-  %.not61.not = or i1 %92, %97
-  %100 = and i32 %88, -4096
-  %101 = icmp eq i32 %100, 28672
-  %102 = icmp ult i32 %88, 4096
-  %.not63.not = or i1 %102, %101
-  %103 = or i32 %99, 12582912
-  %spec.select = select i1 %.not63.not, i32 %103, i32 %99
-  %104 = or i1 %.not61.not, %.not63.not
-  br i1 %104, label %105, label %106
+  %100 = or i1 %92, %97
+  %101 = and i32 %88, -4096
+  %102 = icmp eq i32 %101, 28672
+  %103 = icmp ult i32 %88, 4096
+  %104 = or i1 %103, %102
+  %105 = or i32 %99, 12582912
+  %spec.select = select i1 %104, i32 %105, i32 %99
+  %106 = or i1 %100, %104
+  br i1 %106, label %107, label %108
 
-105:                                              ; preds = %87
+107:                                              ; preds = %87
   store i32 %spec.select, ptr %10, align 4
-  br label %106
+  br label %108
 
-106:                                              ; preds = %87, %105
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %108 = load ptr, ptr %107, align 8
-  call void %108(ptr noundef %0, i32 noundef 108, i32 noundef %spec.select) #27
-  %109 = load i32, ptr %13, align 4
-  %110 = and i32 %109, -4096
-  %111 = icmp eq i32 %110, 28672
-  %112 = icmp ult i32 %109, 4096
-  %113 = or i1 %112, %111
-  br i1 %113, label %114, label %171
+108:                                              ; preds = %87, %107
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %110 = load ptr, ptr %109, align 8
+  call void %110(ptr noundef %0, i32 noundef 108, i32 noundef %spec.select) #27
+  %111 = load i32, ptr %13, align 4
+  %112 = and i32 %111, -4096
+  %113 = icmp eq i32 %112, 28672
+  %114 = icmp ult i32 %111, 4096
+  %115 = or i1 %114, %113
+  br i1 %115, label %116, label %173
 
-114:                                              ; preds = %106
-  %115 = load i32, ptr %10, align 4
-  %116 = and i32 %115, -14337
-  store i32 %116, ptr %10, align 4
-  %117 = load ptr, ptr %107, align 8
-  call void %117(ptr noundef %0, i32 noundef 108, i32 noundef %116) #27
+116:                                              ; preds = %108
+  %117 = load i32, ptr %10, align 4
+  %118 = and i32 %117, -14337
+  store i32 %118, ptr %10, align 4
+  %119 = load ptr, ptr %109, align 8
+  call void %119(ptr noundef %0, i32 noundef 108, i32 noundef %118) #27
   br label %.thread6
 
-.thread6:                                         ; preds = %.thread6.backedge, %114
-  %118 = phi i64 [ 0, %114 ], [ %.be, %.thread6.backedge ]
-  %119 = getelementptr i32, ptr %7, i64 %118
-  %120 = trunc i64 %118 to i32
-  store i32 %120, ptr %119, align 4
-  %121 = add nuw nsw i64 %118, 1
-  %122 = icmp eq i64 %121, 2048
-  br i1 %122, label %123, label %.thread6.backedge
+.thread6:                                         ; preds = %.thread6.backedge, %116
+  %120 = phi i64 [ 0, %116 ], [ %.be, %.thread6.backedge ]
+  %121 = getelementptr i32, ptr %7, i64 %120
+  %122 = trunc i64 %120 to i32
+  store i32 %122, ptr %121, align 4
+  %123 = add nuw nsw i64 %120, 1
+  %124 = icmp eq i64 %123, 2048
+  br i1 %124, label %125, label %.thread6.backedge
 
-123:                                              ; preds = %.thread6
-  %124 = load i64, ptr %3, align 8
-  %125 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %124, i1 noundef zeroext true)
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %130, label %127
+125:                                              ; preds = %.thread6
+  %126 = load i64, ptr %3, align 8
+  %127 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %126, i1 noundef zeroext true)
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %132, label %129
 
-127:                                              ; preds = %123
-  %128 = load ptr, ptr %4, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %129, ptr noundef nonnull @.str.133, ptr noundef nonnull @__func__.tg3_test_dma, i32 noundef %125) #28
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %4, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %131, ptr noundef nonnull @.str.133, ptr noundef nonnull @__func__.tg3_test_dma, i32 noundef %127) #28
   br label %select.unfold
 
-130:                                              ; preds = %123
-  %131 = load i64, ptr %3, align 8
-  %132 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %131, i1 noundef zeroext false)
-  %133 = icmp eq i32 %132, 0
-  br i1 %133, label %.preheader, label %134
+132:                                              ; preds = %125
+  %133 = load i64, ptr %3, align 8
+  %134 = call fastcc i32 @tg3_do_test_dma(ptr noundef %0, i64 noundef %133, i1 noundef zeroext false)
+  %135 = icmp eq i32 %134, 0
+  br i1 %135, label %.preheader, label %136
 
-134:                                              ; preds = %130
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %136, ptr noundef nonnull @.str.134, ptr noundef nonnull @__func__.tg3_test_dma, i32 noundef %132) #28
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %4, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %138, ptr noundef nonnull @.str.134, ptr noundef nonnull @__func__.tg3_test_dma, i32 noundef %134) #28
   br label %select.unfold
 
-.preheader:                                       ; preds = %130, %152
-  %137 = phi i64 [ %153, %152 ], [ 0, %130 ]
-  %138 = getelementptr i32, ptr %7, i64 %137
-  %139 = load i32, ptr %138, align 4
-  %140 = zext i32 %139 to i64
-  %141 = icmp eq i64 %137, %140
-  br i1 %141, label %152, label %142
+.preheader:                                       ; preds = %132, %154
+  %139 = phi i64 [ %155, %154 ], [ 0, %132 ]
+  %140 = getelementptr i32, ptr %7, i64 %139
+  %141 = load i32, ptr %140, align 4
+  %142 = zext i32 %141 to i64
+  %143 = icmp eq i64 %139, %142
+  br i1 %143, label %154, label %144
 
-142:                                              ; preds = %.preheader
-  %143 = trunc i64 %137 to i32
-  %144 = load i32, ptr %10, align 4
-  %145 = and i32 %144, 14336
-  %146 = icmp eq i32 %145, 2048
-  br i1 %146, label %155, label %147
+144:                                              ; preds = %.preheader
+  %145 = trunc i64 %139 to i32
+  %146 = load i32, ptr %10, align 4
+  %147 = and i32 %146, 14336
+  %148 = icmp eq i32 %147, 2048
+  br i1 %148, label %157, label %149
 
-147:                                              ; preds = %142
-  %148 = and i32 %144, -14337
-  %149 = or disjoint i32 %148, 2048
-  store i32 %149, ptr %10, align 4
-  %150 = load ptr, ptr %107, align 8
-  call void %150(ptr noundef %0, i32 noundef 108, i32 noundef %149) #27
-  %151 = icmp eq i32 %143, 2048
-  br i1 %151, label %select.unfold, label %.thread6.backedge
+149:                                              ; preds = %144
+  %150 = and i32 %146, -14337
+  %151 = or disjoint i32 %150, 2048
+  store i32 %151, ptr %10, align 4
+  %152 = load ptr, ptr %109, align 8
+  call void %152(ptr noundef %0, i32 noundef 108, i32 noundef %151) #27
+  %153 = icmp eq i32 %145, 2048
+  br i1 %153, label %select.unfold, label %.thread6.backedge
 
-.thread6.backedge:                                ; preds = %147, %.thread6
-  %.be = phi i64 [ %121, %.thread6 ], [ 0, %147 ]
+.thread6.backedge:                                ; preds = %149, %.thread6
+  %.be = phi i64 [ %123, %.thread6 ], [ 0, %149 ]
   br label %.thread6, !llvm.loop !40
 
-152:                                              ; preds = %.preheader
-  %153 = add nuw nsw i64 %137, 1
-  %154 = icmp eq i64 %153, 2048
-  br i1 %154, label %select.unfold, label %.preheader, !llvm.loop !41
+154:                                              ; preds = %.preheader
+  %155 = add nuw nsw i64 %139, 1
+  %156 = icmp eq i64 %155, 2048
+  br i1 %156, label %select.unfold, label %.preheader, !llvm.loop !41
 
-155:                                              ; preds = %142
-  %156 = load ptr, ptr %4, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 184
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %157, ptr noundef nonnull @.str.135, ptr noundef nonnull @__func__.tg3_test_dma, i32 noundef %139, i32 noundef %143) #28
-  br label %171
+157:                                              ; preds = %144
+  %158 = load ptr, ptr %4, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 184
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %159, ptr noundef nonnull @.str.135, ptr noundef nonnull @__func__.tg3_test_dma, i32 noundef %141, i32 noundef %145) #28
+  br label %173
 
-select.unfold:                                    ; preds = %147, %152, %127, %134
-  %.ph = phi i32 [ %132, %134 ], [ %125, %127 ], [ 0, %152 ], [ 0, %147 ]
-  %158 = load i32, ptr %10, align 4
-  %159 = and i32 %158, 14336
-  %160 = icmp eq i32 %159, 2048
-  br i1 %160, label %171, label %161
+select.unfold:                                    ; preds = %149, %154, %129, %136
+  %.ph = phi i32 [ %134, %136 ], [ %127, %129 ], [ 0, %154 ], [ 0, %149 ]
+  %160 = load i32, ptr %10, align 4
+  %161 = and i32 %160, 14336
+  %162 = icmp eq i32 %161, 2048
+  br i1 %162, label %173, label %163
 
-161:                                              ; preds = %select.unfold
-  %162 = call i32 @pci_dev_present(ptr noundef nonnull @tg3_dma_wait_state_chipsets) #27
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %168, label %164
+163:                                              ; preds = %select.unfold
+  %164 = call i32 @pci_dev_present(ptr noundef nonnull @tg3_dma_wait_state_chipsets) #27
+  %165 = icmp eq i32 %164, 0
+  br i1 %165, label %170, label %166
 
-164:                                              ; preds = %161
-  %165 = load i32, ptr %10, align 4
-  %166 = and i32 %165, -14337
-  %167 = or disjoint i32 %166, 2048
-  br label %168
+166:                                              ; preds = %163
+  %167 = load i32, ptr %10, align 4
+  %168 = and i32 %167, -14337
+  %169 = or disjoint i32 %168, 2048
+  br label %170
 
-168:                                              ; preds = %164, %161
-  %169 = phi i32 [ %167, %164 ], [ %115, %161 ]
-  store i32 %169, ptr %10, align 4
-  %170 = load ptr, ptr %107, align 8
-  call void %170(ptr noundef %0, i32 noundef 108, i32 noundef %169) #27
-  br label %171
+170:                                              ; preds = %166, %163
+  %171 = phi i32 [ %169, %166 ], [ %117, %163 ]
+  store i32 %171, ptr %10, align 4
+  %172 = load ptr, ptr %109, align 8
+  call void %172(ptr noundef %0, i32 noundef 108, i32 noundef %171) #27
+  br label %173
 
-171:                                              ; preds = %155, %168, %select.unfold, %106, %30
-  %172 = phi i32 [ 0, %30 ], [ %.ph, %168 ], [ %.ph, %select.unfold ], [ 0, %106 ], [ -19, %155 ]
-  %173 = load ptr, ptr %4, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 184
-  %175 = load i64, ptr %3, align 8
-  call void @dma_free_attrs(ptr noundef nonnull %174, i64 noundef 8192, ptr noundef nonnull %7, i64 noundef %175, i64 noundef 0) #27
-  br label %176
+173:                                              ; preds = %157, %170, %select.unfold, %108, %30
+  %174 = phi i32 [ 0, %30 ], [ %.ph, %170 ], [ %.ph, %select.unfold ], [ 0, %108 ], [ -19, %157 ]
+  %175 = load ptr, ptr %4, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 184
+  %177 = load i64, ptr %3, align 8
+  call void @dma_free_attrs(ptr noundef nonnull %176, i64 noundef 8192, ptr noundef nonnull %7, i64 noundef %177, i64 noundef 0) #27
+  br label %178
 
-176:                                              ; preds = %171, %1
-  %177 = phi i32 [ %172, %171 ], [ -12, %1 ]
+178:                                              ; preds = %173, %1
+  %179 = phi i32 [ %174, %173 ], [ -12, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %177
+  ret i32 %179
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

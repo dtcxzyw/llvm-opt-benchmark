@@ -4617,8 +4617,8 @@ define hidden void @SDL_SetEventEnabled_REAL(i32 noundef %0, i1 noundef zeroext 
 SDL_SetEventEnabled_REAL.exit38:                  ; preds = %45
   %47 = load i32, ptr %46, align 4
   %48 = and i32 %47, 29
-  %.not95 = icmp eq i32 %48, 0
-  br i1 %.not95, label %SDL_SetEventEnabled_REAL.exit, label %77
+  %.not93 = icmp eq i32 %48, 0
+  br i1 %.not93, label %SDL_SetEventEnabled_REAL.exit, label %77
 
 49:                                               ; preds = %21
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_disabled_events, i64 48), align 16

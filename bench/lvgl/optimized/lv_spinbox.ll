@@ -642,18 +642,18 @@ define void @lv_spinbox_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2
   store i32 %1, ptr %6, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load i32, ptr %7, align 8, !tbaa !3
-  %.not19 = icmp sgt i32 %8, %2
-  %9 = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
-  %.not20 = icmp slt i32 %9, %1
-  %10 = or i1 %.not19, %.not20
-  br i1 %10, label %11, label %12
+  %9 = icmp sgt i32 %8, %2
+  %10 = tail call i32 @llvm.smin.i32(i32 %8, i32 %2)
+  %11 = icmp slt i32 %10, %1
+  %12 = or i1 %9, %11
+  br i1 %12, label %13, label %14
 
-11:                                               ; preds = %4
-  %simplifycfg.merge = tail call i32 @llvm.smax.i32(i32 %9, i32 %1)
+13:                                               ; preds = %4
+  %simplifycfg.merge = tail call i32 @llvm.smax.i32(i32 %10, i32 %1)
   store i32 %simplifycfg.merge, ptr %7, align 8, !tbaa !3
-  br label %12
+  br label %14
 
-12:                                               ; preds = %4, %11
+14:                                               ; preds = %4, %13
   tail call fastcc void @lv_spinbox_updatevalue(ptr noundef nonnull %0)
   ret void
 }

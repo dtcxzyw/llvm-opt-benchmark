@@ -985,9 +985,9 @@ define range(i64 -42, 2147483648) i64 @ZSTD_CCtxParams_setParameter(ptr noundef 
     i32 1001, label %66
     i32 1002, label %71
     i32 400, label %condstore.split.i226
-    i32 401, label %condstore.split.i235
-    i32 402, label %condstore.split.i244
-    i32 500, label %condstore.split.i253
+    i32 401, label %condstore.split.i233
+    i32 402, label %condstore.split.i240
+    i32 500, label %condstore.split.i247
     i32 1005, label %96
     i32 160, label %101
     i32 161, label %106
@@ -1026,10 +1026,10 @@ condstore.split.i:                                ; preds = %3
   %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %8, i32 22)
   %.2 = select i1 %10, i32 %simplifycfg.merge.i, i32 %2
   %11 = icmp eq i32 %.2, 0
-  %spec.select430 = select i1 %11, i32 3, i32 %.2
+  %spec.select422 = select i1 %11, i32 3, i32 %.2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %spec.select430, ptr %12, align 4, !tbaa !43
-  %narrow = tail call i32 @llvm.smax.i32(i32 %spec.select430, i32 0)
+  store i32 %spec.select422, ptr %12, align 4, !tbaa !43
+  %narrow = tail call i32 @llvm.smax.i32(i32 %spec.select422, i32 0)
   %spec.select = zext nneg i32 %narrow to i64
   br label %197
 
@@ -1050,8 +1050,8 @@ condstore.split.i:                                ; preds = %3
   %.not156 = icmp ne i32 %2, 0
   %19 = add i32 %2, -31
   %narrow.i181 = icmp ult i32 %19, -25
-  %or.cond413 = and i1 %.not156, %narrow.i181
-  br i1 %or.cond413, label %197, label %20
+  %or.cond405 = and i1 %.not156, %narrow.i181
+  br i1 %or.cond405, label %197, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1063,8 +1063,8 @@ condstore.split.i:                                ; preds = %3
   %.not154 = icmp ne i32 %2, 0
   %24 = add i32 %2, -31
   %narrow.i187 = icmp ult i32 %24, -25
-  %or.cond414 = and i1 %.not154, %narrow.i187
-  br i1 %or.cond414, label %197, label %25
+  %or.cond406 = and i1 %.not154, %narrow.i187
+  br i1 %or.cond406, label %197, label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1073,8 +1073,8 @@ condstore.split.i:                                ; preds = %3
   br label %197
 
 28:                                               ; preds = %3
-  %or.cond415 = icmp ugt i32 %2, 30
-  br i1 %or.cond415, label %197, label %29
+  %or.cond407 = icmp ugt i32 %2, 30
+  br i1 %or.cond407, label %197, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1109,8 +1109,8 @@ condstore.split.i:                                ; preds = %3
   br label %197
 
 41:                                               ; preds = %3
-  %or.cond417 = icmp ugt i32 %2, 9
-  br i1 %or.cond417, label %197, label %42
+  %or.cond409 = icmp ugt i32 %2, 9
+  br i1 %or.cond409, label %197, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1181,7 +1181,7 @@ condstore.split.i226:                             ; preds = %3
   %80 = zext nneg i32 %.3 to i64
   br label %197
 
-condstore.split.i235:                             ; preds = %3
+condstore.split.i233:                             ; preds = %3
   %.not = icmp eq i32 %2, 0
   %81 = tail call i32 @llvm.smax.i32(i32 %2, i32 524288)
   %82 = tail call i32 @llvm.umin.i32(i32 %81, i32 1073741824)
@@ -1191,7 +1191,7 @@ condstore.split.i235:                             ; preds = %3
   store i64 %84, ptr %85, align 8, !tbaa !97
   br label %197
 
-condstore.split.i244:                             ; preds = %3
+condstore.split.i240:                             ; preds = %3
   %86 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %87 = icmp ugt i32 %2, 9
   %88 = tail call i32 @llvm.umin.i32(i32 %86, i32 9)
@@ -1201,7 +1201,7 @@ condstore.split.i244:                             ; preds = %3
   %90 = zext nneg i32 %.5 to i64
   br label %197
 
-condstore.split.i253:                             ; preds = %3
+condstore.split.i247:                             ; preds = %3
   %91 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %92 = icmp ugt i32 %2, 9
   %93 = tail call i32 @llvm.umin.i32(i32 %91, i32 9)
@@ -1232,9 +1232,9 @@ condstore.split.i253:                             ; preds = %3
 106:                                              ; preds = %3
   %.not138 = icmp ne i32 %2, 0
   %107 = add i32 %2, -31
-  %narrow.i271 = icmp ult i32 %107, -25
-  %or.cond418 = and i1 %.not138, %narrow.i271
-  br i1 %or.cond418, label %197, label %108
+  %narrow.i263 = icmp ult i32 %107, -25
+  %or.cond410 = and i1 %.not138, %narrow.i263
+  br i1 %or.cond410, label %197, label %108
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -1245,9 +1245,9 @@ condstore.split.i253:                             ; preds = %3
 111:                                              ; preds = %3
   %.not136 = icmp ne i32 %2, 0
   %112 = add i32 %2, -4097
-  %narrow.i277 = icmp ult i32 %112, -4093
-  %or.cond419 = and i1 %.not136, %narrow.i277
-  br i1 %or.cond419, label %197, label %113
+  %narrow.i269 = icmp ult i32 %112, -4093
+  %or.cond411 = and i1 %.not136, %narrow.i269
+  br i1 %or.cond411, label %197, label %113
 
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -1404,9 +1404,9 @@ condstore.split.i253:                             ; preds = %3
 187:                                              ; preds = %3
   %.not116 = icmp ne i32 %2, 0
   %188 = add i32 %2, -131073
-  %narrow.i367 = icmp ult i32 %188, -130049
-  %or.cond423 = and i1 %.not116, %narrow.i367
-  br i1 %or.cond423, label %197, label %189
+  %narrow.i359 = icmp ult i32 %188, -130049
+  %or.cond415 = and i1 %.not116, %narrow.i359
+  br i1 %or.cond415, label %197, label %189
 
 189:                                              ; preds = %187
   %190 = zext nneg i32 %2 to i64
@@ -1424,8 +1424,8 @@ condstore.split.i253:                             ; preds = %3
   %196 = zext nneg i32 %2 to i64
   br label %197
 
-197:                                              ; preds = %116, %32, %187, %132, %120, %111, %106, %41, %28, %23, %18, %13, %condstore.split.i, %3, %192, %182, %177, %172, %167, %162, %157, %152, %147, %142, %137, %126, %101, %73, %71, %68, %66, %36, %4, %194, %189, %184, %179, %174, %169, %164, %159, %154, %149, %144, %139, %134, %129, %122, %117, %113, %108, %103, %96, %condstore.split.i253, %condstore.split.i244, %condstore.split.i235, %condstore.split.i226, %61, %55, %50, %45, %42, %38, %33, %29, %25, %20, %15, %6
-  %.0 = phi i64 [ %7, %6 ], [ %17, %15 ], [ %22, %20 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %40, %38 ], [ %44, %42 ], [ %49, %45 ], [ %54, %50 ], [ %60, %55 ], [ %65, %61 ], [ %80, %condstore.split.i226 ], [ %84, %condstore.split.i235 ], [ %90, %condstore.split.i244 ], [ %95, %condstore.split.i253 ], [ %100, %96 ], [ %105, %103 ], [ %110, %108 ], [ %115, %113 ], [ %119, %117 ], [ %124, %122 ], [ %130, %129 ], [ %136, %134 ], [ %141, %139 ], [ %146, %144 ], [ %151, %149 ], [ %156, %154 ], [ %161, %159 ], [ %166, %164 ], [ %171, %169 ], [ %176, %174 ], [ %181, %179 ], [ %186, %184 ], [ %190, %189 ], [ %196, %194 ], [ -42, %4 ], [ -42, %36 ], [ %70, %68 ], [ -42, %66 ], [ %75, %73 ], [ -42, %71 ], [ -42, %101 ], [ -42, %126 ], [ -42, %137 ], [ -42, %142 ], [ -42, %147 ], [ -42, %152 ], [ -42, %157 ], [ -42, %162 ], [ -42, %167 ], [ -42, %172 ], [ -42, %177 ], [ -42, %182 ], [ -42, %192 ], [ -40, %3 ], [ %spec.select, %condstore.split.i ], [ -42, %13 ], [ -42, %18 ], [ -42, %23 ], [ -42, %28 ], [ -42, %32 ], [ -42, %41 ], [ -42, %106 ], [ -42, %111 ], [ -42, %116 ], [ -42, %120 ], [ -42, %132 ], [ -42, %187 ]
+197:                                              ; preds = %116, %32, %187, %132, %120, %111, %106, %41, %28, %23, %18, %13, %condstore.split.i, %3, %192, %182, %177, %172, %167, %162, %157, %152, %147, %142, %137, %126, %101, %73, %71, %68, %66, %36, %4, %194, %189, %184, %179, %174, %169, %164, %159, %154, %149, %144, %139, %134, %129, %122, %117, %113, %108, %103, %96, %condstore.split.i247, %condstore.split.i240, %condstore.split.i233, %condstore.split.i226, %61, %55, %50, %45, %42, %38, %33, %29, %25, %20, %15, %6
+  %.0 = phi i64 [ %7, %6 ], [ %17, %15 ], [ %22, %20 ], [ %27, %25 ], [ %31, %29 ], [ %35, %33 ], [ %40, %38 ], [ %44, %42 ], [ %49, %45 ], [ %54, %50 ], [ %60, %55 ], [ %65, %61 ], [ %80, %condstore.split.i226 ], [ %84, %condstore.split.i233 ], [ %90, %condstore.split.i240 ], [ %95, %condstore.split.i247 ], [ %100, %96 ], [ %105, %103 ], [ %110, %108 ], [ %115, %113 ], [ %119, %117 ], [ %124, %122 ], [ %130, %129 ], [ %136, %134 ], [ %141, %139 ], [ %146, %144 ], [ %151, %149 ], [ %156, %154 ], [ %161, %159 ], [ %166, %164 ], [ %171, %169 ], [ %176, %174 ], [ %181, %179 ], [ %186, %184 ], [ %190, %189 ], [ %196, %194 ], [ -42, %4 ], [ -42, %36 ], [ %70, %68 ], [ -42, %66 ], [ %75, %73 ], [ -42, %71 ], [ -42, %101 ], [ -42, %126 ], [ -42, %137 ], [ -42, %142 ], [ -42, %147 ], [ -42, %152 ], [ -42, %157 ], [ -42, %162 ], [ -42, %167 ], [ -42, %172 ], [ -42, %177 ], [ -42, %182 ], [ -42, %192 ], [ -40, %3 ], [ %spec.select, %condstore.split.i ], [ -42, %13 ], [ -42, %18 ], [ -42, %23 ], [ -42, %28 ], [ -42, %32 ], [ -42, %41 ], [ -42, %106 ], [ -42, %111 ], [ -42, %116 ], [ -42, %120 ], [ -42, %132 ], [ -42, %187 ]
   ret i64 %.0
 }
 
@@ -8914,9 +8914,9 @@ define range(i64 -64, 1) i64 @ZSTD_initCStream_usingDict(ptr noundef captures(no
   %simplifycfg.merge.i.i = tail call i32 @llvm.smin.i32(i32 %7, i32 22)
   %.2.i = select i1 %9, i32 %simplifycfg.merge.i.i, i32 %3
   %10 = icmp eq i32 %.2.i, 0
-  %spec.select430.i = select i1 %10, i32 3, i32 %.2.i
+  %spec.select422.i = select i1 %10, i32 3, i32 %.2.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %spec.select430.i, ptr %11, align 4, !tbaa !43
+  store i32 %spec.select422.i, ptr %11, align 4, !tbaa !43
   tail call fastcc void @ZSTD_clearAllDicts(ptr noundef nonnull %0)
   %12 = icmp eq ptr %1, null
   %13 = icmp eq i64 %2, 0
@@ -8990,7 +8990,7 @@ ZSTD_CCtx_refCDict.exit:
   %simplifycfg.merge.i.i = tail call i32 @llvm.smin.i32(i32 %9, i32 22)
   %.2.i = select i1 %11, i32 %simplifycfg.merge.i.i, i32 %1
   %12 = icmp eq i32 %.2.i, 0
-  %spec.select430.i = select i1 %12, i32 3, i32 %.2.i
+  %spec.select422.i = select i1 %12, i32 3, i32 %.2.i
   br label %ZSTD_CCtx_setPledgedSrcSize.exit
 
 .critedge:                                        ; preds = %ZSTD_CCtx_refCDict.exit
@@ -9001,17 +9001,17 @@ ZSTD_CCtx_refCDict.exit:
   %simplifycfg.merge.i.i.c = tail call i32 @llvm.smin.i32(i32 %14, i32 22)
   %.2.i.c = select i1 %16, i32 %simplifycfg.merge.i.i.c, i32 %1
   %17 = icmp eq i32 %.2.i.c, 0
-  %spec.select430.i.c = select i1 %17, i32 3, i32 %.2.i.c
+  %spec.select422.i.c = select i1 %17, i32 3, i32 %.2.i.c
   %18 = add i64 %2, 1
   %19 = select i1 %13, i64 0, i64 %18
   store i64 %19, ptr %4, align 8, !tbaa !118
   br label %ZSTD_CCtx_setPledgedSrcSize.exit
 
 ZSTD_CCtx_setPledgedSrcSize.exit:                 ; preds = %7, %.critedge
-  %spec.select430.i.sink = phi i32 [ %spec.select430.i.c, %.critedge ], [ %spec.select430.i, %7 ]
+  %spec.select422.i.sink = phi i32 [ %spec.select422.i.c, %.critedge ], [ %spec.select422.i, %7 ]
   %spec.select = phi i64 [ 0, %.critedge ], [ -60, %7 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %spec.select430.i.sink, ptr %20, align 4, !tbaa !43
+  store i32 %spec.select422.i.sink, ptr %20, align 4, !tbaa !43
   ret i64 %spec.select
 }
 
@@ -9041,9 +9041,9 @@ ZSTD_CCtx_setParameter.exit:                      ; preds = %ZSTD_CCtx_refCDict.
   %simplifycfg.merge.i.i = tail call i32 @llvm.smin.i32(i32 %8, i32 22)
   %.2.i = select i1 %10, i32 %simplifycfg.merge.i.i, i32 %1
   %11 = icmp eq i32 %.2.i, 0
-  %spec.select430.i = select i1 %11, i32 3, i32 %.2.i
+  %spec.select422.i = select i1 %11, i32 3, i32 %.2.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %spec.select430.i, ptr %12, align 4, !tbaa !43
+  store i32 %spec.select422.i, ptr %12, align 4, !tbaa !43
   ret i64 0
 }
 

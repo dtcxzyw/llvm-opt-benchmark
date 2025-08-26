@@ -13677,17 +13677,17 @@ condstore.split:                                  ; preds = %418
   %424 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %425 = load i32, ptr %424, align 4, !tbaa !30
   %426 = shl nsw i32 %425, 1
-  %.not227.not.not = icmp sgt i32 %423, %426
+  %.not227.not = icmp sgt i32 %423, %426
   %427 = and i32 %419, -12289
-  %428 = select i1 %.not227.not.not, i32 %427, i32 %419
+  %428 = select i1 %.not227.not, i32 %427, i32 %419
   %429 = and i32 %428, 32
-  %.not228.not = icmp eq i32 %429, 0
-  %430 = or i1 %.not227.not.not, %.not228.not
+  %.not228 = icmp eq i32 %429, 0
+  %430 = or i1 %.not227.not, %.not228
   br i1 %430, label %431, label %433
 
 431:                                              ; preds = %condstore.split
   %432 = and i32 %428, -8225
-  %simplifycfg.merge = select i1 %.not228.not, i32 %432, i32 %428
+  %simplifycfg.merge = select i1 %.not228, i32 %432, i32 %428
   store i32 %simplifycfg.merge, ptr %9, align 4, !tbaa !16
   br label %433
 

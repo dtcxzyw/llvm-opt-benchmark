@@ -23,7 +23,7 @@ define void @cblas_dimatcopy(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32
   br i1 %.not239, label %13, label %20
 
 13:                                               ; preds = %8
-  switch i32 %.1134, label %.thread262 [
+  switch i32 %.1134, label %.thread258 [
     i32 0, label %14
     i32 1, label %19
   ]
@@ -38,22 +38,22 @@ define void @cblas_dimatcopy(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32
   br label %17
 
 17:                                               ; preds = %16, %14
-  %.pr258 = phi i32 [ 8, %16 ], [ -1, %14 ]
+  %.pr254 = phi i32 [ 8, %16 ], [ -1, %14 ]
   %spec.select229 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %18 = icmp sge i32 %7, %spec.select229
   %or.cond.not248 = or i1 %18, %or.cond3
-  br i1 %or.cond.not248, label %.thread262, label %.thread262.sink.split
+  br i1 %or.cond.not248, label %.thread258, label %.thread258.sink.split
 
 19:                                               ; preds = %13
   %spec.select229.old = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %.old = icmp slt i32 %7, %spec.select229.old
-  br i1 %.old, label %.thread262.sink.split, label %.thread262
+  br i1 %.old, label %.thread258.sink.split, label %.thread258
 
 20:                                               ; preds = %8
-  br i1 %.not, label %21, label %.thread262
+  br i1 %.not, label %21, label %.thread258
 
 21:                                               ; preds = %20
-  switch i32 %.1134, label %.thread262 [
+  switch i32 %.1134, label %.thread258 [
     i32 0, label %22
     i32 1, label %27
   ]
@@ -68,38 +68,38 @@ define void @cblas_dimatcopy(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32
   br label %25
 
 25:                                               ; preds = %24, %22
-  %.pr256 = phi i32 [ 8, %24 ], [ -1, %22 ]
+  %.pr252 = phi i32 [ 8, %24 ], [ -1, %22 ]
   %spec.select231 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %26 = icmp sge i32 %7, %spec.select231
   %or.cond242.not = or i1 %26, %or.cond3
-  br i1 %or.cond242.not, label %.thread262, label %.thread262.sink.split
+  br i1 %or.cond242.not, label %.thread258, label %.thread258.sink.split
 
 27:                                               ; preds = %21
   %spec.select231.old = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %.old241 = icmp slt i32 %7, %spec.select231.old
-  br i1 %.old241, label %.thread262.sink.split, label %.thread262
+  br i1 %.old241, label %.thread258.sink.split, label %.thread258
 
-.thread262.sink.split:                            ; preds = %27, %25, %19, %17
+.thread258.sink.split:                            ; preds = %27, %25, %19, %17
   store i32 8, ptr %9, align 4, !tbaa !3
-  br label %.thread262
+  br label %.thread258
 
-.thread262:                                       ; preds = %.thread262.sink.split, %19, %17, %13, %21, %25, %27, %20
-  %.pr255 = phi i32 [ -1, %21 ], [ %.pr256, %25 ], [ -1, %27 ], [ -1, %20 ], [ -1, %19 ], [ %.pr258, %17 ], [ -1, %13 ], [ 8, %.thread262.sink.split ]
+.thread258:                                       ; preds = %.thread258.sink.split, %19, %17, %13, %21, %25, %27, %20
+  %.pr251 = phi i32 [ -1, %21 ], [ %.pr252, %25 ], [ -1, %27 ], [ -1, %20 ], [ -1, %19 ], [ %.pr254, %17 ], [ -1, %13 ], [ 8, %.thread258.sink.split ]
   %spec.select232 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %28 = icmp slt i32 %6, %spec.select232
-  %or.cond244.not.not = and i1 %.not239, %28
+  %or.cond244 = and i1 %.not239, %28
   %spec.select233 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %29 = icmp slt i32 %6, %spec.select233
-  %or.cond246.not.not = and i1 %.not, %29
-  %30 = or i1 %or.cond244.not.not, %or.cond246.not.not
+  %or.cond246 = and i1 %.not, %29
+  %30 = or i1 %or.cond244, %or.cond246
   br i1 %30, label %31, label %32
 
-31:                                               ; preds = %.thread262
+31:                                               ; preds = %.thread258
   store i32 7, ptr %9, align 4, !tbaa !3
   br label %32
 
-32:                                               ; preds = %.thread262, %31
-  %.pr = phi i32 [ %.pr255, %.thread262 ], [ 7, %31 ]
+32:                                               ; preds = %.thread258, %31
+  %.pr = phi i32 [ %.pr251, %.thread258 ], [ 7, %31 ]
   %33 = or i32 %3, %2
   %34 = icmp slt i32 %33, 0
   %35 = and i1 %or.cond3, %or.cond.not

@@ -768,8 +768,8 @@ _ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.i: ; preds 
 _ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i: ; preds = %170, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.i, %168
   %.05 = phi i32 [ %166, %168 ], [ %171, %170 ], [ %166, %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.i ]
   %172 = and i32 %158, 720
-  %.not117.i = icmp eq i32 %172, 192
-  br i1 %.not117.i, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread, label %173
+  %.not113.i = icmp eq i32 %172, 192
+  br i1 %.not113.i, label %_ZN12_GLOBAL__N_113COFFAsmParser17parseSectionFlagsEN4llvm9StringRefES2_Pj.exit.thread, label %173
 
 173:                                              ; preds = %_ZN4llvm13MCSectionCOFF23isImplicitlyDiscardableENS_9StringRefE.exit.thread.i
   %174 = and i32 %158, 512

@@ -1712,12 +1712,12 @@ _ZN3vcg17LocalOptimizationI6CMeshOE8FinalizeINS_3tri17MyTriEdgeCollapseEEEvv.exi
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.040.065, i64 20
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 1
-  %.not55.not = icmp eq i32 %78, 0
+  %.not55 = icmp eq i32 %78, 0
   %79 = and i32 %77, -6
-  %80 = select i1 %.not55.not, i32 %79, i32 %77
+  %80 = select i1 %.not55, i32 %79, i32 %77
   %81 = and i32 %80, 32
   %.not56 = icmp ne i32 %81, 0
-  %82 = or i1 %.not55.not, %.not56
+  %82 = or i1 %.not55, %.not56
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %.lr.ph66
@@ -36984,12 +36984,12 @@ _ZN3vcg17LocalOptimizationI6CMeshOE8FinalizeINS_3tri21MyTriEdgeCollapseQTexEEEvv
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.046.070, i64 20
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, 1
-  %.not60.not = icmp eq i32 %136, 0
+  %.not60 = icmp eq i32 %136, 0
   %137 = and i32 %135, -6
-  %138 = select i1 %.not60.not, i32 %137, i32 %135
+  %138 = select i1 %.not60, i32 %137, i32 %135
   %139 = and i32 %138, 32
   %.not61 = icmp ne i32 %139, 0
-  %140 = or i1 %.not60.not, %.not61
+  %140 = or i1 %.not60, %.not61
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %.lr.ph71

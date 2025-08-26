@@ -1651,17 +1651,17 @@ if.then22:                                        ; preds = %lor.lhs.false6, %if
 if.end25:                                         ; preds = %if.then, %if.then22, %lor.lhs.false6
   %bf.load26 = phi i16 [ %bf.load, %if.then ], [ %bf.clear24, %if.then22 ], [ %bf.load, %lor.lhs.false6 ]
   %3 = and i16 %bf.load26, 8
-  %tobool30.not.not = icmp eq i16 %3, 0
+  %tobool30.not = icmp eq i16 %3, 0
   %bf.clear33 = and i16 %bf.load26, -10
-  %bf.load36 = select i1 %tobool30.not.not, i16 %bf.clear33, i16 %bf.load26
+  %bf.load36 = select i1 %tobool30.not, i16 %bf.clear33, i16 %bf.load26
   %4 = and i16 %bf.load36, 32
-  %tobool40.not.not = icmp eq i16 %4, 0
-  %5 = or i1 %tobool30.not.not, %tobool40.not.not
+  %tobool40.not = icmp eq i16 %4, 0
+  %5 = or i1 %tobool30.not, %tobool40.not
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %if.end25
   %bf.clear43 = and i16 %bf.load36, -37
-  %simplifycfg.merge = select i1 %tobool40.not.not, i16 %bf.clear43, i16 %bf.load36
+  %simplifycfg.merge = select i1 %tobool40.not, i16 %bf.clear43, i16 %bf.load36
   store i16 %simplifycfg.merge, ptr %desc, align 4
   br label %7
 

@@ -2679,9 +2679,9 @@ define void @_ZN5ImGui17TableUpdateLayoutEP10ImGuiTable(ptr noundef initializes(
   %84 = icmp slt i16 %83, 1
   %85 = and i32 %60, 67108864
   %.not589 = icmp ne i32 %85, 0
-  %or.cond640.not.not.not773 = or i1 %.not589, %84
-  %.not771 = and i1 %or.cond640.not.not.not773, %brmerge
-  br i1 %.not771, label %87, label %86
+  %or.cond640.not771 = or i1 %.not589, %84
+  %.not769 = and i1 %or.cond640.not771, %brmerge
+  br i1 %.not769, label %87, label %86
 
 86:                                               ; preds = %78
   store i8 1, ptr %36, align 2, !tbaa !295

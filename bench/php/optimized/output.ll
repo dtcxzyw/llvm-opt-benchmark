@@ -1206,13 +1206,13 @@ define internal fastcc range(i32 0, 2) i32 @php_output_stack_pop(i32 noundef ran
 
 18:                                               ; preds = %._crit_edge
   %19 = and i32 %9, 4096
-  %.not21.not = icmp eq i32 %19, 0
+  %.not21 = icmp eq i32 %19, 0
   %.not22 = icmp samesign ugt i32 %0, 15
-  %20 = or i1 %.not21.not, %.not22
+  %20 = or i1 %.not21, %.not22
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = select i1 %.not21.not, i32 11, i32 10
+  %22 = select i1 %.not21, i32 11, i32 10
   %simplifycfg.merge = select i1 %.not22, i32 %22, i32 9
   store i32 %simplifycfg.merge, ptr %2, align 8, !tbaa !49
   br label %23

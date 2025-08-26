@@ -185,20 +185,20 @@ Wayland_EventTimestampMSToNS.exit:                ; preds = %2, %5
   %17 = phi i64 [ %15, %13 ], [ %10, %Wayland_EventTimestampMSToNS.exit ]
   %18 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %19 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i = icmp eq i64 %19, 0
+  %.not.i = icmp eq i64 %19, 0
   %20 = sub i64 %18, %17
-  %21 = select i1 %.not.not.i, i64 %20, i64 %19
+  %21 = select i1 %.not.i, i64 %20, i64 %19
   %22 = add i64 %21, %17
-  %.not.i = icmp ugt i64 %22, %18
-  %23 = or i1 %.not.not.i, %.not.i
-  br i1 %23, label %24, label %Wayland_AdjustEventTimestampBase.exit
+  %23 = icmp ugt i64 %22, %18
+  %24 = or i1 %.not.i, %23
+  br i1 %24, label %25, label %Wayland_AdjustEventTimestampBase.exit
 
-24:                                               ; preds = %16
-  %simplifycfg.merge.i = select i1 %.not.i, i64 %20, i64 %21
+25:                                               ; preds = %16
+  %simplifycfg.merge.i = select i1 %23, i64 %20, i64 %21
   store i64 %simplifycfg.merge.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit
 
-Wayland_AdjustEventTimestampBase.exit:            ; preds = %16, %24
+Wayland_AdjustEventTimestampBase.exit:            ; preds = %16, %25
   %.0.i = tail call i64 @llvm.umin.i64(i64 %22, i64 %18)
   ret i64 %.0.i
 }
@@ -410,27 +410,27 @@ define hidden i32 @Wayland_WaitEventTimeout(ptr noundef readonly captures(none) 
   tail call void @SDL_DBus_PumpEvents() #12
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 256
-  %.pn94 = load ptr, ptr %19, align 8
-  %.not95 = icmp eq ptr %.pn94, %18
-  br i1 %.not95, label %._crit_edge, label %.lr.ph
+  %.pn93 = load ptr, ptr %19, align 8
+  %.not94 = icmp eq ptr %.pn93, %18
+  br i1 %.not94, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %keyboard_repeat_is_set.exit.thread
-  %.pn98 = phi ptr [ %.pn, %keyboard_repeat_is_set.exit.thread ], [ %.pn94, %17 ]
-  %.05597 = phi i64 [ %.358, %keyboard_repeat_is_set.exit.thread ], [ %1, %17 ]
-  %.06296 = phi i1 [ %.264, %keyboard_repeat_is_set.exit.thread ], [ false, %17 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.pn98, i64 76
+  %.pn97 = phi ptr [ %.pn, %keyboard_repeat_is_set.exit.thread ], [ %.pn93, %17 ]
+  %.05596 = phi i64 [ %.358, %keyboard_repeat_is_set.exit.thread ], [ %1, %17 ]
+  %.06295 = phi i1 [ %.264, %keyboard_repeat_is_set.exit.thread ], [ false, %17 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.pn97, i64 76
   %21 = load i8, ptr %20, align 4, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %keyboard_repeat_is_set.exit, label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.pn98, i64 77
+  %23 = getelementptr inbounds nuw i8, ptr %.pn97, i64 77
   %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %keyboard_repeat_is_set.exit.thread
 
 26:                                               ; preds = %keyboard_repeat_is_set.exit
-  %27 = getelementptr inbounds nuw i8, ptr %.pn98, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %.pn97, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @SDL_GetCurrentKeymap() #12
   %.not73 = icmp eq ptr %28, %29
@@ -439,9 +439,9 @@ keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
 30:                                               ; preds = %26
   %31 = load ptr, ptr %27, align 8
   tail call void @SDL_SetKeymap(ptr noundef %31, i1 noundef zeroext true) #12
-  %32 = getelementptr inbounds nuw i8, ptr %.pn98, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %.pn97, i64 136
   %33 = load i16, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.pn98, i64 138
+  %34 = getelementptr inbounds nuw i8, ptr %.pn97, i64 138
   %35 = load i16, ptr %34, align 2
   %36 = or i16 %35, %33
   tail call void @SDL_SetModState_REAL(i16 noundef zeroext %36) #12
@@ -449,249 +449,249 @@ keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
 
 37:                                               ; preds = %30, %26
   %38 = tail call i64 @SDL_GetTicksNS_REAL() #12
-  %39 = getelementptr inbounds nuw i8, ptr %.pn98, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %.pn97, i64 96
   %40 = load i64, ptr %39, align 8
   %41 = sub i64 %38, %40
-  %42 = getelementptr inbounds nuw i8, ptr %.pn98, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %.pn97, i64 104
   %43 = load i64, ptr %42, align 8
   %.not16.i.not = icmp ult i64 %41, %43
   br i1 %.not16.i.not, label %keyboard_repeat_handle.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37
-  %44 = getelementptr inbounds nuw i8, ptr %.pn98, i64 104
-  %45 = getelementptr inbounds nuw i8, ptr %.pn98, i64 64
-  %46 = getelementptr inbounds nuw i8, ptr %.pn98, i64 112
-  %47 = getelementptr inbounds nuw i8, ptr %.pn98, i64 88
-  %48 = getelementptr inbounds nuw i8, ptr %.pn98, i64 72
-  %49 = getelementptr inbounds nuw i8, ptr %.pn98, i64 80
-  %50 = getelementptr inbounds nuw i8, ptr %.pn98, i64 116
+  %44 = getelementptr inbounds nuw i8, ptr %.pn97, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %.pn97, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %.pn97, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %.pn97, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %.pn97, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %.pn97, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %.pn97, i64 116
   br label %51
 
-51:                                               ; preds = %71, %.lr.ph.i
-  %52 = phi i64 [ %43, %.lr.ph.i ], [ %76, %71 ]
+51:                                               ; preds = %72, %.lr.ph.i
+  %52 = phi i64 [ %43, %.lr.ph.i ], [ %77, %72 ]
   %53 = load i32, ptr %46, align 8
   %.not14.i = icmp eq i32 %53, 0
-  br i1 %.not14.i, label %68, label %54
+  br i1 %.not14.i, label %69, label %54
 
 54:                                               ; preds = %51
   %55 = load i64, ptr %47, align 8
   %56 = add i64 %55, %52
   %57 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %58 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %58, 0
+  %.not.i.i = icmp eq i64 %58, 0
   %59 = sub i64 %57, %56
-  %60 = select i1 %.not.not.i.i, i64 %59, i64 %58
+  %60 = select i1 %.not.i.i, i64 %59, i64 %58
   %61 = add i64 %60, %56
-  %.not.i.i = icmp ugt i64 %61, %57
-  %62 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %62, label %63, label %Wayland_AdjustEventTimestampBase.exit.i
+  %62 = icmp ugt i64 %61, %57
+  %63 = or i1 %.not.i.i, %62
+  br i1 %63, label %64, label %Wayland_AdjustEventTimestampBase.exit.i
 
-63:                                               ; preds = %54
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %59, i64 %60
+64:                                               ; preds = %54
+  %simplifycfg.merge.i.i = select i1 %62, i64 %59, i64 %60
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit.i
 
-Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %63, %54
+Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %64, %54
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %61, i64 %57)
-  %64 = load i32, ptr %48, align 8
-  %65 = load i32, ptr %49, align 8
-  %66 = load i32, ptr %46, align 8
-  %67 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i, i32 noundef %64, i32 noundef %65, i32 noundef %66, i1 noundef zeroext true) #12
-  br label %68
+  %65 = load i32, ptr %48, align 8
+  %66 = load i32, ptr %49, align 8
+  %67 = load i32, ptr %46, align 8
+  %68 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i, i32 noundef %65, i32 noundef %66, i32 noundef %67, i1 noundef zeroext true) #12
+  br label %69
 
-68:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit.i, %51
-  %69 = load i8, ptr %50, align 4
-  %.not15.i = icmp eq i8 %69, 0
-  br i1 %.not15.i, label %71, label %70
+69:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit.i, %51
+  %70 = load i8, ptr %50, align 4
+  %.not15.i = icmp eq i8 %70, 0
+  br i1 %.not15.i, label %72, label %71
 
-70:                                               ; preds = %68
+71:                                               ; preds = %69
   tail call void @SDL_SendKeyboardText(ptr noundef nonnull %50) #12
-  br label %71
+  br label %72
 
-71:                                               ; preds = %70, %68
-  %72 = load i32, ptr %45, align 8
-  %73 = sext i32 %72 to i64
-  %74 = udiv i64 1000000000, %73
-  %75 = load i64, ptr %44, align 8
-  %76 = add i64 %75, %74
-  store i64 %76, ptr %44, align 8
-  %.not.i = icmp ult i64 %41, %76
+72:                                               ; preds = %71, %69
+  %73 = load i32, ptr %45, align 8
+  %74 = sext i32 %73 to i64
+  %75 = udiv i64 1000000000, %74
+  %76 = load i64, ptr %44, align 8
+  %77 = add i64 %76, %75
+  store i64 %77, ptr %44, align 8
+  %.not.i = icmp ult i64 %41, %77
   br i1 %.not.i, label %.critedge, label %51, !llvm.loop !8
 
 keyboard_repeat_handle.exit.thread:               ; preds = %37
-  %77 = sub nuw i64 %43, %41
-  %78 = add i64 %77, 1
-  %79 = tail call i64 @llvm.umin.i64(i64 %.05597, i64 %78)
-  %80 = icmp slt i64 %.05597, 0
-  %.257 = select i1 %80, i64 %78, i64 %79
+  %78 = sub nuw i64 %43, %41
+  %79 = add i64 %78, 1
+  %80 = tail call i64 @llvm.umin.i64(i64 %.05596, i64 %79)
+  %81 = icmp slt i64 %.05596, 0
+  %.257 = select i1 %81, i64 %79, i64 %80
   br label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit.thread:               ; preds = %.lr.ph, %keyboard_repeat_handle.exit.thread, %keyboard_repeat_is_set.exit
-  %.264 = phi i1 [ true, %keyboard_repeat_handle.exit.thread ], [ %.06296, %keyboard_repeat_is_set.exit ], [ %.06296, %.lr.ph ]
-  %.358 = phi i64 [ %.257, %keyboard_repeat_handle.exit.thread ], [ %.05597, %keyboard_repeat_is_set.exit ], [ %.05597, %.lr.ph ]
-  %81 = getelementptr inbounds nuw i8, ptr %.pn98, i64 8
-  %.pn = load ptr, ptr %81, align 8
+  %.264 = phi i1 [ true, %keyboard_repeat_handle.exit.thread ], [ %.06295, %keyboard_repeat_is_set.exit ], [ %.06295, %.lr.ph ]
+  %.358 = phi i64 [ %.257, %keyboard_repeat_handle.exit.thread ], [ %.05596, %keyboard_repeat_is_set.exit ], [ %.05596, %.lr.ph ]
+  %82 = getelementptr inbounds nuw i8, ptr %.pn97, i64 8
+  %.pn = load ptr, ptr %82, align 8
   %.not = icmp eq ptr %.pn, %18
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %keyboard_repeat_is_set.exit.thread, %17
   %.062.lcssa = phi i1 [ false, %17 ], [ %.264, %keyboard_repeat_is_set.exit.thread ]
   %.055.lcssa = phi i64 [ %1, %17 ], [ %.358, %keyboard_repeat_is_set.exit.thread ]
-  %82 = load ptr, ptr @WAYLAND_wl_display_prepare_read, align 8
-  %83 = load ptr, ptr %6, align 8
-  %84 = tail call i32 %82(ptr noundef %83) #12
-  %85 = icmp eq i32 %84, 0
-  br i1 %85, label %86, label %160
+  %83 = load ptr, ptr @WAYLAND_wl_display_prepare_read, align 8
+  %84 = load ptr, ptr %6, align 8
+  %85 = tail call i32 %83(ptr noundef %84) #12
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %162
 
-86:                                               ; preds = %._crit_edge
-  %87 = load ptr, ptr @WAYLAND_wl_display_get_fd, align 8
-  %88 = load ptr, ptr %6, align 8
-  %89 = tail call i32 %87(ptr noundef %88) #12
-  %90 = tail call i32 @SDL_IOReady(i32 noundef %89, i32 noundef 5, i64 noundef %.055.lcssa) #12
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %92, label %100
+87:                                               ; preds = %._crit_edge
+  %88 = load ptr, ptr @WAYLAND_wl_display_get_fd, align 8
+  %89 = load ptr, ptr %6, align 8
+  %90 = tail call i32 %88(ptr noundef %89) #12
+  %91 = tail call i32 @SDL_IOReady(i32 noundef %90, i32 noundef 5, i64 noundef %.055.lcssa) #12
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %101
 
-92:                                               ; preds = %86
-  %93 = load ptr, ptr @WAYLAND_wl_display_read_events, align 8
-  %94 = load ptr, ptr %6, align 8
-  %95 = tail call i32 %93(ptr noundef %94) #12
+93:                                               ; preds = %87
+  %94 = load ptr, ptr @WAYLAND_wl_display_read_events, align 8
+  %95 = load ptr, ptr %6, align 8
+  %96 = tail call i32 %94(ptr noundef %95) #12
   %.val = load ptr, ptr %6, align 8
-  %96 = load ptr, ptr @WAYLAND_wl_display_dispatch_pending, align 8
-  %97 = tail call i32 %96(ptr noundef %.val) #12
-  %98 = icmp sgt i32 %97, -1
-  %99 = select i1 %98, i32 1, i32 %97
+  %97 = load ptr, ptr @WAYLAND_wl_display_dispatch_pending, align 8
+  %98 = tail call i32 %97(ptr noundef %.val) #12
+  %99 = icmp sgt i32 %98, -1
+  %100 = select i1 %99, i32 1, i32 %98
   br label %.critedge
 
-100:                                              ; preds = %86
-  %101 = icmp eq i32 %90, 0
-  %102 = load ptr, ptr @WAYLAND_wl_display_cancel_read, align 8
-  %103 = load ptr, ptr %6, align 8
-  tail call void %102(ptr noundef %103) #12
-  br i1 %101, label %104, label %156
+101:                                              ; preds = %87
+  %102 = icmp eq i32 %91, 0
+  %103 = load ptr, ptr @WAYLAND_wl_display_cancel_read, align 8
+  %104 = load ptr, ptr %6, align 8
+  tail call void %103(ptr noundef %104) #12
+  br i1 %102, label %105, label %158
 
-104:                                              ; preds = %100
+105:                                              ; preds = %101
   br i1 %.062.lcssa, label %.preheader, label %.critedge
 
-.preheader:                                       ; preds = %104
-  %.pn70100 = load ptr, ptr %19, align 8
-  %.not71101 = icmp eq ptr %.pn70100, %18
-  br i1 %.not71101, label %.critedge, label %.lr.ph104
+.preheader:                                       ; preds = %105
+  %.pn7099 = load ptr, ptr %19, align 8
+  %.not71100 = icmp eq ptr %.pn7099, %18
+  br i1 %.not71100, label %.critedge, label %.lr.ph103
 
-.lr.ph104:                                        ; preds = %.preheader, %keyboard_repeat_handle.exit85
-  %.pn70103 = phi ptr [ %.pn70, %keyboard_repeat_handle.exit85 ], [ %.pn70100, %.preheader ]
-  %.153102 = phi i32 [ %spec.select, %keyboard_repeat_handle.exit85 ], [ 0, %.preheader ]
-  %105 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 56
-  %106 = load ptr, ptr %105, align 8
-  %107 = tail call ptr @SDL_GetCurrentKeymap() #12
-  %.not72 = icmp eq ptr %106, %107
-  br i1 %.not72, label %115, label %108
+.lr.ph103:                                        ; preds = %.preheader, %keyboard_repeat_handle.exit84
+  %.pn70102 = phi ptr [ %.pn70, %keyboard_repeat_handle.exit84 ], [ %.pn7099, %.preheader ]
+  %.153101 = phi i32 [ %spec.select, %keyboard_repeat_handle.exit84 ], [ 0, %.preheader ]
+  %106 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 56
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call ptr @SDL_GetCurrentKeymap() #12
+  %.not72 = icmp eq ptr %107, %108
+  br i1 %.not72, label %116, label %109
 
-108:                                              ; preds = %.lr.ph104
-  %109 = load ptr, ptr %105, align 8
-  tail call void @SDL_SetKeymap(ptr noundef %109, i1 noundef zeroext true) #12
-  %110 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 136
-  %111 = load i16, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 138
-  %113 = load i16, ptr %112, align 2
-  %114 = or i16 %113, %111
-  tail call void @SDL_SetModState_REAL(i16 noundef zeroext %114) #12
-  br label %115
+109:                                              ; preds = %.lr.ph103
+  %110 = load ptr, ptr %106, align 8
+  tail call void @SDL_SetKeymap(ptr noundef %110, i1 noundef zeroext true) #12
+  %111 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 136
+  %112 = load i16, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 138
+  %114 = load i16, ptr %113, align 2
+  %115 = or i16 %114, %112
+  tail call void @SDL_SetModState_REAL(i16 noundef zeroext %115) #12
+  br label %116
 
-115:                                              ; preds = %108, %.lr.ph104
-  %116 = tail call i64 @SDL_GetTicksNS_REAL() #12
-  %117 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 64
-  %118 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 96
-  %119 = load i64, ptr %118, align 8
-  %120 = sub i64 %116, %119
-  %121 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 104
-  %122 = load i64, ptr %121, align 8
-  %.not16.i75.not = icmp uge i64 %120, %122
-  br i1 %.not16.i75.not, label %.lr.ph.i76, label %keyboard_repeat_handle.exit85
+116:                                              ; preds = %109, %.lr.ph103
+  %117 = tail call i64 @SDL_GetTicksNS_REAL() #12
+  %118 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 96
+  %120 = load i64, ptr %119, align 8
+  %121 = sub i64 %117, %120
+  %122 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 104
+  %123 = load i64, ptr %122, align 8
+  %.not16.i75.not = icmp uge i64 %121, %123
+  br i1 %.not16.i75.not, label %.lr.ph.i76, label %keyboard_repeat_handle.exit84
 
-.lr.ph.i76:                                       ; preds = %115
-  %123 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 112
-  %124 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 88
-  %125 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 72
-  %126 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 80
-  %127 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 116
-  br label %128
+.lr.ph.i76:                                       ; preds = %116
+  %124 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 112
+  %125 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 88
+  %126 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 116
+  br label %129
 
-128:                                              ; preds = %148, %.lr.ph.i76
-  %129 = phi i64 [ %122, %.lr.ph.i76 ], [ %153, %148 ]
-  %130 = load i32, ptr %123, align 8
-  %.not14.i77 = icmp eq i32 %130, 0
-  br i1 %.not14.i77, label %145, label %131
+129:                                              ; preds = %150, %.lr.ph.i76
+  %130 = phi i64 [ %123, %.lr.ph.i76 ], [ %155, %150 ]
+  %131 = load i32, ptr %124, align 8
+  %.not14.i77 = icmp eq i32 %131, 0
+  br i1 %.not14.i77, label %147, label %132
 
-131:                                              ; preds = %128
-  %132 = load i64, ptr %124, align 8
-  %133 = add i64 %132, %129
-  %134 = tail call i64 @SDL_GetTicksNS_REAL() #12
-  %135 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i78 = icmp eq i64 %135, 0
-  %136 = sub i64 %134, %133
-  %137 = select i1 %.not.not.i.i78, i64 %136, i64 %135
-  %138 = add i64 %137, %133
-  %.not.i.i79 = icmp ugt i64 %138, %134
-  %139 = or i1 %.not.not.i.i78, %.not.i.i79
-  br i1 %139, label %140, label %Wayland_AdjustEventTimestampBase.exit.i80
+132:                                              ; preds = %129
+  %133 = load i64, ptr %125, align 8
+  %134 = add i64 %133, %130
+  %135 = tail call i64 @SDL_GetTicksNS_REAL() #12
+  %136 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
+  %.not.i.i78 = icmp eq i64 %136, 0
+  %137 = sub i64 %135, %134
+  %138 = select i1 %.not.i.i78, i64 %137, i64 %136
+  %139 = add i64 %138, %134
+  %140 = icmp ugt i64 %139, %135
+  %141 = or i1 %.not.i.i78, %140
+  br i1 %141, label %142, label %Wayland_AdjustEventTimestampBase.exit.i79
 
-140:                                              ; preds = %131
-  %simplifycfg.merge.i.i84 = select i1 %.not.i.i79, i64 %136, i64 %137
-  store i64 %simplifycfg.merge.i.i84, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  br label %Wayland_AdjustEventTimestampBase.exit.i80
+142:                                              ; preds = %132
+  %simplifycfg.merge.i.i83 = select i1 %140, i64 %137, i64 %138
+  store i64 %simplifycfg.merge.i.i83, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
+  br label %Wayland_AdjustEventTimestampBase.exit.i79
 
-Wayland_AdjustEventTimestampBase.exit.i80:        ; preds = %140, %131
-  %.0.i.i81 = tail call i64 @llvm.umin.i64(i64 %138, i64 %134)
-  %141 = load i32, ptr %125, align 8
-  %142 = load i32, ptr %126, align 8
-  %143 = load i32, ptr %123, align 8
-  %144 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i81, i32 noundef %141, i32 noundef %142, i32 noundef %143, i1 noundef zeroext true) #12
-  br label %145
+Wayland_AdjustEventTimestampBase.exit.i79:        ; preds = %142, %132
+  %.0.i.i80 = tail call i64 @llvm.umin.i64(i64 %139, i64 %135)
+  %143 = load i32, ptr %126, align 8
+  %144 = load i32, ptr %127, align 8
+  %145 = load i32, ptr %124, align 8
+  %146 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i80, i32 noundef %143, i32 noundef %144, i32 noundef %145, i1 noundef zeroext true) #12
+  br label %147
 
-145:                                              ; preds = %Wayland_AdjustEventTimestampBase.exit.i80, %128
-  %146 = load i8, ptr %127, align 4
-  %.not15.i82 = icmp eq i8 %146, 0
-  br i1 %.not15.i82, label %148, label %147
+147:                                              ; preds = %Wayland_AdjustEventTimestampBase.exit.i79, %129
+  %148 = load i8, ptr %128, align 4
+  %.not15.i81 = icmp eq i8 %148, 0
+  br i1 %.not15.i81, label %150, label %149
 
-147:                                              ; preds = %145
-  tail call void @SDL_SendKeyboardText(ptr noundef nonnull %127) #12
-  br label %148
+149:                                              ; preds = %147
+  tail call void @SDL_SendKeyboardText(ptr noundef nonnull %128) #12
+  br label %150
 
-148:                                              ; preds = %147, %145
-  %149 = load i32, ptr %117, align 8
-  %150 = sext i32 %149 to i64
-  %151 = udiv i64 1000000000, %150
-  %152 = load i64, ptr %121, align 8
-  %153 = add i64 %152, %151
-  store i64 %153, ptr %121, align 8
-  %.not.i83 = icmp ult i64 %120, %153
-  br i1 %.not.i83, label %keyboard_repeat_handle.exit85, label %128, !llvm.loop !8
+150:                                              ; preds = %149, %147
+  %151 = load i32, ptr %118, align 8
+  %152 = sext i32 %151 to i64
+  %153 = udiv i64 1000000000, %152
+  %154 = load i64, ptr %122, align 8
+  %155 = add i64 %154, %153
+  store i64 %155, ptr %122, align 8
+  %.not.i82 = icmp ult i64 %121, %155
+  br i1 %.not.i82, label %keyboard_repeat_handle.exit84, label %129, !llvm.loop !8
 
-keyboard_repeat_handle.exit85:                    ; preds = %148, %115
-  %154 = zext i1 %.not16.i75.not to i32
-  %spec.select = add nuw nsw i32 %.153102, %154
-  %155 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 8
-  %.pn70 = load ptr, ptr %155, align 8
+keyboard_repeat_handle.exit84:                    ; preds = %150, %116
+  %156 = zext i1 %.not16.i75.not to i32
+  %spec.select = add nuw nsw i32 %.153101, %156
+  %157 = getelementptr inbounds nuw i8, ptr %.pn70102, i64 8
+  %.pn70 = load ptr, ptr %157, align 8
   %.not71 = icmp eq ptr %.pn70, %18
-  br i1 %.not71, label %.critedge, label %.lr.ph104, !llvm.loop !10
+  br i1 %.not71, label %.critedge, label %.lr.ph103, !llvm.loop !10
 
-156:                                              ; preds = %100
-  %157 = tail call ptr @__errno_location() #13
-  %158 = load i32, ptr %157, align 4
-  %159 = icmp eq i32 %158, 4
-  %. = select i1 %159, i32 1, i32 %90
+158:                                              ; preds = %101
+  %159 = tail call ptr @__errno_location() #13
+  %160 = load i32, ptr %159, align 4
+  %161 = icmp eq i32 %160, 4
+  %. = select i1 %161, i32 1, i32 %91
   br label %.critedge
 
-160:                                              ; preds = %._crit_edge
+162:                                              ; preds = %._crit_edge
   %.val74 = load ptr, ptr %6, align 8
-  %161 = load ptr, ptr @WAYLAND_wl_display_dispatch_pending, align 8
-  %162 = tail call i32 %161(ptr noundef %.val74) #12
-  %163 = icmp sgt i32 %162, -1
-  %164 = select i1 %163, i32 1, i32 %162
+  %163 = load ptr, ptr @WAYLAND_wl_display_dispatch_pending, align 8
+  %164 = tail call i32 %163(ptr noundef %.val74) #12
+  %165 = icmp sgt i32 %164, -1
+  %166 = select i1 %165, i32 1, i32 %164
   br label %.critedge
 
-.critedge:                                        ; preds = %71, %keyboard_repeat_handle.exit85, %.preheader, %92, %104, %156, %160
-  %.2 = phi i32 [ %164, %160 ], [ %99, %92 ], [ 0, %104 ], [ %., %156 ], [ 0, %.preheader ], [ %spec.select, %keyboard_repeat_handle.exit85 ], [ 1, %71 ]
+.critedge:                                        ; preds = %72, %keyboard_repeat_handle.exit84, %.preheader, %93, %105, %158, %162
+  %.2 = phi i32 [ %166, %162 ], [ %100, %93 ], [ 0, %105 ], [ %., %158 ], [ 0, %.preheader ], [ %spec.select, %keyboard_repeat_handle.exit84 ], [ 1, %72 ]
   ret i32 %.2
 }
 
@@ -827,84 +827,84 @@ keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
   %68 = getelementptr inbounds nuw i8, ptr %.pn32, i64 116
   br label %69
 
-69:                                               ; preds = %89, %.lr.ph.i
-  %70 = phi i64 [ %63, %.lr.ph.i ], [ %94, %89 ]
+69:                                               ; preds = %90, %.lr.ph.i
+  %70 = phi i64 [ %63, %.lr.ph.i ], [ %95, %90 ]
   %71 = load i32, ptr %64, align 8
   %.not14.i = icmp eq i32 %71, 0
-  br i1 %.not14.i, label %86, label %72
+  br i1 %.not14.i, label %87, label %72
 
 72:                                               ; preds = %69
   %73 = load i64, ptr %65, align 8
   %74 = add i64 %73, %70
   %75 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %76 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %76, 0
+  %.not.i.i = icmp eq i64 %76, 0
   %77 = sub i64 %75, %74
-  %78 = select i1 %.not.not.i.i, i64 %77, i64 %76
+  %78 = select i1 %.not.i.i, i64 %77, i64 %76
   %79 = add i64 %78, %74
-  %.not.i.i = icmp ugt i64 %79, %75
-  %80 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %80, label %81, label %Wayland_AdjustEventTimestampBase.exit.i
+  %80 = icmp ugt i64 %79, %75
+  %81 = or i1 %.not.i.i, %80
+  br i1 %81, label %82, label %Wayland_AdjustEventTimestampBase.exit.i
 
-81:                                               ; preds = %72
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %77, i64 %78
+82:                                               ; preds = %72
+  %simplifycfg.merge.i.i = select i1 %80, i64 %77, i64 %78
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit.i
 
-Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %81, %72
+Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %82, %72
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %79, i64 %75)
-  %82 = load i32, ptr %66, align 8
-  %83 = load i32, ptr %67, align 8
-  %84 = load i32, ptr %64, align 8
-  %85 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i, i32 noundef %82, i32 noundef %83, i32 noundef %84, i1 noundef zeroext true) #12
-  br label %86
+  %83 = load i32, ptr %66, align 8
+  %84 = load i32, ptr %67, align 8
+  %85 = load i32, ptr %64, align 8
+  %86 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i, i32 noundef %83, i32 noundef %84, i32 noundef %85, i1 noundef zeroext true) #12
+  br label %87
 
-86:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit.i, %69
-  %87 = load i8, ptr %68, align 4
-  %.not15.i = icmp eq i8 %87, 0
-  br i1 %.not15.i, label %89, label %88
+87:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit.i, %69
+  %88 = load i8, ptr %68, align 4
+  %.not15.i = icmp eq i8 %88, 0
+  br i1 %.not15.i, label %90, label %89
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   tail call void @SDL_SendKeyboardText(ptr noundef nonnull %68) #12
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %86
-  %90 = load i32, ptr %39, align 8
-  %91 = sext i32 %90 to i64
-  %92 = udiv i64 1000000000, %91
-  %93 = load i64, ptr %62, align 8
-  %94 = add i64 %93, %92
-  store i64 %94, ptr %62, align 8
-  %.not.i = icmp ult i64 %61, %94
+90:                                               ; preds = %89, %87
+  %91 = load i32, ptr %39, align 8
+  %92 = sext i32 %91 to i64
+  %93 = udiv i64 1000000000, %92
+  %94 = load i64, ptr %62, align 8
+  %95 = add i64 %94, %93
+  store i64 %95, ptr %62, align 8
+  %.not.i = icmp ult i64 %61, %95
   br i1 %.not.i, label %keyboard_repeat_handle.exit, label %69, !llvm.loop !8
 
-keyboard_repeat_handle.exit:                      ; preds = %89, %.lr.ph, %57, %keyboard_repeat_is_set.exit
-  %95 = getelementptr inbounds nuw i8, ptr %.pn32, i64 8
-  %.pn = load ptr, ptr %95, align 8
+keyboard_repeat_handle.exit:                      ; preds = %90, %.lr.ph, %57, %keyboard_repeat_is_set.exit
+  %96 = getelementptr inbounds nuw i8, ptr %.pn32, i64 8
+  %.pn = load ptr, ptr %96, align 8
   %.not = icmp eq ptr %.pn, %37
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %keyboard_repeat_handle.exit, %33
-  %96 = icmp slt i32 %36, 0
-  br i1 %96, label %97, label %103
+  %97 = icmp slt i32 %36, 0
+  br i1 %97, label %98, label %104
 
-97:                                               ; preds = %._crit_edge
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %99 = load i32, ptr %98, align 8
-  %.not28 = icmp eq i32 %99, 0
-  br i1 %.not28, label %100, label %103
+98:                                               ; preds = %._crit_edge
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %100 = load i32, ptr %99, align 8
+  %.not28 = icmp eq i32 %100, 0
+  br i1 %.not28, label %101, label %104
 
-100:                                              ; preds = %97
-  %101 = tail call zeroext i1 @Wayland_VideoReconnect(ptr noundef %0) #12
-  br i1 %101, label %103, label %102
+101:                                              ; preds = %98
+  %102 = tail call zeroext i1 @Wayland_VideoReconnect(ptr noundef %0) #12
+  br i1 %102, label %104, label %103
 
-102:                                              ; preds = %100
-  store i32 1, ptr %98, align 8
+103:                                              ; preds = %101
+  store i32 1, ptr %99, align 8
   tail call void (i32, ptr, ...) @SDL_LogError_REAL(i32 noundef 5, ptr noundef nonnull @.str) #12
   tail call void @SDL_SendQuit() #12
-  br label %103
+  br label %104
 
-103:                                              ; preds = %100, %102, %97, %._crit_edge
+104:                                              ; preds = %101, %103, %98, %._crit_edge
   ret void
 }
 
@@ -4409,7 +4409,7 @@ define internal void @tablet_tool_handle_button(ptr noundef writeonly captures(n
 define internal void @tablet_tool_handle_frame(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %70, label %5
+  br i1 %.not, label %71, label %5
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @Wayland_EventTimestampMSToNS.last, align 4
@@ -4430,131 +4430,131 @@ Wayland_EventTimestampMSToNS.exit:                ; preds = %5, %8
   %13 = add i64 %10, %12
   %14 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %15 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i = icmp eq i64 %15, 0
+  %.not.i = icmp eq i64 %15, 0
   %16 = sub i64 %14, %13
-  %17 = select i1 %.not.not.i, i64 %16, i64 %15
+  %17 = select i1 %.not.i, i64 %16, i64 %15
   %18 = add i64 %17, %13
-  %.not.i = icmp ugt i64 %18, %14
-  %19 = or i1 %.not.not.i, %.not.i
-  br i1 %19, label %20, label %Wayland_AdjustEventTimestampBase.exit
+  %19 = icmp ugt i64 %18, %14
+  %20 = or i1 %.not.i, %19
+  br i1 %20, label %21, label %Wayland_AdjustEventTimestampBase.exit
 
-20:                                               ; preds = %Wayland_EventTimestampMSToNS.exit
-  %simplifycfg.merge.i = select i1 %.not.i, i64 %16, i64 %17
+21:                                               ; preds = %Wayland_EventTimestampMSToNS.exit
+  %simplifycfg.merge.i = select i1 %19, i64 %16, i64 %17
   store i64 %simplifycfg.merge.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit
 
-Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimestampMSToNS.exit, %20
+Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimestampMSToNS.exit, %21
   %.0.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %14)
-  %21 = load i32, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load i8, ptr %24, align 8, !range !6, !noundef !7
-  %26 = trunc nuw i8 %25 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %28 = load i32, ptr %27, align 4
-  br i1 %26, label %29, label %40
+  %22 = load i32, ptr %0, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %26 = load i8, ptr %25, align 8, !range !6, !noundef !7
+  %27 = trunc nuw i8 %26 to i1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %29 = load i32, ptr %28, align 4
+  br i1 %27, label %30, label %41
 
-29:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
-  switch i32 %28, label %30 [
+30:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
+  switch i32 %29, label %31 [
     i32 -1, label %.thread79
-    i32 0, label %35
+    i32 0, label %36
   ]
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load float, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %34 = load float, ptr %33, align 4
-  tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, float noundef %32, float noundef %34) #12
-  tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext true) #12
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = load float, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %35 = load float, ptr %34, align 4
+  tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, float noundef %33, float noundef %35) #12
+  tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, i1 noundef zeroext false, i1 noundef zeroext true) #12
   br label %.thread80
 
-35:                                               ; preds = %29
-  tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext false) #12
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = load float, ptr %36, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %39 = load float, ptr %38, align 4
-  tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, float noundef %37, float noundef %39) #12
+36:                                               ; preds = %30
+  tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, i1 noundef zeroext false, i1 noundef zeroext false) #12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %38 = load float, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %40 = load float, ptr %39, align 4
+  tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, float noundef %38, float noundef %40) #12
   br label %.thread80
 
-40:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
-  %.not65 = icmp eq i32 %28, -1
-  br i1 %.not65, label %.thread80, label %41
+41:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
+  %.not65 = icmp eq i32 %29, -1
+  br i1 %.not65, label %.thread80, label %42
 
-41:                                               ; preds = %40
-  %42 = icmp ne i32 %28, 0
-  tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext %42) #12
-  %.pre76 = load i8, ptr %24, align 8, !range !6
-  %43 = trunc nuw i8 %.pre76 to i1
-  br i1 %43, label %.thread79, label %.thread80
+42:                                               ; preds = %41
+  %43 = icmp ne i32 %29, 0
+  tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, i1 noundef zeroext false, i1 noundef zeroext %43) #12
+  %.pre76 = load i8, ptr %25, align 8, !range !6
+  %44 = trunc nuw i8 %.pre76 to i1
+  br i1 %44, label %.thread79, label %.thread80
 
-.thread79:                                        ; preds = %29, %41
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = load float, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %47 = load float, ptr %46, align 4
-  tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, float noundef %45, float noundef %47) #12
+.thread79:                                        ; preds = %30, %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %46 = load float, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %48 = load float, ptr %47, align 4
+  tail call void @SDL_SendPenMotion(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, float noundef %46, float noundef %48) #12
   br label %.thread80
 
-.thread80:                                        ; preds = %40, %41, %.thread79, %30, %35
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  br label %51
+.thread80:                                        ; preds = %41, %42, %.thread79, %31, %36
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  br label %52
 
-.preheader:                                       ; preds = %59
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %62
+.preheader:                                       ; preds = %60
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %63
 
-51:                                               ; preds = %.thread80, %59
-  %indvars.iv = phi i64 [ 0, %.thread80 ], [ %indvars.iv.next, %59 ]
-  %52 = load i32, ptr %48, align 8
-  %53 = trunc nuw nsw i64 %indvars.iv to i32
-  %54 = shl nuw nsw i32 1, %53
-  %55 = and i32 %52, %54
-  %.not68 = icmp eq i32 %55, 0
-  br i1 %.not68, label %59, label %56
+52:                                               ; preds = %.thread80, %60
+  %indvars.iv = phi i64 [ 0, %.thread80 ], [ %indvars.iv.next, %60 ]
+  %53 = load i32, ptr %49, align 8
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
+  %55 = shl nuw nsw i32 1, %54
+  %56 = and i32 %53, %55
+  %.not68 = icmp eq i32 %56, 0
+  br i1 %.not68, label %60, label %57
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw [7 x float], ptr %49, i64 0, i64 %indvars.iv
-  %58 = load float, ptr %57, align 4
-  tail call void @SDL_SendPenAxis(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i32 noundef %53, float noundef %58) #12
-  br label %59
+57:                                               ; preds = %52
+  %58 = getelementptr inbounds nuw [7 x float], ptr %50, i64 0, i64 %indvars.iv
+  %59 = load float, ptr %58, align 4
+  tail call void @SDL_SendPenAxis(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, i32 noundef %54, float noundef %59) #12
+  br label %60
 
-59:                                               ; preds = %51, %56
+60:                                               ; preds = %52, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader, label %51, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader, label %52, !llvm.loop !28
 
-60:                                               ; preds = %69
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 -1, ptr %61, align 4
-  store i8 0, ptr %24, align 8
-  store i32 0, ptr %48, align 8
+61:                                               ; preds = %70
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 -1, ptr %62, align 4
+  store i8 0, ptr %25, align 8
+  store i32 0, ptr %49, align 8
+  br label %71
+
+63:                                               ; preds = %.preheader, %70
+  %indvars.iv72 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next73, %70 ]
+  %64 = getelementptr inbounds nuw [3 x i32], ptr %51, i64 0, i64 %indvars.iv72
+  %65 = load i32, ptr %64, align 4
+  %.not67 = icmp eq i32 %65, -1
+  br i1 %.not67, label %70, label %66
+
+66:                                               ; preds = %63
+  %67 = trunc i64 %indvars.iv72 to i8
+  %68 = add nuw nsw i8 %67, 1
+  %69 = icmp ne i32 %65, 0
+  tail call void @SDL_SendPenButton(i64 noundef %.0.i, i32 noundef %22, ptr noundef %24, i8 noundef zeroext %68, i1 noundef zeroext %69) #12
+  store i32 -1, ptr %64, align 4
   br label %70
 
-62:                                               ; preds = %.preheader, %69
-  %indvars.iv72 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next73, %69 ]
-  %63 = getelementptr inbounds nuw [3 x i32], ptr %50, i64 0, i64 %indvars.iv72
-  %64 = load i32, ptr %63, align 4
-  %.not67 = icmp eq i32 %64, -1
-  br i1 %.not67, label %69, label %65
-
-65:                                               ; preds = %62
-  %66 = trunc i64 %indvars.iv72 to i8
-  %67 = add nuw nsw i8 %66, 1
-  %68 = icmp ne i32 %64, 0
-  tail call void @SDL_SendPenButton(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i8 noundef zeroext %67, i1 noundef zeroext %68) #12
-  store i32 -1, ptr %63, align 4
-  br label %69
-
-69:                                               ; preds = %65, %62
+70:                                               ; preds = %66, %63
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %60, label %62, !llvm.loop !29
+  br i1 %exitcond75.not, label %61, label %63, !llvm.loop !29
 
-70:                                               ; preds = %3, %60
+71:                                               ; preds = %3, %61
   ret void
 }
 
@@ -4900,20 +4900,20 @@ Wayland_EventTimestampMSToNS.exit.i:              ; preds = %8, %5
   %20 = phi i64 [ %18, %16 ], [ %13, %Wayland_EventTimestampMSToNS.exit.i ]
   %21 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %22 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %22, 0
+  %.not.i.i = icmp eq i64 %22, 0
   %23 = sub i64 %21, %20
-  %24 = select i1 %.not.not.i.i, i64 %23, i64 %22
+  %24 = select i1 %.not.i.i, i64 %23, i64 %22
   %25 = add i64 %24, %20
-  %.not.i.i = icmp ugt i64 %25, %21
-  %26 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %26, label %27, label %Wayland_GetPointerTimestamp.exit
+  %26 = icmp ugt i64 %25, %21
+  %27 = or i1 %.not.i.i, %26
+  br i1 %27, label %28, label %Wayland_GetPointerTimestamp.exit
 
-27:                                               ; preds = %19
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %23, i64 %24
+28:                                               ; preds = %19
+  %simplifycfg.merge.i.i = select i1 %26, i64 %23, i64 %24
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_GetPointerTimestamp.exit
 
-Wayland_GetPointerTimestamp.exit:                 ; preds = %19, %27
+Wayland_GetPointerTimestamp.exit:                 ; preds = %19, %28
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %21)
   tail call fastcc void @pointer_handle_motion_common(ptr noundef nonnull %0, i64 noundef %.0.i.i, i32 noundef %3, i32 noundef %4)
   ret void
@@ -4951,220 +4951,220 @@ Wayland_EventTimestampMSToNS.exit.i:              ; preds = %9, %6
   %21 = phi i64 [ %19, %17 ], [ %14, %Wayland_EventTimestampMSToNS.exit.i ]
   %22 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %23 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %23, 0
+  %.not.i.i = icmp eq i64 %23, 0
   %24 = sub i64 %22, %21
-  %25 = select i1 %.not.not.i.i, i64 %24, i64 %23
+  %25 = select i1 %.not.i.i, i64 %24, i64 %23
   %26 = add i64 %25, %21
-  %.not.i.i = icmp ugt i64 %26, %22
-  %27 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %27, label %28, label %Wayland_GetPointerTimestamp.exit
+  %27 = icmp ugt i64 %26, %22
+  %28 = or i1 %.not.i.i, %27
+  br i1 %28, label %29, label %Wayland_GetPointerTimestamp.exit
 
-28:                                               ; preds = %20
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %24, i64 %25
+29:                                               ; preds = %20
+  %simplifycfg.merge.i.i = select i1 %27, i64 %24, i64 %25
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_GetPointerTimestamp.exit
 
-Wayland_GetPointerTimestamp.exit:                 ; preds = %20, %28
+Wayland_GetPointerTimestamp.exit:                 ; preds = %20, %29
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %22)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp ne i32 %5, 0
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %31 = load ptr, ptr %30, align 8
+  %32 = icmp ne i32 %5, 0
   %switch.tableidx = add i32 %4, -272
-  %32 = icmp ult i32 %switch.tableidx, 5
-  br i1 %32, label %switch.lookup, label %pointer_handle_button_common.exit
+  %33 = icmp ult i32 %switch.tableidx, 5
+  br i1 %33, label %switch.lookup, label %pointer_handle_button_common.exit
 
 switch.lookup:                                    ; preds = %Wayland_GetPointerTimestamp.exit
   %switch.cast = trunc nuw i32 %switch.tableidx to i5
   %switch.downshift = lshr i5 1, %switch.cast
   %switch.masked = trunc nuw i5 %switch.downshift to i1
-  %33 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.shiftamt12 = zext nneg i32 %33 to i40
+  %34 = shl nuw nsw i32 %switch.tableidx, 3
+  %switch.shiftamt12 = zext nneg i32 %34 to i40
   %switch.downshift13 = lshr i40 21542077185, %switch.shiftamt12
   %switch.masked14 = trunc i40 %switch.downshift13 to i8
-  %.not.i6 = icmp eq ptr %30, null
-  br i1 %.not.i6, label %pointer_handle_button_common.exit, label %34
+  %.not.i6 = icmp eq ptr %31, null
+  br i1 %.not.i6, label %pointer_handle_button_common.exit, label %35
 
-34:                                               ; preds = %switch.lookup
-  br i1 %31, label %35, label %53
+35:                                               ; preds = %switch.lookup
+  br i1 %32, label %36, label %54
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp ugt i32 %2, %37
-  br i1 %38, label %39, label %Wayland_UpdateImplicitGrabSerial.exit.i
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %38 = load i32, ptr %37, align 8
+  %39 = icmp ugt i32 %2, %38
+  br i1 %39, label %40, label %Wayland_UpdateImplicitGrabSerial.exit.i
 
-39:                                               ; preds = %35
-  store i32 %2, ptr %36, align 8
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 264
-  store ptr %0, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8
-  tail call void @Wayland_data_device_set_serial(ptr noundef %43, i32 noundef %2) #12
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load ptr, ptr %44, align 8
-  tail call void @Wayland_primary_selection_device_set_serial(ptr noundef %45, i32 noundef %2) #12
+40:                                               ; preds = %36
+  store i32 %2, ptr %37, align 8
+  %41 = load ptr, ptr %0, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 264
+  store ptr %0, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load ptr, ptr %43, align 8
+  tail call void @Wayland_data_device_set_serial(ptr noundef %44, i32 noundef %2) #12
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = load ptr, ptr %45, align 8
+  tail call void @Wayland_primary_selection_device_set_serial(ptr noundef %46, i32 noundef %2) #12
   br label %Wayland_UpdateImplicitGrabSerial.exit.i
 
-Wayland_UpdateImplicitGrabSerial.exit.i:          ; preds = %39, %35
-  %46 = trunc i40 %switch.downshift13 to i32
-  %47 = and i32 %46, 7
-  %48 = add nsw i32 %47, -1
-  %49 = shl nuw nsw i32 1, %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %51 = load i32, ptr %50, align 4
-  %52 = or i32 %51, %49
-  store i32 %52, ptr %50, align 4
-  br label %62
+Wayland_UpdateImplicitGrabSerial.exit.i:          ; preds = %40, %36
+  %47 = trunc i40 %switch.downshift13 to i32
+  %48 = and i32 %47, 7
+  %49 = add nsw i32 %48, -1
+  %50 = shl nuw nsw i32 1, %49
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %52 = load i32, ptr %51, align 4
+  %53 = or i32 %52, %50
+  store i32 %53, ptr %51, align 4
+  br label %63
 
-53:                                               ; preds = %34
-  %54 = trunc i40 %switch.downshift13 to i32
-  %55 = and i32 %54, 7
-  %56 = add nsw i32 %55, -1
-  %57 = shl nuw nsw i32 1, %56
-  %58 = xor i32 %57, -1
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %60 = load i32, ptr %59, align 4
-  %61 = and i32 %60, %58
-  store i32 %61, ptr %59, align 4
-  br label %62
+54:                                               ; preds = %35
+  %55 = trunc i40 %switch.downshift13 to i32
+  %56 = and i32 %55, 7
+  %57 = add nsw i32 %56, -1
+  %58 = shl nuw nsw i32 1, %57
+  %59 = xor i32 %58, -1
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %61 = load i32, ptr %60, align 4
+  %62 = and i32 %61, %59
+  store i32 %62, ptr %60, align 4
+  br label %63
 
-62:                                               ; preds = %53, %Wayland_UpdateImplicitGrabSerial.exit.i
-  br i1 %switch.masked, label %63, label %Wayland_ProcessHitTest.exit.i
+63:                                               ; preds = %54, %Wayland_UpdateImplicitGrabSerial.exit.i
+  br i1 %switch.masked, label %64, label %Wayland_ProcessHitTest.exit.i
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %65 = load ptr, ptr %64, align 8
-  %.not.i.i7 = icmp eq ptr %65, null
-  br i1 %.not.i.i7, label %66, label %Wayland_ProcessHitTest.exit.i
+64:                                               ; preds = %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %66 = load ptr, ptr %65, align 8
+  %.not.i.i7 = icmp eq ptr %66, null
+  br i1 %.not.i.i7, label %67, label %Wayland_ProcessHitTest.exit.i
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %29, align 8
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 352
-  %70 = load ptr, ptr %69, align 8
-  %.not18.i.i = icmp eq ptr %70, null
-  br i1 %.not18.i.i, label %Wayland_ProcessHitTest.exit.i, label %71
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %30, align 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 352
+  %71 = load ptr, ptr %70, align 8
+  %.not18.i.i = icmp eq ptr %71, null
+  br i1 %.not18.i.i, label %Wayland_ProcessHitTest.exit.i, label %72
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 408
-  %73 = load i32, ptr %72, align 8
-  switch i32 %73, label %Wayland_ProcessHitTest.exit.i [
-    i32 1, label %74
-    i32 2, label %88
-    i32 3, label %88
-    i32 4, label %88
-    i32 5, label %88
-    i32 6, label %88
-    i32 7, label %88
-    i32 8, label %88
-    i32 9, label %88
+72:                                               ; preds = %67
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 408
+  %74 = load i32, ptr %73, align 8
+  switch i32 %74, label %Wayland_ProcessHitTest.exit.i [
+    i32 1, label %75
+    i32 2, label %89
+    i32 3, label %89
+    i32 4, label %89
+    i32 5, label %89
+    i32 6, label %89
+    i32 7, label %89
+    i32 8, label %89
+    i32 9, label %89
   ]
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 88
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp eq i32 %76, 1
-  br i1 %77, label %78, label %pointer_handle_button_common.exit
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 88
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp eq i32 %77, 1
+  br i1 %78, label %79, label %pointer_handle_button_common.exit
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %80 = load ptr, ptr %79, align 8
-  %.not20.i.i = icmp eq ptr %80, null
-  br i1 %.not20.i.i, label %pointer_handle_button_common.exit, label %81
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %81 = load ptr, ptr %80, align 8
+  %.not20.i.i = icmp eq ptr %81, null
+  br i1 %.not20.i.i, label %pointer_handle_button_common.exit, label %82
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %85 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %86 = tail call i32 %85(ptr noundef nonnull %80) #12
-  %87 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %84(ptr noundef nonnull %80, i32 noundef 5, ptr noundef null, i32 noundef %86, i32 noundef 0, ptr noundef %83, i32 noundef %2) #12
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %86 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %87 = tail call i32 %86(ptr noundef nonnull %81) #12
+  %88 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %85(ptr noundef nonnull %81, i32 noundef 5, ptr noundef null, i32 noundef %87, i32 noundef 0, ptr noundef %84, i32 noundef %2) #12
   br label %pointer_handle_button_common.exit
 
-88:                                               ; preds = %71, %71, %71, %71, %71, %71, %71, %71
-  %89 = getelementptr inbounds nuw i8, ptr %67, i64 88
-  %90 = load i32, ptr %89, align 8
-  %91 = icmp eq i32 %90, 1
-  br i1 %91, label %92, label %pointer_handle_button_common.exit
+89:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72
+  %90 = getelementptr inbounds nuw i8, ptr %68, i64 88
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp eq i32 %91, 1
+  br i1 %92, label %93, label %pointer_handle_button_common.exit
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  %94 = load ptr, ptr %93, align 8
-  %.not19.i.i = icmp eq ptr %94, null
-  br i1 %.not19.i.i, label %pointer_handle_button_common.exit, label %95
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %95 = load ptr, ptr %94, align 8
+  %.not19.i.i = icmp eq ptr %95, null
+  br i1 %.not19.i.i, label %pointer_handle_button_common.exit, label %96
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = add nsw i32 %73, -2
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw [8 x i32], ptr @Wayland_ProcessHitTest.directions, i64 0, i64 %99
-  %101 = load i32, ptr %100, align 4
-  %102 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
-  %103 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %104 = tail call i32 %103(ptr noundef nonnull %94) #12
-  %105 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %102(ptr noundef nonnull %94, i32 noundef 6, ptr noundef null, i32 noundef %104, i32 noundef 0, ptr noundef %97, i32 noundef %2, i32 noundef %101) #12
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %98 = load ptr, ptr %97, align 8
+  %99 = add nsw i32 %74, -2
+  %100 = zext nneg i32 %99 to i64
+  %101 = getelementptr inbounds nuw [8 x i32], ptr @Wayland_ProcessHitTest.directions, i64 0, i64 %100
+  %102 = load i32, ptr %101, align 4
+  %103 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
+  %104 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %105 = tail call i32 %104(ptr noundef nonnull %95) #12
+  %106 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %103(ptr noundef nonnull %95, i32 noundef 6, ptr noundef null, i32 noundef %105, i32 noundef 0, ptr noundef %98, i32 noundef %2, i32 noundef %102) #12
   br label %pointer_handle_button_common.exit
 
-Wayland_ProcessHitTest.exit.i:                    ; preds = %71, %66, %63, %62
-  %106 = getelementptr inbounds nuw i8, ptr %30, i64 376
-  %107 = load i64, ptr %106, align 8
-  %.not32.i = icmp eq i64 %107, 0
-  br i1 %.not32.i, label %119, label %108
+Wayland_ProcessHitTest.exit.i:                    ; preds = %72, %67, %64, %63
+  %107 = getelementptr inbounds nuw i8, ptr %31, i64 376
+  %108 = load i64, ptr %107, align 8
+  %.not32.i = icmp eq i64 %108, 0
+  br i1 %.not32.i, label %120, label %109
 
-108:                                              ; preds = %Wayland_ProcessHitTest.exit.i
-  %109 = icmp eq i32 %5, 1
-  br i1 %109, label %110, label %118
+109:                                              ; preds = %Wayland_ProcessHitTest.exit.i
+  %110 = icmp eq i32 %5, 1
+  br i1 %110, label %111, label %119
 
-110:                                              ; preds = %108
-  %111 = tail call i64 @SDL_GetTicksNS_REAL() #12
-  %112 = load i64, ptr %106, align 8
-  %113 = sub i64 %111, %112
-  %114 = icmp ult i64 %113, 10000000
-  br i1 %114, label %115, label %118
+111:                                              ; preds = %109
+  %112 = tail call i64 @SDL_GetTicksNS_REAL() #12
+  %113 = load i64, ptr %107, align 8
+  %114 = sub i64 %112, %113
+  %115 = icmp ult i64 %114, 10000000
+  br i1 %115, label %116, label %119
 
-115:                                              ; preds = %110
-  %116 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.33, i1 noundef zeroext false) #12
-  %117 = xor i1 %116, true
-  br label %118
-
-118:                                              ; preds = %115, %110, %108
-  %.1.i = phi i1 [ %117, %115 ], [ false, %110 ], [ false, %108 ]
-  store i64 0, ptr %106, align 8
+116:                                              ; preds = %111
+  %117 = tail call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.33, i1 noundef zeroext false) #12
+  %118 = xor i1 %117, true
   br label %119
 
-119:                                              ; preds = %118, %Wayland_ProcessHitTest.exit.i
-  %.0.i = phi i1 [ %.1.i, %118 ], [ false, %Wayland_ProcessHitTest.exit.i ]
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %121 = load ptr, ptr %120, align 8
-  %.not33.i = icmp eq ptr %121, null
-  br i1 %.not33.i, label %.sink.split.i, label %128
+119:                                              ; preds = %116, %111, %109
+  %.1.i = phi i1 [ %118, %116 ], [ false, %111 ], [ false, %109 ]
+  store i64 0, ptr %107, align 8
+  br label %120
 
-.sink.split.i:                                    ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %123 = load i32, ptr %122, align 4
-  %.not34.i = icmp eq i32 %123, 0
-  %124 = load ptr, ptr %30, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
-  %126 = load i64, ptr %125, align 8
-  %127 = and i64 %126, -16385
+120:                                              ; preds = %119, %Wayland_ProcessHitTest.exit.i
+  %.0.i = phi i1 [ %.1.i, %119 ], [ false, %Wayland_ProcessHitTest.exit.i ]
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %122 = load ptr, ptr %121, align 8
+  %.not33.i = icmp eq ptr %122, null
+  br i1 %.not33.i, label %.sink.split.i, label %129
+
+.sink.split.i:                                    ; preds = %120
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  %124 = load i32, ptr %123, align 4
+  %.not34.i = icmp eq i32 %124, 0
+  %125 = load ptr, ptr %31, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
+  %127 = load i64, ptr %126, align 8
+  %128 = and i64 %127, -16385
   %masksel.i = select i1 %.not34.i, i64 0, i64 16384
-  %.sink.i = or disjoint i64 %127, %masksel.i
-  store i64 %.sink.i, ptr %125, align 8
-  br label %128
+  %.sink.i = or disjoint i64 %128, %masksel.i
+  store i64 %.sink.i, ptr %126, align 8
+  br label %129
 
-128:                                              ; preds = %.sink.split.i, %119
-  br i1 %.0.i, label %pointer_handle_button_common.exit, label %129
+129:                                              ; preds = %.sink.split.i, %120
+  br i1 %.0.i, label %pointer_handle_button_common.exit, label %130
 
-129:                                              ; preds = %128
-  %130 = load ptr, ptr %30, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %132 = load i32, ptr %131, align 8
-  tail call void @SDL_SendMouseButton(i64 noundef %.0.i.i, ptr noundef %130, i32 noundef %132, i8 noundef zeroext %switch.masked14, i1 noundef zeroext %31) #12
+130:                                              ; preds = %129
+  %131 = load ptr, ptr %31, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %133 = load i32, ptr %132, align 8
+  tail call void @SDL_SendMouseButton(i64 noundef %.0.i.i, ptr noundef %131, i32 noundef %133, i8 noundef zeroext %switch.masked14, i1 noundef zeroext %32) #12
   br label %pointer_handle_button_common.exit
 
-pointer_handle_button_common.exit:                ; preds = %Wayland_GetPointerTimestamp.exit, %switch.lookup, %74, %78, %81, %88, %92, %95, %128, %129
+pointer_handle_button_common.exit:                ; preds = %Wayland_GetPointerTimestamp.exit, %switch.lookup, %75, %79, %82, %89, %93, %96, %129, %130
   ret void
 }
 
@@ -5200,116 +5200,116 @@ Wayland_EventTimestampMSToNS.exit.i:              ; preds = %8, %5
   %20 = phi i64 [ %18, %16 ], [ %13, %Wayland_EventTimestampMSToNS.exit.i ]
   %21 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %22 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %22, 0
+  %.not.i.i = icmp eq i64 %22, 0
   %23 = sub i64 %21, %20
-  %24 = select i1 %.not.not.i.i, i64 %23, i64 %22
+  %24 = select i1 %.not.i.i, i64 %23, i64 %22
   %25 = add i64 %24, %20
-  %.not.i.i = icmp ugt i64 %25, %21
-  %26 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %26, label %27, label %Wayland_GetPointerTimestamp.exit
+  %26 = icmp ugt i64 %25, %21
+  %27 = or i1 %.not.i.i, %26
+  br i1 %27, label %28, label %Wayland_GetPointerTimestamp.exit
 
-27:                                               ; preds = %19
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %23, i64 %24
+28:                                               ; preds = %19
+  %simplifycfg.merge.i.i = select i1 %26, i64 %23, i64 %24
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_GetPointerTimestamp.exit
 
-Wayland_GetPointerTimestamp.exit:                 ; preds = %19, %27
+Wayland_GetPointerTimestamp.exit:                 ; preds = %19, %28
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %25, i64 %21)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
-  %31 = tail call i32 %30(ptr noundef %29) #12
-  %32 = icmp ugt i32 %31, 4
-  br i1 %32, label %33, label %61
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
+  %32 = tail call i32 %31(ptr noundef %30) #12
+  %33 = icmp ugt i32 %32, 4
+  br i1 %33, label %34, label %62
 
-33:                                               ; preds = %Wayland_GetPointerTimestamp.exit
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i64 %.0.i.i, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %36 = load ptr, ptr %35, align 8
-  %.not.i12 = icmp eq ptr %36, null
-  br i1 %.not.i12, label %pointer_handle_axis_common.exit, label %37
+34:                                               ; preds = %Wayland_GetPointerTimestamp.exit
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  store i64 %.0.i.i, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %37 = load ptr, ptr %36, align 8
+  %.not.i12 = icmp eq ptr %37, null
+  br i1 %.not.i12, label %pointer_handle_axis_common.exit, label %38
 
-37:                                               ; preds = %33
+38:                                               ; preds = %34
   switch i32 %3, label %pointer_handle_axis_common.exit [
-    i32 0, label %38
-    i32 1, label %50
+    i32 0, label %39
+    i32 1, label %51
   ]
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %pointer_handle_axis_common.exit
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %pointer_handle_axis_common.exit
 
-42:                                               ; preds = %38
-  %43 = sext i32 %4 to i64
-  %44 = add nsw i64 %43, 4807592602218004480
-  %45 = bitcast i64 %44 to double
-  %46 = fadd double %45, 0xC2B8000000000000
-  %47 = fptrunc double %46 to float
-  %48 = fsub float 0.000000e+00, %47
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  store float %48, ptr %49, align 4
+43:                                               ; preds = %39
+  %44 = sext i32 %4 to i64
+  %45 = add nsw i64 %44, 4807592602218004480
+  %46 = bitcast i64 %45 to double
+  %47 = fadd double %46, 0xC2B8000000000000
+  %48 = fptrunc double %47 to float
+  %49 = fsub float 0.000000e+00, %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  store float %49, ptr %50, align 4
   br label %pointer_handle_axis_common.exit
 
-50:                                               ; preds = %37
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %52 = load i32, ptr %51, align 8
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %pointer_handle_axis_common.exit
+51:                                               ; preds = %38
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %pointer_handle_axis_common.exit
 
-54:                                               ; preds = %50
-  %55 = sext i32 %4 to i64
-  %56 = add nsw i64 %55, 4807592602218004480
-  %57 = bitcast i64 %56 to double
-  %58 = fadd double %57, 0xC2B8000000000000
-  %59 = fptrunc double %58 to float
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  store float %59, ptr %60, align 4
+55:                                               ; preds = %51
+  %56 = sext i32 %4 to i64
+  %57 = add nsw i64 %56, 4807592602218004480
+  %58 = bitcast i64 %57 to double
+  %59 = fadd double %58, 0xC2B8000000000000
+  %60 = fptrunc double %59 to float
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 372
+  store float %60, ptr %61, align 4
   br label %pointer_handle_axis_common.exit
 
-61:                                               ; preds = %Wayland_GetPointerTimestamp.exit
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %63 = load ptr, ptr %62, align 8
-  %.not.i13 = icmp eq ptr %63, null
-  br i1 %.not.i13, label %pointer_handle_axis_common.exit, label %64
+62:                                               ; preds = %Wayland_GetPointerTimestamp.exit
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %64 = load ptr, ptr %63, align 8
+  %.not.i13 = icmp eq ptr %64, null
+  br i1 %.not.i13, label %pointer_handle_axis_common.exit, label %65
 
-64:                                               ; preds = %61
+65:                                               ; preds = %62
   switch i32 %3, label %pointer_handle_axis_common.exit [
-    i32 0, label %65
-    i32 1, label %72
+    i32 0, label %66
+    i32 1, label %73
   ]
 
-65:                                               ; preds = %64
-  %66 = sext i32 %4 to i64
-  %67 = add nsw i64 %66, 4807592602218004480
-  %68 = bitcast i64 %67 to double
-  %69 = fadd double %68, 0xC2B8000000000000
-  %70 = fptrunc double %69 to float
-  %71 = fsub float 0.000000e+00, %70
+66:                                               ; preds = %65
+  %67 = sext i32 %4 to i64
+  %68 = add nsw i64 %67, 4807592602218004480
+  %69 = bitcast i64 %68 to double
+  %70 = fadd double %69, 0xC2B8000000000000
+  %71 = fptrunc double %70 to float
+  %72 = fsub float 0.000000e+00, %71
   br label %.critedge.i
 
-72:                                               ; preds = %64
-  %73 = sext i32 %4 to i64
-  %74 = add nsw i64 %73, 4807592602218004480
-  %75 = bitcast i64 %74 to double
-  %76 = fadd double %75, 0xC2B8000000000000
-  %77 = fptrunc double %76 to float
+73:                                               ; preds = %65
+  %74 = sext i32 %4 to i64
+  %75 = add nsw i64 %74, 4807592602218004480
+  %76 = bitcast i64 %75 to double
+  %77 = fadd double %76, 0xC2B8000000000000
+  %78 = fptrunc double %77 to float
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %72, %65
-  %.014.i = phi float [ 0.000000e+00, %65 ], [ %77, %72 ]
-  %.013.i = phi float [ %71, %65 ], [ 0.000000e+00, %72 ]
-  %78 = fdiv float %.014.i, 1.000000e+01
-  %79 = fdiv float %.013.i, 1.000000e+01
-  %80 = load ptr, ptr %63, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %82 = load i32, ptr %81, align 8
-  tail call void @SDL_SendMouseWheel(i64 noundef %.0.i.i, ptr noundef %80, i32 noundef %82, float noundef %78, float noundef %79, i32 noundef 0) #12
+.critedge.i:                                      ; preds = %73, %66
+  %.014.i = phi float [ 0.000000e+00, %66 ], [ %78, %73 ]
+  %.013.i = phi float [ %72, %66 ], [ 0.000000e+00, %73 ]
+  %79 = fdiv float %.014.i, 1.000000e+01
+  %80 = fdiv float %.013.i, 1.000000e+01
+  %81 = load ptr, ptr %64, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %83 = load i32, ptr %82, align 8
+  tail call void @SDL_SendMouseWheel(i64 noundef %.0.i.i, ptr noundef %81, i32 noundef %83, float noundef %79, float noundef %80, i32 noundef 0) #12
   br label %pointer_handle_axis_common.exit
 
-pointer_handle_axis_common.exit:                  ; preds = %.critedge.i, %64, %61, %54, %50, %42, %38, %37, %33
+pointer_handle_axis_common.exit:                  ; preds = %.critedge.i, %65, %62, %55, %51, %43, %39, %38, %34
   ret void
 }
 
@@ -5794,7 +5794,7 @@ declare void @SDL_SendMouseWheel(i64 noundef, ptr noundef, i32 noundef, float no
 ; Function Attrs: nounwind uwtable
 define internal void @touch_handler_down(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #0 {
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %86, label %9
+  br i1 %.not, label %87, label %9
 
 9:                                                ; preds = %8
   %10 = sext i32 %5 to i64
@@ -5832,7 +5832,7 @@ define internal void @touch_handler_down(ptr noundef %0, ptr noundef %1, i32 nou
 Wayland_UpdateImplicitGrabSerial.exit:            ; preds = %9, %21
   %28 = tail call ptr @Wayland_GetWindowDataForOwnedSurface(ptr noundef nonnull %4) #12
   %.not28 = icmp eq ptr %28, null
-  br i1 %.not28, label %86, label %29
+  br i1 %.not28, label %87, label %29
 
 29:                                               ; preds = %Wayland_UpdateImplicitGrabSerial.exit
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 312
@@ -5907,29 +5907,29 @@ Wayland_EventTimestampMSToNS.exit.i:              ; preds = %62, %55
   %74 = phi i64 [ %72, %70 ], [ %67, %Wayland_EventTimestampMSToNS.exit.i ]
   %75 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %76 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %76, 0
+  %.not.i.i = icmp eq i64 %76, 0
   %77 = sub i64 %75, %74
-  %78 = select i1 %.not.not.i.i, i64 %77, i64 %76
+  %78 = select i1 %.not.i.i, i64 %77, i64 %76
   %79 = add i64 %78, %74
-  %.not.i.i = icmp ugt i64 %79, %75
-  %80 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %80, label %81, label %Wayland_GetTouchTimestamp.exit
+  %80 = icmp ugt i64 %79, %75
+  %81 = or i1 %.not.i.i, %80
+  br i1 %81, label %82, label %Wayland_GetTouchTimestamp.exit
 
-81:                                               ; preds = %73
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %77, i64 %78
+82:                                               ; preds = %73
+  %simplifycfg.merge.i.i = select i1 %80, i64 %77, i64 %78
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_GetTouchTimestamp.exit
 
-Wayland_GetTouchTimestamp.exit:                   ; preds = %73, %81
+Wayland_GetTouchTimestamp.exit:                   ; preds = %73, %82
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %79, i64 %75)
-  %82 = ptrtoint ptr %1 to i64
-  %83 = add nsw i32 %5, 1
-  %84 = sext i32 %83 to i64
-  %85 = load ptr, ptr %28, align 8
-  tail call void @SDL_SendTouch(i64 noundef %.0.i.i, i64 noundef %82, i64 noundef %84, ptr noundef %85, i32 noundef 1792, float noundef %.025, float noundef %.0, float noundef 1.000000e+00) #12
-  br label %86
+  %83 = ptrtoint ptr %1 to i64
+  %84 = add nsw i32 %5, 1
+  %85 = sext i32 %84 to i64
+  %86 = load ptr, ptr %28, align 8
+  tail call void @SDL_SendTouch(i64 noundef %.0.i.i, i64 noundef %83, i64 noundef %85, ptr noundef %86, i32 noundef 1792, float noundef %.025, float noundef %.0, float noundef 1.000000e+00) #12
+  br label %87
 
-86:                                               ; preds = %Wayland_UpdateImplicitGrabSerial.exit, %Wayland_GetTouchTimestamp.exit, %8
+87:                                               ; preds = %Wayland_UpdateImplicitGrabSerial.exit, %Wayland_GetTouchTimestamp.exit, %8
   ret void
 }
 
@@ -6024,57 +6024,57 @@ Wayland_EventTimestampMSToNS.exit.i:              ; preds = %44, %23
   %56 = phi i64 [ %54, %52 ], [ %49, %Wayland_EventTimestampMSToNS.exit.i ]
   %57 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %58 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %58, 0
+  %.not.i.i = icmp eq i64 %58, 0
   %59 = sub i64 %57, %56
-  %60 = select i1 %.not.not.i.i, i64 %59, i64 %58
+  %60 = select i1 %.not.i.i, i64 %59, i64 %58
   %61 = add i64 %60, %56
-  %.not.i.i = icmp ugt i64 %61, %57
-  %62 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %62, label %63, label %Wayland_GetTouchTimestamp.exit
+  %62 = icmp ugt i64 %61, %57
+  %63 = or i1 %.not.i.i, %62
+  br i1 %63, label %64, label %Wayland_GetTouchTimestamp.exit
 
-63:                                               ; preds = %55
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %59, i64 %60
+64:                                               ; preds = %55
+  %simplifycfg.merge.i.i = select i1 %62, i64 %59, i64 %60
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_GetTouchTimestamp.exit
 
-Wayland_GetTouchTimestamp.exit:                   ; preds = %55, %63
+Wayland_GetTouchTimestamp.exit:                   ; preds = %55, %64
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %61, i64 %57)
-  %64 = ptrtoint ptr %1 to i64
-  %65 = add nsw i32 %4, 1
-  %66 = sext i32 %65 to i64
-  %67 = load ptr, ptr %22, align 8
-  tail call void @SDL_SendTouch(i64 noundef %.0.i.i, i64 noundef %64, i64 noundef %66, ptr noundef %67, i32 noundef 1793, float noundef %32, float noundef %41, float noundef 0.000000e+00) #12
-  %68 = getelementptr inbounds nuw i8, ptr %22, i64 276
-  %69 = load i32, ptr %68, align 4
-  %70 = add nsw i32 %69, -1
-  store i32 %70, ptr %68, align 4
-  %71 = tail call ptr @SDL_GetMouseFocus_REAL() #12
-  %72 = load ptr, ptr %22, align 8
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %74, label %Wayland_SeatRemoveTouch.exit.thread
+  %65 = ptrtoint ptr %1 to i64
+  %66 = add nsw i32 %4, 1
+  %67 = sext i32 %66 to i64
+  %68 = load ptr, ptr %22, align 8
+  tail call void @SDL_SendTouch(i64 noundef %.0.i.i, i64 noundef %65, i64 noundef %67, ptr noundef %68, i32 noundef 1793, float noundef %32, float noundef %41, float noundef 0.000000e+00) #12
+  %69 = getelementptr inbounds nuw i8, ptr %22, i64 276
+  %70 = load i32, ptr %69, align 4
+  %71 = add nsw i32 %70, -1
+  store i32 %71, ptr %69, align 4
+  %72 = tail call ptr @SDL_GetMouseFocus_REAL() #12
+  %73 = load ptr, ptr %22, align 8
+  %74 = icmp eq ptr %72, %73
+  br i1 %74, label %75, label %Wayland_SeatRemoveTouch.exit.thread
 
-74:                                               ; preds = %Wayland_GetTouchTimestamp.exit
-  %75 = getelementptr inbounds nuw i8, ptr %22, i64 268
-  %76 = load i32, ptr %75, align 4
-  %.not19 = icmp eq i32 %76, 0
-  br i1 %.not19, label %77, label %Wayland_SeatRemoveTouch.exit.thread
+75:                                               ; preds = %Wayland_GetTouchTimestamp.exit
+  %76 = getelementptr inbounds nuw i8, ptr %22, i64 268
+  %77 = load i32, ptr %76, align 4
+  %.not19 = icmp eq i32 %77, 0
+  br i1 %.not19, label %78, label %Wayland_SeatRemoveTouch.exit.thread
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %22, i64 272
-  %79 = load i32, ptr %78, align 8
-  %.not20 = icmp eq i32 %79, 0
-  br i1 %.not20, label %80, label %Wayland_SeatRemoveTouch.exit.thread
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %22, i64 272
+  %80 = load i32, ptr %79, align 8
+  %.not20 = icmp eq i32 %80, 0
+  br i1 %.not20, label %81, label %Wayland_SeatRemoveTouch.exit.thread
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %68, align 4
-  %.not21 = icmp eq i32 %81, 0
-  br i1 %.not21, label %82, label %Wayland_SeatRemoveTouch.exit.thread
+81:                                               ; preds = %78
+  %82 = load i32, ptr %69, align 4
+  %.not21 = icmp eq i32 %82, 0
+  br i1 %.not21, label %83, label %Wayland_SeatRemoveTouch.exit.thread
 
-82:                                               ; preds = %80
+83:                                               ; preds = %81
   tail call void @SDL_SetMouseFocus(ptr noundef null) #12
   br label %Wayland_SeatRemoveTouch.exit.thread
 
-Wayland_SeatRemoveTouch.exit.thread:              ; preds = %11, %5, %20, %82, %80, %77, %74, %Wayland_GetTouchTimestamp.exit, %Wayland_SeatRemoveTouch.exit
+Wayland_SeatRemoveTouch.exit.thread:              ; preds = %11, %5, %20, %83, %81, %78, %75, %Wayland_GetTouchTimestamp.exit, %Wayland_SeatRemoveTouch.exit
   ret void
 }
 
@@ -6165,26 +6165,26 @@ Wayland_EventTimestampMSToNS.exit.i:              ; preds = %42, %21
   %54 = phi i64 [ %52, %50 ], [ %47, %Wayland_EventTimestampMSToNS.exit.i ]
   %55 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %56 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %56, 0
+  %.not.i.i = icmp eq i64 %56, 0
   %57 = sub i64 %55, %54
-  %58 = select i1 %.not.not.i.i, i64 %57, i64 %56
+  %58 = select i1 %.not.i.i, i64 %57, i64 %56
   %59 = add i64 %58, %54
-  %.not.i.i = icmp ugt i64 %59, %55
-  %60 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %60, label %61, label %Wayland_GetTouchTimestamp.exit
+  %60 = icmp ugt i64 %59, %55
+  %61 = or i1 %.not.i.i, %60
+  br i1 %61, label %62, label %Wayland_GetTouchTimestamp.exit
 
-61:                                               ; preds = %53
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %57, i64 %58
+62:                                               ; preds = %53
+  %simplifycfg.merge.i.i = select i1 %60, i64 %57, i64 %58
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_GetTouchTimestamp.exit
 
-Wayland_GetTouchTimestamp.exit:                   ; preds = %53, %61
+Wayland_GetTouchTimestamp.exit:                   ; preds = %53, %62
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %59, i64 %55)
-  %62 = ptrtoint ptr %1 to i64
-  %63 = add nsw i32 %3, 1
-  %64 = sext i32 %63 to i64
-  %65 = load ptr, ptr %20, align 8
-  tail call void @SDL_SendTouchMotion(i64 noundef %.0.i.i, i64 noundef %62, i64 noundef %64, ptr noundef %65, float noundef %30, float noundef %39, float noundef 1.000000e+00) #12
+  %63 = ptrtoint ptr %1 to i64
+  %64 = add nsw i32 %3, 1
+  %65 = sext i32 %64 to i64
+  %66 = load ptr, ptr %20, align 8
+  tail call void @SDL_SendTouchMotion(i64 noundef %.0.i.i, i64 noundef %63, i64 noundef %65, ptr noundef %66, float noundef %30, float noundef %39, float noundef 1.000000e+00) #12
   br label %Wayland_SeatUpdateTouch.exit.thread
 
 Wayland_SeatUpdateTouch.exit.thread:              ; preds = %12, %6, %18, %Wayland_GetTouchTimestamp.exit, %Wayland_SeatUpdateTouch.exit
@@ -6796,11 +6796,11 @@ Wayland_UpdateImplicitGrabSerial.exit:            ; preds = %Wayland_GetKeyboard
 47:                                               ; preds = %45
   %48 = tail call ptr @SDL_GetKeyboardFocus_REAL() #12
   %.not47 = icmp eq ptr %48, null
-  br i1 %.not47, label %146, label %49
+  br i1 %.not47, label %147, label %49
 
 49:                                               ; preds = %47
   %50 = tail call zeroext i1 @SDL_TextInputActive_REAL(ptr noundef nonnull %48) #12
-  br i1 %50, label %51, label %146
+  br i1 %50, label %51, label %147
 
 51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6870,7 +6870,7 @@ keyboard_input_get_text.exit:                     ; preds = %72, %61, %51, %54, 
   %.163 = phi i1 [ false, %51 ], [ false, %54 ], [ false, %81 ], [ false, %57 ], [ true, %61 ], [ true, %72 ]
   %.019.i = phi i1 [ false, %51 ], [ false, %54 ], [ %84, %81 ], [ false, %57 ], [ true, %61 ], [ true, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %146
+  br label %147
 
 85:                                               ; preds = %45
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6906,61 +6906,61 @@ keyboard_repeat_key_is_set.exit:                  ; preds = %90
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 156
   br label %106
 
-106:                                              ; preds = %126, %.lr.ph.i
-  %107 = phi i64 [ %102, %.lr.ph.i ], [ %131, %126 ]
+106:                                              ; preds = %127, %.lr.ph.i
+  %107 = phi i64 [ %102, %.lr.ph.i ], [ %132, %127 ]
   %108 = load i32, ptr %103, align 8
   %.not14.i = icmp eq i32 %108, 0
-  br i1 %.not14.i, label %123, label %109
+  br i1 %.not14.i, label %124, label %109
 
 109:                                              ; preds = %106
   %110 = load i64, ptr %98, align 8
   %111 = add i64 %110, %107
   %112 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %113 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i.i = icmp eq i64 %113, 0
+  %.not.i.i = icmp eq i64 %113, 0
   %114 = sub i64 %112, %111
-  %115 = select i1 %.not.not.i.i, i64 %114, i64 %113
+  %115 = select i1 %.not.i.i, i64 %114, i64 %113
   %116 = add i64 %115, %111
-  %.not.i.i = icmp ugt i64 %116, %112
-  %117 = or i1 %.not.not.i.i, %.not.i.i
-  br i1 %117, label %118, label %Wayland_AdjustEventTimestampBase.exit.i
+  %117 = icmp ugt i64 %116, %112
+  %118 = or i1 %.not.i.i, %117
+  br i1 %118, label %119, label %Wayland_AdjustEventTimestampBase.exit.i
 
-118:                                              ; preds = %109
-  %simplifycfg.merge.i.i = select i1 %.not.i.i, i64 %114, i64 %115
+119:                                              ; preds = %109
+  %simplifycfg.merge.i.i = select i1 %117, i64 %114, i64 %115
   store i64 %simplifycfg.merge.i.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit.i
 
-Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %118, %109
+Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %119, %109
   %.0.i.i = tail call i64 @llvm.umin.i64(i64 %116, i64 %112)
-  %119 = load i32, ptr %104, align 8
-  %120 = load i32, ptr %94, align 8
-  %121 = load i32, ptr %103, align 8
-  %122 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i, i32 noundef %119, i32 noundef %120, i32 noundef %121, i1 noundef zeroext true) #12
-  br label %123
+  %120 = load i32, ptr %104, align 8
+  %121 = load i32, ptr %94, align 8
+  %122 = load i32, ptr %103, align 8
+  %123 = tail call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i.i, i32 noundef %120, i32 noundef %121, i32 noundef %122, i1 noundef zeroext true) #12
+  br label %124
 
-123:                                              ; preds = %Wayland_AdjustEventTimestampBase.exit.i, %106
-  %124 = load i8, ptr %105, align 4
-  %.not15.i = icmp eq i8 %124, 0
-  br i1 %.not15.i, label %126, label %125
+124:                                              ; preds = %Wayland_AdjustEventTimestampBase.exit.i, %106
+  %125 = load i8, ptr %105, align 4
+  %.not15.i = icmp eq i8 %125, 0
+  br i1 %.not15.i, label %127, label %126
 
-125:                                              ; preds = %123
+126:                                              ; preds = %124
   tail call void @SDL_SendKeyboardText(ptr noundef nonnull %105) #12
-  br label %126
+  br label %127
 
-126:                                              ; preds = %125, %123
-  %127 = load i32, ptr %86, align 8
-  %128 = sext i32 %127 to i64
-  %129 = udiv i64 1000000000, %128
-  %130 = load i64, ptr %101, align 8
-  %131 = add i64 %130, %129
-  store i64 %131, ptr %101, align 8
-  %.not.i51 = icmp ult i64 %100, %131
+127:                                              ; preds = %126, %124
+  %128 = load i32, ptr %86, align 8
+  %129 = sext i32 %128 to i64
+  %130 = udiv i64 1000000000, %129
+  %131 = load i64, ptr %101, align 8
+  %132 = add i64 %131, %130
+  store i64 %132, ptr %101, align 8
+  %.not.i51 = icmp ult i64 %100, %132
   br i1 %.not.i51, label %keyboard_repeat_handle.exit, label %106, !llvm.loop !8
 
-keyboard_repeat_handle.exit:                      ; preds = %126
+keyboard_repeat_handle.exit:                      ; preds = %127
   %.pre = load i8, ptr %87, align 4, !range !6
-  %132 = trunc nuw i8 %.pre to i1
-  br i1 %132, label %keyboard_repeat_handle.exit.thread, label %keyboard_repeat_clear.exit
+  %133 = trunc nuw i8 %.pre to i1
+  br i1 %133, label %keyboard_repeat_handle.exit.thread, label %keyboard_repeat_clear.exit
 
 keyboard_repeat_handle.exit.thread:               ; preds = %97, %keyboard_repeat_handle.exit
   store i8 0, ptr %91, align 1
@@ -6968,215 +6968,215 @@ keyboard_repeat_handle.exit.thread:               ; preds = %97, %keyboard_repea
 
 keyboard_repeat_clear.exit:                       ; preds = %85, %90, %keyboard_repeat_handle.exit.thread, %keyboard_repeat_handle.exit, %keyboard_repeat_key_is_set.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %134 = load ptr, ptr %133, align 8
-  %.not.i52 = icmp eq ptr %134, null
-  br i1 %.not.i52, label %keyboard_input_get_text.exit56, label %135
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %135 = load ptr, ptr %134, align 8
+  %.not.i52 = icmp eq ptr %135, null
+  br i1 %.not.i52, label %keyboard_input_get_text.exit56, label %136
 
-135:                                              ; preds = %keyboard_repeat_clear.exit
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %137 = load ptr, ptr %136, align 8
-  %.not23.i53 = icmp eq ptr %137, null
-  br i1 %.not23.i53, label %keyboard_input_get_text.exit56, label %138
+136:                                              ; preds = %keyboard_repeat_clear.exit
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %138 = load ptr, ptr %137, align 8
+  %.not23.i53 = icmp eq ptr %138, null
+  br i1 %.not23.i53, label %keyboard_input_get_text.exit56, label %139
 
-138:                                              ; preds = %135
-  %139 = load ptr, ptr @WAYLAND_xkb_state_key_get_syms, align 8
-  %140 = add i32 %4, 8
-  %141 = call i32 %139(ptr noundef nonnull %137, i32 noundef %140, ptr noundef nonnull %8) #12
-  %.not24.i54 = icmp eq i32 %141, 1
-  br i1 %.not24.i54, label %142, label %keyboard_input_get_text.exit56
+139:                                              ; preds = %136
+  %140 = load ptr, ptr @WAYLAND_xkb_state_key_get_syms, align 8
+  %141 = add i32 %4, 8
+  %142 = call i32 %140(ptr noundef nonnull %138, i32 noundef %141, ptr noundef nonnull %8) #12
+  %.not24.i54 = icmp eq i32 %142, 1
+  br i1 %.not24.i54, label %143, label %keyboard_input_get_text.exit56
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %8, align 8
-  %144 = load i32, ptr %143, align 4
-  %145 = call zeroext i1 @SDL_IME_ProcessKeyEvent(i32 noundef %144, i32 noundef %140, i1 noundef zeroext false) #12
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %8, align 8
+  %145 = load i32, ptr %144, align 4
+  %146 = call zeroext i1 @SDL_IME_ProcessKeyEvent(i32 noundef %145, i32 noundef %141, i1 noundef zeroext false) #12
   br label %keyboard_input_get_text.exit56
 
-keyboard_input_get_text.exit56:                   ; preds = %142, %keyboard_repeat_clear.exit, %135, %138
-  %.2 = phi i1 [ false, %keyboard_repeat_clear.exit ], [ false, %135 ], [ false, %138 ], [ %145, %142 ]
+keyboard_input_get_text.exit56:                   ; preds = %143, %keyboard_repeat_clear.exit, %136, %139
+  %.2 = phi i1 [ false, %keyboard_repeat_clear.exit ], [ false, %136 ], [ false, %139 ], [ %146, %143 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %146
+  br label %147
 
-146:                                              ; preds = %47, %49, %keyboard_input_get_text.exit, %keyboard_input_get_text.exit56
+147:                                              ; preds = %47, %49, %keyboard_input_get_text.exit, %keyboard_input_get_text.exit56
   %.0 = phi i1 [ false, %47 ], [ %.163, %keyboard_input_get_text.exit ], [ false, %49 ], [ %.2, %keyboard_input_get_text.exit56 ]
   %.1 = phi i1 [ false, %47 ], [ %.019.i, %keyboard_input_get_text.exit ], [ false, %49 ], [ false, %keyboard_input_get_text.exit56 ]
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %148 = load i8, ptr %147, align 8, !range !6, !noundef !7
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %152, label %150
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %149 = load i8, ptr %148, align 8, !range !6, !noundef !7
+  %150 = trunc nuw i8 %149 to i1
+  br i1 %150, label %153, label %151
 
-150:                                              ; preds = %146
-  %151 = call i32 @SDL_GetScancodeFromTable(i32 noundef 3, i32 noundef %4) #12
+151:                                              ; preds = %147
+  %152 = call i32 @SDL_GetScancodeFromTable(i32 noundef 3, i32 noundef %4) #12
   br label %Wayland_GetScancodeForKey.exit
 
-152:                                              ; preds = %146
+153:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %153 = load ptr, ptr @WAYLAND_xkb_keymap_key_get_syms_by_level, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %155 = load ptr, ptr %154, align 8
-  %156 = add i32 %4, 8
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %158 = load i32, ptr %157, align 8
-  %159 = call i32 %153(ptr noundef %155, i32 noundef %156, i32 noundef %158, i32 noundef 0, ptr noundef nonnull %7) #12
-  %160 = icmp sgt i32 %159, 0
-  br i1 %160, label %161, label %165
+  %154 = load ptr, ptr @WAYLAND_xkb_keymap_key_get_syms_by_level, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %156 = load ptr, ptr %155, align 8
+  %157 = add i32 %4, 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %159 = load i32, ptr %158, align 8
+  %160 = call i32 %154(ptr noundef %156, i32 noundef %157, i32 noundef %159, i32 noundef 0, ptr noundef nonnull %7) #12
+  %161 = icmp sgt i32 %160, 0
+  br i1 %161, label %162, label %166
 
-161:                                              ; preds = %152
-  %162 = load ptr, ptr %7, align 8
-  %163 = load i32, ptr %162, align 4
-  %164 = call i32 @SDL_GetScancodeFromKeySym(i32 noundef %163, i32 noundef %4) #12
-  br label %165
+162:                                              ; preds = %153
+  %163 = load ptr, ptr %7, align 8
+  %164 = load i32, ptr %163, align 4
+  %165 = call i32 @SDL_GetScancodeFromKeySym(i32 noundef %164, i32 noundef %4) #12
+  br label %166
 
-165:                                              ; preds = %161, %152
-  %.1.i = phi i32 [ %164, %161 ], [ 0, %152 ]
+166:                                              ; preds = %162, %153
+  %.1.i = phi i32 [ %165, %162 ], [ 0, %153 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %Wayland_GetScancodeForKey.exit
 
-Wayland_GetScancodeForKey.exit:                   ; preds = %150, %165
-  %.0.i57 = phi i32 [ %.1.i, %165 ], [ %151, %150 ]
-  %166 = call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %.0.i57, i16 noundef zeroext 0, i1 noundef zeroext false) #12
-  switch i32 %166, label %Wayland_HandleModifierKeys.exit [
-    i32 1073742049, label %176
-    i32 1073742053, label %167
-    i32 1073742048, label %168
-    i32 1073742052, label %169
-    i32 1073742050, label %170
-    i32 1073742054, label %171
-    i32 1073742051, label %172
-    i32 1073742055, label %173
-    i32 1073742081, label %174
-    i32 536870914, label %175
+Wayland_GetScancodeForKey.exit:                   ; preds = %151, %166
+  %.0.i57 = phi i32 [ %.1.i, %166 ], [ %152, %151 ]
+  %167 = call i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %.0.i57, i16 noundef zeroext 0, i1 noundef zeroext false) #12
+  switch i32 %167, label %Wayland_HandleModifierKeys.exit [
+    i32 1073742049, label %177
+    i32 1073742053, label %168
+    i32 1073742048, label %169
+    i32 1073742052, label %170
+    i32 1073742050, label %171
+    i32 1073742054, label %172
+    i32 1073742051, label %173
+    i32 1073742055, label %174
+    i32 1073742081, label %175
+    i32 536870914, label %176
   ]
 
-167:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
-
 168:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 169:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 170:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 171:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 172:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 173:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 174:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
 175:                                              ; preds = %Wayland_GetScancodeForKey.exit
-  br label %176
+  br label %177
 
-176:                                              ; preds = %175, %174, %173, %172, %171, %170, %169, %168, %167, %Wayland_GetScancodeForKey.exit
-  %.0.i58 = phi i16 [ 2, %167 ], [ 64, %168 ], [ 128, %169 ], [ 256, %170 ], [ 512, %171 ], [ 1024, %172 ], [ 2048, %173 ], [ 16384, %174 ], [ 4, %175 ], [ 1, %Wayland_GetScancodeForKey.exit ]
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %178 = load i16, ptr %177, align 8
-  %179 = xor i16 %.0.i58, -1
-  %180 = and i16 %178, %179
-  %181 = or i16 %178, %.0.i58
-  %.sink.i = select i1 %46, i16 %181, i16 %180
-  store i16 %.sink.i, ptr %177, align 8
+176:                                              ; preds = %Wayland_GetScancodeForKey.exit
+  br label %177
+
+177:                                              ; preds = %176, %175, %174, %173, %172, %171, %170, %169, %168, %Wayland_GetScancodeForKey.exit
+  %.0.i58 = phi i16 [ 2, %168 ], [ 64, %169 ], [ 128, %170 ], [ 256, %171 ], [ 512, %172 ], [ 1024, %173 ], [ 2048, %174 ], [ 16384, %175 ], [ 4, %176 ], [ 1, %Wayland_GetScancodeForKey.exit ]
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %179 = load i16, ptr %178, align 8
+  %180 = xor i16 %.0.i58, -1
+  %181 = and i16 %179, %180
+  %182 = or i16 %179, %.0.i58
+  %.sink.i = select i1 %46, i16 %182, i16 %181
+  store i16 %.sink.i, ptr %178, align 8
   call fastcc void @Wayland_ReconcileModifiers(ptr noundef nonnull %0, i1 noundef zeroext true)
   br label %Wayland_HandleModifierKeys.exit
 
-Wayland_HandleModifierKeys.exit:                  ; preds = %Wayland_GetScancodeForKey.exit, %176
-  %182 = call i64 @SDL_GetTicksNS_REAL() #12
-  %183 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i = icmp eq i64 %183, 0
-  %184 = sub i64 %182, %24
-  %185 = select i1 %.not.not.i, i64 %184, i64 %183
-  %186 = add i64 %185, %24
-  %.not.i59 = icmp ugt i64 %186, %182
-  %187 = or i1 %.not.not.i, %.not.i59
-  br i1 %187, label %188, label %Wayland_AdjustEventTimestampBase.exit
+Wayland_HandleModifierKeys.exit:                  ; preds = %Wayland_GetScancodeForKey.exit, %177
+  %183 = call i64 @SDL_GetTicksNS_REAL() #12
+  %184 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
+  %.not.i59 = icmp eq i64 %184, 0
+  %185 = sub i64 %183, %24
+  %186 = select i1 %.not.i59, i64 %185, i64 %184
+  %187 = add i64 %186, %24
+  %188 = icmp ugt i64 %187, %183
+  %189 = or i1 %.not.i59, %188
+  br i1 %189, label %190, label %Wayland_AdjustEventTimestampBase.exit
 
-188:                                              ; preds = %Wayland_HandleModifierKeys.exit
-  %simplifycfg.merge.i = select i1 %.not.i59, i64 %184, i64 %185
+190:                                              ; preds = %Wayland_HandleModifierKeys.exit
+  %simplifycfg.merge.i = select i1 %188, i64 %185, i64 %186
   store i64 %simplifycfg.merge.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit
 
-Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_HandleModifierKeys.exit, %188
-  %.0.i60 = call i64 @llvm.umin.i64(i64 %186, i64 %182)
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %190 = load i32, ptr %189, align 4
-  %191 = call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i60, i32 noundef %190, i32 noundef %4, i32 noundef %.0.i57, i1 noundef zeroext %46) #12
-  br i1 %46, label %192, label %keyboard_repeat_set.exit
+Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_HandleModifierKeys.exit, %190
+  %.0.i60 = call i64 @llvm.umin.i64(i64 %187, i64 %183)
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %192 = load i32, ptr %191, align 4
+  %193 = call zeroext i1 @SDL_SendKeyboardKeyIgnoreModifiers(i64 noundef %.0.i60, i32 noundef %192, i32 noundef %4, i32 noundef %.0.i57, i1 noundef zeroext %46) #12
+  br i1 %46, label %194, label %keyboard_repeat_set.exit
 
-192:                                              ; preds = %Wayland_AdjustEventTimestampBase.exit
-  br i1 %.1, label %193, label %198
+194:                                              ; preds = %Wayland_AdjustEventTimestampBase.exit
+  br i1 %.1, label %195, label %200
 
-193:                                              ; preds = %192
-  %194 = call zeroext i16 @SDL_GetModState_REAL() #12
-  %195 = and i16 %194, 960
-  %196 = icmp ne i16 %195, 0
-  %or.cond = select i1 %196, i1 true, i1 %.0
-  br i1 %or.cond, label %198, label %197
+195:                                              ; preds = %194
+  %196 = call zeroext i16 @SDL_GetModState_REAL() #12
+  %197 = and i16 %196, 960
+  %198 = icmp ne i16 %197, 0
+  %or.cond = select i1 %198, i1 true, i1 %.0
+  br i1 %or.cond, label %200, label %199
 
-197:                                              ; preds = %193
+199:                                              ; preds = %195
   call void @SDL_SendKeyboardText(ptr noundef nonnull %10) #12
-  br label %198
+  br label %200
 
-198:                                              ; preds = %197, %193, %192
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %200 = load ptr, ptr %199, align 8
-  %.not48 = icmp eq ptr %200, null
-  br i1 %.not48, label %keyboard_repeat_set.exit, label %201
+200:                                              ; preds = %199, %195, %194
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %202 = load ptr, ptr %201, align 8
+  %.not48 = icmp eq ptr %202, null
+  br i1 %.not48, label %keyboard_repeat_set.exit, label %203
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr @WAYLAND_xkb_keymap_key_repeats, align 8
-  %203 = add i32 %4, 8
-  %204 = call i32 %202(ptr noundef nonnull %200, i32 noundef %203) #12
-  %.not49 = icmp eq i32 %204, 0
-  br i1 %.not49, label %keyboard_repeat_set.exit, label %205
+203:                                              ; preds = %200
+  %204 = load ptr, ptr @WAYLAND_xkb_keymap_key_repeats, align 8
+  %205 = add i32 %4, 8
+  %206 = call i32 %204(ptr noundef nonnull %202, i32 noundef %205) #12
+  %.not49 = icmp eq i32 %206, 0
+  br i1 %.not49, label %keyboard_repeat_set.exit, label %207
 
-205:                                              ; preds = %201
-  %206 = load i32, ptr %189, align 4
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %208 = load i8, ptr %207, align 4, !range !6, !noundef !7
-  %209 = trunc nuw i8 %208 to i1
-  br i1 %209, label %210, label %keyboard_repeat_set.exit
+207:                                              ; preds = %203
+  %208 = load i32, ptr %191, align 4
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %210 = load i8, ptr %209, align 4, !range !6, !noundef !7
+  %211 = trunc nuw i8 %210 to i1
+  br i1 %211, label %212, label %keyboard_repeat_set.exit
 
-210:                                              ; preds = %205
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %212 = load i32, ptr %211, align 8
-  %.not.i61 = icmp eq i32 %212, 0
+212:                                              ; preds = %207
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %214 = load i32, ptr %213, align 8
+  %.not.i61 = icmp eq i32 %214, 0
   br i1 %.not.i61, label %keyboard_repeat_set.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %210
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 117
-  store i8 1, ptr %213, align 1
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %206, ptr %214, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %4, ptr %215, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 %24, ptr %216, align 8
-  %217 = call i64 @SDL_GetTicksNS_REAL() #12
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %217, ptr %218, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %220 = load i32, ptr %219, align 4
-  %221 = sext i32 %220 to i64
-  %222 = mul nsw i64 %221, 1000000
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i64 %222, ptr %223, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %.0.i57, ptr %224, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %226 = load i8, ptr %10, align 1
-  %spec.select64 = select i1 %.1, i8 %226, i8 0
-  store i8 %spec.select64, ptr %225, align 4
+.sink.split.i:                                    ; preds = %212
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 117
+  store i8 1, ptr %215, align 1
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %208, ptr %216, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %4, ptr %217, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store i64 %24, ptr %218, align 8
+  %219 = call i64 @SDL_GetTicksNS_REAL() #12
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %219, ptr %220, align 8
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %222 = load i32, ptr %221, align 4
+  %223 = sext i32 %222 to i64
+  %224 = mul nsw i64 %223, 1000000
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i64 %224, ptr %225, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 %.0.i57, ptr %226, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %228 = load i8, ptr %10, align 1
+  %spec.select64 = select i1 %.1, i8 %228, i8 0
+  store i8 %spec.select64, ptr %227, align 4
   br label %keyboard_repeat_set.exit
 
-keyboard_repeat_set.exit:                         ; preds = %.sink.split.i, %210, %205, %198, %201, %Wayland_AdjustEventTimestampBase.exit
+keyboard_repeat_set.exit:                         ; preds = %.sink.split.i, %212, %207, %200, %203, %Wayland_AdjustEventTimestampBase.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
@@ -7960,69 +7960,69 @@ define internal void @relative_pointer_handle_relative_motion(ptr noundef readon
   %16 = mul i64 %15, 1000
   %17 = tail call i64 @SDL_GetTicksNS_REAL() #12
   %18 = load i64, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
-  %.not.not.i = icmp eq i64 %18, 0
+  %.not.i = icmp eq i64 %18, 0
   %19 = sub i64 %17, %16
-  %20 = select i1 %.not.not.i, i64 %19, i64 %18
+  %20 = select i1 %.not.i, i64 %19, i64 %18
   %21 = add i64 %20, %16
-  %.not.i = icmp ugt i64 %21, %17
-  %22 = or i1 %.not.not.i, %.not.i
-  br i1 %22, label %23, label %Wayland_AdjustEventTimestampBase.exit
+  %22 = icmp ugt i64 %21, %17
+  %23 = or i1 %.not.i, %22
+  br i1 %23, label %24, label %Wayland_AdjustEventTimestampBase.exit
 
-23:                                               ; preds = %8
-  %simplifycfg.merge.i = select i1 %.not.i, i64 %19, i64 %20
+24:                                               ; preds = %8
+  %simplifycfg.merge.i = select i1 %22, i64 %19, i64 %20
   store i64 %simplifycfg.merge.i, ptr @Wayland_AdjustEventTimestampBase.timestamp_offset, align 8
   br label %Wayland_AdjustEventTimestampBase.exit
 
-Wayland_AdjustEventTimestampBase.exit:            ; preds = %8, %23
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %26, label %30
+Wayland_AdjustEventTimestampBase.exit:            ; preds = %8, %24
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %26 = load ptr, ptr %25, align 8
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %27, label %31
 
-26:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %28 = load i8, ptr %27, align 8, !range !6, !noundef !7
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %39, label %30
+27:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 216
+  %29 = load i8, ptr %28, align 8, !range !6, !noundef !7
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %40, label %31
 
-30:                                               ; preds = %26, %Wayland_AdjustEventTimestampBase.exit
-  %31 = sext i32 %6 to i64
-  %32 = add nsw i64 %31, 4807592602218004480
-  %33 = bitcast i64 %32 to double
-  %34 = fadd double %33, 0xC2B8000000000000
-  %35 = sext i32 %7 to i64
-  %36 = add nsw i64 %35, 4807592602218004480
-  %37 = bitcast i64 %36 to double
-  %38 = fadd double %37, 0xC2B8000000000000
-  br label %54
+31:                                               ; preds = %27, %Wayland_AdjustEventTimestampBase.exit
+  %32 = sext i32 %6 to i64
+  %33 = add nsw i64 %32, 4807592602218004480
+  %34 = bitcast i64 %33 to double
+  %35 = fadd double %34, 0xC2B8000000000000
+  %36 = sext i32 %7 to i64
+  %37 = add nsw i64 %36, 4807592602218004480
+  %38 = bitcast i64 %37 to double
+  %39 = fadd double %38, 0xC2B8000000000000
+  br label %55
 
-39:                                               ; preds = %26
-  %40 = sext i32 %4 to i64
-  %41 = add nsw i64 %40, 4807592602218004480
-  %42 = bitcast i64 %41 to double
-  %43 = fadd double %42, 0xC2B8000000000000
-  %44 = getelementptr inbounds nuw i8, ptr %10, i64 280
-  %45 = load double, ptr %44, align 8
-  %46 = fmul double %43, %45
-  %47 = sext i32 %5 to i64
-  %48 = add nsw i64 %47, 4807592602218004480
-  %49 = bitcast i64 %48 to double
-  %50 = fadd double %49, 0xC2B8000000000000
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 288
-  %52 = load double, ptr %51, align 8
-  %53 = fmul double %50, %52
-  br label %54
+40:                                               ; preds = %27
+  %41 = sext i32 %4 to i64
+  %42 = add nsw i64 %41, 4807592602218004480
+  %43 = bitcast i64 %42 to double
+  %44 = fadd double %43, 0xC2B8000000000000
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 280
+  %46 = load double, ptr %45, align 8
+  %47 = fmul double %44, %46
+  %48 = sext i32 %5 to i64
+  %49 = add nsw i64 %48, 4807592602218004480
+  %50 = bitcast i64 %49 to double
+  %51 = fadd double %50, 0xC2B8000000000000
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 288
+  %53 = load double, ptr %52, align 8
+  %54 = fmul double %51, %53
+  br label %55
 
-54:                                               ; preds = %39, %30
-  %.016 = phi double [ %34, %30 ], [ %46, %39 ]
-  %.0 = phi double [ %38, %30 ], [ %53, %39 ]
+55:                                               ; preds = %40, %31
+  %.016 = phi double [ %35, %31 ], [ %47, %40 ]
+  %.0 = phi double [ %39, %31 ], [ %54, %40 ]
   %.0.i = tail call i64 @llvm.umin.i64(i64 %21, i64 %17)
-  %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %57 = load i32, ptr %56, align 8
-  %58 = fptrunc double %.016 to float
-  %59 = fptrunc double %.0 to float
-  tail call void @SDL_SendMouseMotion(i64 noundef %.0.i, ptr noundef %55, i32 noundef %57, i1 noundef zeroext true, float noundef %58, float noundef %59) #12
+  %56 = load ptr, ptr %10, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %58 = load i32, ptr %57, align 8
+  %59 = fptrunc double %.016 to float
+  %60 = fptrunc double %.0 to float
+  tail call void @SDL_SendMouseMotion(i64 noundef %.0.i, ptr noundef %56, i32 noundef %58, i1 noundef zeroext true, float noundef %59, float noundef %60) #12
   ret void
 }
 

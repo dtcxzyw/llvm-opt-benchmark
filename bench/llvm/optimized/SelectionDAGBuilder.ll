@@ -36614,8 +36614,8 @@ _ZL14getReturnAttrsRN4llvm14TargetLowering16CallLoweringInfoE.exit: ; preds = %1
 276:                                              ; preds = %274, %264
   %277 = phi i64 [ %263, %274 ], [ %.sroa.0703.1, %264 ]
   %278 = and i16 %265, 11
-  %.not860 = icmp eq i16 %278, 0
-  br i1 %.not860, label %288, label %279
+  %.not859 = icmp eq i16 %278, 0
+  br i1 %.not859, label %288, label %279
 
 279:                                              ; preds = %276
   %280 = and i16 %265, 8

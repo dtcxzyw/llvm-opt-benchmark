@@ -197,8 +197,8 @@ condstore.split:                                  ; preds = %40
   %42 = lshr i32 %23, 4
   %spec.select116 = and i32 %42, 7
   %43 = and i32 %23, 120
-  %.not128 = icmp eq i32 %43, 0
-  br i1 %.not128, label %52, label %.sink.split
+  %.not124 = icmp eq i32 %43, 0
+  br i1 %.not124, label %52, label %.sink.split
 
 condstore.split119:                               ; preds = %40
   %44 = shl i32 %23, 2
@@ -210,8 +210,8 @@ condstore.split119:                               ; preds = %40
   %50 = and i32 %49, 2
   %spec.select118 = or disjoint i32 %48, %50
   %51 = and i32 %23, 15
-  %.not124 = icmp eq i32 %51, 0
-  br i1 %.not124, label %52, label %.sink.split
+  %.not122 = icmp eq i32 %51, 0
+  br i1 %.not122, label %52, label %.sink.split
 
 .sink.split:                                      ; preds = %condstore.split119, %condstore.split
   %spec.select116.pn = phi i32 [ %spec.select116, %condstore.split ], [ %spec.select118, %condstore.split119 ]

@@ -590,103 +590,103 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %62 = select i1 %61, ptr %1, ptr %47
   %63 = load i32, ptr %29, align 8
   %64 = icmp eq i32 %63, 2
-  br i1 %64, label %65, label %82
+  br i1 %64, label %65, label %84
 
 65:                                               ; preds = %60
   %66 = load i32, ptr %2, align 8
   %67 = and i32 %66, 128
-  %.not = icmp eq i32 %67, 0
-  %68 = or i32 %66, 16
-  %69 = select i1 %.not, i32 %68, i32 %66
-  %70 = and i32 %69, 256
-  %.not18 = icmp eq i32 %70, 0
-  %71 = or i1 %.not, %.not18
-  br i1 %71, label %72, label %74
+  %68 = icmp eq i32 %67, 0
+  %69 = or i32 %66, 16
+  %70 = select i1 %68, i32 %69, i32 %66
+  %71 = and i32 %70, 256
+  %72 = icmp eq i32 %71, 0
+  %73 = or i1 %68, %72
+  br i1 %73, label %74, label %76
 
-72:                                               ; preds = %65
-  %73 = or i32 %69, 32
-  %simplifycfg.merge = select i1 %.not18, i32 %73, i32 %69
+74:                                               ; preds = %65
+  %75 = or i32 %70, 32
+  %simplifycfg.merge = select i1 %72, i32 %75, i32 %70
   store i32 %simplifycfg.merge, ptr %2, align 8
-  br label %74
+  br label %76
 
-74:                                               ; preds = %65, %72
-  %75 = load ptr, ptr %18, align 8
-  %76 = call i32 @nfs3_proc_setattr(ptr noundef %62, ptr noundef %75, ptr noundef %2), !range !10
-  %77 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %18, align 8
-  %80 = call i32 @nfs_post_op_update_inode(ptr noundef %78, ptr noundef %79) #10
-  %81 = icmp eq i32 %76, 0
-  br i1 %81, label %82, label %88
+76:                                               ; preds = %65, %74
+  %77 = load ptr, ptr %18, align 8
+  %78 = call i32 @nfs3_proc_setattr(ptr noundef %62, ptr noundef %77, ptr noundef %2), !range !10
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %18, align 8
+  %82 = call i32 @nfs_post_op_update_inode(ptr noundef %80, ptr noundef %81) #10
+  %83 = icmp eq i32 %78, 0
+  br i1 %83, label %84, label %90
 
-82:                                               ; preds = %74, %60
-  %83 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %84 = load ptr, ptr %83, align 8
-  %85 = load ptr, ptr %6, align 8
-  %86 = load ptr, ptr %5, align 8
-  %87 = call i32 @nfs3_proc_setacls(ptr noundef %84, ptr noundef %85, ptr noundef %86) #10
-  br label %88
+84:                                               ; preds = %76, %60
+  %85 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %6, align 8
+  %88 = load ptr, ptr %5, align 8
+  %89 = call i32 @nfs3_proc_setacls(ptr noundef %86, ptr noundef %87, ptr noundef %88) #10
+  br label %90
 
-88:                                               ; preds = %82, %74
-  %89 = phi i32 [ %76, %74 ], [ %87, %82 ]
+90:                                               ; preds = %84, %76
+  %91 = phi i32 [ %78, %76 ], [ %89, %84 ]
   call void @dput(ptr noundef %47) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %52, %.preheader, %88
-  %90 = phi i32 [ %89, %88 ], [ %50, %.preheader ], [ -524, %52 ]
-  %91 = load ptr, ptr %6, align 8
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %.thread, label %93
+.loopexit:                                        ; preds = %52, %.preheader, %90
+  %92 = phi i32 [ %91, %90 ], [ %50, %.preheader ], [ -524, %52 ]
+  %93 = load ptr, ptr %6, align 8
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %.thread, label %95
 
-93:                                               ; preds = %.loopexit
-  %94 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %91, i32 -1, ptr nonnull elementtype(i32) %91) #10, !srcloc !12
-  %95 = icmp eq i32 %94, 1
-  br i1 %95, label %99, label %96
+95:                                               ; preds = %.loopexit
+  %96 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %93, i32 -1, ptr nonnull elementtype(i32) %93) #10, !srcloc !12
+  %97 = icmp eq i32 %96, 1
+  br i1 %97, label %101, label %98
 
-96:                                               ; preds = %93
-  %97 = icmp sgt i32 %94, 0
-  br i1 %97, label %.thread, label %98, !prof !13
+98:                                               ; preds = %95
+  %99 = icmp sgt i32 %96, 0
+  br i1 %99, label %.thread, label %100, !prof !13
 
-98:                                               ; preds = %96
-  call void @refcount_warn_saturate(ptr noundef nonnull %91, i32 noundef 3) #10
+100:                                              ; preds = %98
+  call void @refcount_warn_saturate(ptr noundef nonnull %93, i32 noundef 3) #10
   br label %.thread
 
-99:                                               ; preds = %93
+101:                                              ; preds = %95
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %100 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  call void @kvfree_call_rcu(ptr noundef nonnull %100, ptr noundef nonnull %91) #10
+  %102 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %102, ptr noundef nonnull %93) #10
   br label %.thread
 
-.thread:                                          ; preds = %96, %98, %99, %.loopexit
-  %101 = load ptr, ptr %5, align 8
-  %102 = icmp eq ptr %101, null
-  br i1 %102, label %.thread8, label %103
+.thread:                                          ; preds = %98, %100, %101, %.loopexit
+  %103 = load ptr, ptr %5, align 8
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %.thread8, label %105
 
-103:                                              ; preds = %.thread
-  %104 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %101, i32 -1, ptr nonnull elementtype(i32) %101) #10, !srcloc !12
-  %105 = icmp eq i32 %104, 1
-  br i1 %105, label %109, label %106
+105:                                              ; preds = %.thread
+  %106 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %103, i32 -1, ptr nonnull elementtype(i32) %103) #10, !srcloc !12
+  %107 = icmp eq i32 %106, 1
+  br i1 %107, label %111, label %108
 
-106:                                              ; preds = %103
-  %107 = icmp sgt i32 %104, 0
-  br i1 %107, label %.thread8, label %108, !prof !13
+108:                                              ; preds = %105
+  %109 = icmp sgt i32 %106, 0
+  br i1 %109, label %.thread8, label %110, !prof !13
 
-108:                                              ; preds = %106
-  call void @refcount_warn_saturate(ptr noundef nonnull %101, i32 noundef 3) #10
+110:                                              ; preds = %108
+  call void @refcount_warn_saturate(ptr noundef nonnull %103, i32 noundef 3) #10
   br label %.thread8
 
-109:                                              ; preds = %103
+111:                                              ; preds = %105
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
-  %110 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  call void @kvfree_call_rcu(ptr noundef nonnull %110, ptr noundef nonnull %101) #10
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  call void @kvfree_call_rcu(ptr noundef nonnull %112, ptr noundef nonnull %103) #10
   br label %.thread8
 
-.thread8:                                         ; preds = %106, %108, %109, %.thread, %43, %4
-  %111 = phi i32 [ %45, %43 ], [ %90, %.thread ], [ %90, %109 ], [ -12, %4 ], [ %90, %108 ], [ %90, %106 ]
+.thread8:                                         ; preds = %108, %110, %111, %.thread, %43, %4
+  %113 = phi i32 [ %45, %43 ], [ %92, %.thread ], [ %92, %111 ], [ -12, %4 ], [ %92, %110 ], [ %92, %108 ]
   call void @kfree(ptr noundef %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %111
+  ret i32 %113
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

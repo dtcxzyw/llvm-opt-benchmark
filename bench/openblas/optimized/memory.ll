@@ -175,7 +175,7 @@ declare void @openblas_warning(i32 noundef, ptr noundef) local_unnamed_addr #3
 define i32 @blas_get_cpu_number() local_unnamed_addr #0 {
   %1 = load i32, ptr @blas_num_threads, align 4, !tbaa !3
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %2, label %13
+  br i1 %.not, label %2, label %14
 
 2:                                                ; preds = %0
   %3 = tail call i32 @get_num_procs()
@@ -196,17 +196,17 @@ define i32 @blas_get_cpu_number() local_unnamed_addr #0 {
   %.not17 = icmp slt i32 %9, 1
   %.spec.store.select2 = select i1 %.not17, i32 16, i32 %spec.store.select2
   %spec.store.select2.sink = select i1 %.not16, i32 %.spec.store.select2, i32 %.0
-  %.not18 = icmp sgt i32 %spec.store.select2.sink, %3
-  %10 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink, i32 %3)
-  %11 = icmp sgt i32 %10, 16
-  %12 = or i1 %.not18, %11
-  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %10, i32 16)
-  %storemerge = select i1 %12, i32 %simplifycfg.merge, i32 %spec.store.select2.sink
+  %10 = icmp sgt i32 %spec.store.select2.sink, %3
+  %11 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink, i32 %3)
+  %12 = icmp sgt i32 %11, 16
+  %13 = or i1 %10, %12
+  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %11, i32 16)
+  %storemerge = select i1 %13, i32 %simplifycfg.merge, i32 %spec.store.select2.sink
   store i32 %storemerge, ptr @blas_num_threads, align 4, !tbaa !3
   store i32 %storemerge, ptr @blas_cpu_number, align 4, !tbaa !3
-  br label %13
+  br label %14
 
-13:                                               ; preds = %0, %8
+14:                                               ; preds = %0, %8
   %.013 = phi i32 [ %storemerge, %8 ], [ %1, %0 ]
   ret i32 %.013
 }
@@ -252,37 +252,37 @@ define i32 @openblas_get_num_threads() local_unnamed_addr #0 {
   %.not17.i = icmp slt i32 %9, 1
   %.spec.store.select2.i = select i1 %.not17.i, i32 16, i32 %spec.store.select2.i
   %spec.store.select2.sink.i = select i1 %.not16.i, i32 %.spec.store.select2.i, i32 %.0.i
-  %.not18.i = icmp sgt i32 %spec.store.select2.sink.i, %3
-  %10 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink.i, i32 %3)
-  %11 = icmp sgt i32 %10, 16
-  %12 = or i1 %.not18.i, %11
-  %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %10, i32 16)
-  %storemerge.i = select i1 %12, i32 %simplifycfg.merge.i, i32 %spec.store.select2.sink.i
+  %10 = icmp sgt i32 %spec.store.select2.sink.i, %3
+  %11 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink.i, i32 %3)
+  %12 = icmp sgt i32 %11, 16
+  %13 = or i1 %10, %12
+  %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %11, i32 16)
+  %storemerge.i = select i1 %13, i32 %simplifycfg.merge.i, i32 %spec.store.select2.sink.i
   store i32 %storemerge.i, ptr @blas_num_threads, align 4, !tbaa !3
   store i32 %storemerge.i, ptr @blas_cpu_number, align 4, !tbaa !3
   br label %blas_get_cpu_number.exit
 
 blas_get_cpu_number.exit:                         ; preds = %.blas_get_cpu_number.exit_crit_edge, %8
-  %13 = phi i32 [ %.pre, %.blas_get_cpu_number.exit_crit_edge ], [ %storemerge.i, %8 ]
-  ret i32 %13
+  %14 = phi i32 [ %.pre, %.blas_get_cpu_number.exit_crit_edge ], [ %storemerge.i, %8 ]
+  ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @blas_memory_alloc(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load volatile i32, ptr @memory_initialized, align 4, !tbaa !3
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %3, label %21
+  br i1 %.not, label %3, label %22
 
 3:                                                ; preds = %1
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
   %5 = load volatile i32, ptr @memory_initialized, align 4, !tbaa !3
   %.not47 = icmp eq i32 %5, 0
-  br i1 %.not47, label %6, label %19
+  br i1 %.not47, label %6, label %20
 
 6:                                                ; preds = %3
   %7 = load i32, ptr @blas_num_threads, align 4, !tbaa !3
   %.not48 = icmp eq i32 %7, 0
-  br i1 %.not48, label %8, label %18
+  br i1 %.not48, label %8, label %19
 
 8:                                                ; preds = %6
   %9 = tail call i32 @get_num_procs()
@@ -303,176 +303,176 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
   %.not17.i = icmp slt i32 %14, 1
   %.spec.store.select2.i = select i1 %.not17.i, i32 16, i32 %spec.store.select2.i
   %spec.store.select2.sink.i = select i1 %.not16.i, i32 %.spec.store.select2.i, i32 %.0.i
-  %.not18.i = icmp sgt i32 %spec.store.select2.sink.i, %9
-  %15 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink.i, i32 %9)
-  %16 = icmp sgt i32 %15, 16
-  %17 = or i1 %.not18.i, %16
-  %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %15, i32 16)
-  %storemerge.i = select i1 %17, i32 %simplifycfg.merge.i, i32 %spec.store.select2.sink.i
+  %15 = icmp sgt i32 %spec.store.select2.sink.i, %9
+  %16 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink.i, i32 %9)
+  %17 = icmp sgt i32 %16, 16
+  %18 = or i1 %15, %17
+  %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %16, i32 16)
+  %storemerge.i = select i1 %18, i32 %simplifycfg.merge.i, i32 %spec.store.select2.sink.i
   store i32 %storemerge.i, ptr @blas_num_threads, align 4, !tbaa !3
   store i32 %storemerge.i, ptr @blas_cpu_number, align 4, !tbaa !3
-  br label %18
+  br label %19
 
-18:                                               ; preds = %blas_get_cpu_number.exit, %6
+19:                                               ; preds = %blas_get_cpu_number.exit, %6
   tail call void @blas_set_parameter() #15
   store volatile i32 1, ptr @memory_initialized, align 4, !tbaa !3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %3
-  %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  br label %21
+20:                                               ; preds = %19, %3
+  %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  br label %22
 
-21:                                               ; preds = %19, %1
-  %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
-  br label %23
+22:                                               ; preds = %20, %1
+  %23 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+  br label %24
 
-23:                                               ; preds = %27, %21
-  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %21 ]
-  %24 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load volatile i32, ptr %25, align 16, !tbaa !8
-  %.not49 = icmp eq i32 %26, 0
-  br i1 %.not49, label %37, label %27
+24:                                               ; preds = %28, %22
+  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %22 ]
+  %25 = getelementptr inbounds nuw [50 x %struct.anon], ptr @memory, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load volatile i32, ptr %26, align 16, !tbaa !8
+  %.not49 = icmp eq i32 %27, 0
+  br i1 %.not49, label %38, label %28
 
-27:                                               ; preds = %23
+28:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %28, label %23, !llvm.loop !12
+  br i1 %exitcond.not, label %29, label %24, !llvm.loop !12
 
-28:                                               ; preds = %27
+29:                                               ; preds = %28
   %.b46 = load i1, ptr @memory_overflowed, align 4
   br i1 %.b46, label %.preheader56, label %.loopexit58
 
-.preheader56:                                     ; preds = %28
-  %29 = load ptr, ptr @newmemory, align 8, !tbaa !14
-  br label %30
+.preheader56:                                     ; preds = %29
+  %30 = load ptr, ptr @newmemory, align 8, !tbaa !14
+  br label %31
 
-30:                                               ; preds = %.preheader56, %34
-  %indvars.iv81 = phi i64 [ 50, %.preheader56 ], [ %indvars.iv.next82, %34 ]
-  %31 = getelementptr %struct.newmemstruct, ptr %29, i64 %indvars.iv81
-  %32 = getelementptr i8, ptr %31, i64 -3184
-  %33 = load volatile i32, ptr %32, align 8, !tbaa !16
-  %.not51 = icmp eq i32 %33, 0
-  br i1 %.not51, label %.loopexit, label %34
+31:                                               ; preds = %.preheader56, %35
+  %indvars.iv81 = phi i64 [ 50, %.preheader56 ], [ %indvars.iv.next82, %35 ]
+  %32 = getelementptr %struct.newmemstruct, ptr %30, i64 %indvars.iv81
+  %33 = getelementptr i8, ptr %32, i64 -3184
+  %34 = load volatile i32, ptr %33, align 8, !tbaa !16
+  %.not51 = icmp eq i32 %34, 0
+  br i1 %.not51, label %.loopexit, label %35
 
-34:                                               ; preds = %30
+35:                                               ; preds = %31
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 562
-  br i1 %exitcond84.not, label %.loopexit58, label %30, !llvm.loop !18
+  br i1 %exitcond84.not, label %.loopexit58, label %31, !llvm.loop !18
 
-.loopexit58:                                      ; preds = %34, %28
-  %.135 = phi i64 [ 50, %28 ], [ 562, %34 ]
-  %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  %36 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+.loopexit58:                                      ; preds = %35, %29
+  %.135 = phi i64 [ 50, %29 ], [ 562, %35 ]
+  %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  %37 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
   %.b = load i1, ptr @memory_overflowed, align 4
-  br i1 %.b, label %88, label %54
+  br i1 %.b, label %89, label %55
 
-37:                                               ; preds = %23
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store volatile i32 1, ptr %38, align 16, !tbaa !8
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %41 = load volatile ptr, ptr %40, align 8, !tbaa !19
-  %.not50 = icmp eq ptr %41, null
-  br i1 %.not50, label %.preheader, label %52
+38:                                               ; preds = %24
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store volatile i32 1, ptr %39, align 16, !tbaa !8
+  %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %42 = load volatile ptr, ptr %41, align 8, !tbaa !19
+  %.not50 = icmp eq ptr %42, null
+  br i1 %.not50, label %.preheader, label %53
 
-.preheader:                                       ; preds = %37, %.preheader
-  %42 = phi ptr [ %.mux, %.preheader ], [ @alloc_mmap, %37 ]
-  %.070 = phi ptr [ %.mux108, %.preheader ], [ @__const.blas_memory_alloc.memoryalloc, %37 ]
-  %43 = tail call ptr %42(ptr noundef null) #15
-  %44 = getelementptr inbounds nuw i8, ptr %.070, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !20
-  %46 = icmp ne ptr %45, null
-  %47 = icmp eq ptr %43, inttoptr (i64 -1 to ptr)
-  %48 = and i1 %46, %47
-  %.mux = select i1 %48, ptr %45, ptr @alloc_mmap
-  %.mux108 = select i1 %48, ptr %44, ptr @__const.blas_memory_alloc.memoryalloc
-  br i1 %47, label %.preheader, label %49, !llvm.loop !21
+.preheader:                                       ; preds = %38, %.preheader
+  %43 = phi ptr [ %.mux, %.preheader ], [ @alloc_mmap, %38 ]
+  %.070 = phi ptr [ %.mux108, %.preheader ], [ @__const.blas_memory_alloc.memoryalloc, %38 ]
+  %44 = tail call ptr %43(ptr noundef null) #15
+  %45 = getelementptr inbounds nuw i8, ptr %.070, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !20
+  %47 = icmp ne ptr %46, null
+  %48 = icmp eq ptr %44, inttoptr (i64 -1 to ptr)
+  %49 = and i1 %47, %48
+  %.mux = select i1 %49, ptr %46, ptr @alloc_mmap
+  %.mux108 = select i1 %49, ptr %45, ptr @__const.blas_memory_alloc.memoryalloc
+  br i1 %48, label %.preheader, label %50, !llvm.loop !21
 
-49:                                               ; preds = %.preheader
-  %50 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
-  store volatile ptr %43, ptr %40, align 8, !tbaa !19
-  %51 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  br label %52
+50:                                               ; preds = %.preheader
+  %51 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+  store volatile ptr %44, ptr %41, align 8, !tbaa !19
+  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  br label %53
 
-52:                                               ; preds = %49, %37
-  %53 = load volatile ptr, ptr %40, align 8, !tbaa !19
-  br label %91
+53:                                               ; preds = %50, %38
+  %54 = load volatile ptr, ptr %41, align 8, !tbaa !19
+  br label %92
 
-54:                                               ; preds = %.loopexit58
-  %55 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %55) #16
-  %57 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %58 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %57) #16
-  %59 = load ptr, ptr @stderr, align 8, !tbaa !22
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %59, ptr noundef nonnull @.str.3, i32 noundef 16) #17
+55:                                               ; preds = %.loopexit58
+  %56 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %57 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 96, i64 1, ptr %56) #16
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %59 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 94, i64 1, ptr %58) #16
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !22
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.3, i32 noundef 16) #17
   store i1 true, ptr @memory_overflowed, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
-  %61 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #18
-  store ptr %61, ptr @new_release_info, align 8, !tbaa !25
-  %62 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #18
-  store ptr %62, ptr @newmemory, align 8, !tbaa !14
-  br label %63
+  %62 = tail call noalias dereferenceable_or_null(12288) ptr @malloc(i64 noundef 12288) #18
+  store ptr %62, ptr @new_release_info, align 8, !tbaa !25
+  %63 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #18
+  store ptr %63, ptr @newmemory, align 8, !tbaa !14
+  br label %64
 
-63:                                               ; preds = %54, %63
-  %indvars.iv85 = phi i64 [ 0, %54 ], [ %indvars.iv.next86, %63 ]
-  %64 = getelementptr inbounds nuw %struct.newmemstruct, ptr %62, i64 %indvars.iv85, i32 1
-  store volatile ptr null, ptr %64, align 8, !tbaa !27
-  %65 = getelementptr inbounds nuw %struct.newmemstruct, ptr %62, i64 %indvars.iv85, i32 2
-  store volatile i32 0, ptr %65, align 8, !tbaa !16
-  %66 = getelementptr inbounds nuw %struct.newmemstruct, ptr %62, i64 %indvars.iv85
-  store volatile i64 0, ptr %66, align 8, !tbaa !28
+64:                                               ; preds = %55, %64
+  %indvars.iv85 = phi i64 [ 0, %55 ], [ %indvars.iv.next86, %64 ]
+  %65 = getelementptr inbounds nuw %struct.newmemstruct, ptr %63, i64 %indvars.iv85, i32 1
+  store volatile ptr null, ptr %65, align 8, !tbaa !27
+  %66 = getelementptr inbounds nuw %struct.newmemstruct, ptr %63, i64 %indvars.iv85, i32 2
+  store volatile i32 0, ptr %66, align 8, !tbaa !16
+  %67 = getelementptr inbounds nuw %struct.newmemstruct, ptr %63, i64 %indvars.iv85
+  store volatile i64 0, ptr %67, align 8, !tbaa !28
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, 512
-  br i1 %exitcond88.not, label %.loopexit, label %63, !llvm.loop !29
+  br i1 %exitcond88.not, label %.loopexit, label %64, !llvm.loop !29
 
-.loopexit:                                        ; preds = %30, %63
-  %67 = phi ptr [ %62, %63 ], [ %29, %30 ]
-  %.3 = phi i64 [ %.135, %63 ], [ %indvars.iv81, %30 ]
-  %68 = add i64 %.3, 4294967246
-  %69 = and i64 %68, 4294967295
-  %70 = getelementptr inbounds nuw %struct.newmemstruct, ptr %67, i64 %69, i32 2
-  store volatile i32 1, ptr %70, align 8, !tbaa !16
-  %71 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  br label %72
+.loopexit:                                        ; preds = %31, %64
+  %68 = phi ptr [ %63, %64 ], [ %30, %31 ]
+  %.3 = phi i64 [ %.135, %64 ], [ %indvars.iv81, %31 ]
+  %69 = add i64 %.3, 4294967246
+  %70 = and i64 %69, 4294967295
+  %71 = getelementptr inbounds nuw %struct.newmemstruct, ptr %68, i64 %70, i32 2
+  store volatile i32 1, ptr %71, align 8, !tbaa !16
+  %72 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  br label %73
 
-72:                                               ; preds = %72, %.loopexit
-  %73 = phi ptr [ %.mux110, %72 ], [ @alloc_mmap, %.loopexit ]
-  %.169 = phi ptr [ %.mux111, %72 ], [ @__const.blas_memory_alloc.memoryalloc, %.loopexit ]
-  %74 = tail call ptr %73(ptr noundef null) #15
-  %75 = getelementptr inbounds nuw i8, ptr %.169, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !20
-  %77 = icmp ne ptr %76, null
-  %78 = icmp eq ptr %74, inttoptr (i64 -1 to ptr)
-  %79 = and i1 %77, %78
-  %.mux110 = select i1 %79, ptr %76, ptr @alloc_mmap
-  %.mux111 = select i1 %79, ptr %75, ptr @__const.blas_memory_alloc.memoryalloc
-  br i1 %78, label %72, label %80, !llvm.loop !30
+73:                                               ; preds = %73, %.loopexit
+  %74 = phi ptr [ %.mux110, %73 ], [ @alloc_mmap, %.loopexit ]
+  %.169 = phi ptr [ %.mux111, %73 ], [ @__const.blas_memory_alloc.memoryalloc, %.loopexit ]
+  %75 = tail call ptr %74(ptr noundef null) #15
+  %76 = getelementptr inbounds nuw i8, ptr %.169, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !20
+  %78 = icmp ne ptr %77, null
+  %79 = icmp eq ptr %75, inttoptr (i64 -1 to ptr)
+  %80 = and i1 %78, %79
+  %.mux110 = select i1 %80, ptr %77, ptr @alloc_mmap
+  %.mux111 = select i1 %80, ptr %76, ptr @__const.blas_memory_alloc.memoryalloc
+  br i1 %79, label %73, label %81, !llvm.loop !30
 
-80:                                               ; preds = %72
-  %81 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
-  %82 = load ptr, ptr @newmemory, align 8, !tbaa !14
-  %83 = getelementptr inbounds nuw %struct.newmemstruct, ptr %82, i64 %69, i32 1
-  store volatile ptr %74, ptr %83, align 8, !tbaa !27
-  %84 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
-  %85 = load ptr, ptr @newmemory, align 8, !tbaa !14
-  %86 = getelementptr inbounds nuw %struct.newmemstruct, ptr %85, i64 %69, i32 1
-  %87 = load volatile ptr, ptr %86, align 8, !tbaa !27
-  br label %91
+81:                                               ; preds = %73
+  %82 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
+  %83 = load ptr, ptr @newmemory, align 8, !tbaa !14
+  %84 = getelementptr inbounds nuw %struct.newmemstruct, ptr %83, i64 %70, i32 1
+  store volatile ptr %75, ptr %84, align 8, !tbaa !27
+  %85 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+  %86 = load ptr, ptr @newmemory, align 8, !tbaa !14
+  %87 = getelementptr inbounds nuw %struct.newmemstruct, ptr %86, i64 %70, i32 1
+  %88 = load volatile ptr, ptr %87, align 8, !tbaa !27
+  br label %92
 
-88:                                               ; preds = %.loopexit58
-  %89 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
+89:                                               ; preds = %.loopexit58
+  %90 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 50)
+  %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef 50)
   %puts52 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %puts53 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %puts54 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
   %puts55 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %91
+  br label %92
 
-91:                                               ; preds = %88, %80, %52
-  %.037 = phi ptr [ null, %88 ], [ %87, %80 ], [ %53, %52 ]
+92:                                               ; preds = %89, %81, %53
+  %.037 = phi ptr [ null, %89 ], [ %88, %81 ], [ %54, %53 ]
   ret ptr %.037
 }
 
@@ -755,7 +755,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define void @gotoblas_init() #0 {
   %.b = load i1, ptr @gotoblas_initialized, align 4
-  br i1 %.b, label %23, label %1
+  br i1 %.b, label %24, label %1
 
 1:                                                ; preds = %0
   %2 = tail call i32 @pthread_atfork(ptr noundef nonnull @blas_thread_shutdown_, ptr noundef null, ptr noundef null) #15
@@ -794,30 +794,30 @@ openblas_fork_handler.exit:                       ; preds = %1, %3
   %.not17.i = icmp slt i32 %14, 1
   %.spec.store.select2.i = select i1 %.not17.i, i32 16, i32 %spec.store.select2.i
   %spec.store.select2.sink.i = select i1 %.not16.i, i32 %.spec.store.select2.i, i32 %.0.i
-  %.not18.i = icmp sgt i32 %spec.store.select2.sink.i, %8
-  %15 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink.i, i32 %8)
-  %16 = icmp sgt i32 %15, 16
-  %17 = or i1 %.not18.i, %16
-  %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %15, i32 16)
-  %storemerge.i = select i1 %17, i32 %simplifycfg.merge.i, i32 %spec.store.select2.sink.i
+  %15 = icmp sgt i32 %spec.store.select2.sink.i, %8
+  %16 = tail call i32 @llvm.smin.i32(i32 %spec.store.select2.sink.i, i32 %8)
+  %17 = icmp sgt i32 %16, 16
+  %18 = or i1 %15, %17
+  %simplifycfg.merge.i = tail call i32 @llvm.smin.i32(i32 %16, i32 16)
+  %storemerge.i = select i1 %18, i32 %simplifycfg.merge.i, i32 %spec.store.select2.sink.i
   store i32 %storemerge.i, ptr @blas_num_threads, align 4, !tbaa !3
   store i32 %storemerge.i, ptr @blas_cpu_number, align 4, !tbaa !3
   br label %blas_get_cpu_number.exit
 
 blas_get_cpu_number.exit:                         ; preds = %13, %openblas_fork_handler.exit
-  %18 = load i32, ptr @blas_server_avail, align 4, !tbaa !3
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %22
+  %19 = load i32, ptr @blas_server_avail, align 4, !tbaa !3
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %23
 
-20:                                               ; preds = %blas_get_cpu_number.exit
-  %21 = tail call i32 @blas_thread_init() #15
-  br label %22
-
-22:                                               ; preds = %20, %blas_get_cpu_number.exit
-  store i1 true, ptr @gotoblas_initialized, align 4
+21:                                               ; preds = %blas_get_cpu_number.exit
+  %22 = tail call i32 @blas_thread_init() #15
   br label %23
 
-23:                                               ; preds = %0, %22
+23:                                               ; preds = %21, %blas_get_cpu_number.exit
+  store i1 true, ptr @gotoblas_initialized, align 4
+  br label %24
+
+24:                                               ; preds = %0, %23
   ret void
 }
 

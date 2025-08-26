@@ -1819,8 +1819,8 @@ _ZN3vcg3tri2io7UtilX3D8ErrorMsgEi.exit:           ; preds = %122, %136, %138
   %spec.select = and i32 %156, -18433
   %157 = and i32 %156, 18432
   %158 = or disjoint i32 %153, %157
-  %.not204 = icmp eq i32 %158, 0
-  br i1 %.not204, label %160, label %159
+  %.not203 = icmp eq i32 %158, 0
+  br i1 %.not203, label %160, label %159
 
 159:                                              ; preds = %149
   store i32 %spec.select, ptr %151, align 8

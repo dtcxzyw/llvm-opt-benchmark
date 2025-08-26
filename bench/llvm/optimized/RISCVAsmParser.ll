@@ -1381,8 +1381,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %24 = and i64 %23, 9007199254740992
   %spec.select147 = or i64 %spec.select146, %24
   %25 = and i64 %9, 48643
-  %.not186 = icmp eq i64 %25, 0
-  br i1 %.not186, label %27, label %26
+  %.not180 = icmp eq i64 %25, 0
+  br i1 %.not180, label %27, label %26
 
 26:                                               ; preds = %6
   store i64 %spec.select147, ptr %0, align 8, !tbaa !53
@@ -1413,8 +1413,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %39 = and i64 %38, 2305843009213693952
   %40 = or i64 %37, %39
   %41 = and i64 %9, 67108992
-  %.not187 = icmp eq i64 %41, 0
-  br i1 %.not187, label %43, label %42
+  %.not181 = icmp eq i64 %41, 0
+  br i1 %.not181, label %43, label %42
 
 42:                                               ; preds = %32
   store i64 %40, ptr %0, align 8, !tbaa !53
@@ -1476,8 +1476,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %94 = or i64 %90, %93
   %spec.select161 = or i64 %94, %40
   %95 = or i64 %91, %92
-  %.not202 = icmp eq i64 %95, 0
-  br i1 %.not202, label %97, label %96
+  %.not182 = icmp eq i64 %95, 0
+  br i1 %.not182, label %97, label %96
 
 96:                                               ; preds = %43
   store i64 %spec.select161, ptr %0, align 8, !tbaa !53
@@ -1516,9 +1516,9 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %114 = lshr exact i64 %113, 38
   %spec.select163 = or i64 %spec.select162, %114
   %115 = and i64 %44, 16
-  %.not61.not = icmp eq i64 %115, 0
+  %.not61 = icmp eq i64 %115, 0
   %116 = or i64 %spec.select163, 2
-  %spec.select164 = select i1 %.not61.not, i64 %116, i64 %spec.select163
+  %spec.select164 = select i1 %.not61, i64 %116, i64 %spec.select163
   %117 = and i64 %4, 70368744177664
   %118 = or disjoint i64 %113, %117
   %or.cond.not.not = icmp eq i64 %118, 0
@@ -1555,7 +1555,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %spec.select172 = or i64 %spec.select171, %140
   %141 = or i64 %139, %138
   %142 = icmp ne i64 %141, 0
-  %143 = or i1 %142, %.not61.not
+  %143 = or i1 %142, %.not61
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %.thread2
@@ -1589,8 +1589,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %158 = and i64 %157, 536870912
   %159 = or i64 %156, %158
   %160 = and i64 %4, 37383395344384
-  %.not228 = icmp eq i64 %160, 0
-  br i1 %.not228, label %162, label %161
+  %.not183 = icmp eq i64 %160, 0
+  br i1 %.not183, label %162, label %161
 
 161:                                              ; preds = %151
   store i64 %159, ptr %0, align 8, !tbaa !53
@@ -1623,8 +1623,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %175 = or i64 %173, 8388608
   %176 = select i1 %brmerge25.not.not, i64 %173, i64 %175
   %177 = and i64 %4, 23089744183296
-  %.not229 = icmp eq i64 %177, 0
-  br i1 %.not229, label %179, label %178
+  %.not184 = icmp eq i64 %177, 0
+  br i1 %.not184, label %179, label %178
 
 178:                                              ; preds = %168
   store i64 %176, ptr %0, align 8, !tbaa !53
@@ -1685,8 +1685,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %201 = and i64 %200, 288230376151711744
   %spec.select175 = or i64 %spec.select174, %201
   %202 = and i64 %9, 28311552
-  %.not232 = icmp eq i64 %202, 0
-  br i1 %.not232, label %204, label %203
+  %.not185 = icmp eq i64 %202, 0
+  br i1 %.not185, label %204, label %203
 
 203:                                              ; preds = %.thread8
   store i64 %spec.select175, ptr %0, align 8, !tbaa !53
@@ -1914,8 +1914,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114RISCVAsmParser24ComputeAvailabl
   %310 = and i64 %4, 512
   %311 = or disjoint i64 %309, %310
   %312 = or disjoint i64 %308, %311
-  %.not235 = icmp eq i64 %312, 0
-  br i1 %.not235, label %320, label %313
+  %.not186 = icmp eq i64 %312, 0
+  br i1 %.not186, label %320, label %313
 
 313:                                              ; preds = %302
   %or.cond31.not.not = icmp eq i64 %311, 0

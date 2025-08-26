@@ -950,75 +950,75 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
   store i32 %5, ptr %49, align 4, !tbaa !23
   %50 = icmp ne ptr %0, null
   %51 = icmp eq i32 %3, 0
-  %or.cond.not.not = and i1 %50, %51
-  %.not57 = icmp eq i32 %2, 1
-  %52 = or i1 %or.cond.not.not, %.not57
-  br i1 %52, label %53, label %55
+  %or.cond = and i1 %50, %51
+  %52 = icmp eq i32 %2, 1
+  %53 = or i1 %or.cond, %52
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %46
-  %54 = select i1 %or.cond.not.not, i32 33, i32 1
-  %simplifycfg.merge = select i1 %.not57, i32 %54, i32 32
+54:                                               ; preds = %46
+  %55 = select i1 %or.cond, i32 33, i32 1
+  %simplifycfg.merge = select i1 %52, i32 %55, i32 32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %66, %53
-  %simplifycfg.merge.sink = phi i32 [ %simplifycfg.merge, %53 ], [ %68, %66 ]
-  %.0.ph = phi i32 [ 0, %53 ], [ %56, %66 ]
+.sink.split:                                      ; preds = %67, %54
+  %simplifycfg.merge.sink = phi i32 [ %simplifycfg.merge, %54 ], [ %69, %67 ]
+  %.0.ph = phi i32 [ 0, %54 ], [ %57, %67 ]
   store i32 %simplifycfg.merge.sink, ptr %8, align 8, !tbaa !29
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.sink.split, %46
+56:                                               ; preds = %.sink.split, %46
   %.0 = phi i32 [ 0, %46 ], [ %.0.ph, %.sink.split ]
-  %56 = call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %6) #15
-  switch i32 %56, label %63 [
-    i32 -11, label %57
-    i32 -10, label %60
+  %57 = call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %6) #15
+  switch i32 %57, label %64 [
+    i32 -11, label %58
+    i32 -10, label %61
     i32 0, label %.loopexit
   ]
 
-57:                                               ; preds = %55
+58:                                               ; preds = %56
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 740, ptr noundef nonnull @__func__.BIO_lookup_ex) #15
-  %58 = tail call ptr @__errno_location() #17
-  %59 = load i32, ptr %58, align 4, !tbaa !9
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %59, ptr noundef nonnull @.str.1) #15
+  %59 = tail call ptr @__errno_location() #17
+  %60 = load i32, ptr %59, align 4, !tbaa !9
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 2, i32 noundef %60, ptr noundef nonnull @.str.1) #15
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 742, ptr noundef nonnull @__func__.BIO_lookup_ex) #15
   br label %.loopexit.sink.split
 
-60:                                               ; preds = %55
+61:                                               ; preds = %56
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 747, ptr noundef nonnull @__func__.BIO_lookup_ex) #15
   %.not29 = icmp eq i32 %.0, 0
-  %61 = select i1 %.not29, i32 -10, i32 %.0
-  %62 = call ptr @gai_strerror(i32 noundef %61) #15
+  %62 = select i1 %.not29, i32 -10, i32 %.0
+  %63 = call ptr @gai_strerror(i32 noundef %62) #15
   br label %.loopexit.sink.split
 
-63:                                               ; preds = %55
-  %64 = load i32, ptr %8, align 8, !tbaa !29
-  %65 = and i32 %64, 32
-  %.not30 = icmp eq i32 %65, 0
-  br i1 %.not30, label %69, label %66
+64:                                               ; preds = %56
+  %65 = load i32, ptr %8, align 8, !tbaa !29
+  %66 = and i32 %65, 32
+  %.not30 = icmp eq i32 %66, 0
+  br i1 %.not30, label %70, label %67
 
-66:                                               ; preds = %63
-  %67 = and i32 %64, -37
-  %68 = or disjoint i32 %67, 4
+67:                                               ; preds = %64
+  %68 = and i32 %65, -37
+  %69 = or disjoint i32 %68, 4
   br label %.sink.split
 
-69:                                               ; preds = %63
+70:                                               ; preds = %64
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 763, ptr noundef nonnull @__func__.BIO_lookup_ex) #15
   %.not31 = icmp eq i32 %.0, 0
-  %70 = select i1 %.not31, i32 %56, i32 %.0
-  %71 = call ptr @gai_strerror(i32 noundef %70) #15
+  %71 = select i1 %.not31, i32 %57, i32 %.0
+  %72 = call ptr @gai_strerror(i32 noundef %71) #15
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %57, %60, %69
-  %.sink = phi ptr [ %71, %69 ], [ %62, %60 ], [ null, %57 ]
+.loopexit.sink.split:                             ; preds = %58, %61, %70
+  %.sink = phi ptr [ %72, %70 ], [ %63, %61 ], [ null, %58 ]
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 32, i32 noundef 524290, ptr noundef %.sink) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %.loopexit.sink.split
-  %.025 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %55 ]
+.loopexit:                                        ; preds = %56, %.loopexit.sink.split
+  %.025 = phi i32 [ 0, %.loopexit.sink.split ], [ 1, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %addrinfo_wrap.exit
 

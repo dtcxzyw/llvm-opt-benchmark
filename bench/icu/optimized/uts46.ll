@@ -1507,10 +1507,10 @@ define void @_ZNK6icu_775UTS4611processUTF8ENS_11StringPieceEaaRNS_8ByteSinkERNS
   %.pre = or i32 %.pre.pre, %65
   %66 = sub nsw i32 %51, %.0118179.us
   %67 = icmp sgt i32 %66, 63
-  %or.cond161.us.not.not = select i1 %.not141, i1 %67, i1 false
+  %or.cond161.us = select i1 %.not141, i1 %67, i1 false
   %68 = or i32 %.pre, 2
-  %69 = select i1 %or.cond161.us.not.not, i32 %68, i32 %.pre
-  %70 = or i1 %64, %or.cond161.us.not.not
+  %69 = select i1 %or.cond161.us, i32 %68, i32 %.pre
+  %70 = or i1 %64, %or.cond161.us
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %62

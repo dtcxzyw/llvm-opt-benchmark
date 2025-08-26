@@ -271,19 +271,19 @@ condstore.split:                                  ; preds = %120, %120, %120
   %127 = and i32 %126, 80
   %or.cond = icmp eq i32 %127, 16
   %128 = icmp slt i32 %.pre, 23
-  %or.cond36.not.not = select i1 %or.cond, i1 %128, i1 false
+  %or.cond36 = select i1 %or.cond, i1 %128, i1 false
   %129 = or i32 %126, 32
-  %130 = select i1 %or.cond36.not.not, i32 %129, i32 %126
+  %130 = select i1 %or.cond36, i32 %129, i32 %126
   %131 = and i32 %130, 1024
   %.not32 = icmp ne i32 %131, 0
   %132 = icmp slt i32 %.pre, 70
-  %or.cond40.not.not = select i1 %.not32, i1 %132, i1 false
-  %133 = or i1 %or.cond36.not.not, %or.cond40.not.not
+  %or.cond40 = select i1 %.not32, i1 %132, i1 false
+  %133 = or i1 %or.cond36, %or.cond40
   br i1 %133, label %134, label %.thread66.preheader
 
 134:                                              ; preds = %.thread66condstore.split
   %135 = or i32 %130, 2048
-  %simplifycfg.merge70 = select i1 %or.cond40.not.not, i32 %135, i32 %130
+  %simplifycfg.merge70 = select i1 %or.cond40, i32 %135, i32 %130
   store i32 %simplifycfg.merge70, ptr %0, align 4, !tbaa !10
   br label %.thread66.preheader
 

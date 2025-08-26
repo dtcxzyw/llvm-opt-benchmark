@@ -1039,8 +1039,8 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
 423:                                              ; preds = %416, %419, %421, %._crit_edge
   %424 = phi i32 [ %417, %416 ], [ %417, %419 ], [ %422, %421 ], [ %414, %._crit_edge ]
   %425 = and i32 %.1463.lcssa, 480
-  %.not1776 = icmp eq i32 %425, 0
-  br i1 %.not1776, label %437, label %426
+  %.not1774 = icmp eq i32 %425, 0
+  br i1 %.not1774, label %437, label %426
 
 426:                                              ; preds = %423
   %427 = and i32 %.1463.lcssa, 128
@@ -1399,8 +1399,8 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   br i1 %654, label %.lr.ph1396.us, label %.critedge, !llvm.loop !25
 
 .lr.ph1396.us:                                    ; preds = %.outer.us.preheader, %.outer.us
-  %.13.ph.us1979 = phi i32 [ %666, %.outer.us ], [ -4, %.outer.us.preheader ]
-  %.2459.ph.us1978 = phi i32 [ %.4461.us, %.outer.us ], [ -1, %.outer.us.preheader ]
+  %.13.ph.us1977 = phi i32 [ %666, %.outer.us ], [ -4, %.outer.us.preheader ]
+  %.2459.ph.us1976 = phi i32 [ %.4461.us, %.outer.us ], [ -1, %.outer.us.preheader ]
   %655 = call { i64, ptr } @jq_util_input_next_input(ptr noundef %20) #19
   %656 = extractvalue { i64, ptr } %655, 0
   %657 = extractvalue { i64, ptr } %655, 1
@@ -1429,7 +1429,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %or.cond9.us = and i1 %667, %668
   %669 = icmp ne i32 %666, -1
   %670 = zext i1 %669 to i32
-  %.4461.us = select i1 %or.cond9.us, i32 %670, i32 %.2459.ph.us1978
+  %.4461.us = select i1 %or.cond9.us, i32 %670, i32 %.2459.ph.us1976
   %671 = call i32 @jq_halted(ptr noundef nonnull %16) #19
   %.not577.us = icmp eq i32 %671, 0
   br i1 %.not577.us, label %.outer.us, label %.split.us.us..critedge.loopexit_crit_edge, !llvm.loop !25
@@ -1510,8 +1510,8 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   br label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %.outer, %.split, %704, %682, %.outer.us, %659, %.outer.us.preheader, %.split.us.us..critedge.loopexit_crit_edge, %.split1427.us, %672
-  %.1458 = phi i32 [ -1, %672 ], [ %.2459.ph.us1978, %.split1427.us ], [ %.4461.us, %.split.us.us..critedge.loopexit_crit_edge ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1978, %659 ], [ %.4461.us, %.outer.us ], [ %.2459.ph, %682 ], [ %.2459.ph, %704 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
-  %.12 = phi i32 [ %677, %672 ], [ 5, %.split1427.us ], [ %666, %.split.us.us..critedge.loopexit_crit_edge ], [ -4, %.outer.us.preheader ], [ %.13.ph.us1979, %659 ], [ %666, %.outer.us ], [ %.13.ph, %682 ], [ %.13.ph, %704 ], [ %.13.ph, %.outer ], [ %690, %.split ]
+  %.1458 = phi i32 [ -1, %672 ], [ %.2459.ph.us1976, %.split1427.us ], [ %.4461.us, %.split.us.us..critedge.loopexit_crit_edge ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1976, %659 ], [ %.4461.us, %.outer.us ], [ %.2459.ph, %682 ], [ %.2459.ph, %704 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
+  %.12 = phi i32 [ %677, %672 ], [ 5, %.split1427.us ], [ %666, %.split.us.us..critedge.loopexit_crit_edge ], [ -4, %.outer.us.preheader ], [ %.13.ph.us1977, %659 ], [ %666, %.outer.us ], [ %.13.ph, %682 ], [ %.13.ph, %704 ], [ %.13.ph, %.outer ], [ %690, %.split ]
   %713 = call i32 @jq_util_input_errors(ptr noundef %20) #19
   %.not578 = icmp eq i32 %713, 0
   %spec.select597 = select i1 %.not578, i32 %.12, i32 2

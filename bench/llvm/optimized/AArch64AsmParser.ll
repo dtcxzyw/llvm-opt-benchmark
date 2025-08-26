@@ -1851,8 +1851,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvaila
   %129 = lshr exact i64 %128, 24
   %spec.select477 = or i64 %spec.select476, %129
   %130 = or i64 %127, %128
-  %.not491 = icmp eq i64 %130, 0
-  br i1 %.not491, label %132, label %131
+  %.not487 = icmp eq i64 %130, 0
+  br i1 %.not487, label %132, label %131
 
 131:                                              ; preds = %.thread40
   store i64 %spec.select477, ptr %0, align 8, !tbaa !65
@@ -1938,8 +1938,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvaila
   %167 = and i64 %166, 36028797018963968
   %168 = or i64 %165, %167
   %169 = and i64 %98, 1099511627777
-  %.not492 = icmp eq i64 %169, 0
-  br i1 %.not492, label %171, label %170
+  %.not488 = icmp eq i64 %169, 0
+  br i1 %.not488, label %171, label %170
 
 170:                                              ; preds = %.thread64
   store i64 %168, ptr %0, align 8, !tbaa !65
@@ -1998,8 +1998,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvaila
   %200 = or disjoint i64 %196, %199
   %spec.select480 = or i64 %200, %168
   %201 = or i64 %197, %198
-  %.not496 = icmp eq i64 %201, 0
-  br i1 %.not496, label %203, label %202
+  %.not489 = icmp eq i64 %201, 0
+  br i1 %.not489, label %203, label %202
 
 202:                                              ; preds = %.thread74
   store i64 %spec.select480, ptr %0, align 8, !tbaa !65
@@ -2037,8 +2037,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvaila
   %218 = or disjoint i64 %215, %217
   %219 = or i64 %218, %spec.select480
   %220 = or disjoint i64 %214, %216
-  %.not497 = icmp eq i64 %220, 0
-  br i1 %.not497, label %222, label %221
+  %.not490 = icmp eq i64 %220, 0
+  br i1 %.not490, label %222, label %221
 
 221:                                              ; preds = %.thread88
   store i64 %219, ptr %0, align 8, !tbaa !65
@@ -2270,8 +2270,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvaila
   %319 = lshr exact i64 %318, 32
   %spec.select481 = or i64 %317, %319
   %320 = and i64 %10, 2666130979403333632
-  %.not499 = icmp eq i64 %320, 0
-  br i1 %.not499, label %322, label %321
+  %.not491 = icmp eq i64 %320, 0
+  br i1 %.not491, label %322, label %321
 
 321:                                              ; preds = %.thread132
   store i64 %spec.select481, ptr %0, align 8, !tbaa !65
@@ -2438,8 +2438,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_116AArch64AsmParser24ComputeAvaila
   %392 = shl nuw nsw i64 %391, 17
   %spec.select485 = or i64 %spec.select484, %392
   %393 = or disjoint i64 %390, %391
-  %.not503 = icmp eq i64 %393, 0
-  br i1 %.not503, label %395, label %394
+  %.not492 = icmp eq i64 %393, 0
+  br i1 %.not492, label %395, label %394
 
 394:                                              ; preds = %.thread165
   store i64 %spec.select485, ptr %0, align 8, !tbaa !65

@@ -774,7 +774,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
 .lr.ph:                                           ; preds = %.preheader78
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %.promoted = load i32, ptr %25, align 4
-  br label %72
+  br label %80
 
 .preheader76:                                     ; preds = %11
   %26 = icmp sgt i64 %22, 0
@@ -783,7 +783,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
 .lr.ph83:                                         ; preds = %.preheader76
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 508
   %.promoted84 = load i32, ptr %27, align 4
-  br label %58
+  br label %64
 
 .preheader74:                                     ; preds = %11
   %28 = icmp sgt i64 %22, 0
@@ -820,85 +820,85 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
   %39 = icmp ugt ptr %38, %20
   br i1 %39, label %32, label %.loopexit, !llvm.loop !23
 
-40:                                               ; preds = %.lr.ph87, %55
-  %41 = phi i32 [ %.promoted88, %.lr.ph87 ], [ %spec.select92, %55 ]
-  %.186 = phi ptr [ %23, %.lr.ph87 ], [ %56, %55 ]
-  %.16385 = phi i32 [ %18, %.lr.ph87 ], [ 0, %55 ]
+40:                                               ; preds = %.lr.ph87, %61
+  %41 = phi i32 [ %.promoted88, %.lr.ph87 ], [ %spec.select92, %61 ]
+  %.186 = phi ptr [ %23, %.lr.ph87 ], [ %62, %61 ]
+  %.16385 = phi i32 [ %18, %.lr.ph87 ], [ 0, %61 ]
   %42 = load i8, ptr %.186, align 1
   %43 = zext i8 %42 to i32
   %44 = lshr i32 %43, %.16385
   %45 = and i32 %44, 3
-  %.not95 = icmp sgt i32 %45, %41
-  %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 %41)
-  %47 = lshr i32 %44, 2
-  %48 = and i32 %47, 3
-  %.not96 = icmp samesign ugt i32 %48, %46
-  %49 = tail call i32 @llvm.umax.i32(i32 %48, i32 %46)
-  %.not97.not.not100.not102 = or i1 %.not95, %.not96
-  %50 = lshr i32 %44, 4
-  %51 = and i32 %50, 3
-  %.not98 = icmp samesign ugt i32 %51, %49
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %51, i32 %49)
-  %.not99.not = or i1 %.not97.not.not100.not102, %.not98
-  %52 = lshr i32 %44, 6
-  %.not101 = icmp samesign ugt i32 %52, %spec.select
-  %spec.select92 = tail call i32 @llvm.umax.i32(i32 %52, i32 %spec.select)
-  %53 = or i1 %.not99.not, %.not101
-  br i1 %53, label %54, label %55
+  %46 = icmp sgt i32 %45, %41
+  %47 = tail call i32 @llvm.smax.i32(i32 %45, i32 %41)
+  %48 = lshr i32 %44, 2
+  %49 = and i32 %48, 3
+  %50 = icmp samesign ugt i32 %49, %47
+  %51 = tail call i32 @llvm.umax.i32(i32 %49, i32 %47)
+  %52 = or i1 %46, %50
+  %53 = lshr i32 %44, 4
+  %54 = and i32 %53, 3
+  %55 = icmp samesign ugt i32 %54, %51
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %54, i32 %51)
+  %56 = or i1 %52, %55
+  %57 = lshr i32 %44, 6
+  %58 = icmp samesign ugt i32 %57, %spec.select
+  %spec.select92 = tail call i32 @llvm.umax.i32(i32 %57, i32 %spec.select)
+  %59 = or i1 %56, %58
+  br i1 %59, label %60, label %61
 
-54:                                               ; preds = %40
+60:                                               ; preds = %40
   store i32 %spec.select92, ptr %29, align 4
-  br label %55
+  br label %61
 
-55:                                               ; preds = %40, %54
-  %56 = getelementptr inbounds i8, ptr %.186, i64 -1
-  %57 = icmp ugt ptr %56, %20
-  br i1 %57, label %40, label %.loopexit, !llvm.loop !24
+61:                                               ; preds = %40, %60
+  %62 = getelementptr inbounds i8, ptr %.186, i64 -1
+  %63 = icmp ugt ptr %62, %20
+  br i1 %63, label %40, label %.loopexit, !llvm.loop !24
 
-58:                                               ; preds = %.lr.ph83, %69
-  %59 = phi i32 [ %.promoted84, %.lr.ph83 ], [ %66, %69 ]
-  %.282 = phi ptr [ %23, %.lr.ph83 ], [ %70, %69 ]
-  %.26481 = phi i32 [ %18, %.lr.ph83 ], [ 0, %69 ]
-  %60 = load i8, ptr %.282, align 1
-  %61 = zext i8 %60 to i32
-  %62 = lshr i32 %61, %.26481
-  %63 = and i32 %62, 15
-  %.not93 = icmp sgt i32 %63, %59
-  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 %59)
-  %65 = lshr i32 %62, 4
-  %.not94 = icmp samesign ugt i32 %65, %64
-  %66 = tail call i32 @llvm.umax.i32(i32 %65, i32 %64)
-  %67 = or i1 %.not93, %.not94
-  br i1 %67, label %68, label %69
+64:                                               ; preds = %.lr.ph83, %77
+  %65 = phi i32 [ %.promoted84, %.lr.ph83 ], [ %74, %77 ]
+  %.282 = phi ptr [ %23, %.lr.ph83 ], [ %78, %77 ]
+  %.26481 = phi i32 [ %18, %.lr.ph83 ], [ 0, %77 ]
+  %66 = load i8, ptr %.282, align 1
+  %67 = zext i8 %66 to i32
+  %68 = lshr i32 %67, %.26481
+  %69 = and i32 %68, 15
+  %70 = icmp sgt i32 %69, %65
+  %71 = tail call i32 @llvm.smax.i32(i32 %69, i32 %65)
+  %72 = lshr i32 %68, 4
+  %73 = icmp samesign ugt i32 %72, %71
+  %74 = tail call i32 @llvm.umax.i32(i32 %72, i32 %71)
+  %75 = or i1 %70, %73
+  br i1 %75, label %76, label %77
 
-68:                                               ; preds = %58
-  store i32 %66, ptr %27, align 4
-  br label %69
+76:                                               ; preds = %64
+  store i32 %74, ptr %27, align 4
+  br label %77
 
-69:                                               ; preds = %58, %68
-  %70 = getelementptr inbounds i8, ptr %.282, i64 -1
-  %71 = icmp ugt ptr %70, %20
-  br i1 %71, label %58, label %.loopexit, !llvm.loop !25
+77:                                               ; preds = %64, %76
+  %78 = getelementptr inbounds i8, ptr %.282, i64 -1
+  %79 = icmp ugt ptr %78, %20
+  br i1 %79, label %64, label %.loopexit, !llvm.loop !25
 
-72:                                               ; preds = %.lr.ph, %78
-  %73 = phi i32 [ %.promoted, %.lr.ph ], [ %79, %78 ]
-  %.380 = phi ptr [ %23, %.lr.ph ], [ %80, %78 ]
-  %74 = load i8, ptr %.380, align 1
-  %75 = zext i8 %74 to i32
-  %76 = icmp slt i32 %73, %75
-  br i1 %76, label %77, label %78
+80:                                               ; preds = %.lr.ph, %86
+  %81 = phi i32 [ %.promoted, %.lr.ph ], [ %87, %86 ]
+  %.380 = phi ptr [ %23, %.lr.ph ], [ %88, %86 ]
+  %82 = load i8, ptr %.380, align 1
+  %83 = zext i8 %82 to i32
+  %84 = icmp slt i32 %81, %83
+  br i1 %84, label %85, label %86
 
-77:                                               ; preds = %72
-  store i32 %75, ptr %25, align 4
-  br label %78
+85:                                               ; preds = %80
+  store i32 %83, ptr %25, align 4
+  br label %86
 
-78:                                               ; preds = %72, %77
-  %79 = phi i32 [ %73, %72 ], [ %75, %77 ]
-  %80 = getelementptr inbounds i8, ptr %.380, i64 -1
-  %81 = icmp ugt ptr %80, %20
-  br i1 %81, label %72, label %.loopexit, !llvm.loop !26
+86:                                               ; preds = %80, %85
+  %87 = phi i32 [ %81, %80 ], [ %83, %85 ]
+  %88 = getelementptr inbounds i8, ptr %.380, i64 -1
+  %89 = icmp ugt ptr %88, %20
+  br i1 %89, label %80, label %.loopexit, !llvm.loop !26
 
-.loopexit:                                        ; preds = %78, %69, %55, %37, %.preheader78, %.preheader76, %.preheader74, %.preheader, %11, %2
+.loopexit:                                        ; preds = %86, %77, %61, %37, %.preheader78, %.preheader76, %.preheader74, %.preheader, %11, %2
   ret void
 }
 

@@ -14324,19 +14324,19 @@ define range(i32 -173, 1) i32 @PemToDer(ptr noundef %0, i64 noundef %1, i32 noun
   %switch.maskindex = zext nneg i32 %2 to i64
   %switch.shifted = lshr i64 21990346060011, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  %or.cond164 = select i1 %12, i1 %switch.lobit, i1 false
-  br i1 %or.cond164, label %switch.lookup, label %wc_PemGetHeaderFooter.exit.thread
+  %or.cond163 = select i1 %12, i1 %switch.lobit, i1 false
+  br i1 %or.cond163, label %switch.lookup, label %wc_PemGetHeaderFooter.exit.thread
 
 switch.lookup:                                    ; preds = %7
   %13 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds nuw [45 x ptr], ptr @switch.table.PemToDer, i64 0, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %2 to i64
-  %switch.gep162 = getelementptr inbounds nuw [45 x ptr], ptr @switch.table.PemToDer.9, i64 0, i64 %14
-  %switch.load163 = load ptr, ptr %switch.gep162, align 8
+  %switch.gep161 = getelementptr inbounds nuw [45 x ptr], ptr @switch.table.PemToDer.9, i64 0, i64 %14
+  %switch.load162 = load ptr, ptr %switch.gep161, align 8
   %15 = tail call ptr @mystrnstr(ptr noundef %0, ptr noundef nonnull %switch.load, i32 noundef %11) #23
-  %.not91127 = icmp eq ptr %15, null
-  br i1 %.not91127, label %.lr.ph, label %.critedge
+  %.not91126 = icmp eq ptr %15, null
+  br i1 %.not91126, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %switch.lookup
   switch i32 %2, label %wc_PemGetHeaderFooter.exit.thread [
@@ -14345,20 +14345,20 @@ switch.lookup:                                    ; preds = %7
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %23
-  %.0115128.us = phi ptr [ %.1116.us, %23 ], [ %switch.load, %.lr.ph ]
-  %16 = icmp eq ptr %.0115128.us, @.str.10
+  %.0115127.us = phi ptr [ %.1116.us, %23 ], [ %switch.load, %.lr.ph ]
+  %16 = icmp eq ptr %.0115127.us, @.str.10
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %.lr.ph.split.us
-  %18 = icmp eq ptr %.0115128.us, @.str.14
+  %18 = icmp eq ptr %.0115127.us, @.str.14
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp eq ptr %.0115128.us, @.str.16
+  %20 = icmp eq ptr %.0115127.us, @.str.16
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = icmp eq ptr %.0115128.us, @.str.18
+  %22 = icmp eq ptr %.0115127.us, @.str.18
   br i1 %22, label %23, label %wc_PemGetHeaderFooter.exit.thread
 
 23:                                               ; preds = %21, %19, %17, %.lr.ph.split.us
@@ -14369,8 +14369,8 @@ switch.lookup:                                    ; preds = %7
   br i1 %.not91.us, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %26
-  %.0115128 = phi ptr [ @.str.12, %26 ], [ %switch.load, %.lr.ph ]
-  %25 = icmp eq ptr %.0115128, @.str.22
+  %.0115127 = phi ptr [ @.str.12, %26 ], [ %switch.load, %.lr.ph ]
+  %25 = icmp eq ptr %.0115127, @.str.22
   br i1 %25, label %26, label %wc_PemGetHeaderFooter.exit.thread
 
 26:                                               ; preds = %.lr.ph.split.split
@@ -14380,7 +14380,7 @@ switch.lookup:                                    ; preds = %7
 
 .critedge:                                        ; preds = %26, %23, %switch.lookup
   %.0115.lcssa = phi ptr [ %switch.load, %switch.lookup ], [ %.1116.us, %23 ], [ @.str.12, %26 ]
-  %.0114.lcssa = phi ptr [ %switch.load163, %switch.lookup ], [ %.1.us, %23 ], [ @.str.13, %26 ]
+  %.0114.lcssa = phi ptr [ %switch.load162, %switch.lookup ], [ %.1.us, %23 ], [ @.str.13, %26 ]
   %.lcssa = phi ptr [ %15, %switch.lookup ], [ %24, %23 ], [ %27, %26 ]
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0115.lcssa) #24
   %29 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 %28
@@ -14412,132 +14412,132 @@ SkipEndOfLineChars.exit:                          ; preds = %.lr.ph.i, %.critedg
   %36 = icmp ne ptr %6, null
   %37 = icmp eq i32 %2, 1
   %or.cond9 = and i1 %37, %36
-  br i1 %or.cond9, label %condstore.split, label %40
+  br i1 %or.cond9, label %condstore.split, label %42
 
 condstore.split:                                  ; preds = %SkipEndOfLineChars.exit
-  %.not = icmp eq ptr %.0115.lcssa, @.str.10
-  %.not123 = icmp eq ptr %.0115.lcssa, @.str.18
-  %38 = or i1 %.not, %.not123
-  br i1 %38, label %39, label %40
+  %38 = icmp eq ptr %.0115.lcssa, @.str.10
+  %39 = icmp eq ptr %.0115.lcssa, @.str.18
+  %40 = or i1 %38, %39
+  br i1 %40, label %41, label %42
 
-39:                                               ; preds = %condstore.split
-  %spec.select122 = select i1 %.not123, i32 518, i32 645
+41:                                               ; preds = %condstore.split
+  %spec.select122 = select i1 %39, i32 518, i32 645
   store i32 %spec.select122, ptr %6, align 4, !tbaa !22
-  br label %40
+  br label %42
 
-40:                                               ; preds = %39, %condstore.split, %SkipEndOfLineChars.exit
-  %41 = and i64 %1, 4294967295
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
-  %43 = ptrtoint ptr %42 to i64
-  %44 = ptrtoint ptr %.0.lcssa.i to i64
-  %45 = sub i64 %43, %44
-  %46 = trunc i64 %45 to i32
-  %47 = tail call ptr @mystrnstr(ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull %.0114.lcssa, i32 noundef %46) #23
-  %.not92 = icmp eq ptr %47, null
-  br i1 %.not92, label %48, label %50
+42:                                               ; preds = %41, %condstore.split, %SkipEndOfLineChars.exit
+  %43 = and i64 %1, 4294967295
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %.0.lcssa.i to i64
+  %47 = sub i64 %45, %46
+  %48 = trunc i64 %47 to i32
+  %49 = tail call ptr @mystrnstr(ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull %.0114.lcssa, i32 noundef %48) #23
+  %.not92 = icmp eq ptr %49, null
+  br i1 %.not92, label %50, label %52
 
-48:                                               ; preds = %40
+50:                                               ; preds = %42
   %.not93 = icmp eq ptr %5, null
-  br i1 %.not93, label %wc_PemGetHeaderFooter.exit.thread, label %49
+  br i1 %.not93, label %wc_PemGetHeaderFooter.exit.thread, label %51
 
-49:                                               ; preds = %48
+51:                                               ; preds = %50
   store i64 %1, ptr %5, align 8, !tbaa !204
   br label %wc_PemGetHeaderFooter.exit.thread
 
-50:                                               ; preds = %40
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0114.lcssa) #24
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %51
-  %53 = icmp ult ptr %52, %10
-  br i1 %53, label %.lr.ph.preheader.i99, label %63
+52:                                               ; preds = %42
+  %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0114.lcssa) #24
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %53
+  %55 = icmp ult ptr %54, %10
+  br i1 %55, label %.lr.ph.preheader.i99, label %65
 
-.lr.ph.preheader.i99:                             ; preds = %50
-  %54 = ptrtoint ptr %10 to i64
-  %55 = ptrtoint ptr %52 to i64
-  %56 = sub i64 %54, %55
-  %scevgep.i100 = getelementptr i8, ptr %52, i64 %56
+.lr.ph.preheader.i99:                             ; preds = %52
+  %56 = ptrtoint ptr %10 to i64
+  %57 = ptrtoint ptr %54 to i64
+  %58 = sub i64 %56, %57
+  %scevgep.i100 = getelementptr i8, ptr %54, i64 %58
   br label %.lr.ph.i101
 
 .lr.ph.i101:                                      ; preds = %.critedge2.i103, %.lr.ph.preheader.i99
-  %.09.i102 = phi ptr [ %58, %.critedge2.i103 ], [ %52, %.lr.ph.preheader.i99 ]
-  %57 = load i8, ptr %.09.i102, align 1, !tbaa !3
-  switch i8 %57, label %SkipEndOfLineChars.exit105 [
+  %.09.i102 = phi ptr [ %60, %.critedge2.i103 ], [ %54, %.lr.ph.preheader.i99 ]
+  %59 = load i8, ptr %.09.i102, align 1, !tbaa !3
+  switch i8 %59, label %SkipEndOfLineChars.exit105 [
     i8 13, label %.critedge2.i103
     i8 10, label %.critedge2.i103
   ]
 
 .critedge2.i103:                                  ; preds = %.lr.ph.i101, %.lr.ph.i101
-  %58 = getelementptr inbounds nuw i8, ptr %.09.i102, i64 1
-  %exitcond.not.i104 = icmp eq ptr %58, %10
+  %60 = getelementptr inbounds nuw i8, ptr %.09.i102, i64 1
+  %exitcond.not.i104 = icmp eq ptr %60, %10
   br i1 %exitcond.not.i104, label %SkipEndOfLineChars.exit105, label %.lr.ph.i101, !llvm.loop !203
 
 SkipEndOfLineChars.exit105:                       ; preds = %.lr.ph.i101, %.critedge2.i103
   %.0.lcssa.i98 = phi ptr [ %.09.i102, %.lr.ph.i101 ], [ %scevgep.i100, %.critedge2.i103 ]
-  %59 = icmp ult ptr %.0.lcssa.i98, %10
-  br i1 %59, label %60, label %63
+  %61 = icmp ult ptr %.0.lcssa.i98, %10
+  br i1 %61, label %62, label %65
 
-60:                                               ; preds = %SkipEndOfLineChars.exit105
-  %61 = load i8, ptr %.0.lcssa.i98, align 1, !tbaa !3
-  %62 = icmp eq i8 %61, 0
-  %spec.select.idx = zext i1 %62 to i64
+62:                                               ; preds = %SkipEndOfLineChars.exit105
+  %63 = load i8, ptr %.0.lcssa.i98, align 1, !tbaa !3
+  %64 = icmp eq i8 %63, 0
+  %spec.select.idx = zext i1 %64 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.0.lcssa.i98, i64 %spec.select.idx
-  br label %63
+  br label %65
 
-63:                                               ; preds = %60, %SkipEndOfLineChars.exit105, %50
-  %.074 = phi ptr [ %.0.lcssa.i98, %SkipEndOfLineChars.exit105 ], [ %52, %50 ], [ %spec.select, %60 ]
+65:                                               ; preds = %62, %SkipEndOfLineChars.exit105, %52
+  %.074 = phi ptr [ %.0.lcssa.i98, %SkipEndOfLineChars.exit105 ], [ %54, %52 ], [ %spec.select, %62 ]
   %.not94 = icmp eq ptr %5, null
-  br i1 %.not94, label %68, label %64
+  br i1 %.not94, label %70, label %66
 
-64:                                               ; preds = %63
-  %65 = ptrtoint ptr %.074 to i64
-  %66 = ptrtoint ptr %0 to i64
-  %67 = sub i64 %65, %66
-  store i64 %67, ptr %5, align 8, !tbaa !204
-  br label %68
+66:                                               ; preds = %65
+  %67 = ptrtoint ptr %.074 to i64
+  %68 = ptrtoint ptr %0 to i64
+  %69 = sub i64 %67, %68
+  store i64 %69, ptr %5, align 8, !tbaa !204
+  br label %70
 
-68:                                               ; preds = %64, %63
-  %69 = ptrtoint ptr %47 to i64
-  %70 = sub i64 %69, %44
-  %71 = icmp sgt i64 %70, %41
-  %72 = icmp slt i64 %70, 1
-  %or.cond = or i1 %71, %72
-  br i1 %or.cond, label %wc_PemGetHeaderFooter.exit.thread, label %73
+70:                                               ; preds = %66, %65
+  %71 = ptrtoint ptr %49 to i64
+  %72 = sub i64 %71, %46
+  %73 = icmp sgt i64 %72, %43
+  %74 = icmp slt i64 %72, 1
+  %or.cond = or i1 %73, %74
+  br i1 %or.cond, label %wc_PemGetHeaderFooter.exit.thread, label %75
 
-73:                                               ; preds = %68
-  %74 = trunc nuw i64 %70 to i32
-  %75 = tail call i32 @AllocDer(ptr noundef %3, i32 noundef %74, i32 noundef %2, ptr noundef %4)
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %wc_PemGetHeaderFooter.exit.thread, label %77
+75:                                               ; preds = %70
+  %76 = trunc nuw i64 %72 to i32
+  %77 = tail call i32 @AllocDer(ptr noundef %3, i32 noundef %76, i32 noundef %2, ptr noundef %4)
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %wc_PemGetHeaderFooter.exit.thread, label %79
 
-77:                                               ; preds = %73
-  %78 = load ptr, ptr %3, align 8, !tbaa !195
-  %79 = load ptr, ptr %78, align 8, !tbaa !201
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %81 = tail call i32 @Base64_Decode(ptr noundef nonnull %.0.lcssa.i, i32 noundef %74, ptr noundef %79, ptr noundef nonnull %80) #23
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %wc_PemGetHeaderFooter.exit.thread, label %83
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %3, align 8, !tbaa !195
+  %81 = load ptr, ptr %80, align 8, !tbaa !201
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = tail call i32 @Base64_Decode(ptr noundef nonnull %.0.lcssa.i, i32 noundef %76, ptr noundef %81, ptr noundef nonnull %82) #23
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %wc_PemGetHeaderFooter.exit.thread, label %85
 
-83:                                               ; preds = %77
-  %84 = icmp ne ptr %.0115.lcssa, @.str.14
-  %85 = icmp ne ptr %.0115.lcssa, @.str.18
-  %or.cond3.not97 = and i1 %84, %85
-  br i1 %or.cond3.not97, label %wc_PemGetHeaderFooter.exit.thread, label %86
+85:                                               ; preds = %79
+  %86 = icmp ne ptr %.0115.lcssa, @.str.14
+  %87 = icmp ne ptr %.0115.lcssa, @.str.18
+  %or.cond3.not97 = and i1 %86, %87
+  br i1 %or.cond3.not97, label %wc_PemGetHeaderFooter.exit.thread, label %88
 
-86:                                               ; preds = %83
+88:                                               ; preds = %85
   store i32 0, ptr %9, align 4, !tbaa !22
-  %87 = load ptr, ptr %78, align 8, !tbaa !201
-  %88 = load i32, ptr %80, align 8, !tbaa !202
-  %89 = call i32 @ToTraditionalInline_ex2(ptr noundef %87, ptr noundef nonnull %9, i32 noundef %88, ptr noundef nonnull %8, ptr noundef null)
-  %90 = icmp sgt i32 %89, 0
-  %or.cond11 = and i1 %36, %90
-  br i1 %or.cond11, label %91, label %wc_PemGetHeaderFooter.exit.thread
+  %89 = load ptr, ptr %80, align 8, !tbaa !201
+  %90 = load i32, ptr %82, align 8, !tbaa !202
+  %91 = call i32 @ToTraditionalInline_ex2(ptr noundef %89, ptr noundef nonnull %9, i32 noundef %90, ptr noundef nonnull %8, ptr noundef null)
+  %92 = icmp sgt i32 %91, 0
+  %or.cond11 = and i1 %36, %92
+  br i1 %or.cond11, label %93, label %wc_PemGetHeaderFooter.exit.thread
 
-91:                                               ; preds = %86
-  %92 = load i32, ptr %8, align 4, !tbaa !22
-  store i32 %92, ptr %6, align 4, !tbaa !22
+93:                                               ; preds = %88
+  %94 = load i32, ptr %8, align 4, !tbaa !22
+  store i32 %94, ptr %6, align 4, !tbaa !22
   br label %wc_PemGetHeaderFooter.exit.thread
 
-wc_PemGetHeaderFooter.exit.thread:                ; preds = %.lr.ph.split.split, %21, %7, %.lr.ph, %83, %91, %86, %77, %73, %68, %48, %49
-  %.0 = phi i32 [ -132, %49 ], [ -132, %48 ], [ -132, %68 ], [ %75, %73 ], [ -132, %77 ], [ 0, %86 ], [ 0, %91 ], [ 0, %83 ], [ -173, %7 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
+wc_PemGetHeaderFooter.exit.thread:                ; preds = %.lr.ph.split.split, %21, %7, %.lr.ph, %85, %93, %88, %79, %75, %70, %50, %51
+  %.0 = phi i32 [ -132, %51 ], [ -132, %50 ], [ -132, %70 ], [ %77, %75 ], [ -132, %79 ], [ 0, %88 ], [ 0, %93 ], [ 0, %85 ], [ -173, %7 ], [ -162, %.lr.ph ], [ -162, %21 ], [ -162, %.lr.ph.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0

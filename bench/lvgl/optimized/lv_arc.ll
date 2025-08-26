@@ -1378,7 +1378,7 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %10 = load i32, ptr %9, align 4, !tbaa !23
   %11 = icmp eq i32 %10, %2
-  br i1 %11, label %20, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %8, %4
   store i32 %1, ptr %5, align 8, !tbaa !22
@@ -1386,22 +1386,22 @@ define void @lv_arc_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   store i32 %2, ptr %13, align 4, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %15 = load i32, ptr %14, align 4, !tbaa !21
-  %.not23 = icmp slt i32 %15, %1
-  %16 = tail call i32 @llvm.smax.i32(i32 %15, i32 %1)
-  %.not24 = icmp sgt i32 %16, %2
-  %17 = or i1 %.not23, %.not24
-  br i1 %17, label %18, label %19
+  %16 = icmp slt i32 %15, %1
+  %17 = tail call i32 @llvm.smax.i32(i32 %15, i32 %1)
+  %18 = icmp sgt i32 %17, %2
+  %19 = or i1 %16, %18
+  br i1 %19, label %20, label %21
 
-18:                                               ; preds = %12
-  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %16, i32 %2)
+20:                                               ; preds = %12
+  %simplifycfg.merge = tail call i32 @llvm.smin.i32(i32 %17, i32 %2)
   store i32 %simplifycfg.merge, ptr %14, align 4, !tbaa !21
-  br label %19
+  br label %21
 
-19:                                               ; preds = %12, %18
+21:                                               ; preds = %12, %20
   tail call fastcc void @value_update(ptr noundef %0)
-  br label %20
+  br label %22
 
-20:                                               ; preds = %8, %19
+22:                                               ; preds = %8, %21
   ret void
 }
 

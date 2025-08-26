@@ -2969,84 +2969,84 @@ define range(i32 0, 2) i32 @TLSX_ValidateSupportedCurves(ptr noundef readonly ca
   br i1 %.not5.i, label %TLSX_Find.exit.preheader, label %78
 
 TLSX_Find.exit.preheader:                         ; preds = %.lr.ph.i
-  %.0110.in134 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  %.0110135 = load ptr, ptr %.0110.in134, align 8, !tbaa !108
-  %.not213 = icmp eq ptr %.0110135, null
-  br i1 %.not213, label %TLSX_Find.exit.thread, label %.lr.ph
+  %.0110.in131 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
+  %.0110132 = load ptr, ptr %.0110.in131, align 8, !tbaa !108
+  %.not = icmp eq ptr %.0110132, null
+  br i1 %.not, label %TLSX_Find.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %TLSX_Find.exit.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   br i1 %7, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %TLSX_Find.exit.us
-  %.0110143.us = phi ptr [ %.0110.us, %TLSX_Find.exit.us ], [ %.0110135, %.lr.ph ]
-  %.0142.us = phi i32 [ %.1.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
-  %.085141.us = phi i32 [ %.186.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
-  %.088140.us = phi i32 [ %.189.us, %TLSX_Find.exit.us ], [ %6, %.lr.ph ]
-  %.091139.us = phi i32 [ %.192.us, %TLSX_Find.exit.us ], [ 80, %.lr.ph ]
-  %.094138.us = phi i32 [ %.195.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
-  %.097137.us = phi i32 [ %.198.us, %TLSX_Find.exit.us ], [ 80, %.lr.ph ]
-  %.0103136.us = phi i32 [ %.1104.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
-  %16 = load i16, ptr %.0110143.us, align 8, !tbaa !110
+  %.0110140.us = phi ptr [ %.0110.us, %TLSX_Find.exit.us ], [ %.0110132, %.lr.ph ]
+  %.0139.us = phi i32 [ %.1.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
+  %.085138.us = phi i32 [ %.186.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
+  %.088137.us = phi i32 [ %.189.us, %TLSX_Find.exit.us ], [ %6, %.lr.ph ]
+  %.091136.us = phi i32 [ %.192.us, %TLSX_Find.exit.us ], [ 80, %.lr.ph ]
+  %.094135.us = phi i32 [ %.195.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
+  %.097134.us = phi i32 [ %.198.us, %TLSX_Find.exit.us ], [ 80, %.lr.ph ]
+  %.0103133.us = phi i32 [ %.1104.us, %TLSX_Find.exit.us ], [ 0, %.lr.ph ]
+  %16 = load i16, ptr %.0110140.us, align 8, !tbaa !110
   %switch.tableidx = add i16 %16, -21
   %17 = icmp ult i16 %switch.tableidx, 5
   %switch.maskindex = trunc i16 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond305 = select i1 %17, i1 %switch.lobit, i1 false
-  br i1 %or.cond305, label %switch.lookup, label %TLSX_Find.exit.us
+  %or.cond301 = select i1 %17, i1 %switch.lobit, i1 false
+  br i1 %or.cond301, label %switch.lookup, label %TLSX_Find.exit.us
 
 switch.lookup:                                    ; preds = %.lr.ph.split.us
   %18 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep303 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %19
-  %switch.load304 = load i32, ptr %switch.gep303, align 4
-  %20 = icmp eq i32 %.0103136.us, 0
+  %switch.gep299 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %19
+  %switch.load300 = load i32, ptr %switch.gep299, align 4
+  %20 = icmp eq i32 %.0103133.us, 0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %switch.lookup
   %22 = load i16, ptr %15, align 8, !tbaa !135
   %23 = zext i16 %22 to i32
-  %.not117.us = icmp samesign uge i32 %switch.load304, %23
-  %24 = icmp ugt i32 %.097137.us, %switch.load304
+  %.not117.us = icmp samesign uge i32 %switch.load300, %23
+  %24 = icmp ugt i32 %.097134.us, %switch.load300
   %or.cond.us = select i1 %.not117.us, i1 %24, i1 false
   %spec.select124.us = select i1 %or.cond.us, i32 %switch.load, i32 0
-  %spec.select125.us = select i1 %or.cond.us, i32 %switch.load304, i32 %.097137.us
+  %spec.select125.us = select i1 %or.cond.us, i32 %switch.load300, i32 %.097134.us
   br label %25
 
 25:                                               ; preds = %21, %switch.lookup
-  %.2105.us = phi i32 [ %.0103136.us, %switch.lookup ], [ %spec.select124.us, %21 ]
-  %.299.us = phi i32 [ %.097137.us, %switch.lookup ], [ %spec.select125.us, %21 ]
-  %26 = icmp eq i32 %.088140.us, 0
+  %.2105.us = phi i32 [ %.0103133.us, %switch.lookup ], [ %spec.select124.us, %21 ]
+  %.299.us = phi i32 [ %.097134.us, %switch.lookup ], [ %spec.select125.us, %21 ]
+  %26 = icmp eq i32 %.088137.us, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
   %28 = load i16, ptr %15, align 8, !tbaa !135
   %29 = zext i16 %28 to i32
-  %30 = icmp eq i32 %switch.load304, %29
+  %30 = icmp eq i32 %switch.load300, %29
   %spec.select.us = select i1 %30, i32 %switch.load, i32 0
   br label %31
 
 31:                                               ; preds = %27, %25
-  %.290.us = phi i32 [ %.088140.us, %25 ], [ %spec.select.us, %27 ]
-  %32 = icmp eq i32 %.094138.us, 0
-  %33 = icmp ugt i32 %.091139.us, %switch.load304
+  %.290.us = phi i32 [ %.088137.us, %25 ], [ %spec.select.us, %27 ]
+  %32 = icmp eq i32 %.094135.us, 0
+  %33 = icmp ugt i32 %.091136.us, %switch.load300
   %or.cond119.us = select i1 %32, i1 true, i1 %33
   br i1 %or.cond119.us, label %34, label %37
 
 34:                                               ; preds = %31
   %35 = load i16, ptr %15, align 8, !tbaa !135
   %36 = zext i16 %35 to i32
-  %.not118.us = icmp samesign ult i32 %switch.load304, %36
-  %spec.select120.us = select i1 %.not118.us, i32 %.094138.us, i32 %switch.load
-  %spec.select121.us = select i1 %.not118.us, i32 %.091139.us, i32 %switch.load304
+  %.not118.us = icmp samesign ult i32 %switch.load300, %36
+  %spec.select120.us = select i1 %.not118.us, i32 %.094135.us, i32 %switch.load
+  %spec.select121.us = select i1 %.not118.us, i32 %.091136.us, i32 %switch.load300
   br label %37
 
 37:                                               ; preds = %34, %31
-  %.296.us = phi i32 [ %.094138.us, %31 ], [ %spec.select120.us, %34 ]
-  %.293.us = phi i32 [ %.091139.us, %31 ], [ %spec.select121.us, %34 ]
+  %.296.us = phi i32 [ %.094135.us, %31 ], [ %spec.select120.us, %34 ]
+  %.293.us = phi i32 [ %.091136.us, %31 ], [ %spec.select121.us, %34 ]
   br i1 %11, label %38, label %43
 
 38:                                               ; preds = %37
@@ -3080,7 +3080,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   br label %43
 
 43:                                               ; preds = %41, %39, %38, %37
-  %.287.us = phi i32 [ 1, %41 ], [ 1, %39 ], [ %.085141.us, %37 ], [ %.085141.us, %38 ]
+  %.287.us = phi i32 [ 1, %41 ], [ 1, %39 ], [ %.085138.us, %37 ], [ %.085138.us, %38 ]
   %.2.shrunk.us = phi i1 [ %42, %41 ], [ %40, %39 ], [ false, %37 ], [ true, %38 ]
   switch i8 %2, label %TLSX_Find.exit._crit_edge.thread [
     i8 -87, label %47
@@ -3100,92 +3100,92 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
   br label %TLSX_Find.exit.us
 
 TLSX_Find.exit.us:                                ; preds = %.lr.ph.split.us, %47, %44
-  %.1104.us = phi i32 [ %.0103136.us, %.lr.ph.split.us ], [ %.2105.us, %47 ], [ %.2105.us, %44 ]
-  %.198.us = phi i32 [ %.097137.us, %.lr.ph.split.us ], [ %.299.us, %47 ], [ %.299.us, %44 ]
-  %.195.us = phi i32 [ %.094138.us, %.lr.ph.split.us ], [ %.296.us, %47 ], [ %.296.us, %44 ]
-  %.192.us = phi i32 [ %.091139.us, %.lr.ph.split.us ], [ %.293.us, %47 ], [ %.293.us, %44 ]
-  %.189.us = phi i32 [ %.088140.us, %.lr.ph.split.us ], [ %.290.us, %47 ], [ %.290.us, %44 ]
-  %.186.us = phi i32 [ %.085141.us, %.lr.ph.split.us ], [ 1, %47 ], [ 1, %44 ]
+  %.1104.us = phi i32 [ %.0103133.us, %.lr.ph.split.us ], [ %.2105.us, %47 ], [ %.2105.us, %44 ]
+  %.198.us = phi i32 [ %.097134.us, %.lr.ph.split.us ], [ %.299.us, %47 ], [ %.299.us, %44 ]
+  %.195.us = phi i32 [ %.094135.us, %.lr.ph.split.us ], [ %.296.us, %47 ], [ %.296.us, %44 ]
+  %.192.us = phi i32 [ %.091136.us, %.lr.ph.split.us ], [ %.293.us, %47 ], [ %.293.us, %44 ]
+  %.189.us = phi i32 [ %.088137.us, %.lr.ph.split.us ], [ %.290.us, %47 ], [ %.290.us, %44 ]
+  %.186.us = phi i32 [ %.085138.us, %.lr.ph.split.us ], [ 1, %47 ], [ 1, %44 ]
   %.183.shrunk.us = phi i1 [ false, %.lr.ph.split.us ], [ %49, %47 ], [ %46, %44 ]
-  %.1.us = phi i32 [ %.0142.us, %.lr.ph.split.us ], [ 1, %47 ], [ 1, %44 ]
-  %.0110.in.us = getelementptr inbounds nuw i8, ptr %.0110143.us, i64 8
+  %.1.us = phi i32 [ %.0139.us, %.lr.ph.split.us ], [ 1, %47 ], [ 1, %44 ]
+  %.0110.in.us = getelementptr inbounds nuw i8, ptr %.0110140.us, i64 8
   %.0110.us = load ptr, ptr %.0110.in.us, align 8, !tbaa !108
   %50 = icmp eq ptr %.0110.us, null
-  %.not218 = select i1 %50, i1 true, i1 %.183.shrunk.us
-  br i1 %.not218, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !136
+  %.not214 = select i1 %50, i1 true, i1 %.183.shrunk.us
+  br i1 %.not214, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.us, !llvm.loop !136
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %11, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %TLSX_Find.exit.us184
-  %.0110143.us158 = phi ptr [ %.0110.us195, %TLSX_Find.exit.us184 ], [ %.0110135, %.lr.ph.split ]
-  %.0142.us159 = phi i32 [ %.1.us192, %TLSX_Find.exit.us184 ], [ 0, %.lr.ph.split ]
-  %.085141.us160 = phi i32 [ %.186.us190, %TLSX_Find.exit.us184 ], [ 0, %.lr.ph.split ]
-  %.088140.us161 = phi i32 [ %.189.us189, %TLSX_Find.exit.us184 ], [ %6, %.lr.ph.split ]
-  %.091139.us162 = phi i32 [ %.192.us188, %TLSX_Find.exit.us184 ], [ 80, %.lr.ph.split ]
-  %.094138.us163 = phi i32 [ %.195.us187, %TLSX_Find.exit.us184 ], [ 0, %.lr.ph.split ]
-  %.097137.us164 = phi i32 [ %.198.us186, %TLSX_Find.exit.us184 ], [ 80, %.lr.ph.split ]
-  %.0103136.us165 = phi i32 [ %.1104.us185, %TLSX_Find.exit.us184 ], [ 0, %.lr.ph.split ]
-  %51 = load i16, ptr %.0110143.us158, align 8, !tbaa !110
-  %switch.tableidx307 = add i16 %51, -21
-  %52 = icmp ult i16 %switch.tableidx307, 5
-  %switch.maskindex309 = trunc i16 %switch.tableidx307 to i8
-  %switch.shifted310 = lshr i8 29, %switch.maskindex309
-  %switch.lobit311 = trunc i8 %switch.shifted310 to i1
-  %or.cond316 = select i1 %52, i1 %switch.lobit311, i1 false
-  br i1 %or.cond316, label %switch.lookup308, label %TLSX_Find.exit.us184
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %TLSX_Find.exit.us181
+  %.0110140.us155 = phi ptr [ %.0110.us192, %TLSX_Find.exit.us181 ], [ %.0110132, %.lr.ph.split ]
+  %.0139.us156 = phi i32 [ %.1.us189, %TLSX_Find.exit.us181 ], [ 0, %.lr.ph.split ]
+  %.085138.us157 = phi i32 [ %.186.us187, %TLSX_Find.exit.us181 ], [ 0, %.lr.ph.split ]
+  %.088137.us158 = phi i32 [ %.189.us186, %TLSX_Find.exit.us181 ], [ %6, %.lr.ph.split ]
+  %.091136.us159 = phi i32 [ %.192.us185, %TLSX_Find.exit.us181 ], [ 80, %.lr.ph.split ]
+  %.094135.us160 = phi i32 [ %.195.us184, %TLSX_Find.exit.us181 ], [ 0, %.lr.ph.split ]
+  %.097134.us161 = phi i32 [ %.198.us183, %TLSX_Find.exit.us181 ], [ 80, %.lr.ph.split ]
+  %.0103133.us162 = phi i32 [ %.1104.us182, %TLSX_Find.exit.us181 ], [ 0, %.lr.ph.split ]
+  %51 = load i16, ptr %.0110140.us155, align 8, !tbaa !110
+  %switch.tableidx303 = add i16 %51, -21
+  %52 = icmp ult i16 %switch.tableidx303, 5
+  %switch.maskindex305 = trunc i16 %switch.tableidx303 to i8
+  %switch.shifted306 = lshr i8 29, %switch.maskindex305
+  %switch.lobit307 = trunc i8 %switch.shifted306 to i1
+  %or.cond312 = select i1 %52, i1 %switch.lobit307, i1 false
+  br i1 %or.cond312, label %switch.lookup304, label %TLSX_Find.exit.us181
 
-switch.lookup308:                                 ; preds = %.lr.ph.split.split.us
-  %53 = zext nneg i16 %switch.tableidx307 to i64
-  %switch.gep312 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %53
-  %switch.load313 = load i32, ptr %switch.gep312, align 4
-  %54 = zext nneg i16 %switch.tableidx307 to i64
-  %switch.gep314 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %54
-  %switch.load315 = load i32, ptr %switch.gep314, align 4
-  %55 = icmp eq i32 %.0103136.us165, 0
+switch.lookup304:                                 ; preds = %.lr.ph.split.split.us
+  %53 = zext nneg i16 %switch.tableidx303 to i64
+  %switch.gep308 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %53
+  %switch.load309 = load i32, ptr %switch.gep308, align 4
+  %54 = zext nneg i16 %switch.tableidx303 to i64
+  %switch.gep310 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %54
+  %switch.load311 = load i32, ptr %switch.gep310, align 4
+  %55 = icmp eq i32 %.0103133.us162, 0
   br i1 %55, label %56, label %60
 
-56:                                               ; preds = %switch.lookup308
+56:                                               ; preds = %switch.lookup304
   %57 = load i16, ptr %15, align 8, !tbaa !135
   %58 = zext i16 %57 to i32
-  %.not117.us168 = icmp samesign uge i32 %switch.load315, %58
-  %59 = icmp ugt i32 %.097137.us164, %switch.load315
-  %or.cond.us169 = select i1 %.not117.us168, i1 %59, i1 false
-  %spec.select124.us170 = select i1 %or.cond.us169, i32 %switch.load313, i32 0
-  %spec.select125.us171 = select i1 %or.cond.us169, i32 %switch.load315, i32 %.097137.us164
+  %.not117.us165 = icmp samesign uge i32 %switch.load311, %58
+  %59 = icmp ugt i32 %.097134.us161, %switch.load311
+  %or.cond.us166 = select i1 %.not117.us165, i1 %59, i1 false
+  %spec.select124.us167 = select i1 %or.cond.us166, i32 %switch.load309, i32 0
+  %spec.select125.us168 = select i1 %or.cond.us166, i32 %switch.load311, i32 %.097134.us161
   br label %60
 
-60:                                               ; preds = %56, %switch.lookup308
-  %.2105.us172 = phi i32 [ %.0103136.us165, %switch.lookup308 ], [ %spec.select124.us170, %56 ]
-  %.299.us173 = phi i32 [ %.097137.us164, %switch.lookup308 ], [ %spec.select125.us171, %56 ]
-  %61 = icmp eq i32 %.088140.us161, 0
+60:                                               ; preds = %56, %switch.lookup304
+  %.2105.us169 = phi i32 [ %.0103133.us162, %switch.lookup304 ], [ %spec.select124.us167, %56 ]
+  %.299.us170 = phi i32 [ %.097134.us161, %switch.lookup304 ], [ %spec.select125.us168, %56 ]
+  %61 = icmp eq i32 %.088137.us158, 0
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
   %63 = load i16, ptr %15, align 8, !tbaa !135
   %64 = zext i16 %63 to i32
-  %65 = icmp eq i32 %switch.load315, %64
-  %spec.select.us174 = select i1 %65, i32 %switch.load313, i32 0
+  %65 = icmp eq i32 %switch.load311, %64
+  %spec.select.us171 = select i1 %65, i32 %switch.load309, i32 0
   br label %66
 
 66:                                               ; preds = %62, %60
-  %.290.us175 = phi i32 [ %.088140.us161, %60 ], [ %spec.select.us174, %62 ]
-  %67 = icmp eq i32 %.094138.us163, 0
-  %68 = icmp ugt i32 %.091139.us162, %switch.load315
-  %or.cond119.us176 = select i1 %67, i1 true, i1 %68
-  br i1 %or.cond119.us176, label %69, label %72
+  %.290.us172 = phi i32 [ %.088137.us158, %60 ], [ %spec.select.us171, %62 ]
+  %67 = icmp eq i32 %.094135.us160, 0
+  %68 = icmp ugt i32 %.091136.us159, %switch.load311
+  %or.cond119.us173 = select i1 %67, i1 true, i1 %68
+  br i1 %or.cond119.us173, label %69, label %72
 
 69:                                               ; preds = %66
   %70 = load i16, ptr %15, align 8, !tbaa !135
   %71 = zext i16 %70 to i32
-  %.not118.us177 = icmp samesign ult i32 %switch.load315, %71
-  %spec.select120.us178 = select i1 %.not118.us177, i32 %.094138.us163, i32 %switch.load313
-  %spec.select121.us179 = select i1 %.not118.us177, i32 %.091139.us162, i32 %switch.load315
+  %.not118.us174 = icmp samesign ult i32 %switch.load311, %71
+  %spec.select120.us175 = select i1 %.not118.us174, i32 %.094135.us160, i32 %switch.load309
+  %spec.select121.us176 = select i1 %.not118.us174, i32 %.091136.us159, i32 %switch.load311
   br label %72
 
 72:                                               ; preds = %69, %66
-  %.296.us180 = phi i32 [ %.094138.us163, %66 ], [ %spec.select120.us178, %69 ]
-  %.293.us181 = phi i32 [ %.091139.us162, %66 ], [ %spec.select121.us179, %69 ]
+  %.296.us177 = phi i32 [ %.094135.us160, %66 ], [ %spec.select120.us175, %69 ]
+  %.293.us178 = phi i32 [ %.091136.us159, %66 ], [ %spec.select121.us176, %69 ]
   switch i8 %2, label %TLSX_Find.exit._crit_edge.thread [
     i8 10, label %75
     i8 9, label %75
@@ -3208,27 +3208,27 @@ switch.lookup308:                                 ; preds = %.lr.ph.split.split.
   ]
 
 73:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72
-  %74 = icmp eq i32 %6, %switch.load313
-  br label %TLSX_Find.exit.us184
+  %74 = icmp eq i32 %6, %switch.load309
+  br label %TLSX_Find.exit.us181
 
 75:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72, %72, %72
-  %76 = icmp eq i32 %6, %switch.load313
-  br label %TLSX_Find.exit.us184
+  %76 = icmp eq i32 %6, %switch.load309
+  br label %TLSX_Find.exit.us181
 
-TLSX_Find.exit.us184:                             ; preds = %.lr.ph.split.split.us, %73, %75
-  %.1104.us185 = phi i32 [ %.0103136.us165, %.lr.ph.split.split.us ], [ %.2105.us172, %75 ], [ %.2105.us172, %73 ]
-  %.198.us186 = phi i32 [ %.097137.us164, %.lr.ph.split.split.us ], [ %.299.us173, %75 ], [ %.299.us173, %73 ]
-  %.195.us187 = phi i32 [ %.094138.us163, %.lr.ph.split.split.us ], [ %.296.us180, %75 ], [ %.296.us180, %73 ]
-  %.192.us188 = phi i32 [ %.091139.us162, %.lr.ph.split.split.us ], [ %.293.us181, %75 ], [ %.293.us181, %73 ]
-  %.189.us189 = phi i32 [ %.088140.us161, %.lr.ph.split.split.us ], [ %.290.us175, %75 ], [ %.290.us175, %73 ]
-  %.186.us190 = phi i32 [ %.085141.us160, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ]
-  %.183.shrunk.us191 = phi i1 [ false, %.lr.ph.split.split.us ], [ %76, %75 ], [ %74, %73 ]
-  %.1.us192 = phi i32 [ %.0142.us159, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ]
-  %.0110.in.us194 = getelementptr inbounds nuw i8, ptr %.0110143.us158, i64 8
-  %.0110.us195 = load ptr, ptr %.0110.in.us194, align 8, !tbaa !108
-  %77 = icmp eq ptr %.0110.us195, null
-  %.not216 = select i1 %77, i1 true, i1 %.183.shrunk.us191
-  br i1 %.not216, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !136
+TLSX_Find.exit.us181:                             ; preds = %.lr.ph.split.split.us, %73, %75
+  %.1104.us182 = phi i32 [ %.0103133.us162, %.lr.ph.split.split.us ], [ %.2105.us169, %75 ], [ %.2105.us169, %73 ]
+  %.198.us183 = phi i32 [ %.097134.us161, %.lr.ph.split.split.us ], [ %.299.us170, %75 ], [ %.299.us170, %73 ]
+  %.195.us184 = phi i32 [ %.094135.us160, %.lr.ph.split.split.us ], [ %.296.us177, %75 ], [ %.296.us177, %73 ]
+  %.192.us185 = phi i32 [ %.091136.us159, %.lr.ph.split.split.us ], [ %.293.us178, %75 ], [ %.293.us178, %73 ]
+  %.189.us186 = phi i32 [ %.088137.us158, %.lr.ph.split.split.us ], [ %.290.us172, %75 ], [ %.290.us172, %73 ]
+  %.186.us187 = phi i32 [ %.085138.us157, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ]
+  %.183.shrunk.us188 = phi i1 [ false, %.lr.ph.split.split.us ], [ %76, %75 ], [ %74, %73 ]
+  %.1.us189 = phi i32 [ %.0139.us156, %.lr.ph.split.split.us ], [ 1, %75 ], [ 1, %73 ]
+  %.0110.in.us191 = getelementptr inbounds nuw i8, ptr %.0110140.us155, i64 8
+  %.0110.us192 = load ptr, ptr %.0110.in.us191, align 8, !tbaa !108
+  %77 = icmp eq ptr %.0110.us192, null
+  %.not212 = select i1 %77, i1 true, i1 %.183.shrunk.us188
+  br i1 %.not212, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !136
 
 78:                                               ; preds = %.lr.ph.i
   %79 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
@@ -3237,103 +3237,103 @@ TLSX_Find.exit.us184:                             ; preds = %.lr.ph.split.split.
   br i1 %.not.i, label %TLSX_Find.exit.thread, label %.lr.ph.i, !llvm.loop !101
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %TLSX_Find.exit
-  %.0110143 = phi ptr [ %.0110, %TLSX_Find.exit ], [ %.0110135, %.lr.ph.split ]
-  %.0142 = phi i32 [ %.1, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
-  %.088140 = phi i32 [ %.189, %TLSX_Find.exit ], [ %6, %.lr.ph.split ]
-  %.091139 = phi i32 [ %.192, %TLSX_Find.exit ], [ 80, %.lr.ph.split ]
-  %.094138 = phi i32 [ %.195, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
-  %.097137 = phi i32 [ %.198, %TLSX_Find.exit ], [ 80, %.lr.ph.split ]
-  %.0103136 = phi i32 [ %.1104, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
-  %81 = load i16, ptr %.0110143, align 8, !tbaa !110
-  %switch.tableidx318 = add i16 %81, -21
-  %82 = icmp ult i16 %switch.tableidx318, 5
-  %switch.maskindex320 = trunc i16 %switch.tableidx318 to i8
-  %switch.shifted321 = lshr i8 29, %switch.maskindex320
-  %switch.lobit322 = trunc i8 %switch.shifted321 to i1
-  %or.cond327 = select i1 %82, i1 %switch.lobit322, i1 false
-  br i1 %or.cond327, label %switch.lookup319, label %TLSX_Find.exit
+  %.0110140 = phi ptr [ %.0110, %TLSX_Find.exit ], [ %.0110132, %.lr.ph.split ]
+  %.0139 = phi i32 [ %.1, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
+  %.088137 = phi i32 [ %.189, %TLSX_Find.exit ], [ %6, %.lr.ph.split ]
+  %.091136 = phi i32 [ %.192, %TLSX_Find.exit ], [ 80, %.lr.ph.split ]
+  %.094135 = phi i32 [ %.195, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
+  %.097134 = phi i32 [ %.198, %TLSX_Find.exit ], [ 80, %.lr.ph.split ]
+  %.0103133 = phi i32 [ %.1104, %TLSX_Find.exit ], [ 0, %.lr.ph.split ]
+  %81 = load i16, ptr %.0110140, align 8, !tbaa !110
+  %switch.tableidx314 = add i16 %81, -21
+  %82 = icmp ult i16 %switch.tableidx314, 5
+  %switch.maskindex316 = trunc i16 %switch.tableidx314 to i8
+  %switch.shifted317 = lshr i8 29, %switch.maskindex316
+  %switch.lobit318 = trunc i8 %switch.shifted317 to i1
+  %or.cond323 = select i1 %82, i1 %switch.lobit318, i1 false
+  br i1 %or.cond323, label %switch.lookup315, label %TLSX_Find.exit
 
-switch.lookup319:                                 ; preds = %.lr.ph.split.split
-  %83 = zext nneg i16 %switch.tableidx318 to i64
-  %switch.gep323 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %83
-  %switch.load324 = load i32, ptr %switch.gep323, align 4
-  %84 = zext nneg i16 %switch.tableidx318 to i64
-  %switch.gep325 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %84
-  %switch.load326 = load i32, ptr %switch.gep325, align 4
-  %85 = icmp eq i32 %.0103136, 0
+switch.lookup315:                                 ; preds = %.lr.ph.split.split
+  %83 = zext nneg i16 %switch.tableidx314 to i64
+  %switch.gep319 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.33, i64 0, i64 %83
+  %switch.load320 = load i32, ptr %switch.gep319, align 4
+  %84 = zext nneg i16 %switch.tableidx314 to i64
+  %switch.gep321 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.TLSX_ValidateSupportedCurves.34, i64 0, i64 %84
+  %switch.load322 = load i32, ptr %switch.gep321, align 4
+  %85 = icmp eq i32 %.0103133, 0
   br i1 %85, label %86, label %90
 
-86:                                               ; preds = %switch.lookup319
+86:                                               ; preds = %switch.lookup315
   %87 = load i16, ptr %15, align 8, !tbaa !135
   %88 = zext i16 %87 to i32
-  %.not117 = icmp samesign uge i32 %switch.load326, %88
-  %89 = icmp ugt i32 %.097137, %switch.load326
+  %.not117 = icmp samesign uge i32 %switch.load322, %88
+  %89 = icmp ugt i32 %.097134, %switch.load322
   %or.cond = select i1 %.not117, i1 %89, i1 false
-  %spec.select124 = select i1 %or.cond, i32 %switch.load324, i32 0
-  %spec.select125 = select i1 %or.cond, i32 %switch.load326, i32 %.097137
+  %spec.select124 = select i1 %or.cond, i32 %switch.load320, i32 0
+  %spec.select125 = select i1 %or.cond, i32 %switch.load322, i32 %.097134
   br label %90
 
-90:                                               ; preds = %86, %switch.lookup319
-  %.2105 = phi i32 [ %.0103136, %switch.lookup319 ], [ %spec.select124, %86 ]
-  %.299 = phi i32 [ %.097137, %switch.lookup319 ], [ %spec.select125, %86 ]
-  %91 = icmp eq i32 %.088140, 0
+90:                                               ; preds = %86, %switch.lookup315
+  %.2105 = phi i32 [ %.0103133, %switch.lookup315 ], [ %spec.select124, %86 ]
+  %.299 = phi i32 [ %.097134, %switch.lookup315 ], [ %spec.select125, %86 ]
+  %91 = icmp eq i32 %.088137, 0
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %90
   %93 = load i16, ptr %15, align 8, !tbaa !135
   %94 = zext i16 %93 to i32
-  %95 = icmp eq i32 %switch.load326, %94
-  %spec.select = select i1 %95, i32 %switch.load324, i32 0
+  %95 = icmp eq i32 %switch.load322, %94
+  %spec.select = select i1 %95, i32 %switch.load320, i32 0
   br label %96
 
 96:                                               ; preds = %92, %90
-  %.290 = phi i32 [ %.088140, %90 ], [ %spec.select, %92 ]
-  %97 = icmp eq i32 %.094138, 0
-  %98 = icmp ugt i32 %.091139, %switch.load326
+  %.290 = phi i32 [ %.088137, %90 ], [ %spec.select, %92 ]
+  %97 = icmp eq i32 %.094135, 0
+  %98 = icmp ugt i32 %.091136, %switch.load322
   %or.cond119 = select i1 %97, i1 true, i1 %98
   br i1 %or.cond119, label %99, label %TLSX_Find.exit
 
 99:                                               ; preds = %96
   %100 = load i16, ptr %15, align 8, !tbaa !135
   %101 = zext i16 %100 to i32
-  %.not118 = icmp samesign ult i32 %switch.load326, %101
-  %spec.select120 = select i1 %.not118, i32 %.094138, i32 %switch.load324
-  %spec.select121 = select i1 %.not118, i32 %.091139, i32 %switch.load326
+  %.not118 = icmp samesign ult i32 %switch.load322, %101
+  %spec.select120 = select i1 %.not118, i32 %.094135, i32 %switch.load320
+  %spec.select121 = select i1 %.not118, i32 %.091136, i32 %switch.load322
   br label %TLSX_Find.exit
 
 TLSX_Find.exit:                                   ; preds = %.lr.ph.split.split, %96, %99
-  %.1104 = phi i32 [ %.0103136, %.lr.ph.split.split ], [ %.2105, %99 ], [ %.2105, %96 ]
-  %.198 = phi i32 [ %.097137, %.lr.ph.split.split ], [ %.299, %99 ], [ %.299, %96 ]
-  %.195 = phi i32 [ %.094138, %.lr.ph.split.split ], [ %spec.select120, %99 ], [ %.094138, %96 ]
-  %.192 = phi i32 [ %.091139, %.lr.ph.split.split ], [ %spec.select121, %99 ], [ %.091139, %96 ]
-  %.189 = phi i32 [ %.088140, %.lr.ph.split.split ], [ %.290, %99 ], [ %.290, %96 ]
-  %.1 = phi i32 [ %.0142, %.lr.ph.split.split ], [ 1, %99 ], [ 1, %96 ]
-  %.0110.in = getelementptr inbounds nuw i8, ptr %.0110143, i64 8
+  %.1104 = phi i32 [ %.0103133, %.lr.ph.split.split ], [ %.2105, %99 ], [ %.2105, %96 ]
+  %.198 = phi i32 [ %.097134, %.lr.ph.split.split ], [ %.299, %99 ], [ %.299, %96 ]
+  %.195 = phi i32 [ %.094135, %.lr.ph.split.split ], [ %spec.select120, %99 ], [ %.094135, %96 ]
+  %.192 = phi i32 [ %.091136, %.lr.ph.split.split ], [ %spec.select121, %99 ], [ %.091136, %96 ]
+  %.189 = phi i32 [ %.088137, %.lr.ph.split.split ], [ %.290, %99 ], [ %.290, %96 ]
+  %.1 = phi i32 [ %.0139, %.lr.ph.split.split ], [ 1, %99 ], [ 1, %96 ]
+  %.0110.in = getelementptr inbounds nuw i8, ptr %.0110140, i64 8
   %.0110 = load ptr, ptr %.0110.in, align 8, !tbaa !108
-  %.not214 = icmp eq ptr %.0110, null
-  br i1 %.not214, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split, !llvm.loop !136
+  %.not210 = icmp eq ptr %.0110, null
+  br i1 %.not210, label %TLSX_Find.exit._crit_edge, label %.lr.ph.split.split, !llvm.loop !136
 
-TLSX_Find.exit._crit_edge:                        ; preds = %TLSX_Find.exit, %TLSX_Find.exit.us184, %TLSX_Find.exit.us
-  %.0103.lcssa = phi i32 [ %.1104.us, %TLSX_Find.exit.us ], [ %.1104.us185, %TLSX_Find.exit.us184 ], [ %.1104, %TLSX_Find.exit ]
-  %.097.lcssa = phi i32 [ %.198.us, %TLSX_Find.exit.us ], [ %.198.us186, %TLSX_Find.exit.us184 ], [ %.198, %TLSX_Find.exit ]
-  %.094.lcssa = phi i32 [ %.195.us, %TLSX_Find.exit.us ], [ %.195.us187, %TLSX_Find.exit.us184 ], [ %.195, %TLSX_Find.exit ]
-  %.091.lcssa = phi i32 [ %.192.us, %TLSX_Find.exit.us ], [ %.192.us188, %TLSX_Find.exit.us184 ], [ %.192, %TLSX_Find.exit ]
-  %.088.lcssa = phi i32 [ %.189.us, %TLSX_Find.exit.us ], [ %.189.us189, %TLSX_Find.exit.us184 ], [ %.189, %TLSX_Find.exit ]
-  %.085.lcssa = phi i32 [ %.186.us, %TLSX_Find.exit.us ], [ %.186.us190, %TLSX_Find.exit.us184 ], [ 0, %TLSX_Find.exit ]
-  %.082.lcssa.shrunk = phi i1 [ %.183.shrunk.us, %TLSX_Find.exit.us ], [ %.183.shrunk.us191, %TLSX_Find.exit.us184 ], [ false, %TLSX_Find.exit ]
-  %.0.lcssa = phi i32 [ %.1.us, %TLSX_Find.exit.us ], [ %.1.us192, %TLSX_Find.exit.us184 ], [ %.1, %TLSX_Find.exit ]
+TLSX_Find.exit._crit_edge:                        ; preds = %TLSX_Find.exit, %TLSX_Find.exit.us181, %TLSX_Find.exit.us
+  %.0103.lcssa = phi i32 [ %.1104.us, %TLSX_Find.exit.us ], [ %.1104.us182, %TLSX_Find.exit.us181 ], [ %.1104, %TLSX_Find.exit ]
+  %.097.lcssa = phi i32 [ %.198.us, %TLSX_Find.exit.us ], [ %.198.us183, %TLSX_Find.exit.us181 ], [ %.198, %TLSX_Find.exit ]
+  %.094.lcssa = phi i32 [ %.195.us, %TLSX_Find.exit.us ], [ %.195.us184, %TLSX_Find.exit.us181 ], [ %.195, %TLSX_Find.exit ]
+  %.091.lcssa = phi i32 [ %.192.us, %TLSX_Find.exit.us ], [ %.192.us185, %TLSX_Find.exit.us181 ], [ %.192, %TLSX_Find.exit ]
+  %.088.lcssa = phi i32 [ %.189.us, %TLSX_Find.exit.us ], [ %.189.us186, %TLSX_Find.exit.us181 ], [ %.189, %TLSX_Find.exit ]
+  %.085.lcssa = phi i32 [ %.186.us, %TLSX_Find.exit.us ], [ %.186.us187, %TLSX_Find.exit.us181 ], [ 0, %TLSX_Find.exit ]
+  %.082.lcssa.shrunk = phi i1 [ %.183.shrunk.us, %TLSX_Find.exit.us ], [ %.183.shrunk.us188, %TLSX_Find.exit.us181 ], [ false, %TLSX_Find.exit ]
+  %.0.lcssa = phi i32 [ %.1.us, %TLSX_Find.exit.us ], [ %.1.us189, %TLSX_Find.exit.us181 ], [ %.1, %TLSX_Find.exit ]
   %.082.lcssa = zext i1 %.082.lcssa.shrunk to i32
   %.not116 = icmp eq i32 %.0.lcssa, 0
   br i1 %.not116, label %TLSX_Find.exit.thread, label %TLSX_Find.exit._crit_edge.thread
 
 TLSX_Find.exit._crit_edge.thread:                 ; preds = %72, %43, %TLSX_Find.exit._crit_edge
-  %.082.lcssa280 = phi i32 [ %.082.lcssa, %TLSX_Find.exit._crit_edge ], [ 1, %43 ], [ 1, %72 ]
-  %.085.lcssa279 = phi i32 [ %.085.lcssa, %TLSX_Find.exit._crit_edge ], [ %.287.us, %43 ], [ %.085141.us160, %72 ]
-  %.088.lcssa278 = phi i32 [ %.088.lcssa, %TLSX_Find.exit._crit_edge ], [ %.290.us, %43 ], [ %.290.us175, %72 ]
-  %.091.lcssa277 = phi i32 [ %.091.lcssa, %TLSX_Find.exit._crit_edge ], [ %.293.us, %43 ], [ %.293.us181, %72 ]
-  %.094.lcssa276 = phi i32 [ %.094.lcssa, %TLSX_Find.exit._crit_edge ], [ %.296.us, %43 ], [ %.296.us180, %72 ]
-  %.097.lcssa275 = phi i32 [ %.097.lcssa, %TLSX_Find.exit._crit_edge ], [ %.299.us, %43 ], [ %.299.us173, %72 ]
-  %.0103.lcssa274 = phi i32 [ %.0103.lcssa, %TLSX_Find.exit._crit_edge ], [ %.2105.us, %43 ], [ %.2105.us172, %72 ]
+  %.082.lcssa276 = phi i32 [ %.082.lcssa, %TLSX_Find.exit._crit_edge ], [ 1, %43 ], [ 1, %72 ]
+  %.085.lcssa275 = phi i32 [ %.085.lcssa, %TLSX_Find.exit._crit_edge ], [ %.287.us, %43 ], [ %.085138.us157, %72 ]
+  %.088.lcssa274 = phi i32 [ %.088.lcssa, %TLSX_Find.exit._crit_edge ], [ %.290.us, %43 ], [ %.290.us172, %72 ]
+  %.091.lcssa273 = phi i32 [ %.091.lcssa, %TLSX_Find.exit._crit_edge ], [ %.293.us, %43 ], [ %.293.us178, %72 ]
+  %.094.lcssa272 = phi i32 [ %.094.lcssa, %TLSX_Find.exit._crit_edge ], [ %.296.us, %43 ], [ %.296.us177, %72 ]
+  %.097.lcssa271 = phi i32 [ %.097.lcssa, %TLSX_Find.exit._crit_edge ], [ %.299.us, %43 ], [ %.299.us170, %72 ]
+  %.0103.lcssa270 = phi i32 [ %.0103.lcssa, %TLSX_Find.exit._crit_edge ], [ %.2105.us, %43 ], [ %.2105.us169, %72 ]
   store i32 %6, ptr %3, align 4, !tbaa !3
   %102 = icmp eq i32 %6, 0
   br i1 %102, label %103, label %.thread128
@@ -3342,44 +3342,44 @@ TLSX_Find.exit._crit_edge.thread:                 ; preds = %72, %43, %TLSX_Find
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %105 = load i16, ptr %104, align 8, !tbaa !135
   %106 = zext i16 %105 to i32
-  %107 = icmp eq i32 %.097.lcssa275, %106
+  %107 = icmp eq i32 %.097.lcssa271, %106
   br i1 %107, label %thread-pre-split, label %thread-pre-split.thread
 
 thread-pre-split:                                 ; preds = %103
-  store i32 %.0103.lcssa274, ptr %3, align 4, !tbaa !3
-  %108 = icmp eq i32 %.0103.lcssa274, 0
+  store i32 %.0103.lcssa270, ptr %3, align 4, !tbaa !3
+  %108 = icmp eq i32 %.0103.lcssa270, 0
   br i1 %108, label %thread-pre-split.thread, label %.thread128
 
 thread-pre-split.thread:                          ; preds = %103, %thread-pre-split
-  store i32 %.088.lcssa278, ptr %3, align 4, !tbaa !3
+  store i32 %.088.lcssa274, ptr %3, align 4, !tbaa !3
   br label %.thread128
 
 .thread128:                                       ; preds = %TLSX_Find.exit._crit_edge.thread, %thread-pre-split.thread, %thread-pre-split
-  %109 = phi i32 [ %.088.lcssa278, %thread-pre-split.thread ], [ %.0103.lcssa274, %thread-pre-split ], [ %6, %TLSX_Find.exit._crit_edge.thread ]
-  %.4 = phi i32 [ 1, %thread-pre-split.thread ], [ 1, %thread-pre-split ], [ %.082.lcssa280, %TLSX_Find.exit._crit_edge.thread ]
+  %109 = phi i32 [ %.088.lcssa274, %thread-pre-split.thread ], [ %.0103.lcssa270, %thread-pre-split ], [ %6, %TLSX_Find.exit._crit_edge.thread ]
+  %.4 = phi i32 [ 1, %thread-pre-split.thread ], [ 1, %thread-pre-split ], [ %.082.lcssa276, %TLSX_Find.exit._crit_edge.thread ]
   %110 = icmp eq i32 %109, 0
-  %111 = icmp eq i32 %.097.lcssa275, %.091.lcssa277
-  %or.cond122.not.not = select i1 %110, i1 %111, i1 false
-  %112 = select i1 %or.cond122.not.not, i32 %.0103.lcssa274, i32 %109
-  %.not = icmp eq i32 %112, 0
-  %113 = or i1 %or.cond122.not.not, %.not
-  br i1 %113, label %114, label %115
+  %111 = icmp eq i32 %.097.lcssa271, %.091.lcssa273
+  %or.cond122 = select i1 %110, i1 %111, i1 false
+  %112 = select i1 %or.cond122, i32 %.0103.lcssa270, i32 %109
+  %113 = icmp eq i32 %112, 0
+  %114 = or i1 %or.cond122, %113
+  br i1 %114, label %115, label %116
 
-114:                                              ; preds = %.thread128
-  %simplifycfg.merge = select i1 %.not, i32 %.094.lcssa276, i32 %112
+115:                                              ; preds = %.thread128
+  %simplifycfg.merge = select i1 %113, i32 %.094.lcssa272, i32 %112
   store i32 %simplifycfg.merge, ptr %3, align 4, !tbaa !3
-  br label %115
+  br label %116
 
-115:                                              ; preds = %.thread128, %114
-  %116 = phi i32 [ %109, %.thread128 ], [ %simplifycfg.merge, %114 ]
-  %117 = icmp eq i32 %116, 0
-  %118 = icmp ne i32 %.085.lcssa279, 0
-  %or.cond7 = select i1 %117, i1 %118, i1 false
+116:                                              ; preds = %.thread128, %115
+  %117 = phi i32 [ %109, %.thread128 ], [ %simplifycfg.merge, %115 ]
+  %118 = icmp eq i32 %117, 0
+  %119 = icmp ne i32 %.085.lcssa275, 0
+  %or.cond7 = select i1 %118, i1 %119, i1 false
   %spec.select123 = select i1 %or.cond7, i32 0, i32 %.4
   br label %TLSX_Find.exit.thread
 
-TLSX_Find.exit.thread:                            ; preds = %78, %TLSX_Find.exit.preheader, %.thread, %9, %TLSX_Find.exit._crit_edge, %8, %8, %8, %8, %115
-  %.0112 = phi i32 [ %spec.select123, %115 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 0, %TLSX_Find.exit._crit_edge ], [ 1, %9 ], [ 1, %.thread ], [ 0, %TLSX_Find.exit.preheader ], [ 1, %78 ]
+TLSX_Find.exit.thread:                            ; preds = %78, %TLSX_Find.exit.preheader, %.thread, %9, %TLSX_Find.exit._crit_edge, %8, %8, %8, %8, %116
+  %.0112 = phi i32 [ %spec.select123, %116 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 0, %TLSX_Find.exit._crit_edge ], [ 1, %9 ], [ 1, %.thread ], [ 0, %TLSX_Find.exit.preheader ], [ 1, %78 ]
   ret i32 %.0112
 }
 

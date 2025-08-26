@@ -376,8 +376,8 @@ _setup_cr_type.exit.i:                            ; preds = %114, %111, %108, %1
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 320
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, 1381376
-  %.not26.i.i = icmp eq i32 %129, 0
-  br i1 %.not26.i.i, label %140, label %130
+  %.not25.i.i = icmp eq i32 %129, 0
+  br i1 %.not25.i.i, label %140, label %130
 
 130:                                              ; preds = %.lr.ph.split.i.i
   %131 = and i32 %128, 266240
@@ -518,8 +518,8 @@ _setup_cr_type.exit.i.i:                          ; preds = %177, %174, %171, %.
   %188 = getelementptr inbounds nuw i8, ptr %182, i64 320
   %189 = load i32, ptr %188, align 8
   %190 = and i32 %189, 1380352
-  %.not27.i.i.i = icmp eq i32 %190, 0
-  br i1 %.not27.i.i.i, label %197, label %191
+  %.not26.i.i.i = icmp eq i32 %190, 0
+  br i1 %.not26.i.i.i, label %197, label %191
 
 191:                                              ; preds = %.lr.ph.split.us.i.i.i
   %192 = and i32 %189, 266240

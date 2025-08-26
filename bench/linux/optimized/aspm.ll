@@ -2526,9 +2526,9 @@ define internal fastcc void @pcie_aspm_check_latency(ptr noundef readonly captur
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %6, %90
-  %25 = phi ptr [ %93, %90 ], [ %23, %6 ]
-  %26 = phi i32 [ %91, %90 ], [ 0, %6 ]
+.preheader:                                       ; preds = %6, %92
+  %25 = phi ptr [ %95, %92 ], [ %23, %6 ]
+  %26 = phi i32 [ %93, %92 ], [ 0, %6 ]
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -2579,47 +2579,47 @@ define internal fastcc void @pcie_aspm_check_latency(ptr noundef readonly captur
   %68 = and i32 %67, 16384
   %69 = icmp ne i32 %68, 0
   %70 = icmp ugt i32 %49, %18
-  %.not6.not = select i1 %69, i1 %70, i1 false
-  %71 = and i32 %67, -16385
-  %72 = select i1 %.not6.not, i32 %71, i32 %67
-  %73 = and i32 %72, 32768
-  %74 = icmp ne i32 %73, 0
-  %75 = icmp ugt i32 %60, %18
-  %.not8.not = select i1 %74, i1 %75, i1 false
-  %76 = and i32 %72, -32769
-  %77 = select i1 %.not8.not, i32 %76, i32 %72
-  %78 = or i1 %.not6.not, %.not8.not
-  br i1 %78, label %79, label %80
+  %71 = select i1 %69, i1 %70, i1 false
+  %72 = and i32 %67, -16385
+  %73 = select i1 %71, i32 %72, i32 %67
+  %74 = and i32 %73, 32768
+  %75 = icmp ne i32 %74, 0
+  %76 = icmp ugt i32 %60, %18
+  %77 = select i1 %75, i1 %76, i1 false
+  %78 = and i32 %73, -32769
+  %79 = select i1 %77, i32 %78, i32 %73
+  %80 = or i1 %71, %77
+  br i1 %80, label %81, label %82
 
-79:                                               ; preds = %40
-  store i32 %77, ptr %66, align 8
-  br label %80
+81:                                               ; preds = %40
+  store i32 %79, ptr %66, align 8
+  br label %82
 
-80:                                               ; preds = %40, %79
-  %81 = and i32 %77, 65536
-  %82 = icmp eq i32 %81, 0
-  br i1 %82, label %90, label %83
+82:                                               ; preds = %40, %81
+  %83 = and i32 %79, 65536
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %92, label %85
 
-83:                                               ; preds = %80
-  %84 = call i32 @llvm.umax.i32(i32 %54, i32 %65)
-  %85 = add i32 %84, %26
-  %86 = icmp ult i32 %22, %85
-  %87 = select i1 %21, i1 %86, i1 false
-  br i1 %87, label %88, label %90
+85:                                               ; preds = %82
+  %86 = call i32 @llvm.umax.i32(i32 %54, i32 %65)
+  %87 = add i32 %86, %26
+  %88 = icmp ult i32 %22, %87
+  %89 = select i1 %21, i1 %88, i1 false
+  br i1 %89, label %90, label %92
 
-88:                                               ; preds = %83
-  %89 = and i32 %77, -65537
-  store i32 %89, ptr %66, align 8
-  br label %90
+90:                                               ; preds = %85
+  %91 = and i32 %79, -65537
+  store i32 %91, ptr %66, align 8
+  br label %92
 
-90:                                               ; preds = %88, %83, %80
-  %91 = add i32 %26, 1000
-  %92 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %93 = load ptr, ptr %92, align 8
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %.loopexit, label %.preheader, !llvm.loop !29
+92:                                               ; preds = %90, %85, %82
+  %93 = add i32 %26, 1000
+  %94 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %95 = load ptr, ptr %94, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %.loopexit, label %.preheader, !llvm.loop !29
 
-.loopexit:                                        ; preds = %90, %6, %1
+.loopexit:                                        ; preds = %92, %6, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

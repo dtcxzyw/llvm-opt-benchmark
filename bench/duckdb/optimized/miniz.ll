@@ -13191,7 +13191,7 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_
   br i1 %.not, label %25, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14
-  %.pre372 = and i32 %spec.store.select, 1024
+  %.pre371 = and i32 %spec.store.select, 1024
   br label %27
 
 25:                                               ; preds = %14
@@ -13199,12 +13199,12 @@ define noundef range(i32 0, 2) i32 @_ZN12duckdb_miniz27mz_zip_writer_add_mem_ex_
   %26 = and i32 %spec.store.select, 1024
   %.not274 = icmp eq i32 %26, 0
   %or.cond306 = and i1 %.not273, %.not274
-  %spec.select393 = select i1 %or.cond306, i16 8, i16 0
+  %spec.select392 = select i1 %or.cond306, i16 8, i16 0
   br label %27
 
 27:                                               ; preds = %25, %._crit_edge
-  %.pre-phi = phi i32 [ %.pre372, %._crit_edge ], [ %26, %25 ]
-  %.0239 = phi i16 [ 8, %._crit_edge ], [ %spec.select393, %25 ]
+  %.pre-phi = phi i32 [ %.pre371, %._crit_edge ], [ %26, %25 ]
+  %.0239 = phi i16 [ 8, %._crit_edge ], [ %spec.select392, %25 ]
   %28 = and i32 %spec.store.select, 65536
   %.not275 = icmp eq i32 %28, 0
   %29 = or disjoint i16 %.0239, 2048
@@ -13255,7 +13255,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 52:                                               ; preds = %47
   %53 = icmp eq i32 %51, -1
-  br i1 %53, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344, label %58
+  br i1 %53, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344, label %59
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344: ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -13263,593 +13263,593 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
 condstore.split:                                  ; preds = %47
-  %.not370 = icmp eq i32 %51, 65535
-  %55 = or i64 %7, %3
-  %or.cond10.not = icmp ugt i64 %55, 4294967295
-  %56 = or i1 %or.cond10.not, %.not370
-  br i1 %56, label %57, label %58
+  %55 = icmp eq i32 %51, 65535
+  %56 = or i64 %7, %3
+  %or.cond10 = icmp ugt i64 %56, 4294967295
+  %57 = or i1 %or.cond10, %55
+  br i1 %57, label %58, label %59
 
-57:                                               ; preds = %condstore.split
+58:                                               ; preds = %condstore.split
   store i32 1, ptr %48, align 4, !tbaa !222
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %condstore.split, %52
-  %.not284 = phi i1 [ false, %57 ], [ true, %condstore.split ], [ false, %52 ]
-  %59 = icmp eq i32 %.pre-phi, 0
-  %60 = icmp ne i64 %7, 0
-  %or.cond12 = and i1 %60, %59
-  br i1 %or.cond12, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342, label %62
+59:                                               ; preds = %58, %condstore.split, %52
+  %.not284 = phi i1 [ false, %58 ], [ true, %condstore.split ], [ false, %52 ]
+  %60 = icmp eq i32 %.pre-phi, 0
+  %61 = icmp ne i64 %7, 0
+  %or.cond12 = and i1 %61, %60
+  br i1 %or.cond12, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342, label %63
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342: ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 24, ptr %61, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342: ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 24, ptr %62, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-62:                                               ; preds = %58
-  %63 = load i8, ptr %1, align 1, !tbaa !3
-  %64 = icmp eq i8 %63, 47
-  br i1 %64, label %.thread, label %.preheader.i
+63:                                               ; preds = %59
+  %64 = load i8, ptr %1, align 1, !tbaa !3
+  %65 = icmp eq i8 %64, 47
+  br i1 %65, label %.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %62, %66
-  %65 = phi i8 [ %.pr.i, %66 ], [ %63, %62 ]
-  %.0.i351 = phi ptr [ %67, %66 ], [ %1, %62 ]
-  switch i8 %65, label %66 [
+.preheader.i:                                     ; preds = %63, %67
+  %66 = phi i8 [ %.pr.i, %67 ], [ %64, %63 ]
+  %.0.i351 = phi ptr [ %68, %67 ], [ %1, %63 ]
+  switch i8 %66, label %67 [
     i8 0, label %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit
-    i8 92, label %68
-    i8 58, label %68
+    i8 92, label %69
+    i8 58, label %69
   ]
 
-66:                                               ; preds = %.preheader.i
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i351, i64 1
-  %.pr.i = load i8, ptr %67, align 1, !tbaa !3
+67:                                               ; preds = %.preheader.i
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i351, i64 1
+  %.pr.i = load i8, ptr %68, align 1, !tbaa !3
   br label %.preheader.i, !llvm.loop !297
 
-68:                                               ; preds = %.preheader.i, %.preheader.i
+69:                                               ; preds = %.preheader.i, %.preheader.i
   %.not.i339 = icmp eq ptr %0, null
   br i1 %.not.i339, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340, label %.thread
 
-.thread:                                          ; preds = %62, %68
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 25, ptr %69, align 4, !tbaa !211
+.thread:                                          ; preds = %63, %69
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 25, ptr %70, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
 _ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit: ; preds = %.preheader.i
-  br i1 %31, label %74, label %70
+  br i1 %31, label %75, label %71
 
-70:                                               ; preds = %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit
-  %71 = tail call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef 0, ptr noundef %2, i64 noundef %3)
-  %72 = trunc nuw i64 %71 to i32
+71:                                               ; preds = %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit
+  %72 = tail call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef 0, ptr noundef %2, i64 noundef %3)
+  %73 = trunc nuw i64 %72 to i32
   store i64 %3, ptr %16, align 8, !tbaa !53
-  %73 = icmp ult i64 %3, 4
-  %spec.select307 = select i1 %73, i32 0, i32 %30
-  %spec.select308 = or i1 %73, %32
-  br label %74
+  %74 = icmp ult i64 %3, 4
+  %spec.select307 = select i1 %74, i32 0, i32 %30
+  %spec.select308 = or i1 %74, %32
+  br label %75
 
-74:                                               ; preds = %70, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit
-  %75 = phi i64 [ %7, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %3, %70 ]
-  %.0256 = phi i32 [ %30, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %spec.select307, %70 ]
-  %.0254 = phi i32 [ %8, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %72, %70 ]
-  %.0248.shrunk = phi i1 [ true, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %spec.select308, %70 ]
-  %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
-  %77 = icmp ugt i64 %76, 65535
-  br i1 %77, label %78, label %_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit
+75:                                               ; preds = %71, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit
+  %76 = phi i64 [ %7, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %3, %71 ]
+  %.0256 = phi i32 [ %30, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %spec.select307, %71 ]
+  %.0254 = phi i32 [ %8, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %73, %71 ]
+  %.0248.shrunk = phi i1 [ true, %_ZN12duckdb_minizL35mz_zip_writer_validate_archive_nameEPKc.exit ], [ %spec.select308, %71 ]
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %78 = icmp ugt i64 %77, 65535
+  br i1 %78, label %79, label %_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit
 
-78:                                               ; preds = %74
+79:                                               ; preds = %75
   %.not.i337 = icmp eq ptr %0, null
-  br i1 %.not.i337, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340, label %79
+  br i1 %.not.i337, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340, label %80
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 25, ptr %80, align 4, !tbaa !211
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 25, ptr %81, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit: ; preds = %74
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %82 = load i64, ptr %81, align 8, !tbaa !293
-  %.not.i352 = icmp eq i64 %82, 0
-  %83 = add i64 %82, -1
-  %84 = and i64 %83, %23
-  %85 = sub i64 %82, %84
-  %86 = and i64 %85, %83
-  %87 = trunc i64 %86 to i32
-  %.0.i353 = select i1 %.not.i352, i32 0, i32 %87
-  %88 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !289
-  %90 = zext i16 %5 to i64
-  %91 = add nuw nsw i64 %90, 74
-  %92 = add nuw nsw i64 %91, %76
-  %93 = add i64 %92, %89
-  %94 = icmp ugt i64 %93, 4294967294
-  br i1 %94, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336, label %96
+_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit: ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %83 = load i64, ptr %82, align 8, !tbaa !293
+  %.not.i352 = icmp eq i64 %83, 0
+  %84 = add i64 %83, -1
+  %85 = and i64 %84, %23
+  %86 = sub i64 %83, %85
+  %87 = and i64 %86, %84
+  %88 = trunc i64 %87 to i32
+  %.0.i353 = select i1 %.not.i352, i32 0, i32 %88
+  %89 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %90 = load i64, ptr %89, align 8, !tbaa !289
+  %91 = zext i16 %5 to i64
+  %92 = add nuw nsw i64 %91, 74
+  %93 = add nuw nsw i64 %92, %77
+  %94 = add i64 %93, %90
+  %95 = icmp ugt i64 %94, 4294967294
+  br i1 %95, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336, label %97
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336: ; preds = %_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 15, ptr %95, align 4, !tbaa !211
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 15, ptr %96, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-96:                                               ; preds = %_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit
-  br i1 %.not284, label %97, label %110
+97:                                               ; preds = %_ZN12duckdb_minizL55mz_zip_writer_compute_padding_needed_for_file_alignmentEPNS_14mz_zip_archiveE.exit
+  br i1 %.not284, label %98, label %111
 
-97:                                               ; preds = %96
-  %98 = zext i32 %.0.i353 to i64
-  %99 = zext i32 %11 to i64
-  %100 = zext i32 %13 to i64
-  %factor = shl nuw nsw i64 %76, 1
-  %101 = add nuw nsw i64 %90, -4294967182
-  %102 = add nsw i64 %101, %99
+98:                                               ; preds = %97
+  %99 = zext i32 %.0.i353 to i64
+  %100 = zext i32 %11 to i64
+  %101 = zext i32 %13 to i64
+  %factor = shl nuw nsw i64 %77, 1
+  %102 = add nuw nsw i64 %91, -4294967182
   %103 = add nsw i64 %102, %100
-  %104 = add i64 %103, %23
-  %105 = add i64 %104, %factor
-  %106 = add i64 %105, %89
-  %107 = add i64 %106, %98
-  %108 = icmp ult i64 %107, -4294967296
-  br i1 %108, label %109, label %110
+  %104 = add nsw i64 %103, %101
+  %105 = add i64 %104, %23
+  %106 = add i64 %105, %factor
+  %107 = add i64 %106, %90
+  %108 = add i64 %107, %99
+  %109 = icmp ult i64 %108, -4294967296
+  br i1 %109, label %110, label %111
 
-109:                                              ; preds = %97
+110:                                              ; preds = %98
   store i32 1, ptr %48, align 4, !tbaa !222
-  br label %110
+  br label %111
 
-110:                                              ; preds = %97, %109, %96
-  %.not286 = phi i64 [ 0, %97 ], [ 28, %109 ], [ 28, %96 ]
-  %.not285 = icmp eq i64 %76, 0
-  br i1 %.not285, label %119, label %111
+111:                                              ; preds = %98, %110, %97
+  %.not286 = phi i64 [ 0, %98 ], [ 28, %110 ], [ 28, %97 ]
+  %.not285 = icmp eq i64 %77, 0
+  br i1 %.not285, label %120, label %112
 
-111:                                              ; preds = %110
-  %112 = getelementptr i8, ptr %1, i64 %76
-  %113 = getelementptr i8, ptr %112, i64 -1
-  %114 = load i8, ptr %113, align 1, !tbaa !3
-  %115 = icmp eq i8 %114, 47
-  br i1 %115, label %116, label %119
+112:                                              ; preds = %111
+  %113 = getelementptr i8, ptr %1, i64 %77
+  %114 = getelementptr i8, ptr %113, i64 -1
+  %115 = load i8, ptr %114, align 1, !tbaa !3
+  %116 = icmp eq i8 %115, 47
+  br i1 %116, label %117, label %120
 
-116:                                              ; preds = %111
-  %117 = or i64 %3, %75
-  %or.cond14.not = icmp eq i64 %117, 0
-  br i1 %or.cond14.not, label %119, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334
+117:                                              ; preds = %112
+  %118 = or i64 %3, %76
+  %or.cond14.not = icmp eq i64 %118, 0
+  br i1 %or.cond14.not, label %120, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334: ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 24, ptr %118, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334: ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 24, ptr %119, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-119:                                              ; preds = %116, %111, %110
-  %.0255 = phi i32 [ 16, %116 ], [ 0, %111 ], [ 0, %110 ]
-  %120 = add nuw nsw i64 %90, 46
-  %121 = add nuw nsw i64 %120, %76
-  %122 = add i64 %121, %89
-  %123 = add i64 %122, %.not286
-  %124 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %125 = load i64, ptr %124, align 8, !tbaa !230
-  %126 = icmp ugt i64 %123, %125
-  br i1 %126, label %127, label %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
+120:                                              ; preds = %117, %112, %111
+  %.0255 = phi i32 [ 16, %117 ], [ 0, %112 ], [ 0, %111 ]
+  %121 = add nuw nsw i64 %91, 46
+  %122 = add nuw nsw i64 %121, %77
+  %123 = add i64 %122, %90
+  %124 = add i64 %123, %.not286
+  %125 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %126 = load i64, ptr %125, align 8, !tbaa !230
+  %127 = icmp ugt i64 %124, %126
+  br i1 %127, label %128, label %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
 
-127:                                              ; preds = %119
-  %128 = tail call fastcc noundef i32 @_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj(ptr noundef nonnull %0, ptr noundef nonnull %34, i64 noundef %123, i32 noundef 1)
-  %.not.i349 = icmp eq i32 %128, 0
+128:                                              ; preds = %120
+  %129 = tail call fastcc noundef i32 @_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj(ptr noundef nonnull %0, ptr noundef nonnull %34, i64 noundef %124, i32 noundef 1)
+  %.not.i349 = icmp eq i32 %129, 0
   br i1 %.not.i349, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332, label %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
 
-_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350: ; preds = %127, %119
-  %129 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %130 = load i64, ptr %129, align 8, !tbaa !232
-  %131 = add i64 %130, 1
-  %132 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %133 = load i64, ptr %132, align 8, !tbaa !230
-  %134 = icmp ugt i64 %131, %133
-  br i1 %134, label %135, label %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
+_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350: ; preds = %128, %120
+  %130 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  %131 = load i64, ptr %130, align 8, !tbaa !232
+  %132 = add i64 %131, 1
+  %133 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  %134 = load i64, ptr %133, align 8, !tbaa !230
+  %135 = icmp ugt i64 %132, %134
+  br i1 %135, label %136, label %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
 
-135:                                              ; preds = %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
-  %136 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %137 = tail call fastcc noundef i32 @_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj(ptr noundef nonnull %0, ptr noundef nonnull %136, i64 noundef %131, i32 noundef 1)
-  %.not.i347 = icmp eq i32 %137, 0
+136:                                              ; preds = %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
+  %137 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %138 = tail call fastcc noundef i32 @_ZN12duckdb_minizL28mz_zip_array_ensure_capacityEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj(ptr noundef nonnull %0, ptr noundef nonnull %137, i64 noundef %132, i32 noundef 1)
+  %.not.i347 = icmp eq i32 %138, 0
   br i1 %.not.i347, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332, label %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332: ; preds = %135, %127
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 16, ptr %138, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332: ; preds = %136, %128
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 16, ptr %139, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit: ; preds = %135, %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
+_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit: ; preds = %136, %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit350
   %or.cond16.not = or i1 %39, %.0248.shrunk
-  br i1 %or.cond16.not, label %147, label %139
+  br i1 %or.cond16.not, label %148, label %140
 
-139:                                              ; preds = %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %141 = load ptr, ptr %140, align 8, !tbaa !208
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %143 = load ptr, ptr %142, align 8, !tbaa !212
-  %144 = tail call noundef ptr %141(ptr noundef %143, i64 noundef 1, i64 noundef 319352)
-  %145 = icmp eq ptr %144, null
-  br i1 %145, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330, label %147
+140:                                              ; preds = %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %142 = load ptr, ptr %141, align 8, !tbaa !208
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %144 = load ptr, ptr %143, align 8, !tbaa !212
+  %145 = tail call noundef ptr %142(ptr noundef %144, i64 noundef 1, i64 noundef 319352)
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330, label %148
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330: ; preds = %139
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 16, ptr %146, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330: ; preds = %140
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 16, ptr %147, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-147:                                              ; preds = %139, %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
-  %.0249 = phi ptr [ %144, %139 ], [ null, %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit ]
-  %148 = tail call fastcc noundef i32 @_ZN12duckdb_minizL25mz_zip_writer_write_zerosEPNS_14mz_zip_archiveEmj(ptr noundef nonnull %0, i64 noundef %23, i32 noundef %.0.i353)
-  %.not290 = icmp eq i32 %148, 0
-  br i1 %.not290, label %149, label %154
+148:                                              ; preds = %140, %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit
+  %.0249 = phi ptr [ %145, %140 ], [ null, %_ZN12duckdb_minizL20mz_zip_array_reserveEPNS_14mz_zip_archiveEPNS_12mz_zip_arrayEmj.exit ]
+  %149 = tail call fastcc noundef i32 @_ZN12duckdb_minizL25mz_zip_writer_write_zerosEPNS_14mz_zip_archiveEmj(ptr noundef nonnull %0, i64 noundef %23, i32 noundef %.0.i353)
+  %.not290 = icmp eq i32 %149, 0
+  br i1 %.not290, label %150, label %155
 
-149:                                              ; preds = %147
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %151 = load ptr, ptr %150, align 8, !tbaa !209
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %153 = load ptr, ptr %152, align 8, !tbaa !212
-  tail call void %151(ptr noundef %153, ptr noundef %.0249)
+150:                                              ; preds = %148
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %152 = load ptr, ptr %151, align 8, !tbaa !209
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %154 = load ptr, ptr %153, align 8, !tbaa !212
+  tail call void %152(ptr noundef %154, ptr noundef %.0249)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-154:                                              ; preds = %147
-  %155 = zext i32 %.0.i353 to i64
-  %156 = add i64 %23, %155
-  store i64 %156, ptr %17, align 8, !tbaa !53
+155:                                              ; preds = %148
+  %156 = zext i32 %.0.i353 to i64
+  %157 = add i64 %23, %156
+  store i64 %157, ptr %17, align 8, !tbaa !53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %19, i8 0, i64 30, i1 false)
   %.0248.shrunk.not = xor i1 %.0248.shrunk, true
   %brmerge = or i1 %31, %.0248.shrunk.not
   %.0257 = select i1 %brmerge, i16 8, i16 0
-  %157 = load i32, ptr %48, align 4, !tbaa !222
-  %.not291 = icmp eq i32 %157, 0
-  br i1 %.not291, label %207, label %158
+  %158 = load i32, ptr %48, align 4, !tbaa !222
+  %.not291 = icmp eq i32 %158, 0
+  br i1 %.not291, label %208, label %159
 
-158:                                              ; preds = %154
-  %159 = icmp ugt i64 %75, 4294967294
-  %160 = icmp ugt i64 %156, 4294967294
-  %or.cond18 = select i1 %159, i1 true, i1 %160
-  br i1 %or.cond18, label %161, label %165
+159:                                              ; preds = %155
+  %160 = icmp ugt i64 %76, 4294967294
+  %161 = icmp ugt i64 %157, 4294967294
+  %or.cond18 = select i1 %160, i1 true, i1 %161
+  br i1 %or.cond18, label %162, label %166
 
-161:                                              ; preds = %158
-  %. = select i1 %159, ptr %16, ptr null
-  %162 = select i1 %159, ptr %18, ptr null
-  %163 = select i1 %160, ptr %17, ptr null
-  %164 = call fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip64_extra_dataEPhPmS1_S1_(ptr noundef %20, ptr noundef %., ptr noundef %162, ptr noundef %163)
-  br label %165
+162:                                              ; preds = %159
+  %. = select i1 %160, ptr %16, ptr null
+  %163 = select i1 %160, ptr %18, ptr null
+  %164 = select i1 %161, ptr %17, ptr null
+  %165 = call fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip64_extra_dataEPhPmS1_S1_(ptr noundef %20, ptr noundef %., ptr noundef %163, ptr noundef %164)
+  br label %166
 
-165:                                              ; preds = %158, %161
-  %.0243 = phi ptr [ %20, %161 ], [ null, %158 ]
-  %.0241 = phi i32 [ %164, %161 ], [ 0, %158 ]
-  %166 = trunc nuw i64 %76 to i16
-  %167 = add i32 %.0241, %11
-  %168 = trunc i32 %167 to i16
+166:                                              ; preds = %159, %162
+  %.0243 = phi ptr [ %20, %162 ], [ null, %159 ]
+  %.0241 = phi i32 [ %165, %162 ], [ 0, %159 ]
+  %167 = trunc nuw i64 %77 to i16
+  %168 = add i32 %.0241, %11
+  %169 = trunc i32 %168 to i16
   store i8 80, ptr %19, align 16, !tbaa !3
-  %169 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i8 75, ptr %169, align 1, !tbaa !3
-  %170 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  store i8 3, ptr %170, align 2, !tbaa !3
-  %171 = getelementptr inbounds nuw i8, ptr %19, i64 3
-  store i8 4, ptr %171, align 1, !tbaa !3
-  %172 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %173 = select i1 %brmerge, i8 20, i8 0
-  store i8 %173, ptr %172, align 4, !tbaa !3
-  %174 = getelementptr inbounds nuw i8, ptr %19, i64 5
-  store i8 0, ptr %174, align 1, !tbaa !3
-  %175 = getelementptr inbounds nuw i8, ptr %19, i64 6
-  store i16 %spec.select, ptr %175, align 2
-  %176 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %177 = trunc nuw nsw i16 %.0257 to i8
-  store i8 %177, ptr %176, align 8, !tbaa !3
-  %178 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %179 = getelementptr inbounds nuw i8, ptr %19, i64 26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %178, i8 0, i64 17, i1 false)
-  store i16 %166, ptr %179, align 2
-  %180 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i16 %168, ptr %180, align 4
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %182 = load ptr, ptr %181, align 8, !tbaa !292
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %184 = load ptr, ptr %183, align 8, !tbaa !226
-  %185 = call noundef i64 %182(ptr noundef %184, i64 noundef %156, ptr noundef nonnull %19, i64 noundef 30)
-  %.not294 = icmp eq i64 %185, 30
-  br i1 %.not294, label %187, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328
+  %170 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 75, ptr %170, align 1, !tbaa !3
+  %171 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store i8 3, ptr %171, align 2, !tbaa !3
+  %172 = getelementptr inbounds nuw i8, ptr %19, i64 3
+  store i8 4, ptr %172, align 1, !tbaa !3
+  %173 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %174 = select i1 %brmerge, i8 20, i8 0
+  store i8 %174, ptr %173, align 4, !tbaa !3
+  %175 = getelementptr inbounds nuw i8, ptr %19, i64 5
+  store i8 0, ptr %175, align 1, !tbaa !3
+  %176 = getelementptr inbounds nuw i8, ptr %19, i64 6
+  store i16 %spec.select, ptr %176, align 2
+  %177 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %178 = trunc nuw nsw i16 %.0257 to i8
+  store i8 %178, ptr %177, align 8, !tbaa !3
+  %179 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %180 = getelementptr inbounds nuw i8, ptr %19, i64 26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %179, i8 0, i64 17, i1 false)
+  store i16 %167, ptr %180, align 2
+  %181 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  store i16 %169, ptr %181, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %183 = load ptr, ptr %182, align 8, !tbaa !292
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %185 = load ptr, ptr %184, align 8, !tbaa !226
+  %186 = call noundef i64 %183(ptr noundef %185, i64 noundef %157, ptr noundef nonnull %19, i64 noundef 30)
+  %.not294 = icmp eq i64 %186, 30
+  br i1 %.not294, label %188, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328: ; preds = %165
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %186, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328: ; preds = %166
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %187, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-187:                                              ; preds = %165
-  %188 = add i64 %156, 30
-  %189 = load ptr, ptr %181, align 8, !tbaa !292
-  %190 = load ptr, ptr %183, align 8, !tbaa !226
-  %191 = call noundef i64 %189(ptr noundef %190, i64 noundef %188, ptr noundef nonnull %1, i64 noundef %76)
-  %.not295 = icmp eq i64 %191, %76
-  br i1 %.not295, label %197, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326
+188:                                              ; preds = %166
+  %189 = add i64 %157, 30
+  %190 = load ptr, ptr %182, align 8, !tbaa !292
+  %191 = load ptr, ptr %184, align 8, !tbaa !226
+  %192 = call noundef i64 %190(ptr noundef %191, i64 noundef %189, ptr noundef nonnull %1, i64 noundef %77)
+  %.not295 = icmp eq i64 %192, %77
+  br i1 %.not295, label %198, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326: ; preds = %187
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %193 = load ptr, ptr %192, align 8, !tbaa !209
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %195 = load ptr, ptr %194, align 8, !tbaa !212
-  call void %193(ptr noundef %195, ptr noundef %.0249)
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %196, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326: ; preds = %188
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %194 = load ptr, ptr %193, align 8, !tbaa !209
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %196 = load ptr, ptr %195, align 8, !tbaa !212
+  call void %194(ptr noundef %196, ptr noundef %.0249)
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %197, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-197:                                              ; preds = %187
-  %198 = add i64 %188, %76
+198:                                              ; preds = %188
+  %199 = add i64 %189, %77
   %.not296 = icmp eq ptr %.0243, null
-  br i1 %.not296, label %242, label %199
+  br i1 %.not296, label %243, label %200
 
-199:                                              ; preds = %197
-  %200 = load ptr, ptr %181, align 8, !tbaa !292
-  %201 = load ptr, ptr %183, align 8, !tbaa !226
-  %202 = zext i32 %.0241 to i64
-  %203 = call noundef i64 %200(ptr noundef %201, i64 noundef %198, ptr noundef nonnull %20, i64 noundef %202)
-  %.not297 = icmp eq i64 %203, %202
-  br i1 %.not297, label %205, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324
+200:                                              ; preds = %198
+  %201 = load ptr, ptr %182, align 8, !tbaa !292
+  %202 = load ptr, ptr %184, align 8, !tbaa !226
+  %203 = zext i32 %.0241 to i64
+  %204 = call noundef i64 %201(ptr noundef %202, i64 noundef %199, ptr noundef nonnull %20, i64 noundef %203)
+  %.not297 = icmp eq i64 %204, %203
+  br i1 %.not297, label %206, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324: ; preds = %199
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %204, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324: ; preds = %200
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %205, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-205:                                              ; preds = %199
-  %206 = add i64 %198, %202
-  br label %242
+206:                                              ; preds = %200
+  %207 = add i64 %199, %203
+  br label %243
 
-207:                                              ; preds = %154
-  %208 = icmp ugt i64 %156, 4294967295
-  br i1 %208, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322, label %210
+208:                                              ; preds = %155
+  %209 = icmp ugt i64 %157, 4294967295
+  br i1 %209, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322, label %211
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322: ; preds = %207
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 29, ptr %209, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322: ; preds = %208
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 29, ptr %210, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-210:                                              ; preds = %207
-  %211 = trunc nuw i64 %76 to i16
-  %212 = trunc i32 %11 to i16
+211:                                              ; preds = %208
+  %212 = trunc nuw i64 %77 to i16
+  %213 = trunc i32 %11 to i16
   store i8 80, ptr %19, align 16, !tbaa !3
-  %213 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i8 75, ptr %213, align 1, !tbaa !3
-  %214 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  store i8 3, ptr %214, align 2, !tbaa !3
-  %215 = getelementptr inbounds nuw i8, ptr %19, i64 3
-  store i8 4, ptr %215, align 1, !tbaa !3
-  %216 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %217 = select i1 %brmerge, i8 20, i8 0
-  store i8 %217, ptr %216, align 4, !tbaa !3
-  %218 = getelementptr inbounds nuw i8, ptr %19, i64 6
-  store i16 %spec.select, ptr %218, align 2
-  %219 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %220 = trunc nuw nsw i16 %.0257 to i8
-  store i8 %220, ptr %219, align 8, !tbaa !3
-  %221 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %222 = getelementptr inbounds nuw i8, ptr %19, i64 26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %221, i8 0, i64 17, i1 false)
-  store i16 %211, ptr %222, align 2
-  %223 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i16 %212, ptr %223, align 4
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %225 = load ptr, ptr %224, align 8, !tbaa !292
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %227 = load ptr, ptr %226, align 8, !tbaa !226
-  %228 = call noundef i64 %225(ptr noundef %227, i64 noundef %156, ptr noundef nonnull %19, i64 noundef 30)
-  %.not292 = icmp eq i64 %228, 30
-  br i1 %.not292, label %230, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320
+  %214 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 75, ptr %214, align 1, !tbaa !3
+  %215 = getelementptr inbounds nuw i8, ptr %19, i64 2
+  store i8 3, ptr %215, align 2, !tbaa !3
+  %216 = getelementptr inbounds nuw i8, ptr %19, i64 3
+  store i8 4, ptr %216, align 1, !tbaa !3
+  %217 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %218 = select i1 %brmerge, i8 20, i8 0
+  store i8 %218, ptr %217, align 4, !tbaa !3
+  %219 = getelementptr inbounds nuw i8, ptr %19, i64 6
+  store i16 %spec.select, ptr %219, align 2
+  %220 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %221 = trunc nuw nsw i16 %.0257 to i8
+  store i8 %221, ptr %220, align 8, !tbaa !3
+  %222 = getelementptr inbounds nuw i8, ptr %19, i64 9
+  %223 = getelementptr inbounds nuw i8, ptr %19, i64 26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %222, i8 0, i64 17, i1 false)
+  store i16 %212, ptr %223, align 2
+  %224 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  store i16 %213, ptr %224, align 4
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %226 = load ptr, ptr %225, align 8, !tbaa !292
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %228 = load ptr, ptr %227, align 8, !tbaa !226
+  %229 = call noundef i64 %226(ptr noundef %228, i64 noundef %157, ptr noundef nonnull %19, i64 noundef 30)
+  %.not292 = icmp eq i64 %229, 30
+  br i1 %.not292, label %231, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320: ; preds = %210
-  %229 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %229, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320: ; preds = %211
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %230, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-230:                                              ; preds = %210
-  %231 = add nuw nsw i64 %156, 30
-  %232 = load ptr, ptr %224, align 8, !tbaa !292
-  %233 = load ptr, ptr %226, align 8, !tbaa !226
-  %234 = call noundef i64 %232(ptr noundef %233, i64 noundef %231, ptr noundef nonnull %1, i64 noundef %76)
-  %.not293 = icmp eq i64 %234, %76
-  br i1 %.not293, label %240, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318
+231:                                              ; preds = %211
+  %232 = add nuw nsw i64 %157, 30
+  %233 = load ptr, ptr %225, align 8, !tbaa !292
+  %234 = load ptr, ptr %227, align 8, !tbaa !226
+  %235 = call noundef i64 %233(ptr noundef %234, i64 noundef %232, ptr noundef nonnull %1, i64 noundef %77)
+  %.not293 = icmp eq i64 %235, %77
+  br i1 %.not293, label %241, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318: ; preds = %230
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %236 = load ptr, ptr %235, align 8, !tbaa !209
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %238 = load ptr, ptr %237, align 8, !tbaa !212
-  call void %236(ptr noundef %238, ptr noundef %.0249)
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %239, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318: ; preds = %231
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %237 = load ptr, ptr %236, align 8, !tbaa !209
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %239 = load ptr, ptr %238, align 8, !tbaa !212
+  call void %237(ptr noundef %239, ptr noundef %.0249)
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %240, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-240:                                              ; preds = %230
-  %241 = add nuw nsw i64 %231, %76
-  br label %242
+241:                                              ; preds = %231
+  %242 = add nuw nsw i64 %232, %77
+  br label %243
 
-242:                                              ; preds = %197, %205, %240
-  %.0250 = phi i64 [ %206, %205 ], [ %198, %197 ], [ %241, %240 ]
-  %.1244 = phi ptr [ %.0243, %205 ], [ null, %197 ], [ null, %240 ]
-  %.1242 = phi i32 [ %.0241, %205 ], [ %.0241, %197 ], [ 0, %240 ]
+243:                                              ; preds = %198, %206, %241
+  %.0250 = phi i64 [ %207, %206 ], [ %199, %198 ], [ %242, %241 ]
+  %.1244 = phi ptr [ %.0243, %206 ], [ null, %198 ], [ null, %241 ]
+  %.1242 = phi i32 [ %.0241, %206 ], [ %.0241, %198 ], [ 0, %241 ]
   %.not298 = icmp eq i32 %11, 0
-  br i1 %.not298, label %253, label %243
+  br i1 %.not298, label %254, label %244
 
-243:                                              ; preds = %242
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %245 = load ptr, ptr %244, align 8, !tbaa !292
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %247 = load ptr, ptr %246, align 8, !tbaa !226
-  %248 = zext i32 %11 to i64
-  %249 = call noundef i64 %245(ptr noundef %247, i64 noundef %.0250, ptr noundef %10, i64 noundef %248)
-  %.not299 = icmp eq i64 %249, %248
-  br i1 %.not299, label %251, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316
+244:                                              ; preds = %243
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %246 = load ptr, ptr %245, align 8, !tbaa !292
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %248 = load ptr, ptr %247, align 8, !tbaa !226
+  %249 = zext i32 %11 to i64
+  %250 = call noundef i64 %246(ptr noundef %248, i64 noundef %.0250, ptr noundef %10, i64 noundef %249)
+  %.not299 = icmp eq i64 %250, %249
+  br i1 %.not299, label %252, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316: ; preds = %243
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %250, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316: ; preds = %244
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %251, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-251:                                              ; preds = %243
-  %252 = add i64 %.0250, %248
-  br label %253
+252:                                              ; preds = %244
+  %253 = add i64 %.0250, %249
+  br label %254
 
-253:                                              ; preds = %251, %242
-  %.1251 = phi i64 [ %252, %251 ], [ %.0250, %242 ]
-  br i1 %.0248.shrunk, label %254, label %267
+254:                                              ; preds = %252, %243
+  %.1251 = phi i64 [ %253, %252 ], [ %.0250, %243 ]
+  br i1 %.0248.shrunk, label %255, label %268
 
-254:                                              ; preds = %253
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %256 = load ptr, ptr %255, align 8, !tbaa !292
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %258 = load ptr, ptr %257, align 8, !tbaa !226
-  %259 = call noundef i64 %256(ptr noundef %258, i64 noundef %.1251, ptr noundef %2, i64 noundef %3)
-  %.not301 = icmp eq i64 %259, %3
-  br i1 %.not301, label %265, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314
+255:                                              ; preds = %254
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %257 = load ptr, ptr %256, align 8, !tbaa !292
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %259 = load ptr, ptr %258, align 8, !tbaa !226
+  %260 = call noundef i64 %257(ptr noundef %259, i64 noundef %.1251, ptr noundef %2, i64 noundef %3)
+  %.not301 = icmp eq i64 %260, %3
+  br i1 %.not301, label %266, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314: ; preds = %254
-  %260 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %261 = load ptr, ptr %260, align 8, !tbaa !209
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %263 = load ptr, ptr %262, align 8, !tbaa !212
-  call void %261(ptr noundef %263, ptr noundef %.0249)
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 19, ptr %264, align 4, !tbaa !211
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314: ; preds = %255
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %262 = load ptr, ptr %261, align 8, !tbaa !209
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %264 = load ptr, ptr %263, align 8, !tbaa !212
+  call void %262(ptr noundef %264, ptr noundef %.0249)
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 19, ptr %265, align 4, !tbaa !211
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-265:                                              ; preds = %254
-  %266 = add i64 %.1251, %3
+266:                                              ; preds = %255
+  %267 = add i64 %.1251, %3
   store i64 %3, ptr %18, align 8, !tbaa !53
-  br label %288
+  br label %289
 
-267:                                              ; preds = %253
-  br i1 %39, label %288, label %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
+268:                                              ; preds = %254
+  br i1 %39, label %289, label %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
 
-_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %267
+_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit: ; preds = %268
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %0, ptr %21, align 8, !tbaa !298
-  %268 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.1251, ptr %268, align 8, !tbaa !300
-  %269 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 0, ptr %269, align 8, !tbaa !301
-  %270 = call i32 @llvm.umin.i32(i32 %.0256, i32 10)
-  %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw [11 x i32], ptr @_ZZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_exEPKviiiPmjiE22s_tdefl_png_num_probes, i64 0, i64 %271
-  %273 = load i32, ptr %272, align 4, !tbaa !10
-  %274 = icmp slt i32 %.0256, 4
-  %275 = select i1 %274, i32 16384, i32 0
-  %276 = or i32 %273, %275
+  %269 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %.1251, ptr %269, align 8, !tbaa !300
+  %270 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i64 0, ptr %270, align 8, !tbaa !301
+  %271 = call i32 @llvm.umin.i32(i32 %.0256, i32 10)
+  %272 = zext nneg i32 %271 to i64
+  %273 = getelementptr inbounds nuw [11 x i32], ptr @_ZZN12duckdb_miniz42tdefl_write_image_to_png_file_in_memory_exEPKviiiPmjiE22s_tdefl_png_num_probes, i64 0, i64 %272
+  %274 = load i32, ptr %273, align 4, !tbaa !10
+  %275 = icmp slt i32 %.0256, 4
+  %276 = select i1 %275, i32 16384, i32 0
+  %277 = or i32 %274, %276
   %.not.i356 = icmp eq i32 %.0256, 0
-  %277 = or i32 %276, 524288
-  %spec.select369 = select i1 %.not.i356, i32 %277, i32 %276
-  %278 = call noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i(ptr noundef %.0249, ptr noundef nonnull @_ZN12duckdb_minizL34mz_zip_writer_add_put_buf_callbackEPKviPv, ptr noundef nonnull %21, i32 noundef %spec.select369)
+  %278 = or i32 %277, 524288
+  %spec.select369 = select i1 %.not.i356, i32 %278, i32 %277
+  %279 = call noundef i32 @_ZN12duckdb_miniz10tdefl_initEPNS_16tdefl_compressorEPFiPKviPvES4_i(ptr noundef %.0249, ptr noundef nonnull @_ZN12duckdb_minizL34mz_zip_writer_add_put_buf_callbackEPKviPv, ptr noundef nonnull %21, i32 noundef %spec.select369)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 %3, ptr %15, align 8, !tbaa !53
-  %279 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef %.0249, ptr noundef %2, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i32 noundef 4)
+  %280 = call noundef i32 @_ZN12duckdb_miniz14tdefl_compressEPNS_16tdefl_compressorEPKvPmPvS4_NS_11tdefl_flushE(ptr noundef %.0249, ptr noundef %2, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, i32 noundef 4)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not300 = icmp eq i32 %279, 1
-  br i1 %.not300, label %.thread364, label %282
+  %.not300 = icmp eq i32 %280, 1
+  br i1 %.not300, label %.thread364, label %283
 
 .thread364:                                       ; preds = %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
-  %280 = load i64, ptr %269, align 8, !tbaa !301
-  store i64 %280, ptr %18, align 8, !tbaa !53
-  %281 = load i64, ptr %268, align 8, !tbaa !300
+  %281 = load i64, ptr %270, align 8, !tbaa !301
+  store i64 %281, ptr %18, align 8, !tbaa !53
+  %282 = load i64, ptr %269, align 8, !tbaa !300
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %288
+  br label %289
 
-282:                                              ; preds = %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %284 = load ptr, ptr %283, align 8, !tbaa !209
-  %285 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %286 = load ptr, ptr %285, align 8, !tbaa !212
-  call void %284(ptr noundef %286, ptr noundef %.0249)
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 12, ptr %287, align 4, !tbaa !211
+283:                                              ; preds = %_ZN12duckdb_miniz39tdefl_create_comp_flags_from_zip_paramsEiii.exit
+  %284 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %285 = load ptr, ptr %284, align 8, !tbaa !209
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %287 = load ptr, ptr %286, align 8, !tbaa !212
+  call void %285(ptr noundef %287, ptr noundef %.0249)
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 12, ptr %288, align 4, !tbaa !211
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-288:                                              ; preds = %.thread364, %267, %265
-  %289 = phi i64 [ %3, %265 ], [ 0, %267 ], [ %280, %.thread364 ]
-  %.2252 = phi i64 [ %266, %265 ], [ %.1251, %267 ], [ %281, %.thread364 ]
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %291 = load ptr, ptr %290, align 8, !tbaa !209
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %293 = load ptr, ptr %292, align 8, !tbaa !212
-  call void %291(ptr noundef %293, ptr noundef %.0249)
-  %.not302 = icmp eq i64 %75, 0
-  br i1 %.not302, label %318, label %294
+289:                                              ; preds = %.thread364, %268, %266
+  %290 = phi i64 [ %3, %266 ], [ 0, %268 ], [ %281, %.thread364 ]
+  %.2252 = phi i64 [ %267, %266 ], [ %.1251, %268 ], [ %282, %.thread364 ]
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %292 = load ptr, ptr %291, align 8, !tbaa !209
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %294 = load ptr, ptr %293, align 8, !tbaa !212
+  call void %292(ptr noundef %294, ptr noundef %.0249)
+  %.not302 = icmp eq i64 %76, 0
+  br i1 %.not302, label %319, label %295
 
-294:                                              ; preds = %288
+295:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 80, ptr %22, align 16, !tbaa !3
-  %295 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store i8 75, ptr %295, align 1, !tbaa !3
-  %296 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  store i8 7, ptr %296, align 2, !tbaa !3
-  %297 = getelementptr inbounds nuw i8, ptr %22, i64 3
-  store i8 8, ptr %297, align 1, !tbaa !3
-  %298 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 %.0254, ptr %298, align 4
-  %299 = icmp eq ptr %.1244, null
-  br i1 %299, label %300, label %308
+  %296 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 75, ptr %296, align 1, !tbaa !3
+  %297 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  store i8 7, ptr %297, align 2, !tbaa !3
+  %298 = getelementptr inbounds nuw i8, ptr %22, i64 3
+  store i8 8, ptr %298, align 1, !tbaa !3
+  %299 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i32 %.0254, ptr %299, align 4
+  %300 = icmp eq ptr %.1244, null
+  br i1 %300, label %301, label %309
 
-300:                                              ; preds = %294
-  %301 = icmp ugt i64 %289, 4294967295
-  br i1 %301, label %.thread366, label %303
+301:                                              ; preds = %295
+  %302 = icmp ugt i64 %290, 4294967295
+  br i1 %302, label %.thread366, label %304
 
-.thread366:                                       ; preds = %300
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 29, ptr %302, align 4, !tbaa !211
+.thread366:                                       ; preds = %301
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 29, ptr %303, align 4, !tbaa !211
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-303:                                              ; preds = %300
-  %304 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %305 = trunc nuw i64 %289 to i32
-  store i32 %305, ptr %304, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %307 = trunc i64 %75 to i32
-  store i32 %307, ptr %306, align 4
-  br label %311
+304:                                              ; preds = %301
+  %305 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %306 = trunc nuw i64 %290 to i32
+  store i32 %306, ptr %305, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  %308 = trunc i64 %76 to i32
+  store i32 %308, ptr %307, align 4
+  br label %312
 
-308:                                              ; preds = %294
-  %309 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %289, ptr %309, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 %75, ptr %310, align 16
-  br label %311
+309:                                              ; preds = %295
+  %310 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 %290, ptr %310, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i64 %76, ptr %311, align 16
+  br label %312
 
-311:                                              ; preds = %303, %308
-  %.0 = phi i64 [ 16, %303 ], [ 24, %308 ]
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %313 = load ptr, ptr %312, align 8, !tbaa !292
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %315 = load ptr, ptr %314, align 8, !tbaa !226
-  %316 = call noundef i64 %313(ptr noundef %315, i64 noundef %.2252, ptr noundef nonnull %22, i64 noundef %.0)
-  %.not303 = icmp eq i64 %316, %.0
-  %317 = add i64 %.0, %.2252
+312:                                              ; preds = %304, %309
+  %.0 = phi i64 [ 16, %304 ], [ 24, %309 ]
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %314 = load ptr, ptr %313, align 8, !tbaa !292
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %316 = load ptr, ptr %315, align 8, !tbaa !226
+  %317 = call noundef i64 %314(ptr noundef %316, i64 noundef %.2252, ptr noundef nonnull %22, i64 noundef %.0)
+  %.not303 = icmp eq i64 %317, %.0
+  %318 = add i64 %.0, %.2252
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %.not303, label %318, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
+  br i1 %.not303, label %319, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-318:                                              ; preds = %311, %288
-  %.4 = phi i64 [ %317, %311 ], [ %.2252, %288 ]
+319:                                              ; preds = %312, %289
+  %.4 = phi i64 [ %318, %312 ], [ %.2252, %289 ]
   %.not304 = icmp eq ptr %.1244, null
   br i1 %.not304, label %.split, label %.split259
 
-.split259:                                        ; preds = %318
-  %319 = icmp ugt i64 %75, 4294967294
-  %.21 = select i1 %319, ptr %16, ptr null
-  %320 = select i1 %319, ptr %18, ptr null
-  %321 = icmp ugt i64 %156, 4294967294
-  %322 = select i1 %321, ptr %17, ptr null
-  %323 = call fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip64_extra_dataEPhPmS1_S1_(ptr noundef %20, ptr noundef %.21, ptr noundef %320, ptr noundef %322)
+.split259:                                        ; preds = %319
+  %320 = icmp ugt i64 %76, 4294967294
+  %.21 = select i1 %320, ptr %16, ptr null
+  %321 = select i1 %320, ptr %18, ptr null
+  %322 = icmp ugt i64 %157, 4294967294
+  %323 = select i1 %322, ptr %17, ptr null
+  %324 = call fastcc noundef i32 @_ZN12duckdb_minizL37mz_zip_writer_create_zip64_extra_dataEPhPmS1_S1_(ptr noundef %20, ptr noundef %.21, ptr noundef %321, ptr noundef %323)
   br label %.split
 
-.split:                                           ; preds = %318, %.split259
-  %.1242.sink = phi i32 [ %323, %.split259 ], [ %.1242, %318 ]
-  %.sink394 = phi ptr [ %.1244, %.split259 ], [ null, %318 ]
-  %324 = trunc nuw i64 %76 to i16
-  %325 = trunc i32 %.1242.sink to i16
-  %326 = call fastcc noundef i32 @_ZN12duckdb_minizL32mz_zip_writer_add_to_central_dirEPNS_14mz_zip_archiveEPKctPKvtS5_tmmjttttmjS3_j(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %324, ptr noundef %.sink394, i16 noundef zeroext %325, ptr noundef %4, i16 noundef zeroext %5, i64 noundef %75, i64 noundef %289, i32 noundef %.0254, i16 noundef zeroext %.0257, i16 noundef zeroext %spec.select, i64 noundef %156, i32 noundef %.0255, ptr noundef %12, i32 noundef %13)
-  %.not305 = icmp eq i32 %326, 0
-  br i1 %.not305, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340, label %327
+.split:                                           ; preds = %319, %.split259
+  %.1242.sink = phi i32 [ %324, %.split259 ], [ %.1242, %319 ]
+  %.sink393 = phi ptr [ %.1244, %.split259 ], [ null, %319 ]
+  %325 = trunc nuw i64 %77 to i16
+  %326 = trunc i32 %.1242.sink to i16
+  %327 = call fastcc noundef i32 @_ZN12duckdb_minizL32mz_zip_writer_add_to_central_dirEPNS_14mz_zip_archiveEPKctPKvtS5_tmmjttttmjS3_j(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %325, ptr noundef %.sink393, i16 noundef zeroext %326, ptr noundef %4, i16 noundef zeroext %5, i64 noundef %76, i64 noundef %290, i32 noundef %.0254, i16 noundef zeroext %.0257, i16 noundef zeroext %spec.select, i64 noundef %157, i32 noundef %.0255, ptr noundef %12, i32 noundef %13)
+  %.not305 = icmp eq i32 %327, 0
+  br i1 %.not305, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340, label %328
 
-327:                                              ; preds = %.split
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %329 = load i32, ptr %328, align 8, !tbaa !228
-  %330 = add i32 %329, 1
-  store i32 %330, ptr %328, align 8, !tbaa !228
+328:                                              ; preds = %.split
+  %329 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %330 = load i32, ptr %329, align 8, !tbaa !228
+  %331 = add i32 %330, 1
+  store i32 %331, ptr %329, align 8, !tbaa !228
   store i64 %.4, ptr %0, align 8, !tbaa !225
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340: ; preds = %.thread366, %282, %79, %78, %.thread, %68, %.split, %311, %327, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328, %149, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit346
-  %.0245 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit346 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314 ], [ 1, %327 ], [ 0, %311 ], [ 0, %282 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318 ], [ 0, %149 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332 ], [ 0, %.split ], [ 0, %68 ], [ 0, %.thread ], [ 0, %78 ], [ 0, %79 ], [ 0, %.thread366 ]
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit340: ; preds = %.thread366, %283, %80, %79, %.thread, %69, %.split, %312, %328, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328, %150, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit346
+  %.0245 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit346 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit344 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit342 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit336 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit334 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit330 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit328 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit326 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit324 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit316 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit314 ], [ 1, %328 ], [ 0, %312 ], [ 0, %283 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit322 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit320 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit318 ], [ 0, %150 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit332 ], [ 0, %.split ], [ 0, %69 ], [ 0, %.thread ], [ 0, %79 ], [ 0, %80 ], [ 0, %.thread366 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)

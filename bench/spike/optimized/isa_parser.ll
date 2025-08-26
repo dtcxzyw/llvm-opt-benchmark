@@ -3409,14 +3409,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit759: ; preds = %_Z
   %1275 = icmp ne i64 %1274, 0
   %1276 = load i32, ptr %0, align 8
   %1277 = icmp eq i32 %1276, 32
-  %or.cond1432.not.not = select i1 %1275, i1 %1277, i1 false
+  %or.cond1432 = select i1 %1275, i1 %1277, i1 false
   %1278 = or i64 %1271, 618475290624
-  %1279 = select i1 %or.cond1432.not.not, i64 %1278, i64 %1273
+  %1279 = select i1 %or.cond1432, i64 %1278, i64 %1273
   %1280 = and i64 %1279, 16
   %.not1453 = icmp ne i64 %1280, 0
   %1281 = shl nuw nsw i64 %1280, 34
   %.ph = or i64 %1279, %1281
-  %1282 = or i1 %or.cond1432.not.not, %.not1453
+  %1282 = or i1 %or.cond1432, %.not1453
   br i1 %1282, label %1283, label %1284
 
 1283:                                             ; preds = %.critedge13
