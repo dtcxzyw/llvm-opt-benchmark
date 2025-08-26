@@ -1353,20 +1353,20 @@ define internal fastcc ptr @hash_dir_entry(ptr noundef %0, ptr noundef %1, i32 n
   br label %7
 
 7:                                                ; preds = %.lr.ph, %13
-  %.02832 = phi i32 [ %2, %.lr.ph ], [ %12, %13 ]
-  %8 = zext nneg i32 %.02832 to i64
+  %indvars.iv = phi i32 [ %2, %.lr.ph ], [ %12, %13 ]
+  %8 = zext nneg i32 %indvars.iv to i64
   %9 = getelementptr i8, ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -1
   %11 = load i8, ptr %10, align 1, !tbaa !68
   %.not = icmp eq i8 %11, 47
-  %12 = add nsw i32 %.02832, -1
+  %11 = add nsw i32 %indvars.iv, -1
   br i1 %.not, label %.critedge, label %13
 
-13:                                               ; preds = %7
-  %14 = icmp sgt i32 %.02832, 1
+13:; preds = %7
+  %14 = icmp sgt i32 %indvars.iv, 1
   br i1 %14, label %7, label %.critedge.thread, !llvm.loop !78
 
-.critedge:                                        ; preds = %7
+.critedge:; preds = %7
   %15 = zext nneg i32 %12 to i64
   %16 = tail call i32 @memihash(ptr noundef nonnull %6, i64 noundef %15) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

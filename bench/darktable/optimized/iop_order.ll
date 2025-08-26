@@ -289,11 +289,11 @@ define ptr @dt_ioppr_get_iop_order_rules() local_unnamed_addr #1 {
   %6 = tail call ptr @g_list_prepend(ptr noundef %.010, ptr noundef nonnull %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond, label %7, label %1
+  br i1 %exitcond, label %8, label %1
 
-7:                                                ; preds = %1
-  %8 = tail call ptr @g_list_reverse(ptr noundef %6) #15
-  ret ptr %8
+8:                                                ; preds = %1
+  %9 = tail call ptr @g_list_reverse(ptr noundef %6) #15
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

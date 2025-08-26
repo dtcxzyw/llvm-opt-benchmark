@@ -2819,12 +2819,12 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = icmp eq ptr %3, null
-  br i1 %7, label %187, label %8
+  br i1 %7, label %189, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr %3, align 4, !tbaa !3
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %187
+  br i1 %10, label %11, label %189
 
 11:                                               ; preds = %8
   %12 = icmp eq ptr %0, null
@@ -2834,7 +2834,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 
 14:                                               ; preds = %11
   store i32 1, ptr %3, align 4, !tbaa !3
-  br label %187
+  br label %189
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %1, align 8, !tbaa !52
@@ -2843,7 +2843,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 
 18:                                               ; preds = %15
   store i32 1, ptr %3, align 4, !tbaa !3
-  br label %187
+  br label %189
 
 19:                                               ; preds = %15
   %20 = ptrtoint ptr %2 to i64
@@ -2856,7 +2856,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 
 25:                                               ; preds = %19
   store i32 1, ptr %3, align 4, !tbaa !3
-  br label %187
+  br label %189
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 93
@@ -2911,7 +2911,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   %58 = icmp eq i32 %57, 55296
   %59 = icmp sge i32 %.1108, %29
   %or.cond130.not = and i1 %59, %58
-  br i1 %or.cond130.not, label %60, label %187
+  br i1 %or.cond130.not, label %60, label %189
 
 60:                                               ; preds = %56, %26
   %.0101 = phi i32 [ %.2, %56 ], [ -1, %26 ]
@@ -2960,13 +2960,13 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 
 86:                                               ; preds = %81
   call fastcc void @_ZL6_resetP10UConverter21UConverterResetChoicea(ptr noundef nonnull %0, i32 noundef 1, i8 noundef signext 0)
-  br label %187
+  br label %189
 
 87:                                               ; preds = %81
   %88 = icmp slt i32 %84, 1
   %89 = icmp sgt i32 %82, -1
   %or.cond3 = and i1 %89, %88
-  br i1 %or.cond3, label %187, label %90
+  br i1 %or.cond3, label %189, label %90
 
 90:                                               ; preds = %87, %74, %70
   call fastcc void @_ZL22_toUnicodeWithCallbackP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef %5, ptr noundef %3)
@@ -3141,11 +3141,11 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
 
 .thread151:                                       ; preds = %159, %113, %174, %182, %163
   %.3145 = phi i32 [ %.3146, %174 ], [ %.3146, %182 ], [ %.3, %163 ], [ %162, %159 ], [ 65535, %113 ]
-  %186 = load ptr, ptr %64, align 8, !tbaa !92
-  store ptr %186, ptr %1, align 8, !tbaa !52
-  br label %187
+  %188 = load ptr, ptr %64, align 8, !tbaa !92
+  store ptr %188, ptr %1, align 8, !tbaa !52
+  br label %189
 
-187:                                              ; preds = %87, %4, %8, %56, %.thread151, %86, %25, %18, %14
+189:                                              ; preds = %87, %4, %8, %56, %.thread151, %86, %25, %18, %14
   %.0 = phi i32 [ 65535, %14 ], [ 65535, %18 ], [ 65535, %25 ], [ 65535, %86 ], [ %.3145, %.thread151 ], [ %.2, %56 ], [ 65535, %8 ], [ 65535, %4 ], [ %82, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

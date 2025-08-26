@@ -1254,26 +1254,26 @@ declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 define i32 @logg_facility(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   br label %5
 
-2:                                                ; preds = %5
+.lr.ph:                                           ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv.next
   %4 = load ptr, ptr %3, align 16, !tbaa !25
   %exitcond = icmp eq i64 %indvars.iv.next, 21
-  br i1 %exitcond, label %.loopexit, label %5
+  br i1 %exitcond, label %.loopexit, label %3
 
-5:                                                ; preds = %1, %2
+3:                                                ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %6 = phi ptr [ @.str.15, %1 ], [ %4, %2 ]
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #16
-  %.not7 = icmp eq i32 %7, 0
-  br i1 %.not7, label %8, label %2
+  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #16
+  %.not7 = icmp eq i32 %6, 0
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-8:                                                ; preds = %5
+._crit_edge:                                      ; preds = %3
   %9 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv, i32 1
   %10 = load i32, ptr %9, align 8, !tbaa !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2, %8
+.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
   %.05 = phi i32 [ %10, %8 ], [ -1, %2 ]
   ret i32 %.05
 }

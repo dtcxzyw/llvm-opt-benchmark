@@ -1208,7 +1208,7 @@ define hidden void @_ZN4core6escape14escape_unicode17hb8ceea5ed3df3c4bE(ptr dead
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 125, ptr %44, align 1
   %45 = icmp ult i64 %8, 10
-  br i1 %45, label %46, label %53
+  br i1 %45, label %46, label %54
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 %8
@@ -1218,15 +1218,15 @@ define hidden void @_ZN4core6escape14escape_unicode17hb8ceea5ed3df3c4bE(ptr dead
   store i8 117, ptr %49, align 1
   store i8 123, ptr %48, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) %3, i64 10, i1 false)
-  %50 = trunc nuw nsw i64 %8 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 10, ptr %52, align 1
+  %51 = trunc nuw nsw i64 %8 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %51, ptr %52, align 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  store i8 10, ptr %53, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-53:                                               ; preds = %2
+54:                                               ; preds = %2
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %8, i64 noundef 10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cda064d5e24691f6d8a4d6f6f2c0dbb7.37) #26
   unreachable
 }

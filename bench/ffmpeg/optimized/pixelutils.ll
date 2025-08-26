@@ -23,7 +23,7 @@ define ptr @av_pixelutils_get_sad_fn(i32 noundef %0, i32 noundef %1, i32 noundef
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   br label %13
 
-13:                                               ; preds = %4, %8
+13:; preds = %4, %8
   %.0 = phi ptr [ %12, %8 ], [ null, %4 ]
   ret ptr %.0
 }

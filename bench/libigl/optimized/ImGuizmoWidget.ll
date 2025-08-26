@@ -87,7 +87,7 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i8, ptr %6, align 8, !tbaa !16, !range !26, !noundef !27
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %351
+  br i1 %8, label %9, label %352
 
 9:                                                ; preds = %1
   tail call void @_ZN5ImGui12PushStyleVarEif(i32 noundef 4, float noundef 0.000000e+00)
@@ -491,35 +491,35 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
   br i1 %exitcond.not.i.i.i.i.i.i.i, label %330, label %332, !llvm.loop !79
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit: ; preds = %330
-  %340 = load float, ptr %2, align 16, !tbaa !31
+  %341 = load float, ptr %2, align 16, !tbaa !31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %341 = fpext float %340 to double
-  %342 = fcmp ogt double %341, 0x3E7AD7F29ABCAF48
-  br i1 %342, label %343, label %350
+  %342 = fpext float %341 to double
+  %343 = fcmp ogt double %342, 0x3E7AD7F29ABCAF48
+  br i1 %343, label %344, label %351
 
-343:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %345 = load ptr, ptr %344, align 8, !tbaa !80
-  %.not.i.i = icmp eq ptr %345, null
-  br i1 %.not.i.i, label %346, label %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit
+344:                                              ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %346 = load ptr, ptr %345, align 8, !tbaa !80
+  %.not.i.i = icmp eq ptr %346, null
+  br i1 %.not.i.i, label %347, label %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit
 
-346:                                              ; preds = %343
+347:                                              ; preds = %344
   call void @_ZSt25__throw_bad_function_callv() #15
   unreachable
 
-_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit: ; preds = %343
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %348 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %349 = load ptr, ptr %348, align 16, !tbaa !81
-  call void %349(ptr noundef nonnull align 8 dereferenceable(32) %347, ptr noundef nonnull align 16 dereferenceable(64) %192)
-  br label %350
-
-350:                                              ; preds = %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit: ; preds = %344
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %350 = load ptr, ptr %349, align 16, !tbaa !81
+  call void %349(ptr noundef nonnull align 8 dereferenceable(32) %348, ptr noundef nonnull align 16 dereferenceable(64) %192)
   br label %351
 
-351:                                              ; preds = %1, %350
+351:                                              ; preds = %_ZNKSt8functionIFvRKN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEEEclES4_.exit, %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_12ArrayWrapperIKNS_13CwiseBinaryOpINS2_20scalar_difference_opIffEEKNS_6MatrixIfLi4ELi4ELi0ELi4ELi4EEESB_EEEEEEE8maxCoeffEv.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %352
+
+352:                                              ; preds = %1, %351
   ret void
 }
 

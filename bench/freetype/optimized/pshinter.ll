@@ -5377,7 +5377,7 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   br label %12
 
 12:                                               ; preds = %.lr.ph, %ps_hints_stem.exit
-  %.02232 = phi i32 [ %2, %.lr.ph ], [ %41, %ps_hints_stem.exit ]
+  %.02232 = phi i32 [ %2, %.lr.ph ], [ %42, %ps_hints_stem.exit ]
   %.02331 = phi i64 [ 0, %.lr.ph ], [ %18, %ps_hints_stem.exit ]
   %13 = tail call i32 @llvm.umin.i32(i32 %.02232, i32 16)
   %14 = shl nuw nsw i32 %13, 1
@@ -5407,41 +5407,41 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   %26 = sub nsw i64 %24, %25
   store i64 %26, ptr %23, align 8, !tbaa !242
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 2
-  %27 = icmp samesign ult i64 %indvars.iv.next38, %wide.trip.count
-  br i1 %27, label %.preheader, label %28, !llvm.loop !270
+  %28 = icmp samesign ult i64 %indvars.iv.next38, %wide.trip.count
+  br i1 %28, label %.preheader, label %29, !llvm.loop !270
 
-28:                                               ; preds = %.preheader
-  %29 = load i32, ptr %7, align 8, !tbaa !195
-  %.not.i = icmp eq i32 %29, 0
+29:                                               ; preds = %.preheader
+  %30 = load i32, ptr %7, align 8, !tbaa !195
+  %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %.preheader33, label %ps_hints_stem.exit
 
-.preheader33:                                     ; preds = %28, %.critedge.i
-  %.01623.i = phi i32 [ %38, %.critedge.i ], [ %13, %28 ]
-  %.01822.i = phi ptr [ %39, %.critedge.i ], [ %5, %28 ]
-  %30 = load ptr, ptr %0, align 8, !tbaa !177
-  %31 = load i64, ptr %.01822.i, align 8, !tbaa !242
-  %32 = trunc i64 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !242
-  %35 = trunc i64 %34 to i32
-  %36 = tail call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %11, i32 noundef %32, i32 noundef %35, ptr noundef %30, ptr noundef null)
-  %.not21.i = icmp eq i32 %36, 0
-  br i1 %.not21.i, label %.critedge.i, label %37
+.preheader33:                                     ; preds = %29, %.critedge.i
+  %.01623.i = phi i32 [ %39, %.critedge.i ], [ %13, %28 ]
+  %.01822.i = phi ptr [ %40, %.critedge.i ], [ %5, %28 ]
+  %31 = load ptr, ptr %0, align 8, !tbaa !177
+  %32 = load i64, ptr %.01822.i, align 8, !tbaa !242
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
+  %35 = load i64, ptr %34, align 8, !tbaa !242
+  %36 = trunc i64 %35 to i32
+  %37 = tail call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %11, i32 noundef %33, i32 noundef %36, ptr noundef %31, ptr noundef null)
+  %.not21.i = icmp eq i32 %37, 0
+  br i1 %.not21.i, label %.critedge.i, label %38
 
-37:                                               ; preds = %.preheader33
-  store i32 %36, ptr %7, align 8, !tbaa !195
+38:                                               ; preds = %.preheader33
+  store i32 %37, ptr %7, align 8, !tbaa !195
   br label %ps_hints_stem.exit
 
 .critedge.i:                                      ; preds = %.preheader33
-  %38 = add nsw i32 %.01623.i, -1
-  %39 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 16
-  %40 = icmp sgt i32 %.01623.i, 1
-  br i1 %40, label %.preheader33, label %ps_hints_stem.exit, !llvm.loop !271
+  %39 = add nsw i32 %.01623.i, -1
+  %40 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 16
+  %41 = icmp sgt i32 %.01623.i, 1
+  br i1 %41, label %.preheader33, label %ps_hints_stem.exit, !llvm.loop !271
 
-ps_hints_stem.exit:                               ; preds = %.critedge.i, %28, %37
-  %41 = sub nsw i32 %.02232, %13
-  %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %12, label %._crit_edge, !llvm.loop !272
+ps_hints_stem.exit:                               ; preds = %.critedge.i, %29, %38
+  %42 = sub nsw i32 %.02232, %13
+  %43 = icmp sgt i32 %42, 0
+  br i1 %43, label %12, label %._crit_edge, !llvm.loop !272
 
 ._crit_edge:                                      ; preds = %ps_hints_stem.exit, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

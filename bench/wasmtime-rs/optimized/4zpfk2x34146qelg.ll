@@ -625,7 +625,7 @@ define noundef i32 @_ZN14cranelift_wasm5state20FuncTranslationState5peek117h42fb
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1ebe03cf8da41ec25042ed3876485d5d.13, i64 noundef 46, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.14) #14
   unreachable
 
-11:                                               ; preds = %1
+5:                                                ; preds = %1
   %12 = load i32, ptr %7, align 4, !noundef !4
   ret i32 %12
 }

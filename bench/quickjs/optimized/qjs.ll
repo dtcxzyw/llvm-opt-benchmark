@@ -691,7 +691,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   call void @JS_FreeContext(ptr noundef nonnull %175) #17
   call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
   %or.cond6 = and i1 %.0229.lcssa, %.0217.lcssa
-  br i1 %or.cond6, label %229, label %281
+  br i1 %or.cond6, label %229, label %279
 
 229:                                              ; preds = %228
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -737,7 +737,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %252 = icmp samesign ugt i64 %indvars.iv746, 1
   br i1 %252, label %.split.us, label %.split628.us, !llvm.loop !27
 
-.split:                                           ; preds = %234, %265
+.split:; preds = %234, %265
   %indvars.iv743 = phi i64 [ %indvars.iv.next744, %265 ], [ 4, %234 ]
   %253 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv743
   %254 = load i64, ptr %253, align 8, !tbaa !23
@@ -752,44 +752,44 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %263 = fcmp ogt double %262, %260
   br i1 %263, label %264, label %265
 
-264:                                              ; preds = %.split
+264:; preds = %.split
   store double %260, ptr %261, align 8, !tbaa !25
   br label %265
 
-265:                                              ; preds = %264, %.split
+265:; preds = %264, %.split
   %indvars.iv.next744 = add nsw i64 %indvars.iv743, -1
   %266 = icmp samesign ugt i64 %indvars.iv743, 1
   br i1 %266, label %.split, label %.split628.us, !llvm.loop !27
 
-.split628.us:                                     ; preds = %265, %.split.us
+.split628.us:; preds = %265, %.split.us
   %267 = add nuw nsw i32 %.0156629, 1
   %exitcond749.not = icmp eq i32 %267, 100
   br i1 %exitcond749.not, label %268, label %234, !llvm.loop !28
 
-268:                                              ; preds = %.split628.us
+268: ; preds = %.split628.us
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %270 = load double, ptr %269, align 8, !tbaa !25
-  %271 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %272 = load double, ptr %271, align 16, !tbaa !25
-  %273 = fadd double %270, %272
-  %274 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %275 = load double, ptr %274, align 8, !tbaa !25
-  %276 = fadd double %273, %275
+  %272 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %273 = load double, ptr %272, align 16, !tbaa !25
+  %274 = fadd double %270, %273
+  %275 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %276 = load double, ptr %275, align 8, !tbaa !25
+  %277 = fadd double %274, %276
   %277 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %278 = load double, ptr %277, align 16, !tbaa !25
   %279 = fadd double %276, %278
   %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %279, double noundef %270, double noundef %272, double noundef %275, double noundef %278)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %281
+  br label %279
 
 .loopexit:                                        ; preds = %.lr.ph625, %218, %eval_buf.exit
   call void @js_std_free_handlers(ptr noundef nonnull %.0157) #17
   call void @JS_FreeContext(ptr noundef nonnull %175) #17
   call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
-  br label %281
+  br label %279
 
-281:                                              ; preds = %228, %268, %.loopexit
+279:                                              ; preds = %228, %268, %.loopexit
   %.0 = phi i32 [ 1, %.loopexit ], [ 0, %268 ], [ 0, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

@@ -846,7 +846,7 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr noundef captures(none) %0
 17:                                               ; preds = %12
   br label %18
 
-18:                                               ; preds = %12, %17
+18:; preds = %12, %17
   %g_groupinfo.sink = phi ptr [ @g_groupinfo, %17 ], [ @g_level0info, %12 ]
   %19 = zext i16 %4 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %g_groupinfo.sink, i64 %19
@@ -862,7 +862,7 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr noundef captures(none) %0
   store i16 %27, ptr %3, align 2
   br label %28
 
-28:                                               ; preds = %18, %2, %12, %7
+28:; preds = %18, %2, %12, %7
   %.017 = phi i32 [ -2, %7 ], [ -2, %12 ], [ 0, %18 ], [ -2, %2 ]
   ret i32 %.017
 }

@@ -670,8 +670,8 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit": ; preds = %2, %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !4
-  %.not63 = icmp eq ptr %11, null
-  br i1 %.not63, label %18, label %12
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -684,16 +684,16 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
 18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h852a6b9014e2bb26E.exit"
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %20 = load i64, ptr %19, align 8, !noundef !4
-  %.not = icmp eq i64 %20, 0
+  %.not.not = icmp eq i64 %20, 0
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %22 = load ptr, ptr %21, align 8, !nonnull !4
   %23 = getelementptr i64, ptr %22, i64 %20
-  %24 = getelementptr i8, ptr %23, i64 -8
+  %21 = getelementptr i8, ptr %23, i64 -8
   %.not32.not64 = icmp eq ptr %24, null
   %.not32.not = select i1 %.not, i1 true, i1 %.not32.not64
-  br i1 %.not32.not, label %.thread39, label %36
+  br i1 %.not32.not, label %.thread33, label %26
 
-.thread44:                                        ; preds = %12
+.thread44:; preds = %12
   %25 = getelementptr inbounds { { { [4 x i32], ptr, ptr }, {} }, i32, [1 x i32] }, ptr %11, i64 %14
   %26 = tail call noundef i64 @_ZN11tree_sitter4Node10start_byte17h7b19fd76ffed13b5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %25)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -718,21 +718,21 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %14, i64 noundef %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7846843607c3237cb579c64a79ba54af.16) #15
   unreachable
 
-36:                                               ; preds = %18
-  %37 = load i64, ptr %24, align 8, !noundef !4
+26:                                               ; preds = %18
+  %37 = load i64, ptr %21, align 8, !noundef !4
   store i64 %37, ptr %0, align 8
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.420.0..sroa_idx, align 8
   %.sroa.522.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %.sroa.522.0..sroa_idx, align 8
-  br label %39
+  br label %33
 
 .thread39:                                        ; preds = %18
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 2, ptr %38, align 8
-  br label %39
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 2, ptr %32, align 8
+  br label %33
 
-39:                                               ; preds = %40, %41, %.thread41, %.thread39, %36
+33:                                               ; preds = %41, %42, %.thread41, %.thread39, %26
   ret void
 
 .thread41:                                        ; preds = %.thread44
@@ -740,19 +740,19 @@ define void @_ZN21tree_sitter_highlight18HighlightIterLayer8sort_key17h73811d9c1
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.416.0..sroa_idx, align 8
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
-  br label %39
+  br label %33
 
-40:                                               ; preds = %.thread57
+41:                                               ; preds = %.thread57
   store i64 %33, ptr %0, align 8
   store i8 0, ptr %.sroa.49.0..sroa_idx, align 8
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
-  br label %39
+  br label %33
 
-41:                                               ; preds = %.thread57
+42:                                               ; preds = %.thread57
   store i64 %26, ptr %0, align 8
   store i8 1, ptr %.sroa.49.0..sroa_idx, align 8
   store i64 %5, ptr %.sroa.518.0..sroa_idx, align 8
-  br label %39
+  br label %33
 }
 
 ; Function Attrs: nonlazybind uwtable

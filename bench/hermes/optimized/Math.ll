@@ -521,7 +521,7 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
-  %store_forwarded = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
+  %4 = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
   %__i.09.i = phi i64 [ 1, %if.then ], [ %inc.i, %for.body.i ]
   %4 = getelementptr i64, ptr %2, i64 %__i.09.i
   %shr.i = lshr i64 %store_forwarded, 62

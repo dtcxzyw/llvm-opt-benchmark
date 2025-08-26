@@ -106,7 +106,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %31) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %157
+  br label %159
 
 32:                                               ; preds = %14
   %33 = landingpad { ptr, i32 }
@@ -397,13 +397,13 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141: ; preds = %114, %._crit_edge1
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next, %.lr.ph184 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %149 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %150 = load ptr, ptr %149, align 16, !tbaa !24
+  %149 = shl nuw nsw i64 %indvars.iv, 4
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 %149
+  %151 = load ptr, ptr %150, align 16, !tbaa !24
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !24
   %153 = ptrtoint ptr %152 to i64
-  %154 = ptrtoint ptr %150 to i64
+  %155 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
   %156 = getelementptr inbounds nuw %"class.duckdb_re2::StringPiece", ptr %5, i64 %indvars.iv
   store ptr %150, ptr %156, align 8, !tbaa !24
@@ -418,9 +418,9 @@ _ZN10duckdb_re2L13ApplyCapturesEjPKcPS1_i.exit141: ; preds = %114, %._crit_edge1
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %157
+  br label %159
 
-157:                                              ; preds = %.loopexit, %_ZN10LogMessageD2Ev.exit
+159:                                              ; preds = %.loopexit, %_ZN10LogMessageD2Ev.exit
   %.0102 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ %.1, %.loopexit ]
   ret i1 %.0102
 }

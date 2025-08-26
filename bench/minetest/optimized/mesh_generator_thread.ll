@@ -6412,15 +6412,15 @@ vector.body:                                      ; preds = %vector.body, %__cxx
   store <4 x i32> splat (i32 127), ptr %37, align 4
   store <4 x i32> splat (i32 127), ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store <4 x i32> splat (i32 127), ptr %39, align 4
   store <4 x i32> splat (i32 127), ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 80
   store <4 x i32> splat (i32 127), ptr %41, align 4
   store <4 x i32> splat (i32 127), ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 96
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 112
   store <4 x i32> splat (i32 127), ptr %43, align 4
   store <4 x i32> splat (i32 127), ptr %44, align 4
   %index.next.3 = add nuw nsw i64 %index, 32

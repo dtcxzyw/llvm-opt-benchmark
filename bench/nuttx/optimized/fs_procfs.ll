@@ -454,7 +454,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %110
+  br i1 %60, label %61, label %112
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 18
@@ -503,40 +503,40 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %81, %.lr.ph
-  %96 = phi i8 [ %97, %.lr.ph ], [ %.promoted, %81 ]
-  %97 = add i8 %96, -1
-  store i8 %97, ptr %86, align 8
-  %98 = zext i8 %97 to i64
-  %99 = getelementptr i8, ptr %2, i64 %98
+  %97 = phi i8 [ %98, %.lr.ph ], [ %.promoted, %81 ]
+  %98 = add i8 %97, -1
+  store i8 %98, ptr %86, align 8
+  %99 = zext i8 %98 to i64
+  %99 = getelementptr i8, ptr %2, i64 %99
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 42
   br i1 %101, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
-  %.lcssa109 = phi i64 [ %92, %81 ], [ %98, %.lr.ph ]
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 %.lcssa109
-  store i8 0, ptr %102, align 1
-  %103 = load i8, ptr %86, align 8
-  %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %83, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %106, 47
-  %. = select i1 %107, i8 4, i8 8
+  %.lcssa109 = phi i64 [ %92, %81 ], [ %99, %.lr.ph ]
+  %104 = getelementptr inbounds nuw i8, ptr %88, i64 %.lcssa109
+  store i8 0, ptr %104, align 1
+  %105 = load i8, ptr %86, align 8
+  %106 = zext i8 %105 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %83, i64 %106
+  %108 = load i8, ptr %107, align 1
+  %109 = icmp eq i8 %108, 47
+  %. = select i1 %109, i8 4, i8 8
   store i8 %., ptr %2, align 1
-  %108 = load i16, ptr %62, align 2
-  %109 = add i16 %108, 1
-  store i16 %109, ptr %62, align 2
+  %110 = load i16, ptr %62, align 2
+  %111 = add i16 %110, 1
+  store i16 %111, ptr %62, align 2
   br label %.thread
 
-110:                                              ; preds = %57
-  %111 = getelementptr inbounds nuw i8, ptr %59, i64 8
+112:                                              ; preds = %57
+  %113 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load ptr, ptr %113, align 8
   %115 = tail call i32 %114(ptr noundef nonnull %1, ptr noundef %2) #12
   br label %.thread
 
-.thread:                                          ; preds = %.critedge.thread, %12, %43, %53, %61, %65, %69, %._crit_edge, %110, %47
+.thread:                                          ; preds = %.critedge.thread, %12, %43, %53, %61, %65, %69, %._crit_edge, %112, %47
   %.0 = phi i32 [ -2, %47 ], [ 0, %43 ], [ 0, %53 ], [ 0, %._crit_edge ], [ -2, %69 ], [ -2, %65 ], [ -2, %61 ], [ %115, %110 ], [ -2, %12 ], [ -2, %.critedge.thread ]
   ret i32 %.0
 }

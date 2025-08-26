@@ -36775,26 +36775,26 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i4, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit
   %.0.lcssa.i = phi i64 [ %1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit ], [ %29, %.lr.ph.i4 ]
-  %41 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %41, label %42, label %49
+  %42 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %42, label %43, label %51
 
-42:                                               ; preds = %._crit_edge.i
-  %43 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %44 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %46 = load i8, ptr %45, align 1, !tbaa !86
-  %47 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store i8 %46, ptr %47, align 1, !tbaa !86
+43:                                               ; preds = %._crit_edge.i
+  %44 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %44 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !86
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %47, ptr %48, align 1, !tbaa !86
   %48 = load i8, ptr %44, align 2, !tbaa !86
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %51 = or disjoint i8 %50, 48
+51:                                               ; preds = %._crit_edge.i
+  %52 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %42, %49
-  %storemerge.i = phi i8 [ %51, %49 ], [ %48, %42 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %43, %51
+  %storemerge.i = phi i8 [ %53, %49 ], [ %48, %42 ]
   store i8 %storemerge.i, ptr %21, align 1, !tbaa !86
   ret void
 }

@@ -41,7 +41,7 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
 .preheader:                                       ; preds = %._crit_edge, %9
   %.sroa.0.0.lcssa = phi i32 [ 0, %9 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
   %.not55 = icmp eq i64 %2, 0
-  br i1 %.not55, label %.lr.ph.i, label %.lr.ph51
+  br i1 %.not55, label %._crit_edge52.thread, label %.lr.ph51
 
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
@@ -87,7 +87,7 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
 
 ._crit_edge52:                                    ; preds = %.lr.ph51
   %30 = icmp eq i64 %34, 0
-  br i1 %30, label %.lr.ph.i, label %36
+  br i1 %30, label %._crit_edge52.thread, label %36
 
 .lr.ph51:                                         ; preds = %.preheader, %.lr.ph51
   %.050 = phi i64 [ %35, %.lr.ph51 ], [ 0, %.preheader ]
@@ -108,9 +108,9 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
   %41 = bitcast float %40 to i32
   %42 = zext i32 %41 to i64
   %43 = shl nuw i64 %42, 32
-  br label %.lr.ph.i
+  br label %._crit_edge52.thread
 
-.lr.ph.i:                                         ; preds = %.preheader, %._crit_edge52, %36
+._crit_edge52.thread:                             ; preds = %.preheader, %._crit_edge52, %36
   %.sroa.5.0.insert.ext = phi i64 [ %43, %36 ], [ 0, %._crit_edge52 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
@@ -118,14 +118,14 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
   invoke void %44(ptr noundef %45)
           to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %46
 
-46:                                               ; preds = %.lr.ph.i
+46:                                               ; preds = %._crit_edge52.thread
   %47 = landingpad { ptr, i32 }
           catch ptr null
   %48 = extractvalue { ptr, i32 } %47, 0
   tail call void @__clang_call_terminate(ptr %48) #9
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %.lr.ph.i
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge52.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.lcssa to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.ext, %.sroa.0.0.insert.ext
@@ -144,19 +144,19 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %.not3 = icmp eq i64 %3, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %8, %1
+4:                                                ; preds = %8, %1
   ret void
 
-.lr.ph:                                           ; preds = %1, %8
+6:                                                ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
-  %6 = getelementptr i8, ptr %5, i64 -8
+  %9 = getelementptr ptr, ptr %0, i64 %.04
+  %6 = getelementptr i8, ptr %9, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)
           to label %8 unwind label %10
 
-8:                                                ; preds = %.lr.ph
+8:; preds = %.lr.ph
   %9 = add i64 %.04, -1
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
@@ -164,8 +164,8 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 10:                                               ; preds = %.lr.ph
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #9
+  %13 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %13) #9
   unreachable
 }
 

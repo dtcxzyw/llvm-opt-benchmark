@@ -3501,26 +3501,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %.0.lcssa.i = phi i64 [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %41, %.lr.ph.i11 ]
-  %53 = icmp samesign ugt i64 %.0.lcssa.i, 9
-  br i1 %53, label %54, label %61
+  %54 = icmp samesign ugt i64 %.0.lcssa.i, 9
+  br i1 %54, label %55, label %63
 
-54:                                               ; preds = %._crit_edge.i
-  %55 = shl nuw nsw i64 %.0.lcssa.i, 1
-  %56 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %55
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  %58 = load i8, ptr %57, align 1, !tbaa !42
-  %59 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  store i8 %58, ptr %59, align 1, !tbaa !42
+55:                                               ; preds = %._crit_edge.i
+  %56 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %56 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 1
+  %59 = load i8, ptr %58, align 1, !tbaa !42
+  %60 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 %59, ptr %60, align 1, !tbaa !42
   %60 = load i8, ptr %56, align 2, !tbaa !42
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-61:                                               ; preds = %._crit_edge.i
-  %62 = trunc nuw nsw i64 %.0.lcssa.i to i8
-  %63 = or disjoint i8 %62, 48
+63:                                               ; preds = %._crit_edge.i
+  %64 = trunc nuw nsw i64 %.0.lcssa.i to i8
+  %65 = or disjoint i8 %64, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
-_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %54, %61
-  %storemerge.i = phi i8 [ %63, %61 ], [ %60, %54 ]
+_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %55, %63
+  %storemerge.i = phi i8 [ %65, %61 ], [ %60, %54 ]
   store i8 %storemerge.i, ptr %36, align 1, !tbaa !42
   ret void
 }

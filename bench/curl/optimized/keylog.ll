@@ -205,8 +205,8 @@ define hidden noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly cap
   store i8 %40, ptr %42, align 1, !tbaa !9
   %43 = add nuw nsw i64 %.147, 1
   %.135 = add i64 %.13548, 2
-  %exitcond51.not = icmp eq i64 %43, %3
-  br i1 %exitcond51.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  %exitcond52.not = icmp eq i64 %43, %3
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 %.135

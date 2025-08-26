@@ -104,25 +104,25 @@ define void @_ZN5ZXing4OneD30DecodeCode39AndCode93FullASCIIENSt7__cxx1112basic_s
 18:                                               ; preds = %14
   %19 = load i8, ptr %2, align 1, !tbaa !12
   %20 = icmp eq i8 %11, %19
-  br i1 %20, label %21, label %22
+  br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %narrow = add nsw i8 %16, -64
+  %22 = add nsw i8 %16, -64
   br label %.critedge
 
-22:                                               ; preds = %18
-  %23 = load i8, ptr %8, align 1, !tbaa !12
-  %24 = icmp eq i8 %11, %23
-  br i1 %24, label %25, label %30
+23:                                               ; preds = %18
+  %24 = load i8, ptr %8, align 1, !tbaa !12
+  %25 = icmp eq i8 %11, %24
+  br i1 %25, label %26, label %30
 
-25:                                               ; preds = %22
-  %26 = zext nneg i8 %16 to i64
-  %27 = getelementptr i8, ptr @_ZN5ZXing4OneDL18PERCENTAGE_MAPPINGE, i64 %26
+26:                                               ; preds = %23
+  %27 = zext nneg i8 %16 to i64
+  %28 = getelementptr i8, ptr @_ZN5ZXing4OneDL18PERCENTAGE_MAPPINGE, i64 %27
   %28 = getelementptr i8, ptr %27, i64 -65
   %29 = load i8, ptr %28, align 1, !tbaa !12
   br label %.critedge
 
-30:                                               ; preds = %22
+30:                                               ; preds = %23
   %31 = load i8, ptr %9, align 1, !tbaa !12
   %32 = icmp eq i8 %11, %31
   br i1 %32, label %33, label %35
@@ -135,9 +135,9 @@ define void @_ZN5ZXing4OneD30DecodeCode39AndCode93FullASCIIENSt7__cxx1112basic_s
   %36 = or disjoint i8 %16, 32
   br label %.critedge
 
-.critedge:                                        ; preds = %25, %35, %33, %21, %10
+.critedge:                                        ; preds = %26, %35, %33, %21, %10
   %.sroa.032.1 = phi ptr [ %.sroa.032.044, %10 ], [ %15, %21 ], [ %15, %33 ], [ %15, %35 ], [ %15, %25 ]
-  %.021 = phi i8 [ %11, %10 ], [ %narrow, %21 ], [ %34, %33 ], [ %36, %35 ], [ %29, %25 ]
+  %.021 = phi i8 [ %11, %10 ], [ %22, %21 ], [ %34, %33 ], [ %36, %35 ], [ %29, %25 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.037.045, i64 1
   store i8 %.021, ptr %.sroa.037.045, align 1, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.032.1, i64 1

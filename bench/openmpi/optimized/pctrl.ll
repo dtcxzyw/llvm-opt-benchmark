@@ -975,25 +975,25 @@ pmix_cmd_line_get_param.exit429:                  ; preds = %.lr.ph.i424
   %356 = load ptr, ptr %355, align 8, !tbaa !8
   br label %360
 
-357:                                              ; preds = %360
+.lr.ph505:                                        ; preds = %359
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %358 = getelementptr inbounds nuw %struct.pmix_signal_t, ptr @sigs, i64 %indvars.iv.next.i
   %359 = load ptr, ptr %358, align 16, !tbaa !46
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 14
-  br i1 %exitcond.i, label %convert_signal.exit.thread, label %360, !llvm.loop !48
+  br i1 %exitcond.i, label %convert_signal.exit.thread, label %359, !llvm.loop !48
 
-convert_signal.exit.thread:                       ; preds = %357
+convert_signal.exit.thread:                       ; preds = %.lr.ph505
   store i32 0, ptr %9, align 4, !tbaa !4
   br label %367
 
-360:                                              ; preds = %357, %pmix_cmd_line_get_param.exit429
+359:                                              ; preds = %.lr.ph505, %pmix_cmd_line_get_param.exit429
   %indvars.iv.i = phi i64 [ 0, %pmix_cmd_line_get_param.exit429 ], [ %indvars.iv.next.i, %357 ]
   %361 = phi ptr [ @.str.76, %pmix_cmd_line_get_param.exit429 ], [ %359, %357 ]
   %362 = call i32 @strcasecmp(ptr noundef readonly %356, ptr noundef nonnull %361) #20
   %363 = icmp eq i32 %362, 0
-  br i1 %363, label %convert_signal.exit, label %357
+  br i1 %363, label %convert_signal.exit, label %.lr.ph505
 
-convert_signal.exit:                              ; preds = %360
+convert_signal.exit:                              ; preds = %359
   %364 = getelementptr inbounds nuw %struct.pmix_signal_t, ptr @sigs, i64 %indvars.iv.i, i32 1
   %365 = load i32, ptr %364, align 8, !tbaa !49
   store i32 %365, ptr %9, align 4, !tbaa !4
@@ -1172,19 +1172,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i433, %424
   %445 = getelementptr inbounds nuw i8, ptr %377, i64 464
   %446 = load volatile i8, ptr %445, align 8, !tbaa !73, !range !74, !noundef !75
   %447 = trunc nuw i8 %446 to i1
-  br i1 %447, label %.lr.ph505, label %._crit_edge506
+  br i1 %447, label %.lr.ph507, label %._crit_edge508
 
-.lr.ph505:                                        ; preds = %442
+.lr.ph507:                                        ; preds = %442
   %448 = getelementptr inbounds nuw i8, ptr %377, i64 416
   br label %449
 
-449:                                              ; preds = %.lr.ph505, %449
+449:                                              ; preds = %.lr.ph507, %449
   %450 = call i32 @pthread_cond_wait(ptr noundef nonnull %448, ptr noundef nonnull %443) #16
   %451 = load volatile i8, ptr %445, align 8, !tbaa !73, !range !74, !noundef !75
   %452 = trunc nuw i8 %451 to i1
-  br i1 %452, label %449, label %._crit_edge506, !llvm.loop !76
+  br i1 %452, label %449, label %._crit_edge508, !llvm.loop !76
 
-._crit_edge506:                                   ; preds = %449, %442
+._crit_edge508:                                   ; preds = %449, %442
   fence acquire
   %453 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %443) #16
   %454 = getelementptr inbounds nuw i8, ptr %377, i64 472
@@ -1193,12 +1193,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i433, %424
   %457 = load ptr, ptr @stderr, align 8, !tbaa !23
   br i1 %456, label %458, label %461
 
-458:                                              ; preds = %._crit_edge506
+458:                                              ; preds = %._crit_edge508
   %459 = load ptr, ptr %394, align 8, !tbaa !51
   %460 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef nonnull @.str.66, ptr noundef %459) #18
   br label %464
 
-461:                                              ; preds = %._crit_edge506
+461:                                              ; preds = %._crit_edge508
   %462 = call ptr @PMIx_Error_string(i32 noundef %455) #16
   %463 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef nonnull @.str.64, ptr noundef %462) #18
   br label %464

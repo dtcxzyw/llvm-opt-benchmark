@@ -1762,54 +1762,54 @@ define dso_local ptr @slurm_step_layout_type_name(i32 noundef %0) local_unnamed_
   %4 = and i32 %0, 65535
   br label %8
 
-5:                                                ; preds = %8
+.lr.ph:                                           ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = getelementptr inbounds nuw %struct.layout_type_name_t, ptr @layout_type_names, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond, label %.loopexit.thread, label %8, !llvm.loop !30
+  br i1 %exitcond, label %.loopexit.thread, label %6, !llvm.loop !30
 
-8:                                                ; preds = %1, %5
+6:                                                ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %9 = phi i32 [ 1, %1 ], [ %7, %5 ]
-  %10 = icmp eq i32 %9, %4
-  br i1 %10, label %.loopexit, label %5
+  %9 = icmp eq i32 %9, %4
+  br i1 %9, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %8
+.loopexit:                                        ; preds = %6
   %11 = getelementptr inbounds nuw %struct.layout_type_name_t, ptr @layout_type_names, i64 %indvars.iv, i32 1
   %12 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef %12) #7
   %.pre = load ptr, ptr %2, align 8
-  %13 = icmp eq ptr %.pre, null
-  br i1 %13, label %.loopexit.thread, label %14
+  %12 = icmp eq ptr %.pre, null
+  br i1 %12, label %.loopexit.thread, label %13
 
-.loopexit.thread:                                 ; preds = %5, %.loopexit
+.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #7
-  br label %14
+  br label %13
 
-14:                                               ; preds = %.loopexit.thread, %.loopexit
-  %15 = and i32 %0, 8388608
-  %.not9 = icmp eq i32 %15, 0
-  br i1 %.not9, label %17, label %16
+13:                                               ; preds = %.loopexit.thread, %.loopexit
+  %14 = and i32 %0, 8388608
+  %.not9 = icmp eq i32 %14, 0
+  br i1 %.not9, label %16, label %15
 
-16:                                               ; preds = %14
+15:                                               ; preds = %13
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #7
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %14
-  %18 = and i32 %0, 4194304
-  %.not10 = icmp eq i32 %18, 0
-  br i1 %.not10, label %20, label %19
+16:                                               ; preds = %15, %13
+  %17 = and i32 %0, 4194304
+  %.not10 = icmp eq i32 %17, 0
+  br i1 %.not10, label %19, label %18
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #7
-  br label %20
+  br label %19
 
-20:                                               ; preds = %19, %17
-  %21 = load ptr, ptr %2, align 8
+19:                                               ; preds = %18, %16
+  %20 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %21
+  ret ptr %20
 }
 
 declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

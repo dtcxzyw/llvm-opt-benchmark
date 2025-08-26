@@ -605,7 +605,7 @@ define internal fastcc void @clar_sandbox() unnamed_addr #1 {
   %3 = alloca %struct.stat, align 8
   %4 = load i8, ptr @_clar_path, align 16, !tbaa !18
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %49
+  br i1 %5, label %6, label %50
 
 6:                                                ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -710,30 +710,30 @@ is_valid_tmp_path.exit30.i.i:                     ; preds = %31
 
 build_sandbox_path.exit:                          ; preds = %.loopexit, %42
   %.0.i = phi i64 [ %43, %42 ], [ %38, %.loopexit ]
-  %44 = getelementptr inbounds nuw i8, ptr @_clar_path, i64 %.0.i
-  %45 = sub i64 4097, %.0.i
-  %46 = tail call ptr @strncpy(ptr noundef nonnull %44, ptr noundef nonnull dereferenceable(16) @__const.build_sandbox_path.path_tail, i64 noundef %45) #31
-  %47 = tail call ptr @mkdtemp(ptr noundef nonnull @_clar_path) #31
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %build_sandbox_path.exit.thread, label %49
+  %45 = getelementptr inbounds nuw i8, ptr @_clar_path, i64 %.0.i
+  %46 = sub i64 4097, %.0.i
+  %47 = tail call ptr @strncpy(ptr noundef nonnull %45, ptr noundef nonnull dereferenceable(16) @__const.build_sandbox_path.path_tail, i64 noundef %46) #31
+  %48 = tail call ptr @mkdtemp(ptr noundef nonnull @_clar_path) #31
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %build_sandbox_path.exit.thread, label %50
 
 build_sandbox_path.exit.thread:                   ; preds = %is_valid_tmp_path.exit30.i.i, %is_valid_tmp_path.exit30.thread.i.i, %build_sandbox_path.exit
   tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.158)
   unreachable
 
-49:                                               ; preds = %build_sandbox_path.exit, %0
-  %50 = tail call i32 @chdir(ptr noundef nonnull @_clar_path) #31
-  %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %55, label %51
+50:                                               ; preds = %build_sandbox_path.exit, %0
+  %51 = tail call i32 @chdir(ptr noundef nonnull @_clar_path) #31
+  %.not = icmp eq i32 %51, 0
+  br i1 %.not, label %56, label %52
 
-51:                                               ; preds = %49
-  %52 = tail call ptr @__errno_location() #32
-  %53 = load i32, ptr %52, align 4, !tbaa !40
-  %54 = tail call ptr @strerror(i32 noundef %53) #31
-  tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.159, ptr noundef nonnull @_clar_path, ptr noundef %54)
+52:                                               ; preds = %50
+  %53 = tail call ptr @__errno_location() #32
+  %54 = load i32, ptr %53, align 4, !tbaa !40
+  %55 = tail call ptr @strerror(i32 noundef %54) #31
+  tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.159, ptr noundef nonnull @_clar_path, ptr noundef %55)
   unreachable
 
-55:                                               ; preds = %49
+56:                                               ; preds = %50
   ret void
 }
 

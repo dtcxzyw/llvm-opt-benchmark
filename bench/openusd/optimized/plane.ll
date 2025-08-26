@@ -334,21 +334,21 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %7
   %19 = load double, ptr %18, align 8
   %20 = fcmp ult double %19, 0.000000e+00
   %.in.v = select i1 %20, ptr %1, ptr %4
-  %.in = getelementptr inbounds nuw double, ptr %.in.v, i64 %indvars.iv
-  %21 = load double, ptr %.in, align 8
+  %22 = getelementptr inbounds nuw double, ptr %.in.v, i64 %indvars.iv
+  %21 = load double, ptr %22, align 8
   %22 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %.01415)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !18
 
-23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load double, ptr %24, align 8
-  %26 = fcmp oge double %22, %25
+25:                                               ; preds = %.preheader
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load double, ptr %26, align 8
+  %28 = fcmp oge double %22, %27
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread
 
-_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds = %2, %7, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit, %23
-  %.0 = phi i1 [ %26, %23 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %7 ], [ false, %2 ]
+_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds = %2, %7, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit, %25
+  %.0 = phi i1 [ %28, %23 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %7 ], [ false, %2 ]
   ret i1 %.0
 }
 

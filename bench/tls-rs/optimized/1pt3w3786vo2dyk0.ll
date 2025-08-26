@@ -8076,9 +8076,9 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
   %9 = select i1 %.not, i1 true, i1 %8
   br i1 %9, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit", label %10
 
-10:                                               ; preds = %1
-  %11 = load i64, ptr %7, align 8, !range !43, !alias.scope !1820, !noundef !4
-  switch i64 %11, label %default.unreachable [
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8, !range !43, !alias.scope !1820, !noundef !4
+  switch i64 %9, label %default.unreachable [
     i64 0, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 1, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 2, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
@@ -8088,30 +8088,30 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
     i64 6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 7, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 8, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
-    i64 9, label %12
+    i64 9, label %10
     i64 10, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 11, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 12, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 13, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
     i64 15, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
-    i64 16, label %13
+    i64 16, label %11
   ]
 
-default.unreachable:                              ; preds = %10
+default.unreachable:                              ; preds = %8
   unreachable
 
-12:                                               ; preds = %10
+10:                                               ; preds = %8
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
 
-13:                                               ; preds = %10
-  %14 = getelementptr i8, ptr %6, i64 -24
-  %15 = load i16, ptr %14, align 8, !range !28, !alias.scope !1820, !noundef !4
-  %16 = icmp eq i16 %15, 21
+11:                                               ; preds = %8
+  %12 = getelementptr i8, ptr %6, i64 -24
+  %13 = load i16, ptr %12, align 8, !range !28, !alias.scope !1820, !noundef !4
+  %14 = icmp eq i16 %13, 21
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit": ; preds = %1, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %12, %13
-  %.0.in.i = phi i1 [ false, %1 ], [ true, %12 ], [ %16, %13 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hae8ff7fb27ce76abE.llvm.15934541666227088301.exit": ; preds = %1, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %10, %11
+  %.0.in.i = phi i1 [ false, %1 ], [ true, %12 ], [ %14, %13 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ], [ false, %10 ]
   ret i1 %.0.in.i
 }
 
@@ -17850,8 +17850,8 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
 52:                                               ; preds = %.thread, %48
   %53 = phi i64 [ %47, %.thread ], [ %50, %48 ]
   %54 = phi ptr [ %46, %.thread ], [ %49, %48 ]
-  %.0615 = phi i64 [ 0, %.thread ], [ %34, %48 ]
-  %55 = sub nuw i64 %53, %.0615
+  %.0613 = phi i64 [ 0, %.thread ], [ %34, %48 ]
+  %55 = sub nuw i64 %53, %.0613
   store i64 %55, ptr %54, align 8, !alias.scope !4348
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5777dfd3e4249c38E.exit"
 

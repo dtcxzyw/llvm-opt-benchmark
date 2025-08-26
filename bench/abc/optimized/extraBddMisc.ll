@@ -3746,10 +3746,10 @@ define void @Extra_GraphExperiment() local_unnamed_addr #0 {
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %.035.lcssa) #19
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond = icmp eq i64 %indvars.iv.next48, 4
-  br i1 %exitcond, label %17, label %5, !llvm.loop !83
+  br i1 %exitcond, label %18, label %5, !llvm.loop !83
 
-17:                                               ; preds = %._crit_edge
-  %18 = tail call i32 @Cudd_zddPrintMinterm(ptr noundef nonnull %1, ptr noundef %16) #19
+18:                                               ; preds = %._crit_edge
+  %19 = tail call i32 @Cudd_zddPrintMinterm(ptr noundef nonnull %1, ptr noundef %16) #19
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %1, ptr noundef %16) #19
   tail call void @Cudd_Quit(ptr noundef nonnull %1) #19
   ret void

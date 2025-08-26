@@ -7385,7 +7385,7 @@ define dso_local { ptr, i64 } @_ZN4llvm6DIFile23getChecksumKindAsStringENS0_12Ch
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %6
 
-6:                                                ; preds = %1
+6:; preds = %1
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #25
   br label %_ZN4llvm9StringRefC2EPKc.exit
 

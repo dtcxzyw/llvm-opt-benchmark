@@ -1370,11 +1370,11 @@ sdslen.exit:                                      ; preds = %31, %34, %38, %42, 
   %56 = icmp ult i64 %20, %55
   br i1 %56, label %58, label %.thread
 
-.thread:                                          ; preds = %sdslen.exit, %50, %24
+.thread:; preds = %sdslen.exit, %50, %24
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8
   br label %69
 
-58:                                               ; preds = %50, %sdslen.exit
+59:                                               ; preds = %50, %sdslen.exit
   %.sink = phi ptr [ %26, %sdslen.exit ], [ %2, %50 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sink, i64 %20
   %60 = load i8, ptr %59, align 1, !tbaa !5
@@ -1397,7 +1397,7 @@ sdslen.exit:                                      ; preds = %31, %34, %38, %42, 
   call void @addReply(ptr noundef nonnull %0, ptr noundef %70) #18
   br label %71
 
-71:                                               ; preds = %9, %16, %1, %69
+62:                                               ; preds = %9, %16, %1, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

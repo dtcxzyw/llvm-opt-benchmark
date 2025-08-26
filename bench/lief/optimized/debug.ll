@@ -40,12 +40,12 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %26, label %9
+  br i1 %8, label %28, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8, !tbaa !7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %26, label %12
+  br i1 %11, label %28, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -54,7 +54,7 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   %16 = load i32, ptr @debug_threshold, align 4
   %17 = icmp sgt i32 %1, %16
   %or.cond = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond, label %26, label %18
+  br i1 %or.cond, label %28, label %18
 
 18:                                               ; preds = %12
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -68,14 +68,14 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 0, ptr %23, align 1, !tbaa !29
   %.val = load ptr, ptr %0, align 8, !tbaa !7
-  %24 = getelementptr i8, ptr %.val, i64 40
-  %.val.val = load ptr, ptr %24, align 8, !tbaa !17
-  %25 = getelementptr i8, ptr %.val, i64 48
-  %.val.val17 = load ptr, ptr %25, align 8, !tbaa !30
+  %26 = getelementptr i8, ptr %.val, i64 40
+  %.val.val = load ptr, ptr %26, align 8, !tbaa !17
+  %27 = getelementptr i8, ptr %.val, i64 48
+  %.val.val17 = load ptr, ptr %27, align 8, !tbaa !30
   call void %.val.val(ptr noundef %.val.val17, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7) #9
-  br label %26
+  br label %28
 
-26:                                               ; preds = %5, %9, %12, %18
+28:                                               ; preds = %5, %9, %12, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void

@@ -558,9 +558,9 @@ define void @Aig_RManPrintVarProfile(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %7 = load i32, ptr %6, align 8, !tbaa !24
+  %6 = shl nuw nsw i64 %indvars.iv, 3
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %6
+  %8 = load i32, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !24
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %7, i32 noundef %9)

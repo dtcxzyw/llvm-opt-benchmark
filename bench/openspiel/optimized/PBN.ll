@@ -285,8 +285,8 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   %22 = getelementptr inbounds nuw i32, ptr %8, i64 %15
   store i32 %19, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %23 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %23, label %10, label %.loopexit, !llvm.loop !7
+  %24 = icmp samesign ult i64 %indvars.iv.next, %9
+  br i1 %24, label %10, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %14, %21, %10, %4, %2
   %.0 = phi i32 [ -98, %2 ], [ 1, %4 ], [ -98, %14 ], [ 1, %21 ], [ -98, %10 ]

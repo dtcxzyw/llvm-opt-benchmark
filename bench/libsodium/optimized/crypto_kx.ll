@@ -49,7 +49,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_client_session_keys(ptr noundef
 13:                                               ; preds = %5
   %14 = call i32 @crypto_scalarmult(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %29
+  br i1 %.not, label %15, label %30
 
 15:                                               ; preds = %13
   %16 = call i32 @crypto_generichash_init(ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i64 noundef 64) #5
@@ -73,13 +73,13 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_client_session_keys(ptr noundef
   store i8 %26, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %28, label %21, !llvm.loop !4
+  br i1 %exitcond.not, label %29, label %21, !llvm.loop !4
 
-28:                                               ; preds = %21
+29:                                               ; preds = %21
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 64) #5
-  br label %29
+  br label %30
 
-29:                                               ; preds = %13, %28
+30:                                               ; preds = %13, %29
   %.017 = phi i32 [ 0, %28 ], [ -1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -122,7 +122,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef
 13:                                               ; preds = %5
   %14 = call i32 @crypto_scalarmult(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %29
+  br i1 %.not, label %15, label %30
 
 15:                                               ; preds = %13
   %16 = call i32 @crypto_generichash_init(ptr noundef nonnull %6, ptr noundef null, i64 noundef 0, i64 noundef 64) #5
@@ -146,13 +146,13 @@ define dso_local range(i32 -1, 1) i32 @crypto_kx_server_session_keys(ptr noundef
   store i8 %26, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %28, label %21, !llvm.loop !6
+  br i1 %exitcond.not, label %29, label %21, !llvm.loop !6
 
-28:                                               ; preds = %21
+29:                                               ; preds = %21
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 64) #5
-  br label %29
+  br label %30
 
-29:                                               ; preds = %13, %28
+30:                                               ; preds = %13, %29
   %.017 = phi i32 [ 0, %28 ], [ -1, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

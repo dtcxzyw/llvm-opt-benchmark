@@ -7003,34 +7003,34 @@ define internal ptr @numericConfigGet(ptr noundef readonly captures(none) %0) #2
   store i8 0, ptr %59, align 1, !tbaa !56
   br label %71
 
-60:                                               ; preds = %.thread, %48
+60:; preds = %.thread, %48
   %61 = phi i32 [ %47, %.thread ], [ %50, %48 ]
   %.037 = phi i64 [ %.0.ph, %.thread ], [ %.0, %48 ]
-  %62 = and i32 %61, 1
-  %.not33 = icmp eq i32 %62, 0
-  br i1 %.not33, label %65, label %63
-
-63:                                               ; preds = %60
-  %64 = call i32 @ull2string(ptr noundef nonnull %2, i64 noundef 128, i64 noundef %.037) #26
-  br label %71
+  %64 = and i32 %61, 1
+  %.not33 = icmp eq i32 %64, 0
+  br i1 %.not33, label %67, label %65
 
 65:                                               ; preds = %60
-  %66 = and i32 %61, 4
-  %.not34 = icmp eq i32 %66, 0
-  br i1 %.not34, label %69, label %67
+  %66 = call i32 @ull2string(ptr noundef nonnull %2, i64 noundef 128, i64 noundef %.037) #26
+  br label %73
 
-67:                                               ; preds = %65
-  %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.394, i64 noundef %.037) #26
-  br label %71
+67:                                               ; preds = %60
+  %68 = and i32 %61, 4
+  %.not34 = icmp eq i32 %68, 0
+  br i1 %.not34, label %71, label %69
 
-69:                                               ; preds = %65
-  %70 = call i32 @ll2string(ptr noundef nonnull %2, i64 noundef 128, i64 noundef %.037) #26
-  br label %71
+69:                                               ; preds = %67
+  %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.394, i64 noundef %.037) #26
+  br label %73
 
-71:                                               ; preds = %63, %69, %67, %54
-  %72 = call ptr @sdsnew(ptr noundef nonnull %2) #26
+71:                                               ; preds = %67
+  %72 = call i32 @ll2string(ptr noundef nonnull %2, i64 noundef 128, i64 noundef %.037) #26
+  br label %73
+
+73:                                               ; preds = %65, %71, %69, %54
+  %74 = call ptr @sdsnew(ptr noundef nonnull %2) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %72
+  ret ptr %74
 }
 
 ; Function Attrs: nounwind uwtable

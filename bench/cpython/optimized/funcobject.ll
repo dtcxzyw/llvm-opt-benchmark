@@ -2529,7 +2529,7 @@ define internal fastcc ptr @func_get_annotation_dict(ptr noundef captures(none) 
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %44, label %52
 
-52:                                               ; preds = %.critedge
+58:                                               ; preds = %.critedge
   %53 = load i32, ptr %40, align 8, !tbaa !99
   %.not.i49 = icmp sgt i32 %53, -1
   br i1 %.not.i49, label %54, label %Py_DECREF.exit52
@@ -2545,28 +2545,28 @@ define internal fastcc ptr @func_get_annotation_dict(ptr noundef captures(none) 
   br label %Py_DECREF.exit52
 
 Py_DECREF.exit50:                                 ; preds = %44, %.preheader
-  %58 = load ptr, ptr %2, align 8, !tbaa !96
+  %59 = load ptr, ptr %2, align 8, !tbaa !96
   store ptr %40, ptr %2, align 8, !tbaa !96
-  %59 = load i32, ptr %58, align 8, !tbaa !99
-  %.not.i = icmp sgt i32 %59, -1
-  br i1 %.not.i, label %60, label %Py_DECREF.exit.thread
+  %60 = load i32, ptr %59, align 8, !tbaa !99
+  %.not.i = icmp sgt i32 %60, -1
+  br i1 %.not.i, label %61, label %Py_DECREF.exit.thread
 
-60:                                               ; preds = %Py_DECREF.exit50
-  %61 = add nsw i32 %59, -1
-  store i32 %61, ptr %58, align 8, !tbaa !99
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %63, label %Py_DECREF.exit.thread
+61:                                               ; preds = %Py_DECREF.exit50
+  %62 = add nsw i32 %60, -1
+  store i32 %62, ptr %59, align 8, !tbaa !99
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %64, label %Py_DECREF.exit.thread
 
-63:                                               ; preds = %60
-  tail call void @_Py_Dealloc(ptr noundef nonnull %58) #8
+64:                                               ; preds = %61
+  tail call void @_Py_Dealloc(ptr noundef nonnull %59) #8
   br label %Py_DECREF.exit.thread
 
-Py_DECREF.exit.thread:                            ; preds = %63, %60, %Py_DECREF.exit50, %37
-  %64 = load ptr, ptr %2, align 8, !tbaa !143
+Py_DECREF.exit.thread:                            ; preds = %64, %61, %Py_DECREF.exit50, %37
+  %65 = load ptr, ptr %2, align 8, !tbaa !143
   br label %Py_DECREF.exit52
 
 Py_DECREF.exit52:                                 ; preds = %52, %54, %57, %39, %36, %33, %31, %29, %28, %25, %19, %11, %5, %9, %Py_DECREF.exit.thread
-  %.0 = phi ptr [ %64, %Py_DECREF.exit.thread ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ], [ null, %19 ], [ null, %25 ], [ null, %28 ], [ %13, %29 ], [ %13, %31 ], [ %13, %33 ], [ %13, %36 ], [ null, %39 ], [ null, %57 ], [ null, %54 ], [ null, %52 ]
+  %.0 = phi ptr [ %65, %Py_DECREF.exit.thread ], [ @_Py_NoneStruct, %9 ], [ @_Py_NoneStruct, %5 ], [ null, %11 ], [ null, %19 ], [ null, %25 ], [ null, %28 ], [ %13, %29 ], [ %13, %31 ], [ %13, %33 ], [ %13, %36 ], [ null, %39 ], [ null, %57 ], [ null, %54 ], [ null, %52 ]
   ret ptr %.0
 }
 

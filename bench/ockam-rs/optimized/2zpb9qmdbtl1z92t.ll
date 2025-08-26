@@ -13430,7 +13430,7 @@ define internal fastcc void @"_ZN14ockam_identity12purpose_keys24purpose_key_ver
   %.pre616 = load ptr, ptr %.phi.trans.insert615, align 8, !alias.scope !2088, !noalias !2093
   br label %503
 
-default.unreachable627:                           ; preds = %186, %156, %3
+default.unreachable626:                           ; preds = %186, %156, %3
   unreachable
 
 31:                                               ; preds = %3

@@ -170,10 +170,10 @@ invoke.cont3:
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %invoke.cont3
-  %store_forwarded = phi i64 [ %rem.i.i.i.i, %invoke.cont3 ], [ %rem.i.i10.i.i, %for.body.i.i ]
+  %4 = phi i64 [ %rem.i.i.i.i, %invoke.cont3 ], [ %rem.i.i10.i.i, %for.body.i.i ]
   %__i.011.i.i = phi i64 [ 1, %invoke.cont3 ], [ %inc.i.i, %for.body.i.i ]
   %4 = getelementptr i64, ptr %generator_, i64 %__i.011.i.i
-  %shr.i.i = lshr i64 %store_forwarded, 30
+  %shr.i.i = lshr i64 %4, 30
   %xor.i.i = xor i64 %shr.i.i, %store_forwarded
   %mul.i.i = mul nuw nsw i64 %xor.i.i, 1812433253
   %add.i.i = add nuw i64 %mul.i.i, %__i.011.i.i

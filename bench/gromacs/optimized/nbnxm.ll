@@ -230,9 +230,9 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit17:         ; preds = %25
   %36 = load ptr, ptr %22, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %37 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
-  %38 = extractvalue { i32, i32 } %37, 0
-  %39 = extractvalue { i32, i32 } %37, 1
+  %36 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
+  %37 = extractvalue { i32, i32 } %36, 0
+  %38 = extractvalue { i32, i32 } %36, 1
   %40 = zext i32 %38 to i64
   %41 = zext i32 %39 to i64
   %42 = shl nuw i64 %41, 32
@@ -243,12 +243,12 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit17:         ; preds = %25
   store ptr %16, ptr %23, align 8, !tbaa !43
   store ptr %4, ptr %8, align 8, !tbaa !45
   store ptr %20, ptr %24, align 8, !tbaa !45
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSA_IKNS_11BasicVectorIfEEEEPSB_PNS_16nbnxn_atomdata_tE(ptr noundef nonnull align 8 dereferenceable(336) %35, ptr noundef null, i32 noundef %45, ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef null, i64 %31, i32 noundef %29, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.51") align 8 %8, ptr noundef null, ptr noundef %36)
-  %46 = getelementptr inbounds nuw i8, ptr %35, i64 264
-  %47 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
-  %48 = extractvalue { i32, i32 } %47, 0
-  %49 = extractvalue { i32, i32 } %47, 1
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZN3gmx7GridSet9putOnGridEPA3_KfiPS1_S4_PKNS_15UpdateGroupsCogENS_5RangeIiEEifNS_8ArrayRefIKiEENSA_IKNS_11BasicVectorIfEEEEPSB_PNS_16nbnxn_atomdata_tE(ptr noundef nonnull align 8 dereferenceable(336) %35, ptr noundef null, i32 noundef %44, ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %33, ptr noundef null, i64 %31, i32 noundef %29, float noundef -1.000000e+00, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.51") align 8 %8, ptr noundef null, ptr noundef %36)
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 264
+  %46 = tail call { i32, i32 } asm sideeffect "rdtscp", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !50
+  %47 = extractvalue { i32, i32 } %46, 0
+  %48 = extractvalue { i32, i32 } %46, 1
   %50 = zext i32 %48 to i64
   %51 = zext i32 %49 to i64
   %52 = shl nuw i64 %51, 32
@@ -259,7 +259,7 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit17:         ; preds = %25
   %57 = add i64 %56, %55
   %58 = add i64 %57, %52
   store i64 %58, ptr %54, align 8, !tbaa !54
-  %59 = load i32, ptr %46, align 8, !tbaa !55
+  %59 = load i32, ptr %45, align 8, !tbaa !55
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %46, align 8, !tbaa !55
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

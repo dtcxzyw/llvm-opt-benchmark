@@ -130,39 +130,39 @@ define dso_local noundef i32 @cmd_remote_fd(i32 noundef %0, ptr noundef %1, ptr 
 .critedge.i:                                      ; preds = %46, %.lr.ph.i, %.lr.ph19.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %5, ptr noundef nonnull dereferenceable(13) @.str.4, i64 13)
   %.not10.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not10.i, label %.critedge14.i, label %53
+  br i1 %.not10.i, label %.critedge14.i, label %51
 
 .critedge14.i:                                    ; preds = %.critedge.i
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %49 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %50 = call i32 @fflush(ptr noundef %49)
-  %51 = load ptr, ptr @stdin, align 8, !tbaa !10
-  %52 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %51)
-  %.not.i = icmp eq ptr %52, null
+  %47 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %48 = call i32 @fflush(ptr noundef %47)
+  %49 = load ptr, ptr @stdin, align 8, !tbaa !10
+  %50 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %49)
+  %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph19.i
 
-53:                                               ; preds = %.critedge.i
-  %54 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #11
-  %.not11.i = icmp eq i32 %54, 0
-  br i1 %.not11.i, label %60, label %55
+51:                                               ; preds = %.critedge.i
+  %52 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #11
+  %.not11.i = icmp eq i32 %52, 0
+  br i1 %.not11.i, label %58, label %53
 
-55:                                               ; preds = %53
+53:                                               ; preds = %51
   %putchar.i = call i32 @putchar(i32 10)
-  %56 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %57 = call i32 @fflush(ptr noundef %56)
-  %58 = call i32 @bidirectional_transfer_loop(i32 noundef %15, i32 noundef %.0) #11
-  %.not12.i = icmp eq i32 %58, 0
-  br i1 %.not12.i, label %command_loop.exit, label %59
+  %54 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %55 = call i32 @fflush(ptr noundef %54)
+  %56 = call i32 @bidirectional_transfer_loop(i32 noundef %15, i32 noundef %.0) #11
+  %.not12.i = icmp eq i32 %56, 0
+  br i1 %.not12.i, label %command_loop.exit, label %57
 
-59:                                               ; preds = %55
+57:                                               ; preds = %53
   call void (ptr, ...) @die(ptr noundef nonnull @.str.8) #10
   unreachable
 
-60:                                               ; preds = %53
+58:                                               ; preds = %51
   call void (ptr, ...) @die(ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #10
   unreachable
 
-command_loop.exit:                                ; preds = %._crit_edge.i, %55
+command_loop.exit:                                ; preds = %._crit_edge.i, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 0

@@ -4428,7 +4428,7 @@ define noundef zeroext i1 @_ZNK13sentencepiece22NBestSentencePieceText13IsInitia
   %6 = zext nneg i32 %3 to i64
   br label %8
 
-_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds = %19
+_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds = %20
   %7 = icmp slt i64 %indvars.iv.i, 2
   br i1 %7, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece17SentencePieceTextEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %8, !llvm.loop !94
 
@@ -4449,17 +4449,17 @@ _ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i: ; preds
   %18 = zext i32 %16 to i64
   br label %19
 
-19:                                               ; preds = %22, %14
-  %indvars.iv.i.i.i = phi i64 [ %23, %22 ], [ %18, %14 ]
-  %20 = trunc nuw i64 %indvars.iv.i.i.i to i32
-  %21 = icmp slt i32 %20, 1
-  br i1 %21, label %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i, label %22
+20:                                               ; preds = %23, %14
+  %indvars.iv.i.i.i = phi i64 [ %24, %22 ], [ %18, %14 ]
+  %21 = trunc nuw i64 %indvars.iv.i.i.i to i32
+  %22 = icmp slt i32 %21, 1
+  br i1 %22, label %_ZNK13sentencepiece17SentencePieceText13IsInitializedEv.exit.loopexit.i, label %23
 
-22:                                               ; preds = %19
-  %23 = add nsw i64 %indvars.iv.i.i.i, -1
-  %24 = load ptr, ptr %17, align 8, !tbaa !71
-  %25 = getelementptr ptr, ptr %24, i64 %indvars.iv.i.i.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !67
+23:                                               ; preds = %20
+  %24 = add nsw i64 %indvars.iv.i.i.i, -1
+  %25 = load ptr, ptr %17, align 8, !tbaa !71
+  %26 = getelementptr ptr, ptr %25, i64 %indvars.iv.i.i.i
+  %26 = load ptr, ptr %26, align 8, !tbaa !67
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = tail call noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet13IsInitializedEv(ptr noundef nonnull align 8 dereferenceable(24) %27)
   br i1 %28, label %19, label %_ZN6google8protobuf8internal17AllAreInitializedIN13sentencepiece17SentencePieceTextEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !84

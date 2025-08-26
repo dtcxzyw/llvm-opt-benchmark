@@ -22,7 +22,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   store double %0, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double 0.000000e+00, ptr %8, align 8
-  br label %132
+  br label %130
 
 9:                                                ; preds = %2
   %10 = icmp samesign ult i32 %5, 1073928572
@@ -44,7 +44,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %18 = fadd double %17, 0xBDD0B4611A626331
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %18, ptr %19, align 8
-  br label %132
+  br label %130
 
 20:                                               ; preds = %13
   %21 = fadd double %14, 0xBDD0B4611A600000
@@ -54,7 +54,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %24 = fadd double %23, 0xBBA3198A2E037073
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %24, ptr %25, align 8
-  br label %132
+  br label %130
 
 26:                                               ; preds = %11
   %27 = fadd double %0, 0x3FF921FB54400000
@@ -67,7 +67,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %31 = fadd double %30, 0x3DD0B4611A626331
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %31, ptr %32, align 8
-  br label %132
+  br label %130
 
 33:                                               ; preds = %26
   %34 = fadd double %27, 0x3DD0B4611A600000
@@ -77,7 +77,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %37 = fadd double %36, 0x3BA3198A2E037073
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %37, ptr %38, align 8
-  br label %132
+  br label %130
 
 39:                                               ; preds = %9
   %40 = icmp samesign ult i32 %5, 1094263292
@@ -161,7 +161,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %89, ptr %90, align 8
   %91 = icmp slt i64 %4, 0
-  br i1 %91, label %92, label %132
+  br i1 %91, label %92, label %130
 
 92:                                               ; preds = %86
   %93 = fneg double %87
@@ -169,7 +169,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %94 = fneg double %89
   store double %94, ptr %90, align 8
   %95 = sub nsw i32 0, %44
-  br label %132
+  br label %130
 
 96:                                               ; preds = %39
   %97 = icmp samesign ugt i32 %5, 2146435071
@@ -180,7 +180,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %99, ptr %100, align 8
   store double %99, ptr %1, align 8
-  br label %132
+  br label %130
 
 101:                                              ; preds = %96
   %.sroa.01.0.insert.ext = and i64 %4, 4294967295
@@ -211,8 +211,8 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   br label %115
 
 115:                                              ; preds = %113, %120
-  %indvars.iv144 = phi i64 [ 3, %113 ], [ %indvars.iv.next145, %120 ]
-  %116 = getelementptr double, ptr %3, i64 %indvars.iv144
+  %indvars.iv143 = phi i64 [ 3, %113 ], [ %indvars.iv.next145, %120 ]
+  %116 = getelementptr double, ptr %3, i64 %indvars.iv143
   %117 = getelementptr i8, ptr %116, i64 -8
   %118 = load double, ptr %117, align 8
   %119 = fcmp oeq double %118, 0.000000e+00
@@ -224,28 +224,28 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   br i1 %121, label %115, label %.critedge, !llvm.loop !6
 
 .critedge.split.loop.exit149:                     ; preds = %115
-  %122 = trunc nuw nsw i64 %indvars.iv144 to i32
+  %120 = trunc nuw nsw i64 %indvars.iv143 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %120, %.critedge.split.loop.exit149
-  %.0134.lcssa = phi i32 [ %122, %.critedge.split.loop.exit149 ], [ 0, %120 ]
-  %123 = call i32 @__kernel_rem_pio2(ptr noundef nonnull %3, ptr noundef %1, i32 noundef %103, i32 noundef %.0134.lcssa, i32 noundef 2, ptr noundef nonnull @two_over_pi) #4
-  %124 = icmp slt i64 %4, 0
-  br i1 %124, label %125, label %132
+  %.0134.lcssa = phi i32 [ %120, %.critedge.split.loop.exit149 ], [ 0, %120 ]
+  %121 = call i32 @__kernel_rem_pio2(ptr noundef nonnull %3, ptr noundef %1, i32 noundef %103, i32 noundef %.0134.lcssa, i32 noundef 2, ptr noundef nonnull @two_over_pi) #4
+  %122 = icmp slt i64 %4, 0
+  br i1 %122, label %123, label %130
 
-125:                                              ; preds = %.critedge
-  %126 = load double, ptr %1, align 8
-  %127 = fneg double %126
-  store double %127, ptr %1, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %129 = load double, ptr %128, align 8
-  %130 = fneg double %129
-  store double %130, ptr %128, align 8
-  %131 = sub nsw i32 0, %123
-  br label %132
+123:                                              ; preds = %.critedge
+  %124 = load double, ptr %1, align 8
+  %125 = fneg double %124
+  store double %125, ptr %1, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %127 = load double, ptr %126, align 8
+  %128 = fneg double %127
+  store double %128, ptr %126, align 8
+  %129 = sub nsw i32 0, %121
+  br label %130
 
-132:                                              ; preds = %.critedge, %86, %28, %33, %15, %20, %125, %98, %92, %7
-  %.0 = phi i32 [ 0, %7 ], [ %95, %92 ], [ 0, %98 ], [ %131, %125 ], [ 1, %20 ], [ 1, %15 ], [ -1, %33 ], [ -1, %28 ], [ %44, %86 ], [ %123, %.critedge ]
+130:                                              ; preds = %.critedge, %86, %28, %33, %15, %20, %123, %98, %92, %7
+  %.0 = phi i32 [ 0, %7 ], [ %95, %92 ], [ 0, %98 ], [ %129, %125 ], [ 1, %20 ], [ 1, %15 ], [ -1, %33 ], [ -1, %28 ], [ %44, %86 ], [ %121, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

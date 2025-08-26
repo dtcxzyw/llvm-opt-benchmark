@@ -363,13 +363,13 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen12GenerateNextEPmS1_(ptr nound
   br i1 %10, label %9, label %_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1_m.exit, !llvm.loop !40
 
 _ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1_m.exit: ; preds = %9
-  %19 = load i64, ptr %4, align 8, !tbaa !36
-  store i64 %19, ptr %2, align 8, !tbaa !36
-  %20 = load i64, ptr %5, align 8, !tbaa !36
-  store i64 %20, ptr %1, align 8, !tbaa !36
-  %21 = and i64 %8, 3
-  %22 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %21
-  %23 = atomicrmw add ptr %22, i64 %19 monotonic, align 8
+  %20 = load i64, ptr %4, align 8, !tbaa !36
+  store i64 %20, ptr %2, align 8, !tbaa !36
+  %21 = load i64, ptr %5, align 8, !tbaa !36
+  store i64 %21, ptr %1, align 8, !tbaa !36
+  %22 = and i64 %8, 3
+  %23 = getelementptr inbounds nuw %"struct.std::atomic", ptr %0, i64 %22
+  %24 = atomicrmw add ptr %23, i64 %20 monotonic, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -412,9 +412,9 @@ define void @_ZN7rocksdb24UnpredictableUniqueIdGen23GenerateNextWithEntropyEPmS1
   %20 = xor i64 %19, %18
   store i64 %20, ptr %5, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %22 = load atomic i64, ptr %21 monotonic, align 8
+  %22 = load atomic i64, ptr %22 monotonic, align 8
   %23 = load i64, ptr %6, align 8, !tbaa !36
-  %24 = xor i64 %23, %22
+  %24 = xor i64 %23, %23
   store i64 %24, ptr %6, align 8, !tbaa !36
   call void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %20, i64 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br i1 %16, label %15, label %9, !llvm.loop !40

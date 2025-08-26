@@ -12657,7 +12657,7 @@ define noundef ptr @Rtl_ShortenName(ptr noundef readonly captures(ret: address, 
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #39
   %4 = trunc i64 %3 to i32
   %.not = icmp slt i32 %1, %4
-  br i1 %.not, label %5, label %12
+  br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %2
   store i8 0, ptr @Rtl_ShortenName.Buffer, align 16, !tbaa !61
@@ -12668,12 +12668,12 @@ define noundef ptr @Rtl_ShortenName(ptr noundef readonly captures(ret: address, 
   store i8 46, ptr %9, align 1, !tbaa !61
   %10 = getelementptr i8, ptr %8, i64 -2
   store i8 46, ptr %10, align 1, !tbaa !61
-  %11 = getelementptr i8, ptr %8, i64 -1
-  store i8 46, ptr %11, align 1, !tbaa !61
+  %12 = getelementptr i8, ptr %8, i64 -1
+  store i8 46, ptr %12, align 1, !tbaa !61
   store i8 0, ptr %8, align 1, !tbaa !61
   br label %12
 
-12:                                               ; preds = %2, %5
+18:                                               ; preds = %2, %5
   %.0 = phi ptr [ @Rtl_ShortenName.Buffer, %5 ], [ %0, %2 ]
   ret ptr %.0
 }

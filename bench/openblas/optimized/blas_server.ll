@@ -999,7 +999,7 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
   %5 = alloca [16 x %struct.blas_queue], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %0, 1
-  br i1 %6, label %32, label %7
+  br i1 %6, label %33, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr @blas_cpu_number, align 4, !tbaa !3
@@ -1055,7 +1055,7 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
   %31 = call i32 @exec_blas(i64 noundef %28, ptr noundef nonnull %5)
   br label %32
 
-32:                                               ; preds = %4, %._crit_edge
+33:                                               ; preds = %4, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 0
 }

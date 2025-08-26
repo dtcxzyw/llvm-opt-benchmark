@@ -7832,7 +7832,7 @@ if.else.i:                                        ; preds = %invoke.cont18
   br label %invoke.cont23
 
 invoke.cont23:                                    ; preds = %if.else.i, %invoke.cont18
-  %.sink.i = phi ptr [ %11, %if.else.i ], [ %7, %invoke.cont18 ]
+  %retval.sroa.0.0.in.i = phi ptr [ %11, %if.else.i ], [ %7, %invoke.cont18 ]
   %rem.i.sink.i = phi i32 [ %rem.i.i, %if.else.i ], [ %conv22, %invoke.cont18 ]
   %data_.i.i = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   %idxprom.i.i = zext nneg i32 %rem.i.sink.i to i64

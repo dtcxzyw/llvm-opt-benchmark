@@ -5450,7 +5450,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN12clap_build
 
 15:                                               ; preds = %10
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h55214b6bc9555156E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %12)
-          to label %.noexc unwind label %54
+          to label %.noexc unwind label %53
 
 .noexc:                                           ; preds = %15
   %.pre.i = load i64, ptr %11, align 8, !alias.scope !1517, !noalias !1520
@@ -5460,11 +5460,11 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN12clap_build
   %17 = getelementptr i8, ptr %7, i64 40
   %.val11 = load i64, ptr %17, align 8, !noundef !18
   %18 = icmp ult i64 %9, %.val11
-  br i1 %18, label %51, label %19, !prof !256
+  br i1 %18, label %50, label %19, !prof !256
 
 19:                                               ; preds = %16
   invoke void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %9, i64 noundef %.val11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bbe1b10df9b6e08f07c9b849f6cd5da.36) #41
-          to label %.noexc12 unwind label %54
+          to label %.noexc12 unwind label %53
 
 .noexc12:                                         ; preds = %19
   unreachable
@@ -5533,29 +5533,29 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN12clap_build
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.5bbe1b10df9b6e08f07c9b849f6cd5da.34.llvm.7008872586094235178, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bbe1b10df9b6e08f07c9b849f6cd5da.35) #41
   unreachable
 
-50:                                               ; preds = %45, %51
+46:                                               ; preds = %45, %51
   %.024 = phi ptr [ %53, %51 ], [ %48, %45 ]
   ret ptr %.024
 
-51:                                               ; preds = %16
-  %52 = getelementptr i8, ptr %7, i64 32
-  %.val = load ptr, ptr %52, align 8, !nonnull !18, !noundef !18
-  %53 = getelementptr inbounds { { i64, i128 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, ptr %.val, i64 %9
+50:                                               ; preds = %16
+  %51 = getelementptr i8, ptr %7, i64 32
+  %.val = load ptr, ptr %51, align 8, !nonnull !18, !noundef !18
+  %52 = getelementptr inbounds { { i64, i128 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i8, i8, [6 x i8] }, ptr %.val, i64 %9
   tail call void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$17hed15162c7a11d4dcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1)
-  br label %50
+  br label %46
 
-.body.thread:                                     ; preds = %34, %54
+.body.thread:                                     ; preds = %34, %53
   %eh.lpad-body16 = phi { ptr, i32 } [ %lpad.thr_comm, %54 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body16
 
-54:                                               ; preds = %15, %19
+53:                                               ; preds = %15, %19
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr75drop_in_place$LT$clap_builder..parser..matches..matched_arg..MatchedArg$GT$17hed15162c7a11d4dcE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %1) #42
-          to label %.body.thread unwind label %55
+          to label %.body.thread unwind label %54
 
-55:                                               ; preds = %54
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %53
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #43
   unreachable

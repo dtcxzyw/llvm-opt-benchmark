@@ -3774,7 +3774,7 @@ define noundef zeroext i1 @_ZN6uucore8features2fs25path_ends_with_terminator17h4
   %6 = or i1 %.not, %5
   br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hcab9ba3d34ff581fE.exit", label %7
 
-7:                                                ; preds = %2
+7:; preds = %2
   %.val.i = load i8, ptr %4, align 1, !alias.scope !680, !noundef !7
   %8 = icmp eq i8 %.val.i, 47
   %9 = icmp eq i8 %.val.i, 92

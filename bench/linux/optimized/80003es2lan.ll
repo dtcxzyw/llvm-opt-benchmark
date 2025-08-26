@@ -1397,7 +1397,7 @@ define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align
   store i16 %23, ptr %24, align 4
   br label %25
 
-25:                                               ; preds = %11, %7, %1
+25:; preds = %11, %7, %1
   %26 = phi i32 [ 0, %11 ], [ %5, %1 ], [ -2, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %26

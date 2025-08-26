@@ -2063,7 +2063,7 @@ default.unreachable:                              ; preds = %63, %22, %20
   %.sink.i = phi i8 [ %18, %"_ZN4core6result23Result$LT$$RF$T$C$E$GT$6cloned28_$u7b$$u7b$closure$u7d$$u7d$17h5d0152993834ee79E.exit.i" ], [ 5, %2 ]
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.sink.i, ptr %.sroa.26.0..sroa_idx.i, align 8, !alias.scope !346, !noalias !349
-  br label %149
+  br label %147
 
 115:                                              ; preds = %11
   %116 = load i32, ptr %8, align 8, !range !44, !noundef !4
@@ -2078,7 +2078,7 @@ default.unreachable:                              ; preds = %63, %22, %20
 
 122:                                              ; preds = %118
   tail call void @"_ZN3mbe8expander7matcher98_$LT$impl$u20$mbe..tt_iter..TtIter$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$15expect_lifetime17h8c50148731965ae2E"(ptr noalias noundef nonnull sret({ [56 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-  br label %149
+  br label %147
 
 123:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2093,7 +2093,7 @@ default.unreachable:                              ; preds = %63, %22, %20
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 5, ptr %126, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %149
+  br label %147
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2105,17 +2105,17 @@ default.unreachable:                              ; preds = %63, %22, %20
   %132 = load i64, ptr %131, align 8, !alias.scope !433, !noalias !436
   %.sink4.i = select i1 %130, i64 %132, i64 %129
   %.not35 = icmp eq i64 %.sink4.i, 0
-  br i1 %.not35, label %.invoke, label %134
+  br i1 %.not35, label %133, label %.else
 
-.invoke:                                          ; preds = %134, %127
+133:                                              ; preds = %134, %127
   %133 = phi ptr [ @anon.b11a4630e3d7565591f2363f4463af54.13, %127 ], [ @anon.b11a4630e3d7565591f2363f4463af54.14, %134 ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) %133) #32
           to label %.cont unwind label %146
 
-.cont:                                            ; preds = %.invoke
+134:                                              ; preds = %133
   unreachable
 
-134:                                              ; preds = %127
+.else:                                            ; preds = %127
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %136 = load ptr, ptr %135, align 8
   %.sink5.i = select i1 %130, ptr %136, ptr %135
@@ -2151,36 +2151,36 @@ default.unreachable:                              ; preds = %63, %22, %20
   store i64 %.sink4.i, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !alias.scope !448, !noalias !452
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9bf30d392464feeaE.llvm.8215553287609075132"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !438
-  %142 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h357fc4c838e192c6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
+  %140 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h357fc4c838e192c6E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !447
-  %143 = extractvalue { ptr, i64 } %142, 0
-  %144 = extractvalue { ptr, i64 } %142, 1
-  store ptr %143, ptr %0, align 8
+  %141 = extractvalue { ptr, i64 } %140, 0
+  %142 = extractvalue { ptr, i64 } %140, 1
+  store ptr %141, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %144, ptr %.sroa.411.0..sroa_idx, align 8
+  store i64 %142, ptr %.sroa.411.0..sroa_idx, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.512.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02, i64 40, i1 false)
   %.sroa.613.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 3, ptr %.sroa.613.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %149
+  br label %147
 
-145:                                              ; preds = %146
+143:                                              ; preds = %144
   resume { ptr, i32 } %lpad.thr_comm
 
-146:                                              ; preds = %.invoke
+144:                                              ; preds = %133
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr137drop_in_place$LT$smallvec..SmallVec$LT$$u5b$tt..Punct$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u3b$$u20$3$u5d$$GT$$GT$17h9c15f437309fd6a7E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %7) #28
-          to label %145 unwind label %147
+          to label %145 unwind label %145
 
-147:                                              ; preds = %146
-  %148 = landingpad { ptr, i32 }
+145:                                              ; preds = %144
+  %146 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable
 
-149:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h22fa42b6acffdce2E.exit", %.else, %122, %125
+147:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h22fa42b6acffdce2E.exit", %.else, %122, %125
   ret void
 }
 

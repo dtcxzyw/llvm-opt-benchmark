@@ -1921,7 +1921,7 @@ define dso_local void @_ZNK4Luau6Lexeme8toStringB5cxx11Ev(ptr dead_on_unwind noa
 156:                                              ; preds = %153
   %157 = add nsw i32 %15, -290
   %or.cond = icmp ult i32 %157, 21
-  br i1 %or.cond, label %158, label %163
+  br i1 %or.cond, label %158, label %162
 
 158:                                              ; preds = %156
   %159 = zext nneg i32 %15 to i64
@@ -1931,13 +1931,13 @@ define dso_local void @_ZNK4Luau6Lexeme8toStringB5cxx11Ev(ptr dead_on_unwind noa
   tail call void (ptr, ptr, ...) @_ZN4Luau6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.89, ptr noundef %162)
   br label %.critedge
 
-163:                                              ; preds = %156
+162:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.100, ptr noundef nonnull align 1 dereferenceable(1) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge
 
-.critedge:                                        ; preds = %150, %126, %118, %111, %104, %97, %90, %83, %76, %125, %117, %110, %103, %96, %89, %82, %._crit_edge.i.i158, %163, %158, %155, %152, %151, %.noexc.i175, %.noexc.i171, %.noexc.i167, %._crit_edge.i.i162, %._crit_edge.i.i154, %._crit_edge.i.i150, %._crit_edge.i.i146, %._crit_edge.i.i142, %._crit_edge.i.i138, %._crit_edge.i.i134, %._crit_edge.i.i130, %._crit_edge.i.i126, %._crit_edge.i.i122, %._crit_edge.i.i118, %._crit_edge.i.i114, %._crit_edge.i.i110, %._crit_edge.i.i106, %._crit_edge.i.i102, %._crit_edge.i.i98, %._crit_edge.i.i94, %._crit_edge.i.i90, %._crit_edge.i.i
+.critedge:                                        ; preds = %150, %126, %118, %111, %104, %97, %90, %83, %76, %125, %117, %110, %103, %96, %89, %82, %._crit_edge.i.i158, %162, %158, %155, %152, %151, %.noexc.i175, %.noexc.i171, %.noexc.i167, %._crit_edge.i.i162, %._crit_edge.i.i154, %._crit_edge.i.i150, %._crit_edge.i.i146, %._crit_edge.i.i142, %._crit_edge.i.i138, %._crit_edge.i.i134, %._crit_edge.i.i130, %._crit_edge.i.i126, %._crit_edge.i.i122, %._crit_edge.i.i118, %._crit_edge.i.i114, %._crit_edge.i.i110, %._crit_edge.i.i106, %._crit_edge.i.i102, %._crit_edge.i.i98, %._crit_edge.i.i94, %._crit_edge.i.i90, %._crit_edge.i.i
   ret void
 }
 

@@ -239,7 +239,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   %7 = alloca %union.anon.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 16
-  br i1 %8, label %42, label %9
+  br i1 %8, label %43, label %9
 
 9:                                                ; preds = %6
   %10 = and i64 %2, 15
@@ -248,7 +248,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
 
 12:                                               ; preds = %9
   tail call void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5
-  br label %42
+  br label %43
 
 13:                                               ; preds = %9
   %14 = or disjoint i64 %10, 16
@@ -306,11 +306,11 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %41 = add i64 %2, 16
-  br label %42
+  %42 = add i64 %2, 16
+  br label %43
 
-42:                                               ; preds = %6, %._crit_edge, %12
-  %.0 = phi i64 [ %2, %12 ], [ %41, %._crit_edge ], [ 0, %6 ]
+43:                                               ; preds = %6, %._crit_edge, %12
+  %.0 = phi i64 [ %2, %12 ], [ %42, %._crit_edge ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

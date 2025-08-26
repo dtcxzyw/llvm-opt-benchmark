@@ -81,7 +81,7 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %.in.in.i65 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i64
   %.in.i66 = load i16, ptr %.in.in.i65, align 2, !tbaa !20
   %28 = zext i16 %.in.i66 to i32
-  br label %90
+  br label %91
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -154,7 +154,7 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %74 = add nuw nsw i32 %.062.lcssa, %69
   %75 = add nuw nsw i32 %74, %73
   %76 = icmp samesign ult i32 %.060.lcssa, 15
-  br i1 %76, label %77, label %90
+  br i1 %76, label %77, label %91
 
 77:                                               ; preds = %._crit_edge
   %78 = getelementptr i8, ptr @VP8EncBands, i64 %.pre-phi
@@ -170,12 +170,12 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %.pn.i68 = zext i8 %87 to i64
   %.in.in.i69 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i68
   %.in.i70 = load i16, ptr %.in.in.i69, align 2, !tbaa !20
-  %88 = zext i16 %.in.i70 to i32
-  %89 = add nuw nsw i32 %75, %88
-  br label %90
+  %89 = zext i16 %.in.i70 to i32
+  %90 = add nuw nsw i32 %75, %89
+  br label %91
 
-90:                                               ; preds = %._crit_edge, %77, %27
-  %.0 = phi i32 [ %28, %27 ], [ %89, %77 ], [ %75, %._crit_edge ]
+91:                                               ; preds = %._crit_edge, %77, %27
+  %.0 = phi i32 [ %28, %27 ], [ %90, %77 ], [ %75, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

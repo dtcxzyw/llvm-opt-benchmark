@@ -253,7 +253,7 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 
 25:                                               ; preds = %17, %22
   %26 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
-  %27 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
+  %.sroa.1210.0..sroa_idx = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
   %28 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
   %29 = getelementptr %struct.hf_register_info, ptr @proto_register_FiveCoLegacy.hf, i64 %indvars.iv
   %.sroa.1210.0..sroa_idx = getelementptr i8, ptr %29, i64 1820

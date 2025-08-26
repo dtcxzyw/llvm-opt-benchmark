@@ -4288,10 +4288,10 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %3 = zext nneg i32 %mul.i.i to i64
   %4 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %3
   %arrayidx.i17.i = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %5 = load i8, ptr %arrayidx.i17.i, align 1, !tbaa !13, !noalias !92
+  %3 = load i8, ptr %arrayidx.i17.i, align 1, !tbaa !13, !noalias !92
   %idxprom1.i.i = zext i32 %__pos.035.i.i to i64
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 %idxprom1.i.i
-  store i8 %5, ptr %arrayidx2.i.i, align 1, !tbaa !13
+  store i8 %3, ptr %arrayidx2.i.i, align 1, !tbaa !13
   %6 = load i8, ptr %4, align 2, !tbaa !13, !noalias !92
   %sub5.i.i = add i32 %__pos.035.i.i, -1
   %idxprom6.i.i = zext i32 %sub5.i.i to i64
@@ -4311,22 +4311,22 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %7 = zext nneg i32 %mul11.i.i to i64
   %8 = getelementptr inbounds nuw i8, ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 %7
   %arrayidx14.i.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %9 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !13, !noalias !92
+  %5 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !13, !noalias !92
   %arrayidx15.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 1
-  store i8 %9, ptr %arrayidx15.i.i, align 1, !tbaa !13
+  store i8 %5, ptr %arrayidx15.i.i, align 1, !tbaa !13
   %10 = load i8, ptr %8, align 2, !tbaa !13, !noalias !92
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %11 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
-  %conv.i.i = or disjoint i8 %11, 48
+  %7 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
+  %conv.i.i = or disjoint i8 %7, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 terminate.lpad.i:                                 ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
-  %12 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #27
+  %9 = extractvalue { ptr, i32 } %8, 0
+  tail call void @__clang_call_terminate(ptr %9) #27
   unreachable
 
 _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %if.else.i.i, %if.then.i.i

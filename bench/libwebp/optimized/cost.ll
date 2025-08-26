@@ -107,7 +107,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %.in.in.i44 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i43
   %.in.i45 = load i16, ptr %.in.in.i44, align 2, !tbaa !18
   %28 = zext i16 %.in.i45 to i32
-  br label %75
+  br label %76
 
 29:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -156,7 +156,7 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %60 = add nuw nsw i32 %.041.lcssa, %54
   %61 = add nuw nsw i32 %60, %59
   %62 = icmp samesign ult i32 %.039.lcssa, 15
-  br i1 %62, label %63, label %75
+  br i1 %62, label %63, label %76
 
 63:                                               ; preds = %._crit_edge
   %64 = getelementptr i8, ptr @VP8EncBands, i64 %.pre-phi
@@ -171,12 +171,12 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %.pn.i47 = zext i8 %72 to i64
   %.in.in.i48 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i47
   %.in.i49 = load i16, ptr %.in.in.i48, align 2, !tbaa !18
-  %73 = zext i16 %.in.i49 to i32
-  %74 = add nuw nsw i32 %61, %73
-  br label %75
+  %74 = zext i16 %.in.i49 to i32
+  %75 = add nuw nsw i32 %61, %74
+  br label %76
 
-75:                                               ; preds = %._crit_edge, %63, %27
-  %.0 = phi i32 [ %28, %27 ], [ %74, %63 ], [ %61, %._crit_edge ]
+76:                                               ; preds = %._crit_edge, %63, %27
+  %.0 = phi i32 [ %28, %27 ], [ %75, %63 ], [ %61, %._crit_edge ]
   ret i32 %.0
 }
 

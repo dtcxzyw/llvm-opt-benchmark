@@ -134,14 +134,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %or.cond19, label %.preheader192.sink.split, label %.preheader192
 
 .preheader192.sink.split:                         ; preds = %26, %2
-  %.sink249 = phi i16 [ 0, %2 ], [ 13333, %26 ]
-  store i16 %.sink249, ptr %4, align 16, !tbaa !21
-  store i16 %.sink249, ptr %11, align 2, !tbaa !22
+  %.sink253 = phi i16 [ 0, %2 ], [ 13333, %26 ]
+  store i16 %.sink253, ptr %4, align 16, !tbaa !21
+  store i16 %.sink253, ptr %11, align 2, !tbaa !22
   store i16 102, ptr %14, align 4, !tbaa !23
   br label %.preheader192
 
 .preheader192:                                    ; preds = %.preheader192.sink.split, %26
-  %30 = phi i16 [ %20, %26 ], [ %.sink249, %.preheader192.sink.split ]
+  %30 = phi i16 [ %20, %26 ], [ %.sink253, %.preheader192.sink.split ]
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %31, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -192,10 +192,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %52
 
 52:                                               ; preds = %.preheader189, %41
-  %.1130 = phi i16 [ %51, %.preheader189 ], [ %.0129196, %41 ]
+  %indvars.iv.next220.pre-phi = phi i16 [ %51, %.preheader189 ], [ %.0129196, %41 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next220, 3
-  br i1 %exitcond222.not, label %.preheader188, label %41, !llvm.loop !29
+  %exitcond224.not = icmp eq i64 %indvars.iv.next220, 3
+  br i1 %exitcond224.not, label %.preheader188, label %41, !llvm.loop !29
 
 53:                                               ; preds = %.preheader188
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -224,11 +224,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %70 = or i32 %69, %66
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %72 = call i32 @core_init_matrix(i32 noundef %62, ptr noundef %64, i32 noundef %70, ptr noundef nonnull %71) #6
-  %.pre223 = load i32, ptr %18, align 16, !tbaa !24
+  %.pre225 = load i32, ptr %18, align 16, !tbaa !24
   br label %73
 
 73:                                               ; preds = %61, %58
-  %74 = phi i32 [ %.pre223, %61 ], [ %59, %58 ]
+  %74 = phi i32 [ %.pre225, %61 ], [ %59, %58 ]
   %75 = and i32 %74, 4
   %.not170 = icmp eq i32 %75, 0
   br i1 %.not170, label %81, label %76
@@ -408,12 +408,12 @@ iterate.exit178:                                  ; preds = %122, %110
   %161 = load i16, ptr %149, align 8, !tbaa !26
   %162 = add i16 %161, 1
   store i16 %162, ptr %149, align 8, !tbaa !26
-  %.pre224 = load i32, ptr %150, align 16, !tbaa !24
+  %.pre226 = load i32, ptr %150, align 16, !tbaa !24
   br label %163
 
 163:                                              ; preds = %157, %153, %145
   %164 = phi i16 [ %162, %157 ], [ 0, %153 ], [ 0, %145 ]
-  %165 = phi i32 [ %.pre224, %157 ], [ %151, %153 ], [ %151, %145 ]
+  %165 = phi i32 [ %.pre226, %157 ], [ %151, %153 ], [ %151, %145 ]
   %166 = and i32 %165, 2
   %.not164 = icmp eq i32 %166, 0
   br i1 %.not164, label %177, label %167
@@ -432,12 +432,12 @@ iterate.exit178:                                  ; preds = %122, %110
   %175 = load i16, ptr %149, align 8, !tbaa !26
   %176 = add i16 %175, 1
   store i16 %176, ptr %149, align 8, !tbaa !26
-  %.pre225 = load i32, ptr %150, align 16, !tbaa !24
+  %.pre227 = load i32, ptr %150, align 16, !tbaa !24
   br label %177
 
 177:                                              ; preds = %171, %167, %163
   %178 = phi i16 [ %176, %171 ], [ %164, %167 ], [ %164, %163 ]
-  %179 = phi i32 [ %.pre225, %171 ], [ %165, %167 ], [ %165, %163 ]
+  %179 = phi i32 [ %.pre227, %171 ], [ %165, %167 ], [ %165, %163 ]
   %180 = and i32 %179, 4
   %.not166 = icmp eq i32 %180, 0
   br i1 %.not166, label %191, label %181
@@ -536,12 +536,12 @@ iterate.exit178:                                  ; preds = %122, %110
   br i1 %245, label %.lr.ph202, label %.loopexit187.loopexit, !llvm.loop !36
 
 .loopexit187.loopexit:                            ; preds = %.lr.ph202
-  %.pre226 = load i32, ptr %18, align 16, !tbaa !24
+  %.pre228 = load i32, ptr %18, align 16, !tbaa !24
   br label %.loopexit187
 
 .loopexit187:                                     ; preds = %.loopexit187.loopexit, %223
   %246 = phi i32 [ %244, %.loopexit187.loopexit ], [ %236, %223 ]
-  %247 = phi i32 [ %.pre226, %.loopexit187.loopexit ], [ %234, %223 ]
+  %247 = phi i32 [ %.pre228, %.loopexit187.loopexit ], [ %234, %223 ]
   %248 = and i32 %247, 2
   %.not157 = icmp ne i32 %248, 0
   %249 = icmp ne i32 %246, 0
@@ -565,12 +565,12 @@ iterate.exit178:                                  ; preds = %122, %110
   br i1 %259, label %251, label %.loopexit185.loopexit, !llvm.loop !37
 
 .loopexit185.loopexit:                            ; preds = %251
-  %.pre227 = load i32, ptr %18, align 16, !tbaa !24
+  %.pre229 = load i32, ptr %18, align 16, !tbaa !24
   br label %.loopexit185
 
 .loopexit185:                                     ; preds = %.loopexit185.loopexit, %.loopexit187
   %260 = phi i32 [ %258, %.loopexit185.loopexit ], [ %246, %.loopexit187 ]
-  %261 = phi i32 [ %.pre227, %.loopexit185.loopexit ], [ %247, %.loopexit187 ]
+  %261 = phi i32 [ %.pre229, %.loopexit185.loopexit ], [ %247, %.loopexit187 ]
   %262 = and i32 %261, 4
   %.not158 = icmp ne i32 %262, 0
   %263 = icmp ne i32 %260, 0

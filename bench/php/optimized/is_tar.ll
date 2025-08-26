@@ -147,12 +147,12 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
 
 is_tar.exit:                                      ; preds = %61, %57
   %.0.i = phi i64 [ 3, %57 ], [ %..i, %61 ]
-  %64 = icmp eq i32 %5, 1024
-  br i1 %64, label %is_tar.exit.thread, label %65
+  %65 = icmp eq i32 %5, 1024
+  br i1 %65, label %is_tar.exit.thread, label %66
 
-65:                                               ; preds = %is_tar.exit
+66:                                               ; preds = %is_tar.exit
   %.not15 = icmp eq i32 %5, 0
-  %66 = getelementptr [32 x i8], ptr @tartype, i64 %.0.i
+  %67 = getelementptr [32 x i8], ptr @tartype, i64 %.0.i
   %67 = getelementptr i8, ptr %66, i64 -32
   %68 = select i1 %.not15, ptr %67, ptr @.str.1
   %69 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %68) #7
@@ -160,7 +160,7 @@ is_tar.exit:                                      ; preds = %61, %57
   %. = select i1 %70, i32 -1, i32 1
   br label %is_tar.exit.thread
 
-is_tar.exit.thread:                               ; preds = %55, %16, %7, %65, %is_tar.exit, %2
+is_tar.exit.thread:                               ; preds = %55, %16, %7, %66, %is_tar.exit, %2
   %.0 = phi i32 [ 0, %2 ], [ 1, %is_tar.exit ], [ %., %65 ], [ 0, %7 ], [ 0, %16 ], [ 0, %55 ]
   ret i32 %.0
 }

@@ -252,7 +252,7 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph108, %.preheader
   %.075.lcssa = phi i64 [ 0, %.preheader ], [ %116, %.lr.ph108 ]
-  br i1 %.not110, label %.lr.ph.i, label %118
+  br i1 %.not110, label %.critedge, label %118
 
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
   %.0107 = phi i64 [ %117, %.lr.ph108 ], [ 0, %.preheader ]
@@ -271,23 +271,23 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %120 = udiv i64 %1, 3
   %121 = uitofp nneg i64 %120 to float
   %122 = fdiv float %119, %121
-  br label %.lr.ph.i
+  br label %.critedge
 
-.lr.ph.i:                                         ; preds = %._crit_edge, %118
+.critedge:                                        ; preds = %._crit_edge, %118
   %123 = phi float [ %122, %118 ], [ 0.000000e+00, %._crit_edge ]
   %124 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
   %125 = load ptr, ptr %7, align 8, !tbaa !4
   invoke void %124(ptr noundef %125)
           to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %126
 
-126:                                              ; preds = %.lr.ph.i
+126:                                              ; preds = %.critedge
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
   tail call void @__clang_call_terminate(ptr %128) #9
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %.lr.ph.i
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %.critedge
   %.sroa.10.8.vec.insert = insertelement <2 x float> poison, float %123, i64 0
   %129 = icmp eq i64 %.075.lcssa, 0
   %130 = uitofp i32 %.sroa.0.sroa.0.0.lcssa to float
@@ -320,19 +320,19 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %.not3 = icmp eq i64 %3, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %8, %1
+4:                                                ; preds = %8, %1
   ret void
 
-.lr.ph:                                           ; preds = %1, %8
+6:                                                ; preds = %1, %8
   %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
   %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %5 = getelementptr ptr, ptr %0, i64 %.04
-  %6 = getelementptr i8, ptr %5, i64 -8
+  %9 = getelementptr ptr, ptr %0, i64 %.04
+  %6 = getelementptr i8, ptr %9, i64 -8
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   invoke void %4(ptr noundef %7)
           to label %8 unwind label %10
 
-8:                                                ; preds = %.lr.ph
+8:; preds = %.lr.ph
   %9 = add i64 %.04, -1
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -340,8 +340,8 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
 10:                                               ; preds = %.lr.ph
   %11 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #9
+  %13 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %13) #9
   unreachable
 }
 

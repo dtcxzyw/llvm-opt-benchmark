@@ -682,14 +682,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %487 = load float, ptr %486, align 4, !tbaa !14
   %488 = getelementptr inbounds nuw i8, ptr %482, i64 8
   store float %487, ptr %488, align 8, !tbaa !14
-  %489 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 12
-  %490 = load float, ptr %489, align 4, !tbaa !14
+  %490 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 12
+  %490 = load float, ptr %490, align 4, !tbaa !14
   %491 = getelementptr inbounds nuw i8, ptr %482, i64 12
   store float %490, ptr %491, align 4, !tbaa !14
   %492 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %493 = icmp samesign ult i64 %indvars.iv.next.i, %256
-  br i1 %493, label %.lr.ph208.i, label %._crit_edge209.loopexit.i, !llvm.loop !16
+  %496 = icmp samesign ult i64 %indvars.iv.next.i, %256
+  br i1 %496, label %.lr.ph208.i, label %._crit_edge209.loopexit.i, !llvm.loop !16
 
 ._crit_edge215.i:                                 ; preds = %.lr.ph214.i, %._crit_edge209.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -699,25 +699,25 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
 .lr.ph214.i:                                      ; preds = %.lr.ph214.i, %.lr.ph214.preheader.i
   %indvars.iv218.i = phi i64 [ 0, %.lr.ph214.preheader.i ], [ %indvars.iv.next219.i, %.lr.ph214.i ]
   %.168211.i = phi ptr [ %.067.lcssa.i, %.lr.ph214.preheader.i ], [ %505, %.lr.ph214.i ]
-  %494 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv218.i
-  %495 = load float, ptr %494, align 16, !tbaa !14
-  store float %495, ptr %.168211.i, align 4, !tbaa !14
+  %497 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv218.i
+  %498 = load float, ptr %497, align 16, !tbaa !14
+  store float %498, ptr %.168211.i, align 4, !tbaa !14
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 4
   %497 = load float, ptr %496, align 4, !tbaa !14
   %498 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 4
   store float %497, ptr %498, align 4, !tbaa !14
-  %499 = getelementptr inbounds nuw i8, ptr %494, i64 8
+  %499 = getelementptr inbounds nuw i8, ptr %497, i64 8
   %500 = load float, ptr %499, align 8, !tbaa !14
-  %501 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 8
-  store float %500, ptr %501, align 4, !tbaa !14
-  %502 = getelementptr inbounds nuw i8, ptr %494, i64 12
-  %503 = load float, ptr %502, align 4, !tbaa !14
+  %504 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 8
+  store float %500, ptr %504, align 4, !tbaa !14
+  %506 = getelementptr inbounds nuw i8, ptr %494, i64 12
+  %503 = load float, ptr %506, align 4, !tbaa !14
   %504 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 12
   store float %503, ptr %504, align 4, !tbaa !14
   %505 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 16
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 4
-  %506 = icmp samesign ult i64 %indvars.iv.next219.i, %480
-  br i1 %506, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !17
+  %512 = icmp samesign ult i64 %indvars.iv.next219.i, %480
+  br i1 %512, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !17
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit: ; preds = %._crit_edge.i, %._crit_edge215.i
   ret void

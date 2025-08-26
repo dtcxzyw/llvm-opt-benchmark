@@ -534,7 +534,7 @@ define internal fastcc void @show_dir(ptr noundef %0, ptr noundef %1) unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = call i32 @lv_fs_dir_open(ptr noundef nonnull %4, ptr noundef %1) #6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %167
+  br i1 %.not, label %6, label %168
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -876,13 +876,13 @@ file_explorer_sort.exit:                          ; preds = %.outer._crit_edge, 
   %164 = icmp ne i8 %163, 47
   %165 = icmp ult i64 %160, 128
   %or.cond = and i1 %165, %164
-  br i1 %or.cond, label %166, label %167
+  br i1 %or.cond, label %166, label %168
 
 166:                                              ; preds = %file_explorer_sort.exit
   store i8 47, ptr %161, align 1, !tbaa !32
   br label %167
 
-167:                                              ; preds = %file_explorer_sort.exit, %166, %2
+168:                                              ; preds = %file_explorer_sort.exit, %166, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

@@ -2380,19 +2380,19 @@ _ZN5faiss12simd16uint168accu_maxERKS0_.exit:      ; preds = %_ZN5faiss12simd16ui
   ret void
 
 .lr.ph47:                                         ; preds = %25, %.lr.ph47
-  %.046 = phi i64 [ %43, %.lr.ph47 ], [ %26, %25 ]
-  %36 = getelementptr inbounds nuw i16, ptr %0, i64 %.046
-  %37 = load i16, ptr %36, align 2, !tbaa !31
-  %38 = load i16, ptr %2, align 2, !tbaa !31
-  %39 = tail call i16 @llvm.umin.i16(i16 %37, i16 %38)
-  store i16 %39, ptr %2, align 2, !tbaa !31
-  %40 = load i16, ptr %3, align 2, !tbaa !31
-  %41 = load i16, ptr %36, align 2, !tbaa !31
-  %42 = tail call i16 @llvm.umax.i16(i16 %40, i16 %41)
-  store i16 %42, ptr %3, align 2, !tbaa !31
-  %43 = add nuw i64 %.046, 1
-  %44 = icmp ult i64 %43, %1
-  br i1 %44, label %.lr.ph47, label %._crit_edge, !llvm.loop !53
+  %.046 = phi i64 [ %44, %.lr.ph47 ], [ %26, %25 ]
+  %37 = getelementptr inbounds nuw i16, ptr %0, i64 %.046
+  %38 = load i16, ptr %37, align 2, !tbaa !31
+  %39 = load i16, ptr %2, align 2, !tbaa !31
+  %40 = tail call i16 @llvm.umin.i16(i16 %38, i16 %39)
+  store i16 %40, ptr %2, align 2, !tbaa !31
+  %41 = load i16, ptr %3, align 2, !tbaa !31
+  %42 = load i16, ptr %37, align 2, !tbaa !31
+  %43 = tail call i16 @llvm.umax.i16(i16 %41, i16 %42)
+  store i16 %43, ptr %3, align 2, !tbaa !31
+  %44 = add nuw i64 %.046, 1
+  %45 = icmp ult i64 %44, %1
+  br i1 %45, label %.lr.ph47, label %._crit_edge, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

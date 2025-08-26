@@ -892,12 +892,12 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   store ptr %9, ptr %0, align 8
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
-  br label %48
+  br label %49
 
 .preheader:                                       ; preds = %2, %12
   %.026 = phi i32 [ %13, %12 ], [ 2, %2 ]
   %exitcond.not = icmp eq i32 %.026, 5
-  br i1 %exitcond.not, label %45, label %12
+  br i1 %exitcond.not, label %46, label %12
 
 12:                                               ; preds = %.preheader
   %13 = add nuw nsw i32 %.026, 1
@@ -922,13 +922,13 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   %28 = zext nneg i32 %.026 to i64
   br label %29
 
-29:                                               ; preds = %24, %38
+29:                                               ; preds = %24, %39
   %indvars.iv = phi i64 [ 1, %24 ], [ %indvars.iv.next, %38 ]
-  %.02533 = phi i32 [ %27, %24 ], [ %42, %38 ]
+  %.02533 = phi i32 [ %27, %24 ], [ %43, %38 ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = icmp slt i8 %31, -64
-  br i1 %32, label %38, label %33
+  br i1 %32, label %39, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr ptr, ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__L9_ReadUTF8ERPKhPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.ordinalWords, i64 %indvars.iv
@@ -937,31 +937,31 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @.str.12, i32 noundef %.026, ptr noundef %36)
   %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  br label %48
+  br label %49
 
-38:                                               ; preds = %29
-  %39 = shl i32 %.02533, 6
-  %40 = and i8 %31, 63
-  %41 = zext nneg i8 %40 to i32
-  %42 = or disjoint i32 %39, %41
+39:                                               ; preds = %29
+  %40 = shl i32 %.02533, 6
+  %41 = and i8 %31, 63
+  %42 = zext nneg i8 %41 to i32
+  %43 = or disjoint i32 %40, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %28
-  br i1 %.not, label %43, label %29, !llvm.loop !13
+  br i1 %.not, label %44, label %29, !llvm.loop !13
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 %28
-  store ptr %44, ptr %0, align 8
-  br label %48
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %28
+  store ptr %45, ptr %0, align 8
+  br label %49
 
-45:                                               ; preds = %.preheader
-  %46 = zext i8 %6 to i32
-  call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.13, i32 noundef %46)
-  %47 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #16
+46:                                               ; preds = %.preheader
+  %47 = zext i8 %6 to i32
+  call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.13, i32 noundef %47)
+  %48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  br label %48
+  br label %49
 
-48:                                               ; preds = %45, %43, %33, %8
-  %.027 = phi i32 [ %11, %8 ], [ -1, %33 ], [ %42, %43 ], [ -1, %45 ]
+49:                                               ; preds = %46, %44, %33, %8
+  %.027 = phi i32 [ %11, %8 ], [ -1, %33 ], [ %43, %43 ], [ -1, %45 ]
   ret i32 %.027
 }
 

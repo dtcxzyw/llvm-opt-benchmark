@@ -6275,45 +6275,45 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(pt
   %159 = getelementptr inbounds i8, ptr %5, i64 %121
   %160 = getelementptr inbounds i8, ptr %159, i64 %124
   store i32 0, ptr %128, align 8, !tbaa !248
-  %161 = load ptr, ptr %129, align 8, !tbaa !208
-  store ptr %161, ptr %131, align 8, !tbaa !249
+  %162 = load ptr, ptr %129, align 8, !tbaa !208
+  store ptr %162, ptr %131, align 8, !tbaa !249
   store i32 %8, ptr %132, align 8, !tbaa !250
   store i32 0, ptr %134, align 8, !tbaa !251
-  %162 = load ptr, ptr %135, align 8, !tbaa !208
-  store ptr %162, ptr %137, align 8, !tbaa !252
+  %163 = load ptr, ptr %135, align 8, !tbaa !208
+  store ptr %163, ptr %137, align 8, !tbaa !252
   store i32 %8, ptr %138, align 8, !tbaa !253
   tail call void @_ZN2cv10PngEncoder11processRectEPhiiiiS1_(ptr noundef nonnull align 8 dereferenceable(8960) %0, ptr noundef %160, i32 noundef %126, i32 noundef %6, i32 noundef %7, i32 noundef %116, ptr noundef null)
-  %163 = tail call i32 @deflate(ptr noundef nonnull %127, i32 noundef 4)
-  %164 = tail call i32 @deflate(ptr noundef nonnull %133, i32 noundef 4)
+  %164 = tail call i32 @deflate(ptr noundef nonnull %127, i32 noundef 4)
+  %165 = tail call i32 @deflate(ptr noundef nonnull %133, i32 noundef 4)
   %165 = getelementptr i8, ptr %143, i64 40
   store ptr %5, ptr %165, align 8, !tbaa !254
   %166 = load i64, ptr %144, align 8, !tbaa !256
-  %167 = load i64, ptr %146, align 8, !tbaa !257
+  %168 = load i64, ptr %146, align 8, !tbaa !257
   %168 = icmp uge i64 %166, %167
-  %spec.select.i308 = tail call i64 @llvm.umin.i64(i64 %166, i64 %167)
+  %spec.select.i308 = tail call i64 @llvm.umin.i64(i64 %166, i64 %168)
   %spec.select32.i309 = zext i1 %168 to i32
   %.sink30.i310 = trunc i64 %spec.select.i308 to i32
-  %169 = getelementptr i8, ptr %143, i64 48
-  store i32 %.sink30.i310, ptr %169, align 8, !tbaa !258
-  %170 = getelementptr i8, ptr %143, i64 72
-  store i32 %spec.select32.i309, ptr %170, align 8, !tbaa !259
-  %171 = getelementptr i8, ptr %143, i64 52
-  store i32 %.4268, ptr %171, align 4, !tbaa !260
-  %172 = getelementptr i8, ptr %143, i64 56
-  store i32 %.4251, ptr %172, align 8, !tbaa !261
-  %173 = getelementptr i8, ptr %143, i64 60
-  store i32 %114, ptr %173, align 4, !tbaa !262
-  %174 = getelementptr i8, ptr %143, i64 64
-  store i32 %116, ptr %174, align 8, !tbaa !263
-  %175 = getelementptr i8, ptr %143, i64 68
-  store i32 1, ptr %175, align 4, !tbaa !264
-  %176 = tail call i32 @deflateReset(ptr noundef nonnull %127)
-  %177 = tail call i32 @deflateReset(ptr noundef nonnull %133)
+  %171 = getelementptr i8, ptr %143, i64 48
+  store i32 %.sink30.i310, ptr %171, align 8, !tbaa !258
+  %172 = getelementptr i8, ptr %143, i64 72
+  store i32 %spec.select32.i309, ptr %172, align 8, !tbaa !259
+  %173 = getelementptr i8, ptr %143, i64 52
+  store i32 %.4268, ptr %173, align 4, !tbaa !260
+  %174 = getelementptr i8, ptr %143, i64 56
+  store i32 %.4251, ptr %174, align 8, !tbaa !261
+  %175 = getelementptr i8, ptr %143, i64 60
+  store i32 %114, ptr %175, align 4, !tbaa !262
+  %176 = getelementptr i8, ptr %143, i64 64
+  store i32 %116, ptr %176, align 8, !tbaa !263
+  %177 = getelementptr i8, ptr %143, i64 68
+  store i32 1, ptr %177, align 4, !tbaa !264
+  %178 = tail call i32 @deflateReset(ptr noundef nonnull %127)
+  %179 = tail call i32 @deflateReset(ptr noundef nonnull %133)
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.lr.ph, %.preheader328, %.preheader325, %.preheader322, %.preheader320, %12, %112, %158, %118, %.loopexit
-  %178 = phi i1 [ true, %112 ], [ true, %158 ], [ true, %118 ], [ false, %.loopexit ], [ false, %12 ], [ false, %.preheader320 ], [ false, %.preheader322 ], [ false, %.preheader325 ], [ false, %.preheader328 ], [ false, %.preheader.lr.ph ]
-  ret i1 %178
+  %180 = phi i1 [ true, %112 ], [ true, %158 ], [ true, %118 ], [ false, %.loopexit ], [ false, %12 ], [ false, %.preheader320 ], [ false, %.preheader322 ], [ false, %.preheader325 ], [ false, %.preheader328 ], [ false, %.preheader.lr.ph ]
+  ret i1 %180
 }
 
 ; Function Attrs: mustprogress uwtable

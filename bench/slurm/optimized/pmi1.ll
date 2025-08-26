@@ -356,48 +356,48 @@ define internal fastcc i32 @_handle_pmi1_cmd_buf(i32 noundef %0, i32 noundef %1,
 8:                                                ; preds = %7, %4
   %9 = tail call ptr @client_req_init(i32 noundef %2, ptr noundef %3) #8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %12, label %.preheader
+  br i1 %10, label %14, label %.preheader
 
 .preheader:                                       ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %17
 
-12:                                               ; preds = %8
-  %13 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #8
-  br label %29
+14:                                               ; preds = %8
+  %15 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #8
+  br label %28
 
-14:                                               ; preds = %17
+.lr.ph:                                           ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds nuw %struct.anon, ptr @pmi1_cmd_handlers, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond, label %21, label %17, !llvm.loop !14
+  br i1 %exitcond, label %21, label %16, !llvm.loop !14
 
-17:                                               ; preds = %.preheader, %14
+16:                                               ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
   %18 = phi ptr [ @.str.12, %.preheader ], [ %16, %14 ]
   %19 = load ptr, ptr %11, align 8
   %20 = tail call i32 @slurm_xstrcmp(ptr noundef %19, ptr noundef nonnull %18) #8
   %.not20 = icmp eq i32 %20, 0
-  br i1 %.not20, label %24, label %14
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
-21:                                               ; preds = %14
+21:                                               ; preds = %.lr.ph
   %22 = load ptr, ptr %11, align 8
   %23 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.11, ptr noundef %22) #8
-  br label %28
+  br label %27
 
-24:                                               ; preds = %17
+._crit_edge:                                      ; preds = %16
   %25 = getelementptr inbounds nuw %struct.anon, ptr @pmi1_cmd_handlers, i64 %indvars.iv, i32 1
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 %26(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %9) #8
   br label %28
 
-28:                                               ; preds = %24, %21
+27:                                               ; preds = %._crit_edge, %21
   %.0 = phi i32 [ -1, %21 ], [ %27, %24 ]
   tail call void @client_req_free(ptr noundef nonnull %9) #8
-  br label %29
+  br label %28
 
-29:                                               ; preds = %28, %12
+28:                                               ; preds = %27, %14
   %.017 = phi i32 [ -1, %12 ], [ %.0, %28 ]
   ret i32 %.017
 }

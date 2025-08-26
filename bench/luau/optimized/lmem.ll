@@ -1219,12 +1219,12 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
 .preheader.i.i.preheader:                         ; preds = %.lr.ph.i.i, %.preheader26.i.i
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %42
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %43
   %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %42 ], [ 1023, %.preheader.i.i.preheader ]
   %36 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 %indvars.iv37.i.i
   %37 = load i8, ptr %36, align 1, !tbaa !19
   %38 = icmp slt i8 %37, 0
-  br i1 %38, label %39, label %42
+  br i1 %38, label %39, label %43
 
 39:                                               ; preds = %.preheader.i.i
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 1
@@ -1232,13 +1232,13 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
   store i8 %41, ptr %36, align 1, !tbaa !19
   br label %42
 
-42:                                               ; preds = %39, %.preheader.i.i
+43:                                               ; preds = %39, %.preheader.i.i
   %indvars.iv.next38.i.i = add nsw i64 %indvars.iv37.i.i, -1
   %.not.i.i = icmp eq i64 %indvars.iv37.i.i, 0
   br i1 %.not.i.i, label %__cxx_global_var_init.exit, label %.preheader.i.i, !llvm.loop !66
 
-__cxx_global_var_init.exit:                       ; preds = %42
-  %43 = tail call ptr @llvm.invariant.start.p0(i64 1192, ptr nonnull @_ZL16kSizeClassConfig)
+__cxx_global_var_init.exit:                       ; preds = %43
+  %44 = tail call ptr @llvm.invariant.start.p0(i64 1192, ptr nonnull @_ZL16kSizeClassConfig)
   ret void
 }
 

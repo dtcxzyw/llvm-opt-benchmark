@@ -1173,16 +1173,16 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit: ; preds = 
   %69 = getelementptr i8, ptr %68, i64 -24
   %.not1947 = icmp eq ptr %69, null
   %.not19 = select i1 %.not18, i1 true, i1 %.not1947
-  br i1 %.not19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit", label %70
+  br i1 %.not19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit", label %69
 
-70:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = icmp ne i64 %72, 0
-  %or.cond.not = select i1 %4, i1 %73, i1 false
-  br i1 %or.cond.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit", label %74
+69:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = icmp ne i64 %71, 0
+  %or.cond.not = select i1 %4, i1 %72, i1 false
+  br i1 %or.cond.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit", label %73
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit": ; preds = %83, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i", %70, %_ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit": ; preds = %82, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i", %69, %_ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit
   %.sroa.5.0 = phi i64 [ %66, %_ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit ], [ %66, %70 ], [ %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i" ], [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit" ], [ %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit" ], [ %66, %83 ]
   store i64 %.sroa.029.0.copyload31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1191,28 +1191,28 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit: ; preds = 
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
   ret void
 
-74:                                               ; preds = %70
-  %75 = getelementptr i8, ptr %68, i64 -16
-  %76 = load ptr, ptr %75, align 8, !nonnull !4, !noundef !4
-  %77 = getelementptr i8, ptr %68, i64 -8
-  %78 = load i64, ptr %77, align 8, !noundef !4
-  %79 = getelementptr inbounds i8, ptr %76, i64 %78
-  br label %80
+73:                                               ; preds = %69
+  %74 = getelementptr i8, ptr %68, i64 -16
+  %75 = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
+  %76 = getelementptr i8, ptr %68, i64 -8
+  %77 = load i64, ptr %76, align 8, !noundef !4
+  %78 = getelementptr inbounds i8, ptr %75, i64 %77
+  br label %79
 
-80:                                               ; preds = %83, %74
-  %81 = phi ptr [ %84, %83 ], [ %76, %74 ]
-  %82 = icmp eq ptr %81, %79
-  br i1 %82, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit", label %83
+79:                                               ; preds = %82, %73
+  %80 = phi ptr [ %83, %83 ], [ %75, %74 ]
+  %81 = icmp eq ptr %80, %78
+  br i1 %81, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit", label %82
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  %.val.i = load i8, ptr %81, align 1, !noalias !208, !noundef !4
-  %85 = icmp eq i8 %.val.i, 32
-  br i1 %85, label %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit"
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 1
+  %.val.i = load i8, ptr %80, align 1, !noalias !208, !noundef !4
+  %84 = icmp eq i8 %.val.i, 32
+  br i1 %84, label %79, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit": ; preds = %80
-  %86 = icmp ult i64 %65, %.sroa.029.0.copyload31
-  call void @llvm.assume(i1 %86)
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit": ; preds = %79
+  %85 = icmp ult i64 %65, %.sroa.029.0.copyload31
+  call void @llvm.assume(i1 %85)
   %87 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %.sroa.7.0.copyload36, i64 %65
   %.sroa.024.0.copyload = load i64, ptr %87, align 8, !noalias !211
   switch i64 %.sroa.024.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i" [
@@ -1221,7 +1221,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h163cea8fcdd1ae56E.exit: ; preds = 
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.4233002952263615725.exit.i.i1.i.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf7359e3c71d9178aE.exit"
-  call void @__rust_dealloc(ptr noundef nonnull %76, i64 noundef %.sroa.024.0.copyload, i64 noundef 1) #32, !noalias !214
+  call void @__rust_dealloc(ptr noundef nonnull %75, i64 noundef %.sroa.024.0.copyload, i64 noundef 1) #32, !noalias !214
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17hec79c4863cdf5e7aE.exit"
 }
 

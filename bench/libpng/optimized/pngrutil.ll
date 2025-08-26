@@ -1921,7 +1921,7 @@ define void @png_do_read_interlace(ptr noundef captures(address_is_null) %0, ptr
 define void @png_read_filter_row(ptr noalias noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = add i32 %4, -1
   %or.cond = icmp ult i32 %6, 4
-  br i1 %or.cond, label %7, label %26
+  br i1 %or.cond, label %7, label %25
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1208
@@ -1955,7 +1955,7 @@ define void @png_read_filter_row(ptr noalias noundef %0, ptr noundef %1, ptr nou
   tail call void %25(ptr noundef %1, ptr noundef %2, ptr noundef %3) #12
   br label %26
 
-26:                                               ; preds = %21, %5
+25:                                               ; preds = %21, %5
   ret void
 }
 

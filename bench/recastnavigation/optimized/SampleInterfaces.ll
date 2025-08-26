@@ -339,7 +339,7 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   %2 = alloca [4096 x i32], align 16
   %3 = load i32, ptr %0, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %16
+  br i1 %4, label %5, label %18
 
 5:                                                ; preds = %1
   tail call void @glGenTextures(i32 noundef 1, ptr noundef nonnull %0)
@@ -347,9 +347,9 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef %6)
   br label %.preheader24
 
-.preheader24:                                     ; preds = %5, %12
-  %.02128 = phi i32 [ 64, %5 ], [ %13, %12 ]
-  %.02227 = phi i32 [ 0, %5 ], [ %14, %12 ]
+.preheader24:                                     ; preds = %5, %14
+  %.02128 = phi i32 [ 64, %5 ], [ %15, %12 ]
+  %.02227 = phi i32 [ 0, %5 ], [ %16, %12 ]
   %7 = zext nneg i32 %.02128 to i64
   br label %.preheader
 
@@ -384,25 +384,25 @@ define linkonce_odr dso_local void @_ZN16GLCheckerTexture4bindEv(ptr noundef non
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %7
-  br i1 %exitcond40.not, label %12, label %.preheader, !llvm.loop !11
+  br i1 %exitcond40.not, label %14, label %.preheader, !llvm.loop !11
 
-12:                                               ; preds = %.split.us
+14:                                               ; preds = %.split.us
   call void @glTexImage2D(i32 noundef 3553, i32 noundef %.02227, i32 noundef 6408, i32 noundef %.02128, i32 noundef %.02128, i32 noundef 0, i32 noundef 6408, i32 noundef 5121, ptr noundef nonnull %2)
-  %13 = lshr i32 %.02128, 1
-  %14 = add nuw nsw i32 %.02227, 1
-  %exitcond41 = icmp eq i32 %14, 7
-  br i1 %exitcond41, label %15, label %.preheader24, !llvm.loop !12
+  %15 = lshr i32 %.02128, 1
+  %16 = add nuw nsw i32 %.02227, 1
+  %exitcond41 = icmp eq i32 %16, 7
+  br i1 %exitcond41, label %17, label %.preheader24, !llvm.loop !12
 
-15:                                               ; preds = %12
+17:                                               ; preds = %14
   call void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9985)
   call void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
-  br label %17
+  br label %19
 
-16:                                               ; preds = %1
+18:                                               ; preds = %1
   tail call void @glBindTexture(i32 noundef 3553, i32 noundef %3)
-  br label %17
+  br label %19
 
-17:                                               ; preds = %16, %15
+19:                                               ; preds = %18, %17
   ret void
 }
 
