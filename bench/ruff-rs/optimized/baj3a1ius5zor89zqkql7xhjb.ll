@@ -6042,7 +6042,7 @@ _ZN5serde2de7Visitor10visit_bool17hc30ed4338695c0d9E.exit.i.i.i.i: ; preds = %22
   %232 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %233
 
-233:                                              ; preds = %.backedge250, %227
+233:                                              ; preds = %.backedge249, %227
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !338
   invoke void @"_ZN86_$LT$toml_edit..de..datetime..DatetimeDeserializer$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h5db3b67350b881edE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %14, ptr noalias noundef nonnull align 4 dereferenceable(24) %31)
           to label %_ZN5serde2de9MapAccess8next_key17hfd597b64252b78d1E.exit.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i, !noalias !340
@@ -6169,7 +6169,7 @@ _ZN5serde2de9MapAccess10next_value17h7d8088d506e7ec4bE.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i": ; preds = %259, %257
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.6.i.i.i.i.i, i64 48, i1 false), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
 262:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !338
@@ -6224,7 +6224,7 @@ _ZN5serde2de9MapAccess10next_value17h8db4a6d52c601fa7E.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i": ; preds = %271, %269
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.628.i.i.i.i.i, i64 32, i1 false), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
 274:                                              ; preds = %247
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !338
@@ -6279,7 +6279,7 @@ _ZN5serde2de9MapAccess10next_value17hacf4fabfd9452082E.exit.i.i.i.i.i: ; preds =
 
 "_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i": ; preds = %283, %281
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.637.i.i.i.i.i, i64 48, i1 false), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
 _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds = %249
   %286 = load i64, ptr %7, align 8, !range !43, !noalias !338, !noundef !7
@@ -6295,9 +6295,9 @@ _ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i: ; preds =
 
 289:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h9ee44f54a39cda49E.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !338
-  br label %.backedge250
+  br label %.backedge249
 
-.backedge250:                                     ; preds = %289, %"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i", %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i", %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i"
+.backedge249:                                     ; preds = %289, %"_ZN4core3ptr172drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version_specifier..VersionSpecifiers$GT$$GT$$GT$$GT$17h3ace3bd09b0303fdE.exit.i.i.i.i.i", %"_ZN4core3ptr152drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$pep440_rs..version..Version$GT$$GT$$GT$$GT$17h506674220121d075E.exit.i.i.i.i.i", %"_ZN4core3ptr169drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_project..metadata..pyproject..PackageName$GT$$GT$$GT$$GT$17ha68277ef755b7574E.exit.i.i.i.i.i"
   br label %233
 
 290:                                              ; preds = %287, %279, %276, %267, %264, %255, %252, %238

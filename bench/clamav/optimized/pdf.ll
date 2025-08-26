@@ -9661,7 +9661,7 @@ aes_128cbc_encrypt.exit:                          ; preds = %36, %._crit_edge.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
   br label %62
 
-62:                                               ; preds = %52, %56, %58, %60
+default.unreachable:                              ; preds = %52, %56, %58, %60
   %63 = add nuw nsw i32 %.040, 1
   br label %15
 

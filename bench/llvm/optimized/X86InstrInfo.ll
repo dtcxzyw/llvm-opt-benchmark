@@ -29928,7 +29928,7 @@ define internal fastcc noundef zeroext i1 @"_ZZNK4llvm12X86InstrInfo23areLoadsFr
 define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo23shouldScheduleLoadsNearEPNS_6SDNodeES2_llj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(416) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #9 align 2 {
   %7 = sub nsw i64 %4, %3
   %8 = icmp sgt i64 %7, 519
-  br i1 %8, label %29, label %9
+  br i1 %8, label %30, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -29936,54 +29936,54 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12X86InstrInfo23shouldScheduleLoad
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !1413
   %.not = icmp eq i32 %11, %13
-  br i1 %.not, label %14, label %29
+  br i1 %.not, label %14, label %30
 
 14:                                               ; preds = %9
   switch i32 %11, label %15 [
     i32 -2110, label %29
-    i32 -2113, label %29
-    i32 -2115, label %29
-    i32 -2347, label %29
-    i32 -2357, label %29
+    i32 -2113, label %30
+    i32 -2115, label %30
+    i32 -2347, label %30
+    i32 -2357, label %30
   ]
 
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !1546
-  %.sroa.0.0.copyload.i = load i16, ptr %17, align 8, !tbaa !1519
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %18 = load ptr, ptr %17, align 8, !tbaa !1546
+  %.sroa.0.0.copyload.i = load i16, ptr %18, align 8, !tbaa !1519
   switch i16 %.sroa.0.0.copyload.i, label %18 [
-    i16 5, label %27
-    i16 6, label %27
-    i16 7, label %27
-    i16 8, label %27
-    i16 12, label %27
-    i16 13, label %27
+    i16 5, label %28
+    i16 6, label %28
+    i16 7, label %28
+    i16 8, label %28
+    i16 12, label %28
+    i16 13, label %28
   ]
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !212
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 477
-  %22 = load i8, ptr %21, align 1, !tbaa !88, !range !68, !noundef !69
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %26
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %21 = load ptr, ptr %20, align 8, !tbaa !212
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 477
+  %23 = load i8, ptr %22, align 1, !tbaa !88, !range !68, !noundef !69
+  %24 = trunc nuw i8 %23 to i1
+  br i1 %24, label %25, label %27
 
-24:                                               ; preds = %18
-  %25 = icmp ugt i32 %5, 2
-  br i1 %25, label %29, label %28
+25:                                               ; preds = %19
+  %26 = icmp ugt i32 %5, 2
+  br i1 %26, label %30, label %29
 
-26:                                               ; preds = %18
+27:                                               ; preds = %19
   %.not14 = icmp eq i32 %5, 0
-  br i1 %.not14, label %28, label %29
+  br i1 %.not14, label %29, label %30
 
-27:                                               ; preds = %15, %15, %15, %15, %15, %15
+28:                                               ; preds = %16, %16, %16, %16, %16, %16
   %.not13 = icmp eq i32 %5, 0
-  br i1 %.not13, label %28, label %29
+  br i1 %.not13, label %29, label %30
 
-28:                                               ; preds = %27, %24, %26
-  br label %29
+29:                                               ; preds = %28, %25, %27
+  br label %30
 
-29:                                               ; preds = %28, %24, %26, %27, %9, %14, %14, %14, %14, %14, %6
+30:                                               ; preds = %29, %25, %27, %28, %9, %14, %14, %14, %14, %14, %6
   %.0 = phi i1 [ false, %6 ], [ false, %9 ], [ false, %14 ], [ false, %14 ], [ false, %14 ], [ false, %14 ], [ false, %14 ], [ true, %28 ], [ false, %24 ], [ false, %26 ], [ false, %27 ]
   ret i1 %.0
 }

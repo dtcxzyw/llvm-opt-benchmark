@@ -2109,22 +2109,22 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
     i32 4, label %22
   ]
 
-20:                                               ; preds = %3
-  %21 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %18) #6
+19:                                               ; preds = %3
+  %20 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %18) #6
   br label %28
 
-22:                                               ; preds = %3
-  %23 = tail call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef %18) #6
+21:                                               ; preds = %3
+  %22 = tail call ptr @lj_lib_checkstr(ptr noundef nonnull %0, i32 noundef %18) #6
   br label %28
 
-24:                                               ; preds = %3
+23:                                               ; preds = %3
   %25 = zext i32 %19 to i64
   %26 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !58
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %27) #7
   unreachable
 
-28:                                               ; preds = %22, %20
+28:                                               ; preds = %21, %19
   ret void
 }
 

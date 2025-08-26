@@ -589,7 +589,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 
 .preheader16.i:                                   ; preds = %._crit_edge.us.i, %.preheader17.preheader.i
   %wide.trip.count130.i.pre-phi = phi i64 [ %.pre152, %.preheader17.preheader.i ], [ %wide.trip.count101.i, %._crit_edge.us.i ]
-  %.not269.not31168.i = phi i1 [ false, %.preheader17.preheader.i ], [ true, %._crit_edge.us.i ]
+  %.not269.not31167.i = phi i1 [ false, %.preheader17.preheader.i ], [ true, %._crit_edge.us.i ]
   %154 = icmp sgt i32 %.neg262.i, 24
   %155 = icmp eq i32 %127, 0
   %156 = sub nsw i32 48, %.neg262.i
@@ -782,8 +782,8 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
   br i1 %.not268.i, label %251, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %249, %245
-  %.sink185.i = phi i32 [ 16777216, %249 ], [ 16777215, %245 ]
-  %250 = sub nsw i32 %.sink185.i, %247
+  %.sink184.i = phi i32 [ 16777216, %249 ], [ 16777215, %245 ]
+  %250 = sub nsw i32 %.sink184.i, %247
   store i32 %250, ptr %246, align 4
   br label %251
 
@@ -800,24 +800,24 @@ _ZL7scalbnAdi.exit.i:                             ; preds = %209, %206, %198, %1
 
 254:                                              ; preds = %252
   switch i32 %127, label %261 [
-    i32 1, label %.sink.split186.i
+    i32 1, label %.sink.split185.i
     i32 2, label %255
   ]
 
 255:                                              ; preds = %254
-  br label %.sink.split186.i
+  br label %.sink.split185.i
 
-.sink.split186.i:                                 ; preds = %255, %254
-  %.sink189.i = phi i32 [ 4194303, %255 ], [ 8388607, %254 ]
+.sink.split185.i:                                 ; preds = %255, %254
+  %.sink188.i = phi i32 [ 4194303, %255 ], [ 8388607, %254 ]
   %256 = add nsw i32 %.0231.i, -1
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds [20 x i32], ptr %3, i64 0, i64 %257
   %259 = load i32, ptr %258, align 4
-  %260 = and i32 %259, %.sink189.i
+  %260 = and i32 %259, %.sink188.i
   store i32 %260, ptr %258, align 4
   br label %261
 
-261:                                              ; preds = %.sink.split186.i, %254, %252
+261:                                              ; preds = %.sink.split185.i, %254, %252
   %262 = icmp eq i32 %.02285.i, 2
   br i1 %262, label %263, label %.thread6.i
 
@@ -888,7 +888,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %263
   %286 = ashr exact i64 %sext159, 32
   %287 = getelementptr inbounds [20 x double], ptr %4, i64 0, i64 %286
   store double %284, ptr %287, align 8
-  br i1 %.not269.not31168.i, label %.lr.ph51.i, label %._crit_edge52.i
+  br i1 %.not269.not31167.i, label %.lr.ph51.i, label %._crit_edge52.i
 
 .lr.ph51.i:                                       ; preds = %282, %.lr.ph51.i
   %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph51.i ], [ 0, %282 ]
@@ -1133,8 +1133,8 @@ _ZL7scalbnAdi.exit318.i:                          ; preds = %366, %364, %361, %.
   %392 = load double, ptr %391, align 8
   %393 = fadd double %.568.i, %392
   %indvars.iv.next155.i = add nsw i64 %indvars.iv154.i, -1
-  %.not191.i = icmp eq i64 %indvars.iv154.i, 0
-  br i1 %.not191.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !22
+  %.not190.i = icmp eq i64 %indvars.iv154.i, 0
+  br i1 %.not190.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !22
 
 ._crit_edge70.i:                                  ; preds = %.lr.ph69.i
   %.pre = load double, ptr %5, align 16

@@ -4887,7 +4887,7 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
     i32 4, label %229
   ]
 
-.preheader:                                       ; preds = %214
+.lr.ph:                                           ; preds = %214
   %.not89141 = icmp eq i32 %.0.i101, 0
   br i1 %.not89141, label %.loopexit, label %.lr.ph
 
@@ -4972,7 +4972,7 @@ parse_vlc.exit114:                                ; preds = %get_vlc2.exit.i109,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %258, !llvm.loop !189
 
-.loopexit:                                        ; preds = %258, %.preheader, %234, %246, %219, %224
+.loopexit:                                        ; preds = %258, %.lr.ph, %234, %246, %219, %224
   %264 = add nsw i32 %132, %.082143
   %265 = icmp slt i32 %264, 7
   br i1 %265, label %parse_vlc.exit, label %266, !llvm.loop !190

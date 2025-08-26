@@ -2834,7 +2834,7 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %17 = shl nuw i64 1, %16
   %18 = and i64 %15, %17
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %203
+  br i1 %.not, label %19, label %201
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 860
@@ -2865,15 +2865,15 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
   %.not23 = icmp eq i64 %40, 0
   %41 = icmp ugt i16 %1, -16385
   %spec.select = or i1 %.not23, %41
-  br label %203
+  br label %201
 
 42:                                               ; preds = %19
   %43 = lshr i16 %1, 14
   switch i16 %43, label %default.unreachable [
-    i16 0, label %203
+    i16 0, label %201
     i16 1, label %44
     i16 2, label %128
-    i16 3, label %192
+    i16 3, label %190
   ]
 
 44:                                               ; preds = %42
@@ -2968,19 +2968,19 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4Mo
 
 _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %82, %114
   %.0.i = phi i64 [ %118, %114 ], [ %65, %50 ], [ %81, %66 ], [ %113, %82 ]
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %120 = getelementptr inbounds nuw [2 x i64], ptr %119, i64 0, i64 %24
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %118 = getelementptr inbounds nuw [2 x i64], ptr %117, i64 0, i64 %24
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %123 = load i64, ptr %122, align 8
-  %124 = and i64 %123, %121
+  %123 = and i64 %123, %121
   %neg24 = sub i64 0, %124
   %125 = and i64 %.0.i, %neg24
   %126 = and i64 %125, %124
   %127 = icmp ne i64 %126, 0
   br label %203
 
-128:                                              ; preds = %42
+128:; preds = %42
   %129 = and i16 %1, 7
   %130 = and i16 %3, 56
   %131 = or disjoint i16 %130, %129
@@ -3049,21 +3049,21 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %50, %66, %
 default.unreachable:                              ; preds = %42
   unreachable
 
-192:                                              ; preds = %42
-  %193 = icmp samesign ugt i16 %5, %4
-  %194 = select i1 %193, i32 5, i32 3
-  %195 = mul nsw i32 %21, 56
-  %196 = or disjoint i32 %195, %194
-  %197 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %198 = load i64, ptr %197, align 8
-  %199 = zext nneg i32 %196 to i64
-  %200 = shl nuw i64 1, %199
-  %201 = and i64 %198, %200
-  %202 = icmp ne i64 %201, 0
-  br label %203
+190:                                              ; preds = %42
+  %191 = icmp samesign ugt i16 %5, %4
+  %192 = select i1 %191, i32 5, i32 3
+  %193 = mul nsw i32 %21, 56
+  %194 = or disjoint i32 %193, %192
+  %195 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %196 = load i64, ptr %195, align 8
+  %197 = zext nneg i32 %194 to i64
+  %198 = shl nuw i64 1, %197
+  %199 = and i64 %196, %198
+  %200 = icmp ne i64 %199, 0
+  br label %201
 
-203:                                              ; preds = %29, %42, %2, %192, %128, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
-  %.0 = phi i1 [ %202, %192 ], [ %127, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %191, %128 ], [ true, %2 ], [ false, %42 ], [ %spec.select, %29 ]
+201:                                              ; preds = %29, %42, %2, %190, %128, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit
+  %.0 = phi i1 [ %200, %192 ], [ %127, %_ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit ], [ %191, %128 ], [ true, %2 ], [ false, %42 ], [ %spec.select, %29 ]
   ret i1 %.0
 }
 

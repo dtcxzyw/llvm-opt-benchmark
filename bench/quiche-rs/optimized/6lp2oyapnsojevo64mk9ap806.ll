@@ -3797,8 +3797,8 @@ define noundef zeroext i1 @_ZN6quiche5frame5Frame13ack_eliciting17ha6a46ae69c40d
 define noundef zeroext i1 @_ZN6quiche5frame5Frame7probing17he2b9f440f325578fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !107, !noundef !12
   %3 = add nsw i64 %2, -2
-  %4 = icmp ne i64 %3, 2
-  tail call void @llvm.assume(i1 %4)
+  %2 = icmp ne i64 %3, 2
+  tail call void @llvm.assume(i1 %2)
   %5 = icmp ult i64 %3, 22
   %switch.cast = trunc i64 %3 to i22
   %switch.downshift = lshr i22 -786431, %switch.cast

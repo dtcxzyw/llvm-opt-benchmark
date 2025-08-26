@@ -1153,8 +1153,8 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
   br label %15
 
 15:                                               ; preds = %.lr.ph, %307
-  %.0103169 = phi ptr [ null, %.lr.ph ], [ %.1104, %307 ]
-  %.0142168 = phi i64 [ %3, %.lr.ph ], [ %.1143, %307 ]
+  %.0103168 = phi ptr [ null, %.lr.ph ], [ %.1104, %307 ]
+  %.0142167 = phi i64 [ %3, %.lr.ph ], [ %.1143, %307 ]
   %16 = load ptr, ptr %2, align 8, !tbaa !39
   %17 = load i8, ptr %16, align 1, !tbaa !36
   %18 = load i8, ptr %7, align 1, !tbaa !36
@@ -1173,7 +1173,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
   %26 = load ptr, ptr %2, align 8, !tbaa !39
   %27 = getelementptr i8, ptr %26, i64 1
   store ptr %27, ptr %2, align 8, !tbaa !39
-  %28 = add nsw i64 %.0142168, -1
+  %28 = add nsw i64 %.0142167, -1
   %29 = add i8 %17, -64
   %or.cond5 = icmp ult i8 %29, 27
   br i1 %or.cond5, label %30, label %307, !llvm.loop !63
@@ -1193,7 +1193,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
   ]
 
 34:                                               ; preds = %33
-  %35 = icmp eq i64 %.0142168, 1
+  %35 = icmp eq i64 %.0142167, 1
   br i1 %35, label %.thread159, label %36
 
 36:                                               ; preds = %34
@@ -1211,7 +1211,7 @@ switch.hole_check:                                ; preds = %36
 
 switch.lookup:                                    ; preds = %switch.hole_check, %57
   %.05487.i = phi i64 [ %58, %57 ], [ 1, %switch.hole_check ]
-  %.not.i = icmp slt i64 %.05487.i, %.0142168
+  %.not.i = icmp slt i64 %.05487.i, %.0142167
   br i1 %.not.i, label %40, label %.thread159
 
 40:                                               ; preds = %switch.lookup
@@ -1230,7 +1230,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 48:                                               ; preds = %44
   %49 = add nsw i64 %.05487.i, 1
-  %50 = icmp slt i64 %49, %.0142168
+  %50 = icmp slt i64 %49, %.0142167
   %51 = icmp eq i8 %42, 38
   %or.cond73.i = and i1 %50, %51
   br i1 %or.cond73.i, label %52, label %57
@@ -1252,7 +1252,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 60:                                               ; preds = %40
   %61 = add nsw i64 %.05487.i, 1
   switch i64 %61, label %.thread159 [
-    i64 0, label %.thread159.loopexit254
+    i64 0, label %.thread159
     i64 3, label %62
     i64 4, label %73
     i64 6, label %81
@@ -1356,7 +1356,7 @@ iso2022processesc.exit.thread150:                 ; preds = %97, %105
   %.05682.i = phi i8 [ 66, %97 ], [ %.05681.i, %105 ]
   %106 = getelementptr [8 x i8], ptr %0, i64 0, i64 %.05584.i
   store i8 %.05682.i, ptr %106, align 1, !tbaa !36
-  %107 = sub i64 %.0142168, %61
+  %107 = sub i64 %.0142167, %61
   %108 = load ptr, ptr %2, align 8, !tbaa !39
   %109 = getelementptr i8, ptr %108, i64 %61
   store ptr %109, ptr %2, align 8, !tbaa !39
@@ -1372,7 +1372,7 @@ iso2022processesc.exit.thread150:                 ; preds = %97, %105
   br i1 %or.cond, label %115, label %180
 
 115:                                              ; preds = %110
-  %116 = icmp samesign ult i64 %.0142168, 3
+  %116 = icmp samesign ult i64 %.0142167, 3
   br i1 %116, label %.thread159, label %117
 
 117:                                              ; preds = %115
@@ -1489,7 +1489,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %177 = load ptr, ptr %2, align 8, !tbaa !39
   %178 = getelementptr i8, ptr %177, i64 3
   store ptr %178, ptr %2, align 8, !tbaa !39
-  %179 = add nsw i64 %.0142168, -3
+  %179 = add nsw i64 %.0142167, -3
   br label %307
 
 180:                                              ; preds = %110
@@ -1504,7 +1504,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %186 = load ptr, ptr %2, align 8, !tbaa !39
   %187 = getelementptr i8, ptr %186, i64 1
   store ptr %187, ptr %2, align 8, !tbaa !39
-  %188 = add nsw i64 %.0142168, -1
+  %188 = add nsw i64 %.0142167, -1
   br label %307
 
 189:                                              ; preds = %33
@@ -1520,7 +1520,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %195 = load ptr, ptr %2, align 8, !tbaa !39
   %196 = getelementptr i8, ptr %195, i64 1
   store ptr %196, ptr %2, align 8, !tbaa !39
-  %197 = add nsw i64 %.0142168, -1
+  %197 = add nsw i64 %.0142167, -1
   br label %307
 
 198:                                              ; preds = %33
@@ -1536,7 +1536,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %204 = load ptr, ptr %2, align 8, !tbaa !39
   %205 = getelementptr i8, ptr %204, i64 1
   store ptr %205, ptr %2, align 8, !tbaa !39
-  %206 = add nsw i64 %.0142168, -1
+  %206 = add nsw i64 %.0142167, -1
   br label %307
 
 207:                                              ; preds = %33
@@ -1550,7 +1550,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %212 = load ptr, ptr %2, align 8, !tbaa !39
   %213 = getelementptr i8, ptr %212, i64 1
   store ptr %213, ptr %2, align 8, !tbaa !39
-  %214 = add nsw i64 %.0142168, -1
+  %214 = add nsw i64 %.0142167, -1
   br label %307
 
 215:                                              ; preds = %33
@@ -1578,15 +1578,15 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %226 = load ptr, ptr %2, align 8, !tbaa !39
   %227 = getelementptr i8, ptr %226, i64 1
   store ptr %227, ptr %2, align 8, !tbaa !39
-  %228 = add nsw i64 %.0142168, -1
+  %228 = add nsw i64 %.0142167, -1
   br label %307
 
 229:                                              ; preds = %219
-  %.not125 = icmp eq ptr %.0103169, null
+  %.not125 = icmp eq ptr %.0103168, null
   br i1 %.not125, label %233, label %230
 
 230:                                              ; preds = %229
-  %231 = load i8, ptr %.0103169, align 8, !tbaa !51
+  %231 = load i8, ptr %.0103168, align 8, !tbaa !51
   %232 = icmp eq i8 %231, %.0107
   br i1 %232, label %.loopexit, label %233
 
@@ -1604,11 +1604,11 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br i1 %.not126, label %.loopexit, label %237, !llvm.loop !67
 
 .loopexit:                                        ; preds = %237, %230
-  %.3106 = phi ptr [ %.0103169, %230 ], [ %.0108, %237 ]
+  %.3106 = phi ptr [ %.0103168, %230 ], [ %.0108, %237 ]
   %240 = getelementptr inbounds nuw i8, ptr %.3106, i64 2
   %241 = load i8, ptr %240, align 2, !tbaa !62
   %242 = zext i8 %241 to i64
-  %243 = icmp slt i64 %.0142168, %242
+  %243 = icmp slt i64 %.0142167, %242
   br i1 %243, label %.thread159, label %244
 
 244:                                              ; preds = %.loopexit
@@ -1733,16 +1733,16 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %304 = zext i8 %302 to i64
   %305 = getelementptr i8, ptr %303, i64 %304
   store ptr %305, ptr %2, align 8, !tbaa !39
-  %306 = sub nsw i64 %.0142168, %304
+  %306 = sub nsw i64 %.0142167, %304
   br label %307
 
 307:                                              ; preds = %193, %202, %211, %225, %301, %183, %iso2022processesc.exit.thread150, %iso2022processg2.exit, %30, %25
   %.1143 = phi i64 [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %197, %193 ], [ %206, %202 ], [ %214, %211 ], [ %107, %iso2022processesc.exit.thread150 ]
-  %.1104 = phi ptr [ %.0103169, %30 ], [ %.0103169, %25 ], [ %.0103169, %225 ], [ %.3106, %301 ], [ %.0103169, %iso2022processg2.exit ], [ %.0103169, %183 ], [ %.0103169, %193 ], [ %.0103169, %202 ], [ %.0103169, %211 ], [ %.0103169, %iso2022processesc.exit.thread150 ]
+  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %193 ], [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %iso2022processesc.exit.thread150 ]
   %308 = icmp sgt i64 %.1143, 0
   br i1 %308, label %15, label %.thread159
 
-.thread159.loopexit254:                           ; preds = %60
+.thread159:                                       ; preds = %60
   br label %.thread159
 
 .thread159:                                       ; preds = %307, %22, %34, %115, %180, %207, %217, %222, %.loopexit, %254, %259, %105, %68, %73, %74, %93, %89, %85, %81, %122, %118, %133, %143, %156, %161, %164, %167, %160, %170, %173, %117, %272, %switch.lookup, %57, %60, %.thread159.loopexit254, %5, %249

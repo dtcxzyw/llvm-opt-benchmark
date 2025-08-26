@@ -1485,7 +1485,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %37
+  br i1 %25, label %26, label %40
 
 26:                                               ; preds = %22
   %27 = add nuw nsw i64 %8, 47
@@ -1497,7 +1497,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %46, label %34
+  br i1 %33, label %49, label %34
 
 34:                                               ; preds = %30
   %35 = icmp slt i32 %32, 0
@@ -1505,42 +1505,42 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
 
 36:                                               ; preds = %34
   switch i32 %32, label %.loopexit [
-    i32 -5, label %46
+    i32 -5, label %49
     i32 -2, label %46
     i32 -1, label %46
     i32 -4, label %46
   ]
 
-37:                                               ; preds = %22
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.16) #20
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %46
+40:                                               ; preds = %22
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(6) @.str.16) #20
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %49
 
-40:                                               ; preds = %37
-  %41 = icmp eq i16 %16, 64
-  br i1 %41, label %42, label %.loopexit
+43:                                               ; preds = %40
+  %44 = icmp eq i16 %16, 64
+  br i1 %44, label %45, label %.loopexit
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %44 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 30)
-  %45 = icmp ult i64 %44, 30
-  br i1 %45, label %46, label %.loopexit
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %47 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %46, i64 noundef 30)
+  %48 = icmp ult i64 %47, 30
+  br i1 %48, label %49, label %.loopexit
 
-46:                                               ; preds = %36, %36, %36, %36, %42, %37, %30
-  %47 = ptrtoint ptr %15 to i64
-  %48 = sub i64 %47, %5
-  %49 = trunc i64 %48 to i32
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %.loopexit, label %.preheader
+49:                                               ; preds = %36, %36, %36, %36, %42, %37, %30
+  %50 = ptrtoint ptr %15 to i64
+  %51 = sub i64 %50, %5
+  %52 = trunc i64 %51 to i32
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %46, %64
-  %51 = phi ptr [ %67, %64 ], [ %1, %46 ]
-  %52 = phi i32 [ %65, %64 ], [ %49, %46 ]
-  %53 = ptrtoint ptr %51 to i64
-  %54 = and i64 %53, 7
-  %55 = icmp ne i64 %54, 0
-  %56 = icmp slt i32 %52, 32
-  %57 = or i1 %56, %55
+.preheader:                                       ; preds = %49, %64
+  %54 = phi ptr [ %67, %64 ], [ %1, %46 ]
+  %55 = phi i32 [ %65, %64 ], [ %52, %46 ]
+  %56 = ptrtoint ptr %54 to i64
+  %57 = and i64 %56, 7
+  %58 = icmp ne i64 %57, 0
+  %59 = icmp slt i32 %55, 32
+  %60 = or i1 %59, %58
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %.preheader
@@ -1561,8 +1561,8 @@ define dso_local noundef range(i32 -22, 1) i32 @xt_check_entry_offsets(ptr nound
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %64, %61, %58, %.preheader, %36, %46, %42, %40, %34, %26, %14, %10, %4
-  %68 = phi i32 [ -22, %42 ], [ -22, %4 ], [ -22, %10 ], [ -22, %14 ], [ -22, %26 ], [ -22, %34 ], [ 0, %46 ], [ -22, %40 ], [ -22, %36 ], [ 0, %64 ], [ -22, %61 ], [ -22, %58 ], [ -22, %.preheader ]
-  ret i32 %68
+  %71 = phi i32 [ -22, %42 ], [ -22, %4 ], [ -22, %10 ], [ -22, %14 ], [ -22, %26 ], [ -22, %34 ], [ 0, %46 ], [ -22, %40 ], [ -22, %36 ], [ 0, %64 ], [ -22, %61 ], [ -22, %58 ], [ -22, %.preheader ]
+  ret i32 %71
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

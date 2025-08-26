@@ -2121,13 +2121,13 @@ define hidden void @png_read_push_finish_row(ptr noalias noundef captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = load i32, ptr %5, align 8
   %7 = icmp ult i32 %4, %6
-  br i1 %7, label %69, label %8
+  br i1 %7, label %67, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %10 = load i8, ptr %9, align 4
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %69, label %11
+  br i1 %.not, label %67, label %11
 
 11:                                               ; preds = %8
   store i32 0, ptr %2, align 4
@@ -2145,13 +2145,13 @@ define hidden void @png_read_push_finish_row(ptr noalias noundef captures(none) 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 428
   br label %.critedge
 
-.critedge:                                        ; preds = %55, %11
-  %.pr37 = phi i8 [ %41, %55 ], [ %.promoted, %11 ]
+.critedge:                                        ; preds = %53, %11
+  %.pr37 = phi i8 [ %39, %55 ], [ %.promoted, %11 ]
   %22 = add i8 %.pr37, 1
-  %23 = icmp eq i8 %.pr37, 0
+  %23 = icmp eq i8 %.pr.thread32, 0
   br i1 %23, label %24, label %27
 
-24:                                               ; preds = %.critedge
+24:; preds = %.critedge
   %25 = load i32, ptr %18, align 8
   %26 = icmp ult i32 %25, 5
   br i1 %26, label %.thread35, label %._crit_edge
@@ -2162,77 +2162,77 @@ define hidden void @png_read_push_finish_row(ptr noalias noundef captures(none) 
     i8 5, label %31
   ]
 
-28:                                               ; preds = %27
-  %29 = load i32, ptr %18, align 8
-  %30 = icmp ult i32 %29, 3
-  br i1 %30, label %.thread35, label %._crit_edge
+23:                                               ; preds = %27
+  %24 = load i32, ptr %18, align 8
+  %25 = icmp ult i32 %24, 3
+  br i1 %25, label %.thread35, label %._crit_edge
 
-31:                                               ; preds = %27
-  %32 = load i32, ptr %18, align 8
-  %33 = icmp ult i32 %32, 2
-  br i1 %33, label %.thread35, label %._crit_edge
+26:                                               ; preds = %27
+  %27 = load i32, ptr %18, align 8
+  %28 = icmp ult i32 %27, 2
+  br i1 %28, label %.thread35, label %._crit_edge
 
-.thread35:                                        ; preds = %31, %28, %24
+29:                                               ; preds = %31, %28, %24
   %34 = phi i32 [ %32, %31 ], [ %29, %28 ], [ %25, %24 ]
   %35 = add i8 %.pr37, 2
   br label %39
 
-.thread32:                                        ; preds = %27
+.thread35:                                        ; preds = %27
   %36 = icmp ugt i8 %22, 7
-  br i1 %36, label %.sink.split, label %37
+  br i1 %36, label %.sink.split, label %.thread32
 
-37:                                               ; preds = %.thread32
-  %38 = icmp eq i8 %22, 7
-  br i1 %38, label %.sink.split, label %._crit_edge
+.thread32:                                        ; preds = %.thread32
+  %34 = icmp eq i8 %22, 7
+  br i1 %34, label %.sink.split, label %35
 
-._crit_edge:                                      ; preds = %24, %28, %31, %37
+35:                                               ; preds = %24, %28, %31, %.thread32
   %.pre = load i32, ptr %18, align 8
-  br label %39
+  br label %37
 
-39:                                               ; preds = %._crit_edge, %.thread35
-  %40 = phi i32 [ %34, %.thread35 ], [ %.pre, %._crit_edge ]
-  %41 = phi i8 [ %35, %.thread35 ], [ %22, %._crit_edge ]
-  %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_inc, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = zext i8 %44 to i32
-  %46 = add i32 %40, %45
-  %47 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_start, i64 0, i64 %42
-  %48 = load i8, ptr %47, align 1
-  %49 = zext i8 %48 to i32
-  %50 = xor i32 %49, -1
-  %51 = add i32 %46, %50
-  %52 = udiv i32 %51, %45
-  store i32 %52, ptr %19, align 8
-  %53 = load i32, ptr %20, align 4
-  %54 = and i32 %53, 2
-  %.not31 = icmp eq i32 %54, 0
-  br i1 %.not31, label %55, label %.sink.split
+37:                                               ; preds = %._crit_edge, %.thread35
+  %38 = phi i32 [ %34, %.thread35 ], [ %.pre, %._crit_edge ]
+  %39 = phi i8 [ %35, %.thread35 ], [ %22, %._crit_edge ]
+  %40 = zext nneg i8 %39 to i64
+  %41 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_inc, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = add i32 %38, %43
+  %45 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_start, i64 0, i64 %40
+  %46 = load i8, ptr %45, align 1
+  %47 = zext i8 %46 to i32
+  %48 = xor i32 %47, -1
+  %49 = add i32 %44, %48
+  %50 = udiv i32 %49, %43
+  store i32 %50, ptr %19, align 8
+  %51 = load i32, ptr %20, align 4
+  %52 = and i32 %51, 2
+  %.not31 = icmp eq i32 %52, 0
+  br i1 %.not31, label %53, label %.sink.split
 
-55:                                               ; preds = %39
-  %56 = load i32, ptr %21, align 4
-  %57 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_yinc, i64 0, i64 %42
-  %58 = load i8, ptr %57, align 1
-  %59 = zext i8 %58 to i32
-  %60 = add i32 %56, %59
-  %61 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_ystart, i64 0, i64 %42
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = xor i32 %63, -1
-  %65 = add i32 %60, %64
-  %66 = udiv i32 %65, %59
-  store i32 %66, ptr %5, align 8
-  %67 = icmp ult i32 %51, %45
-  %68 = icmp ult i32 %65, %59
-  %or.cond = select i1 %67, i1 true, i1 %68
+53:                                               ; preds = %37
+  %54 = load i32, ptr %21, align 4
+  %55 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_yinc, i64 0, i64 %40
+  %56 = load i8, ptr %55, align 1
+  %57 = zext i8 %56 to i32
+  %58 = add i32 %54, %57
+  %59 = getelementptr inbounds nuw [7 x i8], ptr @png_read_push_finish_row.png_pass_ystart, i64 0, i64 %40
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = xor i32 %61, -1
+  %63 = add i32 %58, %62
+  %64 = udiv i32 %63, %57
+  store i32 %64, ptr %5, align 8
+  %65 = icmp ult i32 %49, %43
+  %66 = icmp ult i32 %63, %57
+  %or.cond = select i1 %65, i1 true, i1 %66
   br i1 %or.cond, label %.critedge, label %.sink.split, !llvm.loop !98
 
-.sink.split:                                      ; preds = %55, %37, %39, %.thread32
-  %.pr39.sink = phi i8 [ %.pr37, %.thread32 ], [ %41, %39 ], [ 7, %37 ], [ %41, %55 ]
+.sink.split:                                      ; preds = %53, %37, %37, %.thread32
+  %.pr39.sink = phi i8 [ %.pr37, %.thread32 ], [ %39, %39 ], [ 7, %37 ], [ %39, %55 ]
   store i8 %.pr39.sink, ptr %17, align 1
-  br label %69
+  br label %67
 
-69:                                               ; preds = %.sink.split, %1, %8
+67:                                               ; preds = %.sink.split, %1, %8
   ret void
 }
 

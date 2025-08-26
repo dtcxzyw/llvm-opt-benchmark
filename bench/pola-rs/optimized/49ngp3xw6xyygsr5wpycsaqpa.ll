@@ -159895,11 +159895,11 @@ define void @"_ZN137_$LT$polars_plan..plans..optimizer..delay_rechunk..DelayRech
   %18 = icmp ne i64 %17, 17
   tail call void @llvm.assume(i1 %18)
   %19 = icmp eq i64 %17, 9
-  br i1 %19, label %20, label %59
+  br i1 %19, label %20, label %57
 
 20:                                               ; preds = %13
   %21 = tail call noundef zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$6insert17h01fb5590258d31f1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %4)
-  br i1 %21, label %59, label %22
+  br i1 %21, label %57, label %22
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -159907,7 +159907,7 @@ define void @"_ZN137_$LT$polars_plan..plans..optimizer..delay_rechunk..DelayRech
   %25 = icmp ult i64 %24, 82351536043346213
   tail call void @llvm.assume(i1 %25)
   %26 = icmp samesign ugt i64 %24, 1
-  br i1 %26, label %59, label %27
+  br i1 %26, label %57, label %27
 
 27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -159926,12 +159926,12 @@ define void @"_ZN137_$LT$polars_plan..plans..optimizer..delay_rechunk..DelayRech
   %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..iterator..AlpIter$GT$17h5f9ece1b5e45c0e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #42
-          to label %62 unwind label %60
+          to label %62 unwind label %58
 
 34:                                               ; preds = %30
   %35 = extractvalue { i64, ptr } %31, 1
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %40, label %36
+  br i1 %.not, label %39, label %36
 
 36:                                               ; preds = %34
   %37 = load i64, ptr %35, align 16, !range !14146, !noundef !4
@@ -159944,30 +159944,30 @@ define void @"_ZN137_$LT$polars_plan..plans..optimizer..delay_rechunk..DelayRech
     i64 14, label %41
   ]
 
-40:                                               ; preds = %36, %34
+39:                                               ; preds = %36, %34
   call void @"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..iterator..AlpIter$GT$17h5f9ece1b5e45c0e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %59
+  br label %57
 
-41:                                               ; preds = %36, %36
+40:                                               ; preds = %36, %36
   call void @"_ZN4core3ptr58drop_in_place$LT$polars_plan..plans..iterator..AlpIter$GT$17h5f9ece1b5e45c0e1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %42 = extractvalue { i64, ptr } %31, 0
-  %43 = load i64, ptr %9, align 8, !noundef !4
-  %44 = icmp ult i64 %42, %43
-  br i1 %44, label %46, label %45, !prof !139
+  %41 = extractvalue { i64, ptr } %31, 0
+  %42 = load i64, ptr %9, align 8, !noundef !4
+  %43 = icmp ult i64 %41, %42
+  br i1 %43, label %45, label %44, !prof !139
 
-45:                                               ; preds = %41
+44:                                               ; preds = %40
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0caf704fec8aa675096b192a69548693.891) #41
   unreachable
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %47, i64 %42
-  %49 = load i64, ptr %48, align 16, !range !14146, !noundef !4
-  %50 = add nsw i64 %49, -4
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
+  %47 = getelementptr inbounds nuw { i64, [39 x i64] }, ptr %46, i64 %41
+  %48 = load i64, ptr %47, align 16, !range !14146, !noundef !4
+  %50 = add nsw i64 %48, -4
   %51 = icmp ne i64 %50, 17
   call void @llvm.assume(i1 %51)
   switch i64 %50, label %52 [
@@ -159975,33 +159975,33 @@ define void @"_ZN137_$LT$polars_plan..plans..optimizer..delay_rechunk..DelayRech
     i64 14, label %57
   ], !prof !10983
 
-52:                                               ; preds = %46
+50:                                               ; preds = %45
   call void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 @anon.0caf704fec8aa675096b192a69548693.892, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0caf704fec8aa675096b192a69548693.894) #41
   unreachable
 
-53:                                               ; preds = %46
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 256
-  %55 = load ptr, ptr %54, align 16, !nonnull !4, !align !5, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 200
-  store i8 0, ptr %56, align 8
-  br label %59
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 256
+  %53 = load ptr, ptr %52, align 16, !nonnull !4, !align !5, !noundef !4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 200
+  store i8 0, ptr %54, align 8
+  br label %57
 
-57:                                               ; preds = %46
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 59
-  store i8 0, ptr %58, align 1
-  br label %59
+55:                                               ; preds = %45
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 59
+  store i8 0, ptr %56, align 1
+  br label %57
 
-59:                                               ; preds = %53, %57, %40, %20, %22, %13
+57:                                               ; preds = %51, %55, %39, %20, %22, %13
   store i64 25, ptr %0, align 16
   ret void
 
-60:                                               ; preds = %32
-  %61 = landingpad { ptr, i32 }
+58:                                               ; preds = %32
+  %59 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #43
   unreachable
 
-62:                                               ; preds = %32
+60:                                               ; preds = %32
   resume { ptr, i32 } %33
 }
 

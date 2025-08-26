@@ -2566,11 +2566,11 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h113d85ced72ddfa1E.exit.i.i: ; p
     i32 2, label %244
   ]
 
-157:                                              ; preds = %153
-  %158 = lshr i64 %.sroa.039.0.copyload.i.i, 32
+156:                                              ; preds = %153
+  %157 = lshr i64 %.sroa.039.0.copyload.i.i, 32
   call void @llvm.experimental.noalias.scope.decl(metadata !362)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !338
-  %.sroa.415.0.extract.trunc.i.i.i = trunc i64 %158 to i8
+  %.sroa.415.0.extract.trunc.i.i.i = trunc i64 %157 to i8
   %159 = icmp ult i32 %155, 16
   %narrow.i.i.i = select i1 %159, i32 %155, i32 14
   switch i32 %narrow.i.i.i, label %160 [
@@ -2583,18 +2583,18 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h113d85ced72ddfa1E.exit.i.i: ; p
     i32 14, label %180
   ]
 
-160:                                              ; preds = %204, %200, %180, %178, %176, %157
+160:                                              ; preds = %204, %200, %180, %178, %176, %156
   %161 = invoke noundef zeroext i1 @_ZN7inquire5input5Input10handle_key17ha6e77ba7e0454a3aE(ptr noalias noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx3.sroa_idx.i, i64 %.sroa.039.0.copyload.i.i)
           to label %.noexc97.i.i unwind label %.loopexit.i.i, !noalias !343
 
 .noexc97.i.i:                                     ; preds = %160
   br i1 %161, label %227, label %"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$9on_change17h1b3ba32ae93a716aE.exit.i.i"
 
-162:                                              ; preds = %157
+162:                                              ; preds = %156
   store i64 0, ptr %.sroa.8.sroa.18.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !365, !noalias !368
   br label %"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$9on_change17h1b3ba32ae93a716aE.exit.i.i"
 
-"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$16move_cursor_down17hc27aa60f4157b7baE.exit.i.i.i": ; preds = %157
+"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$16move_cursor_down17hc27aa60f4157b7baE.exit.i.i.i": ; preds = %156
   %163 = load i64, ptr %102, align 8, !alias.scope !369, !noalias !368, !noundef !3
   %164 = icmp ult i64 %163, 1152921504606846976
   call void @llvm.assume(i1 %164)
@@ -2602,14 +2602,14 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h113d85ced72ddfa1E.exit.i.i: ; p
   store i64 %spec.select.i.i.i, ptr %.sroa.8.sroa.18.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !369, !noalias !368
   br label %"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$9on_change17h1b3ba32ae93a716aE.exit.i.i"
 
-165:                                              ; preds = %157
+165:                                              ; preds = %156
   %166 = load i64, ptr %.sroa.8.sroa.19.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !372, !noalias !368, !noundef !3
   %167 = load i64, ptr %.sroa.8.sroa.18.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !373, !noalias !368, !noundef !3
   %168 = call i64 @llvm.usub.sat.i64(i64 %167, i64 %166)
   store i64 %168, ptr %.sroa.8.sroa.18.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !373, !noalias !368
   br label %"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$9on_change17h1b3ba32ae93a716aE.exit.i.i"
 
-169:                                              ; preds = %157
+169:                                              ; preds = %156
   %170 = load i64, ptr %.sroa.8.sroa.19.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !372, !noalias !368, !noundef !3
   %171 = load i64, ptr %.sroa.8.sroa.18.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !376, !noalias !368, !noundef !3
   %172 = call i64 @llvm.uadd.sat.i64(i64 %171, i64 %170)
@@ -2625,15 +2625,15 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h113d85ced72ddfa1E.exit.i.i: ; p
   store i64 %spec.select31.i.i.i, ptr %.sroa.8.sroa.18.0..sroa.8.0..sroa_idx3.sroa_idx.i, align 8, !alias.scope !376, !noalias !368
   br label %"_ZN7inquire7prompts6select21SelectPrompt$LT$T$GT$9on_change17h1b3ba32ae93a716aE.exit.i.i"
 
-176:                                              ; preds = %157
+176:                                              ; preds = %156
   %177 = icmp eq i8 %.sroa.415.0.extract.trunc.i.i.i, 0
   br i1 %177, label %181, label %160
 
-178:                                              ; preds = %157
+178:                                              ; preds = %156
   %179 = icmp eq i8 %.sroa.415.0.extract.trunc.i.i.i, 0
   br i1 %179, label %190, label %160
 
-180:                                              ; preds = %157
+180:                                              ; preds = %156
   switch i32 %154, label %160 [
     i32 107, label %200
     i32 106, label %204

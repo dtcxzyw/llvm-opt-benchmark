@@ -30688,7 +30688,7 @@ define hidden noundef ptr @_ZN8wasmtime7runtime5types8matching9entity_ty17h65f59
   %34 = icmp ugt i64 %33, 4
   %35 = icmp eq i64 %33, 1
   %36 = or i1 %34, %35
-  br i1 %36, label %58, label %switch.lookup41
+  br i1 %36, label %58, label %switch.lookup40
 
 37:                                               ; preds = %4
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.305, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bddbb31bc904c228a0b04927128050bc.315) #54
@@ -30697,12 +30697,12 @@ define hidden noundef ptr @_ZN8wasmtime7runtime5types8matching9entity_ty17h65f59
 38:                                               ; preds = %4
   %39 = load i64, ptr %2, align 8, !range !4521, !noundef !4
   %40 = icmp eq i64 %39, 5
-  br i1 %40, label %93, label %switch.lookup46
+  br i1 %40, label %93, label %switch.lookup45
 
 41:                                               ; preds = %4
   %42 = load i64, ptr %2, align 8, !range !4521, !noundef !4
   %43 = icmp eq i64 %42, 6
-  br i1 %43, label %127, label %switch.lookup51
+  br i1 %43, label %127, label %switch.lookup50
 
 44:                                               ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30719,9 +30719,9 @@ switch.lookup:                                    ; preds = %28
   %50 = select i1 %49, i64 %48, i64 1
   %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.258, i64 0, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep39 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.259, i64 0, i64 %50
-  %switch.load40 = load ptr, ptr %switch.gep39, align 8
-  store ptr %switch.load40, ptr %15, align 8
+  %switch.gep38 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.259, i64 0, i64 %50
+  %switch.load39 = load ptr, ptr %switch.gep38, align 8
+  store ptr %switch.load39, ptr %15, align 8
   %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %switch.load, ptr %51, align 8
   store ptr %15, ptr %16, align 8
@@ -30743,7 +30743,7 @@ switch.lookup:                                    ; preds = %28
   %57 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17hbc0011fed49d0ca8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %18)
   br label %_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit
 
-_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit: ; preds = %.split.i, %.split23.i, %93, %76, %67, %58, %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit.thread", %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit", %switch.lookup51, %switch.lookup46, %switch.lookup41, %switch.lookup, %44
+_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit: ; preds = %.split.i, %.split23.i, %93, %76, %67, %58, %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit.thread", %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit", %switch.lookup50, %switch.lookup45, %switch.lookup40, %switch.lookup, %44
   %.0 = phi ptr [ %47, %44 ], [ %57, %switch.lookup ], [ %92, %switch.lookup41 ], [ %126, %switch.lookup46 ], [ %228, %switch.lookup51 ], [ %229, %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit.thread" ], [ null, %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit" ], [ %65, %58 ], [ %74, %67 ], [ %85, %76 ], [ %96, %93 ], [ %116, %.split.i ], [ %112, %.split23.i ]
   ret ptr %.0
 
@@ -30783,7 +30783,7 @@ _ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit: ; preds 
   %85 = tail call fastcc noundef ptr @_ZN8wasmtime7runtime5types8matching12match_limits17h74e7fbebbeeede51E(i64 noundef %78, i64 noundef %23, i64 %80, i64 noundef %82, i64 noundef %32, i64 %84, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.334, i64 noundef 6), !noalias !4659
   br label %_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit
 
-switch.lookup41:                                  ; preds = %31
+switch.lookup40:                                  ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -30859,20 +30859,20 @@ switch.lookup41:                                  ; preds = %31
   %116 = tail call fastcc noundef ptr @_ZN8wasmtime7runtime5types8matching12match_limits17h74e7fbebbeeede51E(i64 noundef %103, i64 noundef %.sroa.010.0.i, i64 %.sroa.5.0.i, i64 noundef %110, i64 noundef 1, i64 %115, ptr noalias noundef nonnull readonly align 1 @anon.bddbb31bc904c228a0b04927128050bc.333, i64 noundef 5), !noalias !4671
   br label %_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit
 
-switch.lookup46:                                  ; preds = %38
+switch.lookup45:                                  ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %117 = add nsw i64 %39, -2
   %118 = icmp ult i64 %117, 5
   %119 = select i1 %118, i64 %117, i64 1
-  %switch.gep47 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.258, i64 0, i64 %119
-  %switch.load48 = load i64, ptr %switch.gep47, align 8
-  %switch.gep49 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.259, i64 0, i64 %119
-  %switch.load50 = load ptr, ptr %switch.gep49, align 8
-  store ptr %switch.load50, ptr %11, align 8
+  %switch.gep46 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.258, i64 0, i64 %119
+  %switch.load47 = load i64, ptr %switch.gep46, align 8
+  %switch.gep48 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.259, i64 0, i64 %119
+  %switch.load49 = load ptr, ptr %switch.gep48, align 8
+  store ptr %switch.load49, ptr %11, align 8
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %switch.load48, ptr %120, align 8
+  store i64 %switch.load47, ptr %120, align 8
   store ptr %11, ptr %12, align 8
   %121 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %121, align 8
@@ -31064,20 +31064,20 @@ switch.lookup46:                                  ; preds = %38
   %218 = icmp eq i64 %215, %217
   br i1 %218, label %_ZN8wasmtime7runtime5types8matching9memory_ty17h0b977f0d9bf01981E.exit, label %"_ZN69_$LT$wasmtime_types..WasmFuncType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3f587a21214608d8E.exit.thread"
 
-switch.lookup51:                                  ; preds = %41
+switch.lookup50:                                  ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %219 = add nsw i64 %42, -2
   %220 = icmp ult i64 %219, 5
   %221 = select i1 %220, i64 %219, i64 1
-  %switch.gep52 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.260, i64 0, i64 %221
-  %switch.load53 = load i64, ptr %switch.gep52, align 8
-  %switch.gep54 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.261, i64 0, i64 %221
-  %switch.load55 = load ptr, ptr %switch.gep54, align 8
-  store ptr %switch.load55, ptr %7, align 8
+  %switch.gep51 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.260, i64 0, i64 %221
+  %switch.load52 = load i64, ptr %switch.gep51, align 8
+  %switch.gep53 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN8wasmtime7runtime5types8matching9entity_ty17h65f59e172b33105aE.261, i64 0, i64 %221
+  %switch.load54 = load ptr, ptr %switch.gep53, align 8
+  store ptr %switch.load54, ptr %7, align 8
   %222 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %switch.load53, ptr %222, align 8
+  store i64 %switch.load52, ptr %222, align 8
   store ptr %7, ptr %8, align 8
   %223 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h4c78af84c82888acE", ptr %223, align 8

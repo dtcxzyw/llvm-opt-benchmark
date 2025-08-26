@@ -763,10 +763,10 @@ define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFracti
     i32 64, label %59
   ]
 
-59:                                               ; preds = %57
+58:                                               ; preds = %57
   br label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
 
-60:                                               ; preds = %57
+59:                                               ; preds = %57
   %61 = zext nneg i32 %58 to i64
   %62 = add nsw i32 %1, 128
   %63 = zext nneg i32 %62 to i64
@@ -774,7 +774,7 @@ define internal fastcc void @_ZN14arrow_vendored17double_conversionL15FillFracti
   %65 = lshr i64 %0, %61
   br label %_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit
 
-_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %59, %60
+_ZN14arrow_vendored17double_conversion7UInt1285ShiftEi.exit: ; preds = %57, %58, %59
   %.sroa.17.1 = phi i64 [ %64, %60 ], [ 0, %57 ], [ %0, %59 ]
   %.sroa.0.1 = phi i64 [ %65, %60 ], [ %0, %57 ], [ 0, %59 ]
   %66 = icmp sgt i32 %2, 0

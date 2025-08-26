@@ -177431,7 +177431,7 @@ define void @_ZN10polars_ops5frame4join4args14JoinValidation13is_valid_join17h90
   store ptr %2, ptr %7, align 8
   %9 = load i8, ptr %1, align 1, !range !17426, !alias.scope !18780, !noundef !6
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %15, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -177440,23 +177440,23 @@ define void @_ZN10polars_ops5frame4join4args14JoinValidation13is_valid_join17h90
   %14 = icmp ne i64 %13, 4
   tail call void @llvm.assume(i1 %14)
   switch i64 %13, label %16 [
-    i64 0, label %15
-    i64 1, label %15
+    i64 0, label %14
+    i64 1, label %14
     i64 3, label %15
   ], !prof !18783
 
-15:                                               ; preds = %3, %10, %10, %10, %16
+14:                                               ; preds = %3, %10, %10, %10, %15
   %.sink = phi i64 [ 2, %16 ], [ 17, %10 ], [ 17, %10 ], [ 17, %10 ], [ 17, %3 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-16:                                               ; preds = %10
+15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %8, ptr %5, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h77c273c943fc756cE", ptr %.sroa.42.0..sroa_idx, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %17, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %7, ptr %16, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hba39d523b06d9ccfE", ptr %.sroa.46.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !18784
@@ -177474,7 +177474,7 @@ define void @_ZN10polars_ops5frame4join4args14JoinValidation13is_valid_join17h90
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @"_ZN72_$LT$polars_error..ErrString$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h9712af10c1bba2b6E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %.sroa.48.0..sroa_idx, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
-  br label %15
+  br label %14
 }
 
 ; Function Attrs: nonlazybind uwtable
