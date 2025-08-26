@@ -14835,15 +14835,15 @@ sw.bb.i:                                          ; preds = %if.end.i84
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
   %cmp.i.i87 = icmp slt i64 %sub.ptr.sub.i.i, 3
-  br i1 %cmp.i.i87, label %return, label %for.body.i.preheader.i
+  br i1 %cmp.i.i87, label %return, label %for.body.preheader.i.i
 
-for.body.i.preheader.i:                           ; preds = %sw.bb.i
-  %scevgep45.i = getelementptr i8, ptr %start.addr.036.i, i64 8
+for.body.preheader.i.i:                           ; preds = %sw.bb.i
+  %scevgep.i.i = getelementptr i8, ptr %start.addr.036.i, i64 8
   br label %for.body.i.i88
 
-for.body.i.i88:                                   ; preds = %for.inc.i.i91, %for.body.i.preheader.i
-  %exitcond.not.i.i = phi i1 [ true, %for.inc.i.i91 ], [ false, %for.body.i.preheader.i ]
-  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i89, %for.inc.i.i91 ], [ %incdec.ptr4.i, %for.body.i.preheader.i ]
+for.body.i.i88:                                   ; preds = %for.inc.i.i91, %for.body.preheader.i.i
+  %exitcond.not.i.i = phi i1 [ true, %for.inc.i.i91 ], [ false, %for.body.preheader.i.i ]
+  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i89, %for.inc.i.i91 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
   %incdec.ptr.i.i89 = getelementptr inbounds nuw i8, ptr %start.addr.015.i.i, i64 2
   %23 = load i16, ptr %start.addr.015.i.i, align 2
   %.fr.i.i = freeze i16 %23
@@ -14874,45 +14874,45 @@ sw.bb8.i:                                         ; preds = %if.end.i84
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %cmp.i10.i = icmp slt i64 %sub.ptr.sub.i8.i, 8
-  br i1 %cmp.i10.i, label %return, label %for.body.i11.preheader.i
+  br i1 %cmp.i10.i, label %return, label %for.body.preheader.i11.i
 
-for.body.i11.preheader.i:                         ; preds = %sw.bb8.i
-  %scevgep.i = getelementptr i8, ptr %start.addr.036.i, i64 12
-  br label %for.body.i11.i
+for.body.preheader.i11.i:                         ; preds = %sw.bb8.i
+  %scevgep.i12.i = getelementptr i8, ptr %start.addr.036.i, i64 12
+  br label %for.body.i13.i
 
-for.body.i11.i:                                   ; preds = %for.inc.i18.i, %for.body.i11.preheader.i
-  %i.016.i12.i = phi i32 [ %inc.i19.i, %for.inc.i18.i ], [ 0, %for.body.i11.preheader.i ]
-  %start.addr.015.i13.i = phi ptr [ %incdec.ptr.i14.i, %for.inc.i18.i ], [ %incdec.ptr4.i, %for.body.i11.preheader.i ]
-  %incdec.ptr.i14.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i13.i, i64 2
-  %25 = load i16, ptr %start.addr.015.i13.i, align 2
-  %.fr.i15.i = freeze i16 %25
-  %26 = add i16 %.fr.i15.i, -48
-  %or.cond.i16.i = icmp ult i16 %26, 10
-  br i1 %or.cond.i16.i, label %for.inc.i18.i, label %switch.early.test.i17.i
+for.body.i13.i:                                   ; preds = %for.inc.i20.i, %for.body.preheader.i11.i
+  %i.016.i14.i = phi i32 [ %inc.i21.i, %for.inc.i20.i ], [ 0, %for.body.preheader.i11.i ]
+  %start.addr.015.i15.i = phi ptr [ %incdec.ptr.i16.i, %for.inc.i20.i ], [ %incdec.ptr4.i, %for.body.preheader.i11.i ]
+  %incdec.ptr.i16.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i15.i, i64 2
+  %25 = load i16, ptr %start.addr.015.i15.i, align 2
+  %.fr.i17.i = freeze i16 %25
+  %26 = add i16 %.fr.i17.i, -48
+  %or.cond.i18.i = icmp ult i16 %26, 10
+  br i1 %or.cond.i18.i, label %for.inc.i20.i, label %switch.early.test.i19.i
 
-switch.early.test.i17.i:                          ; preds = %for.body.i11.i
-  switch i16 %.fr.i15.i, label %return [
-    i16 102, label %for.inc.i18.i
-    i16 101, label %for.inc.i18.i
-    i16 100, label %for.inc.i18.i
-    i16 99, label %for.inc.i18.i
-    i16 98, label %for.inc.i18.i
-    i16 97, label %for.inc.i18.i
-    i16 70, label %for.inc.i18.i
-    i16 69, label %for.inc.i18.i
-    i16 68, label %for.inc.i18.i
-    i16 67, label %for.inc.i18.i
-    i16 66, label %for.inc.i18.i
-    i16 65, label %for.inc.i18.i
+switch.early.test.i19.i:                          ; preds = %for.body.i13.i
+  switch i16 %.fr.i17.i, label %return [
+    i16 102, label %for.inc.i20.i
+    i16 101, label %for.inc.i20.i
+    i16 100, label %for.inc.i20.i
+    i16 99, label %for.inc.i20.i
+    i16 98, label %for.inc.i20.i
+    i16 97, label %for.inc.i20.i
+    i16 70, label %for.inc.i20.i
+    i16 69, label %for.inc.i20.i
+    i16 68, label %for.inc.i20.i
+    i16 67, label %for.inc.i20.i
+    i16 66, label %for.inc.i20.i
+    i16 65, label %for.inc.i20.i
   ]
 
-for.inc.i18.i:                                    ; preds = %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %for.body.i11.i
-  %inc.i19.i = add nuw nsw i32 %i.016.i12.i, 1
-  %exitcond.not.i20.i = icmp eq i32 %inc.i19.i, 4
-  br i1 %exitcond.not.i20.i, label %if.end17.i, label %for.body.i11.i, !llvm.loop !294
+for.inc.i20.i:                                    ; preds = %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %for.body.i13.i
+  %inc.i21.i = add nuw nsw i32 %i.016.i14.i, 1
+  %exitcond.not.i22.i = icmp eq i32 %inc.i21.i, 4
+  br i1 %exitcond.not.i22.i, label %if.end17.i, label %for.body.i13.i, !llvm.loop !294
 
-if.end17.i:                                       ; preds = %for.inc.i18.i, %for.inc.i.i91, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %while.body.i81
-  %start.addr.1.i85 = phi ptr [ %incdec.ptr.i82, %while.body.i81 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %scevgep45.i, %for.inc.i.i91 ], [ %scevgep.i, %for.inc.i18.i ]
+if.end17.i:                                       ; preds = %for.inc.i20.i, %for.inc.i.i91, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %if.end.i84, %while.body.i81
+  %start.addr.1.i85 = phi ptr [ %incdec.ptr.i82, %while.body.i81 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %incdec.ptr4.i, %if.end.i84 ], [ %scevgep.i.i, %for.inc.i.i91 ], [ %scevgep.i12.i, %for.inc.i20.i ]
   %cmp.i86 = icmp ult ptr %start.addr.1.i85, %end
   br i1 %cmp.i86, label %while.body.i81, label %return, !llvm.loop !295
 
@@ -14920,8 +14920,8 @@ _ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit
   store ptr %incdec.ptr.i82, ptr %tokenEnd, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i83, %if.end.i84, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i17.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
-  %retval.0 = phi i32 [ 2, %sw.bb11 ], [ 3, %sw.bb12 ], [ 9, %sw.bb14 ], [ 0, %sw.bb16 ], [ 1, %sw.bb18 ], [ 10, %sw.bb20 ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit ], [ 5, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit ], [ 4, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread ], [ 8, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i17.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i84 ], [ 11, %if.then.i83 ]
+return:                                           ; preds = %if.then.i83, %if.end.i84, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i19.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
+  %retval.0 = phi i32 [ 2, %sw.bb11 ], [ 3, %sw.bb12 ], [ 9, %sw.bb14 ], [ 0, %sw.bb16 ], [ 1, %sw.bb18 ], [ 10, %sw.bb20 ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit ], [ 5, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseNumberTokenItEEbPKT_S6_PS6_.exit ], [ 4, %_ZN4node9inspector8protocol12_GLOBAL__N_116parseStringTokenItEEbPKT_S6_PS6_.exit ], [ 11, %_ZN4node9inspector8protocol12_GLOBAL__N_125skipWhitespaceAndCommentsItEEvPKT_S6_PS6_.exit.thread ], [ 8, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol12_GLOBAL__N_115parseConstTokenItEEbPKT_S6_PS6_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i19.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i84 ], [ 11, %if.then.i83 ]
   ret i32 %retval.0
 }
 
@@ -26075,15 +26075,15 @@ sw.bb.i:                                          ; preds = %if.end.i82
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i.i
   %cmp.i.i85 = icmp slt i64 %sub.ptr.sub.i.i, 3
-  br i1 %cmp.i.i85, label %return, label %for.body.i.preheader.i
+  br i1 %cmp.i.i85, label %return, label %for.body.preheader.i.i
 
-for.body.i.preheader.i:                           ; preds = %sw.bb.i
-  %scevgep45.i = getelementptr i8, ptr %start.addr.036.i, i64 8
+for.body.preheader.i.i:                           ; preds = %sw.bb.i
+  %scevgep.i.i = getelementptr i8, ptr %start.addr.036.i, i64 8
   br label %for.body.i.i86
 
-for.body.i.i86:                                   ; preds = %for.inc.i.i89, %for.body.i.preheader.i
-  %exitcond.not.i.i = phi i1 [ true, %for.inc.i.i89 ], [ false, %for.body.i.preheader.i ]
-  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i87, %for.inc.i.i89 ], [ %incdec.ptr4.i, %for.body.i.preheader.i ]
+for.body.i.i86:                                   ; preds = %for.inc.i.i89, %for.body.preheader.i.i
+  %exitcond.not.i.i = phi i1 [ true, %for.inc.i.i89 ], [ false, %for.body.preheader.i.i ]
+  %start.addr.015.i.i = phi ptr [ %incdec.ptr.i.i87, %for.inc.i.i89 ], [ %incdec.ptr4.i, %for.body.preheader.i.i ]
   %incdec.ptr.i.i87 = getelementptr inbounds nuw i8, ptr %start.addr.015.i.i, i64 2
   %23 = load i16, ptr %start.addr.015.i.i, align 2
   %.fr.i.i = freeze i16 %23
@@ -26114,45 +26114,45 @@ sw.bb8.i:                                         ; preds = %if.end.i82
   %sub.ptr.rhs.cast.i7.i = ptrtoint ptr %incdec.ptr4.i to i64
   %sub.ptr.sub.i8.i = sub i64 %sub.ptr.lhs.cast.i6.i, %sub.ptr.rhs.cast.i7.i
   %cmp.i10.i = icmp slt i64 %sub.ptr.sub.i8.i, 8
-  br i1 %cmp.i10.i, label %return, label %for.body.i11.preheader.i
+  br i1 %cmp.i10.i, label %return, label %for.body.preheader.i11.i
 
-for.body.i11.preheader.i:                         ; preds = %sw.bb8.i
-  %scevgep.i = getelementptr i8, ptr %start.addr.036.i, i64 12
-  br label %for.body.i11.i
+for.body.preheader.i11.i:                         ; preds = %sw.bb8.i
+  %scevgep.i12.i = getelementptr i8, ptr %start.addr.036.i, i64 12
+  br label %for.body.i13.i
 
-for.body.i11.i:                                   ; preds = %for.inc.i18.i, %for.body.i11.preheader.i
-  %i.016.i12.i = phi i32 [ %inc.i19.i, %for.inc.i18.i ], [ 0, %for.body.i11.preheader.i ]
-  %start.addr.015.i13.i = phi ptr [ %incdec.ptr.i14.i, %for.inc.i18.i ], [ %incdec.ptr4.i, %for.body.i11.preheader.i ]
-  %incdec.ptr.i14.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i13.i, i64 2
-  %25 = load i16, ptr %start.addr.015.i13.i, align 2
-  %.fr.i15.i = freeze i16 %25
-  %26 = add i16 %.fr.i15.i, -48
-  %or.cond.i16.i = icmp ult i16 %26, 10
-  br i1 %or.cond.i16.i, label %for.inc.i18.i, label %switch.early.test.i17.i
+for.body.i13.i:                                   ; preds = %for.inc.i20.i, %for.body.preheader.i11.i
+  %i.016.i14.i = phi i32 [ %inc.i21.i, %for.inc.i20.i ], [ 0, %for.body.preheader.i11.i ]
+  %start.addr.015.i15.i = phi ptr [ %incdec.ptr.i16.i, %for.inc.i20.i ], [ %incdec.ptr4.i, %for.body.preheader.i11.i ]
+  %incdec.ptr.i16.i = getelementptr inbounds nuw i8, ptr %start.addr.015.i15.i, i64 2
+  %25 = load i16, ptr %start.addr.015.i15.i, align 2
+  %.fr.i17.i = freeze i16 %25
+  %26 = add i16 %.fr.i17.i, -48
+  %or.cond.i18.i = icmp ult i16 %26, 10
+  br i1 %or.cond.i18.i, label %for.inc.i20.i, label %switch.early.test.i19.i
 
-switch.early.test.i17.i:                          ; preds = %for.body.i11.i
-  switch i16 %.fr.i15.i, label %return [
-    i16 102, label %for.inc.i18.i
-    i16 101, label %for.inc.i18.i
-    i16 100, label %for.inc.i18.i
-    i16 99, label %for.inc.i18.i
-    i16 98, label %for.inc.i18.i
-    i16 97, label %for.inc.i18.i
-    i16 70, label %for.inc.i18.i
-    i16 69, label %for.inc.i18.i
-    i16 68, label %for.inc.i18.i
-    i16 67, label %for.inc.i18.i
-    i16 66, label %for.inc.i18.i
-    i16 65, label %for.inc.i18.i
+switch.early.test.i19.i:                          ; preds = %for.body.i13.i
+  switch i16 %.fr.i17.i, label %return [
+    i16 102, label %for.inc.i20.i
+    i16 101, label %for.inc.i20.i
+    i16 100, label %for.inc.i20.i
+    i16 99, label %for.inc.i20.i
+    i16 98, label %for.inc.i20.i
+    i16 97, label %for.inc.i20.i
+    i16 70, label %for.inc.i20.i
+    i16 69, label %for.inc.i20.i
+    i16 68, label %for.inc.i20.i
+    i16 67, label %for.inc.i20.i
+    i16 66, label %for.inc.i20.i
+    i16 65, label %for.inc.i20.i
   ]
 
-for.inc.i18.i:                                    ; preds = %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %switch.early.test.i17.i, %for.body.i11.i
-  %inc.i19.i = add nuw nsw i32 %i.016.i12.i, 1
-  %exitcond.not.i20.i = icmp eq i32 %inc.i19.i, 4
-  br i1 %exitcond.not.i20.i, label %if.end17.i, label %for.body.i11.i, !llvm.loop !441
+for.inc.i20.i:                                    ; preds = %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %switch.early.test.i19.i, %for.body.i13.i
+  %inc.i21.i = add nuw nsw i32 %i.016.i14.i, 1
+  %exitcond.not.i22.i = icmp eq i32 %inc.i21.i, 4
+  br i1 %exitcond.not.i22.i, label %if.end17.i, label %for.body.i13.i, !llvm.loop !441
 
-if.end17.i:                                       ; preds = %for.inc.i18.i, %for.inc.i.i89, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %while.body.i79
-  %start.addr.1.i83 = phi ptr [ %incdec.ptr.i80, %while.body.i79 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %scevgep45.i, %for.inc.i.i89 ], [ %scevgep.i, %for.inc.i18.i ]
+if.end17.i:                                       ; preds = %for.inc.i20.i, %for.inc.i.i89, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %if.end.i82, %while.body.i79
+  %start.addr.1.i83 = phi ptr [ %incdec.ptr.i80, %while.body.i79 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %incdec.ptr4.i, %if.end.i82 ], [ %scevgep.i.i, %for.inc.i.i89 ], [ %scevgep.i12.i, %for.inc.i20.i ]
   %cmp.i84 = icmp ult ptr %start.addr.1.i83, %end
   br i1 %cmp.i84, label %while.body.i79, label %return, !llvm.loop !442
 
@@ -26160,8 +26160,8 @@ _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenE
   store ptr %incdec.ptr.i80, ptr %token_end, align 8
   br label %return
 
-return:                                           ; preds = %if.then.i81, %if.end.i82, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i17.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
-  %retval.0 = phi i32 [ 2, %sw.bb11 ], [ 3, %sw.bb12 ], [ 9, %sw.bb14 ], [ 0, %sw.bb16 ], [ 1, %sw.bb18 ], [ 10, %sw.bb20 ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit ], [ 5, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit ], [ 4, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread ], [ 8, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i17.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i82 ], [ 11, %if.then.i81 ]
+return:                                           ; preds = %if.then.i81, %if.end.i82, %if.end17.i, %sw.bb.i, %sw.bb8.i, %switch.early.test.i19.i, %switch.early.test.i.i, %sw.bb26, %while.end.i49.i, %if.end39.i, %while.end.i27.i, %if.then11.i, %if.end.i.i, %if.end9.i.i, %while.end.i.i, %if.end.i76, %if.then34.i, %if.then24.i, %if.end, %while.end.i, %while.end.i37, %while.end.i58, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb11
+  %retval.0 = phi i32 [ 2, %sw.bb11 ], [ 3, %sw.bb12 ], [ 9, %sw.bb14 ], [ 0, %sw.bb16 ], [ 1, %sw.bb18 ], [ 10, %sw.bb20 ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit ], [ 5, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseNumberTokenEPKtS7_PS7_.exit ], [ 4, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE16ParseStringTokenEPKtS7_PS7_.exit ], [ 12, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit.thread ], [ 8, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit.thread ], [ 6, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit53.thread ], [ 7, %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE15ParseConstTokenEPKtS7_PS7_PKc.exit74.thread ], [ 11, %while.end.i58 ], [ 11, %while.end.i37 ], [ 11, %while.end.i ], [ 11, %if.end ], [ 11, %if.then24.i ], [ 11, %if.then34.i ], [ 11, %if.end.i76 ], [ 11, %while.end.i.i ], [ 11, %if.end9.i.i ], [ 11, %if.end.i.i ], [ 11, %if.then11.i ], [ 11, %while.end.i27.i ], [ 11, %if.end39.i ], [ 11, %while.end.i49.i ], [ 11, %sw.bb26 ], [ 11, %switch.early.test.i.i ], [ 11, %switch.early.test.i19.i ], [ 11, %sw.bb8.i ], [ 11, %sw.bb.i ], [ 11, %if.end17.i ], [ 11, %if.end.i82 ], [ 11, %if.then.i81 ]
   ret i32 %retval.0
 }
 

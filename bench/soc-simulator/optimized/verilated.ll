@@ -4096,9 +4096,9 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit217:               ; preds = %.preheader.i212
 .lr.ph285.preheader:                              ; preds = %65
   %scevgep341 = getelementptr i8, ptr %1, i64 4
   %smax342 = tail call i32 @llvm.smax.i32(i32 %9, i32 2)
-  %68 = add nsw i32 %smax342, -1
-  %69 = zext nneg i32 %68 to i64
-  %70 = shl nuw nsw i64 %69, 2
+  %68 = shl nuw nsw i32 %smax342, 2
+  %69 = add nsw i32 %68, -4
+  %70 = zext nneg i32 %69 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep341, i8 0, i64 %70, i1 false)
   br label %_ZL17VL_MOSTSETBITP1_WiPKj.exit217.thread
 
@@ -4456,9 +4456,9 @@ define dso_local noundef ptr @_Z10VL_POW_WWWiiiPjPKjS1_(i32 noundef %0, i32 %1, 
 .lr.ph.preheader:                                 ; preds = %6
   %scevgep = getelementptr i8, ptr %3, i64 4
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 2)
-  %13 = add nsw i32 %smax, -1
-  %14 = zext nneg i32 %13 to i64
-  %15 = shl nuw nsw i64 %14, 2
+  %13 = shl nuw nsw i32 %smax, 2
+  %14 = add nsw i32 %13, -4
+  %15 = zext nneg i32 %14 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %15, i1 false)
   br label %._crit_edge
 

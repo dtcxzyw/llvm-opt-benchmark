@@ -1309,9 +1309,9 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
 
 179:                                              ; preds = %.lr.ph, %179
   %indvars.iv570 = phi i64 [ %97, %.lr.ph ], [ %indvars.iv.next571, %179 ]
-  %180 = mul nsw i64 %indvars.iv570, 3
+  %180 = mul nuw nsw i64 %indvars.iv570, 3
   %181 = add nuw nsw i64 %180, 3
-  %182 = getelementptr inbounds i8, ptr %65, i64 %181
+  %182 = getelementptr inbounds nuw i8, ptr %65, i64 %181
   %183 = load i8, ptr %182, align 1, !tbaa !61
   %184 = zext i8 %183 to i32
   %185 = add nsw i64 %180, -3
@@ -1344,7 +1344,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %209 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv570
   store i8 %208, ptr %209, align 1, !tbaa !61
   %210 = add nuw nsw i64 %180, 4
-  %211 = getelementptr inbounds i8, ptr %65, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr %65, i64 %210
   %212 = load i8, ptr %211, align 1, !tbaa !61
   %213 = zext i8 %212 to i32
   %214 = add nsw i64 %180, -2
@@ -1375,7 +1375,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %gep598 = getelementptr i8, ptr %invariant.gep597, i64 %indvars.iv570
   store i8 %237, ptr %gep598, align 1, !tbaa !61
   %238 = add nuw nsw i64 %180, 5
-  %239 = getelementptr inbounds i8, ptr %65, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %65, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !61
   %241 = zext i8 %240 to i32
   %242 = add nsw i64 %180, -1
@@ -1405,7 +1405,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %265 = load i8, ptr %264, align 1, !tbaa !61
   %gep600 = getelementptr i8, ptr %invariant.gep599, i64 %indvars.iv570
   store i8 %265, ptr %gep600, align 1, !tbaa !61
-  %266 = getelementptr inbounds i8, ptr %67, i64 %181
+  %266 = getelementptr inbounds nuw i8, ptr %67, i64 %181
   %267 = load i8, ptr %266, align 1, !tbaa !61
   %268 = zext i8 %267 to i32
   %269 = getelementptr inbounds i8, ptr %67, i64 %185
@@ -1440,7 +1440,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds i8, ptr %44, i64 %295
   store i8 %291, ptr %296, align 1, !tbaa !61
-  %297 = getelementptr inbounds i8, ptr %67, i64 %210
+  %297 = getelementptr inbounds nuw i8, ptr %67, i64 %210
   %298 = load i8, ptr %297, align 1, !tbaa !61
   %299 = zext i8 %298 to i32
   %300 = getelementptr inbounds i8, ptr %67, i64 %214
@@ -1471,7 +1471,7 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %324 = sext i32 %323 to i64
   %325 = getelementptr inbounds i8, ptr %44, i64 %324
   store i8 %322, ptr %325, align 1, !tbaa !61
-  %326 = getelementptr inbounds i8, ptr %67, i64 %238
+  %326 = getelementptr inbounds nuw i8, ptr %67, i64 %238
   %327 = load i8, ptr %326, align 1, !tbaa !61
   %328 = zext i8 %327 to i32
   %329 = getelementptr inbounds i8, ptr %67, i64 %242
@@ -1502,33 +1502,33 @@ define internal fastcc void @_ZN2cvL15calcPixelCostBTERKNS_3MatES2_iiiPsPhPKhii(
   %353 = sext i32 %352 to i64
   %354 = getelementptr inbounds i8, ptr %44, i64 %353
   store i8 %351, ptr %354, align 1, !tbaa !61
-  %355 = getelementptr inbounds i8, ptr %65, i64 %180
+  %355 = getelementptr inbounds nuw i8, ptr %65, i64 %180
   %356 = load i8, ptr %355, align 1, !tbaa !61
   %gep606 = getelementptr i8, ptr %invariant.gep605, i64 %indvars.iv570
   store i8 %356, ptr %gep606, align 1, !tbaa !61
   %357 = add nuw nsw i64 %180, 1
-  %358 = getelementptr inbounds i8, ptr %65, i64 %357
+  %358 = getelementptr inbounds nuw i8, ptr %65, i64 %357
   %359 = load i8, ptr %358, align 1, !tbaa !61
   %gep608 = getelementptr i8, ptr %invariant.gep607, i64 %indvars.iv570
   store i8 %359, ptr %gep608, align 1, !tbaa !61
   %360 = add nuw nsw i64 %180, 2
-  %361 = getelementptr inbounds i8, ptr %65, i64 %360
+  %361 = getelementptr inbounds nuw i8, ptr %65, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !61
   %gep610 = getelementptr i8, ptr %invariant.gep609, i64 %indvars.iv570
   store i8 %362, ptr %gep610, align 1, !tbaa !61
-  %363 = getelementptr inbounds i8, ptr %67, i64 %180
+  %363 = getelementptr inbounds nuw i8, ptr %67, i64 %180
   %364 = load i8, ptr %363, align 1, !tbaa !61
   %365 = add nsw i32 %294, %93
   %366 = sext i32 %365 to i64
   %367 = getelementptr inbounds i8, ptr %44, i64 %366
   store i8 %364, ptr %367, align 1, !tbaa !61
-  %368 = getelementptr inbounds i8, ptr %67, i64 %357
+  %368 = getelementptr inbounds nuw i8, ptr %67, i64 %357
   %369 = load i8, ptr %368, align 1, !tbaa !61
   %370 = add nsw i32 %294, %94
   %371 = sext i32 %370 to i64
   %372 = getelementptr inbounds i8, ptr %44, i64 %371
   store i8 %369, ptr %372, align 1, !tbaa !61
-  %373 = getelementptr inbounds i8, ptr %67, i64 %360
+  %373 = getelementptr inbounds nuw i8, ptr %67, i64 %360
   %374 = load i8, ptr %373, align 1, !tbaa !61
   %375 = add nsw i32 %294, %95
   %376 = sext i32 %375 to i64

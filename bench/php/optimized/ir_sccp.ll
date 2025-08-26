@@ -2877,9 +2877,9 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
 
 .lr.ph248.preheader.i:                            ; preds = %.preheader.i
   %umax.i = tail call i32 @llvm.umax.i32(i32 %225, i32 2)
-  %311 = add nsw i32 %umax.i, -1
-  %312 = zext nneg i32 %311 to i64
-  %313 = shl nuw nsw i64 %312, 2
+  %311 = shl nuw nsw i32 %umax.i, 2
+  %312 = add nsw i32 %311, -4
+  %313 = zext nneg i32 %312 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep268.i, i8 0, i64 %313, i1 false), !tbaa !40
   br label %._crit_edge249.i
 

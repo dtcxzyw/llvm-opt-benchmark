@@ -4875,10 +4875,10 @@ asn1_expect_objtype.exit30:                       ; preds = %22
   br i1 %.not21, label %.thread40.sink.split, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %28
-  %40 = add nsw i32 %4, -1
+  %40 = mul nuw nsw i32 %4, 24
   %41 = zext nneg i32 %40 to i64
-  %42 = mul nuw nsw i64 %41, 24
-  %scevgep = getelementptr i8, ptr %3, i64 %42
+  %42 = getelementptr i8, ptr %3, i64 %41
+  %scevgep = getelementptr i8, ptr %42, i64 -24
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.preheader
 

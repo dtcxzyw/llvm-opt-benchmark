@@ -74730,19 +74730,19 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
   br label %.lr.ph78.us.i.us.us
 
 .lr.ph78.us.i.us.us:                              ; preds = %._crit_edge.us.i.us.us, %.lr.ph84.i.us.us
-  %indvars.iv98 = phi i32 [ %indvars.iv.next99, %._crit_edge.us.i.us.us ], [ 0, %.lr.ph84.i.us.us ]
+  %indvars.iv96 = phi i32 [ %indvars.iv.next97, %._crit_edge.us.i.us.us ], [ 0, %.lr.ph84.i.us.us ]
   %indvars.iv109.i.us.us = phi i64 [ %indvars.iv.next110.i.us.us, %._crit_edge.us.i.us.us ], [ 0, %.lr.ph84.i.us.us ]
   %.06281.us.i.us.us = phi i32 [ %spec.select.us.i.us.us, %._crit_edge.us.i.us.us ], [ 16, %.lr.ph84.i.us.us ]
-  %indvars107 = trunc i64 %indvars.iv109.i.us.us to i32
+  %indvars105 = trunc i64 %indvars.iv109.i.us.us to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
-  %18 = add i32 %.06281.us.i.us.us, %indvars107
+  %18 = add i32 %.06281.us.i.us.us, %indvars105
   %19 = icmp sgt i32 %18, %5
-  %20 = sub i32 %5, %indvars107
+  %20 = sub i32 %5, %indvars105
   %spec.select.us.i.us.us = select i1 %19, i32 %20, i32 %.06281.us.i.us.us
   %21 = icmp sgt i32 %spec.select.us.i.us.us, 0
   %22 = add nsw i64 %indvars.iv109.i.us.us, %16
-  %smin97 = tail call i32 @llvm.smin.i32(i32 %5, i32 %18)
-  %23 = add i32 %smin97, %indvars.iv98
+  %smin95 = tail call i32 @llvm.smin.i32(i32 %5, i32 %18)
+  %23 = add i32 %smin95, %indvars.iv96
   %24 = sext i32 %23 to i64
   br label %25
 
@@ -74778,8 +74778,8 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
   %39 = fadd float %34, %38
   store float %39, ptr %37, align 4
   %indvars.iv.next95.i.us.us = add nuw nsw i64 %indvars.iv94.i.us.us, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next95.i.us.us, %24
-  br i1 %exitcond100.not, label %.loopexit.us.i.us.us, label %32
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95.i.us.us, %24
+  br i1 %exitcond98.not, label %.loopexit.us.i.us.us, label %32
 
 .preheader67.us.i.us.us:                          ; preds = %25
   br i1 %21, label %.lr.ph74.us.i.us.us, label %.loopexit.us.i.us.us
@@ -74800,8 +74800,8 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
   %49 = fadd float %45, %48
   store float %49, ptr %47, align 8
   %indvars.iv.next98.i.us.us = add nuw nsw i64 %indvars.iv97.i.us.us, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next98.i.us.us, %24
-  br i1 %exitcond102.not, label %.loopexit.us.i.us.us, label %43
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98.i.us.us, %24
+  br i1 %exitcond100.not, label %.loopexit.us.i.us.us, label %43
 
 .preheader.us.i.us.us:                            ; preds = %25
   br i1 %21, label %.lr.ph76.us.i.us.us, label %.loopexit.us.i.us.us
@@ -74827,8 +74827,8 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
   %63 = fadd float %55, %62
   store float %63, ptr %61, align 4
   %indvars.iv.next101.i.us.us = add nuw nsw i64 %indvars.iv100.i.us.us, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next101.i.us.us, %24
-  br i1 %exitcond104.not, label %.loopexit.us.i.us.us, label %53
+  %exitcond102.not = icmp eq i64 %indvars.iv.next101.i.us.us, %24
+  br i1 %exitcond102.not, label %.loopexit.us.i.us.us, label %53
 
 .loopexit.us.i.us.us:                             ; preds = %32, %43, %53, %.preheader.us.i.us.us, %.preheader67.us.i.us.us, %.preheader69.us.i.us.us, %25
   %indvars.iv.next104.i.us.us = add nuw nsw i64 %indvars.iv103.i.us.us, 1
@@ -74841,7 +74841,7 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
   br i1 %65, label %.lr.ph80.us.preheader.i.us.us, label %._crit_edge.us.i.us.us
 
 .lr.ph80.us.preheader.i.us.us:                    ; preds = %..preheader71_crit_edge.us.i.us.us
-  %66 = shl i32 %indvars107, 1
+  %66 = shl i32 %indvars105, 1
   %67 = sext i32 %66 to i64
   %invariant.gep118.i.us.us = getelementptr i16, ptr %1, i64 %67
   %68 = shl i32 %23, 1
@@ -74860,20 +74860,20 @@ define internal fastcc void @convert_channels_short_interleaved(i32 noundef %0, 
   %gep119.i.us.us = getelementptr i16, ptr %invariant.gep118.i.us.us, i64 %indvars.iv106.i.us.us
   store i16 %76, ptr %gep119.i.us.us, align 2
   %indvars.iv.next107.i.us.us = add nuw nsw i64 %indvars.iv106.i.us.us, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next107.i.us.us, %69
-  br i1 %exitcond106.not, label %._crit_edge.us.i.us.us, label %.lr.ph80.us.i.us.us
+  %exitcond104.not = icmp eq i64 %indvars.iv.next107.i.us.us, %69
+  br i1 %exitcond104.not, label %._crit_edge.us.i.us.us, label %.lr.ph80.us.i.us.us
 
 ._crit_edge.us.i.us.us:                           ; preds = %.lr.ph80.us.i.us.us, %..preheader71_crit_edge.us.i.us.us
   %indvars.iv.next110.i.us.us = add nuw nsw i64 %indvars.iv109.i.us.us, 16
   %77 = icmp samesign ult i64 %indvars.iv.next110.i.us.us, %15
-  %indvars.iv.next99 = add i32 %indvars.iv98, -16
+  %indvars.iv.next97 = add i32 %indvars.iv96, -16
   br i1 %77, label %.lr.ph78.us.i.us.us, label %compute_stereo_samples.exit.loopexit.us.us
 
 compute_stereo_samples.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %78 = add nuw nsw i32 %.03868.us.us, 1
-  %exitcond108.not = icmp eq i32 %78, %0
-  br i1 %exitcond108.not, label %.loopexit, label %.lr.ph84.i.us.us
+  %exitcond106.not = icmp eq i32 %78, %0
+  br i1 %exitcond106.not, label %.loopexit, label %.lr.ph84.i.us.us
 
 .unreachabledefault:                              ; preds = %25
   unreachable
@@ -74884,25 +74884,25 @@ compute_stereo_samples.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us
   br label %.preheader71.i.us
 
 .preheader71.i.us:                                ; preds = %.lr.ph84.i.us, %._crit_edge.i.us
-  %indvars.iv90 = phi i32 [ 0, %.lr.ph84.i.us ], [ %indvars.iv.next91, %._crit_edge.i.us ]
+  %indvars.iv88 = phi i32 [ 0, %.lr.ph84.i.us ], [ %indvars.iv.next89, %._crit_edge.i.us ]
   %indvars.iv91.i.us = phi i64 [ 0, %.lr.ph84.i.us ], [ %indvars.iv.next92.i.us, %._crit_edge.i.us ]
   %.06281.i.us = phi i32 [ 16, %.lr.ph84.i.us ], [ %spec.select.i.us, %._crit_edge.i.us ]
-  %indvars93 = trunc i64 %indvars.iv91.i.us to i32
+  %indvars91 = trunc i64 %indvars.iv91.i.us to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %7, i8 0, i64 128, i1 false)
-  %79 = add nsw i32 %.06281.i.us, %indvars93
+  %79 = add nsw i32 %.06281.i.us, %indvars91
   %80 = icmp sgt i32 %79, %5
-  %81 = sub i32 %5, %indvars93
+  %81 = sub i32 %5, %indvars91
   %spec.select.i.us = select i1 %80, i32 %81, i32 %.06281.i.us
   %82 = shl i32 %spec.select.i.us, 1
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.lr.ph80.preheader.i.us, label %._crit_edge.i.us
 
 .lr.ph80.preheader.i.us:                          ; preds = %.preheader71.i.us
-  %84 = shl i32 %indvars93, 1
+  %84 = shl i32 %indvars91, 1
   %85 = sext i32 %84 to i64
   %invariant.gep.i.us = getelementptr i16, ptr %1, i64 %85
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %79)
-  %86 = add i32 %smin, %indvars.iv90
+  %86 = add i32 %smin, %indvars.iv88
   %87 = shl i32 %86, 1
   %88 = zext i32 %87 to i64
   br label %.lr.ph80.i.us
@@ -74919,20 +74919,20 @@ compute_stereo_samples.exit.loopexit.us.us:       ; preds = %._crit_edge.us.i.us
   %gep.i.us = getelementptr i16, ptr %invariant.gep.i.us, i64 %indvars.iv.i.us
   store i16 %95, ptr %gep.i.us, align 2
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next.i.us, %88
-  br i1 %exitcond92.not, label %._crit_edge.i.us, label %.lr.ph80.i.us
+  %exitcond90.not = icmp eq i64 %indvars.iv.next.i.us, %88
+  br i1 %exitcond90.not, label %._crit_edge.i.us, label %.lr.ph80.i.us
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph80.i.us, %.preheader71.i.us
   %indvars.iv.next92.i.us = add nuw nsw i64 %indvars.iv91.i.us, 16
   %96 = icmp samesign ult i64 %indvars.iv.next92.i.us, %15
-  %indvars.iv.next91 = add i32 %indvars.iv90, -16
+  %indvars.iv.next89 = add i32 %indvars.iv88, -16
   br i1 %96, label %.preheader71.i.us, label %compute_stereo_samples.exit.loopexit46.us
 
 compute_stereo_samples.exit.loopexit46.us:        ; preds = %._crit_edge.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %97 = add nuw nsw i32 %.03868.us, 1
-  %exitcond94.not = icmp eq i32 %97, %0
-  br i1 %exitcond94.not, label %.loopexit, label %.lr.ph84.i.us
+  %exitcond92.not = icmp eq i32 %97, %0
+  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph84.i.us
 
 98:                                               ; preds = %6
   %99 = tail call i32 @llvm.smin.i32(i32 %0, i32 %2)
@@ -74956,28 +74956,28 @@ compute_stereo_samples.exit.loopexit46.us:        ; preds = %._crit_edge.i.us
   %110 = add nuw nsw i64 %105, %109
   %111 = shl nuw nsw i64 %110, 1
   %112 = sext i32 %4 to i64
-  %wide.trip.count86 = zext nneg i32 %5 to i64
+  %wide.trip.count84 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %99 to i64
   %113 = icmp slt i32 %2, %0
   br label %.preheader48.us
 
 .preheader48.us:                                  ; preds = %.preheader48.us.preheader, %._crit_edge.us
-  %indvars.iv83 = phi i64 [ 0, %.preheader48.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us ]
+  %indvars.iv81 = phi i64 [ 0, %.preheader48.us.preheader ], [ %indvars.iv.next82, %._crit_edge.us ]
   %.03758.us = phi ptr [ %1, %.preheader48.us.preheader ], [ %.2.lcssa.us, %._crit_edge.us ]
   br label %114
 
 ._crit_edge.us:                                   ; preds = %.lr.ph55.us.preheader, %..preheader47_crit_edge.us
-  %.2.lcssa.us = phi ptr [ %125, %..preheader47_crit_edge.us ], [ %scevgep82, %.lr.ph55.us.preheader ]
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %.loopexit, label %.preheader48.us
+  %.2.lcssa.us = phi ptr [ %125, %..preheader47_crit_edge.us ], [ %scevgep, %.lr.ph55.us.preheader ]
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %.loopexit, label %.preheader48.us
 
 114:                                              ; preds = %.preheader48.us, %114
   %indvars.iv = phi i64 [ 0, %.preheader48.us ], [ %indvars.iv.next, %114 ]
   %.151.us = phi ptr [ %.03758.us, %.preheader48.us ], [ %125, %114 ]
   %115 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr float, ptr %116, i64 %indvars.iv83
+  %117 = getelementptr float, ptr %116, i64 %indvars.iv81
   %118 = getelementptr float, ptr %117, i64 %112
   %119 = load float, ptr %118, align 4
   %120 = fadd float %119, 3.840000e+02
@@ -74988,8 +74988,8 @@ compute_stereo_samples.exit.loopexit46.us:        ; preds = %._crit_edge.i.us
   %125 = getelementptr i8, ptr %.151.us, i64 2
   store i16 %124, ptr %.151.us, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond80.not, label %..preheader47_crit_edge.us, label %114
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %..preheader47_crit_edge.us, label %114
 
 ..preheader47_crit_edge.us:                       ; preds = %114
   br i1 %113, label %.lr.ph55.us.preheader, label %._crit_edge.us
@@ -74997,7 +74997,7 @@ compute_stereo_samples.exit.loopexit46.us:        ; preds = %._crit_edge.i.us
 .lr.ph55.us.preheader:                            ; preds = %..preheader47_crit_edge.us
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %125, i8 0, i64 %107, i1 false)
   %126 = getelementptr i8, ptr %.03758.us, i64 %111
-  %scevgep82 = getelementptr i8, ptr %126, i64 4
+  %scevgep = getelementptr i8, ptr %126, i64 4
   br label %._crit_edge.us
 
 .preheader48.lr.ph.split:                         ; preds = %.preheader48.lr.ph
@@ -75005,24 +75005,14 @@ compute_stereo_samples.exit.loopexit46.us:        ; preds = %._crit_edge.i.us
   br i1 %127, label %.preheader48.us59.preheader, label %.loopexit
 
 .preheader48.us59.preheader:                      ; preds = %.preheader48.lr.ph.split
-  %128 = shl nuw i32 %0, 1
-  %129 = zext i32 %128 to i64
-  %130 = add nsw i32 %0, -1
-  %131 = zext nneg i32 %130 to i64
-  %132 = shl nuw nsw i64 %131, 1
-  br label %.preheader48.us59
+  %128 = zext nneg i32 %0 to i64
+  %129 = zext nneg i32 %5 to i64
+  %130 = mul nuw nsw i64 %129, %128
+  %131 = shl nuw nsw i64 %130, 1
+  tail call void @llvm.memset.p0.i64(ptr align 2 %1, i8 0, i64 %131, i1 false)
+  br label %.loopexit
 
-.preheader48.us59:                                ; preds = %.preheader48.us59.preheader, %.preheader48.us59
-  %.03758.us60 = phi ptr [ %scevgep, %.preheader48.us59 ], [ %1, %.preheader48.us59.preheader ]
-  %.04157.us61 = phi i32 [ %134, %.preheader48.us59 ], [ 0, %.preheader48.us59.preheader ]
-  tail call void @llvm.memset.p0.i64(ptr align 2 %.03758.us60, i8 0, i64 %129, i1 false)
-  %133 = getelementptr i8, ptr %.03758.us60, i64 %132
-  %scevgep = getelementptr i8, ptr %133, i64 2
-  %134 = add nuw nsw i32 %.04157.us61, 1
-  %exitcond.not = icmp eq i32 %134, %5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader48.us59
-
-.loopexit:                                        ; preds = %.preheader48.us59, %._crit_edge.us, %compute_stereo_samples.exit.loopexit46.us, %compute_stereo_samples.exit.loopexit.us.us, %.preheader48.lr.ph.split, %.lr.ph, %98, %.preheader
+.loopexit:                                        ; preds = %._crit_edge.us, %compute_stereo_samples.exit.loopexit46.us, %compute_stereo_samples.exit.loopexit.us.us, %.preheader48.lr.ph.split, %.lr.ph, %.preheader48.us59.preheader, %98, %.preheader
   ret void
 }
 

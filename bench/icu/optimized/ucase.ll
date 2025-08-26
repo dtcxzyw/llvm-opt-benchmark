@@ -1251,147 +1251,150 @@ define signext range(i8 0, 2) i8 @ucase_addStringCaseClosure_77(ptr noundef read
   br i1 %or.cond57, label %.critedge, label %.preheader63
 
 .preheader63:                                     ; preds = %3
-  %7 = icmp eq i32 %1, 3
-  br i1 %7, label %.preheader63.split.us, label %.preheader63.split
+  %7 = shl nuw nsw i32 %1, 1
+  %8 = zext nneg i32 %7 to i64
+  %9 = icmp eq i32 %1, 3
+  br i1 %9, label %.preheader63.split.us, label %.preheader63.split
 
 .preheader63.split.us:                            ; preds = %.preheader63, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us
-  %.04670.us = phi i32 [ %.248.us, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %.preheader63 ]
-  %.04969.us = phi i32 [ %.251.us, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 73, %.preheader63 ]
-  %8 = add nsw i32 %.04670.us, %.04969.us
-  %9 = sdiv i32 %8, 2
-  %10 = mul nsw i32 %9, 5
-  %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ucase_props_unfold, i64 10), i64 %11
-  br label %13
+  %.04668.us = phi i32 [ %.248.us, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %.preheader63 ]
+  %.04967.us = phi i32 [ %.251.us, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 73, %.preheader63 ]
+  %10 = add nsw i32 %.04668.us, %.04967.us
+  %11 = sdiv i32 %10, 2
+  %12 = mul nsw i32 %11, 5
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ucase_props_unfold, i64 10), i64 %13
+  br label %15
 
-13:                                               ; preds = %20, %.preheader63.split.us
-  %.015.i.us = phi ptr [ %0, %.preheader63.split.us ], [ %14, %20 ]
-  %.014.i.us = phi i32 [ 3, %.preheader63.split.us ], [ %21, %20 ]
-  %.013.i.us = phi ptr [ %12, %.preheader63.split.us ], [ %15, %20 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.015.i.us, i64 2
-  %15 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
-  %16 = load i16, ptr %.013.i.us, align 2, !tbaa !20
-  %17 = icmp eq i16 %16, 0
-  br i1 %17, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, label %18
+15:                                               ; preds = %22, %.preheader63.split.us
+  %.015.i.us = phi ptr [ %0, %.preheader63.split.us ], [ %16, %22 ]
+  %.014.i.us = phi i32 [ 3, %.preheader63.split.us ], [ %23, %22 ]
+  %.013.i.us = phi ptr [ %14, %.preheader63.split.us ], [ %17, %22 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.015.i.us, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.013.i.us, i64 2
+  %18 = load i16, ptr %.013.i.us, align 2, !tbaa !20
+  %19 = icmp eq i16 %18, 0
+  br i1 %19, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, label %20
 
-18:                                               ; preds = %13
-  %19 = load i16, ptr %.015.i.us, align 2, !tbaa !20
-  %.not.i.us = icmp eq i16 %19, %16
-  br i1 %.not.i.us, label %20, label %_ZL9strcmpMaxPKDsiS0_i.exit.us
+20:                                               ; preds = %15
+  %21 = load i16, ptr %.015.i.us, align 2, !tbaa !20
+  %.not.i.us = icmp eq i16 %21, %18
+  br i1 %.not.i.us, label %22, label %_ZL9strcmpMaxPKDsiS0_i.exit.us
 
-20:                                               ; preds = %18
-  %21 = add nsw i32 %.014.i.us, -1
-  %22 = icmp samesign ugt i32 %.014.i.us, 1
-  br i1 %22, label %13, label %.preheader, !llvm.loop !25
+22:                                               ; preds = %20
+  %23 = add nsw i32 %.014.i.us, -1
+  %24 = icmp samesign ugt i32 %.014.i.us, 1
+  br i1 %24, label %15, label %.preheader, !llvm.loop !25
 
-_ZL9strcmpMaxPKDsiS0_i.exit.us:                   ; preds = %18
-  %23 = icmp ult i16 %19, %16
+_ZL9strcmpMaxPKDsiS0_i.exit.us:                   ; preds = %20
+  %25 = icmp ult i16 %21, %18
   br label %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us
 
-_ZL9strcmpMaxPKDsiS0_i.exit.thread.us:            ; preds = %13, %_ZL9strcmpMaxPKDsiS0_i.exit.us
-  %.0.i60.us = phi i1 [ %23, %_ZL9strcmpMaxPKDsiS0_i.exit.us ], [ false, %13 ]
-  %24 = add nsw i32 %9, 1
-  %.251.us = select i1 %.0.i60.us, i32 %9, i32 %.04969.us
-  %.248.us = select i1 %.0.i60.us, i32 %.04670.us, i32 %24
-  %25 = icmp slt i32 %.248.us, %.251.us
-  br i1 %25, label %.preheader63.split.us, label %.critedge
+_ZL9strcmpMaxPKDsiS0_i.exit.thread.us:            ; preds = %15, %_ZL9strcmpMaxPKDsiS0_i.exit.us
+  %.0.i60.us = phi i1 [ %25, %_ZL9strcmpMaxPKDsiS0_i.exit.us ], [ false, %15 ]
+  %26 = add nsw i32 %11, 1
+  %.251.us = select i1 %.0.i60.us, i32 %11, i32 %.04967.us
+  %.248.us = select i1 %.0.i60.us, i32 %.04668.us, i32 %26
+  %27 = icmp slt i32 %.248.us, %.251.us
+  br i1 %27, label %.preheader63.split.us, label %.critedge
 
 .preheader63.split:                               ; preds = %.preheader63, %_ZL9strcmpMaxPKDsiS0_i.exit.thread
-  %.04670 = phi i32 [ %.248, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ], [ 0, %.preheader63 ]
-  %.04969 = phi i32 [ %.251, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ], [ 73, %.preheader63 ]
-  %26 = add nsw i32 %.04670, %.04969
-  %27 = sdiv i32 %26, 2
-  %28 = mul nsw i32 %27, 5
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ucase_props_unfold, i64 10), i64 %29
-  br label %31
+  %.04668 = phi i32 [ %.248, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ], [ 0, %.preheader63 ]
+  %.04967 = phi i32 [ %.251, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ], [ 73, %.preheader63 ]
+  %28 = add nsw i32 %.04668, %.04967
+  %29 = sdiv i32 %28, 2
+  %30 = mul nsw i32 %29, 5
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ucase_props_unfold, i64 10), i64 %31
+  %scevgep.i = getelementptr i8, ptr %32, i64 %8
+  br label %33
 
-31:                                               ; preds = %41, %.preheader63.split
-  %.015.i = phi ptr [ %0, %.preheader63.split ], [ %32, %41 ]
-  %.014.i = phi i32 [ %1, %.preheader63.split ], [ %42, %41 ]
-  %.013.i = phi ptr [ %30, %.preheader63.split ], [ %33, %41 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
-  %33 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
-  %34 = load i16, ptr %.013.i, align 2, !tbaa !20
-  %35 = icmp eq i16 %34, 0
-  br i1 %35, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread, label %36
+33:                                               ; preds = %43, %.preheader63.split
+  %.015.i = phi ptr [ %0, %.preheader63.split ], [ %34, %43 ]
+  %.014.i = phi i32 [ %1, %.preheader63.split ], [ %44, %43 ]
+  %.013.i = phi ptr [ %32, %.preheader63.split ], [ %35, %43 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.015.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.013.i, i64 2
+  %36 = load i16, ptr %.013.i, align 2, !tbaa !20
+  %37 = icmp eq i16 %36, 0
+  br i1 %37, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread, label %38
 
-36:                                               ; preds = %31
-  %37 = zext i16 %34 to i32
-  %38 = load i16, ptr %.015.i, align 2, !tbaa !20
-  %39 = zext i16 %38 to i32
-  %40 = sub nsw i32 %39, %37
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %41, label %_ZL9strcmpMaxPKDsiS0_i.exit
+38:                                               ; preds = %33
+  %39 = zext i16 %36 to i32
+  %40 = load i16, ptr %.015.i, align 2, !tbaa !20
+  %41 = zext i16 %40 to i32
+  %42 = sub nsw i32 %41, %39
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %43, label %_ZL9strcmpMaxPKDsiS0_i.exit
 
-41:                                               ; preds = %36
-  %42 = add nsw i32 %.014.i, -1
-  %43 = icmp samesign ugt i32 %.014.i, 1
-  br i1 %43, label %31, label %44, !llvm.loop !25
+43:                                               ; preds = %38
+  %44 = add nsw i32 %.014.i, -1
+  %45 = icmp samesign ugt i32 %.014.i, 1
+  br i1 %45, label %33, label %46, !llvm.loop !25
 
-44:                                               ; preds = %41
-  %45 = load i16, ptr %33, align 2, !tbaa !20
-  %46 = icmp ne i16 %45, 0
-  %spec.select.i = sext i1 %46 to i32
+46:                                               ; preds = %43
+  %47 = load i16, ptr %scevgep.i, align 2, !tbaa !20
+  %48 = icmp ne i16 %47, 0
+  %spec.select.i = sext i1 %48 to i32
   br label %_ZL9strcmpMaxPKDsiS0_i.exit
 
-_ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %36, %44
-  %.0.i = phi i32 [ %spec.select.i, %44 ], [ %40, %36 ]
+_ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %38, %46
+  %.0.i = phi i32 [ %spec.select.i, %46 ], [ %42, %38 ]
   %.not56 = icmp eq i32 %.0.i, 0
   br i1 %.not56, label %.preheader, label %_ZL9strcmpMaxPKDsiS0_i.exit.thread
 
-.preheader:                                       ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit, %20
-  %.us-phi = phi ptr [ %12, %20 ], [ %30, %_ZL9strcmpMaxPKDsiS0_i.exit ]
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %48
+.preheader:                                       ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit, %22
+  %.us-phi = phi ptr [ %14, %22 ], [ %32, %_ZL9strcmpMaxPKDsiS0_i.exit ]
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %50
 
-48:                                               ; preds = %.preheader, %66
-  %.04471 = phi i32 [ 3, %.preheader ], [ 4, %66 ]
-  %49 = zext nneg i32 %.04471 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %.us-phi, i64 %49
-  %51 = load i16, ptr %50, align 2, !tbaa !20
-  %52 = zext i16 %51 to i32
-  %.not = icmp eq i16 %51, 0
-  br i1 %.not, label %.critedge, label %53, !llvm.loop !26
+50:                                               ; preds = %.preheader, %68
+  %.04469 = phi i32 [ 3, %.preheader ], [ 4, %68 ]
+  %51 = zext nneg i32 %.04469 to i64
+  %52 = getelementptr inbounds nuw i16, ptr %.us-phi, i64 %51
+  %53 = load i16, ptr %52, align 2, !tbaa !20
+  %54 = zext i16 %53 to i32
+  %.not = icmp eq i16 %53, 0
+  br i1 %.not, label %.critedge, label %55, !llvm.loop !26
 
-53:                                               ; preds = %48
-  %54 = add nuw nsw i32 %.04471, 1
-  %55 = and i32 %52, 64512
-  %56 = icmp eq i32 %55, 55296
-  br i1 %56, label %57, label %66
+55:                                               ; preds = %50
+  %56 = add nuw nsw i32 %.04469, 1
+  %57 = and i32 %54, 64512
+  %58 = icmp eq i32 %57, 55296
+  br i1 %58, label %59, label %68
 
-57:                                               ; preds = %53
-  %58 = shl nuw nsw i32 %52, 10
-  %59 = add nuw nsw i32 %.04471, 2
-  %60 = zext nneg i32 %54 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %.us-phi, i64 %60
-  %62 = load i16, ptr %61, align 2, !tbaa !20
-  %63 = zext i16 %62 to i32
-  %64 = add nsw i32 %58, -56613888
-  %65 = add nuw nsw i32 %64, %63
-  br label %66
+59:                                               ; preds = %55
+  %60 = shl nuw nsw i32 %54, 10
+  %61 = add nuw nsw i32 %.04469, 2
+  %62 = zext nneg i32 %56 to i64
+  %63 = getelementptr inbounds nuw i16, ptr %.us-phi, i64 %62
+  %64 = load i16, ptr %63, align 2, !tbaa !20
+  %65 = zext i16 %64 to i32
+  %66 = add nsw i32 %60, -56613888
+  %67 = add nuw nsw i32 %66, %65
+  br label %68
 
-66:                                               ; preds = %57, %53
-  %.145 = phi i32 [ %59, %57 ], [ %54, %53 ]
-  %.0 = phi i32 [ %65, %57 ], [ %52, %53 ]
-  %67 = load ptr, ptr %47, align 8, !tbaa !7
-  %68 = load ptr, ptr %2, align 8, !tbaa !11
-  tail call void %67(ptr noundef %68, i32 noundef %.0)
+68:                                               ; preds = %59, %55
+  %.145 = phi i32 [ %61, %59 ], [ %56, %55 ]
+  %.0 = phi i32 [ %67, %59 ], [ %54, %55 ]
+  %69 = load ptr, ptr %49, align 8, !tbaa !7
+  %70 = load ptr, ptr %2, align 8, !tbaa !11
+  tail call void %69(ptr noundef %70, i32 noundef %.0)
   tail call void @ucase_addCaseClosure_77(i32 noundef %.0, ptr noundef nonnull %2)
-  %69 = icmp samesign ult i32 %.145, 5
-  br i1 %69, label %48, label %.critedge, !llvm.loop !27
+  %71 = icmp samesign ult i32 %.145, 5
+  br i1 %71, label %50, label %.critedge, !llvm.loop !27
 
-_ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %31, %_ZL9strcmpMaxPKDsiS0_i.exit
-  %.0.i60 = phi i32 [ %.0.i, %_ZL9strcmpMaxPKDsiS0_i.exit ], [ 1, %31 ]
-  %70 = icmp slt i32 %.0.i60, 0
-  %71 = add nsw i32 %27, 1
-  %.251 = select i1 %70, i32 %27, i32 %.04969
-  %.248 = select i1 %70, i32 %.04670, i32 %71
-  %72 = icmp slt i32 %.248, %.251
-  br i1 %72, label %.preheader63.split, label %.critedge
+_ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %33, %_ZL9strcmpMaxPKDsiS0_i.exit
+  %.0.i60 = phi i32 [ %.0.i, %_ZL9strcmpMaxPKDsiS0_i.exit ], [ 1, %33 ]
+  %72 = icmp slt i32 %.0.i60, 0
+  %73 = add nsw i32 %29, 1
+  %.251 = select i1 %72, i32 %29, i32 %.04967
+  %.248 = select i1 %72, i32 %.04668, i32 %73
+  %74 = icmp slt i32 %.248, %.251
+  br i1 %74, label %.preheader63.split, label %.critedge
 
-.critedge:                                        ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit.thread, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, %66, %48, %3
-  %.042 = phi i8 [ 0, %3 ], [ 1, %48 ], [ 1, %66 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
+.critedge:                                        ; preds = %_ZL9strcmpMaxPKDsiS0_i.exit.thread, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us, %68, %50, %3
+  %.042 = phi i8 [ 0, %3 ], [ 1, %50 ], [ 1, %68 ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread.us ], [ 0, %_ZL9strcmpMaxPKDsiS0_i.exit.thread ]
   ret i8 %.042
 }
 
