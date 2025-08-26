@@ -1760,57 +1760,56 @@ define dso_local ptr @slurm_step_layout_type_name(i32 noundef %0) local_unnamed_
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %4 = and i32 %0, 65535
-  %5 = icmp eq i32 %4, 1
-  br i1 %5, label %.loopexit, label %.lr.ph
+  br label %8
 
-.lr.ph:                                           ; preds = %1, %6
-  %indvars.iv18 = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
+5:                                                ; preds = %8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %6 = getelementptr inbounds nuw %struct.layout_type_name_t, ptr @layout_type_names, i64 %indvars.iv.next
+  %7 = load i32, ptr %6, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond, label %.loopexit.thread, label %6, !llvm.loop !30
+  br i1 %exitcond, label %.loopexit.thread, label %8, !llvm.loop !30
 
-6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw [29 x %struct.layout_type_name_t], ptr @layout_type_names, i64 0, i64 %indvars.iv.next
-  %8 = load i32, ptr %7, align 16
-  %9 = icmp eq i32 %8, %4
-  br i1 %9, label %.loopexit, label %.lr.ph, !llvm.loop !30
+8:                                                ; preds = %1, %5
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
+  %9 = phi i32 [ 1, %1 ], [ %7, %5 ]
+  %10 = icmp eq i32 %9, %4
+  br i1 %10, label %.loopexit, label %5
 
-.loopexit:                                        ; preds = %6, %1
-  %.lcssa = phi ptr [ @layout_type_names, %1 ], [ %7, %6 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %11 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef %11) #7
+.loopexit:                                        ; preds = %8
+  %11 = getelementptr inbounds nuw %struct.layout_type_name_t, ptr @layout_type_names, i64 %indvars.iv, i32 1
+  %12 = load ptr, ptr %11, align 8
+  call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef %12) #7
   %.pre = load ptr, ptr %2, align 8
-  %12 = icmp eq ptr %.pre, null
-  br i1 %12, label %.loopexit.thread, label %13
+  %13 = icmp eq ptr %.pre, null
+  br i1 %13, label %.loopexit.thread, label %14
 
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
+.loopexit.thread:                                 ; preds = %5, %.loopexit
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #7
-  br label %13
+  br label %14
 
-13:                                               ; preds = %.loopexit.thread, %.loopexit
-  %14 = and i32 %0, 8388608
-  %.not9 = icmp eq i32 %14, 0
-  br i1 %.not9, label %16, label %15
+14:                                               ; preds = %.loopexit.thread, %.loopexit
+  %15 = and i32 %0, 8388608
+  %.not9 = icmp eq i32 %15, 0
+  br i1 %.not9, label %17, label %16
 
-15:                                               ; preds = %13
+16:                                               ; preds = %14
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #7
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %13
-  %17 = and i32 %0, 4194304
-  %.not10 = icmp eq i32 %17, 0
-  br i1 %.not10, label %19, label %18
+17:                                               ; preds = %16, %14
+  %18 = and i32 %0, 4194304
+  %.not10 = icmp eq i32 %18, 0
+  br i1 %.not10, label %20, label %19
 
-18:                                               ; preds = %16
+19:                                               ; preds = %17
   call void (ptr, ptr, ptr, ...) @_xstrfmtcatat(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #7
-  br label %19
+  br label %20
 
-19:                                               ; preds = %18, %16
-  %20 = load ptr, ptr %2, align 8
+20:                                               ; preds = %19, %17
+  %21 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %20
+  ret ptr %21
 }
 
 declare void @_xstrfmtcatat(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1

@@ -40,12 +40,12 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp eq ptr %0, null
-  br i1 %8, label %28, label %9
+  br i1 %8, label %26, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8, !tbaa !7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %28, label %12
+  br i1 %11, label %26, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -54,7 +54,7 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   %16 = load i32, ptr @debug_threshold, align 4
   %17 = icmp sgt i32 %1, %16
   %or.cond = select i1 %15, i1 true, i1 %17
-  br i1 %or.cond, label %28, label %18
+  br i1 %or.cond, label %26, label %18
 
 18:                                               ; preds = %12
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -63,21 +63,19 @@ define hidden void @mbedtls_debug_print_msg(ptr noundef readonly captures(addres
   %20 = call i32 @llvm.smax.i32(i32 %19, i32 0)
   %.0 = call i32 @llvm.umin.i32(i32 %20, i32 510)
   %21 = zext nneg i32 %.0 to i64
-  %22 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 %21
   store i8 10, ptr %22, align 1, !tbaa !29
-  %23 = add nuw nsw i32 %.0, 1
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw [512 x i8], ptr %7, i64 0, i64 %24
-  store i8 0, ptr %25, align 1, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
+  store i8 0, ptr %23, align 1, !tbaa !29
   %.val = load ptr, ptr %0, align 8, !tbaa !7
-  %26 = getelementptr i8, ptr %.val, i64 40
-  %.val.val = load ptr, ptr %26, align 8, !tbaa !17
-  %27 = getelementptr i8, ptr %.val, i64 48
-  %.val.val17 = load ptr, ptr %27, align 8, !tbaa !30
+  %24 = getelementptr i8, ptr %.val, i64 40
+  %.val.val = load ptr, ptr %24, align 8, !tbaa !17
+  %25 = getelementptr i8, ptr %.val, i64 48
+  %.val.val17 = load ptr, ptr %25, align 8, !tbaa !30
   call void %.val.val(ptr noundef %.val.val17, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7) #9
-  br label %28
+  br label %26
 
-28:                                               ; preds = %5, %9, %12, %18
+26:                                               ; preds = %5, %9, %12, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -224,7 +222,7 @@ define hidden void @mbedtls_debug_print_buf(ptr noundef readonly captures(addres
   %54 = add i8 %53, -32
   %or.cond62 = icmp ult i8 %54, 95
   %55 = select i1 %or.cond62, i8 %53, i8 46
-  %56 = getelementptr inbounds nuw [17 x i8], ptr %9, i64 0, i64 %28
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 %28
   store i8 %55, ptr %56, align 1, !tbaa !29
   %57 = add nuw nsw i64 %.05268, 1
   %exitcond = icmp eq i64 %.05268, %umin
@@ -484,7 +482,7 @@ define hidden void @mbedtls_debug_print_crt(ptr noundef readonly captures(addres
   %37 = sub i64 %36, %35
   %spec.store.select.i = call i64 @llvm.umin.i64(i64 %37, i64 511)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %.0.i, i64 %spec.store.select.i, i1 false)
-  %38 = getelementptr inbounds nuw [512 x i8], ptr %10, i64 0, i64 %spec.store.select.i
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 %spec.store.select.i
   store i8 0, ptr %38, align 1, !tbaa !29
   %.val.i = load ptr, ptr %0, align 8, !tbaa !7
   %39 = getelementptr i8, ptr %.val.i, i64 40
@@ -521,7 +519,7 @@ debug_print_line_by_line.exit:                    ; preds = %31
 
 .preheader.i:                                     ; preds = %debug_print_line_by_line.exit, %78
   %.01.i = phi i64 [ %79, %78 ], [ 0, %debug_print_line_by_line.exit ]
-  %49 = getelementptr inbounds nuw [3 x %struct.mbedtls_pk_debug_item], ptr %8, i64 0, i64 %.01.i
+  %49 = getelementptr inbounds nuw %struct.mbedtls_pk_debug_item, ptr %8, i64 %.01.i
   %50 = load i32, ptr %49, align 8, !tbaa !38
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %debug_print_pk.exit, label %52

@@ -797,7 +797,7 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br label %.loopexit92.i, !llvm.loop !85
 
 psh_glyph_compute_extrema.exit:                   ; preds = %.loopexit92.i
-  %400 = getelementptr inbounds nuw [2 x %struct.PSH_Hint_TableRec_], ptr %233, i64 0, i64 %indvars.iv
+  %400 = getelementptr inbounds nuw %struct.PSH_Hint_TableRec_, ptr %233, i64 %indvars.iv
   %401 = load ptr, ptr %242, align 8, !tbaa !46
   %.val = load i32, ptr %400, align 8, !tbaa !86
   %402 = getelementptr i8, ptr %400, i64 8
@@ -2370,7 +2370,7 @@ define internal fastcc void @psh_glyph_interpolate_other_points(ptr noundef nonn
   %8 = load ptr, ptr %7, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw [2 x %struct.PSH_DimensionRec_], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 400
   %13 = load i64, ptr %12, align 8, !tbaa !132
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 392
@@ -2972,7 +2972,7 @@ declare hidden i32 @ft_corner_orientation(i64 noundef, i64 noundef, i64 noundef,
 define internal fastcc void @psh_hint_align(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr inbounds nuw [2 x %struct.PSH_DimensionRec_], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw %struct.PSH_DimensionRec_, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !102
   %10 = and i32 %9, 8
@@ -4297,7 +4297,7 @@ define internal void @t1_hints_stem(ptr noundef captures(none) %0, i32 noundef %
   %14 = icmp ne i32 %1, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = zext i1 %14 to i64
-  %17 = getelementptr inbounds nuw [2 x %struct.PS_DimensionRec_], ptr %15, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw %struct.PS_DimensionRec_, ptr %15, i64 %16
   %18 = load ptr, ptr %0, align 8, !tbaa !177
   %19 = trunc i64 %13 to i32
   %20 = trunc i64 %12 to i32
@@ -4331,7 +4331,7 @@ define internal void @ps_hints_t1stem3(ptr noundef captures(none) %0, i32 nounde
   %13 = icmp ne i32 %1, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = zext i1 %13 to i64
-  %16 = getelementptr inbounds nuw [2 x %struct.PS_DimensionRec_], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw %struct.PS_DimensionRec_, ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !249
   %19 = icmp eq i32 %18, 1
@@ -4349,7 +4349,7 @@ define internal void @ps_hints_t1stem3(ptr noundef captures(none) %0, i32 nounde
   %26 = call i64 @FT_RoundFix(i64 noundef %25) #12
   %27 = lshr i64 %26, 16
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %30 = call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %16, i32 noundef %23, i32 noundef %28, ptr noundef %12, ptr noundef nonnull %29)
   %.not30 = icmp eq i32 %30, 0
   br i1 %.not30, label %31, label %ps_dimension_add_counter.exit.thread
@@ -5373,11 +5373,11 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   %8 = icmp ne i32 %1, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = zext i1 %8 to i64
-  %11 = getelementptr inbounds nuw [2 x %struct.PS_DimensionRec_], ptr %9, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw %struct.PS_DimensionRec_, ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %.lr.ph, %ps_hints_stem.exit
-  %.02232 = phi i32 [ %2, %.lr.ph ], [ %42, %ps_hints_stem.exit ]
+  %.02232 = phi i32 [ %2, %.lr.ph ], [ %41, %ps_hints_stem.exit ]
   %.02331 = phi i64 [ 0, %.lr.ph ], [ %18, %ps_hints_stem.exit ]
   %13 = tail call i32 @llvm.umin.i32(i32 %.02232, i32 16)
   %14 = shl nuw nsw i32 %13, 1
@@ -5392,7 +5392,7 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
   %18 = add i64 %17, %.12428
   %19 = tail call i64 @FT_RoundFix(i64 noundef %18) #12
   %20 = ashr i64 %19, 16
-  %21 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !242
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5400,49 +5400,48 @@ define internal void @t2_hints_stems(ptr noundef captures(none) %0, i32 noundef 
 
 .preheader:                                       ; preds = %15, %.preheader
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 0, %15 ]
-  %22 = or disjoint i64 %indvars.iv37, 1
-  %23 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %22
+  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv37
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !242
-  %25 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv37
-  %26 = load i64, ptr %25, align 16, !tbaa !242
-  %27 = sub nsw i64 %24, %26
-  store i64 %27, ptr %23, align 8, !tbaa !242
+  %25 = load i64, ptr %22, align 16, !tbaa !242
+  %26 = sub nsw i64 %24, %25
+  store i64 %26, ptr %23, align 8, !tbaa !242
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 2
-  %28 = icmp samesign ult i64 %indvars.iv.next38, %wide.trip.count
-  br i1 %28, label %.preheader, label %29, !llvm.loop !270
+  %27 = icmp samesign ult i64 %indvars.iv.next38, %wide.trip.count
+  br i1 %27, label %.preheader, label %28, !llvm.loop !270
 
-29:                                               ; preds = %.preheader
-  %30 = load i32, ptr %7, align 8, !tbaa !195
-  %.not.i = icmp eq i32 %30, 0
+28:                                               ; preds = %.preheader
+  %29 = load i32, ptr %7, align 8, !tbaa !195
+  %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %.preheader33, label %ps_hints_stem.exit
 
-.preheader33:                                     ; preds = %29, %.critedge.i
-  %.01623.i = phi i32 [ %39, %.critedge.i ], [ %13, %29 ]
-  %.01822.i = phi ptr [ %40, %.critedge.i ], [ %5, %29 ]
-  %31 = load ptr, ptr %0, align 8, !tbaa !177
-  %32 = load i64, ptr %.01822.i, align 8, !tbaa !242
-  %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !242
-  %36 = trunc i64 %35 to i32
-  %37 = tail call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %11, i32 noundef %33, i32 noundef %36, ptr noundef %31, ptr noundef null)
-  %.not21.i = icmp eq i32 %37, 0
-  br i1 %.not21.i, label %.critedge.i, label %38
+.preheader33:                                     ; preds = %28, %.critedge.i
+  %.01623.i = phi i32 [ %38, %.critedge.i ], [ %13, %28 ]
+  %.01822.i = phi ptr [ %39, %.critedge.i ], [ %5, %28 ]
+  %30 = load ptr, ptr %0, align 8, !tbaa !177
+  %31 = load i64, ptr %.01822.i, align 8, !tbaa !242
+  %32 = trunc i64 %31 to i32
+  %33 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !242
+  %35 = trunc i64 %34 to i32
+  %36 = tail call fastcc i32 @ps_dimension_add_t1stem(ptr noundef nonnull %11, i32 noundef %32, i32 noundef %35, ptr noundef %30, ptr noundef null)
+  %.not21.i = icmp eq i32 %36, 0
+  br i1 %.not21.i, label %.critedge.i, label %37
 
-38:                                               ; preds = %.preheader33
-  store i32 %37, ptr %7, align 8, !tbaa !195
+37:                                               ; preds = %.preheader33
+  store i32 %36, ptr %7, align 8, !tbaa !195
   br label %ps_hints_stem.exit
 
 .critedge.i:                                      ; preds = %.preheader33
-  %39 = add nsw i32 %.01623.i, -1
-  %40 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 16
-  %41 = icmp sgt i32 %.01623.i, 1
-  br i1 %41, label %.preheader33, label %ps_hints_stem.exit, !llvm.loop !271
+  %38 = add nsw i32 %.01623.i, -1
+  %39 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 16
+  %40 = icmp sgt i32 %.01623.i, 1
+  br i1 %40, label %.preheader33, label %ps_hints_stem.exit, !llvm.loop !271
 
-ps_hints_stem.exit:                               ; preds = %.critedge.i, %29, %38
-  %42 = sub nsw i32 %.02232, %13
-  %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %12, label %._crit_edge, !llvm.loop !272
+ps_hints_stem.exit:                               ; preds = %.critedge.i, %28, %37
+  %41 = sub nsw i32 %.02232, %13
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %12, label %._crit_edge, !llvm.loop !272
 
 ._crit_edge:                                      ; preds = %ps_hints_stem.exit, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -2712,10 +2712,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !72, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !174, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE.26", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbbccba2957c3343dE.26", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -4883,7 +4883,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$web
 
 8:                                                ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i", %5
   %.07.i.i.i = phi i64 [ 0, %5 ], [ %10, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i" ]
-  %9 = getelementptr inbounds nuw [6 x { i64, [30 x i64] }], ptr %0, i64 0, i64 %.07.i.i.i
+  %9 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %0, i64 %.07.i.i.i
   %10 = add nuw nsw i64 %.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
   %11 = load i64, ptr %9, align 8, !range !8, !alias.scope !517, !noundef !7
@@ -4926,7 +4926,7 @@ define hidden void @"_ZN4core3ptr105drop_in_place$LT$core..result..Result$LT$web
   br label %19
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw [6 x { i64, [30 x i64] }], ptr %0, i64 0, i64 %.1.i.i.i
+  %24 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %0, i64 %.1.i.i.i
   %25 = add nuw nsw i64 %.1.i.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(248) %24) #31
           to label %19 unwind label %27
@@ -7112,7 +7112,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 switch.lookup:                                    ; preds = %.lr.ph.split
   %17 = zext nneg i16 %15 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %17
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %17
   %switch.load = load i8, ptr %switch.gep, align 1
   %18 = icmp eq i8 %switch.load, %.fr
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2e0b42357a97d387E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge"
@@ -7229,7 +7229,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 switch.lookup:                                    ; preds = %.lr.ph.split.i.i.i
   %39 = zext nneg i16 %37 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %39
   %switch.load = load i8, ptr %switch.gep, align 1
   %40 = icmp eq i8 %switch.load, %5
   br i1 %40, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbbea8ca01f364ea3E.llvm.6030771845222660662.exit.sink.split", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i"
@@ -8281,9 +8281,11 @@ define hidden void @_ZN6rustls4msgs9handshake18ClientHelloPayload14set_psk_binde
   %.not = icmp eq i64 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !nonnull !7
-  %10 = add i64 %7, -1
-  %11 = getelementptr inbounds [0 x { i64, [6 x i64] }], ptr %9, i64 0, i64 %10
-  br i1 %.not, label %15, label %12
+  %10 = getelementptr { i64, [6 x i64] }, ptr %9, i64 %7
+  %11 = getelementptr i8, ptr %10, i64 -56
+  %.not817 = icmp eq ptr %11, null
+  %.not8 = select i1 %.not, i1 true, i1 %.not817
+  br i1 %.not8, label %15, label %12
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %11, align 8, !range !30, !noundef !7
@@ -8306,9 +8308,9 @@ define hidden void @_ZN6rustls4msgs9handshake18ClientHelloPayload14set_psk_binde
   store ptr %19, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !999
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !999
-  %21 = getelementptr i8, ptr %11, i64 40
+  %21 = getelementptr i8, ptr %10, i64 -16
   %.val = load ptr, ptr %21, align 8, !nonnull !7, !noundef !7
-  %22 = getelementptr i8, ptr %11, i64 48
+  %22 = getelementptr i8, ptr %10, i64 -8
   %.val10 = load i64, ptr %22, align 8, !noundef !7
   %.not.i.i = icmp eq i64 %.val10, 0
   br i1 %.not.i.i, label %23, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h6b3cf533c61953b5E.exit", !prof !1003
@@ -13257,7 +13259,7 @@ define noundef zeroext i1 @_ZN6rustls6suites20SupportedCipherSuite30usable_for_s
 
 switch.lookup:                                    ; preds = %.lr.ph.split.i
   %22 = zext nneg i16 %20 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %22
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %22
   %switch.load = load i8, ptr %switch.gep, align 1
   %23 = icmp eq i8 %switch.load, %1
   br i1 %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hdc20ca7c1075b036E.llvm.6030771845222660662.exit", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i"
@@ -13282,7 +13284,7 @@ define hidden noundef zeroext i1 @"_ZN6rustls6suites20SupportedCipherSuite30usab
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i16 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %5
   %switch.load = load i8, ptr %switch.gep, align 1
   %6 = load ptr, ptr %0, align 8, !nonnull !7, !align !72, !noundef !7
   %7 = load i8, ptr %6, align 1, !range !866, !noundef !7
@@ -13485,7 +13487,7 @@ define hidden noundef zeroext i1 @_ZN6rustls6suites31compatible_sigscheme_for_su
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %6
   %switch.load = load i8, ptr %switch.gep, align 1
   %.idx = shl nsw i64 %3, 4
   %7 = getelementptr inbounds i8, ptr %2, i64 %.idx
@@ -13577,7 +13579,7 @@ _ZN6rustls5enums15SignatureScheme4sign17h3bbf36aefc9ec70fE.exit.thread: ; preds 
 
 switch.lookup29:                                  ; preds = %.lr.ph.split.i.i.i.i
   %38 = zext nneg i16 %36 to i64
-  %switch.gep32 = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %38
+  %switch.gep32 = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %38
   %switch.load33 = load i8, ptr %switch.gep32, align 1
   %39 = icmp eq i8 %switch.load33, %switch.load
   br i1 %39, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hde0e90bb77dc6815E.llvm.6030771845222660662.exit", label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i.i.i"
@@ -13659,7 +13661,7 @@ define hidden noundef zeroext i1 @"_ZN6rustls6suites31compatible_sigscheme_for_s
 
 switch.lookup:                                    ; preds = %.lr.ph.split.i.i
   %25 = zext nneg i16 %23 to i64
-  %switch.gep = getelementptr inbounds nuw [13 x i8], ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i8, ptr @"switch.table._ZN6rustls6suites31compatible_sigscheme_for_suites28_$u7b$$u7b$closure$u7d$$u7d$17h556f7cdaf9d8cc26E.llvm.6030771845222660662", i64 %25
   %switch.load = load i8, ptr %switch.gep, align 1
   %26 = icmp eq i8 %switch.load, %5
   br i1 %26, label %_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm17hbb0b7dbdd9f5f8ffE.exit, label %"_ZN6rustls6suites20SupportedCipherSuite30usable_for_signature_algorithm28_$u7b$$u7b$closure$u7d$$u7d$17hb6507a5337430a68E.llvm.6030771845222660662.exit.backedge.i.i"
@@ -14439,7 +14441,7 @@ define hidden void @_ZN6rustls6webpki6verify46verify_server_cert_signed_by_trust
 
 29:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i.i", %26
   %.07.i.i.i.i = phi i64 [ 0, %26 ], [ %31, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440.exit.i.i.i.i" ]
-  %30 = getelementptr inbounds nuw [6 x { i64, [30 x i64] }], ptr %13, i64 0, i64 %.07.i.i.i.i
+  %30 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %13, i64 %.07.i.i.i.i
   %31 = add nuw nsw i64 %.07.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !2079)
   %32 = load i64, ptr %30, align 8, !range !8, !alias.scope !2082, !noundef !7
@@ -14482,7 +14484,7 @@ define hidden void @_ZN6rustls6webpki6verify46verify_server_cert_signed_by_trust
   br label %40
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw [6 x { i64, [30 x i64] }], ptr %13, i64 0, i64 %.1.i.i.i.i
+  %45 = getelementptr inbounds nuw { i64, [30 x i64] }, ptr %13, i64 %.1.i.i.i.i
   %46 = add nuw nsw i64 %.1.i.i.i.i, 1
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$webpki..cert..Cert$GT$$GT$17h2e49c25e59b761b3E.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(248) %45) #31
           to label %40 unwind label %47

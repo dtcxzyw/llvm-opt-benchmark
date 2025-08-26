@@ -2126,30 +2126,26 @@ define noundef double @_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb
   br i1 %4, label %.loopexit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit": ; preds = %3
-  %5 = add i64 %2, -1
-  %6 = getelementptr inbounds [0 x double], ptr %1, i64 0, i64 %5
+  %.idx = shl i64 %2, 3
+  %5 = add i64 %.idx, -8
+  %6 = getelementptr i8, ptr %1, i64 %5
   %7 = load double, ptr %6, align 8, !noundef !4
   %8 = icmp eq i64 %5, 0
-  br i1 %8, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit"
-  %.idx = shl nsw i64 %5, 3
-  %9 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  br label %.lr.ph
+  br i1 %8, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit", %3
-  %.sroa.0.0 = phi double [ 0.000000e+00, %3 ], [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ], [ %13, %.lr.ph ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %3 ], [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ], [ %12, %.lr.ph ]
   ret double %.sroa.0.0
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.113 = phi double [ %13, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.sroa.4.012 = phi ptr [ %10, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.4.012, i64 -8
-  %11 = load double, ptr %10, align 8, !noundef !4
-  %12 = fmul double %0, %.sroa.0.113
-  %13 = fadd double %12, %11
-  %14 = icmp eq ptr %1, %10
-  br i1 %14, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit", %.lr.ph
+  %.sroa.0.113 = phi double [ %12, %.lr.ph ], [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ]
+  %.sroa.4.012 = phi ptr [ %9, %.lr.ph ], [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h1b88e4ca48b22e6bE.exit" ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.4.012, i64 -8
+  %10 = load double, ptr %9, align 8, !noundef !4
+  %11 = fmul double %0, %.sroa.0.113
+  %12 = fadd double %11, %10
+  %13 = icmp eq ptr %1, %9
+  br i1 %13, label %.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

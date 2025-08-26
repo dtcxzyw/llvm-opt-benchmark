@@ -1892,12 +1892,11 @@ add_entries_for_rtcp_rtpfb_dissector_table.exit:  ; preds = %11
 
 16:                                               ; preds = %0, %16
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %16 ]
-  %17 = phi ptr [ @rtcp_ms_profile_extension_vals, %0 ], [ %20, %16 ]
+  %17 = getelementptr %struct._value_string, ptr @rtcp_ms_profile_extension_vals, i64 %indvars.iv
   %18 = load i32, ptr %17, align 16
   %19 = load ptr, ptr @ms_pse_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.671, i32 noundef %18, ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr [13 x %struct._value_string], ptr @rtcp_ms_profile_extension_vals, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond, label %4, label %16, !llvm.loop !8
 }
@@ -2107,7 +2106,7 @@ define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, 
 
 switch.lookup:                                    ; preds = %94
   %107 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table.dissect_rtcp_common, i64 0, i64 %107
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rtcp_common, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rtcp_packet_type_to_tree.exit
 
@@ -3107,12 +3106,12 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
 655:                                              ; preds = %655, %650
   %indvars.iv.i.i = phi i64 [ 0, %650 ], [ %indvars.iv.next.i.i, %655 ]
   %.0316373.i.i = phi i8 [ 0, %650 ], [ %spec.select.i.i, %655 ]
-  %656 = getelementptr [5 x i32], ptr @hf_rtcp_app_poc1_conn_content, i64 0, i64 %indvars.iv.i.i
+  %656 = getelementptr i32, ptr @hf_rtcp_app_poc1_conn_content, i64 %indvars.iv.i.i
   %657 = load i32, ptr %656, align 4
   %658 = call ptr @proto_tree_add_item(ptr noundef %652, i32 noundef %657, ptr noundef %0, i32 noundef %450, i32 noundef 2, i32 noundef 0)
   %659 = trunc i64 %indvars.iv.i.i to i32
   %660 = sub i32 15, %659
-  %661 = getelementptr [5 x i8], ptr %26, i64 0, i64 %indvars.iv.i.i
+  %661 = getelementptr i8, ptr %26, i64 %indvars.iv.i.i
   %662 = lshr i32 %654, %660
   %663 = trunc i32 %662 to i8
   %664 = and i8 %663, 1
@@ -3138,7 +3137,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
 675:                                              ; preds = %688, %665
   %indvars.iv377.i.i = phi i64 [ 0, %665 ], [ %indvars.iv.next378.i.i, %688 ]
   %.8376.i.i = phi i32 [ %674, %665 ], [ %.9.i.i, %688 ]
-  %676 = getelementptr [5 x i8], ptr %26, i64 0, i64 %indvars.iv377.i.i
+  %676 = getelementptr i8, ptr %26, i64 %indvars.iv377.i.i
   %677 = load i8, ptr %676, align 1, !range !9, !noundef !10
   %678 = trunc nuw i8 %677 to i1
   br i1 %678, label %679, label %688
@@ -3147,7 +3146,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
   %680 = add i32 %.8376.i.i, 1
   %681 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %680)
   %682 = zext i8 %681 to i32
-  %683 = getelementptr [5 x i32], ptr @hf_rtcp_app_poc1_conn_sdes_items, i64 0, i64 %indvars.iv377.i.i
+  %683 = getelementptr i32, ptr @hf_rtcp_app_poc1_conn_sdes_items, i64 %indvars.iv377.i.i
   %684 = load i32, ptr %683, align 4
   %685 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %684, ptr noundef %0, i32 noundef %680, i32 noundef 1, i32 noundef 0)
   %686 = add i32 %.8376.i.i, 2

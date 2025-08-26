@@ -973,30 +973,28 @@ pmix_cmd_line_get_param.exit429:                  ; preds = %.lr.ph.i424
   %354 = getelementptr inbounds nuw i8, ptr %.011.i425, i64 152
   %355 = load ptr, ptr %354, align 8, !tbaa !33
   %356 = load ptr, ptr %355, align 8, !tbaa !8
-  %357 = call i32 @strcasecmp(ptr noundef readonly %356, ptr noundef nonnull @.str.76) #20
-  %358 = icmp eq i32 %357, 0
-  br i1 %358, label %convert_signal.exit, label %.lr.ph505
+  br label %360
 
-.lr.ph505:                                        ; preds = %pmix_cmd_line_get_param.exit429, %359
-  %indvars.iv.i504 = phi i64 [ %indvars.iv.next.i, %359 ], [ 0, %pmix_cmd_line_get_param.exit429 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i504, 1
+357:                                              ; preds = %360
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %358 = getelementptr inbounds nuw %struct.pmix_signal_t, ptr @sigs, i64 %indvars.iv.next.i
+  %359 = load ptr, ptr %358, align 16, !tbaa !46
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 14
-  br i1 %exitcond.i, label %convert_signal.exit.thread, label %359, !llvm.loop !46
+  br i1 %exitcond.i, label %convert_signal.exit.thread, label %360, !llvm.loop !48
 
-convert_signal.exit.thread:                       ; preds = %.lr.ph505
+convert_signal.exit.thread:                       ; preds = %357
   store i32 0, ptr %9, align 4, !tbaa !4
   br label %367
 
-359:                                              ; preds = %.lr.ph505
-  %360 = getelementptr inbounds nuw [15 x %struct.pmix_signal_t], ptr @sigs, i64 0, i64 %indvars.iv.next.i
-  %361 = load ptr, ptr %360, align 16, !tbaa !47
+360:                                              ; preds = %357, %pmix_cmd_line_get_param.exit429
+  %indvars.iv.i = phi i64 [ 0, %pmix_cmd_line_get_param.exit429 ], [ %indvars.iv.next.i, %357 ]
+  %361 = phi ptr [ @.str.76, %pmix_cmd_line_get_param.exit429 ], [ %359, %357 ]
   %362 = call i32 @strcasecmp(ptr noundef readonly %356, ptr noundef nonnull %361) #20
   %363 = icmp eq i32 %362, 0
-  br i1 %363, label %convert_signal.exit, label %.lr.ph505, !llvm.loop !46
+  br i1 %363, label %convert_signal.exit, label %357
 
-convert_signal.exit:                              ; preds = %359, %pmix_cmd_line_get_param.exit429
-  %.lcssa = phi ptr [ @sigs, %pmix_cmd_line_get_param.exit429 ], [ %360, %359 ]
-  %364 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
+convert_signal.exit:                              ; preds = %360
+  %364 = getelementptr inbounds nuw %struct.pmix_signal_t, ptr @sigs, i64 %indvars.iv.i, i32 1
   %365 = load i32, ptr %364, align 8, !tbaa !49
   store i32 %365, ptr %9, align 4, !tbaa !4
   %366 = icmp eq i32 %365, 0
@@ -1174,19 +1172,19 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i433, %424
   %445 = getelementptr inbounds nuw i8, ptr %377, i64 464
   %446 = load volatile i8, ptr %445, align 8, !tbaa !73, !range !74, !noundef !75
   %447 = trunc nuw i8 %446 to i1
-  br i1 %447, label %.lr.ph507, label %._crit_edge508
+  br i1 %447, label %.lr.ph505, label %._crit_edge506
 
-.lr.ph507:                                        ; preds = %442
+.lr.ph505:                                        ; preds = %442
   %448 = getelementptr inbounds nuw i8, ptr %377, i64 416
   br label %449
 
-449:                                              ; preds = %.lr.ph507, %449
+449:                                              ; preds = %.lr.ph505, %449
   %450 = call i32 @pthread_cond_wait(ptr noundef nonnull %448, ptr noundef nonnull %443) #16
   %451 = load volatile i8, ptr %445, align 8, !tbaa !73, !range !74, !noundef !75
   %452 = trunc nuw i8 %451 to i1
-  br i1 %452, label %449, label %._crit_edge508, !llvm.loop !76
+  br i1 %452, label %449, label %._crit_edge506, !llvm.loop !76
 
-._crit_edge508:                                   ; preds = %449, %442
+._crit_edge506:                                   ; preds = %449, %442
   fence acquire
   %453 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %443) #16
   %454 = getelementptr inbounds nuw i8, ptr %377, i64 472
@@ -1195,12 +1193,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i433, %424
   %457 = load ptr, ptr @stderr, align 8, !tbaa !23
   br i1 %456, label %458, label %461
 
-458:                                              ; preds = %._crit_edge508
+458:                                              ; preds = %._crit_edge506
   %459 = load ptr, ptr %394, align 8, !tbaa !51
   %460 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef nonnull @.str.66, ptr noundef %459) #18
   br label %464
 
-461:                                              ; preds = %._crit_edge508
+461:                                              ; preds = %._crit_edge506
   %462 = call ptr @PMIx_Error_string(i32 noundef %455) #16
   %463 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %457, ptr noundef nonnull @.str.64, ptr noundef %462) #18
   br label %464
@@ -1540,13 +1538,13 @@ attributes #23 = { cold }
 !43 = !{!"pmix_proc", !6, i64 0, !5, i64 256}
 !44 = distinct !{!44, !22}
 !45 = !{!39, !14, i64 8}
-!46 = distinct !{!46, !22}
-!47 = !{!48, !9, i64 0}
-!48 = !{!"", !9, i64 0, !5, i64 8}
-!49 = !{!48, !5, i64 8}
+!46 = !{!47, !9, i64 0}
+!47 = !{!"", !9, i64 0, !5, i64 8}
+!48 = distinct !{!48, !22}
+!49 = !{!47, !5, i64 8}
 !50 = !{!12, !14, i64 56}
 !51 = !{!52, !9, i64 552}
-!52 = !{!"", !16, i64 0, !53, i64 120, !60, i64 248, !5, i64 472, !63, i64 480, !14, i64 488, !5, i64 496, !48, i64 504, !64, i64 520, !65, i64 528, !9, i64 536, !14, i64 544, !9, i64 552, !66, i64 560, !14, i64 568, !66, i64 576, !14, i64 584, !10, i64 592, !10, i64 600, !10, i64 608, !67, i64 616, !10, i64 624, !10, i64 632, !62, i64 640, !6, i64 648, !10, i64 656, !14, i64 664}
+!52 = !{!"", !16, i64 0, !53, i64 120, !60, i64 248, !5, i64 472, !63, i64 480, !14, i64 488, !5, i64 496, !47, i64 504, !64, i64 520, !65, i64 528, !9, i64 536, !14, i64 544, !9, i64 552, !66, i64 560, !14, i64 568, !66, i64 576, !14, i64 584, !10, i64 592, !10, i64 600, !10, i64 608, !67, i64 616, !10, i64 624, !10, i64 632, !62, i64 640, !6, i64 648, !10, i64 656, !14, i64 664}
 !53 = !{!"event", !54, i64 0, !6, i64 40, !5, i64 56, !58, i64 64, !6, i64 72, !40, i64 104, !40, i64 106, !59, i64 112}
 !54 = !{!"event_callback", !55, i64 0, !40, i64 16, !6, i64 18, !6, i64 19, !6, i64 24, !10, i64 32}
 !55 = !{!"", !56, i64 0, !57, i64 8}

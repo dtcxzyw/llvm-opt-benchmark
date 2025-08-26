@@ -241,22 +241,16 @@ _ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit: ; preds = %if.end28
   %15 = inttoptr i64 %and.i.i.i.i.i25 to ptr
   %indexedStorage_.i.i = getelementptr inbounds nuw i8, ptr %15, i64 28
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i32, ptr %indexedStorage_.i.i, align 4
+  %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
   %conv.i.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i to i64
   %add.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i, %3
   %16 = inttoptr i64 %add.i.i.i.i.i.i.i to ptr
+  %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %16
   %beginIndex_.i = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %beginIndex_.i, align 4
   %sub.i = sub i32 %i.033, %17
   %cmp.i.i.i.i = icmp ult i32 %sub.i, 4096
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
-
-if.then.i.i.i.i:                                  ; preds = %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
-  %cmp.i.not.i.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 0
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i, ptr null, ptr %16
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 8
-  %idxprom.i.i.i.i = zext nneg i32 %sub.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i.i, i64 %idxprom.i.i.i.i
-  br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
+  br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, label %if.else.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
   %sub.i.i.i.i.i26 = add i32 %sub.i, -4096
@@ -265,32 +259,31 @@ if.else.i.i.i.i:                                  ; preds = %_ZN6hermes2vm16JSTy
   %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
   %add.ptr.i.i.i1.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i.i.i
   %18 = load i32, ptr %add.ptr.i.i.i1.i.i.i.i, align 4
-  %cmp.i.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %18, 0
   %conv.i.i.i.i.i.i.i.i.i.i.i = zext i32 %18 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i.i.i.i.i.i, %3
   %19 = inttoptr i64 %add.i.i.i.i.i.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i.i.i.i.i.i, ptr null, ptr %19
   %rem.i.i.i.i.i = and i32 %sub.i, 1023
-  %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.i.i.i.i, i64 8
-  %idxprom.i.i.i.i.i = zext nneg i32 %rem.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [1024 x %"class.hermes::vm::GCHermesValueBase"], ptr %data_.i.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   br label %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
 
-_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i: ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
-  %retval.0.i.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %if.then.i.i.i.i ], [ %arrayidx.i.i.i.i.i, %if.else.i.i.i.i ]
+_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i: ; preds = %if.else.i.i.i.i, %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit
+  %cond.i.i.i.i.i.i.sink.i.i.i.i = phi ptr [ %19, %if.else.i.i.i.i ], [ %cond.i.i.i.i.i.i, %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit ]
+  %rem.i.sink.i.i.i.i = phi i32 [ %rem.i.i.i.i.i, %if.else.i.i.i.i ], [ %sub.i, %_ZN6hermes2vm16JSTypedArrayBase5beginERNS0_7RuntimeE.exit ]
+  %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i.sink.i.i.i.i, i64 8
+  %idxprom.i.i.i.i.i = zext nneg i32 %rem.i.sink.i.i.i.i to i64
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i.i.i.i.i, i64 %idxprom.i.i.i.i.i
   %20 = load ptr, ptr %youngGen_.i.i.i.i.i, align 8
-  %21 = ptrtoint ptr %retval.0.i.i.i.i to i64
+  %21 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
   %and.i.i.i.i.i.i = and i64 %21, -4194304
   %22 = inttoptr i64 %and.i.i.i.i.i.i to ptr
   %cmp.i.i.i.i.i = icmp eq ptr %20, %22
-  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, label %if.then.i.i2.i.i
+  br i1 %cmp.i.i.i.i.i, label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit, label %if.then.i.i.i.i
 
-if.then.i.i2.i.i:                                 ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
-  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %retval.0.i.i.i.i, i32 %conv.i.i.i.i.i) #16
+if.then.i.i.i.i:                                  ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i
+  call void @_ZN6hermes2vm7HadesGC16writeBarrierSlowEPKNS0_17GCHermesValueBaseINS0_13HermesValue32EEES3_(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %arrayidx.i.i.i.i.i, i32 %conv.i.i.i.i.i) #16
   br label %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit
 
-_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i2.i.i
-  store i32 %conv.i.i.i.i.i, ptr %retval.0.i.i.i.i, align 4
+_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit: ; preds = %_ZN6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE5atRefILNS3_6InlineE0EEERNS0_17GCHermesValueBaseIS2_EERNS0_11PointerBaseEj.exit.i.i, %if.then.i.i.i.i
+  store i32 %conv.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %_ZN6hermes2vm9ArrayImpl26unsafeSetExistingElementAtEPS1_RNS0_7RuntimeEjNS0_13HermesValue32E.exit

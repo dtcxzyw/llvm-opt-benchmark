@@ -3219,8 +3219,8 @@ define internal range(i64 -1, 4098) i64 @php_ftp_dirstream_read(ptr noundef read
   store i64 %spec.select, ptr %4, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %18, i64 %spec.select, i1 false)
-  %19 = add nsw i64 %spec.select, -1
-  %20 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %19
+  %19 = getelementptr i8, ptr %1, i64 %spec.select
+  %20 = getelementptr i8, ptr %19, i64 -1
   store i8 0, ptr %20, align 1, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !17
@@ -3250,9 +3250,9 @@ zend_string_release_ex.exit:                      ; preds = %12, %24, %29
   br i1 %.not2526, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_string_release_ex.exit, %.critedge2
-  %31 = phi i64 [ %32, %.critedge2 ], [ %.pr, %zend_string_release_ex.exit ]
-  %32 = add i64 %31, -1
-  %33 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %32
+  %31 = phi i64 [ %35, %.critedge2 ], [ %.pr, %zend_string_release_ex.exit ]
+  %32 = getelementptr i8, ptr %1, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 -1
   %34 = load i8, ptr %33, align 1, !tbaa !17
   switch i8 %34, label %.critedge [
     i8 10, label %.critedge2
@@ -3262,8 +3262,10 @@ zend_string_release_ex.exit:                      ; preds = %12, %24, %29
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  store i8 0, ptr %33, align 1, !tbaa !17
-  %.not25 = icmp eq i64 %32, 0
+  %35 = add i64 %31, -1
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
+  store i8 0, ptr %36, align 1, !tbaa !17
+  %.not25 = icmp eq i64 %35, 0
   br i1 %.not25, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge2, %zend_string_release_ex.exit, %10, %8, %3

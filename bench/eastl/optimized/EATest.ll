@@ -2960,7 +2960,8 @@ for.cond28.preheader:                             ; preds = %for.inc, %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(70) %buffer, i8 45, i64 70, i1 false)
   %arrayidx35 = getelementptr inbounds nuw i8, ptr %buffer, i64 70
   store i8 10, ptr %arrayidx35, align 2
-  store i8 0, ptr %arrayidx, align 1
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %buffer, i64 71
+  store i8 0, ptr %arrayidx36, align 1
   call void %call(ptr noundef nonnull %buffer)
   br label %if.end38
 

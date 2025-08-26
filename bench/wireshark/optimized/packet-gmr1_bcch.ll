@@ -572,40 +572,26 @@ define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr nound
   call void @csnStreamInit(ptr noundef nonnull %5, i32 noundef 0, i32 noundef %16, ptr noundef %1)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
-  br i1 %.not, label %29, label %19
-
-19:                                               ; preds = %4
-  %20 = call noalias dereferenceable_or_null(62) ptr @wmem_alloc(ptr noundef %18, i64 noundef 62) #7
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 37
-  store i8 24, ptr %21, align 1
-  %22 = load i32, ptr @ett_gmr1_bcch, align 4
-  %23 = call signext i16 @csnStreamDissector(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @CSNDESCR_SystemInformation1_t, ptr noundef %0, ptr noundef %20, i32 noundef %22)
-  %24 = load ptr, ptr %6, align 8
-  %25 = load i8, ptr %21, align 1
-  %26 = zext i8 %25 to i64
-  %27 = getelementptr [25 x %struct.CSN_ChoiceElement_t], ptr @SI1_SegmentChoice, i64 0, i64 %26, i32 3, i32 5
-  %28 = load ptr, ptr %27, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.236, ptr noundef %28)
-  br label %39
-
-29:                                               ; preds = %4
-  %30 = call noalias dereferenceable_or_null(22) ptr @wmem_alloc(ptr noundef %18, i64 noundef 22) #7
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
-  store i8 6, ptr %31, align 1
-  %32 = load i32, ptr @ett_gmr1_bcch, align 4
-  %33 = call signext i16 @csnStreamDissector(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @CSNDESCR_SystemInformation2_t, ptr noundef %0, ptr noundef %30, i32 noundef %32)
-  %34 = load ptr, ptr %6, align 8
-  %35 = load i8, ptr %31, align 1
-  %36 = zext i8 %35 to i64
-  %37 = getelementptr [7 x %struct.CSN_ChoiceElement_t], ptr @SI2_SegmentChoice, i64 0, i64 %36, i32 3, i32 5
-  %38 = load ptr, ptr %37, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.237, ptr noundef %38)
-  br label %39
-
-39:                                               ; preds = %29, %19
-  %40 = call i32 @tvb_captured_length(ptr noundef %0)
+  %. = select i1 %.not, i64 22, i64 62
+  %.34 = select i1 %.not, i64 3, i64 37
+  %.35 = select i1 %.not, i8 6, i8 24
+  %CSNDESCR_SystemInformation2_t.CSNDESCR_SystemInformation1_t = select i1 %.not, ptr @CSNDESCR_SystemInformation2_t, ptr @CSNDESCR_SystemInformation1_t
+  %SI2_SegmentChoice.SI1_SegmentChoice = select i1 %.not, ptr @SI2_SegmentChoice, ptr @SI1_SegmentChoice
+  %.str.237..str.236 = select i1 %.not, ptr @.str.237, ptr @.str.236
+  %19 = call noalias dereferenceable_or_null(22) ptr @wmem_alloc(ptr noundef %18, i64 noundef %.) #7
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.34
+  store i8 %.35, ptr %20, align 1
+  %21 = load i32, ptr @ett_gmr1_bcch, align 4
+  %22 = call signext i16 @csnStreamDissector(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %CSNDESCR_SystemInformation2_t.CSNDESCR_SystemInformation1_t, ptr noundef %0, ptr noundef %19, i32 noundef %21)
+  %23 = load ptr, ptr %6, align 8
+  %24 = load i8, ptr %20, align 1
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr %struct.CSN_ChoiceElement_t, ptr %SI2_SegmentChoice.SI1_SegmentChoice, i64 %25, i32 3, i32 5
+  %27 = load ptr, ptr %26, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull %.str.237..str.236, ptr noundef %27)
+  %28 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %40
+  ret i32 %28
 }
 
 ; Function Attrs: nofree null_pointer_is_valid
@@ -657,7 +643,7 @@ define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0
   %12 = shl i32 %indvars.iv.tr, 3
   %13 = add i32 %11, %12
   %14 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %2, i32 noundef %13, i32 noundef 8)
-  %15 = getelementptr [5 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %15 = getelementptr i8, ptr %6, i64 %indvars.iv
   store i8 %14, ptr %15, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5

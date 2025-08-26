@@ -36,10 +36,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !6, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E.15", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E.15", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2163,7 +2163,7 @@ define void @_ZN4ring6digest4sha116block_data_order17hcdd7d842b3d63616E(ptr noal
   %11 = phi i32 [ %57, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ], [ %.sroa.0.0.copyload, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(320) %4, i8 0, i64 320, i1 false), !noalias !192
-  br label %81
+  br label %77
 
 .preheader140.i:                                  ; preds = %.preheader.preheader.i, %.preheader140.i
   %.0.i39116.i = phi i32 [ %21, %.preheader140.i ], [ %11, %.preheader.preheader.i ]
@@ -2264,40 +2264,36 @@ _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6diges
   %62 = icmp eq ptr %56, %5
   br i1 %62, label %_ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit, label %.lr.ph.i
 
-.preheader.preheader.i:                           ; preds = %81, %.preheader.preheader.i
-  %.sroa.07.0110.i = phi i64 [ %63, %.preheader.preheader.i ], [ 16, %81 ]
+.preheader.preheader.i:                           ; preds = %77, %.preheader.preheader.i
+  %.sroa.07.0110.i = phi i64 [ %63, %.preheader.preheader.i ], [ 16, %77 ]
   %63 = add nuw nsw i64 %.sroa.07.0110.i, 1
-  %64 = add nsw i64 %.sroa.07.0110.i, -3
-  %65 = add nsw i64 %.sroa.07.0110.i, -8
-  %66 = add nsw i64 %.sroa.07.0110.i, -14
-  %67 = add nsw i64 %.sroa.07.0110.i, -16
-  %68 = getelementptr inbounds nuw [80 x i32], ptr %4, i64 0, i64 %64
-  %69 = load i32, ptr %68, align 4, !noalias !192, !noundef !4
-  %70 = getelementptr inbounds nuw [80 x i32], ptr %4, i64 0, i64 %65
+  %64 = getelementptr i32, ptr %4, i64 %.sroa.07.0110.i
+  %65 = getelementptr i8, ptr %64, i64 -12
+  %66 = load i32, ptr %65, align 4, !noalias !192, !noundef !4
+  %67 = getelementptr i8, ptr %64, i64 -32
+  %68 = load i32, ptr %67, align 4, !noalias !192, !noundef !4
+  %69 = xor i32 %68, %66
+  %70 = getelementptr i8, ptr %64, i64 -56
   %71 = load i32, ptr %70, align 4, !noalias !192, !noundef !4
-  %72 = xor i32 %71, %69
-  %73 = getelementptr inbounds nuw [80 x i32], ptr %4, i64 0, i64 %66
+  %72 = xor i32 %69, %71
+  %73 = getelementptr i8, ptr %64, i64 -64
   %74 = load i32, ptr %73, align 4, !noalias !192, !noundef !4
   %75 = xor i32 %72, %74
-  %76 = getelementptr inbounds nuw [80 x i32], ptr %4, i64 0, i64 %67
-  %77 = load i32, ptr %76, align 4, !noalias !192, !noundef !4
-  %78 = xor i32 %75, %77
-  %79 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 1)
-  %80 = getelementptr inbounds nuw [80 x i32], ptr %4, i64 0, i64 %.sroa.07.0110.i
-  store i32 %79, ptr %80, align 4, !noalias !192
+  %76 = tail call i32 @llvm.fshl.i32(i32 %75, i32 %75, i32 1)
+  store i32 %76, ptr %64, align 4, !noalias !192
   %exitcond162.not.i = icmp eq i64 %63, 80
   br i1 %exitcond162.not.i, label %.preheader140.i, label %.preheader.preheader.i
 
-81:                                               ; preds = %81, %.lr.ph.i
-  %.sroa.02.0109.i = phi i64 [ 0, %.lr.ph.i ], [ %82, %81 ]
-  %82 = add nuw nsw i64 %.sroa.02.0109.i, 1
-  %83 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %.sroa.0.0135.i, i64 0, i64 %.sroa.02.0109.i
-  %84 = load i32, ptr %83, align 1, !alias.scope !189, !noalias !207
-  %85 = tail call i32 @llvm.bswap.i32(i32 %84)
-  %86 = getelementptr inbounds nuw [80 x i32], ptr %4, i64 0, i64 %.sroa.02.0109.i
-  store i32 %85, ptr %86, align 4, !noalias !192
-  %exitcond.not.i = icmp eq i64 %82, 16
-  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %81
+77:                                               ; preds = %77, %.lr.ph.i
+  %.sroa.02.0109.i = phi i64 [ 0, %.lr.ph.i ], [ %78, %77 ]
+  %78 = add nuw nsw i64 %.sroa.02.0109.i, 1
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0135.i, i64 %.sroa.02.0109.i
+  %80 = load i32, ptr %79, align 1, !alias.scope !189, !noalias !207
+  %81 = tail call i32 @llvm.bswap.i32(i32 %80)
+  %82 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.02.0109.i
+  store i32 %81, ptr %82, align 4, !noalias !192
+  %exitcond.not.i = icmp eq i64 %78, 16
+  br i1 %exitcond.not.i, label %.preheader.preheader.i, label %77
 
 _ZN4ring6digest4sha117block_data_order_17hb9d1e648c365597dE.exit: ; preds = %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i, %3
   %.sroa.12.0 = phi i32 [ %.sroa.12.0.copyload, %3 ], [ %61, %_ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i ]

@@ -266,7 +266,7 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   %96 = shl nuw i64 1, %95
   %97 = sdiv i32 %0, 64
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %98
+  %99 = getelementptr inbounds i64, ptr %6, i64 %98
   %100 = add nsw i32 %0, 1
   br label %101
 
@@ -852,8 +852,8 @@ thread-pre-split:                                 ; preds = %190, %182
   %209 = call i64 @time(ptr noundef nonnull %8) #18
   %210 = call ptr @cli_ctime(ptr noundef nonnull %8, ptr noundef nonnull %13, i64 noundef 32) #18
   %211 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #16
-  %212 = add i64 %211, -1
-  %213 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 0, i64 %212
+  %212 = getelementptr i8, ptr %13, i64 %211
+  %213 = getelementptr i8, ptr %212, i64 -1
   store i8 0, ptr %213, align 1, !tbaa !3
   %214 = load ptr, ptr @logg_fp, align 8, !tbaa !18
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.5, ptr noundef nonnull %13) #18
@@ -908,8 +908,8 @@ thread-pre-split:                                 ; preds = %190, %182
   %231 = call i64 @time(ptr noundef nonnull %8) #18
   %232 = call ptr @cli_ctime(ptr noundef nonnull %8, ptr noundef nonnull %14, i64 noundef 32) #18
   %233 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #16
-  %234 = add i64 %233, -1
-  %235 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 0, i64 %234
+  %234 = getelementptr i8, ptr %14, i64 %233
+  %235 = getelementptr i8, ptr %234, i64 -1
   store i8 0, ptr %235, align 1, !tbaa !3
   call void (i32, ptr, ...) @mprintf(i32 noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %14, ptr noundef nonnull %.090)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -1252,31 +1252,29 @@ declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @logg_facility(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(9) @.str.15, ptr noundef nonnull dereferenceable(1) %0) #16
-  %.not714 = icmp eq i32 %2, 0
-  br i1 %.not714, label %._crit_edge, label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %1, %3
-  %indvars.iv15 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv15, 1
+2:                                                ; preds = %5
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %3 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv.next
+  %4 = load ptr, ptr %3, align 16, !tbaa !25
   %exitcond = icmp eq i64 %indvars.iv.next, 21
-  br i1 %exitcond, label %.loopexit, label %3
+  br i1 %exitcond, label %.loopexit, label %5
 
-3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw [22 x %struct.facstruct], ptr @facilitymap, i64 0, i64 %indvars.iv.next
-  %5 = load ptr, ptr %4, align 16, !tbaa !25
-  %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #16
-  %.not7 = icmp eq i32 %6, 0
-  br i1 %.not7, label %._crit_edge, label %.lr.ph
+5:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %6 = phi ptr [ @.str.15, %1 ], [ %4, %2 ]
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #16
+  %.not7 = icmp eq i32 %7, 0
+  br i1 %.not7, label %8, label %2
 
-._crit_edge:                                      ; preds = %3, %1
-  %.lcssa = phi ptr [ @facilitymap, %1 ], [ %4, %3 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !27
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.05 = phi i32 [ %8, %._crit_edge ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %2, %8
+  %.05 = phi i32 [ %10, %8 ], [ -1, %2 ]
   ret i32 %.05
 }
 

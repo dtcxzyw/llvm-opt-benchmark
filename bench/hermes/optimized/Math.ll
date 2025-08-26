@@ -40,7 +40,7 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 define hidden { i32, i64 } @_ZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds [25 x ptr], ptr @_ZZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsEE13math1ArgFuncs, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds ptr, ptr @_ZZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsEE13math1ArgFuncs, i64 %0
   %1 = load ptr, ptr %arrayidx, align 8
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %2 = load i32, ptr %argCount_.i, align 8
@@ -204,7 +204,7 @@ if.end19:                                         ; preds = %if.end
   %7 = extractvalue { i32, i64 } %call5, 1
   %8 = bitcast i64 %7 to double
   %9 = bitcast i64 %6 to double
-  %call23 = tail call noundef double @atan2(double noundef %8, double noundef %9)
+  %call23 = tail call noundef double @atan2(double noundef %8, double noundef %9) #10
   %10 = fcmp uno double %call23, 0.000000e+00
   %11 = bitcast double %call23 to i64
   %retval.sroa.0.0.i9 = select i1 %10, i64 9221120237041090560, i64 %11
@@ -521,14 +521,14 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then
-  %4 = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
+  %store_forwarded = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
   %__i.09.i = phi i64 [ 1, %if.then ], [ %inc.i, %for.body.i ]
-  %shr.i = lshr i64 %4, 62
-  %xor.i = xor i64 %shr.i, %4
+  %4 = getelementptr i64, ptr %2, i64 %__i.09.i
+  %shr.i = lshr i64 %store_forwarded, 62
+  %xor.i = xor i64 %shr.i, %store_forwarded
   %mul.i = mul i64 %xor.i, 6364136223846793005
   %add.i = add i64 %mul.i, %__i.09.i
-  %arrayidx7.i = getelementptr inbounds nuw [312 x i64], ptr %2, i64 0, i64 %__i.09.i
-  store i64 %add.i, ptr %arrayidx7.i, align 8
+  store i64 %add.i, ptr %4, align 8
   %inc.i = add nuw nsw i64 %__i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 312
   br i1 %exitcond.not.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm.exit, label %for.body.i, !llvm.loop !20
@@ -1154,15 +1154,14 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %1 = phi i64 [ %.pre.i, %if.then ], [ %2, %for.body.i ]
   %__k.014.i = phi i64 [ 0, %if.then ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw [312 x i64], ptr %this, i64 0, i64 %__k.014.i
+  %arrayidx.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k.014.i
   %and.i = and i64 %1, -2147483648
   %add.i = add nuw nsw i64 %__k.014.i, 1
-  %arrayidx3.i = getelementptr inbounds nuw [312 x i64], ptr %this, i64 0, i64 %add.i
+  %arrayidx3.i = getelementptr inbounds nuw i64, ptr %this, i64 %add.i
   %2 = load i64, ptr %arrayidx3.i, align 8
   %and4.i = and i64 %2, 2147483646
   %or.i = or disjoint i64 %and4.i, %and.i
-  %add6.i = add nuw nsw i64 %__k.014.i, 156
-  %arrayidx7.i = getelementptr inbounds nuw [312 x i64], ptr %this, i64 0, i64 %add6.i
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 1248
   %3 = load i64, ptr %arrayidx7.i, align 8
   %shr.i = lshr exact i64 %or.i, 1
   %xor.i = xor i64 %shr.i, %3
@@ -1182,15 +1181,14 @@ for.body15.preheader.i:                           ; preds = %for.body.i
 for.body15.i:                                     ; preds = %for.body15.i, %for.body15.preheader.i
   %4 = phi i64 [ %5, %for.body15.i ], [ %.pre17.i, %for.body15.preheader.i ]
   %__k12.015.i = phi i64 [ %add21.i, %for.body15.i ], [ 156, %for.body15.preheader.i ]
-  %arrayidx18.i = getelementptr inbounds nuw [312 x i64], ptr %this, i64 0, i64 %__k12.015.i
+  %arrayidx18.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k12.015.i
   %and19.i = and i64 %4, -2147483648
   %add21.i = add nuw nsw i64 %__k12.015.i, 1
-  %arrayidx22.i = getelementptr inbounds nuw [312 x i64], ptr %this, i64 0, i64 %add21.i
+  %arrayidx22.i = getelementptr inbounds nuw i64, ptr %this, i64 %add21.i
   %5 = load i64, ptr %arrayidx22.i, align 8
   %and23.i = and i64 %5, 2147483646
   %or24.i = or disjoint i64 %and23.i, %and19.i
-  %add26.i = add nsw i64 %__k12.015.i, -156
-  %arrayidx27.i = getelementptr inbounds [312 x i64], ptr %this, i64 0, i64 %add26.i
+  %arrayidx27.i = getelementptr i8, ptr %arrayidx18.i, i64 -1248
   %6 = load i64, ptr %arrayidx27.i, align 8
   %shr28.i = lshr exact i64 %or24.i, 1
   %xor29.i = xor i64 %shr28.i, %6
@@ -1224,7 +1222,7 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
   %10 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %0, %entry ]
   %inc = add nuw nsw i64 %10, 1
   store i64 %inc, ptr %_M_p, align 8
-  %arrayidx = getelementptr inbounds nuw [312 x i64], ptr %this, i64 0, i64 %10
+  %arrayidx = getelementptr inbounds nuw i64, ptr %this, i64 %10
   %11 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %11, 29
   %and = and i64 %shr, 22906492245

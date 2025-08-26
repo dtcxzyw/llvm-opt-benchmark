@@ -1370,39 +1370,37 @@ define internal i32 @e1000_get_cable_length_80003es2lan(ptr noundef %0) #0 align
   %4 = load ptr, ptr %3, align 8
   %5 = call i32 %4(ptr noundef %0, i32 noundef 186, ptr noundef nonnull %2) #4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %27
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %1
   %8 = load i16, ptr %2, align 2
   %9 = and i16 %8, 7
   %10 = icmp samesign ugt i16 %9, 5
-  br i1 %10, label %27, label %11
+  br i1 %10, label %25, label %11
 
 11:                                               ; preds = %7
   %12 = zext nneg i16 %9 to i64
-  %13 = getelementptr [11 x i16], ptr @e1000_gg82563_cable_length_table, i64 0, i64 %12
+  %13 = getelementptr i16, ptr @e1000_gg82563_cable_length_table, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i16 %14, ptr %15, align 8
-  %16 = add nuw nsw i16 %9, 5
-  %17 = zext nneg i16 %16 to i64
-  %18 = getelementptr [11 x i16], ptr @e1000_gg82563_cable_length_table, i64 0, i64 %17
-  %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1046
-  store i16 %19, ptr %20, align 2
-  %21 = zext i16 %14 to i32
-  %22 = zext i16 %19 to i32
-  %23 = add nuw nsw i32 %22, %21
-  %24 = lshr i32 %23, 1
-  %25 = trunc nuw i32 %24 to i16
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1044
-  store i16 %25, ptr %26, align 4
-  br label %27
+  %16 = getelementptr i8, ptr %13, i64 10
+  %17 = load i16, ptr %16, align 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1046
+  store i16 %17, ptr %18, align 2
+  %19 = zext i16 %14 to i32
+  %20 = zext i16 %17 to i32
+  %21 = add nuw nsw i32 %20, %19
+  %22 = lshr i32 %21, 1
+  %23 = trunc nuw i32 %22 to i16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1044
+  store i16 %23, ptr %24, align 4
+  br label %25
 
-27:                                               ; preds = %11, %7, %1
-  %28 = phi i32 [ 0, %11 ], [ %5, %1 ], [ -2, %7 ]
+25:                                               ; preds = %11, %7, %1
+  %26 = phi i32 [ 0, %11 ], [ %5, %1 ], [ -2, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %28
+  ret i32 %26
 }
 
 ; Function Attrs: null_pointer_is_valid

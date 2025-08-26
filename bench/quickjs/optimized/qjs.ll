@@ -262,7 +262,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %75 = getelementptr inbounds ptr, ptr %1, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !7
   %77 = add nuw nsw i32 %.3189, 1
-  %78 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %72
+  %78 = getelementptr inbounds nuw ptr, ptr %4, i64 %72
   store ptr %76, ptr %78, align 8, !tbaa !7
   br label %.backedge
 
@@ -607,7 +607,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .lr.ph625:                                        ; preds = %.lr.ph625.preheader, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph625.preheader ], [ %indvars.iv.next, %198 ]
-  %199 = getelementptr inbounds nuw [32 x ptr], ptr %4, i64 0, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !7
   %201 = call fastcc i32 @eval_file(ptr noundef %175, ptr noundef %200, i32 noundef %.0211.lcssa)
   %.not285 = icmp eq i32 %201, 0
@@ -691,7 +691,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   call void @JS_FreeContext(ptr noundef nonnull %175) #17
   call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
   %or.cond6 = and i1 %.0229.lcssa, %.0217.lcssa
-  br i1 %or.cond6, label %229, label %279
+  br i1 %or.cond6, label %229, label %281
 
 229:                                              ; preds = %228
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -703,7 +703,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br label %234
 
 234:                                              ; preds = %229, %.split628.us
-  %.0156629 = phi i32 [ 0, %229 ], [ %265, %.split628.us ]
+  %.0156629 = phi i32 [ 0, %229 ], [ %267, %.split628.us ]
   %235 = call i64 @clock() #17
   store i64 %235, ptr %6, align 16, !tbaa !23
   %236 = call ptr @JS_NewRuntime() #17
@@ -722,73 +722,75 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br i1 %242, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %234, %.split.us
-  %243 = phi i64 [ %245, %.split.us ], [ %241, %234 ]
   %indvars.iv746 = phi i64 [ %indvars.iv.next747, %.split.us ], [ 4, %234 ]
+  %243 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv746
+  %244 = load i64, ptr %243, align 8, !tbaa !23
+  %245 = getelementptr i8, ptr %243, i64 -8
+  %246 = load i64, ptr %245, align 8, !tbaa !23
+  %247 = sub i64 %244, %246
+  %248 = sitofp i64 %247 to double
+  %249 = fmul double %248, 1.000000e+03
+  %250 = fdiv double %249, 1.000000e+06
+  %251 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv746
+  store double %250, ptr %251, align 8, !tbaa !25
   %indvars.iv.next747 = add nsw i64 %indvars.iv746, -1
-  %244 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next747
-  %245 = load i64, ptr %244, align 8, !tbaa !23
-  %246 = sub i64 %243, %245
-  %247 = sitofp i64 %246 to double
-  %248 = fmul double %247, 1.000000e+03
-  %249 = fdiv double %248, 1.000000e+06
-  %250 = getelementptr inbounds nuw [5 x double], ptr %7, i64 0, i64 %indvars.iv746
-  store double %249, ptr %250, align 8, !tbaa !25
-  %251 = icmp samesign ugt i64 %indvars.iv746, 1
-  br i1 %251, label %.split.us, label %.split628.us, !llvm.loop !27
+  %252 = icmp samesign ugt i64 %indvars.iv746, 1
+  br i1 %252, label %.split.us, label %.split628.us, !llvm.loop !27
 
-.split:                                           ; preds = %234, %263
-  %252 = phi i64 [ %254, %263 ], [ %241, %234 ]
-  %indvars.iv743 = phi i64 [ %indvars.iv.next744, %263 ], [ 4, %234 ]
-  %indvars.iv.next744 = add nsw i64 %indvars.iv743, -1
-  %253 = getelementptr inbounds nuw [5 x i64], ptr %6, i64 0, i64 %indvars.iv.next744
+.split:                                           ; preds = %234, %265
+  %indvars.iv743 = phi i64 [ %indvars.iv.next744, %265 ], [ 4, %234 ]
+  %253 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv743
   %254 = load i64, ptr %253, align 8, !tbaa !23
-  %255 = sub i64 %252, %254
-  %256 = sitofp i64 %255 to double
-  %257 = fmul double %256, 1.000000e+03
-  %258 = fdiv double %257, 1.000000e+06
-  %259 = getelementptr inbounds nuw [5 x double], ptr %7, i64 0, i64 %indvars.iv743
-  %260 = load double, ptr %259, align 8, !tbaa !25
-  %261 = fcmp ogt double %260, %258
-  br i1 %261, label %262, label %263
+  %255 = getelementptr i8, ptr %253, i64 -8
+  %256 = load i64, ptr %255, align 8, !tbaa !23
+  %257 = sub i64 %254, %256
+  %258 = sitofp i64 %257 to double
+  %259 = fmul double %258, 1.000000e+03
+  %260 = fdiv double %259, 1.000000e+06
+  %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv743
+  %262 = load double, ptr %261, align 8, !tbaa !25
+  %263 = fcmp ogt double %262, %260
+  br i1 %263, label %264, label %265
 
-262:                                              ; preds = %.split
-  store double %258, ptr %259, align 8, !tbaa !25
-  br label %263
+264:                                              ; preds = %.split
+  store double %260, ptr %261, align 8, !tbaa !25
+  br label %265
 
-263:                                              ; preds = %262, %.split
-  %264 = icmp samesign ugt i64 %indvars.iv743, 1
-  br i1 %264, label %.split, label %.split628.us, !llvm.loop !27
+265:                                              ; preds = %264, %.split
+  %indvars.iv.next744 = add nsw i64 %indvars.iv743, -1
+  %266 = icmp samesign ugt i64 %indvars.iv743, 1
+  br i1 %266, label %.split, label %.split628.us, !llvm.loop !27
 
-.split628.us:                                     ; preds = %263, %.split.us
-  %265 = add nuw nsw i32 %.0156629, 1
-  %exitcond749.not = icmp eq i32 %265, 100
-  br i1 %exitcond749.not, label %266, label %234, !llvm.loop !28
+.split628.us:                                     ; preds = %265, %.split.us
+  %267 = add nuw nsw i32 %.0156629, 1
+  %exitcond749.not = icmp eq i32 %267, 100
+  br i1 %exitcond749.not, label %268, label %234, !llvm.loop !28
 
-266:                                              ; preds = %.split628.us
-  %267 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %268 = load double, ptr %267, align 8, !tbaa !25
-  %269 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %270 = load double, ptr %269, align 16, !tbaa !25
-  %271 = fadd double %268, %270
-  %272 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %273 = load double, ptr %272, align 8, !tbaa !25
-  %274 = fadd double %271, %273
-  %275 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %276 = load double, ptr %275, align 16, !tbaa !25
-  %277 = fadd double %274, %276
-  %278 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %277, double noundef %268, double noundef %270, double noundef %273, double noundef %276)
+268:                                              ; preds = %.split628.us
+  %269 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %270 = load double, ptr %269, align 8, !tbaa !25
+  %271 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %272 = load double, ptr %271, align 16, !tbaa !25
+  %273 = fadd double %270, %272
+  %274 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %275 = load double, ptr %274, align 8, !tbaa !25
+  %276 = fadd double %273, %275
+  %277 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %278 = load double, ptr %277, align 16, !tbaa !25
+  %279 = fadd double %276, %278
+  %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %279, double noundef %270, double noundef %272, double noundef %275, double noundef %278)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %279
+  br label %281
 
 .loopexit:                                        ; preds = %.lr.ph625, %218, %eval_buf.exit
   call void @js_std_free_handlers(ptr noundef nonnull %.0157) #17
   call void @JS_FreeContext(ptr noundef nonnull %175) #17
   call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
-  br label %279
+  br label %281
 
-279:                                              ; preds = %228, %266, %.loopexit
-  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %266 ], [ 0, %228 ]
+281:                                              ; preds = %228, %268, %.loopexit
+  %.0 = phi i32 [ 1, %.loopexit ], [ 0, %268 ], [ 0, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

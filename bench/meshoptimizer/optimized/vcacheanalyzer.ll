@@ -252,7 +252,7 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph108, %.preheader
   %.075.lcssa = phi i64 [ 0, %.preheader ], [ %116, %.lr.ph108 ]
-  br i1 %.not110, label %.critedge, label %118
+  br i1 %.not110, label %.lr.ph.i, label %118
 
 .lr.ph108:                                        ; preds = %.preheader, %.lr.ph108
   %.0107 = phi i64 [ %117, %.lr.ph108 ], [ 0, %.preheader ]
@@ -271,23 +271,23 @@ define dso_local { i64, <2 x float> } @meshopt_analyzeVertexCache(ptr noundef re
   %120 = udiv i64 %1, 3
   %121 = uitofp nneg i64 %120 to float
   %122 = fdiv float %119, %121
-  br label %.critedge
+  br label %.lr.ph.i
 
-.critedge:                                        ; preds = %._crit_edge, %118
+.lr.ph.i:                                         ; preds = %._crit_edge, %118
   %123 = phi float [ %122, %118 ], [ 0.000000e+00, %._crit_edge ]
   %124 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
   %125 = load ptr, ptr %7, align 8, !tbaa !4
   invoke void %124(ptr noundef %125)
-          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %126, !llvm.loop !14
+          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %126
 
-126:                                              ; preds = %.critedge
+126:                                              ; preds = %.lr.ph.i
   %127 = landingpad { ptr, i32 }
           catch ptr null
   %128 = extractvalue { ptr, i32 } %127, 0
   tail call void @__clang_call_terminate(ptr %128) #9
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %.critedge
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %.lr.ph.i
   %.sroa.10.8.vec.insert = insertelement <2 x float> poison, float %123, i64 0
   %129 = icmp eq i64 %.075.lcssa, 0
   %130 = uitofp i32 %.sroa.0.sroa.0.0.lcssa to float
@@ -316,30 +316,32 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i64, ptr %2, align 8, !tbaa !15
-  br label %4
+  %3 = load i64, ptr %2, align 8, !tbaa !14
+  %.not3 = icmp eq i64 %3, 0
+  br i1 %.not3, label %._crit_edge, label %.lr.ph
 
-4:                                                ; preds = %6, %1
-  %.0 = phi i64 [ %3, %1 ], [ %8, %6 ]
-  %.not = icmp eq i64 %.0, 0
-  br i1 %.not, label %5, label %6
-
-5:                                                ; preds = %4
+._crit_edge:                                      ; preds = %8, %1
   ret void
 
-6:                                                ; preds = %4
-  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %8 = add i64 %.0, -1
-  %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !4
-  invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !14
+.lr.ph:                                           ; preds = %1, %8
+  %.04 = phi i64 [ %9, %8 ], [ %3, %1 ]
+  %4 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %5 = getelementptr ptr, ptr %0, i64 %.04
+  %6 = getelementptr i8, ptr %5, i64 -8
+  %7 = load ptr, ptr %6, align 8, !tbaa !4
+  invoke void %4(ptr noundef %7)
+          to label %8 unwind label %10
 
-11:                                               ; preds = %6
-  %12 = landingpad { ptr, i32 }
+8:                                                ; preds = %.lr.ph
+  %9 = add i64 %.04, -1
+  %.not = icmp eq i64 %9, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+
+10:                                               ; preds = %.lr.ph
+  %11 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #9
+  %12 = extractvalue { ptr, i32 } %11, 0
+  tail call void @__clang_call_terminate(ptr %12) #9
   unreachable
 }
 
@@ -394,7 +396,7 @@ attributes #9 = { noreturn nounwind }
 !11 = !{!"int", !6, i64 0}
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = !{!16, !17, i64 192}
-!16 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !17, i64 192}
-!17 = !{!"long", !6, i64 0}
+!14 = !{!15, !16, i64 192}
+!15 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !16, i64 192}
+!16 = !{!"long", !6, i64 0}
+!17 = distinct !{!17, !9}

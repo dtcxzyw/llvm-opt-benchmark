@@ -74,7 +74,7 @@ define noundef ptr @aglasterr() local_unnamed_addr #1 {
 
 14:                                               ; preds = %13
   %15 = zext i8 %.pre.i.i to i64
-  %16 = getelementptr inbounds nuw [31 x i8], ptr @last, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @last, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !9
   br label %agxbputc.exit.i
 
@@ -109,7 +109,7 @@ agxbdisown.exit:                                  ; preds = %2, %agxbputc.exit.i
 .thread:                                          ; preds = %23, %25
   %26 = phi i8 [ %.pre.i.i5, %25 ], [ 0, %23 ]
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw [31 x i8], ptr @last, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr @last, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %.0.i, i64 %21, i1 false)
   %29 = trunc i64 %21 to i8
   %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
@@ -293,7 +293,7 @@ agxbclear.exit:                                   ; preds = %48, %47, %44
 65:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  br label %73
+  br label %71
 
 66:                                               ; preds = %64, %52
   %.pre-phi.i = phi i64 [ %56, %52 ], [ %.pre9.i, %64 ]
@@ -303,54 +303,53 @@ agxbclear.exit:                                   ; preds = %48, %47, %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %.not.i.i.i = icmp eq i8 %68, -1
   %.0.i.i.i = select i1 %.not.i.i.i, i64 %67, i64 %.pre-phi.i
-  %69 = getelementptr inbounds nuw [31 x i8], ptr @last, i64 0, i64 %.0.i.i.i
-  %70 = load ptr, ptr @last, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %.0.i.i.i
-  %72 = select i1 %.not.i.i.i, ptr %71, ptr %69
-  br label %73
+  %69 = load ptr, ptr @last, align 8
+  %.v.i.i = select i1 %.not.i.i.i, ptr %69, ptr @last
+  %70 = getelementptr inbounds nuw i8, ptr %.v.i.i, i64 %.0.i.i.i
+  br label %71
 
-73:                                               ; preds = %66, %65
+71:                                               ; preds = %66, %65
   %.0366.i = phi i1 [ false, %66 ], [ true, %65 ]
-  %74 = phi ptr [ %72, %66 ], [ %5, %65 ]
-  %75 = call i32 @vsnprintf(ptr noundef %74, i64 noundef %53, ptr noundef readonly %1, ptr noundef nonnull %2) #19
-  %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %92
+  %72 = phi ptr [ %70, %66 ], [ %5, %65 ]
+  %73 = call i32 @vsnprintf(ptr noundef %72, i64 noundef %53, ptr noundef readonly %1, ptr noundef nonnull %2) #19
+  %74 = icmp sgt i32 %73, 0
+  br i1 %74, label %75, label %90
 
-77:                                               ; preds = %73
-  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
-  %.not.i14 = icmp eq i8 %78, -1
-  br i1 %.not.i14, label %88, label %79
+75:                                               ; preds = %71
+  %76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
+  %.not.i14 = icmp eq i8 %76, -1
+  br i1 %.not.i14, label %86, label %77
 
-79:                                               ; preds = %77
-  br i1 %.0366.i, label %80, label %84
+77:                                               ; preds = %75
+  br i1 %.0366.i, label %78, label %82
 
-80:                                               ; preds = %79
-  %81 = zext i8 %78 to i64
-  %82 = getelementptr inbounds nuw [31 x i8], ptr @last, i64 0, i64 %81
-  %83 = zext nneg i32 %75 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 16 %5, i64 %83, i1 false)
+78:                                               ; preds = %77
+  %79 = zext i8 %76 to i64
+  %80 = getelementptr inbounds nuw i8, ptr @last, i64 %79
+  %81 = zext nneg i32 %73 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 16 %5, i64 %81, i1 false)
   %.pre8.i = load i8, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
-  br label %84
+  br label %82
 
-84:                                               ; preds = %80, %79
-  %85 = phi i8 [ %.pre8.i, %80 ], [ %78, %79 ]
-  %86 = trunc i32 %75 to i8
-  %87 = add i8 %85, %86
-  store i8 %87, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
-  br label %92
+82:                                               ; preds = %78, %77
+  %83 = phi i8 [ %.pre8.i, %78 ], [ %76, %77 ]
+  %84 = trunc i32 %73 to i8
+  %85 = add i8 %83, %84
+  store i8 %85, ptr getelementptr inbounds nuw (i8, ptr @last, i64 31), align 1, !tbaa !9
+  br label %90
 
-88:                                               ; preds = %77
-  %89 = zext nneg i32 %75 to i64
-  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @last, i64 8), align 8, !tbaa !9
-  %91 = add i64 %90, %89
-  store i64 %91, ptr getelementptr inbounds nuw (i8, ptr @last, i64 8), align 8, !tbaa !9
-  br label %92
+86:                                               ; preds = %75
+  %87 = zext nneg i32 %73 to i64
+  %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @last, i64 8), align 8, !tbaa !9
+  %89 = add i64 %88, %87
+  store i64 %89, ptr getelementptr inbounds nuw (i8, ptr @last, i64 8), align 8, !tbaa !9
+  br label %90
 
-92:                                               ; preds = %88, %84, %73
+90:                                               ; preds = %86, %82, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %out.exit
 
-out.exit:                                         ; preds = %92, %51, %42, %39, %25, %18
+out.exit:                                         ; preds = %90, %51, %42, %39, %25, %18
   ret void
 }
 

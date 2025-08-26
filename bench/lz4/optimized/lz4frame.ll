@@ -56,8 +56,9 @@ define ptr @LZ4F_getErrorName(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = sub nsw i64 0, %0
-  %5 = getelementptr inbounds nuw [25 x ptr], ptr @LZ4F_errorStrings, i64 0, i64 %4
+  %.neg = mul nsw i64 %0, -4294967296
+  %4 = lshr exact i64 %.neg, 29
+  %5 = getelementptr inbounds nuw i8, ptr @LZ4F_errorStrings, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   br label %7
 
@@ -94,9 +95,9 @@ define i64 @LZ4F_getBlockSize(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.not, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = add nsw i32 %spec.store.select, -4
-  %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %6
+  %5 = zext nneg i32 %spec.store.select to i64
+  %6 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %5
+  %7 = getelementptr i8, ptr %6, i64 -32
   %8 = load i64, ptr %7, align 8, !tbaa !8
   br label %9
 
@@ -129,9 +130,9 @@ LZ4F_getBlockSize.exit.thread47.i:                ; preds = %2, %5, %3
   %.sroa.63.012 = phi i32 [ %.sroa.63.0.copyload, %3 ], [ %.sroa.63.0.copyload, %5 ], [ 0, %2 ]
   %.sroa.52.010 = phi i32 [ %.sroa.52.0.copyload, %3 ], [ %.sroa.52.0.copyload, %5 ], [ 0, %2 ]
   %.ph.i = phi i32 [ 4, %3 ], [ %.else.val40.fr.i, %5 ], [ 4, %2 ]
-  %7 = add nsw i32 %.ph.i, -4
-  %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %8
+  %7 = zext nneg i32 %.ph.i to i64
+  %8 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -32
   %10 = load i64, ptr %9, align 8, !tbaa !8
   br label %LZ4F_compressBound_internal.exit
 
@@ -222,9 +223,9 @@ LZ4F_optimalBSID.exit:                            ; preds = %.lr.ph.i, %16, %11
   %spec.store.select.i87 = phi i32 [ 4, %LZ4F_optimalBSID.exit.thread ], [ %spec.store.select.i, %LZ4F_optimalBSID.exit ]
   %23 = phi i1 [ true, %LZ4F_optimalBSID.exit.thread ], [ %20, %LZ4F_optimalBSID.exit ]
   %.else.val40.fr.i.i86 = phi i32 [ 0, %LZ4F_optimalBSID.exit.thread ], [ %.else.val40.fr.i.i, %LZ4F_optimalBSID.exit ]
-  %24 = add nsw i32 %spec.store.select.i87, -4
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %25
+  %24 = zext nneg i32 %spec.store.select.i87 to i64
+  %25 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -32
   %27 = load i64, ptr %26, align 8, !tbaa !8
   br label %LZ4F_getBlockSize.exit
 
@@ -257,9 +258,9 @@ LZ4F_getBlockSize.exit:                           ; preds = %LZ4F_optimalBSID.ex
 
 LZ4F_getBlockSize.exit.thread47.i.i:              ; preds = %33, %31
   %.ph.i.i = phi i32 [ 4, %31 ], [ %.else.val40.fr.i.i85, %33 ]
-  %35 = add nsw i32 %.ph.i.i, -4
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %36
+  %35 = zext nneg i32 %.ph.i.i to i64
+  %36 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 -32
   %38 = load i64, ptr %37, align 8, !tbaa !8
   br label %LZ4F_compressFrameBound.exit
 
@@ -1037,9 +1038,9 @@ LZ4F_malloc.exit141:                              ; preds = %47, %49
 
 77:                                               ; preds = %.thread179, %75
   %78 = phi i32 [ 4, %.thread179 ], [ %73, %75 ]
-  %79 = add nsw i32 %78, -4
-  %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %80
+  %79 = zext nneg i32 %78 to i64
+  %80 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 -32
   %82 = load i64, ptr %81, align 8, !tbaa !8
   br label %LZ4F_getBlockSize.exit
 
@@ -1344,9 +1345,9 @@ define i64 @LZ4F_compressBound(i64 noundef %0, ptr noundef readonly captures(add
 
 LZ4F_getBlockSize.exit.thread47.i:                ; preds = %17, %.cont.cont.i
   %.ph.i = phi i32 [ 4, %.cont.cont.i ], [ %.else.val40.fr.i, %17 ]
-  %19 = add nsw i32 %.ph.i, -4
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %20
+  %19 = zext nneg i32 %.ph.i to i64
+  %20 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -32
   %22 = load i64, ptr %21, align 8, !tbaa !8
   br label %LZ4F_compressBound_internal.exit
 
@@ -1391,9 +1392,9 @@ LZ4F_compressBound_internal.exit:                 ; preds = %17, %LZ4F_getBlockS
 
 LZ4F_getBlockSize.exit.thread47.i23:              ; preds = %44, %.cont.cont.i9
   %.ph.i24 = phi i32 [ 4, %.cont.cont.i9 ], [ %.else.val40.fr.i13, %44 ]
-  %46 = add nsw i32 %.ph.i24, -4
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %47
+  %46 = zext nneg i32 %.ph.i24 to i64
+  %47 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %46
+  %48 = getelementptr i8, ptr %47, i64 -32
   %49 = load i64, ptr %48, align 8, !tbaa !8
   br label %LZ4F_compressBound_internal.exit26
 
@@ -1482,9 +1483,9 @@ LZ4F_selectCompression.exit:                      ; preds = %7, %18, %19
 
 LZ4F_getBlockSize.exit.thread47.i:                ; preds = %30, %22
   %.ph.i = phi i32 [ 4, %22 ], [ %.else.val40.fr.i, %30 ]
-  %32 = add nsw i32 %.ph.i, -4
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %33
+  %32 = zext nneg i32 %.ph.i to i64
+  %33 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 -32
   %35 = load i64, ptr %34, align 8, !tbaa !8
   br label %LZ4F_compressBound_internal.exit
 
@@ -3677,9 +3678,9 @@ LZ4F_getBlockSize.exit:                           ; preds = %53
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %27, ptr %63, align 8, !tbaa !85
   store i32 %48, ptr %6, align 8, !tbaa !96
-  %64 = add nsw i32 %48, -4
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw [4 x i64], ptr @LZ4F_getBlockSize.blockSizes, i64 0, i64 %65
+  %64 = zext nneg i32 %48 to i64
+  %65 = getelementptr i64, ptr @LZ4F_getBlockSize.blockSizes, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 -32
   %67 = load i64, ptr %66, align 8, !tbaa !8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %67, ptr %68, align 8, !tbaa !86

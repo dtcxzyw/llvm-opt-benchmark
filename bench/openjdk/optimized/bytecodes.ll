@@ -353,7 +353,7 @@ define hidden noundef i32 @_ZN9Bytecodes17special_length_atENS_4CodeEPhS1_(i32 n
 
 9:                                                ; preds = %6
   %10 = zext i8 %7 to i64
-  %11 = getelementptr inbounds nuw [239 x i8], ptr @_ZN9Bytecodes8_lengthsE, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr @_ZN9Bytecodes8_lengthsE, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = lshr i8 %12, 4
   %14 = zext nneg i8 %13 to i32
@@ -458,13 +458,11 @@ define hidden void @_ZN9Bytecodes9def_flagsENS_4CodeEPKcS2_bS0_(i32 noundef %0, 
   %7 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef %1, i16 noundef zeroext %.1)
   %8 = and i32 %0, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw i16, ptr @_ZN9Bytecodes6_flagsE, i64 %9
   store i16 %7, ptr %10, align 2
   %11 = tail call noundef zeroext i16 @_ZN9Bytecodes13compute_flagsEPKct(ptr noundef %2, i16 noundef zeroext %.1)
-  %12 = or disjoint i32 %8, 256
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %13
-  store i16 %11, ptr %14, align 2
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 512
+  store i16 %11, ptr %12, align 2
   ret void
 }
 

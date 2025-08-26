@@ -305,7 +305,7 @@ define dso_local void @clar_test_init(i32 noundef %0, ptr noundef readonly captu
   %34 = phi i32 [ %.promoted.i, %.preheader.i ], [ %80, %.thread.i ]
   %35 = phi ptr [ %.promoted92.i, %.preheader.i ], [ %79, %.thread.i ]
   %36 = phi ptr [ %.promoted93.i, %.preheader.i ], [ %78, %.thread.i ]
-  %37 = getelementptr inbounds nuw [6 x %struct.clar_suite], ptr @_clar_suites, i64 0, i64 %.06794.i
+  %37 = getelementptr inbounds nuw %struct.clar_suite, ptr @_clar_suites, i64 %.06794.i
   %38 = load ptr, ptr %37, align 16, !tbaa !19
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #28
   %40 = tail call i64 @llvm.umin.i64(i64 %29, i64 %39)
@@ -435,7 +435,7 @@ define dso_local void @clar_test_init(i32 noundef %0, ptr noundef readonly captu
 88:                                               ; preds = %88, %87
   %.098.i = phi i64 [ 0, %87 ], [ %93, %88 ]
   %89 = trunc nuw nsw i64 %.098.i to i32
-  %90 = getelementptr inbounds nuw [6 x %struct.clar_suite], ptr @_clar_suites, i64 0, i64 %.098.i
+  %90 = getelementptr inbounds nuw %struct.clar_suite, ptr @_clar_suites, i64 %.098.i
   %91 = load ptr, ptr %90, align 16, !tbaa !19
   %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %89, ptr noundef %91)
   %93 = add nuw nsw i64 %.098.i, 1
@@ -605,7 +605,7 @@ define internal fastcc void @clar_sandbox() unnamed_addr #1 {
   %3 = alloca %struct.stat, align 8
   %4 = load i8, ptr @_clar_path, align 16, !tbaa !18
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %50
+  br i1 %5, label %6, label %49
 
 6:                                                ; preds = %0
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -613,7 +613,7 @@ define internal fastcc void @clar_sandbox() unnamed_addr #1 {
 
 8:                                                ; preds = %19, %6
   %.02010.i.i = phi i64 [ 0, %6 ], [ %20, %19 ]
-  %9 = getelementptr inbounds nuw [5 x ptr], ptr @find_tmp_path.env_vars, i64 0, i64 %.02010.i.i
+  %9 = getelementptr inbounds nuw ptr, ptr @find_tmp_path.env_vars, i64 %.02010.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = tail call ptr @getenv(ptr noundef %10) #31
   %.not23.i.i = icmp eq ptr %11, null
@@ -697,44 +697,43 @@ is_valid_tmp_path.exit30.i.i:                     ; preds = %31
   %37 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @_clar_path, ptr noundef nonnull dereferenceable(1) %.lcssa.sink.i, i64 noundef 4096) #31
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_clar_path, i64 4096), align 16, !tbaa !18
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) @_clar_path) #28
-  %39 = add i64 %38, -1
-  %40 = getelementptr inbounds nuw [4097 x i8], ptr @_clar_path, i64 0, i64 %39
+  %39 = getelementptr i8, ptr @_clar_path, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 -1
   %41 = load i8, ptr %40, align 1, !tbaa !18
   %.not.i = icmp eq i8 %41, 47
   br i1 %.not.i, label %build_sandbox_path.exit, label %42
 
 42:                                               ; preds = %.loopexit
   %43 = add i64 %38, 1
-  %44 = getelementptr inbounds nuw [4097 x i8], ptr @_clar_path, i64 0, i64 %38
-  store i8 47, ptr %44, align 1, !tbaa !18
+  store i8 47, ptr %39, align 1, !tbaa !18
   br label %build_sandbox_path.exit
 
 build_sandbox_path.exit:                          ; preds = %.loopexit, %42
   %.0.i = phi i64 [ %43, %42 ], [ %38, %.loopexit ]
-  %45 = getelementptr inbounds nuw i8, ptr @_clar_path, i64 %.0.i
-  %46 = sub i64 4097, %.0.i
-  %47 = tail call ptr @strncpy(ptr noundef nonnull %45, ptr noundef nonnull dereferenceable(16) @__const.build_sandbox_path.path_tail, i64 noundef %46) #31
-  %48 = tail call ptr @mkdtemp(ptr noundef nonnull @_clar_path) #31
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %build_sandbox_path.exit.thread, label %50
+  %44 = getelementptr inbounds nuw i8, ptr @_clar_path, i64 %.0.i
+  %45 = sub i64 4097, %.0.i
+  %46 = tail call ptr @strncpy(ptr noundef nonnull %44, ptr noundef nonnull dereferenceable(16) @__const.build_sandbox_path.path_tail, i64 noundef %45) #31
+  %47 = tail call ptr @mkdtemp(ptr noundef nonnull @_clar_path) #31
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %build_sandbox_path.exit.thread, label %49
 
 build_sandbox_path.exit.thread:                   ; preds = %is_valid_tmp_path.exit30.i.i, %is_valid_tmp_path.exit30.thread.i.i, %build_sandbox_path.exit
   tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.158)
   unreachable
 
-50:                                               ; preds = %build_sandbox_path.exit, %0
-  %51 = tail call i32 @chdir(ptr noundef nonnull @_clar_path) #31
-  %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %56, label %52
+49:                                               ; preds = %build_sandbox_path.exit, %0
+  %50 = tail call i32 @chdir(ptr noundef nonnull @_clar_path) #31
+  %.not = icmp eq i32 %50, 0
+  br i1 %.not, label %55, label %51
 
-52:                                               ; preds = %50
-  %53 = tail call ptr @__errno_location() #32
-  %54 = load i32, ptr %53, align 4, !tbaa !40
-  %55 = tail call ptr @strerror(i32 noundef %54) #31
-  tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.159, ptr noundef nonnull @_clar_path, ptr noundef %55)
+51:                                               ; preds = %49
+  %52 = tail call ptr @__errno_location() #32
+  %53 = load i32, ptr %52, align 4, !tbaa !40
+  %54 = tail call ptr @strerror(i32 noundef %53) #31
+  tail call void (ptr, ...) @clar_abort(ptr noundef nonnull @.str.159, ptr noundef nonnull @_clar_path, ptr noundef %54)
   unreachable
 
-56:                                               ; preds = %50
+55:                                               ; preds = %49
   ret void
 }
 
@@ -747,7 +746,7 @@ define dso_local i32 @clar_test_run() local_unnamed_addr #1 {
 .preheader9:                                      ; preds = %0, %.preheader9
   %.011 = phi ptr [ %7, %.preheader9 ], [ %1, %0 ]
   %2 = load i64, ptr %.011, align 8, !tbaa !25
-  %3 = getelementptr inbounds nuw [6 x %struct.clar_suite], ptr @_clar_suites, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw %struct.clar_suite, ptr @_clar_suites, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   tail call fastcc void @clar_run_suite(ptr noundef nonnull %3, ptr noundef %5)
@@ -758,7 +757,7 @@ define dso_local i32 @clar_test_run() local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %0, %.preheader
   %.0612 = phi i64 [ %9, %.preheader ], [ 0, %0 ]
-  %8 = getelementptr inbounds nuw [6 x %struct.clar_suite], ptr @_clar_suites, i64 0, i64 %.0612
+  %8 = getelementptr inbounds nuw %struct.clar_suite, ptr @_clar_suites, i64 %.0612
   tail call fastcc void @clar_run_suite(ptr noundef nonnull %8, ptr noundef null)
   %9 = add nuw nsw i64 %.0612, 1
   %exitcond.not = icmp eq i64 %9, 6
@@ -1420,7 +1419,7 @@ define dso_local i32 @clar_test(i32 noundef %0, ptr noundef readonly captures(no
 .preheader9.i:                                    ; preds = %2, %.preheader9.i
   %.011.i = phi ptr [ %9, %.preheader9.i ], [ %3, %2 ]
   %4 = load i64, ptr %.011.i, align 8, !tbaa !25
-  %5 = getelementptr inbounds nuw [6 x %struct.clar_suite], ptr @_clar_suites, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw %struct.clar_suite, ptr @_clar_suites, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !27
   tail call fastcc void @clar_run_suite(ptr noundef nonnull %5, ptr noundef %7)
@@ -1431,7 +1430,7 @@ define dso_local i32 @clar_test(i32 noundef %0, ptr noundef readonly captures(no
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.0612.i = phi i64 [ %11, %.preheader.i ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw [6 x %struct.clar_suite], ptr @_clar_suites, i64 0, i64 %.0612.i
+  %10 = getelementptr inbounds nuw %struct.clar_suite, ptr @_clar_suites, i64 %.0612.i
   tail call fastcc void @clar_run_suite(ptr noundef nonnull %10, ptr noundef null)
   %11 = add nuw nsw i64 %.0612.i, 1
   %exitcond.not.i = icmp eq i64 %11, 6
@@ -2551,7 +2550,7 @@ define internal fastcc void @clar_run_test(ptr noundef readonly captures(none) %
 
 switch.lookup:                                    ; preds = %98
   %100 = zext nneg i32 %85 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.clar_run_test, i64 0, i64 %100
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.clar_run_test, i64 %100
   %switch.load = load i32, ptr %switch.gep, align 4
   %putchar.i.i = call i32 @putchar(i32 %switch.load)
   br label %101

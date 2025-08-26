@@ -1328,7 +1328,7 @@ define hidden void @_ZN6Assimp17Q3BSPFileImporter20CreateDataFromImportEPKNS_5Q3
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %18 = load ptr, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %17, ptr align 1 %18, i64 %12, i1 false)
-  %19 = getelementptr inbounds nuw [1024 x i8], ptr %17, i64 0, i64 %12
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %12
   store i8 0, ptr %19, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -2425,7 +2425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i32 %86, ptr %12, align 4
   %87 = load ptr, ptr %13, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %30, ptr align 1 %87, i64 %81, i1 false)
-  %88 = getelementptr inbounds nuw [1024 x i8], ptr %30, i64 0, i64 %81
+  %88 = getelementptr inbounds nuw i8, ptr %30, i64 %81
   store i8 0, ptr %88, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -4284,7 +4284,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapE
   %or.cond3 = or i1 %or.cond, %9
   %10 = icmp slt i32 %4, 0
   %or.cond33 = or i1 %or.cond3, %10
-  br i1 %or.cond33, label %103, label %11
+  br i1 %or.cond33, label %101, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -4297,14 +4297,14 @@ define hidden noundef zeroext i1 @_ZN6Assimp17Q3BSPFileImporter14importLightmapE
   %19 = lshr exact i64 %18, 3
   %20 = trunc i64 %19 to i32
   %.not = icmp slt i32 %4, %20
-  br i1 %.not, label %21, label %103
+  br i1 %.not, label %21, label %101
 
 21:                                               ; preds = %11
   %22 = zext nneg i32 %4 to i64
   %23 = getelementptr inbounds nuw ptr, ptr %15, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not40 = icmp eq ptr %24, null
-  br i1 %.not40, label %103, label %25
+  br i1 %.not40, label %101, label %25
 
 25:                                               ; preds = %21
   %26 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #30
@@ -4451,33 +4451,31 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__nor
 
 _ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit: ; preds = %65, %_ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %103
+  br label %101
 
 88:                                               ; preds = %25, %88
-  %.042 = phi i64 [ 0, %25 ], [ %102, %88 ]
-  %.02741 = phi i64 [ 0, %25 ], [ %97, %88 ]
-  %89 = add nuw nsw i64 %.02741, 1
-  %90 = getelementptr inbounds nuw [49152 x i8], ptr %24, i64 0, i64 %.02741
-  %91 = load i8, ptr %90, align 1
-  %92 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 2
-  store i8 %91, ptr %92, align 1
-  %93 = add nuw nsw i64 %.02741, 2
-  %94 = getelementptr inbounds nuw [49152 x i8], ptr %24, i64 0, i64 %89
-  %95 = load i8, ptr %94, align 1
-  %96 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 1
-  store i8 %95, ptr %96, align 1
-  %97 = add nuw nsw i64 %.02741, 3
-  %98 = getelementptr inbounds nuw [49152 x i8], ptr %24, i64 0, i64 %93
-  %99 = load i8, ptr %98, align 1
-  %100 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042
-  store i8 %99, ptr %100, align 1
-  %101 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 3
-  store i8 -1, ptr %101, align 1
-  %102 = add nuw nsw i64 %.042, 1
-  %exitcond.not = icmp eq i64 %102, 16384
+  %.042 = phi i64 [ 0, %25 ], [ %100, %88 ]
+  %.02741 = phi i64 [ 0, %25 ], [ %95, %88 ]
+  %89 = getelementptr inbounds nuw i8, ptr %24, i64 %.02741
+  %90 = load i8, ptr %89, align 1
+  %91 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 2
+  store i8 %90, ptr %91, align 1
+  %92 = getelementptr i8, ptr %89, i64 1
+  %93 = load i8, ptr %92, align 1
+  %94 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 1
+  store i8 %93, ptr %94, align 1
+  %95 = add nuw nsw i64 %.02741, 3
+  %96 = getelementptr i8, ptr %89, i64 2
+  %97 = load i8, ptr %96, align 1
+  %98 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042
+  store i8 %97, ptr %98, align 1
+  %99 = getelementptr inbounds nuw %struct.aiTexel, ptr %30, i64 %.042, i32 3
+  store i8 -1, ptr %99, align 1
+  %100 = add nuw nsw i64 %.042, 1
+  %exitcond.not = icmp eq i64 %100, 16384
   br i1 %exitcond.not, label %31, label %88, !llvm.loop !41
 
-103:                                              ; preds = %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit, %21, %11, %5
+101:                                              ; preds = %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit, %21, %11, %5
   %.028 = phi i1 [ false, %5 ], [ false, %11 ], [ false, %21 ], [ true, %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit ]
   ret i1 %.028
 }

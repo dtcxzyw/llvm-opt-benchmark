@@ -176,7 +176,7 @@ define linkonce_odr void @_ZN5arrow8internal7CpuInfo4ImplC2Ev(ptr noundef nonnul
 25:                                               ; preds = %60, %._crit_edge.i.i
   %indvars.iv.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next.i, %60 ]
   store i32 0, ptr %24, align 4, !tbaa !24
-  %26 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.kCacheSizeConf, i64 0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw i32, ptr @__const._ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.kCacheSizeConf, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !24
   %28 = call i64 @sysconf(i32 noundef %27) #24
   %29 = load i32, ptr %24, align 4, !tbaa !24
@@ -187,7 +187,7 @@ define linkonce_odr void @_ZN5arrow8internal7CpuInfo4ImplC2Ev(ptr noundef nonnul
 
 32:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %33 = getelementptr inbounds nuw [3 x ptr], ptr @__const._ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.kCacheSizeSysfs, i64 0, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw ptr, ptr @__const._ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.kCacheSizeSysfs, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef %34, i32 noundef 8)
           to label %.noexc20 unwind label %.loopexit46
@@ -275,7 +275,7 @@ _ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.i: ; preds = %55, %52
 
 _ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.thread.i: ; preds = %_ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.i, %25
   %.08.i8.i = phi i64 [ %.2.i.i, %_ZN5arrow8internal12_GLOBAL__N_117LinuxGetCacheSizeEi.exit.i ], [ %28, %25 ]
-  %59 = getelementptr inbounds nuw [3 x i64], ptr %23, i64 0, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i
   store i64 %.08.i8.i, ptr %59, align 8, !tbaa !37
   br label %60
 
@@ -658,7 +658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29.i: ; preds = %_
 214:                                              ; preds = %224, %213
   %indvars.iv.i.i = phi i64 [ 0, %213 ], [ %indvars.iv.next.i.i, %224 ]
   %.012118.i.i = phi i64 [ 0, %213 ], [ %.1.i.i, %224 ]
-  %215 = getelementptr inbounds nuw [13 x %struct.anon], ptr %1, i64 0, i64 %indvars.iv.i.i
+  %215 = getelementptr inbounds nuw %struct.anon, ptr %1, i64 %indvars.iv.i.i
   %216 = load ptr, ptr %215, align 8, !tbaa !8
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %218 = load i64, ptr %217, align 8, !tbaa !13
@@ -1316,7 +1316,7 @@ define noundef i64 @_ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE(ptr 
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %5
+  %6 = getelementptr i64, ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !37
   %8 = icmp sgt i64 %7, 0
   br i1 %8, label %._crit_edge, label %9
@@ -1326,17 +1326,15 @@ define noundef i64 @_ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE(ptr 
   br i1 %10, label %._crit_edge, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds [3 x i64], ptr @__const._ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE.kDefaultCacheSizes, i64 0, i64 %5
-  %13 = add nsw i32 %1, -1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds nuw [3 x i64], ptr %4, i64 0, i64 %14
-  %16 = load i64, ptr %12, align 8, !tbaa !37
-  %17 = load i64, ptr %15, align 8, !tbaa !37
-  %18 = tail call i64 @llvm.smax.i64(i64 %16, i64 %17)
+  %12 = getelementptr inbounds i64, ptr @__const._ZNK5arrow8internal7CpuInfo9CacheSizeENS1_10CacheLevelE.kDefaultCacheSizes, i64 %5
+  %13 = getelementptr i8, ptr %6, i64 -8
+  %14 = load i64, ptr %12, align 8, !tbaa !37
+  %15 = load i64, ptr %13, align 8, !tbaa !37
+  %16 = tail call i64 @llvm.smax.i64(i64 %14, i64 %15)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %2, %11
-  %.0 = phi i64 [ %18, %11 ], [ %7, %2 ], [ 32768, %9 ]
+  %.0 = phi i64 [ %16, %11 ], [ %7, %2 ], [ 32768, %9 ]
   ret i64 %.0
 }
 

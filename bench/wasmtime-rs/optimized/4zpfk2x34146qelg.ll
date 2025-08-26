@@ -115,7 +115,7 @@ switch.lookup:
   %3 = zext nneg i32 %2 to i64
   %4 = add nsw i64 %3, -1
   %5 = select i1 %.not, i64 0, i64 %4
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds i64, ptr @switch.table._ZN14cranelift_wasm5state17ControlStackFrame14br_destination17hd8cff4fe16f835d3E, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %6, align 4, !noundef !4
@@ -613,19 +613,21 @@ define noundef i32 @_ZN14cranelift_wasm5state20FuncTranslationState5peek117h42fb
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %4, label %5
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !4
+  %6 = getelementptr i32, ptr %5, i64 %3
+  %7 = getelementptr i8, ptr %6, i64 -4
+  %8 = icmp eq ptr %7, null
+  %9 = select i1 %.not, i1 true, i1 %8
+  br i1 %9, label %10, label %11
 
-4:                                                ; preds = %1
+10:                                               ; preds = %1
   tail call void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1 @anon.1ebe03cf8da41ec25042ed3876485d5d.13, i64 noundef 46, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.14) #14
   unreachable
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !4
-  %8 = add i64 %3, -1
-  %9 = getelementptr inbounds [0 x i32], ptr %7, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !noundef !4
-  ret i32 %10
+11:                                               ; preds = %1
+  %12 = load i32, ptr %7, align 4, !noundef !4
+  ret i32 %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -943,7 +945,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds [0 x i32], ptr %38, i64 0, i64 %.sroa.02.013
+  %39 = getelementptr inbounds i32, ptr %38, i64 %.sroa.02.013
   %40 = load i32, ptr %39, align 4, !noundef !4
   %41 = load i64, ptr %0, align 8, !alias.scope !154, !noundef !4
   %42 = icmp eq i64 %34, %41

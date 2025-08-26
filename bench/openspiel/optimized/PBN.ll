@@ -124,14 +124,14 @@ default.unreachable:                              ; preds = %17
 29:                                               ; preds = %26, %22, %18, %17, %24, %23, %20, %19
   %.0 = phi i32 [ 0, %19 ], [ %21, %20 ], [ 3, %23 ], [ %25, %24 ], [ %.07295, %17 ], [ 1, %18 ], [ 2, %22 ], [ %spec.select, %26 ]
   %30 = zext nneg i32 %16 to i64
-  %31 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 2
   %35 = sext i32 %.0 to i64
   %36 = getelementptr inbounds [4 x i32], ptr %1, i64 %35
   %37 = sext i32 %.07196 to i64
-  %38 = getelementptr inbounds [4 x i32], ptr %36, i64 0, i64 %37
+  %38 = getelementptr inbounds i32, ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %34, %39
   store i32 %40, ptr %38, align 4
@@ -249,9 +249,9 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   %9 = zext nneg i32 %5 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %11 = getelementptr inbounds nuw [106 x i8], ptr %6, i64 0, i64 %indvars.iv
+10:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %12 = load i8, ptr %11, align 2
   %13 = and i8 %12, -33
   switch i8 %13, label %.loopexit [
@@ -273,24 +273,23 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
 14:                                               ; preds = %10, %.fold.split46, %.fold.split45, %.fold.split
   %.040 = phi i32 [ 0, %10 ], [ 1, %.fold.split ], [ 2, %.fold.split45 ], [ 3, %.fold.split46 ]
   %15 = lshr exact i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw [52 x i32], ptr %7, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %15
   store i32 %.040, ptr %16, align 4
-  %17 = or disjoint i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw [106 x i8], ptr %6, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = tail call noundef i32 @_Z6IsCardc(i8 noundef signext %19)
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.loopexit, label %22
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = tail call noundef i32 @_Z6IsCardc(i8 noundef signext %18)
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %.loopexit, label %21
 
-22:                                               ; preds = %14
-  %23 = getelementptr inbounds nuw [52 x i32], ptr %8, i64 0, i64 %15
-  store i32 %20, ptr %23, align 4
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %15
+  store i32 %19, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %24 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %24, label %10, label %.loopexit, !llvm.loop !7
+  %23 = icmp samesign ult i64 %indvars.iv.next, %9
+  br i1 %23, label %10, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %14, %22, %10, %4, %2
-  %.0 = phi i32 [ -98, %2 ], [ 1, %4 ], [ -98, %14 ], [ 1, %22 ], [ -98, %10 ]
+.loopexit:                                        ; preds = %14, %21, %10, %4, %2
+  %.0 = phi i32 [ -98, %2 ], [ 1, %4 ], [ -98, %14 ], [ 1, %21 ], [ -98, %10 ]
   ret i32 %.0
 }
 

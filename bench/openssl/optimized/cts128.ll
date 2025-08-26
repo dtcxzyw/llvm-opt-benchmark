@@ -197,7 +197,7 @@ define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr no
   %.04551 = phi i64 [ 0, %17 ], [ %29, %20 ]
   %21 = getelementptr inbounds nuw i8, ptr %.046, i64 %.04551
   %22 = load i8, ptr %21, align 1, !tbaa !3
-  %23 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.04551
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 %.04551
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %.04551
   %26 = load i8, ptr %25, align 1, !tbaa !3
@@ -211,7 +211,7 @@ define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.152 = phi i64 [ %36, %.lr.ph ], [ 16, %20 ]
-  %30 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.152
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 %.152
   %31 = load i8, ptr %30, align 1, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %.046, i64 %.152
   %33 = load i8, ptr %32, align 1, !tbaa !3
@@ -239,7 +239,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   %7 = alloca %union.anon.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp ult i64 %2, 16
-  br i1 %8, label %43, label %9
+  br i1 %8, label %42, label %9
 
 9:                                                ; preds = %6
   %10 = and i64 %2, 15
@@ -248,7 +248,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
 
 12:                                               ; preds = %9
   tail call void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #5
-  br label %43
+  br label %42
 
 13:                                               ; preds = %9
   %14 = or disjoint i64 %10, 16
@@ -277,7 +277,7 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   %.05764 = phi i64 [ 0, %19 ], [ %33, %22 ]
   %23 = getelementptr inbounds nuw i8, ptr %.058, i64 %.05764
   %24 = load i8, ptr %23, align 1, !tbaa !3
-  %25 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.05764
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 %.05764
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.05764
   %28 = load i8, ptr %27, align 1, !tbaa !3
@@ -293,25 +293,24 @@ define noundef i64 @CRYPTO_nistcts128_decrypt_block(ptr noundef %0, ptr noundef 
   br i1 %exitcond.not, label %.lr.ph, label %22, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
-  %.165 = phi i64 [ %41, %.lr.ph ], [ 16, %22 ]
-  %34 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %.165
+  %.165 = phi i64 [ %40, %.lr.ph ], [ 16, %22 ]
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %.165
   %35 = load i8, ptr %34, align 1, !tbaa !3
-  %36 = add nsw i64 %.165, -16
-  %37 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !3
-  %39 = xor i8 %38, %35
-  %40 = getelementptr inbounds nuw i8, ptr %.059, i64 %.165
-  store i8 %39, ptr %40, align 1, !tbaa !3
-  %41 = add nuw nsw i64 %.165, 1
-  %exitcond66.not = icmp eq i64 %41, %14
+  %36 = getelementptr i8, ptr %34, i64 -16
+  %37 = load i8, ptr %36, align 1, !tbaa !3
+  %38 = xor i8 %37, %35
+  %39 = getelementptr inbounds nuw i8, ptr %.059, i64 %.165
+  store i8 %38, ptr %39, align 1, !tbaa !3
+  %40 = add nuw nsw i64 %.165, 1
+  %exitcond66.not = icmp eq i64 %40, %14
   br i1 %exitcond66.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %42 = add i64 %2, 16
-  br label %43
+  %41 = add i64 %2, 16
+  br label %42
 
-43:                                               ; preds = %6, %._crit_edge, %12
-  %.0 = phi i64 [ %2, %12 ], [ %42, %._crit_edge ], [ 0, %6 ]
+42:                                               ; preds = %6, %._crit_edge, %12
+  %.0 = phi i64 [ %2, %12 ], [ %41, %._crit_edge ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

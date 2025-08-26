@@ -283,7 +283,7 @@ if.else:                                          ; preds = %if.end54
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %colors, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors, i64 12, i1 false)
   %rem.i = urem i64 %seed.addr.0259, 3
-  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i
   %22 = load i32, ptr %arrayidx.i, align 4
   store i32 %22, ptr %colors, align 4
   %div.i52 = udiv i64 %seed.addr.0259, 3
@@ -294,7 +294,7 @@ _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
 
 if.then7.i54:                                     ; preds = %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit
   %rem.i55 = urem i64 %div.i52, 3
-  %arrayidx.i56 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i55
+  %arrayidx.i56 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i55
   %23 = load i32, ptr %arrayidx.i56, align 4
   store i32 %23, ptr %arrayidx80, align 4
   %div.i57 = udiv i64 %seed.addr.0259, 9
@@ -374,13 +374,9 @@ if.then117:                                       ; preds = %if.else112
 invoke.cont121:                                   ; preds = %if.then117
   %mul123 = mul nsw i32 %27, 3
   %idxprom125 = sext i32 %mul123 to i64
-  %arrayidx126 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom125
-  %add128 = add nsw i32 %mul123, 1
-  %idxprom129 = sext i32 %add128 to i64
-  %arrayidx130 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom129
-  %add132 = add nsw i32 %mul123, 2
-  %idxprom133 = sext i32 %add132 to i64
-  %arrayidx134 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom133
+  %arrayidx126 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom125
+  %arrayidx130 = getelementptr i8, ptr %arrayidx126, i64 8
+  %arrayidx134 = getelementptr i8, ptr %arrayidx126, i64 16
   %vtable135 = load ptr, ptr %call122, align 8
   %vfn136 = getelementptr inbounds nuw i8, ptr %vtable135, i64 120
   %33 = load ptr, ptr %vfn136, align 8
@@ -404,13 +400,13 @@ if.then142:                                       ; preds = %invoke.cont137
 invoke.cont146:                                   ; preds = %if.then142
   %sub149 = sub nsw i32 3, %mul123
   %idxprom150 = sext i32 %sub149 to i64
-  %arrayidx151 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom150
+  %arrayidx151 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom150
   %sub153 = sub nsw i32 4, %mul123
   %idxprom154 = sext i32 %sub153 to i64
-  %arrayidx155 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom154
+  %arrayidx155 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom154
   %sub157 = sub nsw i32 5, %mul123
   %idxprom158 = sext i32 %sub157 to i64
-  %arrayidx159 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom158
+  %arrayidx159 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom158
   %vtable160 = load ptr, ptr %call147, align 8
   %vfn161 = getelementptr inbounds nuw i8, ptr %vtable160, i64 120
   %36 = load ptr, ptr %vfn161, align 8
@@ -500,7 +496,7 @@ if.else.i.i:                                      ; preds = %for.body195
 invoke.cont203:                                   ; preds = %.noexc93, %if.else.i.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp198) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx194 = getelementptr inbounds nuw [7 x ptr], ptr %parts, i64 0, i64 %indvars.iv.next
+  %arrayidx194 = getelementptr inbounds nuw ptr, ptr %parts, i64 %indvars.iv.next
   %54 = load ptr, ptr %arrayidx194, align 8
   %tobool.not = icmp eq ptr %54, null
   br i1 %tobool.not, label %for.inc253, label %for.body195, !llvm.loop !10
@@ -522,7 +518,7 @@ _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118: ; preds = %if.else
   %sub.ptr.div.i105 = lshr exact i64 %sub.ptr.sub.i104, 3
   %conv217 = trunc i64 %sub.ptr.div.i105 to i32
   %rem.i108 = urem i64 %seed.addr.0259, 3
-  %arrayidx.i109 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i108
+  %arrayidx.i109 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i108
   %58 = load i32, ptr %arrayidx.i109, align 4
   %div.i110 = udiv i64 %seed.addr.0259, 3
   %cmp222242 = icmp sgt i32 %conv217, 0
@@ -572,7 +568,7 @@ if.end.i:                                         ; preds = %if.then233
 
 if.then7.i121:                                    ; preds = %if.end.i, %if.end.i
   %rem.i122 = urem i64 %seed.addr.1243, 3
-  %arrayidx.i123 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i122
+  %arrayidx.i123 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i122
   %61 = load i32, ptr %arrayidx.i123, align 4
   %div.i124 = udiv i64 %seed.addr.1243, 3
   br label %if.end240
@@ -969,7 +965,7 @@ if.else:                                          ; preds = %if.end60
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %colors, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors, i64 12, i1 false)
   %rem.i = urem i64 %seed.addr.0330, 3
-  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i
   %29 = load i32, ptr %arrayidx.i, align 4
   store i32 %29, ptr %colors, align 4
   %div.i83 = udiv i64 %seed.addr.0330, 3
@@ -980,7 +976,7 @@ _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
 
 if.then7.i85:                                     ; preds = %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit
   %rem.i86 = urem i64 %div.i83, 3
-  %arrayidx.i87 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i86
+  %arrayidx.i87 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i86
   %30 = load i32, ptr %arrayidx.i87, align 4
   store i32 %30, ptr %arrayidx87, align 4
   %div.i88 = udiv i64 %seed.addr.0330, 9
@@ -1060,13 +1056,9 @@ if.then127:                                       ; preds = %if.else122
 invoke.cont131:                                   ; preds = %if.then127
   %mul133 = mul nsw i32 %34, 3
   %idxprom135 = sext i32 %mul133 to i64
-  %arrayidx136 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom135
-  %add138 = add nsw i32 %mul133, 1
-  %idxprom139 = sext i32 %add138 to i64
-  %arrayidx140 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom139
-  %add142 = add nsw i32 %mul133, 2
-  %idxprom143 = sext i32 %add142 to i64
-  %arrayidx144 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom143
+  %arrayidx136 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom135
+  %arrayidx140 = getelementptr i8, ptr %arrayidx136, i64 8
+  %arrayidx144 = getelementptr i8, ptr %arrayidx136, i64 16
   %vtable145 = load ptr, ptr %call132, align 8
   %vfn146 = getelementptr inbounds nuw i8, ptr %vtable145, i64 120
   %40 = load ptr, ptr %vfn146, align 8
@@ -1090,13 +1082,13 @@ if.then152:                                       ; preds = %invoke.cont147
 invoke.cont156:                                   ; preds = %if.then152
   %sub159 = sub nsw i32 3, %mul133
   %idxprom160 = sext i32 %sub159 to i64
-  %arrayidx161 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom160
+  %arrayidx161 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom160
   %sub163 = sub nsw i32 4, %mul133
   %idxprom164 = sext i32 %sub163 to i64
-  %arrayidx165 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom164
+  %arrayidx165 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom164
   %sub167 = sub nsw i32 5, %mul133
   %idxprom168 = sext i32 %sub167 to i64
-  %arrayidx169 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom168
+  %arrayidx169 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom168
   %vtable170 = load ptr, ptr %call157, align 8
   %vfn171 = getelementptr inbounds nuw i8, ptr %vtable170, i64 120
   %43 = load ptr, ptr %vfn171, align 8
@@ -1186,7 +1178,7 @@ if.else.i.i:                                      ; preds = %for.body205
 invoke.cont213:                                   ; preds = %.noexc124, %if.else.i.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp208) #18
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
-  %arrayidx204 = getelementptr inbounds nuw [7 x ptr], ptr %parts, i64 0, i64 %indvars.iv.next361
+  %arrayidx204 = getelementptr inbounds nuw ptr, ptr %parts, i64 %indvars.iv.next361
   %61 = load ptr, ptr %arrayidx204, align 8
   %tobool.not = icmp eq ptr %61, null
   br i1 %tobool.not, label %for.inc355, label %for.body205, !llvm.loop !17
@@ -1295,7 +1287,7 @@ if.end.i:                                         ; preds = %if.then272
 
 if.then7.i138:                                    ; preds = %if.end.i, %if.end.i
   %rem.i139 = urem i64 %seed.addr.1305, 3
-  %arrayidx.i140 = getelementptr inbounds nuw [3 x i32], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 0, i64 %rem.i139
+  %arrayidx.i140 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i139
   %74 = load i32, ptr %arrayidx.i140, align 4
   %div.i141 = udiv i64 %seed.addr.1305, 3
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149
@@ -2051,13 +2043,9 @@ if.then137:                                       ; preds = %if.else132
 invoke.cont141:                                   ; preds = %if.then137
   %mul143 = mul nsw i32 %24, 3
   %idxprom = sext i32 %mul143 to i64
-  %arrayidx = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom
-  %add146 = add nsw i32 %mul143, 1
-  %idxprom147 = sext i32 %add146 to i64
-  %arrayidx148 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom147
-  %add150 = add nsw i32 %mul143, 2
-  %idxprom151 = sext i32 %add150 to i64
-  %arrayidx152 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom151
+  %arrayidx = getelementptr inbounds ptr, ptr %parts, i64 %idxprom
+  %arrayidx148 = getelementptr i8, ptr %arrayidx, i64 8
+  %arrayidx152 = getelementptr i8, ptr %arrayidx, i64 16
   %vtable153 = load ptr, ptr %call142, align 8
   %vfn154 = getelementptr inbounds nuw i8, ptr %vtable153, i64 120
   %30 = load ptr, ptr %vfn154, align 8
@@ -2081,13 +2069,13 @@ if.then160:                                       ; preds = %invoke.cont155
 invoke.cont164:                                   ; preds = %if.then160
   %sub167 = sub nsw i32 3, %mul143
   %idxprom168 = sext i32 %sub167 to i64
-  %arrayidx169 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom168
+  %arrayidx169 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom168
   %sub171 = sub nsw i32 4, %mul143
   %idxprom172 = sext i32 %sub171 to i64
-  %arrayidx173 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom172
+  %arrayidx173 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom172
   %sub175 = sub nsw i32 5, %mul143
   %idxprom176 = sext i32 %sub175 to i64
-  %arrayidx177 = getelementptr inbounds [7 x ptr], ptr %parts, i64 0, i64 %idxprom176
+  %arrayidx177 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom176
   %vtable178 = load ptr, ptr %call165, align 8
   %vfn179 = getelementptr inbounds nuw i8, ptr %vtable178, i64 120
   %33 = load ptr, ptr %vfn179, align 8
@@ -2648,7 +2636,7 @@ if.else.i.i527:                                   ; preds = %for.body216
 invoke.cont224:                                   ; preds = %.noexc528, %if.else.i.i527
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp219) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx214 = getelementptr inbounds nuw [7 x ptr], ptr %parts, i64 0, i64 %indvars.iv.next
+  %arrayidx214 = getelementptr inbounds nuw ptr, ptr %parts, i64 %indvars.iv.next
   %64 = load ptr, ptr %arrayidx214, align 8
   %tobool215.not = icmp eq ptr %64, null
   br i1 %tobool215.not, label %for.inc273, label %for.body216, !llvm.loop !26
@@ -3735,7 +3723,7 @@ _ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit.i: ; preds = %for.inc.i.i
 if.then13.i:                                      ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit.i
   %170 = xor i32 %169, 7
   %idxprom14.i = zext nneg i32 %170 to i64
-  %arrayidx15.i = getelementptr inbounds nuw [8 x i32], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 0, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom14.i
   %171 = load i32, ptr %arrayidx15.i, align 4
   store i32 %171, ptr %arrayidx10.i, align 4
   br label %for.inc456
@@ -3753,7 +3741,7 @@ if.end18.i:                                       ; preds = %_ZN7msdfgenL20verte
   %not.i853 = and i32 %shl.i852, 7
   %and.i854 = xor i32 %not.i853, 7
   %idxprom22.i = zext nneg i32 %and.i854 to i64
-  %arrayidx23.i = getelementptr inbounds nuw [8 x i32], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 0, i64 %idxprom22.i
+  %arrayidx23.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom22.i
   %173 = load i32, ptr %arrayidx23.i, align 4
   %arrayidx25.i = getelementptr inbounds i32, ptr %add.ptr.i843, i64 %idxprom1.i
   store i32 %173, ptr %arrayidx25.i, align 4
@@ -3840,7 +3828,7 @@ do.body.preheader.i:                              ; preds = %_ZN7msdfgenL20verte
 if.then37.i:                                      ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i
   %188 = xor i32 %187, 7
   %idxprom38.i = zext nneg i32 %188 to i64
-  %arrayidx39.i = getelementptr inbounds nuw [8 x i32], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 0, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom38.i
   %189 = load i32, ptr %arrayidx39.i, align 4
   %arrayidx41.i = getelementptr inbounds i32, ptr %add.ptr.i843, i64 %idxprom32.i
   store i32 %189, ptr %arrayidx41.i, align 4
@@ -3962,7 +3950,7 @@ for.body463:                                      ; preds = %for.body463.prehead
   %add.ptr.i871 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i825, i64 %conv471
   %205 = load i32, ptr %add.ptr.i871, align 4
   %idxprom473 = sext i32 %205 to i64
-  %arrayidx474 = getelementptr inbounds [3 x i32], ptr @__const._ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy.colors, i64 0, i64 %idxprom473
+  %arrayidx474 = getelementptr inbounds i32, ptr @__const._ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy.colors, i64 %idxprom473
   %206 = load i32, ptr %arrayidx474, align 4
   %add.ptr.i872 = getelementptr inbounds nuw ptr, ptr %edgeSegments.sroa.0.0.lcssa1686, i64 %indvars.iv1640
   %207 = load ptr, ptr %add.ptr.i872, align 8

@@ -261,10 +261,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !24, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !25, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d66738f70ae638aE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d66738f70ae638aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [5 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d66738f70ae638aE.19", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3d66738f70ae638aE.19", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -283,10 +283,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !24, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !26, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d197cd8c862bdbdE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d197cd8c862bdbdE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [16 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d197cd8c862bdbdE.20", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6d197cd8c862bdbdE.20", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -512,10 +512,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !24, !noundef !7
   %.val = load i8, ptr %2, align 1, !range !72, !noundef !7
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd5322ca7fe0c5ffeE", i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd5322ca7fe0c5ffeE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw [4 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd5322ca7fe0c5ffeE.21", i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd5322ca7fe0c5ffeE.21", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2604,7 +2604,7 @@ define void @_ZN6uucore8features2fs24display_permissions_unix17hc283c5ef16bb1881
 switch.lookup:                                    ; preds = %9
   %24 = lshr exact i32 %14, 12
   %25 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [12 x i8], ptr @switch.table._ZN6uucore8features2fs24display_permissions_unix17hc283c5ef16bb1881E, i64 0, i64 %25
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN6uucore8features2fs24display_permissions_unix17hc283c5ef16bb1881E, i64 %25
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_ZN6uucore8features2fs16get_file_display17hb968fee963b25413E.exit
 
@@ -3766,21 +3766,23 @@ define noundef zeroext i1 @_ZN6uucore8features2fs45are_hardlinks_or_one_way_syml
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN6uucore8features2fs25path_ends_with_terminator17h42a7becb5318739cE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN6uucore8features2fs25path_ends_with_terminator17h42a7becb5318739cE(ptr noalias noundef nonnull readonly align 1 captures(address) %0, i64 noundef %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hcab9ba3d34ff581fE.exit", label %3
+  %3 = getelementptr i8, ptr %0, i64 %1
+  %4 = getelementptr i8, ptr %3, i64 -1
+  %5 = icmp eq ptr %4, null
+  %6 = or i1 %.not, %5
+  br i1 %6, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hcab9ba3d34ff581fE.exit", label %7
 
-3:                                                ; preds = %2
-  %4 = add i64 %1, -1
-  %5 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %4
-  %.val.i = load i8, ptr %5, align 1, !alias.scope !680, !noundef !7
-  %6 = icmp eq i8 %.val.i, 47
-  %7 = icmp eq i8 %.val.i, 92
-  %.0.i.i = or i1 %6, %7
+7:                                                ; preds = %2
+  %.val.i = load i8, ptr %4, align 1, !alias.scope !680, !noundef !7
+  %8 = icmp eq i8 %.val.i, 47
+  %9 = icmp eq i8 %.val.i, 92
+  %.0.i.i = or i1 %8, %9
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hcab9ba3d34ff581fE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hcab9ba3d34ff581fE.exit": ; preds = %2, %3
-  %.0.i = phi i1 [ %.0.i.i, %3 ], [ false, %2 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hcab9ba3d34ff581fE.exit": ; preds = %2, %7
+  %.0.i = phi i1 [ %.0.i.i, %7 ], [ false, %2 ]
   ret i1 %.0.i
 }
 
@@ -6545,7 +6547,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:
 define { ptr, ptr } @"_ZN78_$LT$uucore..features..encoding..DecodeError$u20$as$u20$core..error..Error$GT$6source17hfbc0878def15ab01E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !101, !noundef !7
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @"switch.table._ZN78_$LT$uucore..features..encoding..DecodeError$u20$as$u20$core..error..Error$GT$6source17hfbc0878def15ab01E", i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$uucore..features..encoding..DecodeError$u20$as$u20$core..error..Error$GT$6source17hfbc0878def15ab01E", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0

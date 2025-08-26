@@ -471,7 +471,7 @@ define void @Aig_RManStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw [13 x i32], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %25, i32 noundef %24)
@@ -558,13 +558,12 @@ define void @Aig_RManPrintVarProfile(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = shl nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %6
-  %8 = load i32, ptr %7, align 8, !tbaa !24
-  %9 = or disjoint i64 %6, 1
-  %10 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !24
-  %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %8, i32 noundef %11)
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
+  %7 = load i32, ptr %6, align 8, !tbaa !24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !24
+  %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %7, i32 noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
@@ -655,7 +654,7 @@ define void @Aig_RManPrintSigs(ptr noundef readonly captures(none) %0, i32 nound
 
 10:                                               ; preds = %10, %.lr.ph.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.lr.ph.us.us ]
-  %11 = getelementptr inbounds nuw [12 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !24
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1257,7 +1256,7 @@ define void @Aig_RManRecord(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %28 = load ptr, ptr @s_pRMan, align 8, !tbaa !42
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 3376
   %30 = zext nneg i32 %20 to i64
-  %31 = getelementptr inbounds nuw [13 x i32], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !24
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 4, !tbaa !24
@@ -1330,7 +1329,7 @@ Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %4
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %70 = trunc i64 %indvars.iv to i8
-  %71 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv
   store i8 %70, ptr %71, align 1, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
@@ -1397,9 +1396,9 @@ Aig_RManVarsAreUnique.exit:                       ; preds = %78, %79
 
 97:                                               ; preds = %.lr.ph60, %97
   %indvars.iv70 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next71, %97 ]
-  %98 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 0, i64 %indvars.iv70
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %indvars.iv70
   %99 = load i8, ptr %98, align 1, !tbaa !57
-  %100 = getelementptr inbounds nuw [12 x i8], ptr %96, i64 0, i64 %indvars.iv70
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %indvars.iv70
   store i8 %99, ptr %100, align 1, !tbaa !57
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %30

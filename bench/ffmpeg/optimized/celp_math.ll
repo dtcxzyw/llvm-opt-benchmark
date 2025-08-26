@@ -18,7 +18,7 @@ define range(i32 -65534, 8486909) i32 @ff_log2_q15(i32 noundef %0) local_unnamed
   %.110.i = select i1 %.not11.i, i32 %spec.select.i, i32 %3
   %.1.i = select i1 %.not11.i, i8 %spec.select12.i, i8 %4
   %5 = zext nneg i32 %.110.i to i64
-  %6 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %5
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %.narrow = add i8 %7, %.1.i
   %8 = zext i8 %.narrow to i32
@@ -29,21 +29,19 @@ define range(i32 -65534, 8486909) i32 @ff_log2_q15(i32 noundef %0) local_unnamed
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i32 %10, 11
   %15 = and i32 %14, 32767
-  %16 = getelementptr inbounds nuw [33 x i16], ptr @tab_log2, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw i16, ptr @tab_log2, i64 %13
   %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = zext i16 %17 to i32
-  %19 = add nuw nsw i32 %12, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw [33 x i16], ptr @tab_log2, i64 0, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !7
-  %23 = zext i16 %22 to i32
-  %24 = sub nsw i32 %23, %18
-  %25 = mul nsw i32 %15, %24
-  %26 = ashr i32 %25, 15
-  %27 = shl nuw nsw i32 %8, 15
-  %28 = add nuw nsw i32 %27, %18
-  %29 = add nsw i32 %28, %26
-  ret i32 %29
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %20 = load i16, ptr %19, align 2, !tbaa !7
+  %21 = zext i16 %20 to i32
+  %22 = sub nsw i32 %21, %18
+  %23 = mul nsw i32 %15, %22
+  %24 = ashr i32 %23, 15
+  %25 = shl nuw nsw i32 %8, 15
+  %26 = add nuw nsw i32 %25, %18
+  %27 = add nsw i32 %26, %24
+  ret i32 %27
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

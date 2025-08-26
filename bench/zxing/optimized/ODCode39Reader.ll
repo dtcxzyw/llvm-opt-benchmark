@@ -104,24 +104,25 @@ define void @_ZN5ZXing4OneD30DecodeCode39AndCode93FullASCIIENSt7__cxx1112basic_s
 18:                                               ; preds = %14
   %19 = load i8, ptr %2, align 1, !tbaa !12
   %20 = icmp eq i8 %11, %19
-  br i1 %20, label %21, label %23
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %18
-  %22 = add nsw i8 %16, -64
+  %narrow = add nsw i8 %16, -64
   br label %.critedge
 
-23:                                               ; preds = %18
-  %24 = load i8, ptr %8, align 1, !tbaa !12
-  %25 = icmp eq i8 %11, %24
-  br i1 %25, label %26, label %30
+22:                                               ; preds = %18
+  %23 = load i8, ptr %8, align 1, !tbaa !12
+  %24 = icmp eq i8 %11, %23
+  br i1 %24, label %25, label %30
 
-26:                                               ; preds = %23
-  %27 = zext nneg i8 %17 to i64
-  %28 = getelementptr inbounds nuw [26 x i8], ptr @_ZN5ZXing4OneDL18PERCENTAGE_MAPPINGE, i64 0, i64 %27
+25:                                               ; preds = %22
+  %26 = zext nneg i8 %16 to i64
+  %27 = getelementptr i8, ptr @_ZN5ZXing4OneDL18PERCENTAGE_MAPPINGE, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 -65
   %29 = load i8, ptr %28, align 1, !tbaa !12
   br label %.critedge
 
-30:                                               ; preds = %23
+30:                                               ; preds = %22
   %31 = load i8, ptr %9, align 1, !tbaa !12
   %32 = icmp eq i8 %11, %31
   br i1 %32, label %33, label %35
@@ -134,9 +135,9 @@ define void @_ZN5ZXing4OneD30DecodeCode39AndCode93FullASCIIENSt7__cxx1112basic_s
   %36 = or disjoint i8 %16, 32
   br label %.critedge
 
-.critedge:                                        ; preds = %26, %35, %33, %21, %10
-  %.sroa.032.1 = phi ptr [ %.sroa.032.044, %10 ], [ %15, %21 ], [ %15, %33 ], [ %15, %35 ], [ %15, %26 ]
-  %.021 = phi i8 [ %11, %10 ], [ %22, %21 ], [ %34, %33 ], [ %36, %35 ], [ %29, %26 ]
+.critedge:                                        ; preds = %25, %35, %33, %21, %10
+  %.sroa.032.1 = phi ptr [ %.sroa.032.044, %10 ], [ %15, %21 ], [ %15, %33 ], [ %15, %35 ], [ %15, %25 ]
+  %.021 = phi i8 [ %11, %10 ], [ %narrow, %21 ], [ %34, %33 ], [ %36, %35 ], [ %29, %25 ]
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.037.045, i64 1
   store i8 %.021, ptr %.sroa.037.045, align 1, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.032.1, i64 1
@@ -572,7 +573,7 @@ _ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i85:  ; preds = %151, %148, %145, %_
 160:                                              ; preds = %_ZN5ZXing7IndexOfIA44_iiEEiRKT_RKT0_.exit.i.i85
   %sext.i.i87 = shl i64 %.028.i.i.i.i.idx15.i.i.i86, 30
   %161 = ashr i64 %sext.i.i87, 32
-  %162 = getelementptr inbounds [45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %161
+  %162 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %161
   %163 = load i8, ptr %162, align 1, !tbaa !12
   br label %_ZN5ZXing4OneD9RowReader23DecodeNarrowWidePatternIA44_iA45_cEEcRKNS_11PatternViewERKT_RKT0_.exit90
 
@@ -773,7 +774,7 @@ _ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread: ; preds = %222,
   %260 = call fastcc noundef i32 @"_ZN5ZXing15TransformReduceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiZNKS_4OneD12Code39Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS7_9RowReader13DecodingStateESt14default_deleteISD_EEE3$_1EET0_RKT_SJ_T1_"(ptr %.val, i64 %.val62)
   %261 = srem i32 %260, 43
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [45 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %262
+  %263 = getelementptr inbounds i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 %262
   %264 = load i8, ptr %263, align 1, !tbaa !12
   %265 = icmp eq i8 %257, %264
   br i1 %265, label %269, label %266
@@ -943,8 +944,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i108, %.thread155
   %324 = zext i1 %265 to i64
-  %325 = or disjoint i64 %306, %324
-  %326 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK5ZXing4OneD12Code39Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EE.symbologyModifiers, i64 0, i64 %325
+  %325 = getelementptr inbounds nuw i8, ptr @__const._ZNK5ZXing4OneD12Code39Reader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EE.symbologyModifiers, i64 %306
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 %324
   %327 = load i8, ptr %326, align 1, !tbaa !12
   %328 = load ptr, ptr %23, align 8, !tbaa !49
   %329 = load ptr, ptr %3, align 8, !tbaa !24
@@ -1718,7 +1719,7 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi9EZNS_13FindLeftGuardILi9EL
 .preheader:                                       ; preds = %10, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %10 ]
   %.02730.i.i = phi double [ %29, %.preheader ], [ 0.000000e+00, %10 ]
-  %23 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i
   %24 = load i16, ptr %23, align 2, !tbaa !50
   %25 = zext i16 %24 to i64
   %26 = getelementptr inbounds nuw i16, ptr %11, i64 %25
@@ -1740,7 +1741,7 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi9EZNS_13FindLeftGuardILi9EL
 
 33:                                               ; preds = %32, %30
   %indvars.iv34.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next35.i.i, %32 ]
-  %34 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv34.i.i
+  %34 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv34.i.i
   %35 = load i16, ptr %34, align 2, !tbaa !50
   %36 = zext i16 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr %11, i64 %36
@@ -1787,7 +1788,7 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 53:                                               ; preds = %53, %.lr.ph.split.us
   %indvars.iv.i.i7.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.i9.us, %53 ]
   %.02730.i.i8.us = phi double [ 0.000000e+00, %.lr.ph.split.us ], [ %60, %53 ]
-  %54 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i7.us
+  %54 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i7.us
   %55 = load i16, ptr %54, align 2, !tbaa !50
   %56 = zext i16 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr %.sroa.0.041.us, i64 %56
@@ -1811,7 +1812,7 @@ _ZZN5ZXing13FindLeftGuardILi9ELi6ELb1EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 68:                                               ; preds = %78, %66
   %indvars.iv34.i.i11.us = phi i64 [ 0, %66 ], [ %indvars.iv.next35.i.i12.us, %78 ]
-  %69 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv34.i.i11.us
+  %69 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv34.i.i11.us
   %70 = load i16, ptr %69, align 2, !tbaa !50
   %71 = zext i16 %70 to i64
   %72 = getelementptr inbounds nuw i16, ptr %.sroa.0.041.us, i64 %71
@@ -1848,7 +1849,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %68, %61, %_ZZN5ZXin
 84:                                               ; preds = %84, %.lr.ph.split
   %indvars.iv.i.i7 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i.i9, %84 ]
   %.02730.i.i8 = phi double [ 0.000000e+00, %.lr.ph.split ], [ %91, %84 ]
-  %85 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv.i.i7
+  %85 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i7
   %86 = load i16, ptr %85, align 2, !tbaa !50
   %87 = zext i16 %86 to i64
   %88 = getelementptr inbounds nuw i16, ptr %.sroa.0.041, i64 %87
@@ -1866,7 +1867,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %68, %61, %_ZZN5ZXin
 
 93:                                               ; preds = %92, %81
   %indvars.iv34.i.i11 = phi i64 [ 0, %81 ], [ %indvars.iv.next35.i.i12, %92 ]
-  %94 = getelementptr inbounds nuw [9 x i16], ptr %3, i64 0, i64 %indvars.iv34.i.i11
+  %94 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv34.i.i11
   %95 = load i16, ptr %94, align 2, !tbaa !50
   %96 = zext i16 %95 to i64
   %97 = getelementptr inbounds nuw i16, ptr %.sroa.0.041, i64 %96

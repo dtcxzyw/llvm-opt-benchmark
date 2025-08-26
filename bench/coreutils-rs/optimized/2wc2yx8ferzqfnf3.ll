@@ -1301,10 +1301,11 @@ define hidden void @"_ZN13number_prefix21NumberPrefix$LT$F$GT$13format_number17h
   ret void
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %.017
-  %17 = load i8, ptr %16, align 1, !range !183, !noundef !9
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %17, ptr %18, align 1
+  %16 = getelementptr i8, ptr %5, i64 %8
+  %17 = getelementptr i8, ptr %16, i64 -1
+  %18 = load i8, ptr %17, align 1, !range !183, !noundef !9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %18, ptr %19, align 1
   br label %11
 }
 
