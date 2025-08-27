@@ -355,7 +355,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %41 = or i32 %3, %2
   %42 = and i32 %41, 1
   %or.cond = icmp eq i32 %42, 0
-  br i1 %or.cond, label %43, label %63
+  br i1 %or.cond, label %43, label %61
 
 43:                                               ; preds = %._crit_edge47
   %44 = lshr exact i32 %3, 1
@@ -385,15 +385,15 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   br label %63
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %49
-  %59 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %60 = ptrtoint ptr %40 to i64
-  %61 = ptrtoint ptr %39 to i64
-  %62 = sub i64 %60, %61
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %62) #22
-  resume { ptr, i32 } %59
+  %58 = ptrtoint ptr %40 to i64
+  %59 = ptrtoint ptr %39 to i64
+  %60 = sub i64 %58, %59
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %60) #22
+  resume { ptr, i32 } %57
 
-63:                                               ; preds = %._crit_edge47, %50
+61:                                               ; preds = %._crit_edge47, %50
   ret void
 }
 

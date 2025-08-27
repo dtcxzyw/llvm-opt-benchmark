@@ -760,7 +760,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   br i1 %exitcond133.not, label %._crit_edge.split.us.us, label %49, !llvm.loop !38
 
 .split102:                                        ; preds = %20, %._crit_edge.split
-  %.068101 = phi i32 [ %104, %._crit_edge.split ], [ 0, %20 ]
+  %.068101 = phi i32 [ %103, %._crit_edge.split ], [ 0, %20 ]
   %61 = zext i32 %.068101 to i64
   %62 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %61, i32 1
   %63 = load i8, ptr %62, align 8, !tbaa !31
@@ -832,7 +832,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   %wide.trip.count = zext i8 %76 to i64
   br label %88
 
-88:                                               ; preds = %.lr.ph, %103
+88:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %89 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv
   %90 = load i64, ptr %89, align 8, !tbaa !40
@@ -846,7 +846,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 
 93:                                               ; preds = %88
   %.not79 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not79, label %103, label %94
+  br i1 %.not79, label %102, label %94
 
 94:                                               ; preds = %93
   %95 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv, i32 1
@@ -864,14 +864,14 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   %.not81 = icmp eq ptr %2, null
   br i1 %.not81, label %.loopexit, label %.loopexit.sink.split
 
-103:                                              ; preds = %93, %94
+102:                                              ; preds = %93, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.split, label %88, !llvm.loop !38
 
-._crit_edge.split:                                ; preds = %103, %85
-  %104 = add nuw i32 %.068101, 1
-  %exitcond128.not = icmp eq i32 %104, %17
+._crit_edge.split:                                ; preds = %102, %85
+  %103 = add nuw i32 %.068101, 1
+  %exitcond128.not = icmp eq i32 %103, %17
   br i1 %exitcond128.not, label %.loopexit, label %.split102, !llvm.loop !37
 
 .loopexit.sink.split:                             ; preds = %.split.us, %92, %.split112.us, %.split110.us, %71, %.split106, %.split104.us, %27, %19, %11, %8

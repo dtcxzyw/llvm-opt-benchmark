@@ -21495,9 +21495,9 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN2tf6detail15m
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 7
   %11 = icmp ugt i64 %10, 1
-  br i1 %11, label %.lr.ph.preheader.i.i.i, label %_ZSt10__invoke_rIvRZN2tf6detail15make_mscan_taskINS1_8ScanDataIiEESt4plusIiEEEDaSt10shared_ptrIT_ET0_EUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS8_SA_DpT1_EES8_E4typeEOSA_DpOSE_.exit
+  br i1 %11, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIvRZN2tf6detail15make_mscan_taskINS1_8ScanDataIiEESt4plusIiEEEDaSt10shared_ptrIT_ET0_EUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS8_SA_DpT1_EES8_E4typeEOSA_DpOSE_.exit
 
-.lr.ph.preheader.i.i.i:                           ; preds = %1
+.lr.ph.i.i.i:                                     ; preds = %1
   %.pre.i.i.i = load i32, ptr %6, align 4, !tbaa !19
   br label %.lr.ph.i.i.i
 

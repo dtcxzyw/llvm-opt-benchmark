@@ -5933,9 +5933,9 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %6, %3
 11:                                               ; preds = %17, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i
   %indvars.iv8.i.i = phi i64 [ 1, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next9.i.i, %17 ]
   %indvars.iv6.i.i = phi i64 [ 2, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next7.i.i, %17 ]
-  %12 = mul nuw nsw i64 %indvars.iv8.i.i, 100
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %12
-  store i64 1, ptr %13, align 8, !tbaa !44
+  %.idx.i = mul nuw nsw i64 %indvars.iv8.i.i, 100
+  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %.idx.i
+  store i64 1, ptr %12, align 8, !tbaa !44
   %14 = add nsw i64 %12, -100
   %15 = add nsw i64 %12, -101
   %invariant.gep.i.i = getelementptr i64, ptr %2, i64 %14
@@ -5948,7 +5948,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %6, %3
   %exitcond13.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, 100
   br i1 %exitcond13.not.i.i, label %__cxx_global_var_init.exit, label %11, !llvm.loop !167
 
-18:                                               ; preds = %18, %11
+15:                                               ; preds = %15, %11
   %indvars.iv.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i, %18 ]
   %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %19 = load i64, ptr %gep.i.i, align 8, !tbaa !44
@@ -5959,10 +5959,10 @@ _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %6, %3
   store i64 %22, ptr %gep15.i.i, align 8, !tbaa !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv6.i.i
-  br i1 %exitcond.not.i.i, label %17, label %18, !llvm.loop !168
+  br i1 %exitcond.not.i.i, label %17, label %15, !llvm.loop !168
 
 __cxx_global_var_init.exit:                       ; preds = %17
-  %23 = call i32 @__cxa_atexit(ptr nonnull @_ZN5faiss12_GLOBAL__N_14CombD2Ev, ptr nonnull @_ZN5faiss12_GLOBAL__N_14combE, ptr nonnull @__dso_handle) #14
+  %21 = call i32 @__cxa_atexit(ptr nonnull @_ZN5faiss12_GLOBAL__N_14CombD2Ev, ptr nonnull @_ZN5faiss12_GLOBAL__N_14combE, ptr nonnull @__dso_handle) #14
   ret void
 }
 

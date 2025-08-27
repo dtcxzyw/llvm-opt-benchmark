@@ -2108,63 +2108,63 @@ get_peer_type.exit:                               ; preds = %37
 
 .thread:                                          ; preds = %43, %46
   %.04970 = phi i64 [ %spec.select, %46 ], [ 0, %43 ]
-  %52 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !16
-  %53 = add nuw nsw i64 %.04970, 1
-  %54 = call ptr %52(i64 noundef 1, i64 noundef %53) #18
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %54, ptr %55, align 8, !tbaa !188
-  %.not62 = icmp eq ptr %54, null
-  br i1 %.not62, label %.thread74, label %56
+  %53 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !16
+  %54 = add nuw nsw i64 %.04970, 1
+  %55 = call ptr %52(i64 noundef 1, i64 noundef %54) #18
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %55, ptr %56, align 8, !tbaa !188
+  %.not62 = icmp eq ptr %55, null
+  br i1 %.not62, label %.thread74, label %57
 
-56:                                               ; preds = %.thread
-  %57 = load ptr, ptr %0, align 8, !tbaa !190
-  call void @Curl_strntolower(ptr noundef nonnull %54, ptr noundef %57, i64 noundef %.04970) #18
-  %58 = load ptr, ptr %55, align 8, !tbaa !188
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.04970
-  store i8 0, ptr %59, align 1, !tbaa !11
+57:                                               ; preds = %.thread
+  %58 = load ptr, ptr %0, align 8, !tbaa !190
+  call void @Curl_strntolower(ptr noundef nonnull %55, ptr noundef %58, i64 noundef %.04970) #18
+  %59 = load ptr, ptr %56, align 8, !tbaa !188
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.04970
+  store i8 0, ptr %60, align 1, !tbaa !11
   br label %.thread71
 
-.thread71:                                        ; preds = %46, %56, %get_peer_type.exit.thread67
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = call i32 @Curl_ssl_peer_key_make(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %60) #18
-  %.not63 = icmp eq i32 %61, 0
-  br i1 %.not63, label %76, label %.thread74
+.thread71:                                        ; preds = %46, %57, %get_peer_type.exit.thread67
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %62 = call i32 @Curl_ssl_peer_key_make(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %61) #18
+  %.not63 = icmp eq i32 %62, 0
+  br i1 %.not63, label %77, label %.thread74
 
 .thread74:                                        ; preds = %.thread, %4, %18, %20, %27, %.thread71
-  %.05077 = phi i32 [ %61, %.thread71 ], [ 27, %.thread ], [ 2, %4 ], [ 2, %18 ], [ 27, %20 ], [ 27, %27 ]
-  %62 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !188
-  call void %62(ptr noundef %64) #18
-  store ptr null, ptr %63, align 8, !tbaa !188
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !189
-  %67 = load ptr, ptr %0, align 8, !tbaa !190
-  %.not.i64 = icmp eq ptr %66, %67
-  br i1 %.not.i64, label %Curl_ssl_peer_cleanup.exit, label %68
+  %.05077 = phi i32 [ %62, %.thread71 ], [ 27, %.thread ], [ 2, %4 ], [ 2, %18 ], [ 27, %20 ], [ 27, %27 ]
+  %63 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !188
+  call void %62(ptr noundef %65) #18
+  store ptr null, ptr %64, align 8, !tbaa !188
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !189
+  %68 = load ptr, ptr %0, align 8, !tbaa !190
+  %.not.i64 = icmp eq ptr %67, %68
+  br i1 %.not.i64, label %Curl_ssl_peer_cleanup.exit, label %69
 
-68:                                               ; preds = %.thread74
-  %69 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
-  call void %69(ptr noundef %66) #18
+69:                                               ; preds = %.thread74
+  %70 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
+  call void %69(ptr noundef %67) #18
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !190
   br label %Curl_ssl_peer_cleanup.exit
 
-Curl_ssl_peer_cleanup.exit:                       ; preds = %.thread74, %68
-  %70 = phi ptr [ %.pre.i, %68 ], [ %67, %.thread74 ]
-  store ptr null, ptr %65, align 8, !tbaa !189
-  %71 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
-  call void %71(ptr noundef %70) #18
-  store ptr null, ptr %0, align 8, !tbaa !190
+Curl_ssl_peer_cleanup.exit:                       ; preds = %.thread74, %69
+  %71 = phi ptr [ %.pre.i, %68 ], [ %68, %.thread74 ]
+  store ptr null, ptr %66, align 8, !tbaa !189
   %72 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !191
-  call void %72(ptr noundef %74) #18
-  store ptr null, ptr %73, align 8, !tbaa !191
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %75, align 8, !tbaa !192
-  br label %76
+  call void %71(ptr noundef %71) #18
+  store ptr null, ptr %0, align 8, !tbaa !190
+  %73 = load ptr, ptr @Curl_cfree, align 8, !tbaa !16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !191
+  call void %72(ptr noundef %75) #18
+  store ptr null, ptr %74, align 8, !tbaa !191
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 0, ptr %76, align 8, !tbaa !192
+  br label %77
 
-76:                                               ; preds = %.thread71, %Curl_ssl_peer_cleanup.exit
+77:                                               ; preds = %.thread71, %Curl_ssl_peer_cleanup.exit
   %.05078 = phi i32 [ 0, %.thread71 ], [ %.05077, %Curl_ssl_peer_cleanup.exit ]
   ret i32 %.05078
 }

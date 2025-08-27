@@ -178,23 +178,23 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   br label %97
 
 97:                                               ; preds = %97, %80
-  %indvars.iv240.i = phi i64 [ 0, %80 ], [ %indvars.iv.next241.i, %97 ]
+  %indvars.iv241.i = phi i64 [ 0, %80 ], [ %indvars.iv.next242.i, %97 ]
   %.3233.i = phi i32 [ 0, %80 ], [ %101, %97 ]
-  %98 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv240.i
+  %98 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv241.i
   store i32 %.3233.i, ptr %98, align 4, !tbaa !9
-  %99 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv240.i
+  %99 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv241.i
   %100 = load i32, ptr %99, align 4, !tbaa !9
   %101 = add i32 %100, %.3233.i
   store i32 0, ptr %99, align 4, !tbaa !9
-  %indvars.iv.next241.i = add nuw nsw i64 %indvars.iv240.i, 1
-  %exitcond244.not.i = icmp eq i64 %indvars.iv.next241.i, %34
-  br i1 %exitcond244.not.i, label %.preheader.i, label %97, !llvm.loop !21
+  %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
+  %exitcond245.not.i = icmp eq i64 %indvars.iv.next242.i, %34
+  br i1 %exitcond245.not.i, label %.preheader.i, label %97, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %97, %135
-  %indvars.iv246.i = phi i64 [ %indvars.iv.next247.i, %135 ], [ 0, %97 ]
-  %102 = trunc nuw i64 %indvars.iv246.i to i32
+  %indvars.iv247.i = phi i64 [ %indvars.iv.next247.i, %135 ], [ 0, %97 ]
+  %102 = trunc nuw i64 %indvars.iv247.i to i32
   %103 = and i32 %14, %102
-  %104 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv246.i
+  %104 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv247.i
   %105 = load i16, ptr %104, align 2, !tbaa !5
   %106 = zext i16 %105 to i32
   %107 = zext nneg i32 %103 to i64
@@ -205,7 +205,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %.preheader.i
-  %112 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv246.i
+  %112 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv247.i
   store i16 -1, ptr %112, align 2, !tbaa !5
   br label %135
 
@@ -214,7 +214,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   %115 = load i32, ptr %114, align 4, !tbaa !9
   %116 = zext i32 %115 to i64
   %117 = trunc i32 %115 to i16
-  %118 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv246.i
+  %118 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv247.i
   store i16 %117, ptr %118, align 2, !tbaa !5
   %119 = getelementptr inbounds nuw i32, ptr %87, i64 %107
   %120 = load i32, ptr %119, align 4, !tbaa !9
@@ -222,7 +222,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   %122 = add nuw nsw i64 %121, %116
   %123 = add i32 %115, %spec.select198.i
   store i32 %123, ptr %114, align 4, !tbaa !9
-  %124 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv246.i
+  %124 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv247.i
   %125 = zext nneg i32 %spec.select198.i to i64
   br label %126
 
@@ -237,8 +237,8 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   %129 = zext i32 %.0164.i to i64
   %130 = getelementptr inbounds nuw i32, ptr %39, i64 %129
   %131 = add nuw nsw i64 %.0163235.i, 1
-  %exitcond245.not.i = icmp eq i64 %131, %125
-  br i1 %exitcond245.not.i, label %132, label %126, !llvm.loop !22
+  %exitcond246.not.i = icmp eq i64 %131, %125
+  br i1 %exitcond246.not.i, label %132, label %126, !llvm.loop !22
 
 132:                                              ; preds = %126
   %133 = getelementptr inbounds nuw i32, ptr %89, i64 %.0236.i

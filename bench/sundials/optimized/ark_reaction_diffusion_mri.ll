@@ -392,7 +392,7 @@ define internal range(i32 0, 2) i32 @fs(double %0, ptr noundef %1, ptr noundef %
 check_retval.exit:                                ; preds = %4
   %12 = load ptr, ptr @stderr, align 8, !tbaa !9
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27) #10
-  br label %53
+  br label %52
 
 14:                                               ; preds = %4
   %15 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #9
@@ -402,7 +402,7 @@ check_retval.exit:                                ; preds = %4
 check_retval.exit43:                              ; preds = %14
   %17 = load ptr, ptr @stderr, align 8, !tbaa !9
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27) #10
-  br label %53
+  br label %52
 
 19:                                               ; preds = %14
   %20 = fdiv double %7, %9
@@ -441,17 +441,17 @@ check_retval.exit43:                              ; preds = %14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %45 = add nsw i64 %5, -2
-  %46 = getelementptr inbounds double, ptr %10, i64 %45
-  %47 = load double, ptr %46, align 8, !tbaa !22
-  %48 = getelementptr inbounds double, ptr %10, i64 %30
-  %49 = load double, ptr %48, align 8, !tbaa !22
-  %50 = fsub double %47, %49
-  %51 = fmul double %24, %50
-  %52 = getelementptr inbounds double, ptr %15, i64 %30
-  store double %51, ptr %52, align 8, !tbaa !22
-  br label %53
+  %45 = getelementptr inbounds double, ptr %10, i64 %45
+  %46 = load double, ptr %45, align 8, !tbaa !22
+  %47 = getelementptr inbounds double, ptr %10, i64 %30
+  %48 = load double, ptr %47, align 8, !tbaa !22
+  %49 = fsub double %46, %48
+  %50 = fmul double %24, %49
+  %51 = getelementptr inbounds double, ptr %15, i64 %30
+  store double %50, ptr %51, align 8, !tbaa !22
+  br label %52
 
-53:                                               ; preds = %check_retval.exit43, %check_retval.exit, %._crit_edge
+52:                                               ; preds = %check_retval.exit43, %check_retval.exit, %._crit_edge
   %.039 = phi i32 [ 0, %._crit_edge ], [ 1, %check_retval.exit ], [ 1, %check_retval.exit43 ]
   ret i32 %.039
 }

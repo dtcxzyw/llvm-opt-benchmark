@@ -2144,8 +2144,8 @@ if.end28:                                         ; preds = %return_buffer
 land.lhs.true:                                    ; preds = %if.end28
   %sub = add i64 %call25, -1
   %arrayidx = getelementptr inbounds i8, ptr %buf.0, i64 %sub
-  %1 = load i8, ptr %arrayidx, align 1
-  %cmp30 = icmp eq i8 %1, 47
+  %2 = load i8, ptr %arrayidx, align 1
+  %cmp30 = icmp eq i8 %2, 47
   %spec.select = select i1 %cmp30, i64 %sub, i64 %call25
   br label %if.end33
 

@@ -74,13 +74,13 @@ thread-pre-split:                                 ; preds = %.lr.ph, %19
   %24 = phi i64 [ %21, %19 ], [ %4, %.lr.ph ]
   %.2 = phi ptr [ %12, %19 ], [ %0, %.lr.ph ]
   %.not50 = icmp eq i64 %24, 0
-  br i1 %.not50, label %34, label %._crit_edge
+  br i1 %.not50, label %34, label %25
 
-._crit_edge:                                      ; preds = %thread-pre-split
+25:                                               ; preds = %thread-pre-split
   %25 = add i64 %24, -1
   br label %26
 
-26:                                               ; preds = %._crit_edge, %.thread
+26:; preds = %25, %.thread
   %.255 = phi ptr [ %23, %.thread ], [ %.2, %._crit_edge ]
   %27 = phi i64 [ 0, %.thread ], [ %25, %._crit_edge ]
   %28 = getelementptr inbounds nuw %struct.device, ptr %.255, i64 %27

@@ -1898,13 +1898,13 @@ define noundef i32 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5GetIdEv(ptr noundef 
 _ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit:   ; preds = %46, %44, %30
   %.0 = phi i32 [ %31, %30 ], [ %42, %44 ], [ %42, %46 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %48
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %47
 
-48:                                               ; preds = %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #22
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #22
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit

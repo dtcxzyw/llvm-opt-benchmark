@@ -1990,7 +1990,7 @@ define noundef zeroext i1 @_ZN6casadi17is_equally_spacedERKSt6vectorIdSaIdEE(ptr
   br label %19
 
 19:                                               ; preds = %19, %10
-  %20 = phi double [ %17, %10 ], [ %22, %19 ]
+  %.01517 = phi double [ %17, %10 ], [ %22, %19 ]
   %.01517 = phi i64 [ 2, %10 ], [ %27, %19 ]
   %21 = getelementptr inbounds nuw double, ptr %4, i64 %.01517
   %22 = load double, ptr %21, align 8, !tbaa !64

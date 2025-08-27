@@ -3072,7 +3072,7 @@ _ZN5nlsat26compare_interval_with_zeroERKNS_8intervalERK15_scoped_numeralIN17alge
   %67 = load ptr, ptr %0, align 8, !tbaa !23
   %68 = shl i64 %indvars.iv154, 5
   %.idx.us = add i64 %68, -32
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.us
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.us
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.idx88.us = shl nuw nsw i64 %indvars.iv154, 5
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx88.us
@@ -3120,7 +3120,7 @@ _ZN5nlsat26compare_interval_with_zeroERKNS_8intervalERK15_scoped_numeralIN17alge
   %90 = load ptr, ptr %0, align 8, !tbaa !23
   %91 = shl i64 %indvars.iv149, 5
   %.idx = add i64 %91, -32
-  %92 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %93 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %.idx88 = shl nuw nsw i64 %indvars.iv149, 5
   %94 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx88

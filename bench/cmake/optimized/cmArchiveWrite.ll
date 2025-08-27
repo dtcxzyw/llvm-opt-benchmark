@@ -4600,28 +4600,28 @@ define dso_local noundef zeroext i1 @_ZN14cmArchiveWrite3AddENSt7__cxx1112basic_
   %7 = load i64, ptr %6, align 8, !tbaa !23
   %8 = icmp eq i64 %7, 0
   %.pre3 = load ptr, ptr %1, align 8, !tbaa !22
-  br i1 %8, label %14, label %9
+  br i1 %8, label %16, label %9
 
 9:                                                ; preds = %5
   %10 = add i64 %7, -1
   %11 = getelementptr inbounds nuw i8, ptr %.pre3, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = icmp eq i8 %12, 47
-  br i1 %13, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %14
+  br i1 %13, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, label %16
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %9
   store i64 %10, ptr %6, align 8, !tbaa !23
   store i8 0, ptr %11, align 1, !tbaa !25
   %.pre = load ptr, ptr %1, align 8, !tbaa !22
-  br label %14
+  br label %16
 
-14:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, %9, %5
-  %15 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.pre3, %9 ], [ %.pre3, %5 ]
-  %16 = tail call noundef zeroext i1 @_ZN14cmArchiveWrite7AddPathEPKcmS1_b(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %15, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %18 = load i64, ptr %17, align 8, !tbaa !23
-  %19 = icmp eq i64 %18, 0
-  ret i1 %19
+16:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, %9, %5
+  %17 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %.pre3, %9 ], [ %.pre3, %5 ]
+  %18 = tail call noundef zeroext i1 @_ZN14cmArchiveWrite7AddPathEPKcmS1_b(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %17, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4)
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %20 = load i64, ptr %19, align 8, !tbaa !23
+  %21 = icmp eq i64 %20, 0
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable

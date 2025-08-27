@@ -82539,7 +82539,7 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noal
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv10 = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next11, %.lr.ph ]
   %.1334 = phi i64 [ %37, %.lr.ph.preheader ], [ %38, %.lr.ph ]
-  %.0343 = phi i64 [ %32, %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %.0343 = phi i64 [ %32, %.lr.ph.preheader ], [ %53, %.lr.ph ]
   %38 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.1334) #32, !srcloc !3484
   %39 = shl nuw nsw i64 %indvars.iv10, 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
@@ -82547,34 +82547,34 @@ define internal fastcc noundef i64 @_ZL21XXH3_len_129to240_64bPKhmS0_mm(ptr noal
   %42 = getelementptr inbounds nuw i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 3
   %.val37 = load i64, ptr %40, align 1, !tbaa !86
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %.val36 = load i64, ptr %44, align 1, !tbaa !86
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.val36 = load i64, ptr %43, align 1, !tbaa !86
   %.val35 = load i64, ptr %43, align 1, !tbaa !86
-  %45 = xor i64 %.val35, %.val37
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 11
-  %.val = load i64, ptr %46, align 1, !tbaa !86
-  %47 = xor i64 %.val, %.val36
-  %48 = zext i64 %45 to i128
-  %49 = zext i64 %47 to i128
-  %50 = mul nuw i128 %49, %48
-  %51 = lshr i128 %50, 64
-  %52 = xor i128 %51, %50
-  %53 = trunc i128 %52 to i64
-  %54 = add i64 %.0343, %53
+  %44 = xor i64 %.val35, %.val37
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 11
+  %.val = load i64, ptr %45, align 1, !tbaa !86
+  %46 = xor i64 %.val, %.val36
+  %47 = zext i64 %44 to i128
+  %48 = zext i64 %46 to i128
+  %49 = mul nuw i128 %48, %47
+  %50 = lshr i128 %49, 64
+  %51 = xor i128 %50, %49
+  %52 = trunc i128 %51 to i64
+  %53 = add i64 %.0343, %52
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, %wide.trip.count
   br i1 %exitcond13.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3485
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.034.lcssa = phi i64 [ %32, %19 ], [ %54, %.lr.ph ]
+  %.034.lcssa = phi i64 [ %32, %19 ], [ %53, %.lr.ph ]
   %.133.lcssa = phi i64 [ %37, %19 ], [ %38, %.lr.ph ]
-  %55 = add i64 %.133.lcssa, %.034.lcssa
-  %56 = lshr i64 %55, 37
-  %57 = xor i64 %56, %55
-  %58 = mul i64 %57, 1609587791953885689
-  %59 = lshr i64 %58, 32
-  %60 = xor i64 %59, %58
-  ret i64 %60
+  %54 = add i64 %.133.lcssa, %.034.lcssa
+  %55 = lshr i64 %54, 37
+  %56 = xor i64 %55, %54
+  %57 = mul i64 %56, 1609587791953885689
+  %58 = lshr i64 %57, 32
+  %59 = xor i64 %58, %57
+  ret i64 %59
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)

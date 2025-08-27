@@ -77436,7 +77436,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %1
   %27 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %4, i64 %26
   ret ptr %27
 
-28:                                               ; preds = %11
+27:                                               ; preds = %11
   unreachable
 }
 

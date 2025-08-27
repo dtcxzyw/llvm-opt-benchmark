@@ -6523,16 +6523,16 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
 
 17:                                               ; preds = %9
   %18 = icmp samesign ugt i64 %11, 2
-  br i1 %18, label %.thread, label %24
+  br i1 %18, label %18, label %24
 
-.thread:                                          ; preds = %13, %17
+18:                                               ; preds = %13, %17
   %19 = getelementptr inbounds i8, ptr %10, i64 %11
   %20 = getelementptr inbounds i8, ptr %19, i64 -2
   %bcmp72 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %20, ptr noundef nonnull dereferenceable(2) @.str.14, i64 2)
   %21 = icmp eq i32 %bcmp72, 0
   br i1 %21, label %.sink.split, label %24
 
-.sink.split:                                      ; preds = %.thread, %13
+.sink.split:; preds = %.thread, %13
   %.sink = phi i64 [ -4, %13 ], [ -2, %.thread ]
   %22 = getelementptr i8, ptr %10, i64 %11
   %23 = getelementptr i8, ptr %22, i64 %.sink

@@ -120,10 +120,10 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   %58 = getelementptr inbounds i8, ptr %.05068, i64 -4
   store i32 %57, ptr %.05068, align 4, !tbaa !10
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -2
-  %59 = icmp samesign ugt i64 %indvars.iv78, 1
-  br i1 %59, label %48, label %60, !llvm.loop !12
+  %54 = icmp samesign ugt i64 %indvars.iv78, 1
+  br i1 %54, label %48, label %55, !llvm.loop !12
 
-60:                                               ; preds = %48
+55:                                               ; preds = %48
   ret void
 }
 

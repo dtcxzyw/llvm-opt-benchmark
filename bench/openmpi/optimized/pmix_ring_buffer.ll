@@ -181,11 +181,11 @@ define ptr @pmix_ring_buffer_poke(ptr noundef readonly captures(none) %0, i32 no
   %18 = add nsw i32 %4, -1
   br label %.sink.split
 
-19:                                               ; preds = %11
+19:; preds = %11
   %20 = add nsw i32 %13, -1
   br label %.sink.split
 
-21:                                               ; preds = %9
+21:; preds = %9
   %22 = add nsw i32 %7, %1
   %.not23 = icmp sgt i32 %4, %22
   %23 = select i1 %.not23, i32 0, i32 %4
@@ -194,7 +194,7 @@ define ptr @pmix_ring_buffer_poke(ptr noundef readonly captures(none) %0, i32 no
   %25 = load ptr, ptr %24, align 8, !tbaa !15
   br label %.sink.split
 
-.sink.split:                                      ; preds = %17, %19, %21
+.sink.split:; preds = %17, %19, %21
   %spec.select.sink = phi i32 [ %spec.select, %21 ], [ %20, %19 ], [ %18, %17 ]
   %.sink27 = phi ptr [ %25, %21 ], [ %16, %19 ], [ %16, %17 ]
   %26 = sext i32 %spec.select.sink to i64

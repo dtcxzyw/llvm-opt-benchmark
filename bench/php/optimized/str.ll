@@ -732,7 +732,7 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
 
 26:                                               ; preds = %._crit_edge
   %.not50 = icmp eq i64 %.146, 0
-  br i1 %.not50, label %32, label %27
+  br i1 %.not50, label %33, label %27
 
 27:                                               ; preds = %26
   %28 = add i64 %.146, -1
@@ -742,14 +742,14 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
   %spec.select52 = select i1 %31, i64 %28, i64 %.146
   br label %32
 
-32:                                               ; preds = %27, %26
+33:                                               ; preds = %27, %26
   %.247 = phi i64 [ 0, %26 ], [ %spec.select52, %27 ]
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
-  store i8 0, ptr %33, align 1, !tbaa !12
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
+  store i8 0, ptr %34, align 1, !tbaa !12
   store i64 %.247, ptr %3, align 8, !tbaa !11
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %8, %._crit_edge, %32, %1
+._crit_edge.thread:                               ; preds = %8, %._crit_edge, %33, %1
   ret void
 }
 

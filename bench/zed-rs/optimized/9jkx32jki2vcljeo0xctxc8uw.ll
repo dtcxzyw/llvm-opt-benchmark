@@ -2422,10 +2422,10 @@ _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit.i: ; preds = %"_ZN4core5sli
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24.i": ; preds = %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit.i
   %25 = add i64 %15, -2
-  %26 = getelementptr inbounds i8, ptr %20, i64 %25
-  %rhsc39.i = load i8, ptr %26, align 1, !noalias !281
-  %27 = icmp eq i8 %rhsc39.i, 13
-  br i1 %27, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
+  %27 = getelementptr inbounds i8, ptr %20, i64 %25
+  %rhsc39.i = load i8, ptr %27, align 1, !noalias !281
+  %28 = icmp eq i8 %rhsc39.i, 13
+  br i1 %28, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24.i"
   store i64 %25, ptr %14, align 8, !alias.scope !294, !noalias !288
@@ -5997,11 +5997,11 @@ _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit: ; preds = %"_ZN4core5slice
   br i1 %.not.i20, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24": ; preds = %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit
-  %26 = add i64 %15, -2
-  %27 = getelementptr inbounds i8, ptr %20, i64 %26
-  %rhsc39 = load i8, ptr %27, align 1
-  %28 = icmp eq i8 %rhsc39, 13
-  br i1 %28, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread"
+  %27 = add i64 %15, -2
+  %28 = getelementptr inbounds i8, ptr %20, i64 %26
+  %rhsc39 = load i8, ptr %28, align 1
+  %29 = icmp eq i8 %rhsc39, 13
+  br i1 %29, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24"
   store i64 %26, ptr %14, align 8, !alias.scope !1117

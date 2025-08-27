@@ -14694,22 +14694,22 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %64 = fdiv double %62, %63
   br label %102
 
-65:                                               ; preds = %.lr.ph
+65:; preds = %.lr.ph
   %66 = add nuw i64 %.04661, 1
   %exitcond.not = icmp eq i64 %66, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !191
 
 ._crit_edge:                                      ; preds = %65, %.preheader
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %68 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.88) #37
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %102, label %70
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %66 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.88) #37
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %102, label %68
 
-70:                                               ; preds = %._crit_edge
-  %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.81) #37
-  %72 = icmp eq i32 %71, 0
+68:                                               ; preds = %._crit_edge
+  %69 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.81) #37
+  %70 = icmp eq i32 %69, 0
   %.pre = load ptr, ptr %5, align 8, !tbaa !189
-  br i1 %72, label %79, label %73
+  br i1 %70, label %79, label %73
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %3, align 8, !tbaa !190
@@ -14724,7 +14724,7 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %81 = load double, ptr %80, align 8, !tbaa !177
   br label %102
 
-82:                                               ; preds = %73
+71:                                               ; preds = %73
   %83 = sdiv exact i64 %77, 48
   %84 = add nsw i64 %83, -2
   %85 = getelementptr inbounds nuw %"struct.DeformationModel::Component::PiecewiseTimeFunction::EpochScaleFactorTuple", ptr %74, i64 %84
@@ -14737,7 +14737,7 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %92 = fcmp oeq double %87, %89
   br i1 %92, label %102, label %93
 
-93:                                               ; preds = %82
+93:; preds = %82
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %95 = load double, ptr %94, align 8, !tbaa !177
   %96 = fsub double %89, %1

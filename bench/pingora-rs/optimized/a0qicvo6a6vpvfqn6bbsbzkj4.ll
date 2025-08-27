@@ -276,22 +276,22 @@ _ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.
   tail call void @llvm.assume(i1 %4)
   %5 = add nuw nsw i64 %.val.i, 2
   %6 = icmp ult i64 %1, %5
-  br i1 %6, label %7, label %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread
+  br i1 %6, label %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit, label %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread
 
-7:                                                ; preds = %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i
+_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit: ; preds = %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i
   %8 = add nsw i64 %1, -2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !27, !noalias !30, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %10, i64 %8, i32 2
-  %12 = load i64, ptr %11, align 8, !noundef !3
+  %10 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %10, i64 %8, i32 2
+  %12 = load i64, ptr %10, align 8, !noundef !3
   br label %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread
 
-_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread: ; preds = %2, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i, %7
+_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit.thread: ; preds = %2, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i, %_ZN11pingora_lru11linked_list10LinkedList4node17h6e016666978c6e68E.exit
   %.sroa.3.0 = phi i64 [ %12, %7 ], [ undef, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 1, %7 ], [ 0, %_ZN11pingora_lru11linked_list10LinkedList11valid_index17hdfe01fddf872b679E.exit.i ], [ 0, %2 ]
-  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %14
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable

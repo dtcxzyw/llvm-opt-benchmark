@@ -1470,7 +1470,7 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i22: ; preds = %_ZNK5Ipopt14C
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29
 
-60:                                               ; preds = %49
+60:; preds = %49
   %61 = load ptr, ptr %.0.i4.i24, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8

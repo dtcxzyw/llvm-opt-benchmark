@@ -19798,7 +19798,7 @@ define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBegin
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %38
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
@@ -19825,7 +19825,7 @@ define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBegin
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %40
+  br label %38
 
 24:                                               ; preds = %8
   %25 = sub i64 %12, %17
@@ -19843,13 +19843,13 @@ define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBegin
   %35 = add i64 %33, -1
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %37, ptr %38, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 38
+  store ptr %37, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %37, ptr %39, align 8
   ret void
 
-40:                                               ; preds = %22, %6
+38:                                               ; preds = %22, %6
   %.sink = phi ptr [ %20, %22 ], [ %4, %6 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %7, %6 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #28

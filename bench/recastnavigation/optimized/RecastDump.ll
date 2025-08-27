@@ -203,10 +203,10 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 
 ._crit_edge55.us:                                 ; preds = %58, %62
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %73 = load i32, ptr %47, align 4
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next66, %74
-  br i1 %75, label %.lr.ph54.us, label %.loopexit, !llvm.loop !7
+  %72 = load i32, ptr %47, align 4
+  %73 = sext i32 %72 to i64
+  %74 = icmp slt i64 %indvars.iv.next66, %73
+  br i1 %74, label %.lr.ph54.us, label %.loopexit, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %3, %2
   %str.1.sink = phi ptr [ @str, %2 ], [ @str.1, %3 ]

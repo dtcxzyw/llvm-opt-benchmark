@@ -3053,7 +3053,7 @@ define internal fastcc i32 @pfr_aux_name_load(ptr noundef readonly captures(none
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %.lr.ph.preheader
 
-15:                                               ; preds = %9
+15:; preds = %9
   %.not33 = icmp eq i32 %10, 0
   br i1 %.not33, label %.critedge, label %.lr.ph.preheader
 

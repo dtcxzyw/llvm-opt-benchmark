@@ -91,13 +91,13 @@ entry:
 if.then:                                          ; preds = %entry
   %conv1 = trunc i64 %call to i32
   %cmp29 = icmp sgt i32 %conv1, 0
-  br i1 %cmp29, label %for.body.preheader, label %for.end
+  br i1 %cmp29, label %for.body, label %for.end
 
-for.body.preheader:                               ; preds = %if.then
+for.body:                                         ; preds = %if.then
   %1 = and i64 %call, 2147483647
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %if.then5
+for.body:; preds = %for.body, %if.then5
   %indvars.iv = phi i64 [ %1, %for.body.preheader ], [ %indvars.iv.next, %if.then5 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx = getelementptr inbounds nuw i8, ptr %pDirectory, i64 %indvars.iv.next
@@ -137,13 +137,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc i64 %call.i to i32
   %cmp29.i = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp29.i, label %for.body.preheader.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
+  br i1 %cmp29.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
 
-for.body.preheader.i:                             ; preds = %if.then.i
+for.body.i:                                       ; preds = %if.then.i
   %0 = and i64 %call.i, 2147483647
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.then5.i, %for.body.preheader.i
+for.body.i:; preds = %if.then5.i, %for.body.i
   %indvars.iv.i = phi i64 [ %0, %for.body.preheader.i ], [ %indvars.iv.next.i, %if.then5.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %path8, i64 %indvars.iv.next.i
@@ -233,13 +233,13 @@ entry:
 if.then.i:                                        ; preds = %entry
   %conv1.i = trunc i64 %call.i to i32
   %cmp29.i = icmp sgt i32 %conv1.i, 0
-  br i1 %cmp29.i, label %for.body.preheader.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
+  br i1 %cmp29.i, label %for.body.i, label %_ZN2EA4StdC26GetCurrentProcessDirectoryEPcii.exit
 
-for.body.preheader.i:                             ; preds = %if.then.i
+for.body.i:                                       ; preds = %if.then.i
   %0 = and i64 %call.i, 2147483647
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.then5.i, %for.body.preheader.i
+for.body.i:; preds = %if.then5.i, %for.body.i
   %indvars.iv.i = phi i64 [ %0, %for.body.preheader.i ], [ %indvars.iv.next.i, %if.then5.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %path8, i64 %indvars.iv.next.i

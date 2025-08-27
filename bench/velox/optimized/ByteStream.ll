@@ -342,24 +342,24 @@ if.end:                                           ; preds = %entry
   %sub = add nsw i64 %sub.ptr.div.i, -1
   %add.ptr.i = getelementptr inbounds %"struct.facebook::velox::ByteRange", ptr %0, i64 %sub
   %current_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load ptr, ptr %current_, align 8
-  %size = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %3 = load i32, ptr %size, align 8
-  %position = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %4 = load i32, ptr %position, align 4
-  %sub6 = sub nsw i32 %3, %4
+  %3 = load ptr, ptr %current_, align 8
+  %size = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %4 = load i32, ptr %size, align 8
+  %position = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %5 = load i32, ptr %position, align 4
+  %sub6 = sub nsw i32 %4, %5
   %conv = sext i32 %sub6 to i64
-  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %incdec.ptr5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %cmp.not6 = icmp ugt ptr %incdec.ptr5, %add.ptr.i
   br i1 %cmp.not6, label %return, label %while.body
 
 while.body:                                       ; preds = %if.end, %while.body
   %incdec.ptr9 = phi ptr [ %incdec.ptr, %while.body ], [ %incdec.ptr5, %if.end ]
   %total.08 = phi i64 [ %add, %while.body ], [ %conv, %if.end ]
-  %cur.07 = phi ptr [ %incdec.ptr9, %while.body ], [ %2, %if.end ]
+  %cur.07 = phi ptr [ %incdec.ptr9, %while.body ], [ %3, %if.end ]
   %size7 = getelementptr inbounds nuw i8, ptr %cur.07, i64 24
-  %5 = load i32, ptr %size7, align 8
-  %conv8 = sext i32 %5 to i64
+  %6 = load i32, ptr %size7, align 8
+  %conv8 = sext i32 %6 to i64
   %add = add i64 %total.08, %conv8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %incdec.ptr9, i64 16
   %cmp.not = icmp ugt ptr %incdec.ptr, %add.ptr.i
@@ -1131,14 +1131,14 @@ _ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit: ; preds = %_ZNSt6vec
   %cond = select i1 %cmp35, ptr null, ptr %add.ptr.i
   %vtable = load ptr, ptr %15, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %21 = load ptr, ptr %vfn, align 8
+  %22 = load ptr, ptr %vfn, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(152) %15, i32 noundef %retval.0.i, ptr noundef %cond, ptr noundef nonnull %add.ptr.i.i4)
-  %22 = load ptr, ptr %current_, align 8
-  %size42 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %23 = load i32, ptr %size42, align 8
-  %conv = sext i32 %23 to i64
-  %24 = load i64, ptr %allocatedBytes_.i, align 8
-  %add = add nsw i64 %24, %conv
+  %23 = load ptr, ptr %current_, align 8
+  %size42 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %24 = load i32, ptr %size42, align 8
+  %conv = sext i32 %24 to i64
+  %25 = load i64, ptr %allocatedBytes_.i, align 8
+  %add = add nsw i64 %25, %conv
   store i64 %add, ptr %allocatedBytes_.i, align 8
   %cmp44 = icmp slt i64 %add, 1
   br i1 %cmp44, label %if.then46, label %if.end47
@@ -1149,13 +1149,13 @@ if.then46:                                        ; preds = %_ZNK8facebook5velox
 
 if.end47:                                         ; preds = %_ZNK8facebook5velox16ByteOutputStream12newRangeSizeEi.exit
   %isBits_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %25 = load i8, ptr %isBits_, align 8
-  %tobool48 = trunc i8 %25 to i1
+  %26 = load i8, ptr %isBits_, align 8
+  %tobool48 = trunc i8 %26 to i1
   br i1 %tobool48, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end47
-  %26 = load i32, ptr %size42, align 8
-  %mul = shl nsw i32 %26, 3
+  %27 = load i32, ptr %size42, align 8
+  %mul = shl nsw i32 %27, 3
   store i32 %mul, ptr %size42, align 8
   br label %if.end52
 

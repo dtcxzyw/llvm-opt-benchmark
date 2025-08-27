@@ -640,9 +640,9 @@ define dso_local { ptr, i64 } @slice_next_token(ptr noundef captures(none) %0, i
 define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %.not23 = icmp eq i64 %3, 0
+  %.not31 = icmp eq i64 %3, 0
   %.pre = load ptr, ptr %0, align 8
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
   %.018 = phi i64 [ %7, %6 ], [ 0, %1 ]
@@ -669,14 +669,14 @@ define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_a
   %.not15 = icmp eq i64 %.1, 0
   br i1 %.not15, label %15, label %11
 
-11:                                               ; preds = %10
+11:; preds = %10
   %12 = add i64 %.1, -1
   %13 = getelementptr inbounds i8, ptr %8, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not16 = icmp eq i8 %14, 32
   br i1 %.not16, label %10, label %15, !llvm.loop !19
 
-15:                                               ; preds = %11, %10
+15: ; preds = %11, %10
   store i64 %.1, ptr %2, align 8
   ret void
 }

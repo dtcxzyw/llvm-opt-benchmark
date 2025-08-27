@@ -13434,8 +13434,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN5Eigen8internal6ColamdL14
   %81 = phi i32 [ %77, %.lr.ph222.preheader ], [ %85, %.lr.ph222 ]
   %indvars.iv271 = phi i64 [ 1, %.lr.ph222.preheader ], [ %indvars.iv.next272, %.lr.ph222 ]
   %82 = add nsw i64 %indvars.iv271, -1
-  %83 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %2, i64 %82, i32 1
-  %84 = load i32, ptr %83, align 4
+  %82 = getelementptr inbounds %"struct.Eigen::internal::Colamd::RowStructure", ptr %2, i64 %82, i32 1
+  %83 = load i32, ptr %82, align 4
   %85 = add nsw i32 %84, %81
   %86 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::RowStructure", ptr %2, i64 %indvars.iv271
   store i32 %85, ptr %86, align 4
@@ -13601,36 +13601,36 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN5Eigen8internal6ColamdL14
 
 .lr.ph246:                                        ; preds = %.lr.ph246.preheader, %._crit_edge244
   %indvars.iv296 = phi i64 [ 0, %.lr.ph246.preheader ], [ %indvars.iv.next297, %._crit_edge244 ]
-  %153 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::RowStructure", ptr %2, i64 %indvars.iv296
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i32, ptr %4, i64 %155
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  %158 = load i32, ptr %157, align 4
-  %159 = sext i32 %158 to i64
-  %.idx = shl nsw i64 %159, 2
-  %160 = getelementptr inbounds i8, ptr %156, i64 %.idx
-  %161 = icmp sgt i32 %158, 0
-  br i1 %161, label %.lr.ph243.preheader, label %._crit_edge244
+  %152 = getelementptr inbounds nuw %"struct.Eigen::internal::Colamd::RowStructure", ptr %2, i64 %indvars.iv296
+  %153 = load i32, ptr %152, align 4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr inbounds i32, ptr %4, i64 %154
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 4
+  %157 = load i32, ptr %156, align 4
+  %158 = sext i32 %157 to i64
+  %.idx = shl nsw i64 %158, 2
+  %159 = getelementptr inbounds i8, ptr %155, i64 %.idx
+  %160 = icmp sgt i32 %157, 0
+  br i1 %160, label %.lr.ph243.preheader, label %._crit_edge244
 
 .lr.ph243.preheader:                              ; preds = %.lr.ph246
-  %162 = trunc nuw nsw i64 %indvars.iv296 to i32
+  %161 = trunc nuw nsw i64 %indvars.iv296 to i32
   br label %.lr.ph243
 
 .lr.ph243:                                        ; preds = %.lr.ph243.preheader, %.lr.ph243
-  %.0182241 = phi ptr [ %163, %.lr.ph243 ], [ %156, %.lr.ph243.preheader ]
-  %163 = getelementptr inbounds nuw i8, ptr %.0182241, i64 4
-  %164 = load i32, ptr %.0182241, align 4
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i32, ptr %5, i64 %165
-  %167 = load i32, ptr %166, align 4
-  %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %166, align 4
-  %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds i32, ptr %4, i64 %169
-  store i32 %162, ptr %170, align 4
-  %171 = icmp ult ptr %163, %160
-  br i1 %171, label %.lr.ph243, label %._crit_edge244, !llvm.loop !225
+  %.0182241 = phi ptr [ %162, %.lr.ph243 ], [ %155, %.lr.ph243.preheader ]
+  %162 = getelementptr inbounds nuw i8, ptr %.0182241, i64 4
+  %163 = load i32, ptr %.0182241, align 4
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr inbounds i32, ptr %5, i64 %164
+  %166 = load i32, ptr %165, align 4
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr %165, align 4
+  %168 = sext i32 %166 to i64
+  %169 = getelementptr inbounds i32, ptr %4, i64 %168
+  store i32 %161, ptr %169, align 4
+  %170 = icmp ult ptr %162, %159
+  br i1 %170, label %.lr.ph243, label %._crit_edge244, !llvm.loop !225
 
 ._crit_edge244:                                   ; preds = %.lr.ph243, %.lr.ph246
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1

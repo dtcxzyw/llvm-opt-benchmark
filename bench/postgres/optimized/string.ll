@@ -138,9 +138,9 @@ define dso_local i32 @pg_strip_crlf(ptr noundef captures(none) %0) local_unnamed
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  %7 = load i8, ptr %6, align 1
-  switch i8 %7, label %.critedge.loopexit.split.loop.exit [
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
+  %8 = load i8, ptr %7, align 1
+  switch i8 %8, label %.critedge.loopexit.split.loop.exit [
     i8 10, label %.critedge2
     i8 13, label %.critedge2
   ]
@@ -151,11 +151,11 @@ define dso_local i32 @pg_strip_crlf(ptr noundef captures(none) %0) local_unnamed
   br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !7
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %.critedge.loopexit.split.loop.exit, %1
-  %.0.lcssa = phi i32 [ %3, %1 ], [ %9, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ]
+  %.0.lcssa = phi i32 [ %3, %1 ], [ %11, %.critedge.loopexit.split.loop.exit ], [ 0, %.critedge2 ]
   ret i32 %.0.lcssa
 }
 

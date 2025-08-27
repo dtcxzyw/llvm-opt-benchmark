@@ -28297,10 +28297,10 @@ _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit: ; preds = %"_ZN4core5slice
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit24": ; preds = %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit
   %26 = add i64 %15, -2
-  %27 = getelementptr inbounds i8, ptr %20, i64 %26
-  %rhsc39 = load i8, ptr %27, align 1
-  %28 = icmp eq i8 %rhsc39, 13
-  br i1 %28, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread"
+  %28 = getelementptr inbounds i8, ptr %20, i64 %26
+  %rhsc39 = load i8, ptr %28, align 1
+  %29 = icmp eq i8 %rhsc39, 13
+  br i1 %29, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit24"
   store i64 %26, ptr %14, align 8, !alias.scope !7674

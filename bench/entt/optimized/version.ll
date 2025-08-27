@@ -27978,7 +27978,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt8__detail17__regex_algo_i
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !615
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %184, label %13
+  br i1 %.not.i, label %182, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -28308,7 +28308,7 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EED2Ev.exit.i75:  ; preds = %133, %131
   %.not8384 = icmp eq ptr %148, %150
   br i1 %.not8384, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %164, %147
+._crit_edge:                                      ; preds = %162, %147
   %151 = ptrtoint ptr %150 to i64
   %152 = ptrtoint ptr %148 to i64
   %153 = sub i64 %151, %152
@@ -28319,26 +28319,26 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EED2Ev.exit.i75:  ; preds = %133, %131
   %158 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %148, i64 %157
   br i1 %6, label %166, label %171
 
-.lr.ph:                                           ; preds = %147, %164
+.lr.ph:; preds = %147, %164
   %.sroa.078.085 = phi ptr [ %165, %164 ], [ %148, %147 ]
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.078.085, i64 16
   %160 = load i8, ptr %159, align 8, !tbaa !666, !range !30, !noundef !31
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %164, label %162
 
-162:                                              ; preds = %.lr.ph
+162: ; preds = %.lr.ph
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.078.085, i64 8
   store ptr %1, ptr %163, align 8, !tbaa !669
   store ptr %1, ptr %.sroa.078.085, align 8, !tbaa !670
-  br label %164
+  br label %162
 
-164:                                              ; preds = %162, %.lr.ph
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.078.085, i64 24
-  %.not83 = icmp eq ptr %165, %150
+162:                                              ; preds = %162, %.lr.ph
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.078.085, i64 24
+  %.not83 = icmp eq ptr %163, %150
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
-166:                                              ; preds = %._crit_edge
-  %167 = getelementptr inbounds nuw i8, ptr %156, i64 16
+164:                                              ; preds = %._crit_edge
+  %165 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store i8 0, ptr %167, align 8, !tbaa !666
   store ptr %0, ptr %156, align 8, !tbaa !670
   %168 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -28350,7 +28350,7 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EED2Ev.exit.i75:  ; preds = %133, %131
   store ptr %1, ptr %170, align 8, !tbaa !669
   br label %184
 
-171:                                              ; preds = %._crit_edge
+171:; preds = %._crit_edge
   store ptr %0, ptr %156, align 8, !tbaa !670
   %172 = load ptr, ptr %148, align 8, !tbaa !670
   %173 = getelementptr inbounds nuw i8, ptr %156, i64 8
@@ -28372,9 +28372,9 @@ _ZNSt6vectorISt4pairIPKciESaIS3_EED2Ev.exit.i75:  ; preds = %133, %131
 
 183:                                              ; preds = %_ZNSt8__detail9_ExecutorIPKcSaINSt7__cxx119sub_matchIS2_EEENS3_12regex_traitsIcEELb0EED2Ev.exit, %146
   call void @_ZNSt7__cxx1113match_resultsIPKcSaINS_9sub_matchIS2_EEEE25_M_establish_failed_matchES2_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %1)
-  br label %184
+  br label %182
 
-184:                                              ; preds = %183, %171, %166, %7
+182:                                              ; preds = %183, %171, %164, %7
   %.0 = phi i1 [ false, %7 ], [ true, %166 ], [ true, %171 ], [ false, %183 ]
   ret i1 %.0
 }

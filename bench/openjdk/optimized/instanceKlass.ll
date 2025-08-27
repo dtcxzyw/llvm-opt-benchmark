@@ -9729,7 +9729,7 @@ define hidden void @_ZN13InstanceKlass28set_enclosing_method_indicesEtt(ptr noun
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -2147483645
   %8 = icmp eq i32 %7, 2
-  br i1 %8, label %9, label %17
+  br i1 %8, label %9, label %15
 
 9:                                                ; preds = %3
   %10 = add nsw i32 %6, -2
@@ -9743,7 +9743,7 @@ define hidden void @_ZN13InstanceKlass28set_enclosing_method_indicesEtt(ptr noun
   store i16 %2, ptr %16, align 2
   br label %17
 
-17:                                               ; preds = %9, %3
+15:                                               ; preds = %9, %3
   ret void
 }
 

@@ -308,36 +308,36 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
 .preheader557.outer:                              ; preds = %.preheader557, %18
   %.pn598.ph = phi ptr [ %.promoted, %18 ], [ %storemerge, %.preheader557 ]
   %.0394.ph = phi i1 [ false, %18 ], [ true, %.preheader557 ]
-  %.0391.ph = phi i1 [ false, %18 ], [ %.0391.ph902, %.preheader557 ]
-  %.0387.ph = phi i8 [ 0, %18 ], [ %.0387.ph907, %.preheader557 ]
+  %.0391.ph = phi i1 [ false, %18 ], [ %.0391.ph900, %.preheader557 ]
+  %.0387.ph = phi i8 [ 0, %18 ], [ %.0387.ph905, %.preheader557 ]
   %.0385.ph = phi i8 [ 0, %18 ], [ %.0385, %.preheader557 ]
-  br label %.preheader557.outer900
+  br label %.preheader557.outer898
 
-.preheader557.outer900:                           ; preds = %.preheader557, %.preheader557.outer
-  %.pn598.ph901 = phi ptr [ %.pn598.ph, %.preheader557.outer ], [ %storemerge, %.preheader557 ]
-  %.0391.ph902 = phi i1 [ %.0391.ph, %.preheader557.outer ], [ true, %.preheader557 ]
-  %.0387.ph903 = phi i8 [ %.0387.ph, %.preheader557.outer ], [ %.0387.ph907, %.preheader557 ]
-  %.0385.ph904 = phi i8 [ %.0385.ph, %.preheader557.outer ], [ %.0385, %.preheader557 ]
-  br label %.preheader557.outer905
+.preheader557.outer898:                           ; preds = %.preheader557, %.preheader557.outer
+  %.pn598.ph899 = phi ptr [ %.pn598.ph, %.preheader557.outer ], [ %storemerge, %.preheader557 ]
+  %.0391.ph900 = phi i1 [ %.0391.ph, %.preheader557.outer ], [ true, %.preheader557 ]
+  %.0387.ph901 = phi i8 [ %.0387.ph, %.preheader557.outer ], [ %.0387.ph905, %.preheader557 ]
+  %.0385.ph902 = phi i8 [ %.0385.ph, %.preheader557.outer ], [ %.0385, %.preheader557 ]
+  br label %.preheader557.outer903
 
-.preheader557.outer905:                           ; preds = %.preheader557, %.preheader557.outer900
-  %.pn598.ph906 = phi ptr [ %.pn598.ph901, %.preheader557.outer900 ], [ %storemerge, %.preheader557 ]
-  %.0387.ph907 = phi i8 [ %.0387.ph903, %.preheader557.outer900 ], [ 1, %.preheader557 ]
-  %.0385.ph908 = phi i8 [ %.0385.ph904, %.preheader557.outer900 ], [ %.0385, %.preheader557 ]
+.preheader557.outer903:                           ; preds = %.preheader557, %.preheader557.outer898
+  %.pn598.ph904 = phi ptr [ %.pn598.ph899, %.preheader557.outer900 ], [ %storemerge, %.preheader557 ]
+  %.0387.ph905 = phi i8 [ %.0387.ph901, %.preheader557.outer900 ], [ 1, %.preheader557 ]
+  %.0385.ph906 = phi i8 [ %.0385.ph902, %.preheader557.outer900 ], [ %.0385, %.preheader557 ]
   br label %.preheader557
 
-.preheader557:                                    ; preds = %.preheader557.outer905, %.preheader557
-  %.pn598 = phi ptr [ %storemerge, %.preheader557 ], [ %.pn598.ph906, %.preheader557.outer905 ]
-  %.0385 = phi i8 [ 1, %.preheader557 ], [ %.0385.ph908, %.preheader557.outer905 ]
+.preheader557:                                    ; preds = %.preheader557.outer903, %.preheader557
+  %.pn598 = phi ptr [ %storemerge, %.preheader557 ], [ %.pn598.ph904, %.preheader557.outer905 ]
+  %.0385 = phi i8 [ 1, %.preheader557 ], [ %.0385.ph906, %.preheader557.outer905 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn598, i64 1
   %20 = load i8, ptr %storemerge, align 1, !tbaa !10
   switch i8 %20, label %.loopexit558 [
     i8 35, label %.preheader557
-    i8 45, label %.preheader557.outer905
-    i8 32, label %.preheader557.outer900
+    i8 45, label %.preheader557.outer903
+    i8 32, label %.preheader557.outer898
     i8 43, label %.preheader557.outer
     i8 42, label %21
-    i8 48, label %.loopexit559.loopexit899
+    i8 48, label %.loopexit559.loopexit897
     i8 49, label %.loopexit559
     i8 50, label %.loopexit559
     i8 51, label %.loopexit559
@@ -375,13 +375,13 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   store ptr %35, ptr %5, align 8, !tbaa !13
   %36 = icmp slt i32 %34, 0
   %spec.select = call i32 @llvm.abs.i32(i32 %34, i1 true)
-  %spec.select481 = select i1 %36, i8 1, i8 %.0387.ph907
+  %spec.select481 = select i1 %36, i8 1, i8 %.0387.ph905
   br label %40
 
-.loopexit559.loopexit899:                         ; preds = %.preheader557
+.loopexit559.loopexit897:                         ; preds = %.preheader557
   br label %.loopexit559
 
-.loopexit559:                                     ; preds = %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.loopexit559.loopexit899
+.loopexit559:                                     ; preds = %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.preheader557, %.loopexit559.loopexit897
   %.0403 = phi i8 [ %20, %.loopexit559.loopexit899 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ], [ 32, %.preheader557 ]
   store ptr %storemerge, ptr %5, align 8, !tbaa !13
   %37 = tail call ptr @__errno_location() #15
@@ -399,7 +399,7 @@ define hidden i64 @je_malloc_vsnprintf(ptr noundef writeonly captures(none) %0, 
   %41 = phi ptr [ %.pre, %.loopexit559 ], [ %35, %32 ], [ %storemerge, %.loopexit558 ]
   %.1404 = phi i8 [ %.0403, %.loopexit559 ], [ 32, %32 ], [ 32, %.loopexit558 ]
   %.0399 = phi i32 [ %39, %.loopexit559 ], [ %spec.select, %32 ], [ -1, %.loopexit558 ]
-  %.2389 = phi i8 [ %.0387.ph907, %.loopexit559 ], [ %spec.select481, %32 ], [ %.0387.ph907, %.loopexit558 ]
+  %.2389 = phi i8 [ %.0387.ph905, %.loopexit559 ], [ %spec.select481, %32 ], [ %.0387.ph905, %.loopexit558 ]
   %42 = load i8, ptr %41, align 1, !tbaa !10
   %43 = icmp eq i8 %42, 46
   br i1 %43, label %44, label %66
@@ -725,7 +725,7 @@ thread-pre-split777:                              ; preds = %thread-pre-split777
 
 u2s.exit.i:                                       ; preds = %.preheader.i.i
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 %178
-  %182 = select i1 %.0391.ph902, i8 32, i8 45
+  %182 = select i1 %.0391.ph900, i8 32, i8 45
   %183 = select i1 %.0394.ph, i8 43, i8 %182
   %184 = icmp slt i64 %.0407, 0
   %185 = sub i32 65, %.030.i.i

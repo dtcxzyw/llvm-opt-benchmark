@@ -2463,7 +2463,7 @@ php_ap_memstr.exit50.thread:                      ; preds = %56, %69, %php_ap_me
   %81 = icmp eq i8 %80, 13
   br i1 %81, label %82, label %83
 
-82:                                               ; preds = %77
+82:; preds = %77
   store i8 0, ptr %79, align 1, !tbaa !32
   br label %83
 

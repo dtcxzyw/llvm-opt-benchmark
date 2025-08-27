@@ -3965,13 +3965,13 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   %136 = add i32 %.0205285, 1
   %137 = zext i32 %136 to i64
   %138 = icmp ugt i64 %135, %137
-  br i1 %138, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !169
+  br i1 %138, label %.lr.ph287, label %._crit_edge288, !llvm.loop !169
 
-._crit_edge288.loopexit:                          ; preds = %134
+._crit_edge288:                                   ; preds = %134
   %139 = add nsw i64 %135, -1
   br label %._crit_edge288
 
-._crit_edge288:                                   ; preds = %._crit_edge288.loopexit, %124
+._crit_edge288:; preds = %._crit_edge288, %124
   %.lcssa276 = phi i64 [ -1, %124 ], [ %139, %._crit_edge288.loopexit ]
   %140 = load ptr, ptr %34, align 8, !tbaa !81
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 %.lcssa276

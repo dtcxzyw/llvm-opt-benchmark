@@ -62,20 +62,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
   br i1 %.not.i, label %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit:    ; preds = %.lr.ph.i
-  %12 = and i64 %2, 4611686018427387903
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %13 = and i64 %2, 4611686018427387903
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit
   %.013.i8 = phi i64 [ %17, %.lr.ph.i7 ], [ 12, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
-  %.01012.i9 = phi i64 [ %19, %.lr.ph.i7 ], [ %12, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
-  %14 = urem i64 %.01012.i9, 36
-  %15 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !13
+  %.01012.i9 = phi i64 [ %20, %.lr.ph.i7 ], [ %13, %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit ]
+  %15 = urem i64 %.01012.i9, 36
+  %16 = getelementptr inbounds nuw i8, ptr @.str.15, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !13
   %17 = add nsw i64 %.013.i8, -1
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
-  store i8 %16, ptr %18, align 1, !tbaa !13
-  %19 = udiv i64 %.01012.i9, 36
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  store i8 %17, ptr %19, align 1, !tbaa !13
+  %20 = udiv i64 %.01012.i9, 36
   %.not.i10 = icmp eq i64 %17, 0
   br i1 %.not.i10, label %_ZN7rocksdb12PutBaseCharsILm36EEEvPPcmmb.exit11, label %.lr.ph.i7, !llvm.loop !14
 

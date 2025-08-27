@@ -195,7 +195,7 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nounde
   %45 = getelementptr i8, ptr %44, i64 3
   br label %46
 
-46:                                               ; preds = %41, %39, %25
+46:; preds = %41, %39, %25
   %47 = phi i32 [ %16, %39 ], [ %16, %25 ], [ %36, %41 ]
   %48 = phi ptr [ %14, %39 ], [ %14, %25 ], [ %45, %41 ]
   %49 = phi i32 [ %40, %39 ], [ 0, %25 ], [ %35, %41 ]
@@ -206,14 +206,14 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nounde
   %54 = select i1 %50, i1 true, i1 %53
   br i1 %54, label %.thread, label %55
 
-55:                                               ; preds = %46
+55:; preds = %46
   %56 = load i8, ptr %48, align 1
   %57 = icmp ne i8 %56, 6
   %58 = icmp eq i32 %47, 1
   %59 = select i1 %57, i1 true, i1 %58
   br i1 %59, label %.thread, label %60
 
-60:                                               ; preds = %55
+60:; preds = %55
   %61 = getelementptr i8, ptr %48, i64 1
   %62 = add nsw i32 %47, -2
   %63 = getelementptr i8, ptr %48, i64 2
@@ -223,38 +223,38 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nounde
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %.thread, label %68
 
-68:                                               ; preds = %60
+68:; preds = %60
   %69 = zext i8 %64 to i64
   %70 = getelementptr i8, ptr %63, i64 %69
   %71 = load i32, ptr %0, align 8
   %72 = icmp eq i32 %71, %65
   br i1 %72, label %73, label %.thread6
 
-73:                                               ; preds = %68
+73: ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 @bcmp(ptr %63, ptr %75, i64 %69)
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %80, label %.thread6
 
-.thread6:                                         ; preds = %68, %73
+.thread6:; preds = %68, %73
   %78 = icmp samesign ult i32 %66, 2
   %79 = select i1 %78, i32 -2045022964, i32 -2045022965
   br label %.thread
 
-80:                                               ; preds = %73
-  %81 = icmp samesign ult i32 %66, 2
-  br i1 %81, label %.thread, label %82
+79:                                               ; preds = %73
+  %80 = icmp samesign ult i32 %66, 2
+  br i1 %80, label %.thread, label %81
 
-82:                                               ; preds = %80
-  %83 = add nsw i32 %66, -2
+81:                                               ; preds = %79
+  %82 = add nsw i32 %66, -2
   store ptr %70, ptr %2, align 8
-  store i32 %83, ptr %1, align 4
+  store i32 %82, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %18, %.thread6, %82, %80, %60, %55, %46, %7, %4
-  %84 = phi i32 [ 0, %82 ], [ -2045022964, %4 ], [ -2045022964, %7 ], [ -2045022964, %46 ], [ -2045022964, %55 ], [ -2045022964, %60 ], [ -2045022964, %80 ], [ %79, %.thread6 ], [ -2045022964, %18 ]
-  ret i32 %84
+.thread:                                          ; preds = %18, %.thread6, %81, %79, %60, %55, %46, %7, %4
+  %83 = phi i32 [ 0, %82 ], [ -2045022964, %4 ], [ -2045022964, %7 ], [ -2045022964, %46 ], [ -2045022964, %55 ], [ -2045022964, %60 ], [ -2045022964, %80 ], [ %79, %.thread6 ], [ -2045022964, %18 ]
+  ret i32 %83
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

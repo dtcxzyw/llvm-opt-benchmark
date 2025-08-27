@@ -105,7 +105,7 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %30, !prof !9
+  br i1 %7, label %8, label %29, !prof !9
 
 8:                                                ; preds = %1
   %9 = tail call noalias ptr @H5MM_strdup(ptr noundef %0) #11
@@ -116,7 +116,7 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   %12 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !13
   %13 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !13
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5G_normalize, i32 noundef 149, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.2) #11
-  br label %30
+  br label %29
 
 .preheader:                                       ; preds = %8, %21
   %.027 = phi i64 [ %22, %21 ], [ 0, %8 ]
@@ -153,7 +153,7 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   %25 = icmp ugt i64 %.025, 1
   %26 = trunc nuw i8 %.024 to i1
   %or.cond = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %30
+  br i1 %or.cond, label %27, label %29
 
 27:                                               ; preds = %23
   %28 = add i64 %.025, -1
@@ -161,7 +161,7 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   store i8 0, ptr %29, align 1, !tbaa !10
   br label %30
 
-30:                                               ; preds = %23, %27, %11, %1
+29:                                               ; preds = %23, %27, %11, %1
   %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ %9, %27 ], [ %9, %23 ]
   ret ptr %.0
 }

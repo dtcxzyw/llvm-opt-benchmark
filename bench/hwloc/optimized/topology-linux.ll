@@ -696,7 +696,7 @@ hwloc__read_fd.exit.thread:                       ; preds = %hwloc__read_fd.exit
   %39 = shl nuw nsw i64 %38, 3
   %40 = tail call noalias ptr @malloc(i64 noundef %39) #29
   %.not61 = icmp eq ptr %40, null
-  br i1 %.not61, label %92, label %41
+  br i1 %.not61, label %91, label %41
 
 41:                                               ; preds = %.loopexit74
   tail call void @hwloc_bitmap_zero(ptr noundef %1) #28
@@ -722,7 +722,7 @@ hwloc__read_fd.exit.thread:                       ; preds = %hwloc__read_fd.exit
   %48 = shl nsw i64 %47, 3
   %49 = call ptr @realloc(ptr noundef %.04992, i64 noundef %48) #30
   %.not62 = icmp eq ptr %49, null
-  br i1 %.not62, label %91, label %50
+  br i1 %.not62, label %90, label %50
 
 50:                                               ; preds = %45, %.lr.ph
   %.255 = phi i32 [ %46, %45 ], [ %.05389, %.lr.ph ]
@@ -792,7 +792,7 @@ hwloc__read_fd.exit.thread:                       ; preds = %hwloc__read_fd.exit
   %84 = or i64 %83, %76
   br label %85
 
-85:                                               ; preds = %79, %.lr.ph96
+85: ; preds = %79, %.lr.ph96
   %.0 = phi i64 [ %84, %79 ], [ %76, %.lr.ph96 ]
   %86 = trunc nuw nsw i64 %indvars.iv to i32
   %87 = call i32 @hwloc_bitmap_set_ith_ulong(ptr noundef %1, i32 noundef %86, i64 noundef %.0) #28
@@ -804,23 +804,23 @@ hwloc__read_fd.exit.thread:                       ; preds = %hwloc__read_fd.exit
   %.1126 = phi ptr [ %40, %.loopexit.thread ], [ %.2, %.loopexit ], [ %.2, %85 ]
   %.154125 = phi i32 [ %5, %.loopexit.thread ], [ %.255, %.loopexit ], [ %.255, %85 ]
   call void @free(ptr noundef %.1126) #28
-  %88 = load i32, ptr @hwloc__read_path_as_cpumask._nr_maps_allocated, align 4, !tbaa !3
-  %89 = icmp sgt i32 %.154125, %88
-  br i1 %89, label %90, label %hwloc_open.exit.thread
+  %87 = load i32, ptr @hwloc__read_path_as_cpumask._nr_maps_allocated, align 4, !tbaa !3
+  %88 = icmp sgt i32 %.154125, %87
+  br i1 %88, label %89, label %hwloc_open.exit.thread
 
-90:                                               ; preds = %._crit_edge
+89:                                               ; preds = %._crit_edge
   store i32 %.154125, ptr @hwloc__read_path_as_cpumask._nr_maps_allocated, align 4, !tbaa !3
   br label %hwloc_open.exit.thread
 
-91:                                               ; preds = %45
+90:                                               ; preds = %45
   call void @free(ptr noundef %.04992) #28
-  br label %92
+  br label %91
 
-92:                                               ; preds = %.loopexit74, %91
+91:                                               ; preds = %.loopexit74, %90
   call void @free(ptr noundef %.043.i) #28
   br label %hwloc_open.exit.thread
 
-hwloc_open.exit.thread:                           ; preds = %hwloc_checkat.exit.i.i, %hwloc__read_fd.exit.thread, %92, %hwloc_open.exit, %._crit_edge, %90
+hwloc_open.exit.thread:                           ; preds = %hwloc_checkat.exit.i.i, %hwloc__read_fd.exit.thread, %91, %hwloc_open.exit, %._crit_edge, %89
   %.047 = phi i32 [ 0, %90 ], [ 0, %._crit_edge ], [ -1, %hwloc_open.exit ], [ -1, %92 ], [ -1, %hwloc__read_fd.exit.thread ], [ -1, %hwloc_checkat.exit.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.047

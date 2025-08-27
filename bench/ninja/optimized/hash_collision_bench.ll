@@ -317,7 +317,7 @@ _ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_
   %86 = icmp eq i64 %83, %85
   br i1 %86, label %87, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
 
-87:                                               ; preds = %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader
+87:; preds = %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !16
   %90 = sext i32 %89 to i64
@@ -332,7 +332,7 @@ _ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_
   %.not = icmp eq i32 %98, 0
   br i1 %.not, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %99
 
-99:                                               ; preds = %87
+99:; preds = %87
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %92, ptr noundef nonnull %97)
   %101 = add nsw i32 %.02537, 1
   br label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit

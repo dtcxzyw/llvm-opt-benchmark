@@ -2656,7 +2656,7 @@ define void @_ZN10open_spiel10algorithms16RecordTrajectoryERKNS_4GameERKSt6vecto
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  br label %735
+  br label %734
 
 50:                                               ; preds = %7
   tail call void @_ZN10open_spiel10algorithms17BatchedTrajectoryC1Ei(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef 1)
@@ -2871,7 +2871,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 190:                                              ; preds = %50
   %191 = landingpad { ptr, i32 }
           cleanup
-  br label %734
+  br label %733
 
 .loopexit176:                                     ; preds = %.noexc55.invoke, %88, %95, %104, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %624, %200, %214, %.noexc51, %241, %253, %257, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, %308, %.noexc66, %354, %.noexc75
   %lpad.loopexit178 = landingpad { ptr, i32 }
@@ -3940,7 +3940,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorISt4pai
 
 639:                                              ; preds = %629
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.31) #24
-          to label %.noexc121 unwind label %728
+          to label %.noexc121 unwind label %727
 
 .noexc121:                                        ; preds = %639
   unreachable
@@ -3952,7 +3952,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %629
 640:                                              ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %641 = ashr exact i64 %636, 1
   %642 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %641) #25
-          to label %.noexc122 unwind label %728
+          to label %.noexc122 unwind label %727
 
 .noexc122:                                        ; preds = %640
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 %641
@@ -4103,43 +4103,43 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %704, %702, %700, %6
   br i1 %.not.i130, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i: ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
-  %725 = load ptr, ptr %724, align 8
-  %726 = getelementptr inbounds nuw i8, ptr %725, i64 8
-  %727 = load ptr, ptr %726, align 8
+  %724 = load ptr, ptr %724, align 8
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 8
+  %726 = load ptr, ptr %725, align 8
   call void %727(ptr noundef nonnull align 8 dereferenceable(60) %724) #23
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i
   ret void
 
-728:                                              ; preds = %640, %639
-  %729 = landingpad { ptr, i32 }
+727:                                              ; preds = %640, %639
+  %728 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit49
 
-_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit49:      ; preds = %.loopexit176, %.loopexit.split-lp177, %611, %_ZNSt6vectorIdSaIdEED2Ev.exit114, %335, %332, %267, %264, %195, %192, %728, %622, %421, %274, %272, %213
-  %.pn42 = phi { ptr, i32 } [ %623, %622 ], [ %.pn40, %213 ], [ %275, %274 ], [ %422, %421 ], [ %273, %272 ], [ %729, %728 ], [ %193, %192 ], [ %193, %195 ], [ %265, %264 ], [ %265, %267 ], [ %333, %332 ], [ %333, %335 ], [ %.pn37.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit114 ], [ %.pn37.pn, %611 ], [ %lpad.loopexit178, %.loopexit176 ], [ %lpad.loopexit.split-lp179, %.loopexit.split-lp177 ]
-  %730 = load ptr, ptr %11, align 8
-  %.not.i131 = icmp eq ptr %730, null
+_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit49:      ; preds = %.loopexit176, %.loopexit.split-lp177, %611, %_ZNSt6vectorIdSaIdEED2Ev.exit114, %335, %332, %267, %264, %195, %192, %727, %622, %421, %274, %272, %213
+  %.pn42 = phi { ptr, i32 } [ %623, %622 ], [ %.pn40, %213 ], [ %275, %274 ], [ %422, %421 ], [ %273, %272 ], [ %728, %728 ], [ %193, %192 ], [ %193, %195 ], [ %265, %264 ], [ %265, %267 ], [ %333, %332 ], [ %333, %335 ], [ %.pn37.pn, %_ZNSt6vectorIdSaIdEED2Ev.exit114 ], [ %.pn37.pn, %611 ], [ %lpad.loopexit178, %.loopexit176 ], [ %lpad.loopexit.split-lp179, %.loopexit.split-lp177 ]
+  %729 = load ptr, ptr %11, align 8
+  %.not.i131 = icmp eq ptr %729, null
   br i1 %.not.i131, label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit133, label %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i132
 
 _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i132: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit49
-  %731 = load ptr, ptr %730, align 8
-  %732 = getelementptr inbounds nuw i8, ptr %731, i64 8
-  %733 = load ptr, ptr %732, align 8
-  call void %733(ptr noundef nonnull align 8 dereferenceable(60) %730) #23
+  %730 = load ptr, ptr %729, align 8
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 8
+  %732 = load ptr, ptr %731, align 8
+  call void %733(ptr noundef nonnull align 8 dereferenceable(60) %729) #23
   br label %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit133
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit133: ; preds = %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit49, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i132
   store ptr null, ptr %11, align 8
-  br label %734
+  br label %733
 
-734:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit133, %190
+733:                                              ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit133, %190
   %.pn42.pn = phi { ptr, i32 } [ %.pn42, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit133 ], [ %191, %190 ]
   call void @_ZN10open_spiel10algorithms17BatchedTrajectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) #23
-  br label %735
+  br label %734
 
-735:                                              ; preds = %734, %48
+734:                                              ; preds = %733, %48
   %.pn45 = phi { ptr, i32 } [ %49, %48 ], [ %.pn42.pn, %734 ]
   resume { ptr, i32 } %.pn45
 }

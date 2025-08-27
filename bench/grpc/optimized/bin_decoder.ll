@@ -80,14 +80,14 @@ define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_in
   %.not27 = icmp eq i64 %.022, 0
   br i1 %.not27, label %.critedge, label %15
 
-15:                                               ; preds = %14
+15:; preds = %14
   %16 = add i64 %.022, -1
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !9
   %19 = icmp eq i8 %18, 61
   br i1 %19, label %14, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %14, %15
+.critedge:; preds = %14, %15
   %20 = sub i64 %9, %.022
   %21 = icmp ugt i64 %20, 2
   br i1 %21, label %22, label %25, !prof !12

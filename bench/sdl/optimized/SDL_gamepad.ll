@@ -2584,7 +2584,7 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
   %.not21.i = icmp eq i64 %.0.i98, 0
   br i1 %.not21.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit, label %36
 
-36:                                               ; preds = %35
+36:; preds = %35
   %37 = add i64 %.0.i98, -1
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
   %39 = load i8, ptr %38, align 1
@@ -2593,7 +2593,7 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
   %.not22.i = icmp eq i32 %41, 0
   br i1 %.not22.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %35, !llvm.loop !30
 
-SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105: ; preds = %36
+SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105:; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.i98
   store i8 0, ptr %42, align 1
   br label %44
@@ -2727,8 +2727,8 @@ SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
   %96 = sext i32 %95 to i64
   %97 = shl nsw i64 %96, 3
   %98 = call ptr @SDL_realloc_REAL(ptr noundef %94, i64 noundef %97) #12
-  %.not.i100 = icmp eq ptr %98, null
-  br i1 %.not.i100, label %AddMappingChangeTracking.exit, label %99
+  %.not.i99 = icmp eq ptr %98, null
+  br i1 %.not.i99, label %AddMappingChangeTracking.exit, label %99
 
 99:                                               ; preds = %89
   store ptr %98, ptr %93, align 8

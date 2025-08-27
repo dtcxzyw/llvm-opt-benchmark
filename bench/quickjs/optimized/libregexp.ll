@@ -5011,79 +5011,79 @@ define internal fastcc range(i32 -1, 1) i32 @re_emit_range(ptr noundef nonnull %
   %34 = trunc nuw i32 %11 to i16
   br i1 %33, label %35, label %58
 
-35:                                               ; preds = %32
+30:                                               ; preds = %32
   %36 = tail call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext 21) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %34, ptr %8, align 2, !tbaa !65
-  %37 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 2) #16
+  %35 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %38 = load i32, ptr %1, align 8, !tbaa !81
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %.lr.ph42, label %.loopexit
+  %36 = load i32, ptr %1, align 8, !tbaa !81
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %35, %.lr.ph42
-  %.03541 = phi i32 [ %55, %.lr.ph42 ], [ 0, %35 ]
-  %40 = load ptr, ptr %20, align 8, !tbaa !78
-  %41 = sext i32 %.03541 to i64
-  %42 = getelementptr inbounds i32, ptr %40, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !31
-  %44 = trunc i32 %43 to i16
+  %.03541 = phi i32 [ %53, %.lr.ph42 ], [ 0, %35 ]
+  %38 = load ptr, ptr %20, align 8, !tbaa !78
+  %39 = sext i32 %.03541 to i64
+  %40 = getelementptr inbounds i32, ptr %38, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !31
+  %42 = trunc i32 %41 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i16 %44, ptr %7, align 2, !tbaa !65
-  %45 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 2) #16
+  store i16 %42, ptr %7, align 2, !tbaa !65
+  %43 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %46 = load ptr, ptr %20, align 8, !tbaa !78
-  %47 = getelementptr i32, ptr %46, i64 %41
-  %48 = getelementptr i8, ptr %47, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !31
-  %50 = add i32 %49, -1
-  %51 = icmp eq i32 %50, -2
-  %52 = trunc i32 %50 to i16
-  %53 = select i1 %51, i16 -1, i16 %52
+  %44 = load ptr, ptr %20, align 8, !tbaa !78
+  %45 = getelementptr i32, ptr %44, i64 %39
+  %46 = getelementptr i8, ptr %45, i64 4
+  %47 = load i32, ptr %46, align 4, !tbaa !31
+  %48 = add i32 %47, -1
+  %49 = icmp eq i32 %48, -2
+  %50 = trunc i32 %48 to i16
+  %51 = select i1 %49, i16 -1, i16 %50
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i16 %53, ptr %6, align 2, !tbaa !65
-  %54 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 2) #16
+  store i16 %51, ptr %6, align 2, !tbaa !65
+  %52 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %55 = add i32 %.03541, 2
-  %56 = load i32, ptr %1, align 8, !tbaa !81
-  %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph42, label %.loopexit, !llvm.loop !92
+  %53 = add i32 %.03541, 2
+  %54 = load i32, ptr %1, align 8, !tbaa !81
+  %55 = icmp slt i32 %53, %54
+  br i1 %55, label %.lr.ph42, label %.loopexit, !llvm.loop !92
 
-58:                                               ; preds = %32
-  %59 = tail call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext 22) #16
+56:                                               ; preds = %32
+  %57 = tail call i32 @dbuf_putc(ptr noundef nonnull %0, i8 noundef zeroext 22) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %34, ptr %5, align 2, !tbaa !65
-  %60 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 2) #16
+  %58 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %61 = load i32, ptr %1, align 8, !tbaa !81
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph, label %.loopexit
+  %59 = load i32, ptr %1, align 8, !tbaa !81
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %58, %.lr.ph
-  %.140 = phi i32 [ %74, %.lr.ph ], [ 0, %58 ]
-  %63 = load ptr, ptr %20, align 8, !tbaa !78
-  %64 = sext i32 %.140 to i64
-  %65 = getelementptr inbounds i32, ptr %63, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !31
+.lr.ph:                                           ; preds = %56, %.lr.ph
+  %.140 = phi i32 [ %72, %.lr.ph ], [ 0, %58 ]
+  %61 = load ptr, ptr %20, align 8, !tbaa !78
+  %62 = sext i32 %.140 to i64
+  %63 = getelementptr inbounds i32, ptr %61, i64 %62
+  %64 = load i32, ptr %63, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i32 %66, ptr %4, align 4, !tbaa !31
-  %67 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4) #16
+  store i32 %64, ptr %4, align 4, !tbaa !31
+  %65 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %68 = load ptr, ptr %20, align 8, !tbaa !78
-  %69 = getelementptr i32, ptr %68, i64 %64
-  %70 = getelementptr i8, ptr %69, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !31
-  %72 = add i32 %71, -1
+  %66 = load ptr, ptr %20, align 8, !tbaa !78
+  %67 = getelementptr i32, ptr %66, i64 %62
+  %68 = getelementptr i8, ptr %67, i64 4
+  %69 = load i32, ptr %68, align 4, !tbaa !31
+  %70 = add i32 %69, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i32 %72, ptr %3, align 4, !tbaa !31
-  %73 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #16
+  store i32 %70, ptr %3, align 4, !tbaa !31
+  %71 = call i32 @dbuf_put(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %74 = add i32 %.140, 2
-  %75 = load i32, ptr %1, align 8, !tbaa !81
-  %76 = icmp slt i32 %74, %75
-  br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !93
+  %72 = add i32 %.140, 2
+  %73 = load i32, ptr %1, align 8, !tbaa !81
+  %74 = icmp slt i32 %72, %73
+  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !93
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %58, %35, %16, %13
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %56, %35, %16, %13
   %.036 = phi i32 [ -1, %13 ], [ 0, %16 ], [ 0, %35 ], [ 0, %58 ], [ 0, %.lr.ph42 ], [ 0, %.lr.ph ]
   ret i32 %.036
 }

@@ -472,7 +472,7 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %28, label %6
+  br i1 %5, label %27, label %6
 
 6:                                                ; preds = %2
   %7 = shl i64 %4, 3
@@ -503,14 +503,14 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
   br i1 %14, label %.lr.ph74, label %._crit_edge75
 
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
-  %15 = phi ptr [ %21, %.lr.ph74 ], [ %.pre, %._crit_edge ]
+  %.06572 = phi ptr [ %21, %.lr.ph74 ], [ %.pre, %._crit_edge ]
   %.06572 = phi i64 [ %23, %.lr.ph74 ], [ 1, %._crit_edge ]
   %16 = add i64 %.06572, -1
   %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %16
   %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %.06572
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %15, ptr %20, align 8, !tbaa !14
+  store ptr %.06572, ptr %20, align 8, !tbaa !14
   %21 = load ptr, ptr %18, align 8, !tbaa !17
   %22 = load ptr, ptr %17, align 8, !tbaa !17
   store ptr %21, ptr %22, align 8, !tbaa !16
@@ -519,17 +519,17 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
   br i1 %exitcond.not, label %._crit_edge75, label %.lr.ph74
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge
-  %24 = phi ptr [ %.pre, %._crit_edge ], [ %21, %.lr.ph74 ]
+  %.065.lcssa = phi ptr [ %.pre, %._crit_edge ], [ %21, %.lr.ph74 ]
   %.065.lcssa = phi i64 [ 0, %._crit_edge ], [ %.06572, %.lr.ph74 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %8, i64 %.065.lcssa
+  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %.065.lcssa
   store ptr null, ptr %24, align 8, !tbaa !16
-  %26 = load ptr, ptr %25, align 8, !tbaa !17
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %26, ptr %27, align 8, !tbaa !13
+  %25 = load ptr, ptr %23, align 8, !tbaa !17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %25, ptr %26, align 8, !tbaa !13
   tail call void @_efree(ptr noundef nonnull %8) #14
-  br label %28
+  br label %27
 
-28:                                               ; preds = %2, %._crit_edge75
+27:                                               ; preds = %2, %._crit_edge75
   ret void
 }
 

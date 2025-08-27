@@ -1410,7 +1410,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %29
   %45 = sub i64 %43, %44
   %46 = trunc i64 %45 to i32
   %.not66 = icmp eq i32 %46, 0
-  br i1 %.not66, label %113, label %47
+  br i1 %.not66, label %114, label %47
 
 47:                                               ; preds = %._crit_edge.thread
   br i1 %.lcssa119, label %48, label %83
@@ -1530,23 +1530,23 @@ ziplistResize.exit:                               ; preds = %89
   %.not70 = icmp ult i64 %99, %107
   br i1 %.not70, label %108, label %109, !prof !24
 
-108:                                              ; preds = %106
+109:                                              ; preds = %106
   tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 913) #17
   tail call void @abort() #18
   unreachable
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store i32 %.157, ptr %110, align 4, !tbaa !5
+110:                                              ; preds = %106
+  %111 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  store i32 %.157, ptr %111, align 4, !tbaa !5
   %.not71 = icmp eq i32 %.058, 0
-  br i1 %.not71, label %113, label %111
+  br i1 %.not71, label %114, label %112
 
-111:                                              ; preds = %109
-  %112 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %97, ptr noundef nonnull %101)
-  br label %113
+112:                                              ; preds = %110
+  %113 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %97, ptr noundef nonnull %101)
+  br label %114
 
-113:                                              ; preds = %109, %111, %._crit_edge.thread
-  %.0 = phi ptr [ %0, %._crit_edge.thread ], [ %112, %111 ], [ %97, %109 ]
+114:                                              ; preds = %110, %112, %._crit_edge.thread
+  %.0 = phi ptr [ %0, %._crit_edge.thread ], [ %113, %111 ], [ %97, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }

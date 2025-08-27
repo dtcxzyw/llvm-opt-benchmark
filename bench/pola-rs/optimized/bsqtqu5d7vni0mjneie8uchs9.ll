@@ -3007,12 +3007,12 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable6binary10enco
 
 "_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hf45eb06c1d08b7e9E.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h020a32e4c598c87bE.exit.thread"
   %49 = add i64 %21, -32
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %24, i64 %17, i1 false)
-  %51 = sub nuw nsw i64 32, %17
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, i8 0, i64 %51, i1 false), !alias.scope !166
-  %53 = trunc nuw nsw i64 %17 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %52, ptr nonnull align 1 %24, i64 %17, i1 false)
+  %53 = sub nuw nsw i64 32, %17
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %54, i8 0, i64 %53, i1 false), !alias.scope !166
+  %55 = trunc nuw nsw i64 %17 to i8
   br label %54
 
 54:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h020a32e4c598c87bE.exit.thread", %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hf45eb06c1d08b7e9E.exit"
@@ -3024,16 +3024,16 @@ define hidden noundef range(i64 1, 0) i64 @_ZN10polars_row8variable6binary10enco
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %22
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.sroa.022.043 = phi ptr [ %.sroa.022.1, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.sroa.022.1 = getelementptr inbounds nuw i8, ptr %.sroa.022.043, i64 1
-  %57 = load i8, ptr %.sroa.022.043, align 1
-  %58 = xor i8 %57, -1
-  store i8 %58, ptr %.sroa.022.043, align 1
-  %.not41 = icmp eq ptr %.sroa.022.1, %56
+  %59 = load i8, ptr %.sroa.022.043, align 1
+  %60 = xor i8 %59, -1
+  store i8 %60, ptr %.sroa.022.043, align 1
+  %.not41 = icmp eq ptr %.sroa.022.1, %58
   br i1 %.not41, label %.loopexit, label %.lr.ph
 }
 

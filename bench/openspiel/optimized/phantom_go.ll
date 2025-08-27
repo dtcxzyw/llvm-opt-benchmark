@@ -3092,7 +3092,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
   %10 = icmp ult i64 %9, 2
-  br i1 %10, label %31, label %11
+  br i1 %10, label %30, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8840
@@ -3103,7 +3103,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   %or.cond = select i1 %.not, i1 true, i1 %17
-  br i1 %or.cond, label %31, label %18
+  br i1 %or.cond, label %30, label %18
 
 18:                                               ; preds = %11
   %19 = add nsw i64 %9, -1
@@ -3113,7 +3113,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp eq i64 %21, %24
-  br i1 %25, label %26, label %31
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %18
   %27 = add nsw i64 %9, -2
@@ -3122,7 +3122,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %30 = icmp eq i64 %29, %21
   br label %31
 
-31:                                               ; preds = %11, %26, %18, %1
+30:                                               ; preds = %11, %26, %18, %1
   %.0 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %18 ], [ %30, %26 ]
   ret i1 %.0
 }

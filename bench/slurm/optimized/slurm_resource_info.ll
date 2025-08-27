@@ -95,7 +95,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @slurm_sprint_cpu_bind_type(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %57, label %3
+  br i1 %.not, label %56, label %3
 
 3:                                                ; preds = %2
   store i8 0, ptr %0, align 1
@@ -286,12 +286,12 @@ define dso_local void @slurm_sprint_cpu_bind_type(ptr noundef captures(address_i
   store i8 0, ptr %55, align 1
   br label %57
 
-56:                                               ; preds = %51
+55:                                               ; preds = %51
   %endptr85 = getelementptr inbounds i8, ptr %0, i64 %strlen84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %endptr85, ptr noundef nonnull align 1 dereferenceable(12) @.str.16, i64 12, i1 false)
-  br label %57
+  br label %56
 
-57:                                               ; preds = %2, %56, %53
+56:                                               ; preds = %2, %55, %53
   ret void
 }
 

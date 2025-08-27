@@ -648,7 +648,7 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
   br label %14
 
 14:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9", %3
-  %15 = phi i64 [ %68, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9" ], [ %.pre, %3 ]
+  %15 = phi i64 [ %67, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9" ], [ %.pre, %3 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %16 = load i64, ptr %12, align 8, !alias.scope !47, !noalias !50, !noundef !9
@@ -687,7 +687,7 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
   %.val3 = load i64, ptr %12, align 8
   %.0.val1.fr.i = freeze i64 %.sroa.7.0.copyload
   %28 = icmp ult i64 %.0.val1.fr.i, %.val3
-  br i1 %28, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.i", label %42
+  br i1 %28, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.i", label %41
 
 "_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.i": ; preds = %27
   %.val = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
@@ -701,26 +701,26 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
   br i1 %30, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i", label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i"
 
 "_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i": ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.i"
-  br i1 %35, label %56, label %.loopexit
+  br i1 %35, label %55, label %.loopexit
 
 "_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i": ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.i"
   br i1 %35, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i", label %.loopexit
 
 "_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i": ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i"
-  %.pn.i = phi { i64, i64 } [ %39, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i" ], [ %33, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i" ]
-  %36 = extractvalue { i64, i64 } %.pn.i, 1
+  %.pn.i = phi { i64, i64 } [ %38, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i" ], [ %33, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i" ]
+  %35 = extractvalue { i64, i64 } %.pn.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !53
-  store i64 %36, ptr %10, align 8, !noalias !53
-  %37 = call noundef i64 @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$4when17ha0f28fcf690c9ea7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %2)
-  %38 = load i64, ptr %10, align 8, !noalias !53, !noundef !9
-  call void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$9add_entry17h460d58ef50d829b1E"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %32, i64 noundef %37, i64 noundef %38, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
+  store i64 %35, ptr %10, align 8, !noalias !53
+  %36 = call noundef i64 @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$4when17ha0f28fcf690c9ea7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %2)
+  %37 = load i64, ptr %10, align 8, !noalias !53, !noundef !9
+  call void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$9add_entry17h460d58ef50d829b1E"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %32, i64 noundef %36, i64 noundef %37, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !53
-  %39 = call { i64, i64 } @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$14pop_entry_slot17hc5b9c5b78fdf53d9E"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %29, i64 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
-  %40 = extractvalue { i64, i64 } %39, 0
-  %41 = trunc nuw i64 %40 to i1
-  br i1 %41, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i", label %.loopexit
+  %38 = call { i64, i64 } @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$14pop_entry_slot17hc5b9c5b78fdf53d9E"(ptr noalias noundef nonnull align 8 dereferenceable(1040) %29, i64 noundef %.sroa.8.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
+  %39 = extractvalue { i64, i64 } %38, 0
+  %40 = trunc nuw i64 %39 to i1
+  br i1 %40, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i", label %.loopexit
 
-42:                                               ; preds = %27
+41:                                               ; preds = %27
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.0.val1.fr.i, i64 noundef %.val3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2aab93bffa830a0d4542cb3e34db2924.18) #25, !noalias !56
   unreachable
 
@@ -728,95 +728,95 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$4poll17h6
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %1, ptr %9, align 8, !noalias !59
-  %43 = load i64, ptr %13, align 8, !alias.scope !59, !noundef !9
-  %.not.i = icmp ugt i64 %43, %1
-  br i1 %.not.i, label %44, label %50, !prof !27
+  %42 = load i64, ptr %13, align 8, !alias.scope !59, !noundef !9
+  %.not.i = icmp ugt i64 %42, %1
+  br i1 %.not.i, label %43, label %49, !prof !27
 
-44:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$15next_expiration17h6313a30eef26dcccE.exit.thread"
+43:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$15next_expiration17h6313a30eef26dcccE.exit.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !59
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !59
   store ptr %13, ptr %7, align 8, !noalias !59
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E", ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !59
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %9, ptr %45, align 8, !noalias !59
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %9, ptr %44, align 8, !noalias !59
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E", ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !59
   store ptr @anon.2aab93bffa830a0d4542cb3e34db2924.11, ptr %8, align 8, !noalias !59
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 2, ptr %46, align 8, !noalias !59
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr null, ptr %47, align 8, !noalias !59
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %7, ptr %48, align 8, !noalias !59
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 2, ptr %49, align 8, !noalias !59
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 2, ptr %45, align 8, !noalias !59
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr null, ptr %46, align 8, !noalias !59
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %7, ptr %47, align 8, !noalias !59
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 2, ptr %48, align 8, !noalias !59
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2aab93bffa830a0d4542cb3e34db2924.14) #25
   unreachable
 
-50:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$15next_expiration17h6313a30eef26dcccE.exit.thread"
-  %51 = icmp ugt i64 %1, %43
-  br i1 %51, label %52, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit"
+49:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$15next_expiration17h6313a30eef26dcccE.exit.thread"
+  %50 = icmp ugt i64 %1, %42
+  br i1 %50, label %51, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit"
 
-52:                                               ; preds = %50
+51:                                               ; preds = %49
   store i64 %1, ptr %13, align 8, !alias.scope !59
   br label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit"
 
-"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit": ; preds = %50, %52
+"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit": ; preds = %49, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %53
+  br label %52
 
-53:                                               ; preds = %56, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit"
-  %.sroa.3.0 = phi i64 [ %57, %56 ], [ undef, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit" ]
+52:                                               ; preds = %55, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit"
+  %.sroa.3.0 = phi i64 [ %56, %56 ], [ undef, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit" ]
   %.sroa.0.0 = phi i64 [ 1, %56 ], [ 0, %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit" ]
-  %54 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %55 = insertvalue { i64, i64 } %54, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %55
+  %53 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %54 = insertvalue { i64, i64 } %53, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %54
 
-56:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i"
-  %57 = extractvalue { i64, i64 } %33, 1
-  br label %53
+55:                                               ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i"
+  %56 = extractvalue { i64, i64 } %33, 1
+  br label %52
 
 .loopexit:                                        ; preds = %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us10.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.lr.ph.split.split.us.i", %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$9pop_entry17hc23595dd365f5490E.exit.us.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.1.0.copyload, ptr %6, align 8, !noalias !62
-  %58 = load i64, ptr %13, align 8, !alias.scope !62, !noundef !9
-  %.not.i6 = icmp ugt i64 %58, %.sroa.1.0.copyload
-  br i1 %.not.i6, label %59, label %65, !prof !27
+  %57 = load i64, ptr %13, align 8, !alias.scope !62, !noundef !9
+  %.not.i6 = icmp ugt i64 %57, %.sroa.1.0.copyload
+  br i1 %.not.i6, label %58, label %64, !prof !27
 
-59:                                               ; preds = %.loopexit
+58:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !62
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !62
   store ptr %13, ptr %4, align 8, !noalias !62
   %.sroa.42.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E", ptr %.sroa.42.0..sroa_idx.i7, align 8, !noalias !62
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %60, align 8, !noalias !62
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %6, ptr %59, align 8, !noalias !62
   %.sroa.46.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E", ptr %.sroa.46.0..sroa_idx.i8, align 8, !noalias !62
   store ptr @anon.2aab93bffa830a0d4542cb3e34db2924.11, ptr %5, align 8, !noalias !62
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 2, ptr %61, align 8, !noalias !62
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %62, align 8, !noalias !62
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %63, align 8, !noalias !62
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 2, ptr %64, align 8, !noalias !62
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 2, ptr %60, align 8, !noalias !62
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %61, align 8, !noalias !62
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %62, align 8, !noalias !62
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 2, ptr %63, align 8, !noalias !62
   call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2aab93bffa830a0d4542cb3e34db2924.14) #25
   unreachable
 
-65:                                               ; preds = %.loopexit
-  %66 = icmp ugt i64 %.sroa.1.0.copyload, %58
-  br i1 %66, label %67, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9"
+64:                                               ; preds = %.loopexit
+  %65 = icmp ugt i64 %.sroa.1.0.copyload, %57
+  br i1 %65, label %66, label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9"
 
-67:                                               ; preds = %65
+66:                                               ; preds = %64
   store i64 %.sroa.1.0.copyload, ptr %13, align 8, !alias.scope !62
   br label %"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9"
 
-"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9": ; preds = %65, %67
-  %68 = phi i64 [ %58, %65 ], [ %.sroa.1.0.copyload, %67 ]
+"_ZN10tokio_util4time5wheel14Wheel$LT$T$GT$11set_elapsed17h2a975a0cf50a81c9E.exit9": ; preds = %64, %66
+  %67 = phi i64 [ %57, %65 ], [ %.sroa.1.0.copyload, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %14
 }

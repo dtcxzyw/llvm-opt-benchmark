@@ -351,7 +351,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 ; Function Attrs: nounwind uwtable
 define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 2
-  br i1 %4, label %5, label %23
+  br i1 %4, label %5, label %22
 
 5:                                                ; preds = %3
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
@@ -368,7 +368,7 @@ define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 nound
 
 6:                                                ; preds = %7
   tail call void @rlEnd() #16
-  br label %23
+  br label %22
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 2, %5 ], [ %indvars.iv.next, %7 ]
@@ -396,7 +396,7 @@ define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 nound
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %6, label %7
 
-23:                                               ; preds = %6, %3
+22:                                               ; preds = %6, %3
   ret void
 }
 

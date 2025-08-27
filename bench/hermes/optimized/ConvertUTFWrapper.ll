@@ -225,14 +225,14 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %if.end22
 
 if.end22:                                         ; preds = %for.end, %if.end3
-  %8 = phi i16 [ %.pre33, %for.end ], [ %0, %if.end3 ]
-  %9 = phi ptr [ %7, %for.end ], [ %SrcBytes.coerce0, %if.end3 ]
+  %9 = phi i16 [ %.pre33, %for.end ], [ %0, %if.end3 ]
+  %10 = phi ptr [ %7, %for.end ], [ %SrcBytes.coerce0, %if.end3 ]
   %SrcEnd.0 = phi ptr [ %add.ptr, %for.end ], [ %add.ptr.i, %if.end3 ]
-  %cmp25 = icmp eq i16 %8, -257
+  %cmp25 = icmp eq i16 %9, -257
   br i1 %cmp25, label %if.then26, label %if.end27
 
 if.then26:                                        ; preds = %if.end22
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %10, i64 2
   store ptr %incdec.ptr, ptr %Src, align 8
   br label %if.end27
 
@@ -253,9 +253,9 @@ if.then34:                                        ; preds = %if.end27
   br label %cleanup
 
 if.end35:                                         ; preds = %if.end27
-  %10 = load ptr, ptr %Dst, align 8
+  %11 = load ptr, ptr %Dst, align 8
   %call36 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %Out, i64 noundef 0) #12
-  %sub.ptr.lhs.cast = ptrtoint ptr %10 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call36 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %Out, i64 noundef %sub.ptr.sub) #12
@@ -264,12 +264,12 @@ if.end35:                                         ; preds = %if.end27
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end35, %if.then34
-  %11 = load ptr, ptr %ByteSwapped, align 8
-  %tobool.not.i.i.i = icmp eq ptr %11, null
+  %12 = load ptr, ptr %ByteSwapped, align 8
+  %tobool.not.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @_ZdlPv(ptr noundef nonnull %11) #13
+  call void @_ZdlPv(ptr noundef nonnull %12) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %if.end, %entry

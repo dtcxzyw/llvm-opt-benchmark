@@ -2186,7 +2186,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread34.thread.i.i.i.i: ;
   %.pn.i.i = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !385, !noalias !361
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #21
-          to label %81 unwind label %79
+          to label %81 unwind label %81
 
 56:                                               ; preds = %54
   %57 = load i64, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !385, !noalias !361, !noundef !3
@@ -2223,7 +2223,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread34.thread.i.i.i.i: ;
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E.exit": ; preds = %62, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !387
-  br label %78
+  br label %80
 
 70:                                               ; preds = %56
   %71 = load ptr, ptr %.sroa.44.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -2239,7 +2239,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread34.thread.i.i.i.i: ;
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit.thread": ; preds = %.thread.i, %70, %_ZN5alloc6string6String3pop17h3463e8b57609d728E.exit23, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit12", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  br label %78
+  br label %80
 
 .thread.i:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit"
   store i64 %72, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !398
@@ -2248,26 +2248,26 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread34.thread.i.i.i.i: ;
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit12": ; preds = %.thread.i
   %75 = add nsw i64 %57, -2
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 %75
-  %rhsc35 = load i8, ptr %76, align 1
-  %77 = icmp eq i8 %rhsc35, 13
-  br i1 %77, label %_ZN5alloc6string6String3pop17h3463e8b57609d728E.exit23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit.thread"
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 %75
+  %rhsc35 = load i8, ptr %77, align 1
+  %78 = icmp eq i8 %rhsc35, 13
+  br i1 %78, label %_ZN5alloc6string6String3pop17h3463e8b57609d728E.exit23, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit.thread"
 
 _ZN5alloc6string6String3pop17h3463e8b57609d728E.exit23: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit12"
   store i64 %75, ptr %.sroa.55.0..sroa_idx, align 8, !alias.scope !401
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit.thread"
 
-78:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit.thread", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E.exit"
+80:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb22bae2d97f83ee6E.exit.thread", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hea92ff9fbf58d847E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-79:                                               ; preds = %.body
-  %80 = landingpad { ptr, i32 }
+81:                                               ; preds = %.body
+  %82 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #23
   unreachable
 
-81:                                               ; preds = %.body
+83:                                               ; preds = %.body
   resume { ptr, i32 } %.pn.i.i
 }
 

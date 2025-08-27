@@ -3641,7 +3641,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %78 = fsub double %74, %77
   br label %88
 
-79:                                               ; preds = %69
+79:; preds = %69
   %80 = getelementptr %"class.folly::TDigest::Centroid", ptr %3, i64 %.136
   %81 = getelementptr i8, ptr %80, i64 16
   %82 = load double, ptr %81, align 8, !tbaa !42
@@ -3652,15 +3652,15 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %87 = fmul double %86, 5.000000e-01
   br label %88
 
-88:                                               ; preds = %.thread, %.thread59, %79, %72, %.loopexit
-  %.13658 = phi i64 [ 0, %.thread59 ], [ %70, %72 ], [ %.136, %79 ], [ %.136, %.loopexit ], [ 0, %.thread ]
-  %.23955 = phi double [ %.2395663, %.thread59 ], [ %.239, %72 ], [ %.239, %79 ], [ %.239, %.loopexit ], [ %.037, %.thread ]
-  %.034 = phi double [ %68, %.thread59 ], [ %78, %72 ], [ %87, %79 ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.thread ]
+88:; preds = %.thread, %.thread59, %79, %72, %.loopexit
+  %.034 = phi i64 [ 0, %.thread59 ], [ %70, %72 ], [ %.136, %79 ], [ %.136, %.loopexit ], [ 0, %.thread ]
+  %.033 = phi double [ %.2395663, %.thread59 ], [ %.239, %72 ], [ %.239, %79 ], [ %.239, %.loopexit ], [ %.037, %.thread ]
+  %.032 = phi double [ %68, %.thread59 ], [ %78, %72 ], [ %87, %79 ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.thread ]
   %.033 = phi double [ %64, %.thread59 ], [ %77, %72 ], [ %85, %79 ], [ %50, %.loopexit ], [ %55, %.thread ]
   %.032 = phi double [ %66, %.thread59 ], [ %52, %72 ], [ %82, %79 ], [ %52, %.loopexit ], [ %57, %.thread ]
   %89 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %.13658
   %90 = load double, ptr %89, align 8, !tbaa !42
-  %91 = fsub double %10, %.23955
+  %91 = fsub double %10, %.033
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load double, ptr %92, align 8, !tbaa !40
   %94 = fdiv double %91, %93

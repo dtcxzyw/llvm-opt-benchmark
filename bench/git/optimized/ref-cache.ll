@@ -80,7 +80,7 @@ st_mult.exit:                                     ; preds = %6
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %37, label %39
 
-37:                                               ; preds = %28, %17
+37:; preds = %28, %17
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %20, ptr %38, align 8, !tbaa !16
   br label %39

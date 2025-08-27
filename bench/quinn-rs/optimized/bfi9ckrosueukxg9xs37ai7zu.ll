@@ -3865,7 +3865,7 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses12pop_off_p
 35:                                               ; preds = %3, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit", %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 2, ptr %36, align 8
-  br label %40
+  br label %41
 
 "_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %15, %28, %6, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
   store i64 %9, ptr %4, align 8
@@ -3887,9 +3887,9 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses12pop_off_p
   store i16 %.sroa.11.0.copyload, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 38
   store i16 %.sroa.12.sroa.0.0.copyload, ptr %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx, align 2
-  br label %40
+  br label %41
 
-40:                                               ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %35
+41:                                               ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 }
@@ -3977,9 +3977,9 @@ define hidden { i64, i64 } @_ZN11quinn_proto10connection5paths13PathResponses11p
   %.sroa.4.1 = phi i64 [ %.sroa.114.0.copyload, %34 ], [ undef, %14 ], [ undef, %27 ], [ undef, %5 ], [ undef, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ undef, %2 ]
   %.sroa.0.1 = phi i64 [ 1, %34 ], [ 0, %14 ], [ 0, %27 ], [ 0, %5 ], [ 0, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %38 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %39 = insertvalue { i64, i64 } %38, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %39
+  %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %40 = insertvalue { i64, i64 } %39, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable

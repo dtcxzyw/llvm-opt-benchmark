@@ -282,7 +282,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
 58:                                               ; preds = %.invoke171, %.invoke, %156, %124
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %165
+  br label %164
 
 60:                                               ; preds = %53, %40
   %.069 = phi i32 [ %57, %53 ], [ 0, %40 ]
@@ -370,7 +370,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
 88:                                               ; preds = %.split106.us
   %89 = landingpad { ptr, i32 }
           cleanup
-  br label %165
+  br label %164
 
 ._crit_edge110:                                   ; preds = %90, %.preheader
   store i32 562, ptr %30, align 8, !tbaa !16
@@ -534,7 +534,7 @@ _ZN8rawspeed10ByteStream11setPositionEj.exit:     ; preds = %._crit_edge110
 151:                                              ; preds = %.split.us
   %152 = landingpad { ptr, i32 }
           cleanup
-  br label %165
+  br label %164
 
 .loopexit:                                        ; preds = %146, %141, %118, %114
   %153 = load ptr, ptr %29, align 8, !tbaa !15
@@ -556,28 +556,28 @@ _ZN8rawspeed10ByteStream11setPositionEj.exit:     ; preds = %._crit_edge110
   %.not.i.i94 = icmp eq ptr %153, %163
   br i1 %.not.i.i94, label %_ZNSt6vectorItSaItEE6resizeEm.exit96, label %164
 
-164:                                              ; preds = %157
+164:; preds = %157
   store ptr %163, ptr %29, align 8, !tbaa !15
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit96
 
-165:                                              ; preds = %151, %88, %58
+164:                                              ; preds = %151, %88, %58
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %89, %88 ], [ %152, %151 ]
-  %166 = load ptr, ptr %0, align 8, !tbaa !6
-  %.not.i.i.i = icmp eq ptr %166, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %167
+  %165 = load ptr, ptr %0, align 8, !tbaa !6
+  %.not.i.i.i = icmp eq ptr %165, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %166
 
-167:                                              ; preds = %165
-  %168 = load ptr, ptr %17, align 8, !tbaa !12
-  %169 = ptrtoint ptr %168 to i64
-  %170 = ptrtoint ptr %166 to i64
-  %171 = sub i64 %169, %170
-  tail call void @_ZdlPvm(ptr noundef nonnull %166, i64 noundef %171) #25
+166:                                              ; preds = %164
+  %167 = load ptr, ptr %17, align 8, !tbaa !12
+  %168 = ptrtoint ptr %167 to i64
+  %169 = ptrtoint ptr %165 to i64
+  %170 = sub i64 %168, %169
+  tail call void @_ZdlPvm(ptr noundef nonnull %165, i64 noundef %170) #25
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
 _ZNSt6vectorItSaItEE6resizeEm.exit96:             ; preds = %164, %157, %156
   ret void
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %167, %165
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %166, %164
   resume { ptr, i32 } %.pn
 }
 

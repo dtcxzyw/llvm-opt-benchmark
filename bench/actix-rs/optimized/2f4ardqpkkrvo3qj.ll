@@ -3262,7 +3262,7 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %28 = icmp sgt i64 %12, 0
   br i1 %28, label %.lr.ph.i.preheader.us, label %.preheader17.split.split
 
-.lr.ph.i.preheader.us:                            ; preds = %.preheader17.split, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.us21
+.lr.ph.i.preheader.us:; preds = %.preheader17.split, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.us21
   %.01219.us20 = phi i16 [ %40, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.us21 ], [ %2, %.preheader17.split ]
   %29 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.01219.us20, i1 true)
   %30 = zext nneg i16 %29 to i64
@@ -3270,10 +3270,10 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %32 = getelementptr i8, ptr %31, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %12
+  %32 = getelementptr inbounds nuw i8, ptr %32, i64 %12
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader.us, %34
+.lr.ph.i.us:; preds = %.lr.ph.i.preheader.us, %34
   %.01730.i.us = phi ptr [ %36, %34 ], [ %8, %.lr.ph.i.preheader.us ]
   %.01829.i.us = phi ptr [ %35, %34 ], [ %32, %.lr.ph.i.preheader.us ]
   %.0.copyload.i.us = load i32, ptr %.01829.i.us, align 1, !alias.scope !451, !noalias !454
@@ -3281,13 +3281,13 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.not.i.us = icmp eq i32 %.0.copyload.i.us, %.0.copyload11.i.us
   br i1 %.not.i.us, label %34, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.us21
 
-34:                                               ; preds = %.lr.ph.i.us
+34:; preds = %.lr.ph.i.us
   %35 = getelementptr inbounds nuw i8, ptr %.01829.i.us, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %.01730.i.us, i64 4
   %37 = icmp ult ptr %35, %33
   br i1 %37, label %.lr.ph.i.us, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.loopexit.us
 
-_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.us21: ; preds = %.lr.ph.i.us, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.loopexit.us
+_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.us21:; preds = %.lr.ph.i.us, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.loopexit.us
   %38 = shl nuw i16 1, %29
   %39 = xor i16 %38, -1
   %40 = and i16 %.01219.us20, %39

@@ -443,10 +443,10 @@ define hidden void @_ZN4core6escape14escape_unicode17h0a9a83b7edb4e406E(ptr dead
   store i8 123, ptr %47, align 1
   %48 = trunc nuw nsw i64 %8 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) %3, i64 10, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 10, ptr %50, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %48, ptr %48, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  store i8 10, ptr %49, align 1
   ret void
 }
 

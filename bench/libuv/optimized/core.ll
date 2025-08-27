@@ -2163,12 +2163,12 @@ define dso_local range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly capt
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %30, label %5
+  br i1 %or.cond, label %31, label %5
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %1, align 8
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %30, label %8
+  br i1 %7, label %31, label %8
 
 8:                                                ; preds = %5
   %9 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #23
@@ -2203,7 +2203,7 @@ define dso_local range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly capt
 
 20:                                               ; preds = %16
   %21 = icmp ugt i64 %17, 1
-  br i1 %21, label %22, label %27
+  br i1 %21, label %22, label %28
 
 22:                                               ; preds = %20
   %23 = add i64 %17, -1
@@ -2213,21 +2213,21 @@ define dso_local range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly capt
   %spec.select = select i1 %26, i64 %23, i64 %17
   br label %27
 
-27:                                               ; preds = %22, %20
+28:                                               ; preds = %22, %20
   %.0 = phi i64 [ %17, %20 ], [ %spec.select, %22 ]
-  %28 = add nuw i64 %.0, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %.024, i64 %28, i1 false)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
-  store i8 0, ptr %29, align 1
+  %29 = add nuw i64 %.0, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %.024, i64 %29, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
+  store i8 0, ptr %30, align 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %18, %27
+.sink.split:                                      ; preds = %18, %28
   %.0.sink = phi i64 [ %.0, %27 ], [ %19, %18 ]
   %.025.ph = phi i32 [ 0, %27 ], [ -105, %18 ]
   store i64 %.0.sink, ptr %1, align 8
-  br label %30
+  br label %31
 
-30:                                               ; preds = %.sink.split, %2, %5
+31:                                               ; preds = %.sink.split, %2, %5
   %.025 = phi i32 [ -22, %5 ], [ -22, %2 ], [ %.025.ph, %.sink.split ]
   ret i32 %.025
 }

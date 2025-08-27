@@ -489,27 +489,27 @@ define ptr @diff_basename(ptr noundef readonly captures(address_is_null, ret: ad
   %.not = icmp eq i64 %.0, 0
   br i1 %.not, label %.critedge.preheader, label %6
 
-6:                                                ; preds = %5
+6:; preds = %5
   %7 = add i64 %.0, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !9
   %10 = icmp eq i8 %9, 47
   br i1 %10, label %5, label %.critedge.preheader, !llvm.loop !10
 
-.critedge.preheader:                              ; preds = %5, %6
+.critedge.preheader:; preds = %5, %6
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.preheader, %11
+.critedge:; preds = %.critedge.preheader, %11
   %.1 = phi i64 [ %12, %11 ], [ %.0, %.critedge.preheader ]
   %.not16 = icmp eq i64 %.1, 0
   br i1 %.not16, label %.critedge2, label %11
 
-11:                                               ; preds = %.critedge
+11:; preds = %.critedge
   %12 = add i64 %.1, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !9
-  %.not17 = icmp eq i8 %14, 47
-  br i1 %.not17, label %.critedge2, label %.critedge, !llvm.loop !11
+  %.not16 = icmp eq i8 %14, 47
+  br i1 %.not16, label %.critedge2, label %.critedge, !llvm.loop !11
 
 .critedge2:                                       ; preds = %.critedge, %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.1

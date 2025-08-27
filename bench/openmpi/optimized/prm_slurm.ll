@@ -20,12 +20,12 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   store i32 -1, ptr %0, align 4, !tbaa !3
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #7
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %52, label %6
+  br i1 %5, label %49, label %6
 
 6:                                                ; preds = %1
   %7 = call i32 (ptr, ptr, ...) @pmix_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #7
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %52, label %9
+  br i1 %8, label %49, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %3, align 8, !tbaa !7
@@ -36,7 +36,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
 13:                                               ; preds = %9
   %14 = load ptr, ptr %3, align 8, !tbaa !7
   call void @free(ptr noundef %14) #7
-  br label %52
+  br label %49
 
 15:                                               ; preds = %9
   %16 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef nonnull %11)
@@ -44,7 +44,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   %18 = load ptr, ptr %3, align 8, !tbaa !7
   call void @free(ptr noundef %18) #7
   %19 = call i32 @pclose(ptr noundef nonnull %11)
-  br i1 %17, label %52, label %20
+  br i1 %17, label %49, label %20
 
 20:                                               ; preds = %15
   %21 = call ptr @PMIx_Argv_split(ptr noundef nonnull %2, i32 noundef 58) #7
@@ -65,9 +65,9 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   %34 = mul nsw i64 %33, 60
   %35 = add i64 %34, %27
   %.not = icmp eq i32 %22, 2
-  br i1 %.not, label %.thread32, label %36
+  br i1 %.not, label %.thread32, label %35
 
-36:                                               ; preds = %29
+35:                                               ; preds = %29
   %37 = add nsw i64 %23, -3
   %38 = getelementptr inbounds nuw ptr, ptr %21, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !7
@@ -77,7 +77,7 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   %43 = icmp ugt i32 %22, 3
   br i1 %43, label %44, label %.thread32
 
-44:                                               ; preds = %36
+44:; preds = %36
   %45 = add nsw i64 %23, -4
   %46 = getelementptr inbounds nuw ptr, ptr %21, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !7
@@ -86,16 +86,16 @@ define internal range(i32 -1366, 1) i32 @get_remaining_time(ptr noundef writeonl
   %50 = add i64 %49, %42
   br label %.thread32
 
-.thread32:                                        ; preds = %20, %29, %44, %36
+.thread32:                                        ; preds = %20, %29, %44, %35
   %.2.in = phi i64 [ %50, %44 ], [ %42, %36 ], [ %35, %29 ], [ %27, %20 ]
   %.2 = trunc i64 %.2.in to i32
-  %51 = icmp ugt i32 %22, 4
-  %spec.select = select i1 %51, i32 -1, i32 %.2
+  %48 = icmp ugt i32 %22, 4
+  %spec.select = select i1 %48, i32 -1, i32 %.2
   call void @PMIx_Argv_free(ptr noundef nonnull %21) #7
   store i32 %spec.select, ptr %0, align 4, !tbaa !3
-  br label %52
+  br label %49
 
-52:                                               ; preds = %15, %6, %1, %.thread32, %13
+49:                                               ; preds = %15, %6, %1, %.thread32, %13
   %.0 = phi i32 [ -67, %13 ], [ 0, %.thread32 ], [ -1366, %1 ], [ -29, %6 ], [ -68, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

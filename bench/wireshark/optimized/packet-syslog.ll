@@ -786,26 +786,26 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %32 = add i32 %31, %.152
   %33 = mul i32 %.03753, 10
   %.not42.wide = icmp eq i64 %26, 0
-  br i1 %.not42.wide, label %34, label %25, !llvm.loop !9
+  br i1 %.not42.wide, label %36, label %25, !llvm.loop !9
 
-34:                                               ; preds = %25
+35:                                               ; preds = %25
   %.not43 = icmp eq i32 %32, 0
-  br i1 %.not43, label %.thread48, label %35
+  br i1 %.not43, label %.thread48, label %36
 
-35:                                               ; preds = %34
-  %36 = add nuw nsw i32 %.040, 1
-  %37 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %36)
-  br i1 %37, label %38, label %.thread48
+36:                                               ; preds = %35
+  %37 = add nuw nsw i32 %.040, 1
+  %38 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %2, i32 noundef %37)
+  br i1 %38, label %39, label %.thread48
 
-38:                                               ; preds = %35
-  %39 = add i32 %.040, %2
-  %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %39)
-  %41 = icmp eq i8 %40, 32
-  %42 = add i32 %36, %32
-  %spec.select = select i1 %41, i32 %42, i32 0
+39:                                               ; preds = %36
+  %40 = add i32 %.040, %2
+  %41 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %40)
+  %42 = icmp eq i8 %41, 32
+  %43 = add i32 %37, %32
+  %spec.select = select i1 %42, i32 %43, i32 0
   br label %.thread48
 
-.thread48:                                        ; preds = %17, %38, %.thread, %34, %35
+.thread48:                                        ; preds = %17, %39, %.thread, %35, %36
   %.036 = phi i32 [ 0, %35 ], [ 0, %34 ], [ 0, %.thread ], [ %spec.select, %38 ], [ 0, %17 ]
   ret i32 %.036
 }

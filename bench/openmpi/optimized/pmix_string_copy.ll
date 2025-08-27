@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @pmix_string_copy(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %3
+.lr.ph:                                           ; preds = %3
   %4 = add i64 %2, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+.lr.ph:; preds = %.lr.ph, %7
   %.015 = phi ptr [ %10, %7 ], [ %0, %.lr.ph.preheader ]
   %.01014 = phi i64 [ %8, %7 ], [ 0, %.lr.ph.preheader ]
   %.01113 = phi ptr [ %9, %7 ], [ %1, %.lr.ph.preheader ]
@@ -21,7 +21,7 @@ define void @pmix_string_copy(ptr noundef nonnull writeonly captures(none) %0, p
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.loopexit, label %7
 
-7:                                                ; preds = %.lr.ph
+7:; preds = %.lr.ph
   %8 = add nuw i64 %.01014, 1
   %9 = getelementptr inbounds nuw i8, ptr %.01113, i64 1
   %10 = getelementptr inbounds nuw i8, ptr %.015, i64 1

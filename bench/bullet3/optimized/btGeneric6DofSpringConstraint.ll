@@ -204,8 +204,8 @@ define dso_local void @_ZN29btGeneric6DofSpringConstraint19setEquilibriumPointEi
   %3 = icmp slt i32 %1, 3
   br i1 %3, label %4, label %11
 
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+4:; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds float, ptr %5, i64 %6
   %8 = load float, ptr %7, align 4, !tbaa !13
@@ -214,7 +214,7 @@ define dso_local void @_ZN29btGeneric6DofSpringConstraint19setEquilibriumPointEi
   store float %8, ptr %10, align 4, !tbaa !13
   br label %20
 
-11:                                               ; preds = %2
+11:  ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %13 = add nsw i32 %1, -3
   %14 = zext nneg i32 %13 to i64

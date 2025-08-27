@@ -276,7 +276,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   %38 = icmp samesign ult i32 %37, %.0.i35
   br i1 %38, label %.lr.ph.preheader, label %.loopexit40
 
-.lr.ph.preheader:                                 ; preds = %33
+.lr.ph.preheader:; preds = %33
   %39 = zext nneg i32 %37 to i64
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
   br label %.lr.ph

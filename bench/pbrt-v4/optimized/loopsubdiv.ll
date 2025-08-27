@@ -4251,7 +4251,7 @@ _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_
   %.not.i41 = icmp eq ptr %62, null
   %63 = select i1 %.not.i41, ptr %56, ptr %62
   invoke void @_ZN4pbrt8SDVertex7oneRingEPNS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull %63)
-          to label %64 unwind label %98
+          to label %64 unwind label %97
 
 64:                                               ; preds = %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EmRKS6_.exit
   %.sroa.029.0.copyload = load <2 x float>, ptr %0, align 8
@@ -4271,62 +4271,62 @@ _ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_
   %.sroa.07.0.copyload = load <2 x float>, ptr %69, align 4
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.28.0.copyload = load float, ptr %.sroa.28.0..sroa_idx, align 4, !tbaa !81
-  br i1 %.not.i.i, label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit, label %70
+  br i1 %.not.i.i, label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit, label %69
 
-70:                                               ; preds = %64
-  %71 = load i64, ptr %49, align 8, !tbaa !146
-  %72 = mul i64 %71, 12
-  %73 = load ptr, ptr %3, align 8, !tbaa !149
-  %74 = load ptr, ptr %73, align 8, !tbaa !65
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load ptr, ptr %75, align 8
-  invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef nonnull %65, i64 noundef %72, i64 noundef 4)
-          to label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit unwind label %77
+69:                                               ; preds = %64
+  %70 = load i64, ptr %49, align 8, !tbaa !146
+  %71 = mul i64 %70, 12
+  %72 = load ptr, ptr %3, align 8, !tbaa !149
+  %73 = load ptr, ptr %72, align 8, !tbaa !65
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  %75 = load ptr, ptr %74, align 8
+  invoke void %76(ptr noundef nonnull align 8 dereferenceable(8) %72, ptr noundef nonnull %65, i64 noundef %71, i64 noundef 4)
+          to label %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit unwind label %76
 
-77:                                               ; preds = %70
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %69
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  tail call void @__clang_call_terminate(ptr %79) #23
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #23
   unreachable
 
-_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; preds = %64, %70
-  %80 = fmul float %1, %.sroa.28.0.copyload
-  %81 = fmul float %1, %.sroa.220.0.copyload
-  %82 = fmul float %1, 2.000000e+00
-  %83 = fsub float 1.000000e+00, %82
-  %84 = fmul float %83, %.sroa.230.0.copyload
-  %85 = fadd float %84, %81
-  %86 = fadd float %85, %80
+_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev.exit: ; preds = %64, %69
+  %79 = fmul float %1, %.sroa.28.0.copyload
+  %80 = fmul float %1, %.sroa.220.0.copyload
+  %81 = fmul float %1, 2.000000e+00
+  %82 = fsub float 1.000000e+00, %81
+  %83 = fmul float %82, %.sroa.230.0.copyload
+  %84 = fadd float %83, %80
+  %85 = fadd float %84, %79
   %.sroa.0.4.vec.extract.i50 = extractelement <2 x float> %.sroa.07.0.copyload, i64 1
-  %87 = fmul float %1, %.sroa.0.4.vec.extract.i50
+  %86 = fmul float %1, %.sroa.0.4.vec.extract.i50
   %.sroa.0.4.vec.extract.i43 = extractelement <2 x float> %.sroa.019.0.copyload, i64 1
-  %88 = fmul float %1, %.sroa.0.4.vec.extract.i43
+  %87 = fmul float %1, %.sroa.0.4.vec.extract.i43
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.029.0.copyload, i64 1
-  %89 = fmul float %83, %.sroa.0.4.vec.extract.i
-  %90 = fadd float %89, %88
-  %91 = fadd float %90, %87
+  %88 = fmul float %82, %.sroa.0.4.vec.extract.i
+  %89 = fadd float %88, %87
+  %90 = fadd float %89, %86
   %.sroa.0.0.vec.extract.i49 = extractelement <2 x float> %.sroa.07.0.copyload, i64 0
-  %92 = fmul float %1, %.sroa.0.0.vec.extract.i49
+  %91 = fmul float %1, %.sroa.0.0.vec.extract.i49
   %.sroa.0.0.vec.extract.i42 = extractelement <2 x float> %.sroa.019.0.copyload, i64 0
-  %93 = fmul float %1, %.sroa.0.0.vec.extract.i42
+  %92 = fmul float %1, %.sroa.0.0.vec.extract.i42
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.029.0.copyload, i64 0
-  %94 = fmul float %83, %.sroa.0.0.vec.extract.i
-  %95 = fadd float %94, %93
-  %96 = fadd float %95, %92
-  %97 = insertelement <2 x float> poison, float %96, i64 0
-  %.sroa.058.4.vec.insert69 = insertelement <2 x float> %97, float %91, i64 1
+  %93 = fmul float %82, %.sroa.0.0.vec.extract.i
+  %94 = fadd float %93, %92
+  %95 = fadd float %94, %91
+  %96 = insertelement <2 x float> poison, float %95, i64 0
+  %.sroa.058.4.vec.insert69 = insertelement <2 x float> %96, float %90, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.058.4.vec.insert69, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %86, 1
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %85, 1
   ret { <2 x float>, float } %.fca.1.insert
 
-98:                                               ; preds = %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EmRKS6_.exit
-  %99 = landingpad { ptr, i32 }
+97:                                               ; preds = %_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEEC2EmRKS6_.exit
+  %98 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pbrt13InlinedVectorINS_6Point3IfEELi16EN4pstd3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %99
+  resume { ptr, i32 } %98
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

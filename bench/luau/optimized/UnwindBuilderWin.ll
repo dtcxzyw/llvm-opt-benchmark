@@ -218,15 +218,15 @@ define dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWin14finishFunctionEjj(ptr
 .lr.ph.preheader:                                 ; preds = %3
   %34 = ptrtoint ptr %32 to i64
   %35 = ptrtoint ptr %31 to i64
-  %reass.sub = sub i64 %34, %35
-  %36 = add i64 %reass.sub, -2
+  %36 = sub i64 %34, %35
+  %36 = add i64 %36, -2
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 %36
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %38 = phi ptr [ %44, %.lr.ph ], [ %31, %.lr.ph.preheader ]
   %.011 = phi i64 [ %42, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0910 = phi ptr [ %41, %.lr.ph ], [ %37, %.lr.ph.preheader ]
+  %.pn10 = phi ptr [ %41, %.lr.ph ], [ %37, %.lr.ph.preheader ]
   %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %38, i64 %.011
   %40 = load i16, ptr %39, align 1
   store i16 %40, ptr %.0910, align 1
@@ -247,10 +247,10 @@ define dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWin14finishFunctionEjj(ptr
 
 .loopexit:                                        ; preds = %3, %.loopexit.loopexit
   %.pre-phi17 = phi i64 [ %47, %.loopexit.loopexit ], [ 0, %3 ]
-  %50 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %30, %3 ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.pre-phi17
-  %52 = and i64 %.pre-phi17, 2
-  %spec.select = getelementptr inbounds nuw i8, ptr %51, i64 %52
+  %49 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %30, %3 ]
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.pre-phi17
+  %51 = and i64 %.pre-phi17, 2
+  %spec.select = getelementptr inbounds nuw i8, ptr %50, i64 %51
   store ptr %spec.select, ptr %27, align 8, !tbaa !24
   ret void
 }

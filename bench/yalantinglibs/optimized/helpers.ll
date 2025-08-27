@@ -876,7 +876,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_trait
           to label %return unwind label %lpad
 
 lpad:                                             ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %2 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -899,7 +899,7 @@ _ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_trai
           to label %return unwind label %lpad14
 
 lpad14:                                           ; preds = %_ZN9struct_pb8compiler19string_strip_suffixESt17basic_string_viewIcSt11char_traitsIcEES4_.exit28
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
@@ -910,7 +910,7 @@ return:                                           ; preds = %_ZN9struct_pb8compi
 
 eh.resume:                                        ; preds = %lpad14, %lpad
   %ref.tmp13.sink35 = phi ptr [ %ref.tmp13, %lpad14 ], [ %ref.tmp7, %lpad ]
-  %.pn = phi { ptr, i32 } [ %3, %lpad14 ], [ %2, %lpad ]
+  %.pn = phi { ptr, i32 } [ %4, %lpad14 ], [ %3, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.sink35) #20
   resume { ptr, i32 } %.pn
 }

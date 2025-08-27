@@ -464,7 +464,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %28, %_ZNK5Ipopt16De
   store double %101, ptr %99, align 8, !tbaa !58
   br label %102
 
-102:                                              ; preds = %94, %.lr.ph
+102:; preds = %94, %.lr.ph
   %103 = getelementptr inbounds nuw i8, ptr %.15360, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %.162, i64 4
   %105 = getelementptr inbounds nuw i8, ptr %.15161, i64 4

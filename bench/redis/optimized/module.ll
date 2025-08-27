@@ -23307,7 +23307,7 @@ define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr noundef capt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !372
   %.not = icmp sgt i32 %11, %7
-  %.pre27.pre = load ptr, ptr %0, align 8, !tbaa !370
+  %.pre28.pre = load ptr, ptr %0, align 8, !tbaa !370
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %9
@@ -23315,13 +23315,13 @@ define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr noundef capt
   store i32 %13, ptr %10, align 8, !tbaa !372
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %16 = tail call ptr @zrealloc(ptr noundef %.pre27.pre, i64 noundef %15) #37
+  %16 = tail call ptr @zrealloc(ptr noundef %.pre28.pre, i64 noundef %15) #37
   store ptr %16, ptr %0, align 8, !tbaa !370
   %.pre = load i32, ptr %6, align 4, !tbaa !373
   br label %17
 
 17:                                               ; preds = %12, %9
-  %.pre27 = phi ptr [ %16, %12 ], [ %.pre27.pre, %9 ]
+  %.pre28 = phi ptr [ %16, %12 ], [ %.pre28.pre, %9 ]
   %18 = phi i32 [ %.pre, %12 ], [ %7, %9 ]
   %19 = icmp sgt i32 %18, %1
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -23333,14 +23333,14 @@ define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr noundef capt
   %22 = getelementptr inbounds nuw ptr, ptr %.pre27, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !141
   %24 = zext nneg i32 %.026 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %.pre27, i64 %24
-  store ptr %23, ptr %25, align 8, !tbaa !141
+  %23 = getelementptr inbounds nuw ptr, ptr %.pre28, i64 %24
+  store ptr %23, ptr %23, align 8, !tbaa !141
   %26 = icmp samesign ugt i32 %20, %1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !572
 
-._crit_edge:                                      ; preds = %.lr.ph, %17
+._crit_edge:; preds = %.lr.ph, %17
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.pre27, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %.pre28, i64 %27
   store ptr %2, ptr %28, align 8, !tbaa !141
   %29 = add nsw i32 %18, 1
   store i32 %29, ptr %6, align 4, !tbaa !373

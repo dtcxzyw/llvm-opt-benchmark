@@ -2356,18 +2356,18 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb2af90c6051b3152E.exit.i": ; preds = %8, %5, %3
   %.0.i.i = phi i1 [ %11, %8 ], [ false, %5 ], [ false, %3 ]
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i32, ptr %12, align 4, !noalias !614, !noundef !8
-  %14 = add i32 %13, -1
-  store i32 %14, ptr %12, align 4, !noalias !614
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hbf66af7358c7a91cE.exit"
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %14 = load i32, ptr %13, align 4, !noalias !614, !noundef !8
+  %15 = add i32 %14, -1
+  store i32 %15, ptr %13, align 4, !noalias !614
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %17, label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hbf66af7358c7a91cE.exit"
 
-16:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb2af90c6051b3152E.exit.i"
+17:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb2af90c6051b3152E.exit.i"
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %0), !noalias !614
   br label %"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hbf66af7358c7a91cE.exit"
 
-"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hbf66af7358c7a91cE.exit": ; preds = %16, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb2af90c6051b3152E.exit.i", %1
+"_ZN14ide_completion7context8analysis17classify_name_ref28_$u7b$$u7b$closure$u7d$$u7d$17hbf66af7358c7a91cE.exit": ; preds = %17, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb2af90c6051b3152E.exit.i", %1
   %.0 = phi i1 [ false, %1 ], [ %.0.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17hb2af90c6051b3152E.exit.i" ], [ %.0.i.i, %16 ]
   ret i1 %.0
 }

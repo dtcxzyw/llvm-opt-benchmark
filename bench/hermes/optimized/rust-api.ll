@@ -4590,8 +4590,8 @@ _ZN12_GLOBAL__N_113ParserContextC2Ev.exit:        ; preds = %_ZN4llvh13SmallDens
 lor.lhs.false:                                    ; preds = %_ZN12_GLOBAL__N_113ParserContextC2Ev.exit
   %sub = add i64 %len, -1
   %arrayidx = getelementptr inbounds i8, ptr %source, i64 %sub
-  %13 = load i8, ptr %arrayidx, align 1
-  %cmp5.not = icmp eq i8 %13, 0
+  %14 = load i8, ptr %arrayidx, align 1
+  %cmp5.not = icmp eq i8 %14, 0
   br i1 %cmp5.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %_ZN12_GLOBAL__N_113ParserContextC2Ev.exit
@@ -4608,19 +4608,19 @@ if.then:                                          ; preds = %lor.lhs.false, %_ZN
 
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i24)
-  %14 = load ptr, ptr %sm_.i.i, align 8
+  %15 = load ptr, ptr %sm_.i.i, align 8
   call void @_ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr nonnull sret(%"class.std::unique_ptr.155") align 8 %agg.tmp.i24, ptr nonnull %source, i64 %sub, ptr nonnull @.str.6, i64 10, i1 noundef zeroext true) #17
   %call5.i = call noundef i32 @_ZN6hermes18SourceErrorManager18addNewSourceBufferESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(464) %14, ptr noundef nonnull %agg.tmp.i24) #17
   store i32 %call5.i, ptr %bufId_.i, align 8
-  %15 = load ptr, ptr %agg.tmp.i24, align 8
-  %cmp.not.i.i27 = icmp eq ptr %15, null
+  %16 = load ptr, ptr %agg.tmp.i24, align 8
+  %cmp.not.i.i27 = icmp eq ptr %16, null
   br i1 %cmp.not.i.i27, label %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit, label %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i: ; preds = %if.end
-  %vtable.i.i.i = load ptr, ptr %15, align 8
+  %vtable.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %16 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
+  %17 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
   br label %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit
 
 _ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit: ; preds = %if.end, %_ZNKSt14default_deleteIN4llvh12MemoryBufferEEclEPS1_.exit.i.i
@@ -4630,24 +4630,24 @@ _ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit: ; preds
   %parseFlow_.i = getelementptr inbounds nuw i8, ptr %call, i64 188
   store i32 0, ptr %parseFlow_.i, align 4
   %cmp13 = icmp eq i8 %flags.sroa.3.0.extract.trunc, 3
-  %17 = and i32 %flags.coerce, 16777216
-  %tobool15 = icmp ne i32 %17, 0
+  %18 = and i32 %flags.coerce, 16777216
+  %tobool15 = icmp ne i32 %18, 0
   %or.cond = select i1 %cmp13, i1 true, i1 %tobool15
   br i1 %or.cond, label %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit, label %if.end22
 
 _ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit: ; preds = %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit
   %call19.val = load i32, ptr %bufId_.i, align 8
   call void @_ZN6hermes6parser21getCommentsInDocBlockERNS_7ContextEj(ptr nonnull sret(%"class.std::vector.48") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(656) %call, i32 noundef %call19.val) #17
-  %18 = load ptr, ptr %ref.tmp, align 8
+  %19 = load ptr, ptr %ref.tmp, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %19 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
+  %20 = load ptr, ptr %_M_finish.i2.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
-  %20 = ptrtoint ptr %19 to i64
+  %21 = ptrtoint ptr %20 to i64
   br label %if.end22
 
 if.end22:                                         ; preds = %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit, %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit
-  %comments.sroa.6.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit ], [ %20, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit ]
-  %comments.sroa.0.0 = phi ptr [ null, %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit ], [ %18, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit ]
+  %comments.sroa.6.0 = phi i64 [ 0, %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit ], [ %21, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit ]
+  %comments.sroa.0.0 = phi ptr [ null, %_ZN12_GLOBAL__N_113ParserContext14setInputBufferEN4llvh9StringRefE.exit ], [ %19, %_ZNSt6vectorIN6hermes6parser13StoredCommentESaIS2_EEaSEOS4_.exit ]
   switch i8 %flags.sroa.3.0.extract.trunc, label %sw.epilog [
     i8 4, label %sw.bb35
     i8 1, label %sw.bb24
@@ -4689,17 +4689,17 @@ if.then40:                                        ; preds = %sw.epilog
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then40, %sw.epilog
-  %21 = load i32, ptr %bufId_.i, align 8
-  call void @_ZN6hermes6parser8JSParserC1ERNS_7ContextEjNS0_10ParserPassE(ptr noundef nonnull align 8 dereferenceable(8) %parser, ptr noundef nonnull align 8 dereferenceable(656) %call, i32 noundef %21, i32 noundef 2) #17
+  %22 = load i32, ptr %bufId_.i, align 8
+  call void @_ZN6hermes6parser8JSParserC1ERNS_7ContextEjNS0_10ParserPassE(ptr noundef nonnull align 8 dereferenceable(8) %parser, ptr noundef nonnull align 8 dereferenceable(656) %call, i32 noundef %22, i32 noundef 2) #17
   %call49 = call { i64, i8 } @_ZN6hermes6parser8JSParser5parseEv(ptr noundef nonnull align 8 dereferenceable(8) %parser) #17
-  %22 = extractvalue { i64, i8 } %call49, 0
-  %23 = load i8, ptr %hasVal.i.i.i, align 8
-  %tobool.i = trunc i8 %23 to i1
+  %23 = extractvalue { i64, i8 } %call49, 0
+  %24 = load i8, ptr %hasVal.i.i.i, align 8
+  %tobool.i = trunc i8 %24 to i1
   br i1 %tobool.i, label %if.end59, label %if.then52
 
 if.then52:                                        ; preds = %if.end45
-  %24 = extractvalue { i64, i8 } %call49, 1
-  %tobool.i40 = trunc i8 %24 to i1
+  %25 = extractvalue { i64, i8 } %call49, 1
+  %tobool.i40 = trunc i8 %25 to i1
   br i1 %tobool.i40, label %if.else, label %if.then54
 
 if.then54:                                        ; preds = %if.then52
@@ -4715,8 +4715,8 @@ if.then54:                                        ; preds = %if.then52
   br label %if.end59
 
 if.else:                                          ; preds = %if.then52
-  %25 = inttoptr i64 %22 to ptr
-  store ptr %25, ptr %ast_.i, align 8
+  %26 = inttoptr i64 %23 to ptr
+  store ptr %26, ptr %ast_.i, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then54, %if.else, %if.end45

@@ -745,7 +745,7 @@ define dso_local void @ewah_set(ptr noundef captures(none) %0, i64 noundef %1) l
   %17 = and i64 %1, 63
   %18 = shl nuw i64 1, %17
   %19 = tail call fastcc i64 @add_literal(ptr noundef nonnull %0, i64 noundef %18)
-  br label %53
+  br label %55
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -763,7 +763,7 @@ define dso_local void @ewah_set(ptr noundef captures(none) %0, i64 noundef %1) l
   %29 = and i64 %1, 63
   %30 = shl nuw i64 1, %29
   %31 = tail call fastcc i64 @add_literal(ptr noundef nonnull %0, i64 noundef %30)
-  br label %53
+  br label %55
 
 32:                                               ; preds = %20
   %33 = and i64 %1, 63
@@ -781,21 +781,21 @@ define dso_local void @ewah_set(ptr noundef captures(none) %0, i64 noundef %1) l
   %44 = getelementptr inbounds nuw i64, ptr %35, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = icmp eq i64 %45, -1
-  br i1 %46, label %47, label %53
+  br i1 %46, label %47, label %55
 
 47:                                               ; preds = %32
   store i64 %43, ptr %36, align 8, !tbaa !13
   store i64 0, ptr %44, align 8, !tbaa !12
   %.val24 = load i64, ptr %22, align 8, !tbaa !12
-  %48 = or i64 %.val24, -8589934592
-  %49 = or i64 %.val24, 8589934591
-  %50 = add i64 %49, -8589934592
-  %51 = and i64 %50, %48
-  store i64 %51, ptr %22, align 8, !tbaa !12
-  %52 = tail call fastcc i64 @add_empty_word(ptr noundef nonnull %0, i32 noundef 1)
-  br label %53
+  %50 = or i64 %.val24, -8589934592
+  %51 = or i64 %.val24, 8589934591
+  %52 = add i64 %51, -8589934592
+  %53 = and i64 %52, %50
+  store i64 %53, ptr %22, align 8, !tbaa !12
+  %54 = tail call fastcc i64 @add_empty_word(ptr noundef nonnull %0, i32 noundef 1)
+  br label %55
 
-53:                                               ; preds = %32, %47, %24, %16
+55:                                               ; preds = %32, %47, %24, %16
   ret void
 }
 

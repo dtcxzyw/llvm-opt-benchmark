@@ -32511,7 +32511,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !861
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %186, label %13
+  br i1 %.not.i, label %184, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -32857,18 +32857,18 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
   %157 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %149, i64 %156
   %158 = add nsw i64 %155, -1
   %159 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %149, i64 %158
-  br i1 %6, label %168, label %173
+  br i1 %6, label %164, label %173
 
-160:                                              ; preds = %.lr.ph, %166
+160: ; preds = %.lr.ph, %166
   %.sroa.077.086 = phi ptr [ %149, %.lr.ph ], [ %167, %166 ]
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 16
   %162 = load i8, ptr %161, align 8, !tbaa !905, !range !235, !noundef !236
   %163 = trunc nuw i8 %162 to i1
   br i1 %163, label %166, label %164
 
-164:                                              ; preds = %160
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 8
-  store ptr %1, ptr %165, align 8, !tbaa !676
+162:                                              ; preds = %160
+  %163 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 8
+  store ptr %1, ptr %163, align 8, !tbaa !676
   store i64 %.cast, ptr %.sroa.077.086, align 8, !tbaa !676
   br label %166
 
@@ -32877,8 +32877,8 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
   %.not82 = icmp eq ptr %167, %151
   br i1 %.not82, label %._crit_edge, label %160
 
-168:                                              ; preds = %._crit_edge
-  %169 = getelementptr inbounds nuw i8, ptr %157, i64 16
+164:                                              ; preds = %._crit_edge
+  %165 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i8 0, ptr %169, align 8, !tbaa !905
   store ptr %0, ptr %157, align 8, !tbaa !676
   %170 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -32890,11 +32890,11 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
   store ptr %1, ptr %172, align 8, !tbaa !676
   br label %186
 
-173:                                              ; preds = %._crit_edge
+173: ; preds = %._crit_edge
   store ptr %0, ptr %157, align 8, !tbaa !676
-  %174 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %175 = load i64, ptr %149, align 8, !tbaa !676
-  store i64 %175, ptr %174, align 8, !tbaa !676
+  store i64 %175, ptr %175, align 8, !tbaa !676
   %.cast83 = inttoptr i64 %175 to ptr
   %176 = icmp ne ptr %0, %.cast83
   %177 = getelementptr inbounds nuw i8, ptr %157, i64 16
@@ -32914,9 +32914,9 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
 
 185:                                              ; preds = %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EED2Ev.exit, %147
   call void @_ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE25_M_establish_failed_matchESA_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %1)
-  br label %186
+  br label %184
 
-186:                                              ; preds = %185, %173, %168, %7
+184:                                              ; preds = %185, %173, %168, %7
   %.0 = phi i1 [ false, %7 ], [ true, %168 ], [ true, %173 ], [ false, %185 ]
   ret i1 %.0
 }

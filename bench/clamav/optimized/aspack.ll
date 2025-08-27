@@ -630,12 +630,12 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
 
 .critedge211:                                     ; preds = %.loopexit, %82, %89, %92, %94, %63, %105, %decomp_block.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #11
-  %286 = load ptr, ptr %26, align 8, !tbaa !3
-  tail call void @free(ptr noundef %286) #11
+  %285 = load ptr, ptr %26, align 8, !tbaa !3
+  tail call void @free(ptr noundef %285) #11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #11
   br label %320
 
-287:                                              ; preds = %.critedge
+286:                                              ; preds = %.critedge
   %288 = add nsw i32 %284, -2
   %289 = zext nneg i32 %288 to i64
   %290 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %289
@@ -643,7 +643,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   %292 = icmp eq i32 %4, %291
   br i1 %292, label %293, label %299
 
-293:                                              ; preds = %287
+293:                                              ; preds = %286
   %294 = add nsw i32 %284, -1
   %295 = zext nneg i32 %294 to i64
   %296 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %295, i32 3
@@ -653,7 +653,7 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   %spec.select = select i1 %.not204, i16 %298, i16 %3
   br label %299
 
-299:                                              ; preds = %293, %287, %.critedge
+299:                                              ; preds = %293, %286, %.critedge
   %.0162 = phi i16 [ %3, %287 ], [ %3, %.critedge ], [ %spec.select, %293 ]
   %300 = zext i16 %.0162 to i64
   %301 = mul nuw nsw i64 %300, 36
@@ -1455,7 +1455,7 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
   %.not50 = icmp ult i32 %80, %84
   br i1 %.not50, label %85, label %readstream.exit
 
-85:                                               ; preds = %67
+85:; preds = %67
   %86 = load ptr, ptr %82, align 8, !tbaa !3
   %87 = zext i32 %80 to i64
   %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87

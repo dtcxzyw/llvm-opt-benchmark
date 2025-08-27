@@ -3924,14 +3924,14 @@ _ZN2cv3MataSERKNS_7MatExprE.exit208:              ; preds = %243
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us231
   %indvars.iv289 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next290, %._crit_edge.us231 ]
   %282 = mul i64 %275, %indvars.iv289
-  %283 = getelementptr inbounds nuw i8, ptr %272, i64 %282
-  %284 = load float, ptr %283, align 4, !tbaa !20
+  %scevgep = getelementptr inbounds nuw i8, ptr %272, i64 %282
+  %284 = load float, ptr %scevgep, align 4, !tbaa !20
   %285 = mul i64 %280, %indvars.iv289
   %286 = getelementptr inbounds nuw i8, ptr %277, i64 %285
   store float %284, ptr %286, align 4, !tbaa !20
   br label %287
 
-287:                                              ; preds = %.lr.ph.us, %287
+287:; preds = %.lr.ph.us, %287
   %288 = phi float [ %284, %.lr.ph.us ], [ %291, %287 ]
   %indvars.iv284 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next285, %287 ]
   %289 = getelementptr inbounds nuw float, ptr %283, i64 %indvars.iv284

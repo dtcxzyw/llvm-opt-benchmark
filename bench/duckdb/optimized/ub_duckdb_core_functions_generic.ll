@@ -19388,7 +19388,7 @@ _ZN6duckdb6vectorINS_13PrimitiveTypeIlEELb1EE3getILb1EEERS2_m.exit: ; preds = %1
   %27 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveType", ptr %4, i64 %26
   ret ptr %27
 
-28:                                               ; preds = %11
+27:                                               ; preds = %11
   unreachable
 }
 
@@ -19955,7 +19955,7 @@ _ZN6duckdb6vectorINS_13PrimitiveTypeIdEELb1EE3getILb1EEERS2_m.exit: ; preds = %1
   %27 = getelementptr inbounds nuw %"struct.duckdb::PrimitiveType.510", ptr %4, i64 %26
   ret ptr %27
 
-28:                                               ; preds = %11
+27:                                               ; preds = %11
   unreachable
 }
 

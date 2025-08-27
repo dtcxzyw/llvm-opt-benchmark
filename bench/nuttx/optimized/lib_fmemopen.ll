@@ -207,7 +207,7 @@ define internal i64 @fmemopen_write(ptr noundef captures(none) %0, ptr noundef r
   %.not = icmp eq i8 %30, 0
   br i1 %.not, label %33, label %31
 
-31:                                               ; preds = %25
+31:  ; preds = %25
   %32 = getelementptr inbounds i8, ptr %26, i64 %22
   store i8 0, ptr %32, align 1
   br label %33

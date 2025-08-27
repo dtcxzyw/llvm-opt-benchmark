@@ -9466,7 +9466,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   %89 = load ptr, ptr %38, align 8
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %.0.lcssa.i.i
   store ptr %47, ptr %90, align 8
-  br label %138
+  br label %137
 
 91:                                               ; preds = %65, %59, %41
   %92 = getelementptr inbounds nuw i8, ptr %47, i64 112
@@ -9480,16 +9480,16 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   br label %94
 
 94:                                               ; preds = %132, %.lr.ph.i24.i
-  %95 = phi i64 [ %45, %.lr.ph.i24.i ], [ %135, %132 ]
-  %.049.i.i = phi i64 [ %.045.i.i, %.lr.ph.i24.i ], [ %.0.i.i, %132 ]
-  %.0.in48.i.i = phi i64 [ %.0.in44.i.i, %.lr.ph.i24.i ], [ %.0.in.i.i, %132 ]
+  %95 = phi i64 [ %45, %.lr.ph.i24.i ], [ %134, %132 ]
+  %.048.i.i = phi i64 [ %.045.i.i, %.lr.ph.i24.i ], [ %.0.i.i, %132 ]
+  %.03747.i.i = phi i64 [ %.0.in44.i.i, %.lr.ph.i24.i ], [ %.0.in.i.i, %132 ]
   %.03747.i.i = phi i64 [ %48, %.lr.ph.i24.i ], [ %118, %132 ]
   %96 = icmp eq i64 %.049.i.i, %95
   %.pre.i.i = load ptr, ptr %38, align 8
   br i1 %96, label %117, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.049.i.i
+  %98 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.048.i.i
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
   %101 = load i64, ptr %100, align 8
@@ -9501,7 +9501,7 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   %107 = icmp eq i64 %101, %106
   br i1 %107, label %108, label %114
 
-108:                                              ; preds = %97
+108: ; preds = %97
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 112
   %110 = load i64, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 112
@@ -9509,46 +9509,46 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   %113 = icmp sgt i64 %110, %112
   br label %116
 
-114:                                              ; preds = %97
+115:                                              ; preds = %97
   %115 = icmp sgt i64 %101, %106
   br label %116
 
-116:                                              ; preds = %114, %108
-  %.in.i25.i = phi i1 [ %113, %108 ], [ %115, %114 ]
-  %.neg.i.i = sext i1 %.in.i25.i to i64
+116:                                              ; preds = %115, %108
+  %.neg43.i.i = phi i1 [ %113, %108 ], [ %115, %114 ]
+  %.neg.i.i = sext i1 %.neg43.i.i to i64
   br label %117
 
-117:                                              ; preds = %116, %94
+117:  ; preds = %116, %94
   %.neg43.i.i = phi i64 [ -1, %94 ], [ %.neg.i.i, %116 ]
   %118 = add i64 %.neg43.i.i, %.049.i.i
   %119 = load i64, ptr %93, align 8
   %120 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %118
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 104
-  %123 = load i64, ptr %122, align 8
+  %125 = load i64, ptr %122, align 8
   %124 = icmp eq i64 %119, %123
   br i1 %124, label %125, label %130
 
-125:                                              ; preds = %117
+125:; preds = %117
   %126 = load i64, ptr %92, align 8
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 112
   %128 = load i64, ptr %127, align 8
   %129 = icmp sgt i64 %126, %128
   br i1 %129, label %132, label %min_heap_shift_down_.exit.i
 
-130:                                              ; preds = %117
+130:      ; preds = %117
   %131 = icmp sgt i64 %119, %123
   br i1 %131, label %132, label %min_heap_shift_down_.exit.i
 
-132:                                              ; preds = %130, %125
+132:; preds = %130, %125
   %133 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %.03747.i.i
   store ptr %121, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store i64 %.03747.i.i, ptr %134, align 8
   %.0.in.i.i = shl i64 %118, 1
   %.0.i.i = add i64 %.0.in.i.i, 2
-  %135 = load i64, ptr %43, align 8
-  %.not.i26.i = icmp ugt i64 %.0.i.i, %135
+  %134 = load i64, ptr %43, align 8
+  %.not.i26.i = icmp ugt i64 %.0.i.i, %134
   br i1 %.not.i26.i, label %.min_heap_shift_down_.exit.loopexit_crit_edge.i, label %94, !llvm.loop !39
 
 .min_heap_shift_down_.exit.loopexit_crit_edge.i:  ; preds = %132
@@ -9556,20 +9556,20 @@ min_heap_shift_up_unconditional_.exit.i:          ; preds = %.backedge.i.i, %85,
   br label %min_heap_shift_down_.exit.i, !llvm.loop !39
 
 min_heap_shift_down_.exit.i:                      ; preds = %130, %125, %.min_heap_shift_down_.exit.loopexit_crit_edge.i, %91
-  %136 = phi ptr [ %42, %91 ], [ %.pre.pre.i, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.pre.i.i, %125 ], [ %.pre.i.i, %130 ]
+  %135 = phi ptr [ %42, %91 ], [ %.pre.pre.i, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.pre.i.i, %125 ], [ %.pre.i.i, %130 ]
   %.037.lcssa.i.i = phi i64 [ %48, %91 ], [ %118, %.min_heap_shift_down_.exit.loopexit_crit_edge.i ], [ %.03747.i.i, %125 ], [ %.03747.i.i, %130 ]
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %.037.lcssa.i.i
-  store ptr %47, ptr %137, align 8
-  br label %138
+  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %.037.lcssa.i.i
+  store ptr %47, ptr %136, align 8
+  br label %137
 
-138:                                              ; preds = %min_heap_shift_down_.exit.i, %min_heap_shift_up_unconditional_.exit.i
+137:                                              ; preds = %min_heap_shift_down_.exit.i, %min_heap_shift_up_unconditional_.exit.i
   %.037.lcssa.i.sink.i = phi i64 [ %.037.lcssa.i.i, %min_heap_shift_down_.exit.i ], [ %.0.lcssa.i.i, %min_heap_shift_up_unconditional_.exit.i ]
-  %139 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store i64 %.037.lcssa.i.sink.i, ptr %139, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  store i64 %.037.lcssa.i.sink.i, ptr %138, align 8
   store i64 -1, ptr %39, align 8
   br label %min_heap_erase_.exit
 
-min_heap_erase_.exit:                             ; preds = %138, %is_common_timeout.exit.thread, %35
+min_heap_erase_.exit:                             ; preds = %137, %is_common_timeout.exit.thread, %35
   ret void
 }
 

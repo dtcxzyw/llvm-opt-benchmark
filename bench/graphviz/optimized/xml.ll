@@ -303,15 +303,15 @@ default.unreachable:                              ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %16, ptr %6, align 1, !tbaa !3
   store i8 0, ptr %12, align 1, !tbaa !3
-  %132 = call i32 %2(ptr noundef %3, ptr noundef nonnull %6) #6
+  %133 = call i32 %2(ptr noundef %3, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %xml_core.exit
 
 xml_core.exit:                                    ; preds = %xml_isentity.exit.thread.i, %46, %48, %51, %56, %59, %61, %64, %67, %128, %.thread.i
   %.1 = phi ptr [ %17, %.thread.i ], [ %130, %128 ], [ %17, %59 ], [ %17, %61 ], [ %17, %64 ], [ %17, %67 ], [ %17, %56 ], [ %17, %xml_isentity.exit.thread.i ], [ %17, %46 ], [ %17, %48 ], [ %17, %51 ]
-  %.0.i = phi i32 [ %132, %.thread.i ], [ %131, %128 ], [ %60, %59 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %57, %56 ], [ %45, %xml_isentity.exit.thread.i ], [ %47, %46 ], [ %49, %48 ], [ %52, %51 ]
-  %133 = icmp sgt i32 %.0.i, -1
-  br i1 %133, label %13, label %xml_core.exit._crit_edge, !llvm.loop !6
+  %.0.i = phi i32 [ %133, %.thread.i ], [ %131, %128 ], [ %60, %59 ], [ %62, %61 ], [ %65, %64 ], [ %68, %67 ], [ %57, %56 ], [ %45, %xml_isentity.exit.thread.i ], [ %47, %46 ], [ %49, %48 ], [ %52, %51 ]
+  %134 = icmp sgt i32 %.0.i, -1
+  br i1 %134, label %13, label %xml_core.exit._crit_edge, !llvm.loop !6
 
 xml_core.exit._crit_edge:                         ; preds = %xml_core.exit
   br label %._crit_edge, !llvm.loop !6

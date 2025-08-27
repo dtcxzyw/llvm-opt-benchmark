@@ -7581,26 +7581,26 @@ declare i32 @diff_check_follow_pathspec(ptr noundef, i32 noundef) local_unnamed_
 define internal fastcc void @add_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %sext = shl i64 %3, 32
-  %4 = ashr exact i64 %sext, 32
-  br label %5
+  %5 = ashr exact i64 %sext, 32
+  br label %.lr.ph
 
-5:                                                ; preds = %7, %2
+.lr.ph:                                           ; preds = %7, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ %4, %2 ]
   %6 = icmp eq i64 %indvars.iv, 0
-  br i1 %6, label %.critedge, label %7
+  br i1 %6, label %.critedge, label %10
 
-7:                                                ; preds = %5
+10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %9 = load i8, ptr %8, align 1, !tbaa !77
   %10 = icmp eq i8 %9, 10
   br i1 %10, label %5, label %.critedge.split.loop.exit20, !llvm.loop !325
 
-.critedge.split.loop.exit20:                      ; preds = %7
+.critedge.loopexit.split.loop.exit24:             ; preds = %7
   %11 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %5, %.critedge.split.loop.exit20
+.critedge:                                        ; preds = %5, %.critedge.loopexit.split.loop.exit24
   %.0.lcssa = phi i32 [ %11, %.critedge.split.loop.exit20 ], [ 0, %5 ]
   %12 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i64 noundef 4) #24
   %.not17 = icmp eq i32 %12, 0
