@@ -4693,7 +4693,7 @@ base_bytes.exit99.i:                              ; preds = %.loopexit.i95.i, %7
   %indvars.iv126.i = phi i64 [ %smin.i, %.lr.ph106.preheader.i ], [ %indvars.iv.next127.i, %.lr.ph106.i ]
   %indvars.iv.next127.i = add nsw i64 %indvars.iv126.i, -1
   %114 = call i32 @Ptngc_largeint_div(i32 noundef %.162.i, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %33) #12
-  %.idx.i = mul i64 %indvars.iv.next127.i, 12
+  %.idx.i = mul nuw i64 %indvars.iv.next127.i, 12
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
   store i32 %114, ptr %gep.i, align 4, !tbaa !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %8, ptr noundef nonnull align 16 dereferenceable(1) %9, i64 %39, i1 false), !tbaa !3
