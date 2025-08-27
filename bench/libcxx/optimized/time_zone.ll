@@ -7729,8 +7729,9 @@ _ZNSt3__16copy_nB8ne210000IPKcmPcTnNS_9enable_ifIXsr37__has_random_access_iterat
 
 .preheader.i:                                     ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %46 = getelementptr i8, ptr %0, i64 %.sroa.2.0.extract.shift
-  %scevgep.i = getelementptr i8, ptr %46, i64 -1
+  %46 = add nsw i64 %.sroa.2.0.extract.shift, -1
+  %scevgep.i = getelementptr i8, ptr %0, i64 %46
+  %scevgep49.i = getelementptr i8, ptr %0, i64 %.sroa.2.0.extract.shift
   br label %47
 
 47:                                               ; preds = %56, %.preheader.i
@@ -7746,7 +7747,7 @@ _ZNSt3__16copy_nB8ne210000IPKcmPcTnNS_9enable_ifIXsr37__has_random_access_iterat
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %51
-  %54 = load i8, ptr %46, align 1, !tbaa !17
+  %54 = load i8, ptr %scevgep49.i, align 1, !tbaa !17
   %55 = icmp sgt i8 %54, -1
   br i1 %55, label %_ZNSt3__113__format_spec23__estimate_column_widthB8ne210000IcPKcEENS0_21__column_width_resultIT0_EENS_17basic_string_viewIT_NS_11char_traitsIS8_EEEEmNS0_23__column_width_roundingE.exit, label %.loopexit33.i
 
@@ -21461,8 +21462,9 @@ define linkonce_odr hidden ptr @_ZNKSt3__118__formatter_stringIcE6formatB8ne2100
 
 .preheader.i.i.i:                                 ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %25 = getelementptr i8, ptr %1, i64 %18
-  %scevgep.i.i.i = getelementptr i8, ptr %25, i64 -1
+  %25 = add nsw i64 %18, -1
+  %scevgep.i.i.i = getelementptr i8, ptr %1, i64 %25
+  %scevgep49.i.i.i = getelementptr i8, ptr %1, i64 %18
   br label %26
 
 26:                                               ; preds = %35, %.preheader.i.i.i
@@ -21478,7 +21480,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__118__formatter_stringIcE6formatB8ne2100
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
-  %33 = load i8, ptr %25, align 1, !tbaa !17
+  %33 = load i8, ptr %scevgep49.i.i.i, align 1, !tbaa !17
   %34 = icmp sgt i8 %33, -1
   br i1 %34, label %_ZNSt3__111__formatter10__truncateB8ne210000IcEEiRNS_17basic_string_viewIT_NS_11char_traitsIS3_EEEEi.exit.i, label %.loopexit33.i.i.i
 
@@ -21502,7 +21504,7 @@ define linkonce_odr hidden ptr @_ZNKSt3__118__formatter_stringIcE6formatB8ne2100
 
 _ZNSt3__111__formatter10__truncateB8ne210000IcEEiRNS_17basic_string_viewIT_NS_11char_traitsIS3_EEEEi.exit.i: ; preds = %26, %.loopexit33.i.i.i, %32, %17
   %.sroa.0.0.i.i.i = phi i64 [ %45, %.loopexit33.i.i.i ], [ 0, %17 ], [ %18, %32 ], [ %2, %26 ]
-  %.sroa.7.0.i.i.i = phi ptr [ %44, %.loopexit33.i.i.i ], [ %1, %17 ], [ %25, %32 ], [ %24, %26 ]
+  %.sroa.7.0.i.i.i = phi ptr [ %44, %.loopexit33.i.i.i ], [ %1, %17 ], [ %scevgep49.i.i.i, %32 ], [ %24, %26 ]
   %46 = ptrtoint ptr %.sroa.7.0.i.i.i to i64
   %47 = ptrtoint ptr %1 to i64
   %48 = sub i64 %46, %47
@@ -21655,8 +21657,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__grow_by_witho
 
 .preheader.i.i.i:                                 ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 %60
-  %72 = getelementptr i8, ptr %55, i64 %65
-  %scevgep.i.i.i = getelementptr i8, ptr %72, i64 -1
+  %72 = add nsw i64 %65, -1
+  %scevgep.i.i.i = getelementptr i8, ptr %55, i64 %72
+  %scevgep49.i.i.i = getelementptr i8, ptr %55, i64 %65
   br label %73
 
 73:                                               ; preds = %82, %.preheader.i.i.i
@@ -21672,7 +21675,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__grow_by_witho
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %77
-  %80 = load i8, ptr %72, align 1, !tbaa !17
+  %80 = load i8, ptr %scevgep49.i.i.i, align 1, !tbaa !17
   %81 = icmp sgt i8 %80, -1
   br i1 %81, label %_ZNSt3__111__formatter10__truncateB8ne210000IcEEiRNS_17basic_string_viewIT_NS_11char_traitsIS3_EEEEi.exit.i, label %.loopexit33.i.i.i
 
@@ -21696,7 +21699,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE25__grow_by_witho
 
 _ZNSt3__111__formatter10__truncateB8ne210000IcEEiRNS_17basic_string_viewIT_NS_11char_traitsIS3_EEEEi.exit.i: ; preds = %73, %.loopexit33.i.i.i, %79, %64
   %.sroa.0.0.i.i.i = phi i64 [ %92, %.loopexit33.i.i.i ], [ 0, %64 ], [ %65, %79 ], [ %60, %73 ]
-  %.sroa.7.0.i.i.i = phi ptr [ %91, %.loopexit33.i.i.i ], [ %55, %64 ], [ %72, %79 ], [ %71, %73 ]
+  %.sroa.7.0.i.i.i = phi ptr [ %91, %.loopexit33.i.i.i ], [ %55, %64 ], [ %scevgep49.i.i.i, %79 ], [ %71, %73 ]
   %93 = ptrtoint ptr %.sroa.7.0.i.i.i to i64
   %94 = ptrtoint ptr %55 to i64
   %95 = sub i64 %93, %94
@@ -23251,8 +23254,9 @@ _ZNKSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE4viewB8ne2
 
 .preheader.i.i.i:                                 ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 %.sroa.4.0.i.i
-  %124 = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %117
-  %scevgep.i.i.i = getelementptr i8, ptr %124, i64 -1
+  %124 = add nsw i64 %117, -1
+  %scevgep.i.i.i = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %124
+  %scevgep49.i.i.i = getelementptr i8, ptr %.sroa.0.0.i.i, i64 %117
   br label %125
 
 125:                                              ; preds = %134, %.preheader.i.i.i
@@ -23268,7 +23272,7 @@ _ZNKSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE4viewB8ne2
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %129
-  %132 = load i8, ptr %124, align 1, !tbaa !17
+  %132 = load i8, ptr %scevgep49.i.i.i, align 1, !tbaa !17
   %133 = icmp sgt i8 %132, -1
   br i1 %133, label %_ZNSt3__111__formatter10__truncateB8ne210000IcEEiRNS_17basic_string_viewIT_NS_11char_traitsIS3_EEEEi.exit.i, label %.loopexit33.i.i.i
 
@@ -23292,7 +23296,7 @@ _ZNKSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEE4viewB8ne2
 
 _ZNSt3__111__formatter10__truncateB8ne210000IcEEiRNS_17basic_string_viewIT_NS_11char_traitsIS3_EEEEi.exit.i: ; preds = %125, %.loopexit33.i.i.i, %131, %116
   %.sroa.0.0.i.i.i = phi i64 [ %144, %.loopexit33.i.i.i ], [ 0, %116 ], [ %117, %131 ], [ %.sroa.4.0.i.i, %125 ]
-  %.sroa.7.0.i.i.i = phi ptr [ %143, %.loopexit33.i.i.i ], [ %.sroa.0.0.i.i, %116 ], [ %124, %131 ], [ %123, %125 ]
+  %.sroa.7.0.i.i.i = phi ptr [ %143, %.loopexit33.i.i.i ], [ %.sroa.0.0.i.i, %116 ], [ %scevgep49.i.i.i, %131 ], [ %123, %125 ]
   %145 = ptrtoint ptr %.sroa.7.0.i.i.i to i64
   %146 = ptrtoint ptr %.sroa.0.0.i.i to i64
   %147 = sub i64 %145, %146

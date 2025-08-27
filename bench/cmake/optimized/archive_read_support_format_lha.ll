@@ -3965,13 +3965,16 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   %136 = add i32 %.0205285, 1
   %137 = zext i32 %136 to i64
   %138 = icmp ugt i64 %135, %137
-  br i1 %138, label %.lr.ph287, label %._crit_edge288, !llvm.loop !169
+  br i1 %138, label %.lr.ph287, label %._crit_edge288.loopexit, !llvm.loop !169
 
-._crit_edge288:                                   ; preds = %134, %124
-  %.lcssa276 = phi i64 [ 0, %124 ], [ %135, %134 ]
-  %139 = load ptr, ptr %34, align 8, !tbaa !81
-  %140 = getelementptr i8, ptr %139, i64 %.lcssa276
-  %141 = getelementptr i8, ptr %140, i64 -1
+._crit_edge288.loopexit:                          ; preds = %134
+  %139 = add nsw i64 %135, -1
+  br label %._crit_edge288
+
+._crit_edge288:                                   ; preds = %._crit_edge288.loopexit, %124
+  %.lcssa276 = phi i64 [ -1, %124 ], [ %139, %._crit_edge288.loopexit ]
+  %140 = load ptr, ptr %34, align 8, !tbaa !81
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %.lcssa276
   %142 = load i8, ptr %141, align 1, !tbaa !4
   %.not226 = icmp eq i8 %142, 47
   br i1 %.not226, label %299, label %303
@@ -4022,8 +4025,8 @@ lha_crc16.exit:                                   ; preds = %.lr.ph73.i
   br i1 %165, label %.lr.ph, label %._crit_edge, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %162, %153
-  %166 = getelementptr i16, ptr %154, i64 %156
-  %167 = getelementptr i8, ptr %166, i64 -2
+  %166 = add nsw i64 %156, -1
+  %167 = getelementptr inbounds nuw i16, ptr %154, i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !40
   %.not225 = icmp eq i16 %168, 47
   br i1 %.not225, label %299, label %303
@@ -4972,8 +4975,8 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
 
 111:                                              ; preds = %.lr.ph245, %111
   %indvars.iv282 = phi i64 [ %86, %.lr.ph245 ], [ %indvars.iv.next283, %111 ]
-  %112 = getelementptr i16, ptr %82, i64 %indvars.iv282
-  %113 = getelementptr i8, ptr %112, i64 -2
+  %112 = add nsw i64 %indvars.iv282, -1
+  %113 = getelementptr inbounds nuw i16, ptr %82, i64 %112
   store i16 %85, ptr %113, align 2, !tbaa !40
   %indvars.iv.next283 = add nsw i64 %indvars.iv282, -2
   %114 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv.next283
@@ -4992,9 +4995,9 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
 
 117:                                              ; preds = %._crit_edge246
   %118 = trunc i64 %indvars.iv288 to i16
-  %119 = sext i32 %.2183.lcssa to i64
-  %120 = getelementptr i16, ptr %82, i64 %119
-  %121 = getelementptr i8, ptr %120, i64 -2
+  %119 = add nsw i32 %.2183.lcssa, -1
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i16, ptr %82, i64 %120
   store i16 %118, ptr %121, align 2, !tbaa !40
   br label %209
 

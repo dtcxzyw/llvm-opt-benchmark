@@ -157,17 +157,17 @@ define ptr @pmix_ring_buffer_poke(ptr noundef readonly captures(none) %0, i32 no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8, !tbaa !14
   %.not = icmp sgt i32 %4, %1
-  br i1 %.not, label %5, label %35
+  br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %7 = load i32, ptr %6, align 4, !tbaa !13
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %35, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %5
   %10 = icmp slt i32 %1, 0
-  br i1 %10, label %11, label %27
+  br i1 %10, label %11, label %21
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -175,36 +175,35 @@ define ptr @pmix_ring_buffer_poke(ptr noundef readonly captures(none) %0, i32 no
   %14 = icmp eq i32 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8, !tbaa !15
-  br i1 %14, label %17, label %22
+  br i1 %14, label %17, label %19
 
 17:                                               ; preds = %11
-  %18 = sext i32 %4 to i64
-  %19 = getelementptr ptr, ptr %16, i64 %18
-  %20 = getelementptr i8, ptr %19, i64 -8
-  %21 = load ptr, ptr %20, align 8, !tbaa !16
-  br label %35
+  %18 = add nsw i32 %4, -1
+  br label %.sink.split
 
-22:                                               ; preds = %11
-  %23 = sext i32 %13 to i64
-  %24 = getelementptr ptr, ptr %16, i64 %23
-  %25 = getelementptr i8, ptr %24, i64 -8
-  %26 = load ptr, ptr %25, align 8, !tbaa !16
-  br label %35
+19:                                               ; preds = %11
+  %20 = add nsw i32 %13, -1
+  br label %.sink.split
 
-27:                                               ; preds = %9
-  %28 = add nsw i32 %7, %1
-  %.not23 = icmp sgt i32 %4, %28
-  %29 = select i1 %.not23, i32 0, i32 %4
-  %spec.select = sub nsw i32 %28, %29
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %31 = load ptr, ptr %30, align 8, !tbaa !15
-  %32 = sext i32 %spec.select to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !16
-  br label %35
+21:                                               ; preds = %9
+  %22 = add nsw i32 %7, %1
+  %.not23 = icmp sgt i32 %4, %22
+  %23 = select i1 %.not23, i32 0, i32 %4
+  %spec.select = sub nsw i32 %22, %23
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %25 = load ptr, ptr %24, align 8, !tbaa !15
+  br label %.sink.split
 
-35:                                               ; preds = %2, %5, %27, %22, %17
-  %.017 = phi ptr [ %21, %17 ], [ %26, %22 ], [ %34, %27 ], [ null, %5 ], [ null, %2 ]
+.sink.split:                                      ; preds = %17, %19, %21
+  %spec.select.sink = phi i32 [ %spec.select, %21 ], [ %20, %19 ], [ %18, %17 ]
+  %.sink27 = phi ptr [ %25, %21 ], [ %16, %19 ], [ %16, %17 ]
+  %26 = sext i32 %spec.select.sink to i64
+  %27 = getelementptr inbounds ptr, ptr %.sink27, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
+  br label %29
+
+29:                                               ; preds = %.sink.split, %2, %5
+  %.017 = phi ptr [ null, %5 ], [ null, %2 ], [ %28, %.sink.split ]
   ret ptr %.017
 }
 

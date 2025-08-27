@@ -775,9 +775,10 @@ define dso_local void @parse_time_make_str_utc(ptr noundef %0, ptr noundef %1, i
 
 17:                                               ; preds = %13
   call void @llvm.memset.p0.i64(ptr align 1 %1, i8 35, i64 %14, i1 false)
-  %18 = getelementptr i8, ptr %1, i64 %14
-  %19 = getelementptr i8, ptr %18, i64 -1
-  store i8 0, ptr %19, align 1
+  %18 = add nsw i32 %2, -1
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  store i8 0, ptr %20, align 1
   br label %_make_time_str_internal.exit
 
 _make_time_str_internal.exit:                     ; preds = %7, %10, %13, %17
@@ -1523,9 +1524,10 @@ define dso_local void @slurm_make_time_str(ptr noundef %0, ptr noundef %1, i32 n
 
 39:                                               ; preds = %35
   call void @llvm.memset.p0.i64(ptr align 1 %1, i8 35, i64 %36, i1 false)
-  %40 = getelementptr i8, ptr %1, i64 %36
-  %41 = getelementptr i8, ptr %40, i64 -1
-  store i8 0, ptr %41, align 1
+  %40 = add nsw i32 %2, -1
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  store i8 0, ptr %42, align 1
   br label %_make_time_str_internal.exit
 
 _make_time_str_internal.exit:                     ; preds = %7, %10, %35, %39

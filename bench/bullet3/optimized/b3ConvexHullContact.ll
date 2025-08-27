@@ -2898,18 +2898,18 @@ define dso_local noundef i32 @_Z14clipFaceGlobalPK9b3Vector3iRS0_fPS_(ptr nounde
 
 .lr.ph.preheader:                                 ; preds = %5
   %9 = load float, ptr %7, align 8, !tbaa !16
-  %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr %class.b3Vector3, ptr %0, i64 %10
-  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %11, i64 -8
+  %10 = add nsw i32 %1, -1
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %11
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 8
-  %12 = load float, ptr %2, align 16, !tbaa !16
-  %13 = getelementptr i8, ptr %11, i64 -16
-  %.sroa.075.0.copyload = load float, ptr %13, align 16
-  %.sroa.7.0..sroa_idx = getelementptr i8, ptr %11, i64 -12
+  %13 = load float, ptr %2, align 16, !tbaa !16
+  %.sroa.075.0.copyload = load float, ptr %12, align 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4
   %14 = load float, ptr %6, align 4, !tbaa !16
   %15 = fmul float %.sroa.7.0.copyload, %14
-  %16 = tail call float @llvm.fmuladd.f32(float %12, float %.sroa.075.0.copyload, float %15)
+  %16 = tail call float @llvm.fmuladd.f32(float %13, float %.sroa.075.0.copyload, float %15)
   %17 = tail call noundef float @llvm.fmuladd.f32(float %9, float %.sroa.11.0.copyload, float %16)
   %18 = fadd float %3, %17
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -5678,13 +5678,13 @@ define dso_local noundef i32 @_Z8clipFacePK9b3Vector3iRS_fPS_(ptr noundef readon
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %5
-  %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr %class.b3Vector3, ptr %0, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 -16
+  %8 = add nsw i32 %1, -1
+  %9 = zext nneg i32 %8 to i64
+  %10 = getelementptr inbounds nuw %class.b3Vector3, ptr %0, i64 %9
   %.sroa.079.0.copyload = load float, ptr %10, align 16
-  %.sroa.7.0..sroa_idx = getelementptr i8, ptr %9, i64 -12
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %9, i64 -8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 8
   %11 = load float, ptr %2, align 16, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5695,6 +5695,7 @@ define dso_local noundef i32 @_Z8clipFacePK9b3Vector3iRS_fPS_(ptr noundef readon
   %17 = load float, ptr %16, align 8, !tbaa !16
   %18 = tail call noundef float @llvm.fmuladd.f32(float %17, float %.sroa.11.0.copyload, float %15)
   %19 = fadd float %3, %18
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %20
 
 20:                                               ; preds = %7, %62
@@ -5793,7 +5794,7 @@ define dso_local noundef i32 @_Z8clipFacePK9b3Vector3iRS_fPS_(ptr noundef readon
 62:                                               ; preds = %48, %49, %32, %36
   %.1 = phi i32 [ %33, %32 ], [ %45, %36 ], [ %60, %49 ], [ %.03689, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !135
 
 .loopexit:                                        ; preds = %62, %5
@@ -11890,10 +11891,10 @@ define dso_local void @_Z26computeContactSphereConvexiiiiiPK15b3RigidBodyDataPK1
   br i1 %111, label %170, label %.critedge.lr.ph.i
 
 .critedge.lr.ph.i:                                ; preds = %107
-  %112 = add nsw i32 %.sroa.11139.0.copyload, %.sroa.10.0.copyload
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr i32, ptr %9, i64 %113
-  %115 = getelementptr i8, ptr %114, i64 -4
+  %112 = add i32 %.sroa.10.0.copyload, -1
+  %113 = add i32 %112, %.sroa.11139.0.copyload
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds i32, ptr %9, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !17
   %117 = sext i32 %116 to i64
   %118 = getelementptr inbounds %class.b3Vector3, ptr %110, i64 %117

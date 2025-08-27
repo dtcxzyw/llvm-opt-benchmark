@@ -3923,30 +3923,27 @@ _ZN2cv3MataSERKNS_7MatExprE.exit208:              ; preds = %243
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us231
   %indvars.iv289 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next290, %._crit_edge.us231 ]
-  %282 = mul i64 %280, %indvars.iv289
-  %scevgep = getelementptr i8, ptr %277, i64 %282
-  %283 = mul i64 %275, %indvars.iv289
-  %284 = getelementptr inbounds nuw i8, ptr %272, i64 %283
-  %285 = load float, ptr %284, align 4, !tbaa !20
-  %286 = mul i64 %280, %indvars.iv289
-  %287 = getelementptr inbounds nuw i8, ptr %277, i64 %286
-  store float %285, ptr %287, align 4, !tbaa !20
-  %load_initial = load float, ptr %scevgep, align 4
-  br label %288
+  %282 = mul i64 %275, %indvars.iv289
+  %283 = getelementptr inbounds nuw i8, ptr %272, i64 %282
+  %284 = load float, ptr %283, align 4, !tbaa !20
+  %285 = mul i64 %280, %indvars.iv289
+  %286 = getelementptr inbounds nuw i8, ptr %277, i64 %285
+  store float %284, ptr %286, align 4, !tbaa !20
+  br label %287
 
-288:                                              ; preds = %.lr.ph.us, %288
-  %store_forwarded = phi float [ %load_initial, %.lr.ph.us ], [ %292, %288 ]
-  %indvars.iv284 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next285, %288 ]
-  %289 = getelementptr inbounds nuw float, ptr %284, i64 %indvars.iv284
+287:                                              ; preds = %.lr.ph.us, %287
+  %288 = phi float [ %284, %.lr.ph.us ], [ %291, %287 ]
+  %indvars.iv284 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next285, %287 ]
+  %289 = getelementptr inbounds nuw float, ptr %283, i64 %indvars.iv284
   %290 = load float, ptr %289, align 4, !tbaa !20
-  %291 = getelementptr float, ptr %287, i64 %indvars.iv284
-  %292 = fadd float %290, %store_forwarded
-  store float %292, ptr %291, align 4, !tbaa !20
+  %291 = fadd float %290, %288
+  %292 = getelementptr inbounds nuw float, ptr %286, i64 %indvars.iv284
+  store float %291, ptr %292, align 4, !tbaa !20
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count287
-  br i1 %exitcond288.not, label %._crit_edge.us231, label %288, !llvm.loop !136
+  br i1 %exitcond288.not, label %._crit_edge.us231, label %287, !llvm.loop !136
 
-._crit_edge.us231:                                ; preds = %288
+._crit_edge.us231:                                ; preds = %287
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
   br i1 %exitcond293.not, label %.preheader, label %.lr.ph.us, !llvm.loop !137

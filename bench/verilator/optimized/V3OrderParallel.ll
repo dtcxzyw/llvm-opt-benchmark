@@ -25750,7 +25750,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11PropagateCpILN8GraphWay2enE0EE9a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !613
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %45
+  br i1 %.not, label %4, label %46
 
 4:                                                ; preds = %1
   %5 = tail call noalias noundef nonnull dereferenceable(5120) ptr @_Znam(i64 noundef 5120) #33
@@ -25845,23 +25845,24 @@ _ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE0EE10
 39:                                               ; preds = %41
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 5080
   store ptr null, ptr %40, align 8, !tbaa !614
-  br label %45
+  br label %46
 
 41:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE0EE10PendingKeyEE4NodeESt14default_deleteIS9_EESaISC_EE12emplace_backIJPS8_EEERSC_DpOT_.exit, %41
-  %.09 = phi i64 [ 1, %_ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE0EE10PendingKeyEE4NodeESt14default_deleteIS9_EESaISC_EE12emplace_backIJPS8_EEERSC_DpOT_.exit ], [ %44, %41 ]
-  %42 = getelementptr %"struct.PairingHeap<PropagateCp<GraphWay::FORWARD>::PendingKey>::Node", ptr %38, i64 %.09
-  %43 = getelementptr i8, ptr %42, i64 -40
-  store ptr %42, ptr %43, align 8, !tbaa !614
-  %44 = add nuw nsw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %44, 128
+  %.09 = phi i64 [ 1, %_ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE0EE10PendingKeyEE4NodeESt14default_deleteIS9_EESaISC_EE12emplace_backIJPS8_EEERSC_DpOT_.exit ], [ %45, %41 ]
+  %42 = getelementptr inbounds nuw %"struct.PairingHeap<PropagateCp<GraphWay::FORWARD>::PendingKey>::Node", ptr %38, i64 %.09
+  %43 = add nsw i64 %.09, -1
+  %44 = getelementptr inbounds nuw %"struct.PairingHeap<PropagateCp<GraphWay::FORWARD>::PendingKey>::Node", ptr %38, i64 %43
+  store ptr %42, ptr %44, align 8, !tbaa !614
+  %45 = add nuw nsw i64 %.09, 1
+  %exitcond.not = icmp eq i64 %45, 128
   br i1 %exitcond.not, label %39, label %41, !llvm.loop !638
 
-45:                                               ; preds = %39, %1
-  %46 = phi ptr [ %38, %39 ], [ %3, %1 ]
-  %47 = load ptr, ptr %46, align 8, !tbaa !614
-  store ptr %47, ptr %2, align 8, !tbaa !613
-  store ptr null, ptr %46, align 8, !tbaa !614
-  ret ptr %46
+46:                                               ; preds = %39, %1
+  %47 = phi ptr [ %38, %39 ], [ %3, %1 ]
+  %48 = load ptr, ptr %47, align 8, !tbaa !614
+  store ptr %48, ptr %2, align 8, !tbaa !613
+  store ptr null, ptr %47, align 8, !tbaa !614
+  ret ptr %47
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -25875,7 +25876,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11PropagateCpILN8GraphWay2enE1EE9a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !617
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %45
+  br i1 %.not, label %4, label %46
 
 4:                                                ; preds = %1
   %5 = tail call noalias noundef nonnull dereferenceable(5120) ptr @_Znam(i64 noundef 5120) #33
@@ -25970,23 +25971,24 @@ _ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE1EE10
 39:                                               ; preds = %41
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 5080
   store ptr null, ptr %40, align 8, !tbaa !618
-  br label %45
+  br label %46
 
 41:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE1EE10PendingKeyEE4NodeESt14default_deleteIS9_EESaISC_EE12emplace_backIJPS8_EEERSC_DpOT_.exit, %41
-  %.09 = phi i64 [ 1, %_ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE1EE10PendingKeyEE4NodeESt14default_deleteIS9_EESaISC_EE12emplace_backIJPS8_EEERSC_DpOT_.exit ], [ %44, %41 ]
-  %42 = getelementptr %"struct.PairingHeap<PropagateCp<GraphWay::REVERSE>::PendingKey>::Node", ptr %38, i64 %.09
-  %43 = getelementptr i8, ptr %42, i64 -40
-  store ptr %42, ptr %43, align 8, !tbaa !618
-  %44 = add nuw nsw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %44, 128
+  %.09 = phi i64 [ 1, %_ZNSt6vectorISt10unique_ptrIA_N11PairingHeapIN11PropagateCpILN8GraphWay2enE1EE10PendingKeyEE4NodeESt14default_deleteIS9_EESaISC_EE12emplace_backIJPS8_EEERSC_DpOT_.exit ], [ %45, %41 ]
+  %42 = getelementptr inbounds nuw %"struct.PairingHeap<PropagateCp<GraphWay::REVERSE>::PendingKey>::Node", ptr %38, i64 %.09
+  %43 = add nsw i64 %.09, -1
+  %44 = getelementptr inbounds nuw %"struct.PairingHeap<PropagateCp<GraphWay::REVERSE>::PendingKey>::Node", ptr %38, i64 %43
+  store ptr %42, ptr %44, align 8, !tbaa !618
+  %45 = add nuw nsw i64 %.09, 1
+  %exitcond.not = icmp eq i64 %45, 128
   br i1 %exitcond.not, label %39, label %41, !llvm.loop !645
 
-45:                                               ; preds = %39, %1
-  %46 = phi ptr [ %38, %39 ], [ %3, %1 ]
-  %47 = load ptr, ptr %46, align 8, !tbaa !618
-  store ptr %47, ptr %2, align 8, !tbaa !617
-  store ptr null, ptr %46, align 8, !tbaa !618
-  ret ptr %46
+46:                                               ; preds = %39, %1
+  %47 = phi ptr [ %38, %39 ], [ %3, %1 ]
+  %48 = load ptr, ptr %47, align 8, !tbaa !618
+  store ptr %48, ptr %2, align 8, !tbaa !617
+  store ptr null, ptr %47, align 8, !tbaa !618
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

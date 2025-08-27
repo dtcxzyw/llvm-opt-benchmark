@@ -282,45 +282,44 @@ define internal fastcc void @png_default_warning(ptr noundef %0) unnamed_addr #5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @png_warning_parameter(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define void @png_warning_parameter(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
   %4 = add i32 %1, -1
   %or.cond = icmp ult i32 %4, 8
   br i1 %or.cond, label %5, label %png_safecat.exit
 
 5:                                                ; preds = %3
-  %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr [32 x i8], ptr %0, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 -32
-  %.not.i.not = icmp eq ptr %8, null
-  br i1 %.not.i.not, label %png_safecat.exit, label %9
+  %6 = zext nneg i32 %4 to i64
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %6
+  %.not.i.not = icmp eq ptr %0, null
+  br i1 %.not.i.not, label %png_safecat.exit, label %8
 
-9:                                                ; preds = %5
+8:                                                ; preds = %5
   %.not18.i = icmp eq ptr %2, null
   br i1 %.not18.i, label %.loopexit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %9
-  %10 = load i8, ptr %2, align 1, !tbaa !24
-  %.not = icmp eq i8 %10, 0
+.preheader.i:                                     ; preds = %8
+  %9 = load i8, ptr %2, align 1, !tbaa !24
+  %.not = icmp eq i8 %9, 0
   br i1 %.not, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %11 = phi i8 [ %15, %.lr.ph.i ], [ %10, %.preheader.i ]
-  %.020.i = phi ptr [ %12, %.lr.ph.i ], [ %2, %.preheader.i ]
-  %.219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
-  %13 = add nuw nsw i64 %.219.i, 1
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %.219.i
-  store i8 %11, ptr %14, align 1, !tbaa !24
-  %15 = load i8, ptr %12, align 1, !tbaa !24
-  %16 = icmp ne i8 %15, 0
-  %17 = icmp samesign ult i64 %.219.i, 30
-  %18 = select i1 %16, i1 %17, i1 false
-  br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !25
+  %10 = phi i8 [ %14, %.lr.ph.i ], [ %9, %.preheader.i ]
+  %.020.i = phi ptr [ %11, %.lr.ph.i ], [ %2, %.preheader.i ]
+  %.219.i = phi i64 [ %12, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %11 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
+  %12 = add nuw nsw i64 %.219.i, 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.219.i
+  store i8 %10, ptr %13, align 1, !tbaa !24
+  %14 = load i8, ptr %11, align 1, !tbaa !24
+  %15 = icmp ne i8 %14, 0
+  %16 = icmp samesign ult i64 %.219.i, 30
+  %17 = select i1 %15, i1 %16, i1 false
+  br i1 %17, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !25
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %9
-  %.1.i = phi i64 [ 0, %9 ], [ 0, %.preheader.i ], [ %13, %.lr.ph.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.i
-  store i8 0, ptr %19, align 1, !tbaa !24
+.loopexit.i:                                      ; preds = %.lr.ph.i, %.preheader.i, %8
+  %.1.i = phi i64 [ 0, %8 ], [ 0, %.preheader.i ], [ %12, %.lr.ph.i ]
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %.1.i
+  store i8 0, ptr %18, align 1, !tbaa !24
   br label %png_safecat.exit
 
 png_safecat.exit:                                 ; preds = %.loopexit.i, %5, %3
@@ -328,7 +327,7 @@ png_safecat.exit:                                 ; preds = %.loopexit.i, %5, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @png_warning_parameter_unsigned(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
+define void @png_warning_parameter_unsigned(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 23
@@ -459,34 +458,33 @@ png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, 
   br i1 %or.cond.i, label %57, label %png_warning_parameter.exit
 
 57:                                               ; preds = %png_format_number.exit
-  %58 = zext nneg i32 %1 to i64
-  %59 = getelementptr [32 x i8], ptr %0, i64 %58
-  %60 = getelementptr i8, ptr %59, i64 -32
-  %.not.i.not.i = icmp eq ptr %60, null
-  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %61
+  %58 = zext nneg i32 %56 to i64
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %58
+  %.not.i.not.i = icmp eq ptr %0, null
+  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %60
 
-61:                                               ; preds = %57
+60:                                               ; preds = %57
   %.not.i3 = icmp eq i8 %55, 0
   br i1 %.not.i3, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %61, %.lr.ph.i.i
-  %62 = phi i8 [ %66, %.lr.ph.i.i ], [ %55, %61 ]
-  %.020.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %.034.lcssa.i, %61 ]
-  %.219.i.i = phi i64 [ %64, %.lr.ph.i.i ], [ 0, %61 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
-  %64 = add nuw nsw i64 %.219.i.i, 1
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 %.219.i.i
-  store i8 %62, ptr %65, align 1, !tbaa !24
-  %66 = load i8, ptr %63, align 1, !tbaa !24
-  %67 = icmp ne i8 %66, 0
-  %68 = icmp samesign ult i64 %.219.i.i, 30
-  %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !25
+.lr.ph.i.i:                                       ; preds = %60, %.lr.ph.i.i
+  %61 = phi i8 [ %65, %.lr.ph.i.i ], [ %55, %60 ]
+  %.020.i.i = phi ptr [ %62, %.lr.ph.i.i ], [ %.034.lcssa.i, %60 ]
+  %.219.i.i = phi i64 [ %63, %.lr.ph.i.i ], [ 0, %60 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
+  %63 = add nuw nsw i64 %.219.i.i, 1
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 %.219.i.i
+  store i8 %61, ptr %64, align 1, !tbaa !24
+  %65 = load i8, ptr %62, align 1, !tbaa !24
+  %66 = icmp ne i8 %65, 0
+  %67 = icmp samesign ult i64 %.219.i.i, 30
+  %68 = select i1 %66, i1 %67, i1 false
+  br i1 %68, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !25
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %61
-  %.1.i.i = phi i64 [ 0, %61 ], [ %64, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds nuw i8, ptr %60, i64 %.1.i.i
-  store i8 0, ptr %70, align 1, !tbaa !24
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %60
+  %.1.i.i = phi i64 [ 0, %60 ], [ %63, %.lr.ph.i.i ]
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 %.1.i.i
+  store i8 0, ptr %69, align 1, !tbaa !24
   br label %png_warning_parameter.exit
 
 png_warning_parameter.exit:                       ; preds = %png_format_number.exit, %57, %.loopexit.i.i
@@ -498,7 +496,7 @@ png_warning_parameter.exit:                       ; preds = %png_format_number.e
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @png_warning_parameter_signed(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define void @png_warning_parameter_signed(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp slt i32 %3, 0
@@ -644,34 +642,33 @@ png_format_number.exit:                           ; preds = %.lr.ph.split.us.i, 
   br i1 %or.cond.i, label %64, label %png_warning_parameter.exit
 
 64:                                               ; preds = %61
-  %65 = zext nneg i32 %1 to i64
-  %66 = getelementptr [32 x i8], ptr %0, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 -32
-  %.not.i.not.i = icmp eq ptr %67, null
-  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %68
+  %65 = zext nneg i32 %63 to i64
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %65
+  %.not.i.not.i = icmp eq ptr %0, null
+  br i1 %.not.i.not.i, label %png_warning_parameter.exit, label %67
 
-68:                                               ; preds = %64
+67:                                               ; preds = %64
   %.not.i14 = icmp eq i8 %62, 0
   br i1 %.not.i14, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %68, %.lr.ph.i.i
-  %69 = phi i8 [ %73, %.lr.ph.i.i ], [ %62, %68 ]
-  %.020.i.i = phi ptr [ %70, %.lr.ph.i.i ], [ %.0, %68 ]
-  %.219.i.i = phi i64 [ %71, %.lr.ph.i.i ], [ 0, %68 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
-  %71 = add nuw nsw i64 %.219.i.i, 1
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 %.219.i.i
-  store i8 %69, ptr %72, align 1, !tbaa !24
-  %73 = load i8, ptr %70, align 1, !tbaa !24
-  %74 = icmp ne i8 %73, 0
-  %75 = icmp samesign ult i64 %.219.i.i, 30
-  %76 = select i1 %74, i1 %75, i1 false
-  br i1 %76, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !25
+.lr.ph.i.i:                                       ; preds = %67, %.lr.ph.i.i
+  %68 = phi i8 [ %72, %.lr.ph.i.i ], [ %62, %67 ]
+  %.020.i.i = phi ptr [ %69, %.lr.ph.i.i ], [ %.0, %67 ]
+  %.219.i.i = phi i64 [ %70, %.lr.ph.i.i ], [ 0, %67 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
+  %70 = add nuw nsw i64 %.219.i.i, 1
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 %.219.i.i
+  store i8 %68, ptr %71, align 1, !tbaa !24
+  %72 = load i8, ptr %69, align 1, !tbaa !24
+  %73 = icmp ne i8 %72, 0
+  %74 = icmp samesign ult i64 %.219.i.i, 30
+  %75 = select i1 %73, i1 %74, i1 false
+  br i1 %75, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !25
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %68
-  %.1.i.i = phi i64 [ 0, %68 ], [ %71, %.lr.ph.i.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %67, i64 %.1.i.i
-  store i8 0, ptr %77, align 1, !tbaa !24
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %67
+  %.1.i.i = phi i64 [ 0, %67 ], [ %70, %.lr.ph.i.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %66, i64 %.1.i.i
+  store i8 0, ptr %76, align 1, !tbaa !24
   br label %png_warning_parameter.exit
 
 png_warning_parameter.exit:                       ; preds = %61, %64, %.loopexit.i.i

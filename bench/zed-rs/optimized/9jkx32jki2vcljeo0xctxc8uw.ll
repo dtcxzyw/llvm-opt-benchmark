@@ -2398,8 +2398,8 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
   br i1 %16, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.i": ; preds = %18
-  %21 = getelementptr i8, ptr %20, i64 %15
-  %22 = getelementptr i8, ptr %21, i64 -1
+  %21 = add i64 %15, -1
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
   %rhsc.i = load i8, ptr %22, align 1, !noalias !281
   %23 = icmp eq i8 %rhsc.i, 10
   br i1 %23, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
@@ -2416,21 +2416,19 @@ define hidden void @_ZN12futures_util6stream6stream9StreamExt15poll_next_unpin17
   br label %"_ZN88_$LT$futures_util..io..lines..Lines$LT$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h74d25b2195138198E.llvm.13010770310605403811.exit"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.i"
-  %25 = add i64 %15, -1
-  store i64 %25, ptr %14, align 8, !alias.scope !291, !noalias !288
-  %.not.i20.i = icmp eq i64 %25, 0
+  store i64 %21, ptr %14, align 8, !alias.scope !291, !noalias !288
+  %.not.i20.i = icmp eq i64 %21, 0
   br i1 %.not.i20.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24.i": ; preds = %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit.i
-  %26 = getelementptr i8, ptr %20, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -1
-  %rhsc39.i = load i8, ptr %27, align 1, !noalias !281
-  %28 = icmp eq i8 %rhsc39.i, 13
-  br i1 %28, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
+  %25 = add i64 %15, -2
+  %26 = getelementptr inbounds i8, ptr %20, i64 %25
+  %rhsc39.i = load i8, ptr %26, align 1, !noalias !281
+  %27 = icmp eq i8 %rhsc39.i, 13
+  br i1 %27, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24.i"
-  %29 = add i64 %15, -2
-  store i64 %29, ptr %14, align 8, !alias.scope !294, !noalias !288
+  store i64 %25, ptr %14, align 8, !alias.scope !294, !noalias !288
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
 
 "_ZN88_$LT$futures_util..io..lines..Lines$LT$R$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h74d25b2195138198E.llvm.13010770310605403811.exit": ; preds = %11, %17, %24, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread.i"
@@ -5597,8 +5595,8 @@ _ZN10serde_json3ser9Formatter18begin_object_value17he8974677c26567d7E.exit: ; pr
   %32 = load i16, ptr %30, align 1, !noalias !966
   store i16 %32, ptr %31, align 1, !alias.scope !966
   %33 = getelementptr inbounds nuw i8, ptr @anon.f92e0fb5f0bf601371daaffa6e826cdb.96, i64 %28
-  %34 = getelementptr i8, ptr %3, i64 %.sroa.012.031.i.i.i.i
-  %35 = getelementptr i8, ptr %34, i64 -2
+  %34 = add i64 %.sroa.012.031.i.i.i.i, -2
+  %35 = getelementptr inbounds i8, ptr %3, i64 %34
   %36 = load i16, ptr %33, align 1, !noalias !966
   store i16 %36, ptr %35, align 1, !alias.scope !966
   %37 = icmp ugt i64 %.sroa.0.132.i.i.i.i, 99999999
@@ -5973,8 +5971,8 @@ define hidden void @"_ZN88_$LT$futures_util..io..lines..Lines$LT$R$GT$$u20$as$u2
   br i1 %16, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit": ; preds = %18
-  %21 = getelementptr i8, ptr %20, i64 %15
-  %22 = getelementptr i8, ptr %21, i64 -1
+  %21 = add i64 %15, -1
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
   %rhsc = load i8, ptr %22, align 1
   %23 = icmp eq i8 %rhsc, 10
   br i1 %23, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread"
@@ -5994,21 +5992,19 @@ define hidden void @"_ZN88_$LT$futures_util..io..lines..Lines$LT$R$GT$$u20$as$u2
   br label %25
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit"
-  %26 = add i64 %15, -1
-  store i64 %26, ptr %14, align 8, !alias.scope !1114
-  %.not.i20 = icmp eq i64 %26, 0
+  store i64 %21, ptr %14, align 8, !alias.scope !1114
+  %.not.i20 = icmp eq i64 %21, 0
   br i1 %.not.i20, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24": ; preds = %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit
-  %27 = getelementptr i8, ptr %20, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 -1
-  %rhsc39 = load i8, ptr %28, align 1
-  %29 = icmp eq i8 %rhsc39, 13
-  br i1 %29, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread"
+  %26 = add i64 %15, -2
+  %27 = getelementptr inbounds i8, ptr %20, i64 %26
+  %rhsc39 = load i8, ptr %27, align 1
+  %28 = icmp eq i8 %rhsc39, 13
+  br i1 %28, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit24"
-  %30 = add i64 %15, -2
-  store i64 %30, ptr %14, align 8, !alias.scope !1117
+  store i64 %26, ptr %14, align 8, !alias.scope !1117
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h3da9819477fa08a4E.exit.thread"
 }
 

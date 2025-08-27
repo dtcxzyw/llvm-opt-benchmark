@@ -202,19 +202,31 @@ declare void @_ZN23btGeneric6DofConstraint19calculateTransformsEv(ptr noundef no
 define dso_local void @_ZN29btGeneric6DofSpringConstraint19setEquilibriumPointEi(ptr noundef nonnull align 8 dereferenceable(1412) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN23btGeneric6DofConstraint19calculateTransformsEv(ptr noundef nonnull align 8 dereferenceable(1333) %0)
   %3 = icmp slt i32 %1, 3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1216
-  %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr float, ptr %4, i64 %5
-  %7 = getelementptr i8, ptr %6, i64 -12
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds float, ptr %8, i64 %9
-  %.sink7 = select i1 %3, i64 %9, i64 %5
-  %.sink.in = select i1 %3, ptr %10, ptr %7
-  %.sink = load float, ptr %.sink.in, align 4, !tbaa !13
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1340
-  %12 = getelementptr inbounds [6 x float], ptr %11, i64 0, i64 %.sink7
-  store float %.sink, ptr %12, align 4, !tbaa !13
+  br i1 %3, label %4, label %11
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  %6 = sext i32 %1 to i64
+  %7 = getelementptr inbounds float, ptr %5, i64 %6
+  %8 = load float, ptr %7, align 4, !tbaa !13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1340
+  %10 = getelementptr inbounds [6 x float], ptr %9, i64 0, i64 %6
+  store float %8, ptr %10, align 4, !tbaa !13
+  br label %20
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1216
+  %13 = add nsw i32 %1, -3
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw float, ptr %12, i64 %14
+  %16 = load float, ptr %15, align 4, !tbaa !13
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1340
+  %18 = zext nneg i32 %1 to i64
+  %19 = getelementptr inbounds nuw [6 x float], ptr %17, i64 0, i64 %18
+  store float %16, ptr %19, align 4, !tbaa !13
+  br label %20
+
+20:                                               ; preds = %11, %4
   ret void
 }
 

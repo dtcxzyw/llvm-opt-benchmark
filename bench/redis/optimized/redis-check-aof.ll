@@ -220,7 +220,7 @@ define dso_local range(i32 0, 2) i32 @readString(ptr noundef captures(none) %0, 
   store ptr null, ptr %1, align 8, !tbaa !12
   %7 = call i32 @readLong(ptr noundef %0, i8 noundef signext 36, ptr noundef nonnull %5)
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %43, label %8
+  br i1 %.not, label %42, label %8
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %5, align 8, !tbaa !8
@@ -233,7 +233,7 @@ define dso_local range(i32 0, 2) i32 @readString(ptr noundef captures(none) %0, 
   %12 = load i64, ptr @epos, align 8, !tbaa !8
   %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @error, i64 noundef 1044, ptr noundef nonnull @.str.2, i64 noundef %12, ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %43
+  br label %42
 
 14:                                               ; preds = %8
   %15 = add nuw nsw i64 %9, 2
@@ -254,7 +254,7 @@ define dso_local range(i32 0, 2) i32 @readString(ptr noundef captures(none) %0, 
   %23 = load ptr, ptr %1, align 8, !tbaa !12
   call void @zfree(ptr noundef %23) #16
   store ptr null, ptr %1, align 8, !tbaa !12
-  br label %43
+  br label %42
 
 readBytes.exit:                                   ; preds = %14
   %24 = load ptr, ptr %1, align 8, !tbaa !12
@@ -269,7 +269,7 @@ readBytes.exit._crit_edge:                        ; preds = %readBytes.exit
   br label %31
 
 .tail.i:                                          ; preds = %readBytes.exit
-  %27 = getelementptr i8, ptr %24, i64 %15
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %15
   %28 = getelementptr inbounds i8, ptr %27, i64 -1
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 10
@@ -287,17 +287,16 @@ readBytes.exit._crit_edge:                        ; preds = %readBytes.exit
   %38 = load ptr, ptr %1, align 8, !tbaa !12
   call void @zfree(ptr noundef %38) #16
   store ptr null, ptr %1, align 8, !tbaa !12
-  br label %43
+  br label %42
 
 39:                                               ; preds = %.tail.i
   %40 = load i64, ptr @line, align 8, !tbaa !10
   %41 = add nsw i64 %40, 1
   store i64 %41, ptr @line, align 8, !tbaa !10
-  %42 = getelementptr i8, ptr %24, i64 %9
-  store i8 0, ptr %42, align 1, !tbaa !5
-  br label %43
+  store i8 0, ptr %25, align 1, !tbaa !5
+  br label %42
 
-43:                                               ; preds = %2, %39, %31, %19, %10
+42:                                               ; preds = %2, %39, %31, %19, %10
   %.0 = phi i32 [ 0, %10 ], [ 1, %39 ], [ 0, %31 ], [ 0, %19 ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

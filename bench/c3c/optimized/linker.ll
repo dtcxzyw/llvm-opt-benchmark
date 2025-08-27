@@ -6512,35 +6512,34 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   %10 = load ptr, ptr %3, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #13
   %12 = icmp ugt i64 %11, 5
-  br i1 %12, label %13, label %18
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %10, i64 %11
   %15 = getelementptr inbounds i8, ptr %14, i64 -4
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %15, ptr noundef nonnull dereferenceable(4) @.str.13, i64 4)
   %16 = icmp eq i32 %bcmp, 0
-  br i1 %16, label %17, label %.thread
+  br i1 %16, label %.sink.split, label %.thread
 
-17:                                               ; preds = %13
-  store i8 0, ptr %15, align 1
+17:                                               ; preds = %9
+  %18 = icmp samesign ugt i64 %11, 2
+  br i1 %18, label %.thread, label %24
+
+.thread:                                          ; preds = %13, %17
+  %19 = getelementptr inbounds i8, ptr %10, i64 %11
+  %20 = getelementptr inbounds i8, ptr %19, i64 -2
+  %bcmp72 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %20, ptr noundef nonnull dereferenceable(2) @.str.14, i64 2)
+  %21 = icmp eq i32 %bcmp72, 0
+  br i1 %21, label %.sink.split, label %24
+
+.sink.split:                                      ; preds = %.thread, %13
+  %.sink = phi i64 [ -4, %13 ], [ -2, %.thread ]
+  %22 = getelementptr i8, ptr %10, i64 %11
+  %23 = getelementptr i8, ptr %22, i64 %.sink
+  store i8 0, ptr %23, align 1
   br label %24
 
-18:                                               ; preds = %9
-  %19 = icmp samesign ugt i64 %11, 2
-  br i1 %19, label %.thread, label %24
-
-.thread:                                          ; preds = %13, %18
-  %20 = getelementptr inbounds i8, ptr %10, i64 %11
-  %21 = getelementptr inbounds i8, ptr %20, i64 -2
-  %bcmp72 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %21, ptr noundef nonnull dereferenceable(2) @.str.14, i64 2)
-  %22 = icmp eq i32 %bcmp72, 0
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %.thread
-  store i8 0, ptr %21, align 1
-  br label %24
-
-24:                                               ; preds = %18, %.thread, %23, %17
+24:                                               ; preds = %.sink.split, %17, %.thread
   %.not73 = icmp eq ptr %spec.select, null
   %25 = load ptr, ptr %3, align 8
   %26 = call ptr @get_object_extension() #11

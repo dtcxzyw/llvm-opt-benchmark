@@ -140,8 +140,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %28 = sub nuw nsw i64 %indvars.iv, %indvars.iv.next82
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = sitofp i32 %29 to double
-  %31 = getelementptr double, ptr %13, i64 %indvars.iv81
-  %32 = getelementptr i8, ptr %31, i64 -16
+  %31 = add nsw i64 %indvars.iv81, -2
+  %32 = getelementptr inbounds nuw double, ptr %13, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !4
   %34 = trunc nuw nsw i64 %indvars.iv81 to i32
   %35 = uitofp nneg i32 %34 to double
@@ -355,12 +355,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %41 = or i32 %3, %2
   %42 = and i32 %41, 1
   %or.cond = icmp eq i32 %42, 0
-  br i1 %or.cond, label %43, label %61
+  br i1 %or.cond, label %43, label %63
 
 43:                                               ; preds = %._crit_edge47
   %44 = lshr exact i32 %3, 1
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr float, ptr %39, i64 %45
+  %46 = getelementptr inbounds nuw float, ptr %39, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !17
   %48 = fcmp olt float %47, 0x3CB0000000000000
   br i1 %48, label %50, label %49
@@ -373,25 +373,27 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   unreachable
 
 50:                                               ; preds = %43
-  %51 = getelementptr i8, ptr %46, i64 -4
-  %52 = load float, ptr %51, align 4, !tbaa !17
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %51 = add nsw i32 %44, -1
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds nuw float, ptr %39, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !17
-  %55 = fadd float %52, %54
-  %56 = fmul float %55, 5.000000e-01
-  store float %56, ptr %46, align 4, !tbaa !17
-  br label %61
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %56 = load float, ptr %55, align 4, !tbaa !17
+  %57 = fadd float %54, %56
+  %58 = fmul float %57, 5.000000e-01
+  store float %58, ptr %46, align 4, !tbaa !17
+  br label %63
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %49
-  %57 = landingpad { ptr, i32 }
+  %59 = landingpad { ptr, i32 }
           cleanup
-  %58 = ptrtoint ptr %40 to i64
-  %59 = ptrtoint ptr %39 to i64
-  %60 = sub i64 %58, %59
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %60) #22
-  resume { ptr, i32 } %57
+  %60 = ptrtoint ptr %40 to i64
+  %61 = ptrtoint ptr %39 to i64
+  %62 = sub i64 %60, %61
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %62) #22
+  resume { ptr, i32 } %59
 
-61:                                               ; preds = %._crit_edge47, %50
+63:                                               ; preds = %._crit_edge47, %50
   ret void
 }
 

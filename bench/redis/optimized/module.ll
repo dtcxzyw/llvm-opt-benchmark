@@ -21802,8 +21802,8 @@ define dso_local range(i32 0, 2) i32 @RM_InfoAddSection(ptr noundef captures(non
 
 sdslen.exit.i:                                    ; preds = %35, %31, %27, %23, %20, %13
   %.0.i.i = phi i64 [ %22, %20 ], [ %26, %23 ], [ %30, %27 ], [ %34, %31 ], [ %37, %35 ], [ 0, %13 ]
-  %38 = getelementptr i8, ptr %15, i64 %.0.i.i
-  %39 = getelementptr i8, ptr %38, i64 -1
+  %38 = add i64 %.0.i.i, -1
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !60
   %41 = icmp eq i8 %40, 44
   br i1 %41, label %42, label %RM_InfoEndDictField.exit
@@ -21936,8 +21936,8 @@ define dso_local range(i32 0, 2) i32 @RM_InfoEndDictField(ptr noundef captures(n
 
 sdslen.exit:                                      ; preds = %4, %11, %14, %18, %22, %26
   %.0.i = phi i64 [ %13, %11 ], [ %17, %14 ], [ %21, %18 ], [ %25, %22 ], [ %28, %26 ], [ 0, %4 ]
-  %29 = getelementptr i8, ptr %6, i64 %.0.i
-  %30 = getelementptr i8, ptr %29, i64 -1
+  %29 = add i64 %.0.i, -1
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !60
   %32 = icmp eq i8 %31, 44
   br i1 %32, label %33, label %34
@@ -22021,8 +22021,8 @@ define dso_local range(i32 0, 2) i32 @RM_InfoBeginDictField(ptr noundef captures
 
 sdslen.exit.i:                                    ; preds = %30, %26, %22, %18, %15, %10
   %.0.i.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ], [ 0, %10 ]
-  %33 = getelementptr i8, ptr %.pre, i64 %.0.i.i
-  %34 = getelementptr i8, ptr %33, i64 -1
+  %33 = add i64 %.0.i.i, -1
+  %34 = getelementptr inbounds nuw i8, ptr %.pre, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !60
   %36 = icmp eq i8 %35, 44
   br i1 %36, label %37, label %RM_InfoEndDictField.exit
@@ -22366,8 +22366,8 @@ define dso_local ptr @modulesCollectInfo(ptr noundef %0, ptr noundef %1, i32 nou
 
 sdslen.exit.i:                                    ; preds = %42, %38, %34, %30, %27, %22
   %.0.i.i = phi i64 [ %29, %27 ], [ %33, %30 ], [ %37, %34 ], [ %41, %38 ], [ %44, %42 ], [ 0, %22 ]
-  %45 = getelementptr i8, ptr %.pre, i64 %.0.i.i
-  %46 = getelementptr i8, ptr %45, i64 -1
+  %45 = add i64 %.0.i.i, -1
+  %46 = getelementptr inbounds nuw i8, ptr %.pre, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !60
   %48 = icmp eq i8 %47, 44
   br i1 %48, label %49, label %RM_InfoEndDictField.exit
@@ -23307,7 +23307,7 @@ define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr noundef capt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !372
   %.not = icmp sgt i32 %11, %7
-  %.pre28.pre = load ptr, ptr %0, align 8, !tbaa !370
+  %.pre27.pre = load ptr, ptr %0, align 8, !tbaa !370
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %9
@@ -23315,35 +23315,32 @@ define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr noundef capt
   store i32 %13, ptr %10, align 8, !tbaa !372
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %16 = tail call ptr @zrealloc(ptr noundef %.pre28.pre, i64 noundef %15) #37
+  %16 = tail call ptr @zrealloc(ptr noundef %.pre27.pre, i64 noundef %15) #37
   store ptr %16, ptr %0, align 8, !tbaa !370
   %.pre = load i32, ptr %6, align 4, !tbaa !373
   br label %17
 
 17:                                               ; preds = %12, %9
-  %.pre28 = phi ptr [ %16, %12 ], [ %.pre28.pre, %9 ]
+  %.pre27 = phi ptr [ %16, %12 ], [ %.pre27.pre, %9 ]
   %18 = phi i32 [ %.pre, %12 ], [ %7, %9 ]
   %19 = icmp sgt i32 %18, %1
   br i1 %19, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %17
-  %20 = zext nneg i32 %18 to i64
-  %21 = zext nneg i32 %1 to i64
-  br label %22
+.lr.ph:                                           ; preds = %17, %.lr.ph
+  %.026 = phi i32 [ %20, %.lr.ph ], [ %18, %17 ]
+  %20 = add nsw i32 %.026, -1
+  %21 = zext nneg i32 %20 to i64
+  %22 = getelementptr inbounds nuw ptr, ptr %.pre27, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !141
+  %24 = zext nneg i32 %.026 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %.pre27, i64 %24
+  store ptr %23, ptr %25, align 8, !tbaa !141
+  %26 = icmp samesign ugt i32 %20, %1
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !572
 
-22:                                               ; preds = %.lr.ph, %22
-  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr ptr, ptr %.pre28, i64 %indvars.iv
-  %24 = getelementptr i8, ptr %23, i64 -8
-  %25 = load ptr, ptr %24, align 8, !tbaa !141
-  store ptr %25, ptr %23, align 8, !tbaa !141
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %26 = icmp samesign ugt i64 %indvars.iv.next, %21
-  br i1 %26, label %22, label %._crit_edge, !llvm.loop !572
-
-._crit_edge:                                      ; preds = %22, %17
+._crit_edge:                                      ; preds = %.lr.ph, %17
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.pre28, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %.pre27, i64 %27
   store ptr %2, ptr %28, align 8, !tbaa !141
   %29 = add nsw i32 %18, 1
   store i32 %29, ptr %6, align 4, !tbaa !373

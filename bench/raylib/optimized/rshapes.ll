@@ -351,7 +351,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 ; Function Attrs: nounwind uwtable
 define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 2
-  br i1 %4, label %5, label %22
+  br i1 %4, label %5, label %23
 
 5:                                                ; preds = %3
   %.sroa.4.0.extract.shift = lshr i32 %2, 24
@@ -368,36 +368,35 @@ define void @DrawTriangleStrip(ptr noundef readonly captures(none) %0, i32 nound
 
 6:                                                ; preds = %7
   tail call void @rlEnd() #16
-  br label %22
+  br label %23
 
 7:                                                ; preds = %5, %7
   %indvars.iv = phi i64 [ 2, %5 ], [ %indvars.iv.next, %7 ]
   %8 = and i64 %indvars.iv, 1
-  %9 = icmp eq i64 %8, 0
-  %10 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
-  %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = load float, ptr %12, align 4
-  tail call void @rlVertex2f(float noundef %11, float noundef %13) #16
-  %. = select i1 %9, i64 -16, i64 -8
-  %.41 = select i1 %9, i64 -12, i64 -4
-  %.42 = select i1 %9, i64 -8, i64 -16
-  %.43 = select i1 %9, i64 -4, i64 -12
-  %14 = getelementptr i8, ptr %10, i64 %.
+  %9 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
+  %10 = load float, ptr %9, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %12 = load float, ptr %11, align 4
+  tail call void @rlVertex2f(float noundef %10, float noundef %12) #16
+  %. = or i64 %indvars.iv, -2
+  %.41 = xor i64 %8, -1
+  %13 = getelementptr %struct.Vector2, ptr %0, i64 %indvars.iv
+  %14 = getelementptr %struct.Vector2, ptr %13, i64 %.
   %15 = load float, ptr %14, align 4
-  %16 = getelementptr i8, ptr %10, i64 %.41
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load float, ptr %16, align 4
   tail call void @rlVertex2f(float noundef %15, float noundef %17) #16
-  %18 = getelementptr i8, ptr %10, i64 %.42
-  %19 = load float, ptr %18, align 4
-  %20 = getelementptr i8, ptr %10, i64 %.43
-  %21 = load float, ptr %20, align 4
-  tail call void @rlVertex2f(float noundef %19, float noundef %21) #16
+  %18 = getelementptr %struct.Vector2, ptr %0, i64 %indvars.iv
+  %19 = getelementptr %struct.Vector2, ptr %18, i64 %.41
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %22 = load float, ptr %21, align 4
+  tail call void @rlVertex2f(float noundef %20, float noundef %22) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %6, label %7
 
-22:                                               ; preds = %6, %3
+23:                                               ; preds = %6, %3
   ret void
 }
 

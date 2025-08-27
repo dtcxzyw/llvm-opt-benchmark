@@ -624,37 +624,37 @@ decomp_block.exit.thread:                         ; preds = %106, %decomp_block.
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #11
   %283 = load ptr, ptr %26, align 8, !tbaa !3
   tail call void @free(ptr noundef %283) #11
-  %284 = icmp ugt i16 %3, 2
-  br i1 %284, label %286, label %299
+  %284 = zext i16 %3 to i32
+  %285 = icmp ugt i16 %3, 2
+  br i1 %285, label %287, label %299
 
 .critedge211:                                     ; preds = %.loopexit, %82, %89, %92, %94, %63, %105, %decomp_block.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9) #11
-  %285 = load ptr, ptr %26, align 8, !tbaa !3
-  tail call void @free(ptr noundef %285) #11
+  %286 = load ptr, ptr %26, align 8, !tbaa !3
+  tail call void @free(ptr noundef %286) #11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #11
   br label %320
 
-286:                                              ; preds = %.critedge
-  %287 = zext i16 %3 to i32
-  %288 = add nsw i32 %287, -2
+287:                                              ; preds = %.critedge
+  %288 = add nsw i32 %284, -2
   %289 = zext nneg i32 %288 to i64
   %290 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !22
   %292 = icmp eq i32 %4, %291
   br i1 %292, label %293, label %299
 
-293:                                              ; preds = %286
-  %294 = zext i16 %3 to i64
-  %295 = getelementptr %struct.cli_exe_section, ptr %2, i64 %294
-  %296 = getelementptr i8, ptr %295, i64 -24
+293:                                              ; preds = %287
+  %294 = add nsw i32 %284, -1
+  %295 = zext nneg i32 %294 to i64
+  %296 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %2, i64 %295, i32 3
   %297 = load i32, ptr %296, align 4, !tbaa !24
   %.not204 = icmp eq i32 %297, 0
   %298 = trunc nuw i32 %288 to i16
   %spec.select = select i1 %.not204, i16 %298, i16 %3
   br label %299
 
-299:                                              ; preds = %293, %286, %.critedge
-  %.0162 = phi i16 [ %3, %286 ], [ %3, %.critedge ], [ %spec.select, %293 ]
+299:                                              ; preds = %293, %287, %.critedge
+  %.0162 = phi i16 [ %3, %287 ], [ %3, %.critedge ], [ %spec.select, %293 ]
   %300 = zext i16 %.0162 to i64
   %301 = mul nuw nsw i64 %300, 36
   %302 = tail call ptr @cli_max_malloc(i64 noundef %301) #11
@@ -1437,33 +1437,34 @@ define internal fastcc i32 @getdec(ptr noundef nonnull captures(none) %0, i8 nou
   %68 = zext nneg i8 %.045 to i32
   %69 = add nuw nsw i32 %26, %68
   store i32 %69, ptr %0, align 8, !tbaa !20
-  %70 = zext nneg i8 %.045 to i64
-  %71 = getelementptr i32, ptr %6, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 -4
+  %70 = add nsw i32 %68, -1
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr inbounds nuw i32, ptr %6, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !16
   %74 = sub i32 %30, %73
   %75 = sub nuw nsw i32 24, %68
   %76 = lshr i32 %74, %75
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %70
-  %78 = load i32, ptr %77, align 4, !tbaa !16
-  %79 = add i32 %76, %78
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %81 = getelementptr inbounds nuw [4 x %struct.DICT_HELPER], ptr %80, i64 0, i64 %5
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !12
-  %.not50 = icmp ult i32 %79, %83
-  br i1 %.not50, label %84, label %readstream.exit
+  %77 = zext nneg i8 %.045 to i64
+  %78 = getelementptr inbounds nuw i32, ptr %8, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !16
+  %80 = add i32 %76, %79
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %82 = getelementptr inbounds nuw [4 x %struct.DICT_HELPER], ptr %81, i64 0, i64 %5
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !12
+  %.not50 = icmp ult i32 %80, %84
+  br i1 %.not50, label %85, label %readstream.exit
 
-84:                                               ; preds = %67
-  %85 = load ptr, ptr %81, align 8, !tbaa !3
-  %86 = zext i32 %79 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !16
+85:                                               ; preds = %67
+  %86 = load ptr, ptr %82, align 8, !tbaa !3
+  %87 = zext i32 %80 to i64
+  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !16
   store i32 0, ptr %2, align 4, !tbaa !16
   br label %readstream.exit
 
-readstream.exit:                                  ; preds = %14, %67, %34, %84
-  %.0 = phi i32 [ %88, %84 ], [ 0, %34 ], [ 0, %67 ], [ 0, %14 ]
+readstream.exit:                                  ; preds = %14, %67, %34, %85
+  %.0 = phi i32 [ %89, %85 ], [ 0, %34 ], [ 0, %67 ], [ 0, %14 ]
   ret i32 %.0
 }
 

@@ -759,7 +759,7 @@ define hidden void @SDL_LogMessageV_REAL(i32 noundef %0, i32 noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load ptr, ptr @SDL_log_function, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %60, label %8
+  br i1 %.not, label %62, label %8
 
 8:                                                ; preds = %4
   tail call fastcc void @SDL_CheckInitLog()
@@ -813,14 +813,14 @@ define hidden void @SDL_LogMessageV_REAL(i32 noundef %0, i32 noundef %1, ptr nou
 SDL_GetLogPriority_REAL.exit:                     ; preds = %10, %26
   %.019.i = phi i32 [ %13, %10 ], [ %27, %26 ]
   %29 = icmp ult i32 %1, %.019.i
-  br i1 %29, label %60, label %30
+  br i1 %29, label %62, label %30
 
 30:                                               ; preds = %SDL_GetLogPriority_REAL.exit
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %3)
   %31 = call i32 @SDL_vsnprintf_REAL(ptr noundef nonnull %5, i64 noundef 256, ptr noundef %2, ptr noundef nonnull %6) #8
   call void @llvm.va_end.p0(ptr nonnull %6)
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %60, label %33
+  br i1 %32, label %62, label %33
 
 33:                                               ; preds = %30
   %34 = icmp samesign ugt i32 %31, 255
@@ -831,7 +831,7 @@ SDL_GetLogPriority_REAL.exit:                     ; preds = %10, %26
   %36 = zext i32 %narrow to i64
   %37 = call noalias ptr @SDL_malloc_REAL(i64 noundef %36) #8
   %.not31 = icmp eq ptr %37, null
-  br i1 %.not31, label %60, label %38
+  br i1 %.not31, label %62, label %38
 
 38:                                               ; preds = %35
   call void @llvm.va_copy.p0(ptr nonnull %6, ptr %3)
@@ -843,47 +843,49 @@ SDL_GetLogPriority_REAL.exit:                     ; preds = %10, %26
   %.025 = phi ptr [ %37, %38 ], [ %5, %33 ]
   %.0 = phi i32 [ %39, %38 ], [ %31, %33 ]
   %41 = icmp sgt i32 %.0, 0
-  br i1 %41, label %42, label %54
+  br i1 %41, label %42, label %56
 
 42:                                               ; preds = %40
-  %43 = zext nneg i32 %.0 to i64
-  %44 = getelementptr i8, ptr %.025, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -1
+  %43 = add nsw i32 %.0, -1
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i8, ptr %.025, i64 %44
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 10
-  br i1 %47, label %48, label %54
+  br i1 %47, label %48, label %56
 
 48:                                               ; preds = %42
   store i8 0, ptr %45, align 1
   %.not32 = icmp eq i32 %.0, 1
-  br i1 %.not32, label %54, label %49
+  br i1 %.not32, label %56, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr i8, ptr %44, i64 -2
-  %51 = load i8, ptr %50, align 1
-  %52 = icmp eq i8 %51, 13
-  br i1 %52, label %53, label %54
+  %50 = add nsw i32 %.0, -2
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.025, i64 %51
+  %53 = load i8, ptr %52, align 1
+  %54 = icmp eq i8 %53, 13
+  br i1 %54, label %55, label %56
 
-53:                                               ; preds = %49
-  store i8 0, ptr %50, align 1
-  br label %54
+55:                                               ; preds = %49
+  store i8 0, ptr %52, align 1
+  br label %56
 
-54:                                               ; preds = %48, %49, %53, %42, %40
-  %55 = load ptr, ptr @SDL_log_function_lock, align 8
-  call void @SDL_LockMutex_REAL(ptr noundef %55) #8
-  %56 = load ptr, ptr @SDL_log_function, align 8
-  %57 = load ptr, ptr @SDL_log_userdata, align 8
-  call void %56(ptr noundef %57, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %.025) #8
-  %58 = load ptr, ptr @SDL_log_function_lock, align 8
-  call void @SDL_UnlockMutex_REAL(ptr noundef %58) #8
+56:                                               ; preds = %48, %49, %55, %42, %40
+  %57 = load ptr, ptr @SDL_log_function_lock, align 8
+  call void @SDL_LockMutex_REAL(ptr noundef %57) #8
+  %58 = load ptr, ptr @SDL_log_function, align 8
+  %59 = load ptr, ptr @SDL_log_userdata, align 8
+  call void %58(ptr noundef %59, i32 noundef %0, i32 noundef %1, ptr noundef nonnull %.025) #8
+  %60 = load ptr, ptr @SDL_log_function_lock, align 8
+  call void @SDL_UnlockMutex_REAL(ptr noundef %60) #8
   %.not33 = icmp eq ptr %.025, %5
-  br i1 %.not33, label %60, label %59
+  br i1 %.not33, label %62, label %61
 
-59:                                               ; preds = %54
+61:                                               ; preds = %56
   call void @SDL_free_REAL(ptr noundef nonnull %.025) #8
-  br label %60
+  br label %62
 
-60:                                               ; preds = %54, %59, %35, %30, %SDL_GetLogPriority_REAL.exit, %4
+62:                                               ; preds = %56, %61, %35, %30, %SDL_GetLogPriority_REAL.exit, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

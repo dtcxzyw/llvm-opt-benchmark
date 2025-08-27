@@ -404,8 +404,8 @@ define dso_local noundef ptr @ziplistResize(ptr noundef %0, i64 noundef %1) loca
   %6 = tail call ptr @zrealloc(ptr noundef %0, i64 noundef %1) #20
   %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %6, align 4, !tbaa !5
-  %8 = getelementptr i8, ptr %6, i64 %1
-  %9 = getelementptr i8, ptr %8, i64 -1
+  %8 = add nsw i64 %1, -1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
   store i8 -1, ptr %9, align 1, !tbaa !9
   ret ptr %6
 }
@@ -696,8 +696,8 @@ ziplistResize.exit:                               ; preds = %128
   %134 = tail call ptr @zrealloc(ptr noundef nonnull %0, i64 noundef %129) #20
   %135 = trunc nuw i64 %129 to i32
   store i32 %135, ptr %134, align 4, !tbaa !5
-  %136 = getelementptr i8, ptr %134, i64 %129
-  %137 = getelementptr i8, ptr %136, i64 -1
+  %136 = add nsw i64 %129, -1
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 %136
   store i8 -1, ptr %137, align 1, !tbaa !9
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 %133
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %.083130
@@ -1410,7 +1410,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %29
   %45 = sub i64 %43, %44
   %46 = trunc i64 %45 to i32
   %.not66 = icmp eq i32 %46, 0
-  br i1 %.not66, label %114, label %47
+  br i1 %.not66, label %113, label %47
 
 47:                                               ; preds = %._crit_edge.thread
   br i1 %.lcssa119, label %48, label %83
@@ -1511,8 +1511,8 @@ ziplistResize.exit:                               ; preds = %89
   %97 = tail call ptr @zrealloc(ptr noundef nonnull %0, i64 noundef %92) #20
   %98 = trunc nuw i64 %92 to i32
   store i32 %98, ptr %97, align 4, !tbaa !5
-  %99 = getelementptr i8, ptr %97, i64 %92
-  %100 = getelementptr i8, ptr %99, i64 -1
+  %99 = add nsw i64 %92, -1
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 %99
   store i8 -1, ptr %100, align 1, !tbaa !9
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 %96
   %102 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -1527,27 +1527,26 @@ ziplistResize.exit:                               ; preds = %89
 
 106:                                              ; preds = %104, %ziplistResize.exit
   %107 = zext i32 %.157 to i64
-  %108 = add nsw i64 %92, -1
-  %.not70 = icmp ult i64 %108, %107
-  br i1 %.not70, label %109, label %110, !prof !24
+  %.not70 = icmp ult i64 %99, %107
+  br i1 %.not70, label %108, label %109, !prof !24
 
-109:                                              ; preds = %106
+108:                                              ; preds = %106
   tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 913) #17
   tail call void @abort() #18
   unreachable
 
-110:                                              ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  store i32 %.157, ptr %111, align 4, !tbaa !5
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  store i32 %.157, ptr %110, align 4, !tbaa !5
   %.not71 = icmp eq i32 %.058, 0
-  br i1 %.not71, label %114, label %112
+  br i1 %.not71, label %113, label %111
 
-112:                                              ; preds = %110
-  %113 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %97, ptr noundef nonnull %101)
-  br label %114
+111:                                              ; preds = %109
+  %112 = tail call ptr @__ziplistCascadeUpdate(ptr noundef nonnull %97, ptr noundef nonnull %101)
+  br label %113
 
-114:                                              ; preds = %110, %112, %._crit_edge.thread
-  %.0 = phi ptr [ %0, %._crit_edge.thread ], [ %113, %112 ], [ %97, %110 ]
+113:                                              ; preds = %109, %111, %._crit_edge.thread
+  %.0 = phi ptr [ %0, %._crit_edge.thread ], [ %112, %111 ], [ %97, %109 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
 }
@@ -1742,8 +1741,8 @@ ziplistResize.exit:                               ; preds = %76
   %88 = call ptr @zrealloc(ptr noundef nonnull %0, i64 noundef %85) #20
   %89 = trunc nuw i64 %85 to i32
   store i32 %89, ptr %88, align 4, !tbaa !5
-  %90 = getelementptr i8, ptr %88, i64 %85
-  %91 = getelementptr i8, ptr %90, i64 -1
+  %90 = add nsw i64 %85, -1
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
   store i8 -1, ptr %91, align 1, !tbaa !9
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 %82
   %93 = load i8, ptr %92, align 1, !tbaa !9

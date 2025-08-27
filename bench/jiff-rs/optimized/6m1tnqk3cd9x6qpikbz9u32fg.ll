@@ -436,16 +436,17 @@ define hidden void @_ZN4core6escape14escape_unicode17h0a9a83b7edb4e406E(ptr dead
   store i8 125, ptr %43, align 1
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   store i8 92, ptr %44, align 1
-  %45 = getelementptr i8, ptr %3, i64 %7
-  %46 = getelementptr i8, ptr %45, i64 -1
+  %45 = add nsw i64 %7, -1
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 %45
   store i8 117, ptr %46, align 1
-  store i8 123, ptr %45, align 1
-  %47 = trunc nuw nsw i64 %8 to i8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %7
+  store i8 123, ptr %47, align 1
+  %48 = trunc nuw nsw i64 %8 to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) %3, i64 10, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 10, ptr %49, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %48, ptr %49, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 11
+  store i8 10, ptr %50, align 1
   ret void
 }
 

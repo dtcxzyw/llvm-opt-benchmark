@@ -4032,8 +4032,8 @@ st_mult.exit:                                     ; preds = %828
 
 881:                                              ; preds = %876
   %882 = load ptr, ptr %50, align 8, !tbaa !245
-  %883 = getelementptr %struct.object_id, ptr %882, i64 %875
-  %884 = getelementptr i8, ptr %883, i64 -36
+  %883 = add i64 %875, -1
+  %884 = getelementptr inbounds nuw %struct.object_id, ptr %882, i64 %883
   %885 = getelementptr inbounds nuw i8, ptr %30, i64 2784
   store ptr %884, ptr %885, align 8, !tbaa !246
   %886 = load ptr, ptr %.0.ph343, align 8, !tbaa !239
@@ -5344,8 +5344,8 @@ make_cover_letter.exit:                           ; preds = %1380, %get_notes_ar
 1424:                                             ; preds = %1422
   %1425 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1421, ptr noundef nonnull @.str.275, ptr noundef nonnull %1420) #23
   %1426 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1420) #24
-  %1427 = getelementptr i8, ptr %1420, i64 %1426
-  %1428 = getelementptr i8, ptr %1427, i64 -1
+  %1427 = add i64 %1426, -1
+  %1428 = getelementptr inbounds nuw i8, ptr %1420, i64 %1427
   %1429 = load i8, ptr %1428, align 1, !tbaa !77
   %.not9.i = icmp eq i8 %1429, 10
   br i1 %.not9.i, label %1432, label %1430
@@ -5531,8 +5531,8 @@ _.exit305:                                        ; preds = %1442, %1445
 1515:                                             ; preds = %1513
   %1516 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1512, ptr noundef nonnull @.str.275, ptr noundef nonnull %1511) #23
   %1517 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1511) #24
-  %1518 = getelementptr i8, ptr %1511, i64 %1517
-  %1519 = getelementptr i8, ptr %1518, i64 -1
+  %1518 = add i64 %1517, -1
+  %1519 = getelementptr inbounds nuw i8, ptr %1511, i64 %1518
   %1520 = load i8, ptr %1519, align 1, !tbaa !77
   %.not9.i308 = icmp eq i8 %1520, 10
   br i1 %.not9.i308, label %1523, label %1521
@@ -6790,8 +6790,8 @@ define internal fastcc range(i32 -1, 1) i32 @open_next_file(ptr noundef %0, ptr 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !131
-  %14 = getelementptr i8, ptr %13, i64 %10
-  %15 = getelementptr i8, ptr %14, i64 -1
+  %14 = add i64 %10, -1
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !77
   %.not6.i = icmp eq i8 %16, 47
   br i1 %.not6.i, label %strbuf_complete.exit, label %17
@@ -7580,34 +7580,28 @@ declare i32 @diff_check_follow_pathspec(ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @add_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
-  %4 = and i64 %3, 4294967295
-  %.not19 = icmp eq i64 %4, 0
-  br i1 %.not19, label %.critedge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %2
   %sext = shl i64 %3, 32
-  %5 = ashr exact i64 %sext, 32
-  br label %.lr.ph
+  %4 = ashr exact i64 %sext, 32
+  br label %5
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %10
-  %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %6 = getelementptr i8, ptr %1, i64 %indvars.iv
-  %7 = getelementptr i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !77
-  %9 = icmp eq i8 %8, 10
-  br i1 %9, label %10, label %.critedge.loopexit.split.loop.exit24
+5:                                                ; preds = %7, %2
+  %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ %4, %2 ]
+  %6 = icmp eq i64 %indvars.iv, 0
+  br i1 %6, label %.critedge, label %7
 
-10:                                               ; preds = %.lr.ph
+7:                                                ; preds = %5
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !325
+  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
+  %9 = load i8, ptr %8, align 1, !tbaa !77
+  %10 = icmp eq i8 %9, 10
+  br i1 %10, label %5, label %.critedge.split.loop.exit20, !llvm.loop !325
 
-.critedge.loopexit.split.loop.exit24:             ; preds = %.lr.ph
+.critedge.split.loop.exit20:                      ; preds = %7
   %11 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %10, %.critedge.loopexit.split.loop.exit24, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %11, %.critedge.loopexit.split.loop.exit24 ], [ 0, %10 ]
+.critedge:                                        ; preds = %5, %.critedge.split.loop.exit20
+  %.0.lcssa = phi i32 [ %11, %.critedge.split.loop.exit20 ], [ 0, %5 ]
   %12 = tail call i32 @strncasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i64 noundef 4) #24
   %.not17 = icmp eq i32 %12, 0
   br i1 %.not17, label %13, label %18

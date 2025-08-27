@@ -506,9 +506,8 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8protobuf8rep
   unreachable
 
 39:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc5d83f78ff40df62E.exit"
-  %40 = getelementptr { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %33, i64 %35
-  %41 = getelementptr i8, ptr %40, i64 -32
-  ret ptr %41
+  %40 = getelementptr inbounds nuw { i64, ptr, { { i64 } }, i8, [7 x i8] }, ptr %33, i64 %34
+  ret ptr %40
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -618,9 +617,8 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN8protobuf8re
   unreachable
 
 43:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he217351f81f8577bE.exit"
-  %44 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %37, i64 %39
-  %45 = getelementptr i8, ptr %44, i64 -104
-  ret ptr %45
+  %44 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %37, i64 %38
+  ret ptr %44
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

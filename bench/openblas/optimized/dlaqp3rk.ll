@@ -183,8 +183,8 @@ define noundef i32 @dlaqp3rk_(ptr noundef %0, ptr noundef readonly captures(none
 .lr.ph465.preheader:                              ; preds = %131
   %133 = sext i32 %132 to i64
   %134 = shl nsw i64 %133, 3
-  %135 = getelementptr i8, ptr %16, i64 %134
-  %scevgep497 = getelementptr i8, ptr %135, i64 -8
+  %135 = add nsw i64 %134, -8
+  %scevgep497 = getelementptr i8, ptr %16, i64 %135
   %136 = sub i32 %., %132
   %137 = zext i32 %136 to i64
   %138 = shl nuw nsw i64 %137, 3
@@ -268,8 +268,8 @@ split:                                            ; preds = %156, %._crit_edge50
 .lr.ph461.preheader:                              ; preds = %180
   %182 = sext i32 %181 to i64
   %183 = shl nsw i64 %182, 3
-  %184 = getelementptr i8, ptr %16, i64 %183
-  %scevgep493 = getelementptr i8, ptr %184, i64 -8
+  %184 = add nsw i64 %183, -8
+  %scevgep493 = getelementptr i8, ptr %16, i64 %184
   %185 = sub i32 %., %181
   %186 = zext i32 %185 to i64
   %187 = shl nuw nsw i64 %186, 3
@@ -664,9 +664,9 @@ split:                                            ; preds = %156, %._crit_edge50
 
 440:                                              ; preds = %.lr.ph457, %440
   %.4455 = phi i32 [ %.0357.lcssa, %.lr.ph457 ], [ %444, %440 ]
-  %441 = zext nneg i32 %.4455 to i64
-  %442 = getelementptr i32, ptr %39, i64 %441
-  %443 = getelementptr i8, ptr %442, i64 -4
+  %441 = add nsw i32 %.4455, -1
+  %442 = zext nneg i32 %441 to i64
+  %443 = getelementptr inbounds nuw i32, ptr %39, i64 %442
   %444 = load i32, ptr %443, align 4, !tbaa !3
   %445 = load i32, ptr %0, align 4, !tbaa !3
   %446 = sub nsw i32 %445, %.0363.lcssa
@@ -676,12 +676,13 @@ split:                                            ; preds = %156, %._crit_edge50
   %449 = sext i32 %448 to i64
   %450 = getelementptr inbounds double, ptr %31, i64 %449
   %451 = call double @dnrm2_(ptr noundef nonnull %25, ptr noundef %450, ptr noundef nonnull @c__1) #6
-  %452 = getelementptr inbounds nuw double, ptr %34, i64 %441
-  store double %451, ptr %452, align 8, !tbaa !7
-  %453 = getelementptr inbounds nuw double, ptr %35, i64 %441
+  %452 = zext nneg i32 %.4455 to i64
+  %453 = getelementptr inbounds nuw double, ptr %34, i64 %452
   store double %451, ptr %453, align 8, !tbaa !7
-  %454 = icmp sgt i32 %444, 0
-  br i1 %454, label %440, label %.loopexit, !llvm.loop !12
+  %454 = getelementptr inbounds nuw double, ptr %35, i64 %452
+  store double %451, ptr %454, align 8, !tbaa !7
+  %455 = icmp sgt i32 %444, 0
+  br i1 %455, label %440, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %440, %.lr.ph461.preheader, %.lr.ph465.preheader, %437, %180, %131, %264, %272, %278, %74, %81, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %28)

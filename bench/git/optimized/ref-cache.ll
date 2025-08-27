@@ -61,29 +61,31 @@ st_mult.exit:                                     ; preds = %6
   %22 = getelementptr inbounds ptr, ptr %18, i64 %21
   store ptr %1, ptr %22, align 8, !tbaa !14
   %23 = icmp eq i32 %19, 0
-  br i1 %23, label %35, label %24
+  br i1 %23, label %37, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !16
   %27 = icmp eq i32 %19, %26
-  br i1 %27, label %28, label %37
+  br i1 %27, label %28, label %39
 
 28:                                               ; preds = %24
-  %29 = getelementptr i8, ptr %22, i64 -8
-  %30 = load ptr, ptr %29, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %32) #12
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %37
+  %29 = add nsw i32 %19, -1
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds ptr, ptr %18, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) %34) #12
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %39
 
-35:                                               ; preds = %28, %17
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %20, ptr %36, align 8, !tbaa !16
-  br label %37
+37:                                               ; preds = %28, %17
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %20, ptr %38, align 8, !tbaa !16
+  br label %39
 
-37:                                               ; preds = %35, %28, %24
+39:                                               ; preds = %37, %28, %24
   ret void
 }
 
@@ -984,10 +986,10 @@ define internal i32 @cache_ref_iterator_advance(ptr noundef %0) #0 {
 overlaps_prefix.exit.thread58:                    ; preds = %overlaps_prefix.exit.thread58.backedge, %1
   %6 = load ptr, ptr %2, align 8, !tbaa !40
   %7 = load i64, ptr %3, align 8, !tbaa !41
-  %8 = getelementptr %struct.cache_ref_iterator_level, ptr %6, i64 %7
-  %9 = getelementptr i8, ptr %8, i64 -16
+  %8 = add i64 %7, -1
+  %9 = getelementptr inbounds nuw %struct.cache_ref_iterator_level, ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !45
-  %11 = getelementptr i8, ptr %8, i64 -4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !42
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %15
@@ -1024,7 +1026,7 @@ overlaps_prefix.exit.thread58:                    ; preds = %overlaps_prefix.exi
   %30 = sext i32 %18 to i64
   %31 = getelementptr inbounds ptr, ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = getelementptr i8, ptr %8, i64 -8
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !47
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %overlaps_prefix.exit.thread

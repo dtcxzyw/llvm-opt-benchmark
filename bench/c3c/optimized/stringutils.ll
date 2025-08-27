@@ -464,8 +464,8 @@ define dso_local void @str_ellide_in_place(ptr noundef captures(none) %0, i64 no
   br i1 %4, label %8, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
-  %5 = getelementptr i8, ptr %0, i64 %1
-  %scevgep = getelementptr i8, ptr %5, i64 -2
+  %5 = add i64 %1, -2
+  %scevgep = getelementptr i8, ptr %0, i64 %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %scevgep, i8 46, i64 3, i1 false)
   %6 = getelementptr i8, ptr %0, i64 %1
   %7 = getelementptr i8, ptr %6, i64 1
@@ -640,9 +640,9 @@ define dso_local { ptr, i64 } @slice_next_token(ptr noundef captures(none) %0, i
 define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %.not31 = icmp eq i64 %3, 0
+  %.not23 = icmp eq i64 %3, 0
   %.pre = load ptr, ptr %0, align 8
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
   %.018 = phi i64 [ %7, %6 ], [ 0, %1 ]
@@ -662,25 +662,22 @@ define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_a
   store ptr %8, ptr %0, align 8
   %9 = sub i64 %3, %.0.lcssa
   store i64 %9, ptr %2, align 8
-  %.not1523 = icmp eq i64 %9, 0
-  br i1 %.not1523, label %._crit_edge27, label %.lr.ph26
+  br label %10
 
-.lr.ph26:                                         ; preds = %._crit_edge, %13
-  %.124 = phi i64 [ %14, %13 ], [ %9, %._crit_edge ]
-  %10 = getelementptr i8, ptr %8, i64 %.124
-  %11 = getelementptr i8, ptr %10, i64 -1
-  %12 = load i8, ptr %11, align 1
-  %.not16 = icmp eq i8 %12, 32
-  br i1 %.not16, label %13, label %._crit_edge27
+10:                                               ; preds = %11, %._crit_edge
+  %.1 = phi i64 [ %9, %._crit_edge ], [ %12, %11 ]
+  %.not15 = icmp eq i64 %.1, 0
+  br i1 %.not15, label %15, label %11
 
-13:                                               ; preds = %.lr.ph26
-  %14 = add i64 %.124, -1
-  %.not15 = icmp eq i64 %14, 0
-  br i1 %.not15, label %._crit_edge27, label %.lr.ph26, !llvm.loop !19
+11:                                               ; preds = %10
+  %12 = add i64 %.1, -1
+  %13 = getelementptr inbounds i8, ptr %8, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %.not16 = icmp eq i8 %14, 32
+  br i1 %.not16, label %10, label %15, !llvm.loop !19
 
-._crit_edge27:                                    ; preds = %13, %.lr.ph26, %._crit_edge
-  %.1.lcssa = phi i64 [ 0, %._crit_edge ], [ %.124, %.lr.ph26 ], [ 0, %13 ]
-  store i64 %.1.lcssa, ptr %2, align 8
+15:                                               ; preds = %11, %10
+  store i64 %.1, ptr %2, align 8
   ret void
 }
 

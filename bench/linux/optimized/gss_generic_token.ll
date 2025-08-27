@@ -167,7 +167,7 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nounde
 
 25:                                               ; preds = %18
   %26 = icmp eq i8 %19, 0
-  br i1 %26, label %45, label %.preheader
+  br i1 %26, label %46, label %.preheader
 
 .preheader:                                       ; preds = %25, %.preheader
   %27 = phi i32 [ %36, %.preheader ], [ %16, %25 ]
@@ -186,74 +186,75 @@ define dso_local range(i32 -2045022965, 1) i32 @g_verify_token_header(ptr nounde
 
 39:                                               ; preds = %12
   %40 = zext nneg i8 %15 to i32
-  br label %45
+  br label %46
 
 41:                                               ; preds = %.preheader
-  %42 = zext nneg i8 %19 to i64
-  %43 = getelementptr i8, ptr %8, i64 %42
-  %44 = getelementptr i8, ptr %43, i64 2
-  br label %45
+  %42 = add nsw i8 %19, -1
+  %43 = zext nneg i8 %42 to i64
+  %44 = getelementptr i8, ptr %8, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 3
+  br label %46
 
-45:                                               ; preds = %41, %39, %25
-  %46 = phi i32 [ %16, %39 ], [ %16, %25 ], [ %36, %41 ]
-  %47 = phi ptr [ %14, %39 ], [ %14, %25 ], [ %44, %41 ]
-  %48 = phi i32 [ %40, %39 ], [ 0, %25 ], [ %35, %41 ]
-  %49 = icmp slt i32 %48, 0
-  %50 = icmp ne i32 %48, %46
-  %51 = icmp slt i32 %46, 1
-  %52 = or i1 %51, %50
-  %53 = select i1 %49, i1 true, i1 %52
-  br i1 %53, label %.thread, label %54
+46:                                               ; preds = %41, %39, %25
+  %47 = phi i32 [ %16, %39 ], [ %16, %25 ], [ %36, %41 ]
+  %48 = phi ptr [ %14, %39 ], [ %14, %25 ], [ %45, %41 ]
+  %49 = phi i32 [ %40, %39 ], [ 0, %25 ], [ %35, %41 ]
+  %50 = icmp slt i32 %49, 0
+  %51 = icmp ne i32 %49, %47
+  %52 = icmp slt i32 %47, 1
+  %53 = or i1 %52, %51
+  %54 = select i1 %50, i1 true, i1 %53
+  br i1 %54, label %.thread, label %55
 
-54:                                               ; preds = %45
-  %55 = load i8, ptr %47, align 1
-  %56 = icmp ne i8 %55, 6
-  %57 = icmp eq i32 %46, 1
-  %58 = select i1 %56, i1 true, i1 %57
-  br i1 %58, label %.thread, label %59
+55:                                               ; preds = %46
+  %56 = load i8, ptr %48, align 1
+  %57 = icmp ne i8 %56, 6
+  %58 = icmp eq i32 %47, 1
+  %59 = select i1 %57, i1 true, i1 %58
+  br i1 %59, label %.thread, label %60
 
-59:                                               ; preds = %54
-  %60 = getelementptr i8, ptr %47, i64 1
-  %61 = add nsw i32 %46, -2
-  %62 = getelementptr i8, ptr %47, i64 2
-  %63 = load i8, ptr %60, align 1
-  %64 = zext i8 %63 to i32
-  %65 = sub nsw i32 %61, %64
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %.thread, label %67
+60:                                               ; preds = %55
+  %61 = getelementptr i8, ptr %48, i64 1
+  %62 = add nsw i32 %47, -2
+  %63 = getelementptr i8, ptr %48, i64 2
+  %64 = load i8, ptr %61, align 1
+  %65 = zext i8 %64 to i32
+  %66 = sub nsw i32 %62, %65
+  %67 = icmp slt i32 %66, 0
+  br i1 %67, label %.thread, label %68
 
-67:                                               ; preds = %59
-  %68 = zext i8 %63 to i64
-  %69 = getelementptr i8, ptr %62, i64 %68
-  %70 = load i32, ptr %0, align 8
-  %71 = icmp eq i32 %70, %64
-  br i1 %71, label %72, label %.thread6
+68:                                               ; preds = %60
+  %69 = zext i8 %64 to i64
+  %70 = getelementptr i8, ptr %63, i64 %69
+  %71 = load i32, ptr %0, align 8
+  %72 = icmp eq i32 %71, %65
+  br i1 %72, label %73, label %.thread6
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @bcmp(ptr %62, ptr %74, i64 %68)
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %79, label %.thread6
+73:                                               ; preds = %68
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = tail call i32 @bcmp(ptr %63, ptr %75, i64 %69)
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %80, label %.thread6
 
-.thread6:                                         ; preds = %67, %72
-  %77 = icmp samesign ult i32 %65, 2
-  %78 = select i1 %77, i32 -2045022964, i32 -2045022965
+.thread6:                                         ; preds = %68, %73
+  %78 = icmp samesign ult i32 %66, 2
+  %79 = select i1 %78, i32 -2045022964, i32 -2045022965
   br label %.thread
 
-79:                                               ; preds = %72
-  %80 = icmp samesign ult i32 %65, 2
-  br i1 %80, label %.thread, label %81
+80:                                               ; preds = %73
+  %81 = icmp samesign ult i32 %66, 2
+  br i1 %81, label %.thread, label %82
 
-81:                                               ; preds = %79
-  %82 = add nsw i32 %65, -2
-  store ptr %69, ptr %2, align 8
-  store i32 %82, ptr %1, align 4
+82:                                               ; preds = %80
+  %83 = add nsw i32 %66, -2
+  store ptr %70, ptr %2, align 8
+  store i32 %83, ptr %1, align 4
   br label %.thread
 
-.thread:                                          ; preds = %18, %.thread6, %81, %79, %59, %54, %45, %7, %4
-  %83 = phi i32 [ 0, %81 ], [ -2045022964, %4 ], [ -2045022964, %7 ], [ -2045022964, %45 ], [ -2045022964, %54 ], [ -2045022964, %59 ], [ -2045022964, %79 ], [ %78, %.thread6 ], [ -2045022964, %18 ]
-  ret i32 %83
+.thread:                                          ; preds = %18, %.thread6, %82, %80, %60, %55, %46, %7, %4
+  %84 = phi i32 [ 0, %82 ], [ -2045022964, %4 ], [ -2045022964, %7 ], [ -2045022964, %46 ], [ -2045022964, %55 ], [ -2045022964, %60 ], [ -2045022964, %80 ], [ %79, %.thread6 ], [ -2045022964, %18 ]
+  ret i32 %84
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

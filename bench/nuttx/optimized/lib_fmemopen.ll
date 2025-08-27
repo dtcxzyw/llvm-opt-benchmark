@@ -196,21 +196,23 @@ define internal i64 @fmemopen_write(ptr noundef captures(none) %0, ptr noundef r
   %22 = sext i32 %16 to i64
   %23 = load i64, ptr %8, align 8
   %24 = icmp ugt i64 %23, %22
-  br i1 %24, label %25, label %31
+  br i1 %24, label %25, label %33
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr i8, ptr %26, i64 %22
-  %28 = getelementptr i8, ptr %27, i64 -1
-  %29 = load i8, ptr %28, align 1
-  %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %31, label %30
+  %27 = add nsw i32 %16, -1
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %26, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %.not = icmp eq i8 %30, 0
+  br i1 %.not, label %33, label %31
 
-30:                                               ; preds = %25
-  store i8 0, ptr %27, align 1
-  br label %31
+31:                                               ; preds = %25
+  %32 = getelementptr inbounds i8, ptr %26, i64 %22
+  store i8 0, ptr %32, align 1
+  br label %33
 
-31:                                               ; preds = %30, %25, %21
+33:                                               ; preds = %31, %25, %21
   ret i64 %spec.select
 }
 

@@ -338,15 +338,16 @@ define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr no
   %20 = load ptr, ptr %5, align 8, !tbaa !27
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv18
   %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = getelementptr i8, ptr %21, i64 -8
-  store ptr %22, ptr %23, align 8, !tbaa !28
+  %23 = add nsw i64 %indvars.iv18, -1
+  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  store ptr %22, ptr %24, align 8, !tbaa !28
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %19, %16
-  %24 = add nsw i32 %4, -1
-  store i32 %24, ptr %3, align 4, !tbaa !25
+  %25 = add nsw i32 %4, -1
+  store i32 %25, ptr %3, align 4, !tbaa !25
   ret void
 }
 

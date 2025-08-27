@@ -28270,8 +28270,8 @@ define hidden void @"_ZN88_$LT$futures_util..io..lines..Lines$LT$R$GT$$u20$as$u2
   br i1 %16, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit": ; preds = %18
-  %21 = getelementptr i8, ptr %20, i64 %15
-  %22 = getelementptr i8, ptr %21, i64 -1
+  %21 = add i64 %15, -1
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
   %rhsc = load i8, ptr %22, align 1
   %23 = icmp eq i8 %rhsc, 10
   br i1 %23, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread"
@@ -28291,21 +28291,19 @@ define hidden void @"_ZN88_$LT$futures_util..io..lines..Lines$LT$R$GT$$u20$as$u2
   br label %25
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit"
-  %26 = add i64 %15, -1
-  store i64 %26, ptr %14, align 8, !alias.scope !7671
-  %.not.i20 = icmp eq i64 %26, 0
+  store i64 %21, ptr %14, align 8, !alias.scope !7671
+  %.not.i20 = icmp eq i64 %21, 0
   br i1 %.not.i20, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit24"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit24": ; preds = %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit
-  %27 = getelementptr i8, ptr %20, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 -1
-  %rhsc39 = load i8, ptr %28, align 1
-  %29 = icmp eq i8 %rhsc39, 13
-  br i1 %29, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread"
+  %26 = add i64 %15, -2
+  %27 = getelementptr inbounds i8, ptr %20, i64 %26
+  %rhsc39 = load i8, ptr %27, align 1
+  %28 = icmp eq i8 %rhsc39, 13
+  br i1 %28, label %_ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread"
 
 _ZN5alloc6string6String3pop17h7213c40ceaf5f871E.exit35: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit24"
-  %30 = add i64 %15, -2
-  store i64 %30, ptr %14, align 8, !alias.scope !7674
+  store i64 %26, ptr %14, align 8, !alias.scope !7674
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h1d7bb44deb291c9eE.exit.thread"
 }
 
@@ -65289,8 +65287,8 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %318 = load i16, ptr %316, align 1, !noalias !17574
   store i16 %318, ptr %317, align 1, !alias.scope !17571, !noalias !17570
   %319 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %314
-  %320 = getelementptr i8, ptr %8, i64 %.sroa.012.031.i.i.i.i.i.i.i.i.i
-  %321 = getelementptr i8, ptr %320, i64 -2
+  %320 = add i64 %.sroa.012.031.i.i.i.i.i.i.i.i.i, -2
+  %321 = getelementptr inbounds i8, ptr %8, i64 %320
   %322 = load i16, ptr %319, align 1, !noalias !17574
   store i16 %322, ptr %321, align 1, !alias.scope !17571, !noalias !17570
   %323 = icmp ugt i64 %.sroa.0.132.i.i.i.i.i.i.i.i.i, 99999999
@@ -65393,8 +65391,8 @@ _ZN4core3ops8function6FnOnce9call_once17h20eb9f37dd66b466E.exit.i.i.i.i: ; preds
   %371 = load i16, ptr %369, align 1, !noalias !17593
   store i16 %371, ptr %370, align 1, !alias.scope !17590, !noalias !17570
   %372 = getelementptr inbounds nuw i8, ptr @anon.187ff28613c2c65f7ccbfd9ddb5a172b.100, i64 %367
-  %373 = getelementptr i8, ptr %7, i64 %.sroa.010.029.i.i.i.i.i.i.i.i.i
-  %374 = getelementptr i8, ptr %373, i64 -2
+  %373 = add i64 %.sroa.010.029.i.i.i.i.i.i.i.i.i, -2
+  %374 = getelementptr inbounds i8, ptr %7, i64 %373
   %375 = load i16, ptr %372, align 1, !noalias !17593
   store i16 %375, ptr %374, align 1, !alias.scope !17590, !noalias !17570
   %376 = icmp ugt i64 %.sroa.0.130.i.i.i.i.i.i.i.i.i, 99999999

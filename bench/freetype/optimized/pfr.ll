@@ -3046,18 +3046,20 @@ define internal fastcc i32 @pfr_aux_name_load(ptr noundef readonly captures(none
   br i1 %.not31, label %.critedge, label %9
 
 9:                                                ; preds = %8
-  %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr i8, ptr %0, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 -1
+  %10 = add nsw i32 %1, -1
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !65
   %14 = icmp eq i8 %13, 0
-  %15 = sext i1 %14 to i32
-  %spec.select = add nsw i32 %1, %15
-  %.not33 = icmp eq i32 %spec.select, 0
+  br i1 %14, label %15, label %.lr.ph.preheader
+
+15:                                               ; preds = %9
+  %.not33 = icmp eq i32 %10, 0
   br i1 %.not33, label %.critedge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %9
-  %wide.trip.count = zext nneg i32 %spec.select to i64
+.lr.ph.preheader:                                 ; preds = %9, %15
+  %.02747 = phi i32 [ %10, %15 ], [ %1, %9 ]
+  %wide.trip.count = zext nneg i32 %.02747 to i64
   br label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
@@ -3073,7 +3075,7 @@ define internal fastcc i32 @pfr_aux_name_load(ptr noundef readonly captures(none
   br i1 %or.cond, label %.critedge, label %16
 
 ._crit_edge:                                      ; preds = %16
-  %19 = add nuw nsw i32 %spec.select, 1
+  %19 = add nuw nsw i32 %.02747, 1
   %20 = zext nneg i32 %19 to i64
   %21 = call ptr @ft_mem_qalloc(ptr noundef %2, i64 noundef %20, ptr noundef nonnull %5) #12
   %22 = load i32, ptr %5, align 4, !tbaa !49
@@ -3081,16 +3083,16 @@ define internal fastcc i32 @pfr_aux_name_load(ptr noundef readonly captures(none
   br i1 %.not34, label %23, label %.critedge
 
 23:                                               ; preds = %._crit_edge
-  %24 = zext nneg i32 %spec.select to i64
+  %24 = zext nneg i32 %.02747 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr nonnull align 1 %0, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
   store i8 0, ptr %25, align 1, !tbaa !65
   %.pre = load i32, ptr %5, align 4, !tbaa !49
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph, %8, %9, %23, %._crit_edge
-  %26 = phi i32 [ %22, %._crit_edge ], [ %.pre, %23 ], [ 0, %9 ], [ 0, %8 ], [ 0, %.lr.ph ]
-  %.026 = phi ptr [ %21, %._crit_edge ], [ %21, %23 ], [ null, %9 ], [ null, %8 ], [ null, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %8, %15, %23, %._crit_edge
+  %26 = phi i32 [ %22, %._crit_edge ], [ %.pre, %23 ], [ 0, %15 ], [ 0, %8 ], [ 0, %.lr.ph ]
+  %.026 = phi ptr [ %21, %._crit_edge ], [ %21, %23 ], [ null, %15 ], [ null, %8 ], [ null, %.lr.ph ]
   store ptr %.026, ptr %3, align 8, !tbaa !177
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %26

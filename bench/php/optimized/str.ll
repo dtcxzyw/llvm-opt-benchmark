@@ -297,8 +297,8 @@ define hidden ptr @lexbor_str_append_one(ptr noundef captures(none) %0, ptr noun
   store i8 0, ptr %22, align 1, !tbaa !12
   %23 = load ptr, ptr %0, align 8, !tbaa !4
   %24 = load i64, ptr %4, align 8, !tbaa !11
-  %25 = getelementptr i8, ptr %23, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 -1
+  %25 = add i64 %24, -1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   br label %27
 
 27:                                               ; preds = %3, %11, %15
@@ -732,25 +732,24 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
 
 26:                                               ; preds = %._crit_edge
   %.not50 = icmp eq i64 %.146, 0
-  br i1 %.not50, label %33, label %27
+  br i1 %.not50, label %32, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr i8, ptr %2, i64 %.146
-  %29 = getelementptr i8, ptr %28, i64 -1
+  %28 = add i64 %.146, -1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !12
   %31 = icmp eq i8 %30, 32
-  %32 = sext i1 %31 to i64
-  %spec.select52 = add i64 %.146, %32
-  br label %33
+  %spec.select52 = select i1 %31, i64 %28, i64 %.146
+  br label %32
 
-33:                                               ; preds = %27, %26
+32:                                               ; preds = %27, %26
   %.247 = phi i64 [ 0, %26 ], [ %spec.select52, %27 ]
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
-  store i8 0, ptr %34, align 1, !tbaa !12
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %.247
+  store i8 0, ptr %33, align 1, !tbaa !12
   store i64 %.247, ptr %3, align 8, !tbaa !11
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %8, %._crit_edge, %33, %1
+._crit_edge.thread:                               ; preds = %8, %._crit_edge, %32, %1
   ret void
 }
 

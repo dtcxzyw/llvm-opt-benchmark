@@ -664,11 +664,7 @@ onig_name_to_group_numbers.exit:                  ; preds = %12
 
 onig_name_to_group_numbers.exit.thread25:         ; preds = %onig_name_to_group_numbers.exit
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge, label %.preheader
-
-onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge: ; preds = %onig_name_to_group_numbers.exit.thread25
-  %.pre = zext nneg i32 %14 to i64
-  br label %.loopexit
+  br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %onig_name_to_group_numbers.exit.thread25
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -691,15 +687,15 @@ onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge: ; preds = %onig_na
   %.not18 = icmp eq i64 %30, -1
   br i1 %.not18, label %22, label %onig_name_to_group_numbers.exit.thread, !llvm.loop !55
 
-.loopexit:                                        ; preds = %22, %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge
-  %.pre-phi = phi i64 [ %.pre, %onig_name_to_group_numbers.exit.thread25..loopexit_crit_edge ], [ %21, %22 ]
-  %31 = getelementptr i32, ptr %18, i64 %.pre-phi
-  %32 = getelementptr i8, ptr %31, i64 -4
-  %33 = load i32, ptr %32, align 4, !tbaa !11
+.loopexit:                                        ; preds = %22, %onig_name_to_group_numbers.exit.thread25
+  %31 = add nsw i32 %14, -1
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr i32, ptr %18, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !11
   br label %onig_name_to_group_numbers.exit.thread
 
 onig_name_to_group_numbers.exit.thread:           ; preds = %24, %12, %name_find.exit.thread.i, %name_find.exit.i, %onig_name_to_group_numbers.exit, %.loopexit, %onig_name_to_group_numbers.exit.thread25.thread32
-  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %33, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %27, %24 ]
+  %.0 = phi i32 [ %16, %onig_name_to_group_numbers.exit.thread25.thread32 ], [ %34, %.loopexit ], [ %14, %onig_name_to_group_numbers.exit ], [ -217, %name_find.exit.i ], [ -217, %name_find.exit.thread.i ], [ -11, %12 ], [ %27, %24 ]
   ret i32 %.0
 }
 

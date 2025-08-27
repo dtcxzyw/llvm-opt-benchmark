@@ -2971,8 +2971,8 @@ define hidden ptr @_Py_join_relfile(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not33.i, label %29, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr i32, ptr %0, i64 %12
-  %24 = getelementptr i8, ptr %23, i64 -4
+  %23 = add nsw i64 %12, -1
+  %24 = getelementptr i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !180
   %.not34.i = icmp eq i32 %25, 47
   br i1 %.not34.i, label %29, label %26
@@ -3018,29 +3018,30 @@ define hidden range(i32 -1, 1) i32 @_Py_add_relfile(ptr noundef %0, ptr noundef 
 9:                                                ; preds = %3
   switch i64 %4, label %10 [
     i64 0, label %.sink.split.i
-    i64 1, label %16
+    i64 1, label %17
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr i32, ptr %0, i64 %4
-  %12 = getelementptr i8, ptr %11, i64 -4
+  %11 = add nsw i64 %4, -1
+  %12 = getelementptr i32, ptr %0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !180
   %.not34.i = icmp eq i32 %13, 47
-  br i1 %.not34.i, label %16, label %14
+  br i1 %.not34.i, label %17, label %14
 
 14:                                               ; preds = %10
-  store i32 47, ptr %11, align 4, !tbaa !180
-  %15 = add nuw nsw i64 %4, 1
-  br label %16
+  %15 = getelementptr i32, ptr %0, i64 %4
+  store i32 47, ptr %15, align 4, !tbaa !180
+  %16 = add nuw nsw i64 %4, 1
+  br label %17
 
-16:                                               ; preds = %9, %14, %10
-  %.0.i = phi i64 [ %15, %14 ], [ %4, %10 ], [ %4, %9 ]
-  %17 = getelementptr i32, ptr %0, i64 %.0.i
+17:                                               ; preds = %9, %14, %10
+  %.0.i = phi i64 [ %16, %14 ], [ %4, %10 ], [ %4, %9 ]
+  %18 = getelementptr i32, ptr %0, i64 %.0.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %9, %16
-  %.sink.i = phi ptr [ %17, %16 ], [ %0, %9 ]
-  %18 = tail call ptr @wcscpy(ptr noundef %.sink.i, ptr noundef %1) #17
+.sink.split.i:                                    ; preds = %9, %17
+  %.sink.i = phi ptr [ %18, %17 ], [ %0, %9 ]
+  %19 = tail call ptr @wcscpy(ptr noundef %.sink.i, ptr noundef %1) #17
   br label %join_relfile.exit
 
 join_relfile.exit:                                ; preds = %3, %.sink.split.i

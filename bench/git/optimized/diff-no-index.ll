@@ -602,8 +602,8 @@ read_directory_contents.exit107.thread:           ; preds = %.lr.ph.i103, %.preh
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !72
-  %105 = getelementptr i8, ptr %104, i64 %101
-  %106 = getelementptr i8, ptr %105, i64 -1
+  %105 = add i64 %101, -1
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 %105
   %107 = load i8, ptr %106, align 1, !tbaa !80
   %.not6.i = icmp eq i8 %107, 47
   br i1 %.not6.i, label %strbuf_complete.exit, label %108
@@ -652,8 +652,8 @@ strbuf_complete.exit:                             ; preds = %strbuf_addch.exit.i
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %122 = load ptr, ptr %121, align 8, !tbaa !72
-  %123 = getelementptr i8, ptr %122, i64 %119
-  %124 = getelementptr i8, ptr %123, i64 -1
+  %123 = add i64 %119, -1
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !80
   %.not6.i111 = icmp eq i8 %125, 47
   br i1 %.not6.i111, label %strbuf_complete.exit122, label %126
@@ -879,25 +879,24 @@ define internal fastcc void @append_basename(ptr noundef nonnull %0, ptr noundef
   br label %9
 
 9:                                                ; preds = %.lr.ph, %15
-  %10 = phi i64 [ %.promoted, %.lr.ph ], [ %16, %15 ]
-  %11 = getelementptr i8, ptr %8, i64 %10
-  %12 = getelementptr i8, ptr %11, i64 -1
+  %10 = phi i64 [ %.promoted, %.lr.ph ], [ %11, %15 ]
+  %11 = add i64 %10, -1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !80
   %14 = icmp eq i8 %13, 47
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %9
-  %16 = add i64 %10, -1
-  store i64 %16, ptr %6, align 8, !tbaa !82
-  %.not = icmp eq i64 %16, 0
+  store i64 %11, ptr %6, align 8, !tbaa !82
+  %.not = icmp eq i64 %11, 0
   br i1 %.not, label %.critedge, label %9, !llvm.loop !90
 
 .critedge:                                        ; preds = %9, %15, %3
   %.lcssa = phi i64 [ 0, %3 ], [ 0, %15 ], [ %10, %9 ]
-  %17 = load i64, ptr %0, align 8, !tbaa !83
-  %.not.i.i = icmp eq i64 %17, 0
+  %16 = load i64, ptr %0, align 8, !tbaa !83
+  %.not.i.i = icmp eq i64 %16, 0
   %.neg.i = add i64 %.lcssa, 1
-  %.not.i = icmp eq i64 %17, %.neg.i
+  %.not.i = icmp eq i64 %16, %.neg.i
   %or.cond = or i1 %.not.i.i, %.not.i
   br i1 %or.cond, label %strbuf_avail.exit.thread.i, label %strbuf_addch.exit
 
@@ -909,21 +908,21 @@ strbuf_avail.exit.thread.i:                       ; preds = %.critedge
 
 strbuf_addch.exit:                                ; preds = %.critedge, %strbuf_avail.exit.thread.i
   %.pre-phi.i = phi i64 [ %.pre7.i, %strbuf_avail.exit.thread.i ], [ %.neg.i, %.critedge ]
-  %18 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %.lcssa, %.critedge ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !72
+  %17 = phi i64 [ %.pre.i, %strbuf_avail.exit.thread.i ], [ %.lcssa, %.critedge ]
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !72
   store i64 %.pre-phi.i, ptr %6, align 8, !tbaa !82
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
-  store i8 47, ptr %21, align 1, !tbaa !80
-  %22 = load ptr, ptr %19, align 8, !tbaa !72
-  %23 = load i64, ptr %6, align 8, !tbaa !82
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
-  store i8 0, ptr %24, align 1, !tbaa !80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %17
+  store i8 47, ptr %20, align 1, !tbaa !80
+  %21 = load ptr, ptr %18, align 8, !tbaa !72
+  %22 = load i64, ptr %6, align 8, !tbaa !82
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
+  store i8 0, ptr %23, align 1, !tbaa !80
   %.not12 = icmp eq ptr %4, null
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %26 = select i1 %.not12, ptr %2, ptr %25
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #14
-  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %26, i64 noundef %27) #12
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %25 = select i1 %.not12, ptr %2, ptr %24
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #14
+  tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %25, i64 noundef %26) #12
   ret void
 }
 

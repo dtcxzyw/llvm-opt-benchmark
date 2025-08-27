@@ -152,88 +152,89 @@ define void @_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort19bidir
   %6 = add i64 %1, -1
   %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %6
   %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %6
-  %9 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %4
-  %10 = getelementptr i8, ptr %9, i64 -24
+  %9 = add nsw i64 %4, -1
+  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %4
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %11 = getelementptr i8, ptr %36, i64 24
-  %12 = getelementptr i8, ptr %35, i64 24
-  %13 = and i64 %1, 1
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %45, label %38
+  %12 = getelementptr i8, ptr %37, i64 24
+  %13 = getelementptr i8, ptr %36, i64 24
+  %14 = and i64 %1, 1
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %46, label %39
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.0.037 = phi ptr [ %26, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %.sroa.06.036 = phi ptr [ %24, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.sroa.010.035 = phi ptr [ %27, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %.sroa.013.034 = phi ptr [ %36, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.sroa.015.033 = phi ptr [ %35, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %.sroa.017.032 = phi ptr [ %37, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %.sroa.018.031 = phi i64 [ %15, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %15 = add nuw nsw i64 %.sroa.018.031, 1
-  %16 = getelementptr i8, ptr %.sroa.06.036, i64 8
-  %.sroa.06.0.val = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr i8, ptr %.sroa.06.036, i64 16
-  %.sroa.06.0.val24 = load i64, ptr %17, align 8, !noundef !4
-  %18 = getelementptr i8, ptr %.sroa.0.037, i64 8
-  %.sroa.0.0.val = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr i8, ptr %.sroa.0.037, i64 16
-  %.sroa.0.0.val25 = load i64, ptr %19, align 8, !noundef !4
-  %20 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.06.0.val, i64 noundef %.sroa.06.0.val24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.val, i64 noundef %.sroa.0.0.val25), !range !5
-  %21 = icmp eq i8 %20, -1
-  %..i23 = select i1 %21, ptr %.sroa.06.036, ptr %.sroa.0.037
-  %22 = xor i1 %21, true
+  %.sroa.0.037 = phi ptr [ %27, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %.sroa.06.036 = phi ptr [ %25, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %.sroa.010.035 = phi ptr [ %28, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.sroa.013.034 = phi ptr [ %37, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %.sroa.015.033 = phi ptr [ %36, %.lr.ph ], [ %8, %.lr.ph.preheader ]
+  %.sroa.017.032 = phi ptr [ %38, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %.sroa.018.031 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %16 = add nuw nsw i64 %.sroa.018.031, 1
+  %17 = getelementptr i8, ptr %.sroa.06.036, i64 8
+  %.sroa.06.0.val = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
+  %18 = getelementptr i8, ptr %.sroa.06.036, i64 16
+  %.sroa.06.0.val24 = load i64, ptr %18, align 8, !noundef !4
+  %19 = getelementptr i8, ptr %.sroa.0.037, i64 8
+  %.sroa.0.0.val = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  %20 = getelementptr i8, ptr %.sroa.0.037, i64 16
+  %.sroa.0.0.val25 = load i64, ptr %20, align 8, !noundef !4
+  %21 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.06.0.val, i64 noundef %.sroa.06.0.val24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.val, i64 noundef %.sroa.0.0.val25), !range !5
+  %22 = icmp eq i8 %21, -1
+  %..i23 = select i1 %22, ptr %.sroa.06.036, ptr %.sroa.0.037
+  %23 = xor i1 %22, true
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.035, ptr noundef nonnull align 8 dereferenceable(24) %..i23, i64 24, i1 false), !noalias !16
-  %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.06.036, i64 %23
-  %25 = zext i1 %22 to i64
-  %26 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.037, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.010.035, i64 24
-  %28 = getelementptr i8, ptr %.sroa.015.033, i64 8
-  %.sroa.015.0.val = load ptr, ptr %28, align 8, !nonnull !4, !noundef !4
-  %29 = getelementptr i8, ptr %.sroa.015.033, i64 16
-  %.sroa.015.0.val26 = load i64, ptr %29, align 8, !noundef !4
-  %30 = getelementptr i8, ptr %.sroa.013.034, i64 8
-  %.sroa.013.0.val = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
-  %31 = getelementptr i8, ptr %.sroa.013.034, i64 16
-  %.sroa.013.0.val27 = load i64, ptr %31, align 8, !noundef !4
-  %32 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.015.0.val, i64 noundef %.sroa.015.0.val26, ptr noalias noundef nonnull readonly align 1 %.sroa.013.0.val, i64 noundef %.sroa.013.0.val27), !range !5
-  %33 = icmp eq i8 %32, -1
-  %..i = select i1 %33, ptr %.sroa.013.034, ptr %.sroa.015.033
-  %34 = xor i1 %33, true
+  %24 = zext i1 %22 to i64
+  %25 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.06.036, i64 %24
+  %26 = zext i1 %23 to i64
+  %27 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.037, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.010.035, i64 24
+  %29 = getelementptr i8, ptr %.sroa.015.033, i64 8
+  %.sroa.015.0.val = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
+  %30 = getelementptr i8, ptr %.sroa.015.033, i64 16
+  %.sroa.015.0.val26 = load i64, ptr %30, align 8, !noundef !4
+  %31 = getelementptr i8, ptr %.sroa.013.034, i64 8
+  %.sroa.013.0.val = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
+  %32 = getelementptr i8, ptr %.sroa.013.034, i64 16
+  %.sroa.013.0.val27 = load i64, ptr %32, align 8, !noundef !4
+  %33 = tail call noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.015.0.val, i64 noundef %.sroa.015.0.val26, ptr noalias noundef nonnull readonly align 1 %.sroa.013.0.val, i64 noundef %.sroa.013.0.val27), !range !5
+  %34 = icmp eq i8 %33, -1
+  %..i = select i1 %34, ptr %.sroa.013.034, ptr %.sroa.015.033
+  %35 = xor i1 %34, true
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.017.032, ptr noundef nonnull align 8 dereferenceable(24) %..i, i64 24, i1 false), !noalias !20
-  %.neg.i = sext i1 %34 to i64
-  %35 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %.sroa.015.033, i64 %.neg.i
-  %.neg15.i = sext i1 %33 to i64
-  %36 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %.sroa.013.034, i64 %.neg15.i
-  %37 = getelementptr inbounds i8, ptr %.sroa.017.032, i64 -24
-  %exitcond.not = icmp eq i64 %15, %4
+  %.neg.i = sext i1 %35 to i64
+  %36 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %.sroa.015.033, i64 %.neg.i
+  %.neg15.i = sext i1 %34 to i64
+  %37 = getelementptr { { { i64, ptr, {} }, i64 } }, ptr %.sroa.013.034, i64 %.neg15.i
+  %38 = getelementptr inbounds i8, ptr %.sroa.017.032, i64 -24
+  %exitcond.not = icmp eq i64 %16, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-38:                                               ; preds = %._crit_edge
-  %39 = icmp ult ptr %26, %11
-  %.sroa.0.0..sroa.06.0 = select i1 %39, ptr %26, ptr %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0, i64 24, i1 false)
-  %40 = zext i1 %39 to i64
-  %41 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %26, i64 %40
-  %42 = xor i1 %39, true
-  %43 = zext i1 %42 to i64
-  %44 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %24, i64 %43
-  br label %45
+39:                                               ; preds = %._crit_edge
+  %40 = icmp ult ptr %27, %12
+  %.sroa.0.0..sroa.06.0 = select i1 %40, ptr %27, ptr %25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0, i64 24, i1 false)
+  %41 = zext i1 %40 to i64
+  %42 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %27, i64 %41
+  %43 = xor i1 %40, true
+  %44 = zext i1 %43 to i64
+  %45 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %25, i64 %44
+  br label %46
 
-45:                                               ; preds = %._crit_edge, %38
-  %.sroa.06.1 = phi ptr [ %24, %._crit_edge ], [ %44, %38 ]
-  %.sroa.0.1 = phi ptr [ %26, %._crit_edge ], [ %41, %38 ]
-  %46 = icmp ne ptr %.sroa.0.1, %11
-  %47 = icmp ne ptr %.sroa.06.1, %12
-  %or.cond = select i1 %46, i1 true, i1 %47
-  br i1 %or.cond, label %49, label %48
+46:                                               ; preds = %._crit_edge, %39
+  %.sroa.06.1 = phi ptr [ %25, %._crit_edge ], [ %45, %39 ]
+  %.sroa.0.1 = phi ptr [ %27, %._crit_edge ], [ %42, %39 ]
+  %47 = icmp ne ptr %.sroa.0.1, %12
+  %48 = icmp ne ptr %.sroa.06.1, %13
+  %or.cond = select i1 %47, i1 true, i1 %48
+  br i1 %or.cond, label %50, label %49
 
-48:                                               ; preds = %45
+49:                                               ; preds = %46
   ret void
 
-49:                                               ; preds = %45
+50:                                               ; preds = %46
   tail call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17h3265886e3f35ed16E() #8
   unreachable
 }

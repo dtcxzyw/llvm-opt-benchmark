@@ -6,27 +6,31 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @pmix_string_copy(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %3, %6
-  %.015 = phi ptr [ %9, %6 ], [ %0, %3 ]
-  %.01014 = phi i64 [ %7, %6 ], [ 0, %3 ]
-  %.01113 = phi ptr [ %8, %6 ], [ %1, %3 ]
-  %4 = load i8, ptr %.01113, align 1, !tbaa !3
-  store i8 %4, ptr %.015, align 1, !tbaa !3
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %.loopexit, label %6
+.lr.ph.preheader:                                 ; preds = %3
+  %4 = add i64 %2, -1
+  br label %.lr.ph
 
-6:                                                ; preds = %.lr.ph
-  %7 = add nuw i64 %.01014, 1
-  %8 = getelementptr inbounds nuw i8, ptr %.01113, i64 1
-  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 1
-  %exitcond.not = icmp eq i64 %7, %2
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %7
+  %.015 = phi ptr [ %10, %7 ], [ %0, %.lr.ph.preheader ]
+  %.01014 = phi i64 [ %8, %7 ], [ 0, %.lr.ph.preheader ]
+  %.01113 = phi ptr [ %9, %7 ], [ %1, %.lr.ph.preheader ]
+  %5 = load i8, ptr %.01113, align 1, !tbaa !3
+  store i8 %5, ptr %.015, align 1, !tbaa !3
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %.loopexit, label %7
+
+7:                                                ; preds = %.lr.ph
+  %8 = add nuw i64 %.01014, 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01113, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.015, i64 1
+  %exitcond.not = icmp eq i64 %8, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %6, %3
-  %10 = getelementptr i8, ptr %0, i64 %2
-  %11 = getelementptr i8, ptr %10, i64 -1
+._crit_edge:                                      ; preds = %7, %3
+  %.010.lcssa = phi i64 [ -1, %3 ], [ %4, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.lcssa
   store i8 0, ptr %11, align 1, !tbaa !3
   br label %.loopexit
 

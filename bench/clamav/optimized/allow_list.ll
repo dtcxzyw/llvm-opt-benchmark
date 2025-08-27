@@ -457,65 +457,67 @@ define dso_local range(i32 0, 2) i32 @smtpauth_init(ptr noundef %0) local_unname
   %60 = icmp slt i32 %.192, 4
   %61 = add nsw i32 %.199, 4
   %62 = sext i32 %61 to i64
-  %63 = sext i32 %.186 to i64
   br i1 %60, label %._crit_edge191.thread, label %.thread150
 
 ._crit_edge191.thread:                            ; preds = %.preheader, %._crit_edge191
-  %.085.lcssa211 = phi i64 [ %63, %._crit_edge191 ], [ 0, %.preheader ]
+  %.085.lcssa211 = phi i32 [ %.186, %._crit_edge191 ], [ 0, %.preheader ]
   %.098.lcssa209 = phi i64 [ %62, %._crit_edge191 ], [ 4, %.preheader ]
   %.2106.lcssa208 = phi ptr [ %.3107, %._crit_edge191 ], [ null, %.preheader ]
-  %64 = call ptr @realloc(ptr noundef %.2106.lcssa208, i64 noundef %.098.lcssa209) #12
-  %.not121 = icmp eq ptr %64, null
-  br i1 %.not121, label %65, label %.thread150
+  %63 = call ptr @realloc(ptr noundef %.2106.lcssa208, i64 noundef %.098.lcssa209) #12
+  %.not121 = icmp eq ptr %63, null
+  br i1 %.not121, label %64, label %.thread150
 
-65:                                               ; preds = %._crit_edge191.thread
-  %66 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7) #9
-  %67 = call i32 @fclose(ptr noundef nonnull %6)
+64:                                               ; preds = %._crit_edge191.thread
+  %65 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.7) #9
+  %66 = call i32 @fclose(ptr noundef nonnull %6)
   br label %.thread145
 
 .thread150:                                       ; preds = %._crit_edge191, %._crit_edge191.thread
-  %.085.lcssa210 = phi i64 [ %.085.lcssa211, %._crit_edge191.thread ], [ %63, %._crit_edge191 ]
-  %.6110 = phi ptr [ %64, %._crit_edge191.thread ], [ %.3107, %._crit_edge191 ]
-  %68 = getelementptr i8, ptr %.6110, i64 %.085.lcssa210
-  %69 = getelementptr i8, ptr %68, i64 -1
+  %.085.lcssa210 = phi i32 [ %.085.lcssa211, %._crit_edge191.thread ], [ %.186, %._crit_edge191 ]
+  %.6110 = phi ptr [ %63, %._crit_edge191.thread ], [ %.3107, %._crit_edge191 ]
+  %67 = add nsw i32 %.085.lcssa210, -1
+  %68 = sext i32 %67 to i64
+  %69 = getelementptr inbounds i8, ptr %.6110, i64 %68
   store i8 41, ptr %69, align 1, !tbaa !16
-  store i8 36, ptr %68, align 1, !tbaa !16
-  %70 = getelementptr i8, ptr %68, i64 1
-  store i8 0, ptr %70, align 1, !tbaa !16
-  %71 = call i32 @fclose(ptr noundef nonnull %6)
+  %70 = sext i32 %.085.lcssa210 to i64
+  %71 = getelementptr inbounds i8, ptr %.6110, i64 %70
+  store i8 36, ptr %71, align 1, !tbaa !16
+  %72 = getelementptr i8, ptr %71, i64 1
+  store i8 0, ptr %72, align 1, !tbaa !16
+  %73 = call i32 @fclose(ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %72 = call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef %.6110, i32 noundef 7) #9
-  %.not128 = icmp eq i32 %72, 0
-  br i1 %.not128, label %77, label %75
+  %74 = call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef %.6110, i32 noundef 7) #9
+  %.not128 = icmp eq i32 %74, 0
+  br i1 %.not128, label %79, label %77
 
-.thread145:                                       ; preds = %65, %8, %.thread138
+.thread145:                                       ; preds = %64, %8, %.thread138
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %78
+  br label %80
 
 .thread155:                                       ; preds = %1
-  %73 = tail call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef nonnull %0, i32 noundef 7) #9
-  %.not128158 = icmp eq i32 %73, 0
+  %75 = tail call i32 @cli_regcomp(ptr noundef nonnull @authreg, ptr noundef nonnull %0, i32 noundef 7) #9
+  %.not128158 = icmp eq i32 %75, 0
   br i1 %.not128158, label %.thread162, label %.thread165
 
 .thread165:                                       ; preds = %.thread155
-  %74 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #9
-  br label %78
-
-75:                                               ; preds = %.thread150
-  %76 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull %.6110) #9
-  call void @free(ptr noundef nonnull %.6110) #9
-  br label %78
+  %76 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull %0) #9
+  br label %80
 
 77:                                               ; preds = %.thread150
+  %78 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull %.6110) #9
+  call void @free(ptr noundef nonnull %.6110) #9
+  br label %80
+
+79:                                               ; preds = %.thread150
   call void @free(ptr noundef nonnull %.6110) #9
   br label %.thread162
 
-.thread162:                                       ; preds = %.thread155, %77
+.thread162:                                       ; preds = %.thread155, %79
   store i32 1, ptr @skipauth, align 4, !tbaa !17
-  br label %78
+  br label %80
 
-78:                                               ; preds = %.thread165, %.thread145, %75, %.thread162
-  %.5 = phi i32 [ 0, %.thread162 ], [ 1, %75 ], [ 1, %.thread145 ], [ 1, %.thread165 ]
+80:                                               ; preds = %.thread165, %.thread145, %77, %.thread162
+  %.5 = phi i32 [ 0, %.thread162 ], [ 1, %77 ], [ 1, %.thread145 ], [ 1, %.thread165 ]
   ret i32 %.5
 }
 

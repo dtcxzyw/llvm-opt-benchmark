@@ -996,8 +996,9 @@ read_major_sync.exit:                             ; preds = %52
   %.old2.not = icmp eq i64 %indvars.iv514, 0
   %447 = add nsw i32 %indvars516, -1
   %448 = mul nuw nsw i64 %indvars.iv514, 1680
-  %449 = getelementptr i8, ptr %394, i64 %448
-  %450 = getelementptr i8, ptr %449, i64 -1675
+  %.idx = add nsw i64 %448, -1680
+  %449 = getelementptr inbounds nuw i8, ptr %394, i64 %.idx
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 5
   br label %451
 
 451:                                              ; preds = %1498, %409

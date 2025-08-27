@@ -837,7 +837,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %109
+  br label %110
 
 19:                                               ; preds = %8
   %20 = landingpad { ptr, i32 }
@@ -1031,33 +1031,29 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %88, %92
   store i32 0, ptr %98, align 4, !tbaa !62
   %99 = load i32, ptr %29, align 8, !tbaa !30
   %100 = icmp sgt i32 %99, 1
-  br i1 %100, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit
-  %load_initial = load i32, ptr %98, align 4
-  br label %.lr.ph
+  br i1 %100, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN5zxing8ArrayRefIiED2Ev.exit
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i8 0, ptr %101, align 8, !tbaa !3
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 345
   store i8 0, ptr %102, align 1, !tbaa !38
-  br label %109
+  br label %110
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %105, %.lr.ph ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %103 = getelementptr i32, ptr %98, i64 %indvars.iv
+.lr.ph:                                           ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit, %.lr.ph
+  %103 = phi i32 [ %105, %.lr.ph ], [ 0, %_ZN5zxing8ArrayRefIiED2Ev.exit ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %_ZN5zxing8ArrayRefIiED2Ev.exit ]
   %104 = load i32, ptr %28, align 4, !tbaa !29
-  %105 = add nsw i32 %104, %store_forwarded
-  store i32 %105, ptr %103, align 4, !tbaa !62
+  %105 = add nsw i32 %104, %103
+  %106 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv
+  store i32 %105, ptr %106, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %106 = load i32, ptr %29, align 8, !tbaa !30
-  %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next, %107
-  br i1 %108, label %.lr.ph, label %._crit_edge, !llvm.loop !64
+  %107 = load i32, ptr %29, align 8, !tbaa !30
+  %108 = sext i32 %107 to i64
+  %109 = icmp slt i64 %indvars.iv.next, %108
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !64
 
-109:                                              ; preds = %._crit_edge, %_ZN5zxing12ErrorHandlerD2Ev.exit
+110:                                              ; preds = %._crit_edge, %_ZN5zxing12ErrorHandlerD2Ev.exit
   ret void
 }
 

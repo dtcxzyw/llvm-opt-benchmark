@@ -7837,8 +7837,8 @@ define linkonce_odr dso_local void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9c
 
 13:                                               ; preds = %0
   %14 = load ptr, ptr %11, align 8, !tbaa !16
-  %15 = getelementptr i8, ptr %14, i64 %.unpack.i.i.i.i
-  %16 = getelementptr i8, ptr %15, i64 -1
+  %15 = add nsw i64 %.unpack.i.i.i.i, -1
+  %16 = getelementptr i8, ptr %14, i64 %15, !nosanitize !171
   %17 = load ptr, ptr %16, align 8, !nosanitize !171
   br label %_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIMNSt13__future_base13_State_baseV2EFvPSt8functionIFSt10unique_ptrINS3_12_Result_baseENS7_8_DeleterEEvEEPbEJPS4_SC_SD_EEvRS_OT_DpOT0_EUlvE_EERSI_ENKUlvE_clEv.exit
 
@@ -21495,18 +21495,21 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN2tf6detail15m
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 7
   %11 = icmp ugt i64 %10, 1
-  br i1 %11, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIvRZN2tf6detail15make_mscan_taskINS1_8ScanDataIiEESt4plusIiEEEDaSt10shared_ptrIT_ET0_EUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS8_SA_DpT1_EES8_E4typeEOSA_DpOSE_.exit
+  br i1 %11, label %.lr.ph.preheader.i.i.i, label %_ZSt10__invoke_rIvRZN2tf6detail15make_mscan_taskINS1_8ScanDataIiEESt4plusIiEEEDaSt10shared_ptrIT_ET0_EUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS8_SA_DpT1_EES8_E4typeEOSA_DpOSE_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
-  %.05.i.i.i = phi i64 [ %17, %.lr.ph.i.i.i ], [ 1, %1 ]
-  %12 = getelementptr %"struct.tf::CachelineAligned", ptr %6, i64 %.05.i.i.i
-  %13 = getelementptr i8, ptr %12, i64 -128
+.lr.ph.preheader.i.i.i:                           ; preds = %1
+  %.pre.i.i.i = load i32, ptr %6, align 4, !tbaa !19
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
+  %12 = phi i32 [ %15, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.05.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i ], [ 1, %.lr.ph.preheader.i.i.i ]
+  %13 = getelementptr inbounds nuw %"struct.tf::CachelineAligned", ptr %6, i64 %.05.i.i.i
   %14 = load i32, ptr %13, align 4, !tbaa !19
-  %15 = load i32, ptr %12, align 4, !tbaa !19
-  %16 = add nsw i32 %15, %14
-  store i32 %16, ptr %12, align 128, !tbaa !784
-  %17 = add nuw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %17, %10
+  %15 = add nsw i32 %14, %12
+  store i32 %15, ptr %13, align 128, !tbaa !784
+  %16 = add nuw i64 %.05.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %16, %10
   br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIvRZN2tf6detail15make_mscan_taskINS1_8ScanDataIiEESt4plusIiEEEDaSt10shared_ptrIT_ET0_EUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS8_SA_DpT1_EES8_E4typeEOSA_DpOSE_.exit, label %.lr.ph.i.i.i, !llvm.loop !827
 
 _ZSt10__invoke_rIvRZN2tf6detail15make_mscan_taskINS1_8ScanDataIiEESt4plusIiEEEDaSt10shared_ptrIT_ET0_EUlvE_JEENSt9enable_ifIX16is_invocable_r_vIS8_SA_DpT1_EES8_E4typeEOSA_DpOSE_.exit: ; preds = %.lr.ph.i.i.i, %1
@@ -22528,9 +22531,9 @@ define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvvEZN2tf6detail15m
   %5 = load ptr, ptr %2, align 8, !tbaa !776
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !808
-  %8 = load ptr, ptr %5, align 8, !tbaa !767
-  %9 = getelementptr %"struct.tf::CachelineAligned", ptr %8, i64 %7
-  %10 = getelementptr i8, ptr %9, i64 -128
+  %8 = add i64 %7, -1
+  %9 = load ptr, ptr %5, align 8, !tbaa !767
+  %10 = getelementptr inbounds nuw %"struct.tf::CachelineAligned", ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.promoted.i.i.i = load ptr, ptr %11, align 8, !tbaa !833
   br label %12

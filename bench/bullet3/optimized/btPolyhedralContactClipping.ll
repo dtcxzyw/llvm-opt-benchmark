@@ -21,15 +21,15 @@ define dso_local void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedOb
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !13
-  %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr %class.btVector3, ptr %10, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 -16
+  %9 = add nsw i32 %6, -1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load ptr, ptr %10, align 8, !tbaa !13
+  %12 = zext nneg i32 %9 to i64
+  %13 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %12
   %.sroa.0121.0.copyload = load float, ptr %13, align 4
-  %.sroa.7.0..sroa_idx = getelementptr i8, ptr %12, i64 -12
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %12, i64 -8
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 4
   %14 = load float, ptr %2, align 4, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -44,6 +44,7 @@ define dso_local void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedOb
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %27
 
 27:                                               ; preds = %8, %167
@@ -52,7 +53,7 @@ define dso_local void @_ZN27btPolyhedralContactClipping8clipFaceERK20btAlignedOb
   %.sroa.11.0130 = phi float [ %.sroa.11.0.copyload, %8 ], [ %.sroa.13.0.copyload104, %167 ]
   %.sroa.7.0129 = phi float [ %.sroa.7.0.copyload, %8 ], [ %.sroa.10.0.copyload94, %167 ]
   %.sroa.0121.0128 = phi float [ %.sroa.0121.0.copyload, %8 ], [ %.sroa.086.0.copyload89, %167 ]
-  %28 = load ptr, ptr %9, align 8, !tbaa !13
+  %28 = load ptr, ptr %10, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw %class.btVector3, ptr %28, i64 %indvars.iv
   %.sroa.086.0.copyload89 = load float, ptr %29, align 4
   %.sroa.10.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -407,7 +408,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit82: ; preds = %_ZN20bt
 
 167:                                              ; preds = %.sink.split, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %11
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !23
 
 .loopexit:                                        ; preds = %167, %4

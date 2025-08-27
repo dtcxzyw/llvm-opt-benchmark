@@ -106,9 +106,8 @@ safe_realloc_add_3op_.exit:                       ; preds = %15
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %23 = sub i64 %10, %22
   %strncat = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %16, ptr nonnull %1, i64 %23)
-  %24 = getelementptr i8, ptr %16, i64 %10
-  %25 = getelementptr i8, ptr %24, i64 -1
-  store i8 0, ptr %25, align 1, !tbaa !11
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 %9
+  store i8 0, ptr %24, align 1, !tbaa !11
   br label %safe_strncat.exit
 
 safe_strncat.exit:                                ; preds = %21, %6

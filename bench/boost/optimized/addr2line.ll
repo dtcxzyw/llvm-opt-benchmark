@@ -183,7 +183,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 define noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZN5boost10stacktrace6detail18this_thread_frames7collectEPPKvmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::stacktrace::detail::unwind_state", align 8
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %24, label %5
+  br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %3
   %6 = add i64 %2, 1
@@ -195,40 +195,39 @@ define noundef range(i64 -1152921504606846977, 1152921504606846976) i64 @_ZN5boo
   %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
   store ptr %9, ptr %8, align 8, !tbaa !10
   %10 = invoke i32 @_Unwind_Backtrace(ptr noundef nonnull @_ZN5boost10stacktrace6detail15unwind_callbackEP15_Unwind_ContextPv, ptr noundef nonnull %4)
-          to label %11 unwind label %25
+          to label %11 unwind label %24
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %7, align 8, !tbaa !9
   %.not16 = icmp eq ptr %12, %0
-  br i1 %.not16, label %23, label %13
+  br i1 %.not16, label %22, label %13
 
 13:                                               ; preds = %11
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %0 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %18 = getelementptr i8, ptr %0, i64 %16
-  %19 = getelementptr i8, ptr %18, i64 -8
+  %18 = add nsw i64 %17, -1
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !11
   %21 = icmp eq ptr %20, null
-  %22 = sext i1 %21 to i64
-  %spec.select = add nsw i64 %17, %22
-  br label %23
+  %spec.select = select i1 %21, i64 %18, i64 %17
+  br label %22
 
-23:                                               ; preds = %13, %11
+22:                                               ; preds = %13, %11
   %.0 = phi i64 [ 0, %11 ], [ %spec.select, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %24
+  br label %23
 
-24:                                               ; preds = %3, %23
-  %.013 = phi i64 [ %.0, %23 ], [ 0, %3 ]
+23:                                               ; preds = %3, %22
+  %.013 = phi i64 [ %.0, %22 ], [ 0, %3 ]
   ret i64 %.013
 
-25:                                               ; preds = %5
-  %26 = landingpad { ptr, i32 }
+24:                                               ; preds = %5
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #23
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #23
   unreachable
 }
 

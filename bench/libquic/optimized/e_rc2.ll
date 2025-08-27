@@ -53,9 +53,9 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   br i1 %16, label %.lr.ph59.preheader.i, label %._crit_edge60.i
 
 .lr.ph59.preheader.i:                             ; preds = %._crit_edge.i, %4
-  %17 = sext i32 %spec.store.select.i to i64
-  %18 = getelementptr i8, ptr %7, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 -1
+  %17 = add nsw i32 %spec.store.select.i, -1
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i8, ptr %7, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !16
   %21 = sext i32 %8 to i64
   %22 = sub i32 128, %spec.store.select.i
@@ -124,15 +124,21 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
 
 52:                                               ; preds = %52, %._crit_edge66.i
   %indvars.iv78.i = phi i64 [ 127, %._crit_edge66.i ], [ %indvars.iv.next79.i, %52 ]
-  %.05068.i = phi ptr [ %51, %._crit_edge66.i ], [ %56, %52 ]
+  %.05068.i = phi ptr [ %51, %._crit_edge66.i ], [ %62, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78.i
-  %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i16, ptr %54, align 1
-  %56 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
-  store i16 %55, ptr %.05068.i, align 2, !tbaa !21
+  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %55 = zext i8 %54 to i16
+  %56 = shl nuw i16 %55, 8
+  %57 = add nsw i64 %indvars.iv78.i, -1
+  %58 = getelementptr inbounds i8, ptr %7, i64 %57
+  %59 = load i8, ptr %58, align 1, !tbaa !16
+  %60 = zext i8 %59 to i16
+  %61 = or disjoint i16 %56, %60
+  %62 = getelementptr inbounds i8, ptr %.05068.i, i64 -2
+  store i16 %61, ptr %.05068.i, align 2, !tbaa !21
   %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -2
-  %57 = icmp samesign ugt i64 %indvars.iv78.i, 1
-  br i1 %57, label %52, label %RC2_set_key.exit, !llvm.loop !23
+  %63 = icmp samesign ugt i64 %indvars.iv78.i, 1
+  br i1 %63, label %52, label %RC2_set_key.exit, !llvm.loop !23
 
 RC2_set_key.exit:                                 ; preds = %52
   ret i32 1

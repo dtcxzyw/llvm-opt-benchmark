@@ -1638,14 +1638,14 @@ define noundef i32 @_ZNK7rocksdb14ThreadLocalPtr10StaticMeta6PeekIdEv(ptr nounde
   br i1 %29, label %39, label %30
 
 30:                                               ; preds = %15
-  %31 = add i64 %19, -1
-  %32 = add i64 %31, %27
+  %31 = add i64 %27, %19
+  %32 = add i64 %31, -1
   %33 = icmp ult i64 %32, 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i32, ptr %35, i64 %32
-  %37 = getelementptr i32, ptr %23, i64 %32
-  %38 = getelementptr i8, ptr %37, i64 -32
+  %37 = add i64 %31, -9
+  %38 = getelementptr inbounds nuw i32, ptr %23, i64 %37
   %.0.i.i.i = select i1 %33, ptr %36, ptr %38
   br label %39
 
@@ -1872,14 +1872,14 @@ define noundef i32 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5GetIdEv(ptr noundef 
   br label %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
 
 33:                                               ; preds = %15
-  %34 = add i64 %19, -1
-  %35 = add i64 %27, %34
+  %34 = add i64 %27, %19
+  %35 = add i64 %34, -1
   %36 = icmp ult i64 %35, 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i32, ptr %38, i64 %35
-  %40 = getelementptr i32, ptr %23, i64 %35
-  %41 = getelementptr i8, ptr %40, i64 -32
+  %40 = add i64 %34, -9
+  %41 = getelementptr inbounds nuw i32, ptr %23, i64 %40
   %.0.i.i.i = select i1 %36, ptr %39, ptr %41
   %42 = load i32, ptr %.0.i.i.i, align 4, !tbaa !44
   %43 = icmp eq ptr %23, %22
@@ -1891,19 +1891,20 @@ define noundef i32 @_ZN7rocksdb14ThreadLocalPtr10StaticMeta5GetIdEv(ptr noundef 
   br label %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
 
 46:                                               ; preds = %33
-  store i64 %34, ptr %18, align 8, !tbaa !54
+  %47 = add i64 %19, -1
+  store i64 %47, ptr %18, align 8, !tbaa !54
   br label %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
 
 _ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit:   ; preds = %46, %44, %30
   %.0 = phi i32 [ %31, %30 ], [ %42, %44 ], [ %42, %46 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %17)
-          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %47
+          to label %_ZN7rocksdb9MutexLockD2Ev.exit unwind label %48
 
-47:                                               ; preds = %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit
+  %49 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #22
+  %50 = extractvalue { ptr, i32 } %49, 0
+  tail call void @__clang_call_terminate(ptr %50) #22
   unreachable
 
 _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %_ZN7rocksdb10autovectorIjLm8EE8pop_backEv.exit

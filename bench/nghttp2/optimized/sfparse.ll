@@ -1150,7 +1150,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !22
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %105, label %6
+  br i1 %5, label %106, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !19
@@ -1160,8 +1160,8 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %6
-  %12 = getelementptr i8, ptr %8, i64 %4
-  %13 = getelementptr i8, ptr %12, i64 -1
+  %12 = add i64 %4, -1
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !12
   %15 = icmp eq i8 %14, 61
   %spec.select = select i1 %15, i64 4, i64 0
@@ -1224,7 +1224,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
 ._crit_edge:                                      ; preds = %33, %16
   %.054.lcssa = phi ptr [ %8, %16 ], [ %18, %33 ]
   %.0.lcssa = phi ptr [ %7, %16 ], [ %41, %33 ]
-  switch i64 %.050, label %100 [
+  switch i64 %.050, label %101 [
     i64 2, label %.thread
     i64 1, label %42
     i64 3, label %43
@@ -1238,8 +1238,8 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
 43:                                               ; preds = %._crit_edge
   %44 = load ptr, ptr %1, align 8, !tbaa !19
   %45 = load i64, ptr %3, align 8, !tbaa !22
-  %46 = getelementptr i8, ptr %44, i64 %45
-  %47 = getelementptr i8, ptr %46, i64 -1
+  %46 = add i64 %45, -1
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !12
   %49 = icmp eq i8 %48, 61
   br i1 %49, label %.thread, label %.thread65
@@ -1247,8 +1247,8 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
 50:                                               ; preds = %._crit_edge
   %51 = load ptr, ptr %1, align 8, !tbaa !19
   %52 = load i64, ptr %3, align 8, !tbaa !22
-  %53 = getelementptr i8, ptr %51, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 -1
+  %53 = add i64 %52, -1
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !12
   %56 = icmp eq i8 %55, 61
   br i1 %56, label %58, label %57
@@ -1258,72 +1258,73 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   unreachable
 
 58:                                               ; preds = %50
-  %59 = getelementptr i8, ptr %53, i64 -2
-  %60 = load i8, ptr %59, align 1, !tbaa !12
-  %61 = icmp eq i8 %60, 61
-  br i1 %61, label %.thread, label %.thread65
+  %59 = add i64 %52, -2
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !12
+  %62 = icmp eq i8 %61, 61
+  br i1 %62, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %._crit_edge, %58, %43
-  %62 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
-  %63 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
-  %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !25
-  %.tr = trunc i32 %66 to i8
-  %67 = shl i8 %.tr, 2
-  store i8 %67, ptr %.0.lcssa, align 1, !tbaa !12
-  %68 = load i8, ptr %62, align 1, !tbaa !12
-  %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !25
-  %72 = lshr i32 %71, 4
-  %73 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  %74 = trunc i32 %72 to i8
-  %75 = or i8 %67, %74
-  store i8 %75, ptr %.0.lcssa, align 1, !tbaa !12
-  br label %100
+  %63 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
+  %64 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
+  %65 = zext i8 %64 to i64
+  %66 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %65
+  %67 = load i32, ptr %66, align 4, !tbaa !25
+  %.tr = trunc i32 %67 to i8
+  %68 = shl i8 %.tr, 2
+  store i8 %68, ptr %.0.lcssa, align 1, !tbaa !12
+  %69 = load i8, ptr %63, align 1, !tbaa !12
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !25
+  %73 = lshr i32 %72, 4
+  %74 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
+  %75 = trunc i32 %73 to i8
+  %76 = or i8 %68, %75
+  store i8 %76, ptr %.0.lcssa, align 1, !tbaa !12
+  br label %101
 
 .thread65:                                        ; preds = %58, %43
-  %76 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
-  %77 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
-  %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !25
-  %81 = shl i32 %80, 10
-  %82 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 2
-  %83 = load i8, ptr %76, align 1, !tbaa !12
-  %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !25
-  %87 = shl i32 %86, 4
-  %88 = add i32 %87, %81
-  %89 = load i8, ptr %82, align 1, !tbaa !12
-  %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !25
-  %93 = ashr i32 %92, 2
-  %94 = add i32 %88, %93
-  %95 = lshr i32 %94, 8
-  %96 = trunc i32 %95 to i8
-  %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  store i8 %96, ptr %.0.lcssa, align 1, !tbaa !12
-  %98 = trunc i32 %94 to i8
-  %99 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
-  store i8 %98, ptr %97, align 1, !tbaa !12
-  br label %100
+  %77 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
+  %78 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
+  %79 = zext i8 %78 to i64
+  %80 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %79
+  %81 = load i32, ptr %80, align 4, !tbaa !25
+  %82 = shl i32 %81, 10
+  %83 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 2
+  %84 = load i8, ptr %77, align 1, !tbaa !12
+  %85 = zext i8 %84 to i64
+  %86 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !25
+  %88 = shl i32 %87, 4
+  %89 = add i32 %88, %82
+  %90 = load i8, ptr %83, align 1, !tbaa !12
+  %91 = zext i8 %90 to i64
+  %92 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %91
+  %93 = load i32, ptr %92, align 4, !tbaa !25
+  %94 = ashr i32 %93, 2
+  %95 = add i32 %89, %94
+  %96 = lshr i32 %95, 8
+  %97 = trunc i32 %96 to i8
+  %98 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
+  store i8 %97, ptr %.0.lcssa, align 1, !tbaa !12
+  %99 = trunc i32 %95 to i8
+  %100 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
+  store i8 %99, ptr %98, align 1, !tbaa !12
+  br label %101
 
-100:                                              ; preds = %._crit_edge, %.thread, %.thread65
-  %.1 = phi ptr [ %73, %.thread ], [ %99, %.thread65 ], [ %.0.lcssa, %._crit_edge ]
-  %101 = load ptr, ptr %0, align 8, !tbaa !19
-  %102 = ptrtoint ptr %.1 to i64
-  %103 = ptrtoint ptr %101 to i64
-  %104 = sub i64 %102, %103
-  br label %105
+101:                                              ; preds = %._crit_edge, %.thread, %.thread65
+  %.1 = phi ptr [ %74, %.thread ], [ %100, %.thread65 ], [ %.0.lcssa, %._crit_edge ]
+  %102 = load ptr, ptr %0, align 8, !tbaa !19
+  %103 = ptrtoint ptr %.1 to i64
+  %104 = ptrtoint ptr %102 to i64
+  %105 = sub i64 %103, %104
+  br label %106
 
-105:                                              ; preds = %2, %100
-  %.sink = phi i64 [ %104, %100 ], [ 0, %2 ]
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %106, align 8, !tbaa !22
+106:                                              ; preds = %2, %101
+  %.sink = phi i64 [ %105, %101 ], [ 0, %2 ]
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %107, align 8, !tbaa !22
   ret void
 }
 

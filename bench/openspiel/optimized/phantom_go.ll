@@ -41,6 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::array.10" = type { [2 x i32] }
+%"struct.open_spiel::State::PlayerAction" = type { i32, i64 }
 %"class.std::vector.33" = type { %"struct.std::_Vector_base.34" }
 %"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
@@ -1670,9 +1671,9 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %71, %66, %
 
 77:                                               ; preds = %_ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %78 = load i16, ptr @_ZZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEiE6center, align 2, !noalias !4
-  %79 = zext nneg i32 %26 to i64
-  %80 = getelementptr i16, ptr %73, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 -2
+  %79 = add nsw i32 %26, -1
+  %80 = zext nneg i32 %79 to i64
+  %81 = getelementptr inbounds nuw i16, ptr %73, i64 %80
   store i16 %78, ptr %81, align 2, !noalias !4
   br label %_ZN10open_spiel10phantom_go12_GLOBAL__N_114HandicapStonesEi.exit
 
@@ -3091,7 +3092,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 4
   %10 = icmp ult i64 %9, 2
-  br i1 %10, label %30, label %11
+  br i1 %10, label %31, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8840
@@ -3102,26 +3103,27 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   %or.cond = select i1 %.not, i1 true, i1 %17
-  br i1 %or.cond, label %30, label %18
+  br i1 %or.cond, label %31, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr i8, ptr %5, i64 %8
-  %20 = getelementptr i8, ptr %19, i64 -8
+  %19 = add nsw i64 %9, -1
+  %20 = getelementptr inbounds %"struct.open_spiel::State::PlayerAction", ptr %5, i64 %19, i32 1
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8764
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = icmp eq i64 %21, %24
-  br i1 %25, label %26, label %30
+  br i1 %25, label %26, label %31
 
 26:                                               ; preds = %18
-  %27 = getelementptr i8, ptr %19, i64 -24
-  %28 = load i64, ptr %27, align 8
-  %29 = icmp eq i64 %28, %21
-  br label %30
+  %27 = add nsw i64 %9, -2
+  %28 = getelementptr inbounds %"struct.open_spiel::State::PlayerAction", ptr %5, i64 %27, i32 1
+  %29 = load i64, ptr %28, align 8
+  %30 = icmp eq i64 %29, %21
+  br label %31
 
-30:                                               ; preds = %11, %26, %18, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %18 ], [ %29, %26 ]
+31:                                               ; preds = %11, %26, %18, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %18 ], [ %30, %26 ]
   ret i1 %.0
 }
 

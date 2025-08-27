@@ -8114,9 +8114,10 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %_ZNSt8__detail11__n
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
-  %48 = getelementptr i8, ptr %44, i64 %47
-  %49 = getelementptr i8, ptr %48, i64 -8
-  store double 1.000000e+00, ptr %49, align 8, !tbaa !244
+  %48 = ashr exact i64 %47, 3
+  %49 = add nsw i64 %48, -1
+  %50 = getelementptr inbounds nuw double, ptr %44, i64 %49
+  store double 1.000000e+00, ptr %50, align 8, !tbaa !244
   br label %_ZNSt6vectorIdSaIdEE5clearEv.exit
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %11, %10, %_ZNSt6vectorIdSaIdEE7reserveEm.exit

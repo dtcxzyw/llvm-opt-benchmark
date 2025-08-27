@@ -1907,13 +1907,13 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %11, align 8, !tbaa !140
-  br label %36
+  br label %34
 
 ._crit_edge:                                      ; preds = %9, %1
   %17 = call ptr @av_cpb_properties_alloc(ptr noundef nonnull %3) #8
   store ptr %17, ptr %2, align 8, !tbaa !152
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %36, label %18
+  br i1 %.not, label %34, label %18
 
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 776
@@ -1927,7 +1927,7 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
 
 25:                                               ; preds = %18
   call void @av_freep(ptr noundef nonnull %2) #8
-  br label %36
+  br label %34
 
 26:                                               ; preds = %18
   store ptr %24, ptr %19, align 8, !tbaa !138
@@ -1940,13 +1940,11 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
   %31 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %29
   store ptr %17, ptr %31, align 8, !tbaa !140
   %32 = load i64, ptr %3, align 8, !tbaa !154
-  %33 = sext i32 %28 to i64
-  %34 = getelementptr %struct.AVPacketSideData, ptr %24, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 -16
-  store i64 %32, ptr %35, align 8, !tbaa !155
-  br label %36
+  %33 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %29, i32 1
+  store i64 %32, ptr %33, align 8, !tbaa !155
+  br label %34
 
-36:                                               ; preds = %._crit_edge, %26, %25, %15
+34:                                               ; preds = %._crit_edge, %26, %25, %15
   %.019 = phi ptr [ %16, %15 ], [ %17, %26 ], [ null, %25 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

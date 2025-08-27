@@ -73,25 +73,22 @@ define noundef range(i64 0, -4611686018427387651) i64 @_Z44grpc_chttp2_base64_in
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %13 = select i1 %.not, ptr %12, ptr %11
-  %.not2731 = icmp eq i64 %9, 0
-  br i1 %.not2731, label %.critedge, label %.lr.ph
+  br label %14
 
-.lr.ph:                                           ; preds = %1, %18
-  %.02232 = phi i64 [ %19, %18 ], [ %9, %1 ]
-  %14 = getelementptr i8, ptr %13, i64 %.02232
-  %15 = getelementptr i8, ptr %14, i64 -1
-  %16 = load i8, ptr %15, align 1, !tbaa !9
-  %17 = icmp eq i8 %16, 61
-  br i1 %17, label %18, label %.critedge
+14:                                               ; preds = %15, %1
+  %.022 = phi i64 [ %9, %1 ], [ %16, %15 ]
+  %.not27 = icmp eq i64 %.022, 0
+  br i1 %.not27, label %.critedge, label %15
 
-18:                                               ; preds = %.lr.ph
-  %19 = add i64 %.02232, -1
-  %.not27 = icmp eq i64 %19, 0
-  br i1 %.not27, label %.critedge, label %.lr.ph, !llvm.loop !10
+15:                                               ; preds = %14
+  %16 = add i64 %.022, -1
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !9
+  %19 = icmp eq i8 %18, 61
+  br i1 %19, label %14, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %.lr.ph, %18, %1
-  %.022.lcssa = phi i64 [ 0, %1 ], [ 0, %18 ], [ %.02232, %.lr.ph ]
-  %20 = sub i64 %9, %.022.lcssa
+.critedge:                                        ; preds = %14, %15
+  %20 = sub i64 %9, %.022
   %21 = icmp ugt i64 %20, 2
   br i1 %21, label %22, label %25, !prof !12
 
@@ -114,7 +111,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
   br label %41
 
 25:                                               ; preds = %.critedge
-  %26 = and i64 %.022.lcssa, 3
+  %26 = and i64 %.022, 3
   %27 = icmp eq i64 %26, 1
   br i1 %27, label %28, label %33, !prof !12
 
@@ -126,7 +123,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi56EEERS2_RAT__Kc.exit: ; pr
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit: ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 %.022.lcssa, ptr %2, align 8, !tbaa !13
+  store i64 %.022, ptr %2, align 8, !tbaa !13
   %29 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %30 unwind label %31
 
@@ -148,7 +145,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi39EEERS2_RAT__Kc.exit: ; pr
   br label %41
 
 33:                                               ; preds = %25
-  %34 = lshr i64 %.022.lcssa, 2
+  %34 = lshr i64 %.022, 2
   %35 = mul nuw i64 %34, 3
   %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9tail_xtra, i64 0, i64 %26
   %37 = load i8, ptr %36, align 1, !tbaa !9

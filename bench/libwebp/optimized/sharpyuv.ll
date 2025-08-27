@@ -1171,30 +1171,36 @@ define internal fastcc void @ImportOneRow(ptr noundef readonly captures(none) %0
 .split67.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %74 = and i32 %5, 1
   %.not = icmp eq i32 %74, 0
-  br i1 %.not, label %91, label %75
+  br i1 %.not, label %97, label %75
 
 75:                                               ; preds = %.split67.us
-  %76 = sext i32 %5 to i64
-  %77 = getelementptr i16, ptr %6, i64 %76
-  %78 = getelementptr i8, ptr %77, i64 -2
+  %76 = add nsw i32 %5, -1
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i16, ptr %6, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !14
-  store i16 %79, ptr %77, align 2, !tbaa !14
-  %80 = add nsw i32 %9, %5
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr i16, ptr %6, i64 %81
-  %83 = getelementptr i8, ptr %82, i64 -2
-  %84 = load i16, ptr %83, align 2, !tbaa !14
-  store i16 %84, ptr %82, align 2, !tbaa !14
-  %85 = shl nsw i32 %8, 1
-  %86 = add nsw i32 %85, %5
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr i16, ptr %6, i64 %87
-  %89 = getelementptr i8, ptr %88, i64 -2
-  %90 = load i16, ptr %89, align 2, !tbaa !14
-  store i16 %90, ptr %88, align 2, !tbaa !14
-  br label %91
+  %80 = sext i32 %5 to i64
+  %81 = getelementptr inbounds i16, ptr %6, i64 %80
+  store i16 %79, ptr %81, align 2, !tbaa !14
+  %82 = add nsw i32 %9, %5
+  %83 = add nsw i32 %82, -1
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds i16, ptr %6, i64 %84
+  %86 = load i16, ptr %85, align 2, !tbaa !14
+  %87 = sext i32 %82 to i64
+  %88 = getelementptr inbounds i16, ptr %6, i64 %87
+  store i16 %86, ptr %88, align 2, !tbaa !14
+  %89 = shl nsw i32 %8, 1
+  %90 = add nsw i32 %89, %5
+  %91 = add nsw i32 %90, -1
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i16, ptr %6, i64 %92
+  %94 = load i16, ptr %93, align 2, !tbaa !14
+  %95 = sext i32 %90 to i64
+  %96 = getelementptr inbounds i16, ptr %6, i64 %95
+  store i16 %94, ptr %96, align 2, !tbaa !14
+  br label %97
 
-91:                                               ; preds = %75, %.split67.us
+97:                                               ; preds = %75, %.split67.us
   ret void
 }
 

@@ -342,7 +342,7 @@ ZSTD_entropyCost.exit:                            ; preds = %106
 
 ; Function Attrs: nounwind uwtable
 define i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, i64 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef readonly captures(none) %12, i64 noundef %13, ptr noundef %14, i64 noundef %15) local_unnamed_addr #1 {
-  switch i32 %4, label %53 [
+  switch i32 %4, label %52 [
     i32 1, label %17
     i32 3, label %25
     i32 0, label %26
@@ -353,66 +353,65 @@ define i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32
   %18 = trunc i32 %6 to i8
   %19 = tail call i64 @FSE_buildCTable_rle(ptr noundef %2, i8 noundef zeroext %18) #8
   %20 = icmp ult i64 %19, -119
-  br i1 %20, label %21, label %53
+  br i1 %20, label %21, label %52
 
 21:                                               ; preds = %17
   %22 = icmp eq i64 %1, 0
-  br i1 %22, label %53, label %23
+  br i1 %22, label %52, label %23
 
 23:                                               ; preds = %21
   %24 = load i8, ptr %7, align 1, !tbaa !15
   store i8 %24, ptr %0, align 1, !tbaa !15
-  br label %53
+  br label %52
 
 25:                                               ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr align 4 %12, i64 %13, i1 false)
-  br label %53
+  br label %52
 
 26:                                               ; preds = %16
   %27 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %2, ptr noundef %9, i32 noundef %11, i32 noundef %10, ptr noundef %14, i64 noundef %15) #8
   %28 = icmp ult i64 %27, -119
   %spec.select = select i1 %28, i64 0, i64 %27
-  br label %53
+  br label %52
 
 29:                                               ; preds = %16
   %30 = tail call i32 @FSE_optimalTableLog(i32 noundef %3, i64 noundef %8, i32 noundef %6) #8
-  %31 = getelementptr i8, ptr %7, i64 %8
-  %32 = getelementptr i8, ptr %31, i64 -1
+  %31 = add i64 %8, -1
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !15
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !10
   %37 = icmp ugt i32 %36, 1
-  br i1 %37, label %38, label %41
+  br i1 %37, label %38, label %40
 
 38:                                               ; preds = %29
   %39 = add i32 %36, -1
   store i32 %39, ptr %35, align 4, !tbaa !10
-  %40 = add i64 %8, -1
-  br label %41
+  br label %40
 
-41:                                               ; preds = %29, %38
-  %.073 = phi i64 [ %40, %38 ], [ %8, %29 ]
-  %42 = icmp ugt i64 %.073, 2047
-  %43 = zext i1 %42 to i32
-  %44 = tail call i64 @FSE_normalizeCount(ptr noundef %14, i32 noundef %30, ptr noundef nonnull %5, i64 noundef %.073, i32 noundef %6, i32 noundef %43) #8
-  %45 = icmp ult i64 %44, -119
-  br i1 %45, label %46, label %53
+40:                                               ; preds = %29, %38
+  %.073 = phi i64 [ %31, %38 ], [ %8, %29 ]
+  %41 = icmp ugt i64 %.073, 2047
+  %42 = zext i1 %41 to i32
+  %43 = tail call i64 @FSE_normalizeCount(ptr noundef %14, i32 noundef %30, ptr noundef nonnull %5, i64 noundef %.073, i32 noundef %6, i32 noundef %42) #8
+  %44 = icmp ult i64 %43, -119
+  br i1 %44, label %45, label %52
 
-46:                                               ; preds = %41
-  %47 = tail call i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr noundef %14, i32 noundef %6, i32 noundef %30) #8
-  %48 = icmp ult i64 %47, -119
-  br i1 %48, label %49, label %53
+45:                                               ; preds = %40
+  %46 = tail call i64 @FSE_writeNCount(ptr noundef %0, i64 noundef %1, ptr noundef %14, i32 noundef %6, i32 noundef %30) #8
+  %47 = icmp ult i64 %46, -119
+  br i1 %47, label %48, label %52
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %14, i64 108
-  %51 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %2, ptr noundef %14, i32 noundef %6, i32 noundef %30, ptr noundef nonnull %50, i64 noundef 1140) #8
-  %52 = icmp ult i64 %51, -119
-  %spec.select78 = select i1 %52, i64 %47, i64 %51
-  br label %53
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 108
+  %50 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %2, ptr noundef %14, i32 noundef %6, i32 noundef %30, ptr noundef nonnull %49, i64 noundef 1140) #8
+  %51 = icmp ult i64 %50, -119
+  %spec.select78 = select i1 %51, i64 %46, i64 %50
+  br label %52
 
-53:                                               ; preds = %49, %26, %16, %41, %46, %21, %17, %25, %23
-  %.1 = phi i64 [ 1, %23 ], [ %19, %17 ], [ 0, %25 ], [ -70, %21 ], [ %44, %41 ], [ %47, %46 ], [ -1, %16 ], [ %spec.select, %26 ], [ %spec.select78, %49 ]
+52:                                               ; preds = %48, %26, %16, %40, %45, %21, %17, %25, %23
+  %.1 = phi i64 [ 1, %23 ], [ %19, %17 ], [ 0, %25 ], [ -70, %21 ], [ %43, %40 ], [ %46, %45 ], [ -1, %16 ], [ %spec.select, %26 ], [ %spec.select78, %48 ]
   ret i64 %.1
 }
 

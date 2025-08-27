@@ -2963,7 +2963,7 @@ define internal fastcc ptr @mi_segment_span_allocate(ptr noundef %0, i64 noundef
 
 mi_commit_mask_is_full.exit.i:                    ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %10 = getelementptr [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %1
+  %10 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %1
   %11 = shl i64 %1, 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   %13 = shl i64 %2, 16
@@ -3008,9 +3008,9 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   %30 = xor i64 %1, -1
   %31 = add i64 %29, %30
   %.047 = select i1 %.not, i64 %spec.store.select, i64 %31
-  %.0482 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %.not513 = icmp eq i64 %.047, 0
-  br i1 %.not513, label %._crit_edge, label %.lr.ph.preheader
+  %.0483 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %.not514 = icmp eq i64 %.047, 0
+  br i1 %.not514, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %mi_segment_ensure_committed.exit.thread
   %32 = add i64 %.047, 1
@@ -3018,38 +3018,40 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %mi_segment_ensure_committed.exit.thread
-  %.048.lcssa = phi ptr [ %.0482, %mi_segment_ensure_committed.exit.thread ], [ %.048, %.lr.ph ]
-  %33 = getelementptr %struct.mi_page_s, ptr %10, i64 %2
-  %34 = getelementptr i8, ptr %33, i64 -80
-  %35 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %29
-  %36 = icmp uge ptr %34, %35
-  %.not52 = icmp ult ptr %34, %.048.lcssa
+  %.048.lcssa = phi ptr [ %.0483, %mi_segment_ensure_committed.exit.thread ], [ %.048, %.lr.ph ]
+  %33 = add i64 %2, %1
+  %34 = mul i64 %33, 80
+  %.idx = add i64 %34, -80
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %.idx2 = mul nuw nsw i64 %29, 80
+  %36 = icmp samesign uge i64 %.idx, %.idx2
+  %.not52 = icmp ult ptr %35, %.048.lcssa
   %or.cond = select i1 %36, i1 true, i1 %.not52
   br i1 %or.cond, label %47, label %42
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0486 = phi ptr [ %.048, %.lr.ph ], [ %.0482, %.lr.ph.preheader ]
-  %.0465 = phi i64 [ %41, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %.pn4 = phi ptr [ %.0486, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %37 = trunc i64 %.0465 to i32
+  %.0487 = phi ptr [ %.048, %.lr.ph ], [ %.0483, %.lr.ph.preheader ]
+  %.0466 = phi i64 [ %41, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.pn5 = phi ptr [ %.0487, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %37 = trunc i64 %.0466 to i32
   %38 = mul i32 %37, 80
-  %39 = getelementptr inbounds nuw i8, ptr %.pn4, i64 84
+  %39 = getelementptr inbounds nuw i8, ptr %.pn5, i64 84
   store i32 %38, ptr %39, align 4, !tbaa !90
-  store i32 0, ptr %.0486, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw i8, ptr %.pn4, i64 108
+  store i32 0, ptr %.0487, align 8, !tbaa !21
+  %40 = getelementptr inbounds nuw i8, ptr %.pn5, i64 108
   store i32 1, ptr %40, align 4, !tbaa !14
-  %41 = add nuw i64 %.0465, 1
-  %.048 = getelementptr inbounds nuw i8, ptr %.0486, i64 80
+  %41 = add nuw i64 %.0466, 1
+  %.048 = getelementptr inbounds nuw i8, ptr %.0487, i64 80
   %exitcond = icmp eq i64 %41, %umax
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
 42:                                               ; preds = %._crit_edge
   %43 = trunc i64 %26 to i32
   %44 = mul i32 %43, 80
-  %45 = getelementptr i8, ptr %33, i64 -76
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %44, ptr %45, align 4, !tbaa !90
-  store i32 0, ptr %34, align 8, !tbaa !21
-  %46 = getelementptr i8, ptr %33, i64 -52
+  store i32 0, ptr %35, align 8, !tbaa !21
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i32 1, ptr %46, align 4, !tbaa !14
   br label %47
 

@@ -19798,7 +19798,7 @@ define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBegin
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %40
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %2, align 8
@@ -19825,7 +19825,7 @@ define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBegin
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %40
 
 24:                                               ; preds = %8
   %25 = sub i64 %12, %17
@@ -19840,14 +19840,16 @@ define linkonce_odr hidden void @_ZN6Assimp12StreamReaderILb0ELb0EE11InternBegin
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef i64 %32(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %26, i64 noundef 1, i64 noundef %25)
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr i8, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %35, ptr %37, align 8
+  %35 = add i64 %33, -1
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %37, ptr %39, align 8
   ret void
 
-38:                                               ; preds = %22, %6
+40:                                               ; preds = %22, %6
   %.sink = phi ptr [ %20, %22 ], [ %4, %6 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %7, %6 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #28

@@ -8816,8 +8816,8 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %1, %14, %19
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %45, align 8, !tbaa !227
-  %49 = getelementptr i8, ptr %48, i64 %.unpack
-  %50 = getelementptr i8, ptr %49, i64 -1
+  %49 = add nsw i64 %.unpack, -1
+  %50 = getelementptr i8, ptr %48, i64 %49, !nosanitize !236
   %51 = load ptr, ptr %50, align 8, !nosanitize !236
   br label %54
 
@@ -9165,8 +9165,8 @@ define linkonce_odr void @_ZNSt8__detail8_ScannerIcE18_M_scan_in_bracketEv(ptr n
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %49, align 8, !tbaa !227
-  %53 = getelementptr i8, ptr %52, i64 %.unpack
-  %54 = getelementptr i8, ptr %53, i64 -1
+  %53 = add nsw i64 %.unpack, -1
+  %54 = getelementptr i8, ptr %52, i64 %53, !nosanitize !236
   %55 = load ptr, ptr %54, align 8, !nosanitize !236
   br label %58
 
@@ -32511,7 +32511,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !861
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %184, label %13
+  br i1 %.not.i, label %186, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -32695,7 +32695,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
 
 _ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EED2Ev.exit: ; preds = %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEiESaISC_EED2Ev.exit.i, %83
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.060.in, label %148, label %183
+  br i1 %.060.in, label %148, label %185
 
 89:                                               ; preds = %23, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -32835,7 +32835,7 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
 
 147:                                              ; preds = %141, %_ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEiESaISC_EED2Ev.exit.i74
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %.2.in, label %148, label %183
+  br i1 %.2.in, label %148, label %185
 
 148:                                              ; preds = %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EED2Ev.exit, %147
   %149 = load ptr, ptr %2, align 8, !tbaa !904
@@ -32846,76 +32846,78 @@ _ZNSt6vectorISt4pairIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_string
 
 .lr.ph:                                           ; preds = %148
   %.cast = ptrtoint ptr %1 to i64
-  br label %158
+  br label %160
 
-._crit_edge:                                      ; preds = %164, %148
+._crit_edge:                                      ; preds = %166, %148
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
-  %155 = getelementptr i8, ptr %149, i64 %154
-  %156 = getelementptr i8, ptr %155, i64 -48
-  %157 = getelementptr i8, ptr %155, i64 -24
-  br i1 %6, label %166, label %171
+  %155 = sdiv exact i64 %154, 24
+  %156 = add nsw i64 %155, -2
+  %157 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %149, i64 %156
+  %158 = add nsw i64 %155, -1
+  %159 = getelementptr inbounds nuw %"class.std::__cxx11::sub_match", ptr %149, i64 %158
+  br i1 %6, label %168, label %173
 
-158:                                              ; preds = %.lr.ph, %164
-  %.sroa.077.086 = phi ptr [ %149, %.lr.ph ], [ %165, %164 ]
-  %159 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 16
-  %160 = load i8, ptr %159, align 8, !tbaa !905, !range !235, !noundef !236
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %164, label %162
+160:                                              ; preds = %.lr.ph, %166
+  %.sroa.077.086 = phi ptr [ %149, %.lr.ph ], [ %167, %166 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 16
+  %162 = load i8, ptr %161, align 8, !tbaa !905, !range !235, !noundef !236
+  %163 = trunc nuw i8 %162 to i1
+  br i1 %163, label %166, label %164
 
-162:                                              ; preds = %158
-  %163 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 8
-  store ptr %1, ptr %163, align 8, !tbaa !676
+164:                                              ; preds = %160
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 8
+  store ptr %1, ptr %165, align 8, !tbaa !676
   store i64 %.cast, ptr %.sroa.077.086, align 8, !tbaa !676
-  br label %164
+  br label %166
 
-164:                                              ; preds = %162, %158
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 24
-  %.not82 = icmp eq ptr %165, %151
-  br i1 %.not82, label %._crit_edge, label %158
+166:                                              ; preds = %164, %160
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.077.086, i64 24
+  %.not82 = icmp eq ptr %167, %151
+  br i1 %.not82, label %._crit_edge, label %160
 
-166:                                              ; preds = %._crit_edge
-  %167 = getelementptr i8, ptr %155, i64 -32
-  store i8 0, ptr %167, align 8, !tbaa !905
-  store ptr %0, ptr %156, align 8, !tbaa !676
-  %168 = getelementptr i8, ptr %155, i64 -40
-  store ptr %0, ptr %168, align 8, !tbaa !676
-  %169 = getelementptr i8, ptr %155, i64 -8
+168:                                              ; preds = %._crit_edge
+  %169 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store i8 0, ptr %169, align 8, !tbaa !905
-  store ptr %1, ptr %157, align 8, !tbaa !676
-  %170 = getelementptr i8, ptr %155, i64 -16
-  store ptr %1, ptr %170, align 8, !tbaa !676
-  br label %184
+  store ptr %0, ptr %157, align 8, !tbaa !676
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store ptr %0, ptr %170, align 8, !tbaa !676
+  %171 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  store i8 0, ptr %171, align 8, !tbaa !905
+  store ptr %1, ptr %159, align 8, !tbaa !676
+  %172 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr %1, ptr %172, align 8, !tbaa !676
+  br label %186
 
-171:                                              ; preds = %._crit_edge
-  store ptr %0, ptr %156, align 8, !tbaa !676
-  %172 = getelementptr i8, ptr %155, i64 -40
-  %173 = load i64, ptr %149, align 8, !tbaa !676
-  store i64 %173, ptr %172, align 8, !tbaa !676
-  %.cast83 = inttoptr i64 %173 to ptr
-  %174 = icmp ne ptr %0, %.cast83
-  %175 = getelementptr i8, ptr %155, i64 -32
-  %176 = zext i1 %174 to i8
-  store i8 %176, ptr %175, align 8, !tbaa !905
-  %177 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %178 = load i64, ptr %177, align 8, !tbaa !676
-  store i64 %178, ptr %157, align 8, !tbaa !676
-  %179 = getelementptr i8, ptr %155, i64 -16
-  store ptr %1, ptr %179, align 8, !tbaa !676
-  %.cast84 = inttoptr i64 %178 to ptr
-  %180 = icmp ne ptr %1, %.cast84
-  %181 = getelementptr i8, ptr %155, i64 -8
-  %182 = zext i1 %180 to i8
-  store i8 %182, ptr %181, align 8, !tbaa !905
-  br label %184
+173:                                              ; preds = %._crit_edge
+  store ptr %0, ptr %157, align 8, !tbaa !676
+  %174 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %175 = load i64, ptr %149, align 8, !tbaa !676
+  store i64 %175, ptr %174, align 8, !tbaa !676
+  %.cast83 = inttoptr i64 %175 to ptr
+  %176 = icmp ne ptr %0, %.cast83
+  %177 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %178 = zext i1 %176 to i8
+  store i8 %178, ptr %177, align 8, !tbaa !905
+  %179 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %180 = load i64, ptr %179, align 8, !tbaa !676
+  store i64 %180, ptr %159, align 8, !tbaa !676
+  %181 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr %1, ptr %181, align 8, !tbaa !676
+  %.cast84 = inttoptr i64 %180 to ptr
+  %182 = icmp ne ptr %1, %.cast84
+  %183 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %184 = zext i1 %182 to i8
+  store i8 %184, ptr %183, align 8, !tbaa !905
+  br label %186
 
-183:                                              ; preds = %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EED2Ev.exit, %147
+185:                                              ; preds = %_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS5_9sub_matchISB_EEENS5_12regex_traitsIcEELb0EED2Ev.exit, %147
   call void @_ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISA_EEEE25_M_establish_failed_matchESA_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %1)
-  br label %184
+  br label %186
 
-184:                                              ; preds = %183, %171, %166, %7
-  %.0 = phi i1 [ false, %7 ], [ true, %166 ], [ true, %171 ], [ false, %183 ]
+186:                                              ; preds = %185, %173, %168, %7
+  %.0 = phi i1 [ false, %7 ], [ true, %168 ], [ true, %173 ], [ false, %185 ]
   ret i1 %.0
 }
 

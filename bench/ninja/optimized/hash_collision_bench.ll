@@ -309,35 +309,36 @@ _Z13RandomCommandPPc.exit:                        ; preds = %.lr.ph.i, %52
 _ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader: ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11.i, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ], [ 1, %_ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11.i ]
   %.02537 = phi i32 [ %.1, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ], [ 0, %_ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11.i ]
-  %81 = getelementptr %"struct.std::pair", ptr %2, i64 %indvars.iv40
-  %82 = getelementptr i8, ptr %81, i64 -16
+  %81 = add nsw i64 %indvars.iv40, -1
+  %82 = getelementptr inbounds %"struct.std::pair", ptr %2, i64 %81
   %83 = load i64, ptr %82, align 8, !tbaa !12
-  %84 = load i64, ptr %81, align 8, !tbaa !12
-  %85 = icmp eq i64 %83, %84
-  br i1 %85, label %86, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
+  %84 = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %indvars.iv40
+  %85 = load i64, ptr %84, align 8, !tbaa !12
+  %86 = icmp eq i64 %83, %85
+  br i1 %86, label %87, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
 
-86:                                               ; preds = %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader
-  %87 = getelementptr i8, ptr %81, i64 -8
-  %88 = load i32, ptr %87, align 8, !tbaa !16
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %1, i64 %89
-  %91 = load ptr, ptr %90, align 8, !tbaa !4
-  %92 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %93 = load i32, ptr %92, align 8, !tbaa !16
-  %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %94
-  %96 = load ptr, ptr %95, align 8, !tbaa !4
-  %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #12
-  %.not = icmp eq i32 %97, 0
-  br i1 %.not, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %98
+87:                                               ; preds = %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %89 = load i32, ptr %88, align 8, !tbaa !16
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds ptr, ptr %1, i64 %90
+  %92 = load ptr, ptr %91, align 8, !tbaa !4
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %94 = load i32, ptr %93, align 8, !tbaa !16
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds ptr, ptr %1, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !4
+  %98 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %97) #12
+  %.not = icmp eq i32 %98, 0
+  br i1 %.not, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit, label %99
 
-98:                                               ; preds = %86
-  %99 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %91, ptr noundef nonnull %96)
-  %100 = add nsw i32 %.02537, 1
+99:                                               ; preds = %87
+  %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef nonnull %92, ptr noundef nonnull %97)
+  %101 = add nsw i32 %.02537, 1
   br label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
 
-_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader, %98, %86
-  %.1 = phi i32 [ %100, %98 ], [ %.02537, %86 ], [ %.02537, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader ]
+_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit: ; preds = %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader, %99, %87
+  %.1 = phi i32 [ %101, %99 ], [ %.02537, %87 ], [ %.02537, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 20000000
   br i1 %exitcond43.not, label %79, label %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader, !llvm.loop !24

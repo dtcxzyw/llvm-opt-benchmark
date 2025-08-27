@@ -9729,19 +9729,21 @@ define hidden void @_ZN13InstanceKlass28set_enclosing_method_indicesEtt(ptr noun
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, -2147483645
   %8 = icmp eq i32 %7, 2
-  br i1 %8, label %9, label %15
+  br i1 %8, label %9, label %17
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr i16, ptr %10, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 -4
+  %10 = add nsw i32 %6, -2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %12 = zext nneg i32 %10 to i64
+  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
   store i16 %1, ptr %13, align 2
-  %14 = getelementptr i8, ptr %12, i64 -2
-  store i16 %2, ptr %14, align 2
-  br label %15
+  %14 = add nsw i32 %6, -1
+  %15 = zext nneg i32 %14 to i64
+  %16 = getelementptr inbounds nuw i16, ptr %11, i64 %15
+  store i16 %2, ptr %16, align 2
+  br label %17
 
-15:                                               ; preds = %9, %3
+17:                                               ; preds = %9, %3
   ret void
 }
 

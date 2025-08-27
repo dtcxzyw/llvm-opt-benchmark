@@ -2142,12 +2142,11 @@ if.end28:                                         ; preds = %return_buffer
   br i1 %cmp29, label %land.lhs.true, label %if.end33
 
 land.lhs.true:                                    ; preds = %if.end28
-  %1 = getelementptr i8, ptr %buf.0, i64 %call25
-  %arrayidx = getelementptr i8, ptr %1, i64 -1
-  %2 = load i8, ptr %arrayidx, align 1
-  %cmp30 = icmp eq i8 %2, 47
-  %dec = sext i1 %cmp30 to i64
-  %spec.select = add i64 %call25, %dec
+  %sub = add i64 %call25, -1
+  %arrayidx = getelementptr inbounds i8, ptr %buf.0, i64 %sub
+  %1 = load i8, ptr %arrayidx, align 1
+  %cmp30 = icmp eq i8 %1, 47
+  %spec.select = select i1 %cmp30, i64 %sub, i64 %call25
   br label %if.end33
 
 if.end33:                                         ; preds = %land.lhs.true, %if.end28

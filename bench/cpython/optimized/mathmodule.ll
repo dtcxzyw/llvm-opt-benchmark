@@ -2890,7 +2890,7 @@ define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call ptr @PyObject_GetIter(ptr noundef %1) #16
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %134, label %.preheader150
+  br i1 %5, label %135, label %.preheader150
 
 .preheader150:                                    ; preds = %2
   %6 = tail call ptr @PyIter_Next(ptr noundef nonnull %4) #16
@@ -2937,7 +2937,7 @@ define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #
 19:                                               ; preds = %16
   %20 = call ptr @PyErr_Occurred() #16
   %.not110 = icmp eq ptr %20, null
-  br i1 %.not110, label %26, label %128
+  br i1 %.not110, label %26, label %129
 
 21:                                               ; preds = %15
   %22 = call double @PyFloat_AsDouble(ptr noundef nonnull %11) #16
@@ -2947,7 +2947,7 @@ define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #
 24:                                               ; preds = %21
   %25 = call ptr @PyErr_Occurred() #16
   %.not109 = icmp eq ptr %25, null
-  br i1 %.not109, label %26, label %128
+  br i1 %.not109, label %26, label %129
 
 26:                                               ; preds = %19, %16, %24, %21, %13
   %.090 = phi double [ %.val122, %13 ], [ -1.000000e+00, %19 ], [ %17, %16 ], [ -1.000000e+00, %24 ], [ %22, %21 ]
@@ -3122,88 +3122,89 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
   br i1 %or.cond, label %.preheader, label %101, !llvm.loop !42
 
 101:                                              ; preds = %.preheader
-  %102 = getelementptr double, ptr %.2135, i64 %93
   %.not149 = icmp eq i64 %93, 0
-  br i1 %.not149, label %.thread, label %103
+  br i1 %.not149, label %.thread, label %102
 
-103:                                              ; preds = %101
-  %104 = fcmp olt double %98, 0.000000e+00
-  br i1 %104, label %105, label %109
+102:                                              ; preds = %101
+  %103 = fcmp olt double %98, 0.000000e+00
+  br i1 %103, label %104, label %109
 
-105:                                              ; preds = %103
-  %106 = getelementptr i8, ptr %102, i64 -8
+104:                                              ; preds = %102
+  %105 = add nsw i64 %.295, -2
+  %106 = getelementptr double, ptr %.2135, i64 %105
   %107 = load double, ptr %106, align 8, !tbaa !33
   %108 = fcmp olt double %107, 0.000000e+00
-  br i1 %108, label %115, label %109
+  br i1 %108, label %116, label %109
 
-109:                                              ; preds = %105, %103
+109:                                              ; preds = %104, %102
   %110 = fcmp ogt double %98, 0.000000e+00
   br i1 %110, label %111, label %.thread
 
 111:                                              ; preds = %109
-  %112 = getelementptr i8, ptr %102, i64 -8
-  %113 = load double, ptr %112, align 8, !tbaa !33
-  %114 = fcmp ogt double %113, 0.000000e+00
-  br i1 %114, label %115, label %.thread
+  %112 = add nsw i64 %.295, -2
+  %113 = getelementptr double, ptr %.2135, i64 %112
+  %114 = load double, ptr %113, align 8, !tbaa !33
+  %115 = fcmp ogt double %114, 0.000000e+00
+  br i1 %115, label %116, label %.thread
 
-115:                                              ; preds = %111, %105
-  %116 = fmul double %98, 2.000000e+00
-  %117 = fadd double %96, %116
-  %118 = fsub double %117, %96
-  %119 = fcmp oeq double %116, %118
-  br i1 %119, label %120, label %.thread
+116:                                              ; preds = %111, %104
+  %117 = fmul double %98, 2.000000e+00
+  %118 = fadd double %96, %117
+  %119 = fsub double %118, %96
+  %120 = fcmp oeq double %117, %119
+  br i1 %120, label %121, label %.thread
 
-120:                                              ; preds = %115
+121:                                              ; preds = %116
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge180.thread, %89, %101, %109, %111, %120, %115, %87
-  %.0133.lcssa214224228 = phi ptr [ %.2135, %120 ], [ %.2135, %115 ], [ %.2135, %111 ], [ %.2135, %109 ], [ %.2135, %101 ], [ %.2135, %87 ], [ %.2135, %89 ], [ %3, %._crit_edge180.thread ]
-  %.079 = phi double [ %117, %120 ], [ %96, %115 ], [ %96, %111 ], [ %96, %109 ], [ %96, %101 ], [ 0.000000e+00, %87 ], [ %92, %89 ], [ 0.000000e+00, %._crit_edge180.thread ]
-  %121 = call ptr @PyFloat_FromDouble(double noundef %.079) #16
+.thread:                                          ; preds = %._crit_edge180.thread, %89, %101, %109, %111, %121, %116, %87
+  %.0133.lcssa215 = phi ptr [ %.2135, %121 ], [ %.2135, %116 ], [ %.2135, %111 ], [ %.2135, %109 ], [ %.2135, %101 ], [ %.2135, %87 ], [ %.2135, %89 ], [ %3, %._crit_edge180.thread ]
+  %.079 = phi double [ %118, %121 ], [ %96, %116 ], [ %96, %111 ], [ %96, %109 ], [ %96, %101 ], [ 0.000000e+00, %87 ], [ %92, %89 ], [ 0.000000e+00, %._crit_edge180.thread ]
+  %122 = call ptr @PyFloat_FromDouble(double noundef %.079) #16
   br label %Py_DECREF.exit118
 
-Py_DECREF.exit118:                                ; preds = %._crit_edge180.thread, %133, %130, %128, %_fsum_realloc.exit, %83, %85, %._crit_edge180, %.thread, %54
-  %.0133169 = phi ptr [ %.2135, %._crit_edge180 ], [ %.2135, %83 ], [ %.2135, %85 ], [ %.0133.lcssa214224228, %.thread ], [ %.0133175, %_fsum_realloc.exit ], [ %.0133175, %54 ], [ %.0133175, %128 ], [ %.0133175, %130 ], [ %.0133175, %133 ], [ %3, %._crit_edge180.thread ]
-  %.088 = phi ptr [ null, %._crit_edge180 ], [ null, %83 ], [ %86, %85 ], [ %121, %.thread ], [ null, %_fsum_realloc.exit ], [ null, %54 ], [ null, %128 ], [ null, %130 ], [ null, %133 ], [ null, %._crit_edge180.thread ]
-  %122 = load i32, ptr %4, align 8, !tbaa !13
-  %.not.i115 = icmp sgt i32 %122, -1
-  br i1 %.not.i115, label %123, label %Py_DECREF.exit116
+Py_DECREF.exit118:                                ; preds = %._crit_edge180.thread, %134, %131, %129, %_fsum_realloc.exit, %83, %85, %._crit_edge180, %.thread, %54
+  %.0133169 = phi ptr [ %.2135, %._crit_edge180 ], [ %.2135, %83 ], [ %.2135, %85 ], [ %.0133.lcssa215, %.thread ], [ %.0133175, %_fsum_realloc.exit ], [ %.0133175, %54 ], [ %.0133175, %129 ], [ %.0133175, %131 ], [ %.0133175, %134 ], [ %3, %._crit_edge180.thread ]
+  %.088 = phi ptr [ null, %._crit_edge180 ], [ null, %83 ], [ %86, %85 ], [ %122, %.thread ], [ null, %_fsum_realloc.exit ], [ null, %54 ], [ null, %129 ], [ null, %131 ], [ null, %134 ], [ null, %._crit_edge180.thread ]
+  %123 = load i32, ptr %4, align 8, !tbaa !13
+  %.not.i115 = icmp sgt i32 %123, -1
+  br i1 %.not.i115, label %124, label %Py_DECREF.exit116
 
-123:                                              ; preds = %Py_DECREF.exit118
-  %124 = add nsw i32 %122, -1
-  store i32 %124, ptr %4, align 8, !tbaa !13
-  %125 = icmp eq i32 %124, 0
-  br i1 %125, label %126, label %Py_DECREF.exit116
+124:                                              ; preds = %Py_DECREF.exit118
+  %125 = add nsw i32 %123, -1
+  store i32 %125, ptr %4, align 8, !tbaa !13
+  %126 = icmp eq i32 %125, 0
+  br i1 %126, label %127, label %Py_DECREF.exit116
 
-126:                                              ; preds = %123
+127:                                              ; preds = %124
   call void @_Py_Dealloc(ptr noundef nonnull %4) #16
   br label %Py_DECREF.exit116
 
-Py_DECREF.exit116:                                ; preds = %Py_DECREF.exit118, %123, %126
+Py_DECREF.exit116:                                ; preds = %Py_DECREF.exit118, %124, %127
   %.not114 = icmp eq ptr %.0133169, %3
-  br i1 %.not114, label %134, label %127
+  br i1 %.not114, label %135, label %128
 
-127:                                              ; preds = %Py_DECREF.exit116
+128:                                              ; preds = %Py_DECREF.exit116
   call void @PyMem_Free(ptr noundef %.0133169) #16
-  br label %134
+  br label %135
 
-128:                                              ; preds = %24, %19
-  %129 = load i32, ptr %11, align 8, !tbaa !13
-  %.not.i117 = icmp sgt i32 %129, -1
-  br i1 %.not.i117, label %130, label %Py_DECREF.exit118
+129:                                              ; preds = %24, %19
+  %130 = load i32, ptr %11, align 8, !tbaa !13
+  %.not.i117 = icmp sgt i32 %130, -1
+  br i1 %.not.i117, label %131, label %Py_DECREF.exit118
 
-130:                                              ; preds = %128
-  %131 = add nsw i32 %129, -1
-  store i32 %131, ptr %11, align 8, !tbaa !13
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %133, label %Py_DECREF.exit118
+131:                                              ; preds = %129
+  %132 = add nsw i32 %130, -1
+  store i32 %132, ptr %11, align 8, !tbaa !13
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %Py_DECREF.exit118
 
-133:                                              ; preds = %130
+134:                                              ; preds = %131
   call void @_Py_Dealloc(ptr noundef nonnull %11) #16
   br label %Py_DECREF.exit118
 
-134:                                              ; preds = %Py_DECREF.exit116, %127, %2
-  %.087 = phi ptr [ null, %2 ], [ %.088, %127 ], [ %.088, %Py_DECREF.exit116 ]
+135:                                              ; preds = %Py_DECREF.exit116, %128, %2
+  %.087 = phi ptr [ null, %2 ], [ %.088, %128 ], [ %.088, %Py_DECREF.exit116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.087
 }

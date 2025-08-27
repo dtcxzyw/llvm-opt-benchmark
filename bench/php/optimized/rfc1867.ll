@@ -1478,8 +1478,8 @@ zend_hash_add_ptr.exit:                           ; preds = %544
 
 569:                                              ; preds = %567
   %570 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3355) #22
-  %571 = getelementptr i8, ptr %.3355, i64 %570
-  %572 = getelementptr i8, ptr %571, i64 -1
+  %571 = add i64 %570, -1
+  %572 = getelementptr inbounds nuw i8, ptr %.3355, i64 %571
   %573 = load i8, ptr %572, align 1, !tbaa !32
   %574 = icmp eq i8 %573, 93
   br i1 %574, label %575, label %.thread626
@@ -2448,39 +2448,38 @@ php_ap_memstr.exit50.thread:                      ; preds = %56, %69, %php_ap_me
   %.037 = phi i64 [ %61, %php_ap_memstr.exit50 ], [ %61, %php_ap_memstr.exit ], [ %46, %fill_buffer.exit ], [ %61, %69 ], [ %46, %56 ]
   %74 = tail call i64 @llvm.umin.i64(i64 %.037, i64 5119)
   %.not44 = icmp eq i64 %.037, 0
-  br i1 %.not44, label %90, label %75
+  br i1 %.not44, label %89, label %75
 
 75:                                               ; preds = %php_ap_memstr.exit50.thread
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %39, i64 %74, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 %74
   store i8 0, ptr %76, align 1, !tbaa !32
-  br i1 %.not53, label %84, label %77
+  br i1 %.not53, label %83, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr i8, ptr %76, i64 -1
-  %79 = load i8, ptr %78, align 1, !tbaa !32
-  %80 = icmp eq i8 %79, 13
-  br i1 %80, label %81, label %84
+  %78 = add nsw i64 %74, -1
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 %78
+  %80 = load i8, ptr %79, align 1, !tbaa !32
+  %81 = icmp eq i8 %80, 13
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %77
-  %82 = add nsw i64 %74, -1
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 %82
-  store i8 0, ptr %83, align 1, !tbaa !32
-  br label %84
+82:                                               ; preds = %77
+  store i8 0, ptr %79, align 1, !tbaa !32
+  br label %83
 
-84:                                               ; preds = %81, %77, %75
-  %.1 = phi i64 [ %82, %81 ], [ %74, %77 ], [ %74, %75 ]
-  %85 = trunc nsw i64 %.1 to i32
-  %86 = load i32, ptr %4, align 4, !tbaa !56
-  %87 = sub nsw i32 %86, %85
-  store i32 %87, ptr %4, align 4, !tbaa !56
-  %88 = load ptr, ptr %38, align 8, !tbaa !55
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.1
-  store ptr %89, ptr %38, align 8, !tbaa !55
-  br label %90
+83:                                               ; preds = %82, %77, %75
+  %.1 = phi i64 [ %78, %82 ], [ %74, %77 ], [ %74, %75 ]
+  %84 = trunc nsw i64 %.1 to i32
+  %85 = load i32, ptr %4, align 4, !tbaa !56
+  %86 = sub nsw i32 %85, %84
+  store i32 %86, ptr %4, align 4, !tbaa !56
+  %87 = load ptr, ptr %38, align 8, !tbaa !55
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %.1
+  store ptr %88, ptr %38, align 8, !tbaa !55
+  br label %89
 
-90:                                               ; preds = %84, %php_ap_memstr.exit50.thread
-  %.0 = phi i64 [ %.1, %84 ], [ 0, %php_ap_memstr.exit50.thread ]
+89:                                               ; preds = %83, %php_ap_memstr.exit50.thread
+  %.0 = phi i64 [ %.1, %83 ], [ 0, %php_ap_memstr.exit50.thread ]
   ret i64 %.0
 }
 

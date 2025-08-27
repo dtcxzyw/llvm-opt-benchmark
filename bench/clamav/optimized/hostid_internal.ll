@@ -68,32 +68,35 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
 
 .thread:                                          ; preds = %22
   store i64 1, ptr %1, align 8, !tbaa !3
-  br label %25
+  br label %26
 
 thread-pre-split:                                 ; preds = %.lr.ph, %19
   %24 = phi i64 [ %21, %19 ], [ %4, %.lr.ph ]
   %.2 = phi ptr [ %12, %19 ], [ %0, %.lr.ph ]
   %.not50 = icmp eq i64 %24, 0
-  br i1 %.not50, label %34, label %25
+  br i1 %.not50, label %34, label %._crit_edge
 
-25:                                               ; preds = %.thread, %thread-pre-split
-  %.255 = phi ptr [ %23, %.thread ], [ %.2, %thread-pre-split ]
-  %26 = phi i64 [ 1, %.thread ], [ %24, %thread-pre-split ]
-  %27 = getelementptr %struct.device, ptr %.255, i64 %26
-  %28 = getelementptr i8, ptr %27, i64 -32
+._crit_edge:                                      ; preds = %thread-pre-split
+  %25 = add i64 %24, -1
+  br label %26
+
+26:                                               ; preds = %._crit_edge, %.thread
+  %.255 = phi ptr [ %23, %.thread ], [ %.2, %._crit_edge ]
+  %27 = phi i64 [ 0, %.thread ], [ %25, %._crit_edge ]
+  %28 = getelementptr inbounds nuw %struct.device, ptr %.255, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !7
   %30 = icmp eq ptr %29, null
   %31 = icmp ne ptr %2, null
   %or.cond = and i1 %31, %30
   br i1 %or.cond, label %32, label %34
 
-32:                                               ; preds = %25
+32:                                               ; preds = %26
   %33 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
   store ptr %33, ptr %28, align 8, !tbaa !7
   br label %34
 
-34:                                               ; preds = %thread-pre-split, %25, %32, %22, %.critedge52
-  %.137 = phi ptr [ null, %.critedge52 ], [ null, %22 ], [ %.255, %32 ], [ %.255, %25 ], [ %.2, %thread-pre-split ]
+34:                                               ; preds = %thread-pre-split, %26, %32, %22, %.critedge52
+  %.137 = phi ptr [ null, %.critedge52 ], [ null, %22 ], [ %.255, %32 ], [ %.255, %26 ], [ %.2, %thread-pre-split ]
   ret ptr %.137
 }
 

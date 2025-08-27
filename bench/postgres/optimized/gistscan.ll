@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/gistscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.IndexOrderByDistance = type { double, i8 }
@@ -175,8 +173,8 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %49 = load ptr, ptr %28, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 368
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr i32, ptr %51, i64 %indvars.iv
-  %53 = getelementptr i8, ptr %52, i64 -4
+  %52 = add nsw i64 %indvars.iv, -1
+  %53 = getelementptr inbounds i32, ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4
   tail call void @TupleDescInitEntry(ptr noundef %47, i16 noundef signext %48, ptr noundef null, i32 noundef %54, i32 noundef -1, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -195,9 +193,9 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 4
   %64 = getelementptr i8, ptr %60, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 24
-  %66 = getelementptr %struct.FormData_pg_attribute, ptr %65, i64 %indvars.iv149
-  %67 = getelementptr i8, ptr %66, i64 -32
+  %65 = mul i64 %indvars.iv149, 100
+  %66 = getelementptr i8, ptr %64, i64 -8
+  %67 = getelementptr i8, ptr %66, i64 %65
   %68 = load i32, ptr %67, align 4
   tail call void @TupleDescInitEntry(ptr noundef %57, i16 noundef signext %58, ptr noundef null, i32 noundef %68, i32 noundef -1, i32 noundef 0) #6
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1

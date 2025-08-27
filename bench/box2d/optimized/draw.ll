@@ -318,11 +318,12 @@ define dso_local void @_Z14DrawPolygonFcnPK6b2Vec2i10b2HexColorPv(ptr noundef re
   br i1 %5, label %.lr.ph.i, label %_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr %struct.b2Vec2, ptr %0, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 -8
+  %6 = add nsw i32 %1, -1
+  %7 = zext nneg i32 %6 to i64
+  %8 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %7
   %.sroa.06.0.copyload.i = load <2 x float>, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph.i
@@ -333,7 +334,7 @@ define dso_local void @_Z14DrawPolygonFcnPK6b2Vec2i10b2HexColorPv(ptr noundef re
   %12 = load ptr, ptr %9, align 8, !tbaa !16
   tail call void @_ZN7GLLines7AddLineE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(40) %12, <2 x float> %.sroa.06.013.i, <2 x float> %.sroa.02.0.copyload.i, i32 noundef %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %6
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor.exit, label %10, !llvm.loop !31
 
 _ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor.exit: ; preds = %10, %4
@@ -346,9 +347,9 @@ define dso_local void @_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor(ptr noundef 
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr %struct.b2Vec2, ptr %1, i64 %6
-  %8 = getelementptr i8, ptr %7, i64 -8
+  %6 = add nsw i32 %2, -1
+  %7 = zext nneg i32 %6 to i64
+  %8 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %7
   %.sroa.06.0.copyload = load <2 x float>, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %2 to i64

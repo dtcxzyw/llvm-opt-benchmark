@@ -14609,7 +14609,7 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8, !tbaa !189
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %98, label %8
+  br i1 %7, label %102, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -14629,7 +14629,7 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.88) #37
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %98, label %20
+  br i1 %19, label %102, label %20
 
 20:                                               ; preds = %16
   %21 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.81) #37
@@ -14648,7 +14648,7 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
 29:                                               ; preds = %23, %20
   %30 = getelementptr inbounds nuw i8, ptr %.pre66, i64 40
   %31 = load double, ptr %30, align 8, !tbaa !177
-  br label %98
+  br label %102
 
 32:                                               ; preds = %23
   %33 = getelementptr inbounds nuw i8, ptr %.pre66, i64 40
@@ -14656,7 +14656,7 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %35 = getelementptr inbounds nuw i8, ptr %.pre66, i64 80
   %36 = load double, ptr %35, align 8, !tbaa !15
   %37 = fcmp oeq double %10, %36
-  br i1 %37, label %98, label %38
+  br i1 %37, label %102, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %.pre66, i64 88
@@ -14667,85 +14667,89 @@ define hidden noundef double @_ZNK16DeformationModel9Component21PiecewiseTimeFun
   %44 = tail call double @llvm.fmuladd.f64(double %34, double %41, double %43)
   %45 = fsub double %36, %10
   %46 = fdiv double %44, %45
-  br label %98
+  br label %102
 
-.lr.ph:                                           ; preds = %.preheader, %63
-  %.04661 = phi i64 [ %64, %63 ], [ 1, %.preheader ]
-  %47 = getelementptr %"struct.DeformationModel::Component::PiecewiseTimeFunction::EpochScaleFactorTuple", ptr %4, i64 %.04661
+.lr.ph:                                           ; preds = %.preheader, %65
+  %.04661 = phi i64 [ %66, %65 ], [ 1, %.preheader ]
+  %47 = getelementptr inbounds nuw %"struct.DeformationModel::Component::PiecewiseTimeFunction::EpochScaleFactorTuple", ptr %4, i64 %.04661
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load double, ptr %48, align 8, !tbaa !15
   %50 = fcmp uge double %1, %49
-  br i1 %50, label %63, label %.thread56
+  br i1 %50, label %65, label %.thread56
 
 .thread56:                                        ; preds = %.lr.ph
-  %51 = getelementptr i8, ptr %47, i64 -16
-  %52 = load double, ptr %51, align 8, !tbaa !15
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %54 = load double, ptr %53, align 8, !tbaa !177
-  %55 = getelementptr i8, ptr %47, i64 -8
+  %51 = add i64 %.04661, -1
+  %52 = getelementptr inbounds nuw %"struct.DeformationModel::Component::PiecewiseTimeFunction::EpochScaleFactorTuple", ptr %4, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %54 = load double, ptr %53, align 8, !tbaa !15
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %56 = load double, ptr %55, align 8, !tbaa !177
-  %57 = fsub double %49, %1
-  %58 = fsub double %1, %52
-  %59 = fmul double %54, %58
-  %60 = tail call double @llvm.fmuladd.f64(double %56, double %57, double %59)
-  %61 = fsub double %49, %52
-  %62 = fdiv double %60, %61
-  br label %98
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 40
+  %58 = load double, ptr %57, align 8, !tbaa !177
+  %59 = fsub double %49, %1
+  %60 = fsub double %1, %54
+  %61 = fmul double %56, %60
+  %62 = tail call double @llvm.fmuladd.f64(double %58, double %59, double %61)
+  %63 = fsub double %49, %54
+  %64 = fdiv double %62, %63
+  br label %102
 
-63:                                               ; preds = %.lr.ph
-  %64 = add nuw i64 %.04661, 1
-  %exitcond.not = icmp eq i64 %64, %15
+65:                                               ; preds = %.lr.ph
+  %66 = add nuw i64 %.04661, 1
+  %exitcond.not = icmp eq i64 %66, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !191
 
-._crit_edge:                                      ; preds = %63, %.preheader
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %66 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.88) #37
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %98, label %68
+._crit_edge:                                      ; preds = %65, %.preheader
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %68 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.88) #37
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %102, label %70
 
-68:                                               ; preds = %._crit_edge
-  %69 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull @.str.81) #37
-  %70 = icmp eq i32 %69, 0
+70:                                               ; preds = %._crit_edge
+  %71 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull @.str.81) #37
+  %72 = icmp eq i32 %71, 0
   %.pre = load ptr, ptr %5, align 8, !tbaa !189
-  br i1 %70, label %77, label %71
+  br i1 %72, label %79, label %73
 
-71:                                               ; preds = %68
-  %72 = load ptr, ptr %3, align 8, !tbaa !190
-  %73 = ptrtoint ptr %.pre to i64
-  %74 = ptrtoint ptr %72 to i64
-  %75 = sub i64 %73, %74
-  %76 = icmp eq i64 %75, 48
-  br i1 %76, label %77, label %80
+73:                                               ; preds = %70
+  %74 = load ptr, ptr %3, align 8, !tbaa !190
+  %75 = ptrtoint ptr %.pre to i64
+  %76 = ptrtoint ptr %74 to i64
+  %77 = sub i64 %75, %76
+  %78 = icmp eq i64 %77, 48
+  br i1 %78, label %79, label %82
 
-77:                                               ; preds = %71, %68
-  %78 = getelementptr inbounds i8, ptr %.pre, i64 -8
-  %79 = load double, ptr %78, align 8, !tbaa !177
-  br label %98
+79:                                               ; preds = %73, %70
+  %80 = getelementptr inbounds i8, ptr %.pre, i64 -8
+  %81 = load double, ptr %80, align 8, !tbaa !177
+  br label %102
 
-80:                                               ; preds = %71
-  %81 = getelementptr i8, ptr %72, i64 %75
-  %82 = getelementptr i8, ptr %81, i64 -64
-  %83 = load double, ptr %82, align 8, !tbaa !15
-  %84 = getelementptr inbounds i8, ptr %.pre, i64 -16
-  %85 = load double, ptr %84, align 8, !tbaa !15
-  %86 = getelementptr inbounds i8, ptr %.pre, i64 -8
-  %87 = load double, ptr %86, align 8, !tbaa !177
-  %88 = fcmp oeq double %83, %85
-  br i1 %88, label %98, label %89
-
-89:                                               ; preds = %80
-  %90 = getelementptr i8, ptr %81, i64 -56
+82:                                               ; preds = %73
+  %83 = sdiv exact i64 %77, 48
+  %84 = add nsw i64 %83, -2
+  %85 = getelementptr inbounds nuw %"struct.DeformationModel::Component::PiecewiseTimeFunction::EpochScaleFactorTuple", ptr %74, i64 %84
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %87 = load double, ptr %86, align 8, !tbaa !15
+  %88 = getelementptr inbounds i8, ptr %.pre, i64 -16
+  %89 = load double, ptr %88, align 8, !tbaa !15
+  %90 = getelementptr inbounds i8, ptr %.pre, i64 -8
   %91 = load double, ptr %90, align 8, !tbaa !177
-  %92 = fsub double %85, %1
-  %93 = fsub double %1, %83
-  %94 = fmul double %93, %87
-  %95 = tail call double @llvm.fmuladd.f64(double %91, double %92, double %94)
-  %96 = fsub double %85, %83
-  %97 = fdiv double %95, %96
-  br label %98
+  %92 = fcmp oeq double %87, %89
+  br i1 %92, label %102, label %93
 
-98:                                               ; preds = %.thread56, %29, %77, %16, %32, %38, %._crit_edge, %80, %89, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ %31, %29 ], [ %79, %77 ], [ 0.000000e+00, %16 ], [ %46, %38 ], [ %34, %32 ], [ 0.000000e+00, %._crit_edge ], [ %97, %89 ], [ %87, %80 ], [ %62, %.thread56 ]
+93:                                               ; preds = %82
+  %94 = getelementptr inbounds nuw i8, ptr %85, i64 40
+  %95 = load double, ptr %94, align 8, !tbaa !177
+  %96 = fsub double %89, %1
+  %97 = fsub double %1, %87
+  %98 = fmul double %97, %91
+  %99 = tail call double @llvm.fmuladd.f64(double %95, double %96, double %98)
+  %100 = fsub double %89, %87
+  %101 = fdiv double %99, %100
+  br label %102
+
+102:                                              ; preds = %.thread56, %29, %79, %16, %32, %38, %._crit_edge, %82, %93, %2
+  %.0 = phi double [ 0.000000e+00, %2 ], [ %31, %29 ], [ %81, %79 ], [ 0.000000e+00, %16 ], [ %46, %38 ], [ %34, %32 ], [ 0.000000e+00, %._crit_edge ], [ %101, %93 ], [ %91, %82 ], [ %64, %.thread56 ]
   ret double %.0
 }
 

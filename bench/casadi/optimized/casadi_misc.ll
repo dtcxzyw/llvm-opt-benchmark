@@ -1990,22 +1990,21 @@ define noundef zeroext i1 @_ZN6casadi17is_equally_spacedERKSt6vectorIdSaIdEE(ptr
   br label %19
 
 19:                                               ; preds = %19, %10
-  %.01517 = phi i64 [ 2, %10 ], [ %28, %19 ]
-  %20 = getelementptr double, ptr %4, i64 %.01517
-  %21 = load double, ptr %20, align 8, !tbaa !64
-  %22 = getelementptr i8, ptr %20, i64 -8
-  %23 = load double, ptr %22, align 8, !tbaa !64
-  %24 = fsub double %21, %23
-  %25 = fsub double %24, %18
-  %26 = tail call double @llvm.fabs.f64(double %25)
-  %27 = fcmp ule double %26, %15
-  %28 = add nuw i64 %.01517, 1
-  %exitcond.not = icmp ne i64 %28, %8
-  %or.cond.not = select i1 %27, i1 %exitcond.not, i1 false
+  %20 = phi double [ %17, %10 ], [ %22, %19 ]
+  %.01517 = phi i64 [ 2, %10 ], [ %27, %19 ]
+  %21 = getelementptr inbounds nuw double, ptr %4, i64 %.01517
+  %22 = load double, ptr %21, align 8, !tbaa !64
+  %23 = fsub double %22, %20
+  %24 = fsub double %23, %18
+  %25 = tail call double @llvm.fabs.f64(double %24)
+  %26 = fcmp ule double %25, %15
+  %27 = add nuw i64 %.01517, 1
+  %exitcond.not = icmp ne i64 %27, %8
+  %or.cond.not = select i1 %26, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %19, label %.critedge, !llvm.loop !66
 
 .critedge:                                        ; preds = %19, %1
-  %.016 = phi i1 [ true, %1 ], [ %27, %19 ]
+  %.016 = phi i1 [ true, %1 ], [ %26, %19 ]
   ret i1 %.016
 }
 
@@ -4119,8 +4118,8 @@ _ZSt6fill_nIPxmxET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i90: ; preds = %.noexc95
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %77 = phi i64 [ %81, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
   %.068213 = phi i64 [ %83, %.lr.ph ], [ 1, %.lr.ph.preheader ]
-  %78 = getelementptr i64, ptr %6, i64 %.068213
-  %79 = getelementptr i8, ptr %78, i64 -8
+  %78 = add nsw i64 %.068213, -1
+  %79 = getelementptr inbounds nuw i64, ptr %6, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !40
   %81 = mul nsw i64 %80, %77
   %82 = getelementptr inbounds nuw i64, ptr %54, i64 %.068213

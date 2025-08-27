@@ -35,8 +35,8 @@ define hidden noundef signext i8 @nfaExecLimEx256_queueCompressState(ptr noundef
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr i8, ptr %20, i64 %16
-  %22 = getelementptr i8, ptr %21, i64 -1
+  %21 = add nsw i64 %16, -1
+  %22 = getelementptr i8, ptr %20, i64 %21
   %23 = getelementptr i8, ptr %22, i64 %2
   %24 = load i8, ptr %23, align 1
   br label %queue_prev_byte.exit
@@ -44,8 +44,8 @@ define hidden noundef signext i8 @nfaExecLimEx256_queueCompressState(ptr noundef
 25:                                               ; preds = %3
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr i8, ptr %27, i64 %2
-  %29 = getelementptr i8, ptr %28, i64 -1
+  %28 = add nsw i64 %2, -1
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   %30 = load i8, ptr %29, align 1
   br label %queue_prev_byte.exit
 
@@ -7254,7 +7254,7 @@ define internal fastcc void @nfaExecLimEx256_Rev_Stream(ptr noundef %0, ptr noun
 
 40:                                               ; preds = %5, %processExceptional256.exit.thread
   %.068205 = phi <4 x i64> [ %14, %5 ], [ %210, %processExceptional256.exit.thread ]
-  %.071204 = phi i64 [ %2, %5 ], [ %211, %processExceptional256.exit.thread ]
+  %.071204 = phi i64 [ %2, %5 ], [ %201, %processExceptional256.exit.thread ]
   %41 = bitcast <4 x i64> %.068205 to <32 x i8>
   %42 = icmp ne <32 x i8> %41, zeroinitializer
   %43 = bitcast <32 x i1> %42 to i32
@@ -7574,8 +7574,8 @@ processExceptional256.exit:                       ; preds = %.lr.ph
 
 processExceptional256.exit.thread:                ; preds = %133, %129, %125, %108, %processExceptional256.exit.thread162
   %.7.ph = phi <4 x i64> [ %199, %processExceptional256.exit.thread162 ], [ %.6, %108 ], [ %127, %125 ], [ %127, %129 ], [ %127, %133 ]
-  %201 = getelementptr i8, ptr %1, i64 %.071204
-  %202 = getelementptr i8, ptr %201, i64 -1
+  %201 = add i64 %.071204, -1
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 %201
   %203 = load i8, ptr %202, align 1
   %204 = zext i8 %203 to i64
   %205 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %204
@@ -7584,38 +7584,37 @@ processExceptional256.exit.thread:                ; preds = %133, %129, %125, %1
   %208 = getelementptr inbounds nuw <4 x i64>, ptr %9, i64 %207
   %209 = load <4 x i64>, ptr %208, align 32
   %210 = and <4 x i64> %209, %.7.ph
-  %211 = add i64 %.071204, -1
-  %.not = icmp eq i64 %211, 0
+  %.not = icmp eq i64 %201, 0
   br i1 %.not, label %.thread180, label %40
 
 .thread180:                                       ; preds = %processExceptional256.exit.thread
   store <4 x i64> %210, ptr %3, align 64
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %213 = load <4 x i64>, ptr %212, align 32
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %215 = load i32, ptr %214, align 8
-  %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 %216
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %219 = load i32, ptr %218, align 4
-  %.not77 = icmp eq i32 %219, 0
-  br i1 %.not77, label %processExceptional256.exit.thread155, label %220
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %212 = load <4 x i64>, ptr %211, align 32
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %214 = load i32, ptr %213, align 8
+  %215 = zext i32 %214 to i64
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 %215
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %218 = load i32, ptr %217, align 4
+  %.not77 = icmp eq i32 %218, 0
+  br i1 %.not77, label %processExceptional256.exit.thread155, label %219
 
-220:                                              ; preds = %.thread180
-  %221 = and <4 x i64> %213, %210
-  %222 = bitcast <4 x i64> %221 to <32 x i8>
-  %223 = icmp ne <32 x i8> %222, zeroinitializer
-  %224 = bitcast <32 x i1> %223 to i32
-  %.not194 = icmp eq i32 %224, 0
-  br i1 %.not194, label %processExceptional256.exit.thread155, label %225, !prof !5
+219:                                              ; preds = %.thread180
+  %220 = and <4 x i64> %212, %210
+  %221 = bitcast <4 x i64> %220 to <32 x i8>
+  %222 = icmp ne <32 x i8> %221, zeroinitializer
+  %223 = bitcast <32 x i1> %222 to i32
+  %.not194 = icmp eq i32 %223, 0
+  br i1 %.not194, label %processExceptional256.exit.thread155, label %224, !prof !5
 
-225:                                              ; preds = %220
-  %226 = load ptr, ptr %35, align 32
-  %227 = load ptr, ptr %36, align 8
-  %228 = tail call fastcc signext i8 @moProcessAcceptsNoSquash256(ptr noundef nonnull %0, <4 x i64> %210, <4 x i64> %213, ptr noundef nonnull %217, i64 noundef %4, ptr noundef %226, ptr noundef %227)
+224:                                              ; preds = %219
+  %225 = load ptr, ptr %35, align 32
+  %226 = load ptr, ptr %36, align 8
+  %227 = tail call fastcc signext i8 @moProcessAcceptsNoSquash256(ptr noundef nonnull %0, <4 x i64> %210, <4 x i64> %212, ptr noundef nonnull %216, i64 noundef %4, ptr noundef %225, ptr noundef %226)
   br label %processExceptional256.exit.thread155
 
-processExceptional256.exit.thread155:             ; preds = %.lr.ph203, %225, %220, %processExceptional256.exit, %.thread180, %.thread183
+processExceptional256.exit.thread155:             ; preds = %.lr.ph203, %224, %219, %processExceptional256.exit, %.thread180, %.thread183
   ret void
 }
 

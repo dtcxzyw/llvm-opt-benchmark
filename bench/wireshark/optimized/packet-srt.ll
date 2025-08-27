@@ -1171,8 +1171,8 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %8, ptr noundef nonnull @.str.233)
-  %.not39 = icmp eq i32 %5, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph
+  %.not33 = icmp eq i32 %5, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %10 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %9, ptr noundef null)
@@ -1204,26 +1204,23 @@ define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef 
 23:                                               ; preds = %22, %._crit_edge
   %24 = tail call ptr @wmem_strbuf_get_str(ptr noundef %9)
   %25 = tail call i64 @wmem_strbuf_get_len(ptr noundef %9)
-  %.not33 = icmp eq i64 %25, 0
-  br i1 %.not33, label %.critedge, label %.lr.ph36
+  br label %26
 
-.lr.ph36:                                         ; preds = %23, %30
-  %.034 = phi i64 [ %31, %30 ], [ %25, %23 ]
-  %26 = getelementptr i8, ptr %24, i64 %.034
-  %27 = getelementptr i8, ptr %26, i64 -1
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %30, label %.critedge
+26:                                               ; preds = %27, %23
+  %.0 = phi i64 [ %25, %23 ], [ %28, %27 ]
+  %.not = icmp eq i64 %.0, 0
+  br i1 %.not, label %.critedge, label %27
 
-30:                                               ; preds = %.lr.ph36
-  %31 = add i64 %.034, -1
-  %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %.critedge, label %.lr.ph36, !llvm.loop !15
+27:                                               ; preds = %26
+  %28 = add i64 %.0, -1
+  %29 = getelementptr i8, ptr %24, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = icmp eq i8 %30, 0
+  br i1 %31, label %26, label %.critedge, !llvm.loop !15
 
-.critedge:                                        ; preds = %.lr.ph36, %30, %23
-  %.0.lcssa = phi i64 [ 0, %23 ], [ 0, %30 ], [ %.034, %.lr.ph36 ]
+.critedge:                                        ; preds = %26, %27
   %32 = load ptr, ptr %7, align 8
-  %33 = tail call ptr @format_text(ptr noundef %32, ptr noundef %24, i64 noundef %.0.lcssa)
+  %33 = tail call ptr @format_text(ptr noundef %32, ptr noundef %24, i64 noundef %.0)
   %34 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %4, i32 noundef %5, ptr noundef %33)
   ret void
 }

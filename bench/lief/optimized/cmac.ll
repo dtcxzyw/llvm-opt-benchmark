@@ -573,8 +573,8 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %3, %8
   %28 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %27) #12, !srcloc !24
   %29 = trunc i64 %28 to i8
   %30 = and i8 %.019.i, %29
-  %31 = getelementptr i8, ptr %1, i64 %.0.i
-  %32 = getelementptr i8, ptr %31, i64 -1
+  %31 = add nsw i64 %.0.i, -1
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !17
   %34 = xor i8 %30, %33
   store i8 %34, ptr %32, align 1, !tbaa !17
@@ -613,11 +613,10 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %3, %8
   %47 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %46) #12, !srcloc !24
   %48 = trunc i64 %47 to i8
   %49 = and i8 %.019.i13, %48
-  %50 = getelementptr i8, ptr %2, i64 %.0.i
-  %51 = getelementptr i8, ptr %50, i64 -1
-  %52 = load i8, ptr %51, align 1, !tbaa !17
-  %53 = xor i8 %49, %52
-  store i8 %53, ptr %51, align 1, !tbaa !17
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 %31
+  %51 = load i8, ptr %50, align 1, !tbaa !17
+  %52 = xor i8 %49, %51
+  store i8 %52, ptr %50, align 1, !tbaa !17
   br label %cmac_multiply_by_u.exit
 
 cmac_multiply_by_u.exit:                          ; preds = %._crit_edge.i19, %24, %14, %mbedtls_cipher_info_get_block_size.exit

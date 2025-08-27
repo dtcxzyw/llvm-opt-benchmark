@@ -21,83 +21,81 @@ define hidden zeroext i1 @Curl_cert_hostcheck(ptr noundef %0, i64 noundef %1, pt
   br i1 %.not11, label %hostmatch.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr i8, ptr %2, i64 %3
-  %13 = getelementptr i8, ptr %12, i64 -1
+  %12 = add i64 %3, -1
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !3
   %15 = icmp eq i8 %14, 46
-  %16 = sext i1 %15 to i64
-  %spec.select.i = add i64 %3, %16
-  %17 = getelementptr i8, ptr %0, i64 %1
-  %18 = getelementptr i8, ptr %17, i64 -1
-  %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = icmp eq i8 %19, 46
-  %21 = sext i1 %20 to i64
-  %.037.i = add i64 %1, %21
+  %spec.select.i = select i1 %15, i64 %12, i64 %3
+  %16 = add i64 %1, -1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !3
+  %19 = icmp eq i8 %18, 46
+  %.037.i = select i1 %19, i64 %16, i64 %1
   %.not52.i = icmp eq i8 %6, 42
   br i1 %.not52.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %11
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %23 = load i8, ptr %22, align 1
-  %24 = icmp eq i8 %23, 46
-  br i1 %24, label %28, label %.tail.thread.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 46
+  br i1 %22, label %26, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %11
   %.not.i.i = icmp eq i64 %spec.select.i, %.037.i
-  br i1 %.not.i.i, label %25, label %hostmatch.exit
+  br i1 %.not.i.i, label %23, label %hostmatch.exit
 
-25:                                               ; preds = %.tail.thread.i
-  %26 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #3
-  %27 = icmp ne i32 %26, 0
+23:                                               ; preds = %.tail.thread.i
+  %24 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #3
+  %25 = icmp ne i32 %24, 0
   br label %hostmatch.exit
 
-28:                                               ; preds = %.tail.i
-  %29 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %2) #3
-  br i1 %29, label %hostmatch.exit, label %30
+26:                                               ; preds = %.tail.i
+  %27 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef nonnull %2) #3
+  br i1 %27, label %hostmatch.exit, label %28
+
+28:                                               ; preds = %26
+  %29 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.037.i) #4
+  %.not41.i = icmp eq ptr %29, null
+  br i1 %.not41.i, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.037.i) #4
-  %.not41.i = icmp eq ptr %31, null
-  br i1 %.not41.i, label %35, label %32
+  %31 = tail call ptr @memrchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.037.i) #4
+  %32 = icmp eq ptr %31, %29
+  br i1 %32, label %33, label %37
 
-32:                                               ; preds = %30
-  %33 = tail call ptr @memrchr(ptr noundef nonnull %0, i32 noundef 46, i64 noundef %.037.i) #4
-  %34 = icmp eq ptr %33, %31
-  br i1 %34, label %35, label %39
-
-35:                                               ; preds = %32, %30
+33:                                               ; preds = %30, %28
   %.not.i45.i = icmp eq i64 %spec.select.i, %.037.i
-  br i1 %.not.i45.i, label %36, label %hostmatch.exit
+  br i1 %.not.i45.i, label %34, label %hostmatch.exit
 
-36:                                               ; preds = %35
-  %37 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #3
-  %38 = icmp ne i32 %37, 0
+34:                                               ; preds = %33
+  %35 = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %0, i64 noundef %spec.select.i) #3
+  %36 = icmp ne i32 %35, 0
   br label %hostmatch.exit
 
-39:                                               ; preds = %32
-  %40 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 46, i64 noundef %spec.select.i) #4
-  %.not42.not.i = icmp eq ptr %40, null
-  br i1 %.not42.not.i, label %hostmatch.exit, label %41
+37:                                               ; preds = %30
+  %38 = tail call ptr @memchr(ptr noundef nonnull %2, i32 noundef 46, i64 noundef %spec.select.i) #4
+  %.not42.not.i = icmp eq ptr %38, null
+  br i1 %.not42.not.i, label %hostmatch.exit, label %39
 
-41:                                               ; preds = %39
-  %42 = ptrtoint ptr %40 to i64
-  %43 = ptrtoint ptr %2 to i64
-  %.neg.i = sub i64 %43, %42
-  %44 = ptrtoint ptr %31 to i64
-  %45 = ptrtoint ptr %0 to i64
-  %46 = add i64 %.neg.i, %spec.select.i
-  %.neg43.i = add i64 %.037.i, %45
-  %47 = sub i64 %.neg43.i, %44
-  %.not.i48.i = icmp eq i64 %46, %47
-  br i1 %.not.i48.i, label %48, label %hostmatch.exit
+39:                                               ; preds = %37
+  %40 = ptrtoint ptr %38 to i64
+  %41 = ptrtoint ptr %2 to i64
+  %.neg.i = sub i64 %41, %40
+  %42 = ptrtoint ptr %29 to i64
+  %43 = ptrtoint ptr %0 to i64
+  %44 = add i64 %.neg.i, %spec.select.i
+  %.neg43.i = add i64 %.037.i, %43
+  %45 = sub i64 %.neg43.i, %42
+  %.not.i48.i = icmp eq i64 %44, %45
+  br i1 %.not.i48.i, label %46, label %hostmatch.exit
 
-48:                                               ; preds = %41
-  %49 = tail call i32 @curl_strnequal(ptr noundef nonnull %40, ptr noundef nonnull %31, i64 noundef %46) #3
-  %50 = icmp ne i32 %49, 0
+46:                                               ; preds = %39
+  %47 = tail call i32 @curl_strnequal(ptr noundef nonnull %38, ptr noundef nonnull %29, i64 noundef %44) #3
+  %48 = icmp ne i32 %47, 0
   br label %hostmatch.exit
 
-hostmatch.exit:                                   ; preds = %48, %41, %39, %36, %35, %28, %25, %.tail.thread.i, %4, %5, %9
-  %.0 = phi i1 [ false, %9 ], [ false, %5 ], [ false, %4 ], [ false, %28 ], [ %27, %25 ], [ false, %.tail.thread.i ], [ %38, %36 ], [ false, %35 ], [ false, %39 ], [ %50, %48 ], [ false, %41 ]
+hostmatch.exit:                                   ; preds = %46, %39, %37, %34, %33, %26, %23, %.tail.thread.i, %4, %5, %9
+  %.0 = phi i1 [ false, %9 ], [ false, %5 ], [ false, %4 ], [ false, %26 ], [ %25, %23 ], [ false, %.tail.thread.i ], [ %36, %34 ], [ false, %33 ], [ false, %37 ], [ %48, %46 ], [ false, %39 ]
   ret i1 %.0
 }
 

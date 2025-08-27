@@ -2040,8 +2040,8 @@ define internal fastcc ptr @CreateMappingString(ptr noundef readonly captures(no
 18:                                               ; preds = %3
   %19 = load ptr, ptr %9, align 8
   %20 = call i64 @SDL_strlen_REAL(ptr noundef %19) #10
-  %21 = getelementptr i8, ptr %19, i64 %20
-  %22 = getelementptr i8, ptr %21, i64 -1
+  %21 = add i64 %20, -1
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not38 = icmp eq i8 %23, 44
   %24 = add i64 %14, 2
@@ -2070,8 +2070,8 @@ define internal fastcc ptr @CreateMappingString(ptr noundef readonly captures(no
 37:                                               ; preds = %33
   %38 = load ptr, ptr %9, align 8
   %39 = call i64 @SDL_strlen_REAL(ptr noundef %38) #10
-  %40 = getelementptr i8, ptr %38, i64 %39
-  %41 = getelementptr i8, ptr %40, i64 -1
+  %40 = add i64 %39, -1
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   %42 = load i8, ptr %41, align 1
   %.not40 = icmp eq i8 %42, 44
   br i1 %.not40, label %45, label %43
@@ -2552,8 +2552,8 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
 
 21:                                               ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %12, i64 %17, i1 false)
-  %22 = getelementptr i8, ptr %18, i64 %17
-  %23 = getelementptr i8, ptr %22, i64 -1
+  %22 = add nsw i64 %17, -1
+  %23 = getelementptr inbounds i8, ptr %18, i64 %22
   store i8 0, ptr %23, align 1
   %24 = tail call ptr @SDL_strchr_REAL(ptr noundef %2, i32 noundef 44) #10
   %.not.i95 = icmp eq ptr %24, null
@@ -2577,31 +2577,28 @@ define internal fastcc ptr @SDL_PrivateAddMappingForGUID(i64 %0, i64 %1, ptr nou
 32:                                               ; preds = %.preheader.i
   %33 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef nonnull %28) #10
   %34 = tail call i64 @SDL_strlen_REAL(ptr noundef %33) #10
-  %.not2123.i = icmp eq i64 %34, 0
-  br i1 %.not2123.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit, label %.lr.ph.i
+  br label %35
 
-.lr.ph.i:                                         ; preds = %32, %40
-  %.024.i = phi i64 [ %41, %40 ], [ %34, %32 ]
-  %35 = getelementptr i8, ptr %33, i64 %.024.i
-  %36 = getelementptr i8, ptr %35, i64 -1
-  %37 = load i8, ptr %36, align 1
-  %38 = sext i8 %37 to i32
-  %39 = tail call i32 @SDL_isspace_REAL(i32 noundef %38) #10
-  %.not22.i = icmp eq i32 %39, 0
-  br i1 %.not22.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %40
+35:                                               ; preds = %36, %32
+  %.0.i98 = phi i64 [ %34, %32 ], [ %37, %36 ]
+  %.not21.i = icmp eq i64 %.0.i98, 0
+  br i1 %.not21.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit, label %36
 
-40:                                               ; preds = %.lr.ph.i
-  %41 = add i64 %.024.i, -1
-  %.not21.i = icmp eq i64 %41, 0
-  br i1 %.not21.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %.lr.ph.i, !llvm.loop !30
+36:                                               ; preds = %35
+  %37 = add i64 %.0.i98, -1
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 %37
+  %39 = load i8, ptr %38, align 1
+  %40 = sext i8 %39 to i32
+  %41 = tail call i32 @SDL_isspace_REAL(i32 noundef %40) #10
+  %.not22.i = icmp eq i32 %41, 0
+  br i1 %.not22.i, label %SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105, label %35, !llvm.loop !30
 
-SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105: ; preds = %.lr.ph.i, %40
-  %.0.lcssa.i.ph = phi i64 [ %.024.i, %.lr.ph.i ], [ 0, %40 ]
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.lcssa.i.ph
+SDL_PrivateGetGamepadMappingFromMappingString.exit.thread105: ; preds = %36
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.i98
   store i8 0, ptr %42, align 1
   br label %44
 
-SDL_PrivateGetGamepadMappingFromMappingString.exit: ; preds = %32
+SDL_PrivateGetGamepadMappingFromMappingString.exit: ; preds = %35
   store i8 0, ptr %33, align 1
   br label %44
 
@@ -2637,8 +2634,8 @@ SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
   br i1 %53, label %59, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr i8, ptr %33, i64 %52
-  %56 = getelementptr i8, ptr %55, i64 -1
+  %55 = add i64 %52, -1
+  %56 = getelementptr inbounds nuw i8, ptr %33, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 44
   %spec.select = select i1 %58, ptr @.str.117, ptr @.str.81
@@ -2730,8 +2727,8 @@ SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
   %96 = sext i32 %95 to i64
   %97 = shl nsw i64 %96, 3
   %98 = call ptr @SDL_realloc_REAL(ptr noundef %94, i64 noundef %97) #12
-  %.not.i99 = icmp eq ptr %98, null
-  br i1 %.not.i99, label %AddMappingChangeTracking.exit, label %99
+  %.not.i100 = icmp eq ptr %98, null
+  br i1 %.not.i100, label %AddMappingChangeTracking.exit, label %99
 
 99:                                               ; preds = %89
   store ptr %98, ptr %93, align 8
@@ -7791,8 +7788,8 @@ SDL_PrivateGetGamepadButtonFromString.exit:       ; preds = %42, %switch.lookup,
   %.064 = phi i32 [ %63, %61 ], [ 0, %59 ]
   %.058 = phi ptr [ %62, %61 ], [ %2, %59 ]
   %65 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.058) #10
-  %66 = getelementptr i8, ptr %.058, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 -1
+  %66 = add i64 %65, -1
+  %67 = getelementptr inbounds nuw i8, ptr %.058, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 126
   %70 = load i8, ptr %.058, align 1
@@ -7951,9 +7948,9 @@ thread-pre-split:                                 ; preds = %72
 143:                                              ; preds = %._crit_edge
   store ptr %140, ptr %136, align 8
   %144 = load i32, ptr %122, align 8
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr %struct.SDL_GamepadBinding, ptr %140, i64 %145
-  %147 = getelementptr i8, ptr %146, i64 -32
+  %145 = add nsw i32 %144, -1
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds %struct.SDL_GamepadBinding, ptr %140, i64 %146
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %147, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false)
   br label %.thread
 

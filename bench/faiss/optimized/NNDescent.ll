@@ -225,16 +225,16 @@ define void @_ZN5faiss9nndescent10gen_randomERSt23mersenne_twister_engineImLm32E
 ._crit_edge:                                      ; preds = %4
   %8 = sext i32 %2 to i64
   %.not.i.i = icmp eq i32 %2, 0
-  br i1 %.not.i.i, label %._crit_edge40.thread67, label %10
+  br i1 %.not.i.i, label %._crit_edge40.thread68, label %10
 
-._crit_edge40.thread67:                           ; preds = %._crit_edge
+._crit_edge40.thread68:                           ; preds = %._crit_edge
   %9 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %0)
   br label %._crit_edge44
 
 10:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %11 = phi i64 [ %62, %._crit_edge.thread ], [ %8, %._crit_edge ]
-  %.idx65.pn = shl nsw i64 %11, 2
-  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx65.pn
+  %.idx66.pn = shl nsw i64 %11, 2
+  %12 = getelementptr inbounds i8, ptr %1, i64 %.idx66.pn
   %13 = ptrtoint ptr %1 to i64
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %11, i1 true)
   %15 = shl nuw nsw i64 %14, 1
@@ -364,6 +364,7 @@ _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
 
 .lr.ph39.preheader:                               ; preds = %_ZSt4sortIPiEvT_S1_.exit
   %wide.trip.count50 = zext nneg i32 %2 to i64
+  %.pre = load i32, ptr %1, align 4, !tbaa !27
   br label %.lr.ph39
 
 57:                                               ; preds = %.lr.ph, %57
@@ -381,7 +382,7 @@ _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
   %62 = zext nneg i32 %2 to i64
   br label %10
 
-._crit_edge40:                                    ; preds = %73, %_ZSt4sortIPiEvT_S1_.exit
+._crit_edge40:                                    ; preds = %72, %_ZSt4sortIPiEvT_S1_.exit
   %63 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %0)
   %64 = sext i32 %3 to i64
   %65 = urem i64 %63, %64
@@ -393,26 +394,26 @@ _ZSt4sortIPiEvT_S1_.exit:                         ; preds = %_ZSt25__unguarded_l
   %wide.trip.count55 = zext nneg i32 %2 to i64
   br label %.lr.ph43
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %73
-  %indvars.iv47 = phi i64 [ 1, %.lr.ph39.preheader ], [ %indvars.iv.next48, %73 ]
-  %67 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv47
-  %68 = load i32, ptr %67, align 4, !tbaa !27
-  %69 = getelementptr i8, ptr %67, i64 -4
-  %70 = load i32, ptr %69, align 4, !tbaa !27
-  %.not = icmp sgt i32 %68, %70
-  br i1 %.not, label %73, label %71
+.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %72
+  %67 = phi i32 [ %.pre, %.lr.ph39.preheader ], [ %73, %72 ]
+  %indvars.iv47 = phi i64 [ 1, %.lr.ph39.preheader ], [ %indvars.iv.next48, %72 ]
+  %68 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv47
+  %69 = load i32, ptr %68, align 4, !tbaa !27
+  %.not = icmp sgt i32 %69, %67
+  br i1 %.not, label %72, label %70
 
-71:                                               ; preds = %.lr.ph39
-  %72 = add nsw i32 %70, 1
-  store i32 %72, ptr %67, align 4, !tbaa !27
-  br label %73
+70:                                               ; preds = %.lr.ph39
+  %71 = add nsw i32 %67, 1
+  store i32 %71, ptr %68, align 4, !tbaa !27
+  br label %72
 
-73:                                               ; preds = %.lr.ph39, %71
+72:                                               ; preds = %.lr.ph39, %70
+  %73 = phi i32 [ %69, %.lr.ph39 ], [ %71, %70 ]
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !33
 
-._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge40.thread67, %._crit_edge40
+._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge40.thread68, %._crit_edge40
   ret void
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43

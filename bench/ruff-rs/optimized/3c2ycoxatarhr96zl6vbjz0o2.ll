@@ -1423,8 +1423,8 @@ define hidden noundef align 2 dereferenceable_or_null(8) ptr @"_ZN91_$LT$alloc..
   %.not = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !9
-  %6 = getelementptr { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %5, i64 %3
-  %7 = getelementptr i8, ptr %6, i64 -8
+  %6 = add i64 %3, -1
+  %7 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %5, i64 %6
   %.sroa.0.0 = select i1 %.not, ptr null, ptr %7
   ret ptr %.sroa.0.0
 }
@@ -1502,11 +1502,9 @@ define hidden noundef align 2 dereferenceable_or_null(8) ptr @"_ZN120_$LT$ruff_f
   %.not = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !9
-  %6 = getelementptr { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %5, i64 %3
-  %7 = getelementptr i8, ptr %6, i64 -8
-  %.not.i2 = icmp eq ptr %7, null
-  %.not.i = select i1 %.not, i1 true, i1 %.not.i2
-  br i1 %.not.i, label %8, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87d4f4413aaccba3E.exit"
+  %6 = add i64 %3, -1
+  %7 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %5, i64 %6
+  br i1 %.not, label %8, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87d4f4413aaccba3E.exit"
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1517,9 +1515,10 @@ define hidden noundef align 2 dereferenceable_or_null(8) ptr @"_ZN120_$LT$ruff_f
   %11 = ptrtoint ptr %.val to i64
   %12 = ptrtoint ptr %.val1 to i64
   %13 = sub nuw i64 %12, %11
-  %14 = getelementptr i8, ptr %.val, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 -8
-  %.sroa.0.0.i.i = select i1 %.not.i.i, ptr null, ptr %15
+  %14 = lshr exact i64 %13, 3
+  %15 = add nsw i64 %14, -1
+  %16 = getelementptr inbounds nuw { { { i8, [3 x i8] }, i8, i8 }, i8, [1 x i8] }, ptr %.val, i64 %15
+  %.sroa.0.0.i.i = select i1 %.not.i.i, ptr null, ptr %16
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h87d4f4413aaccba3E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17h87d4f4413aaccba3E.exit": ; preds = %1, %8

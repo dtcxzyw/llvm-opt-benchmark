@@ -5269,7 +5269,7 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   %or.cond5 = and i1 %or.cond3, %11
   %12 = icmp ne i32 %2, 0
   %or.cond7 = and i1 %12, %or.cond5
-  br i1 %or.cond7, label %13, label %101
+  br i1 %or.cond7, label %13, label %99
 
 13:                                               ; preds = %6
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #40
@@ -5406,24 +5406,22 @@ define i32 @fstWriterCreateEnumTable(ptr noundef captures(address_is_null) %0, p
   br i1 %exitcond152.not, label %.split.us, label %.preheader.split, !llvm.loop !109
 
 .split.us:                                        ; preds = %84, %.preheader.split.us
-  %.us-phi = phi i32 [ %60, %.preheader.split.us ], [ %91, %84 ]
-  %94 = sext i32 %.us-phi to i64
-  %95 = getelementptr i8, ptr %44, i64 %94
-  %96 = getelementptr i8, ptr %95, i64 -1
-  store i8 0, ptr %96, align 1, !tbaa !6
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %98 = load i32, ptr %97, align 8, !tbaa !111
-  %99 = add i32 %98, 1
-  store i32 %99, ptr %97, align 8, !tbaa !111
-  %100 = zext i32 %99 to i64
-  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %44, i64 noundef %100)
+  %.pre-phi = phi i64 [ %61, %.preheader.split.us ], [ %92, %84 ]
+  %94 = getelementptr inbounds i8, ptr %44, i64 %.pre-phi
+  store i8 0, ptr %94, align 1, !tbaa !6
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %96 = load i32, ptr %95, align 8, !tbaa !111
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %95, align 8, !tbaa !111
+  %98 = zext i32 %97 to i64
+  tail call void @fstWriterSetAttrBegin(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %44, i64 noundef %98)
   tail call void @free(ptr noundef nonnull %44) #39
   tail call void @free(ptr noundef nonnull %18) #39
   tail call void @free(ptr noundef %17) #39
-  br label %101
+  br label %99
 
-101:                                              ; preds = %.split.us, %6
-  %.0113 = phi i32 [ %99, %.split.us ], [ 0, %6 ]
+99:                                               ; preds = %.split.us, %6
+  %.0113 = phi i32 [ %97, %.split.us ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0113
 }

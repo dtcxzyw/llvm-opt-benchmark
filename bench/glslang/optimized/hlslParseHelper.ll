@@ -7385,13 +7385,14 @@ _ZNK7glslang16HlslParseContext18isStructBufferTypeERKNS_5TTypeE.exit: ; preds = 
   %63 = ptrtoint ptr %61 to i64
   %64 = ptrtoint ptr %62 to i64
   %65 = sub i64 %63, %64
-  %66 = getelementptr i8, ptr %62, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 -32
-  %68 = load ptr, ptr %67, align 8
-  %69 = load ptr, ptr %60, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 232
-  %71 = load ptr, ptr %70, align 8
-  tail call void %71(ptr noundef nonnull align 8 dereferenceable(184) %60, ptr noundef nonnull align 8 dereferenceable(152) %68) #25
+  %66 = ashr exact i64 %65, 5
+  %67 = add nsw i64 %66, -1
+  %68 = getelementptr inbounds %"struct.glslang::TTypeLoc", ptr %62, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %60, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 232
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(184) %60, ptr noundef nonnull align 8 dereferenceable(152) %69) #25
   br label %_ZNK7glslang16HlslParseContext18isStructBufferTypeERKNS_5TTypeE.exit.thread
 
 _ZNK7glslang16HlslParseContext18isStructBufferTypeERKNS_5TTypeE.exit.thread: ; preds = %5, %14, %3, %_ZNK7glslang16HlslParseContext18isStructBufferTypeERKNS_5TTypeE.exit, %39
@@ -31800,19 +31801,19 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit:     ; preds = %80, %76, %59
   br i1 %99, label %100, label %.thread
 
 100:                                              ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit
-  %101 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = zext nneg i32 %90 to i64
-  %106 = getelementptr %"struct.glslang::TArraySize", ptr %104, i64 %105
-  %107 = getelementptr i8, ptr %106, i64 -16
+  %101 = add nsw i32 %90, -1
+  %102 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = zext nneg i32 %101 to i64
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %106, i64 %104
   %108 = load i32, ptr %107, align 8
   %.not226 = icmp eq i32 %90, 1
   br i1 %.not226, label %.thread, label %109
 
 109:                                              ; preds = %100
-  %110 = load i32, ptr %104, align 8
+  %110 = load i32, ptr %106, align 8
   br label %.thread
 
 .thread:                                          ; preds = %_ZNK7glslang11TArraySizes10getNumDimsEv.exit, %100, %109
@@ -46117,12 +46118,12 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit118:  ; preds = %279, %_ZNK7glslang1
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 160
   %306 = load ptr, ptr %305, align 8
   %307 = tail call noundef ptr %306(ptr noundef nonnull align 8 dereferenceable(152) %303) #25
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %311 = load ptr, ptr %310, align 8
-  %312 = getelementptr %"struct.glslang::TArraySize", ptr %311, i64 %indvars.iv
-  %313 = getelementptr i8, ptr %312, i64 -16
+  %308 = add nsw i64 %indvars.iv, -1
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  %310 = load ptr, ptr %309, align 8
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
+  %312 = load ptr, ptr %311, align 8
+  %313 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %312, i64 %308
   %314 = load i32, ptr %313, align 8
   %315 = load ptr, ptr %230, align 8
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
@@ -57922,12 +57923,12 @@ _ZNK7glslang11TArraySizes10getNumDimsEv.exit131:  ; preds = %_ZNK7glslang11TArra
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 152
   %227 = load ptr, ptr %226, align 8
   %228 = tail call noundef ptr %227(ptr noundef nonnull align 8 dereferenceable(152) %224) #25
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %230 = load ptr, ptr %229, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr %"struct.glslang::TArraySize", ptr %232, i64 %indvars.iv174
-  %234 = getelementptr i8, ptr %233, i64 -16
+  %229 = add nsw i64 %indvars.iv174, -1
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 8
+  %231 = load ptr, ptr %230, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %233 = load ptr, ptr %232, align 8
+  %234 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %233, i64 %229
   %235 = load i32, ptr %234, align 8
   %236 = load ptr, ptr %206, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8

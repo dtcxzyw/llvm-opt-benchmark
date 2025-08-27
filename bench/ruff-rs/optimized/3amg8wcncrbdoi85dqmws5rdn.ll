@@ -406,8 +406,8 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   %18 = load i8, ptr %11, align 8, !noundef !4
   %19 = zext i8 %18 to i64
-  %20 = getelementptr i8, ptr %10, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -1
+  %20 = add nsw i64 %19, -1
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %20
   %22 = load i8, ptr %21, align 1, !noundef !4
   %23 = icmp ult i64 %16, 16
   br i1 %23, label %.preheader.i, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit
@@ -4071,15 +4071,13 @@ define internal fastcc noundef i32 @_ZN20ruff_python_semantic5model13SemanticMod
   %.sroa.07.0 = phi ptr [ %30, %28 ], [ %25, %33 ]
   %.sroa.3.0 = phi i64 [ %32, %28 ], [ %35, %33 ]
   %.not24 = icmp eq i64 %.sroa.3.0, 0
-  %38 = getelementptr { ptr, i64 }, ptr %.sroa.07.0, i64 %.sroa.3.0
-  %39 = getelementptr i8, ptr %38, i64 -16
-  %.not2528 = icmp eq ptr %39, null
-  %.not25 = or i1 %.not24, %.not2528
-  br i1 %.not25, label %83, label %40
+  %38 = add i64 %.sroa.3.0, -1
+  %39 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.07.0, i64 %38
+  br i1 %.not24, label %83, label %40
 
 40:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fbcb83fd75efe28E.exit"
   %41 = load ptr, ptr %39, align 8, !nonnull !4, !align !44, !noundef !4
-  %42 = getelementptr i8, ptr %38, i64 -8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i64, ptr %42, align 8, !noundef !4
   %44 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17heb39b4acc8b9c7e3E"(ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %43, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   br i1 %44, label %83, label %45

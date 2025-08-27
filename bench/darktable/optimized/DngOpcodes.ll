@@ -3154,8 +3154,8 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   %6 = invoke noalias noundef nonnull dereferenceable(131072) ptr @_Znwm(i64 noundef 131072) #27
           to label %_ZN8rawspeed10DngOpcodes12LookupOpcodeCI2NS0_11PixelOpcodeEERKNS_8RawImageERNS_10ByteStreamERKNS_12iRectangle2DE.exit unwind label %7
 
-common.resume:                                    ; preds = %60, %58, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %.pn, %58 ], [ %.pn, %60 ]
+common.resume:                                    ; preds = %62, %60, %7
+  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %.pn, %60 ], [ %.pn, %62 ]
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes9DngOpcodeE, i64 16), ptr %0, align 8, !tbaa !122
   resume { ptr, i32 } %common.resume.op
 
@@ -3252,7 +3252,7 @@ _ZN8rawspeed10DngOpcodes12LookupOpcodeCI2NS0_11PixelOpcodeEERKNS_8RawImageERNS_1
 40:                                               ; preds = %19, %38
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %60
 
 ._crit_edge:                                      ; preds = %44, %34
   %.pre-phi = phi i64 [ %wide.trip.count44, %34 ], [ %wide.trip.count, %44 ]
@@ -3288,40 +3288,42 @@ _ZN8rawspeed10DngOpcodes12LookupOpcodeCI2NS0_11PixelOpcodeEERKNS_8RawImageERNS_1
 49:                                               ; preds = %.split.us
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %60
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr i16, ptr %6, i64 %.pre-phi
-  %53 = getelementptr i8, ptr %52, i64 -2
-  %54 = shl nuw nsw i64 %.pre-phi, 1
-  %.idx.i.i = sub nuw nsw i64 131072, %54
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i
-  %56 = load i16, ptr %53, align 2, !tbaa !197
+  %52 = add nsw i32 %spec.select.i.i.i.i.i.i, -1
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw i16, ptr %6, i64 %53
+  %55 = getelementptr inbounds nuw i16, ptr %6, i64 %.pre-phi
+  %56 = shl nuw nsw i64 %.pre-phi, 1
+  %.idx.i.i = sub nuw nsw i64 131072, %56
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i
+  %58 = load i16, ptr %54, align 2, !tbaa !197
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %51
-  %.06.i.i.i.i = phi ptr [ %57, %.lr.ph.i.i.i.i ], [ %52, %51 ]
-  store i16 %56, ptr %.06.i.i.i.i, align 2, !tbaa !197
-  %57 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 2
-  %.not.i.i.i.i = icmp eq ptr %57, %55
+  %.06.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i ], [ %55, %51 ]
+  store i16 %58, ptr %.06.i.i.i.i, align 2, !tbaa !197
+  %59 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 2
+  %.not.i.i.i.i = icmp eq ptr %59, %57
   br i1 %.not.i.i.i.i, label %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !229
 
 _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit:              ; preds = %.lr.ph.i.i.i.i, %._crit_edge
   ret void
 
-58:                                               ; preds = %49, %40
+60:                                               ; preds = %49, %40
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %50, %49 ]
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8rawspeed10DngOpcodes12LookupOpcodeE, i64 16), ptr %0, align 8, !tbaa !122
-  %59 = load ptr, ptr %5, align 8, !tbaa !204
-  %.not.i.i.i.i27 = icmp eq ptr %59, null
-  br i1 %.not.i.i.i.i27, label %common.resume, label %60
+  %61 = load ptr, ptr %5, align 8, !tbaa !204
+  %.not.i.i.i.i27 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i.i27, label %common.resume, label %62
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %10, align 8, !tbaa !207
-  %62 = ptrtoint ptr %61 to i64
-  %63 = ptrtoint ptr %59 to i64
-  %64 = sub i64 %62, %63
-  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %64) #29
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %10, align 8, !tbaa !207
+  %64 = ptrtoint ptr %63 to i64
+  %65 = ptrtoint ptr %61 to i64
+  %66 = sub i64 %64, %65
+  tail call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %66) #29
   br label %common.resume
 }
 

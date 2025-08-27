@@ -17002,7 +17002,7 @@ define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly captur
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %9, align 1, !tbaa !21
   store i8 %7, ptr %0, align 1, !tbaa !21
-  br label %62
+  br label %63
 
 10:                                               ; preds = %5
   store i8 %7, ptr %0, align 1, !tbaa !21
@@ -17032,56 +17032,57 @@ define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly captur
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, 3
   %27 = add nuw nsw i32 %26, 2
-  %28 = getelementptr i8, ptr %23, i64 -1
-  %29 = load i8, ptr %28, align 1, !tbaa !21
-  %30 = zext i8 %29 to i32
-  %31 = add nuw nsw i32 %27, %30
-  %32 = lshr i32 %31, 2
-  %33 = trunc nuw i32 %32 to i8
-  %34 = shl nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %34
-  store i8 %33, ptr %35, align 1, !tbaa !21
+  %28 = add nsw i64 %indvars.iv, -1
+  %29 = getelementptr inbounds i8, ptr %1, i64 %28
+  %30 = load i8, ptr %29, align 1, !tbaa !21
+  %31 = zext i8 %30 to i32
+  %32 = add nuw nsw i32 %27, %31
+  %33 = lshr i32 %32, 2
+  %34 = trunc nuw i32 %33 to i8
+  %35 = shl nuw nsw i64 %indvars.iv, 1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
+  store i8 %34, ptr %36, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
-  %37 = load i8, ptr %36, align 1, !tbaa !21
-  %38 = zext i8 %37 to i32
-  %39 = add nuw nsw i32 %27, %38
-  %40 = lshr i32 %39, 2
-  %41 = trunc nuw i32 %40 to i8
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  store i8 %41, ptr %42, align 1, !tbaa !21
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
+  %38 = load i8, ptr %37, align 1, !tbaa !21
+  %39 = zext i8 %38 to i32
+  %40 = add nuw nsw i32 %27, %39
+  %41 = lshr i32 %40, 2
+  %42 = trunc nuw i32 %41 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 %42, ptr %43, align 1, !tbaa !21
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !239
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %43 = shl nuw nsw i32 %21, 1
-  %44 = zext nneg i32 %43 to i64
+  %44 = shl nuw nsw i32 %21, 1
+  %45 = zext nneg i32 %44 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
-  %.037.lcssa = phi i64 [ 2, %10 ], [ %44, %._crit_edge.loopexit ]
-  %45 = sext i32 %3 to i64
-  %46 = getelementptr i8, ptr %1, i64 %45
-  %47 = getelementptr i8, ptr %46, i64 -2
-  %48 = load i8, ptr %47, align 1, !tbaa !21
-  %49 = zext i8 %48 to i16
-  %50 = mul nuw nsw i16 %49, 3
-  %51 = sext i32 %21 to i64
-  %52 = getelementptr inbounds i8, ptr %1, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !21
-  %54 = zext i8 %53 to i16
-  %55 = add nuw nsw i16 %54, 2
-  %56 = add nuw nsw i16 %55, %50
-  %57 = lshr i16 %56, 2
-  %58 = trunc nuw i16 %57 to i8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.lcssa
-  store i8 %58, ptr %59, align 1, !tbaa !21
-  %60 = load i8, ptr %52, align 1, !tbaa !21
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  store i8 %60, ptr %61, align 1, !tbaa !21
-  br label %62
+  %.037.lcssa = phi i64 [ 2, %10 ], [ %45, %._crit_edge.loopexit ]
+  %46 = add nsw i32 %3, -2
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i8, ptr %1, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !21
+  %50 = zext i8 %49 to i16
+  %51 = mul nuw nsw i16 %50, 3
+  %52 = sext i32 %21 to i64
+  %53 = getelementptr inbounds i8, ptr %1, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !21
+  %55 = zext i8 %54 to i16
+  %56 = add nuw nsw i16 %55, 2
+  %57 = add nuw nsw i16 %56, %51
+  %58 = lshr i16 %57, 2
+  %59 = trunc nuw i16 %58 to i8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.lcssa
+  store i8 %59, ptr %60, align 1, !tbaa !21
+  %61 = load i8, ptr %53, align 1, !tbaa !21
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
+  store i8 %61, ptr %62, align 1, !tbaa !21
+  br label %63
 
-62:                                               ; preds = %._crit_edge, %8
+63:                                               ; preds = %._crit_edge, %8
   ret ptr %0
 }
 
@@ -17103,7 +17104,7 @@ define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captu
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %16, ptr %17, align 1, !tbaa !21
   store i8 %16, ptr %0, align 1, !tbaa !21
-  br label %52
+  br label %53
 
 18:                                               ; preds = %5
   %19 = zext i8 %7 to i32
@@ -17138,15 +17139,16 @@ define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captu
   %38 = lshr i32 %37, 4
   %39 = trunc nuw i32 %38 to i8
   %40 = shl nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr i8, ptr %0, i64 %40
-  %42 = getelementptr i8, ptr %41, i64 -1
+  %41 = add nsw i64 %40, -1
+  %42 = getelementptr inbounds i8, ptr %0, i64 %41
   store i8 %39, ptr %42, align 1, !tbaa !21
   %43 = mul nuw nsw i32 %34, 3
   %44 = add nuw nsw i32 %.034, 8
   %45 = add nuw nsw i32 %44, %43
   %46 = lshr i32 %45, 4
   %47 = trunc nuw i32 %46 to i8
-  store i8 %47, ptr %41, align 1, !tbaa !21
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  store i8 %47, ptr %48, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !240
@@ -17159,14 +17161,14 @@ define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly captu
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %18
   %.pre-phi39 = phi i8 [ %.pre38, %._crit_edge.loopexit ], [ %25, %18 ]
-  %48 = shl nsw i32 %3, 1
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr i8, ptr %0, i64 %49
-  %51 = getelementptr i8, ptr %50, i64 -1
-  store i8 %.pre-phi39, ptr %51, align 1, !tbaa !21
-  br label %52
+  %49 = shl nsw i32 %3, 1
+  %50 = add nsw i32 %49, -1
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %0, i64 %51
+  store i8 %.pre-phi39, ptr %52, align 1, !tbaa !21
+  br label %53
 
-52:                                               ; preds = %._crit_edge, %9
+53:                                               ; preds = %._crit_edge, %9
   ret ptr %0
 }
 
@@ -17188,7 +17190,7 @@ define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %16, ptr %17, align 1, !tbaa !21
   store i8 %16, ptr %0, align 1, !tbaa !21
-  br label %119
+  br label %120
 
 18:                                               ; preds = %5
   %19 = zext i8 %7 to i32
@@ -17315,32 +17317,33 @@ define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly 
   %102 = lshr i32 %101, 4
   %103 = trunc nuw i32 %102 to i8
   %104 = shl nuw nsw i64 %indvars.iv104, 1
-  %105 = getelementptr i8, ptr %0, i64 %104
-  %106 = getelementptr i8, ptr %105, i64 -1
+  %105 = add nsw i64 %104, -1
+  %106 = getelementptr inbounds i8, ptr %0, i64 %105
   store i8 %103, ptr %106, align 1, !tbaa !21
   %107 = mul nuw nsw i32 %98, 3
   %108 = add nuw nsw i32 %.19195, 8
   %109 = add nuw nsw i32 %108, %107
   %110 = lshr i32 %109, 4
   %111 = trunc nuw i32 %110 to i8
-  store i8 %111, ptr %105, align 1, !tbaa !21
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 %104
+  store i8 %111, ptr %112, align 1, !tbaa !21
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98, !llvm.loop !242
 
 ._crit_edge99:                                    ; preds = %.lr.ph98, %._crit_edge
   %.191.lcssa = phi i32 [ %.pre-phi116, %._crit_edge ], [ %98, %.lr.ph98 ]
-  %112 = add nuw nsw i32 %.191.lcssa, 2
-  %113 = lshr i32 %112, 2
-  %114 = trunc nuw i32 %113 to i8
-  %115 = shl nsw i32 %3, 1
-  %116 = sext i32 %115 to i64
-  %117 = getelementptr i8, ptr %0, i64 %116
-  %118 = getelementptr i8, ptr %117, i64 -1
-  store i8 %114, ptr %118, align 1, !tbaa !21
-  br label %119
+  %113 = add nuw nsw i32 %.191.lcssa, 2
+  %114 = lshr i32 %113, 2
+  %115 = trunc nuw i32 %114 to i8
+  %116 = shl nsw i32 %3, 1
+  %117 = add nsw i32 %116, -1
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr %0, i64 %118
+  store i8 %115, ptr %119, align 1, !tbaa !21
+  br label %120
 
-119:                                              ; preds = %._crit_edge99, %9
+120:                                              ; preds = %._crit_edge99, %9
   ret ptr %0
 }
 

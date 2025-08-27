@@ -105,7 +105,7 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   %5 = trunc nuw i8 %4 to i1
   %6 = xor i1 %5, true
   %7 = select i1 %3, i1 true, i1 %6
-  br i1 %7, label %8, label %29, !prof !9
+  br i1 %7, label %8, label %30, !prof !9
 
 8:                                                ; preds = %1
   %9 = tail call noalias ptr @H5MM_strdup(ptr noundef %0) #11
@@ -116,7 +116,7 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   %12 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !13
   %13 = load i64, ptr @H5E_CANTALLOC_g, align 8, !tbaa !13
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5G_normalize, i32 noundef 149, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.2) #11
-  br label %29
+  br label %30
 
 .preheader:                                       ; preds = %8, %21
   %.027 = phi i64 [ %22, %21 ], [ 0, %8 ]
@@ -153,14 +153,15 @@ define noalias ptr @H5G_normalize(ptr noundef %0) local_unnamed_addr #2 {
   %25 = icmp ugt i64 %.025, 1
   %26 = trunc nuw i8 %.024 to i1
   %or.cond = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %29
+  br i1 %or.cond, label %27, label %30
 
 27:                                               ; preds = %23
-  %28 = getelementptr i8, ptr %24, i64 -1
-  store i8 0, ptr %28, align 1, !tbaa !10
-  br label %29
+  %28 = add i64 %.025, -1
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 %28
+  store i8 0, ptr %29, align 1, !tbaa !10
+  br label %30
 
-29:                                               ; preds = %23, %27, %11, %1
+30:                                               ; preds = %23, %27, %11, %1
   %.0 = phi ptr [ null, %11 ], [ null, %1 ], [ %9, %27 ], [ %9, %23 ]
   ret ptr %.0
 }
@@ -202,8 +203,8 @@ define ptr @H5G_build_fullpath_refstr_str(ptr noundef %0, ptr noundef %1) local_
 
 24:                                               ; preds = %17
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
-  %26 = getelementptr i8, ptr %10, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -1
+  %26 = add i64 %25, -1
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !10
   %.not.i = icmp eq i8 %28, 47
   br i1 %.not.i, label %31, label %29
@@ -523,8 +524,8 @@ define range(i32 -1, 1) i32 @H5G_get_name(ptr noundef readonly captures(none) %0
   br i1 %.not37, label %41, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr i8, ptr %1, i64 %2
-  %40 = getelementptr i8, ptr %39, i64 -1
+  %39 = add i64 %2, -1
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !10
   br label %41
 
@@ -695,8 +696,8 @@ define range(i32 -1, 1) i32 @H5G_get_name_by_addr(ptr noundef %0, ptr noundef %1
   br i1 %.not30, label %67, label %64
 
 64:                                               ; preds = %61
-  %65 = getelementptr i8, ptr %2, i64 %3
-  %66 = getelementptr i8, ptr %65, i64 -1
+  %65 = add i64 %3, -1
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %65
   store i8 0, ptr %66, align 1, !tbaa !10
   br label %67
 

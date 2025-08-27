@@ -77,70 +77,69 @@ define void @dsptrd_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %34 = add nuw nsw i32 %33, 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %.099110 = phi i32 [ %72, %64 ], [ %34, %.lr.ph.preheader ]
-  %storemerge107109 = phi i32 [ %73, %64 ], [ %30, %.lr.ph.preheader ]
-  %35 = add nsw i32 %.099110, %storemerge107109
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr double, ptr %16, i64 %36
-  %38 = getelementptr i8, ptr %37, i64 -8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+  %.099110 = phi i32 [ %72, %62 ], [ %34, %.lr.ph.preheader ]
+  %storemerge107109 = phi i32 [ %73, %62 ], [ %30, %.lr.ph.preheader ]
+  %35 = add i32 %.099110, -1
+  %36 = add i32 %35, %storemerge107109
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds double, ptr %16, i64 %37
   %39 = sext i32 %.099110 to i64
   %40 = getelementptr inbounds double, ptr %16, i64 %39
-  call void @dlarfg_(ptr noundef nonnull %11, ptr noundef %38, ptr noundef nonnull %40, ptr noundef nonnull @c__1, ptr noundef nonnull %10) #3
+  call void @dlarfg_(ptr noundef nonnull %11, ptr noundef nonnull %38, ptr noundef nonnull %40, ptr noundef nonnull @c__1, ptr noundef nonnull %10) #3
   %41 = load i32, ptr %11, align 4, !tbaa !3
-  %42 = add nsw i32 %41, %.099110
+  %42 = add i32 %35, %41
   %43 = sext i32 %42 to i64
-  %44 = getelementptr double, ptr %16, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -8
-  %46 = load double, ptr %45, align 8, !tbaa !7
-  %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds double, ptr %14, i64 %47
-  store double %46, ptr %48, align 8, !tbaa !7
-  %49 = load double, ptr %10, align 8, !tbaa !7
-  %50 = fcmp une double %49, 0.000000e+00
-  br i1 %50, label %51, label %64
+  %44 = getelementptr inbounds double, ptr %16, i64 %43
+  %45 = load double, ptr %44, align 8, !tbaa !7
+  %46 = sext i32 %41 to i64
+  %47 = getelementptr inbounds double, ptr %14, i64 %46
+  store double %45, ptr %47, align 8, !tbaa !7
+  %48 = load double, ptr %10, align 8, !tbaa !7
+  %49 = fcmp une double %48, 0.000000e+00
+  br i1 %49, label %50, label %62
 
-51:                                               ; preds = %.lr.ph
-  store double 1.000000e+00, ptr %45, align 8, !tbaa !7
+50:                                               ; preds = %.lr.ph
+  store double 1.000000e+00, ptr %44, align 8, !tbaa !7
   call void @dspmv_(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %2, ptr noundef nonnull %40, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b8, ptr noundef %5, ptr noundef nonnull @c__1) #3
-  %52 = load double, ptr %10, align 8, !tbaa !7
-  %53 = fmul double %52, -5.000000e-01
-  %54 = call double @ddot_(ptr noundef nonnull %11, ptr noundef %5, ptr noundef nonnull @c__1, ptr noundef nonnull %40, ptr noundef nonnull @c__1) #3
-  %55 = fmul double %53, %54
-  store double %55, ptr %12, align 8, !tbaa !7
+  %51 = load double, ptr %10, align 8, !tbaa !7
+  %52 = fmul double %51, -5.000000e-01
+  %53 = call double @ddot_(ptr noundef nonnull %11, ptr noundef %5, ptr noundef nonnull @c__1, ptr noundef nonnull %40, ptr noundef nonnull @c__1) #3
+  %54 = fmul double %52, %53
+  store double %54, ptr %12, align 8, !tbaa !7
   call void @daxpy_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %40, ptr noundef nonnull @c__1, ptr noundef %5, ptr noundef nonnull @c__1) #3
   call void @dspr2_(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull @c_b14, ptr noundef nonnull %40, ptr noundef nonnull @c__1, ptr noundef %5, ptr noundef nonnull @c__1, ptr noundef nonnull %2) #3
-  %56 = load i32, ptr %11, align 4, !tbaa !3
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %14, i64 %57
-  %59 = load double, ptr %58, align 8, !tbaa !7
-  %60 = add nsw i32 %56, %.099110
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr double, ptr %16, i64 %61
-  %63 = getelementptr i8, ptr %62, i64 -8
-  store double %59, ptr %63, align 8, !tbaa !7
+  %55 = load i32, ptr %11, align 4, !tbaa !3
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds double, ptr %14, i64 %56
+  %58 = load double, ptr %57, align 8, !tbaa !7
+  %59 = add i32 %35, %55
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds double, ptr %16, i64 %60
+  store double %58, ptr %61, align 8, !tbaa !7
   %.pre = load double, ptr %10, align 8, !tbaa !7
-  br label %64
+  br label %62
 
-64:                                               ; preds = %51, %.lr.ph
-  %.pre-phi121 = phi i64 [ %57, %51 ], [ %47, %.lr.ph ]
-  %65 = phi double [ %.pre, %51 ], [ %49, %.lr.ph ]
-  %.pre-phi = phi i64 [ %61, %51 ], [ %43, %.lr.ph ]
-  %66 = phi i32 [ %56, %51 ], [ %41, %.lr.ph ]
-  %67 = getelementptr inbounds double, ptr %16, i64 %.pre-phi
+62:                                               ; preds = %50, %.lr.ph
+  %.pre-phi = phi i64 [ %56, %50 ], [ %46, %.lr.ph ]
+  %63 = phi double [ %.pre, %50 ], [ %48, %.lr.ph ]
+  %64 = phi i32 [ %55, %50 ], [ %41, %.lr.ph ]
+  %65 = add nsw i32 %64, %.099110
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds double, ptr %16, i64 %66
   %68 = load double, ptr %67, align 8, !tbaa !7
-  %69 = getelementptr double, ptr %15, i64 %.pre-phi121
+  %69 = getelementptr double, ptr %15, i64 %.pre-phi
   %70 = getelementptr i8, ptr %69, i64 8
   store double %68, ptr %70, align 8, !tbaa !7
-  %71 = getelementptr inbounds double, ptr %13, i64 %.pre-phi121
-  store double %65, ptr %71, align 8, !tbaa !7
-  %72 = sub nsw i32 %.099110, %66
-  %73 = add nsw i32 %66, -1
+  %71 = getelementptr inbounds double, ptr %13, i64 %.pre-phi
+  store double %63, ptr %71, align 8, !tbaa !7
+  %72 = sub nsw i32 %.099110, %64
+  %73 = add nsw i32 %64, -1
   store i32 %73, ptr %11, align 4, !tbaa !3
-  %74 = icmp sgt i32 %66, 1
+  %74 = icmp sgt i32 %64, 1
   br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %64, %31
+._crit_edge:                                      ; preds = %62, %31
   %75 = load double, ptr %2, align 8, !tbaa !7
   store double %75, ptr %3, align 8, !tbaa !7
   br label %120

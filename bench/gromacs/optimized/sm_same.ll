@@ -370,11 +370,11 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %13 = trunc nuw i8 %.pre to i1
   br label %.outer
 
-.outer:                                           ; preds = %104, %.lr.ph90
-  %.ph = phi i32 [ %94, %104 ], [ %7, %.lr.ph90 ]
-  %.ph143 = phi i1 [ false, %104 ], [ %13, %.lr.ph90 ]
-  %.088.ph = phi i32 [ %.2121, %104 ], [ 0, %.lr.ph90 ]
-  %.06587.ph = phi i32 [ %.267, %104 ], [ 0, %.lr.ph90 ]
+.outer:                                           ; preds = %106, %.lr.ph90
+  %.ph = phi i32 [ %94, %106 ], [ %7, %.lr.ph90 ]
+  %.ph143 = phi i1 [ false, %106 ], [ %13, %.lr.ph90 ]
+  %.088.ph = phi i32 [ %.2121, %106 ], [ 0, %.lr.ph90 ]
+  %.06587.ph = phi i32 [ %.267, %106 ], [ 0, %.lr.ph90 ]
   br label %14
 
 14:                                               ; preds = %.outer, %96
@@ -564,12 +564,14 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
   %98 = sext i32 %.267 to i64
   %99 = getelementptr inbounds i32, ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !27
-  %101 = getelementptr i8, ptr %99, i64 -4
-  %102 = load i32, ptr %101, align 4, !tbaa !27
-  %103 = icmp slt i32 %100, %102
-  br i1 %103, label %104, label %14
+  %101 = add nsw i32 %.267, -1
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds i32, ptr %97, i64 %102
+  %104 = load i32, ptr %103, align 4, !tbaa !27
+  %105 = icmp slt i32 %100, %104
+  br i1 %105, label %106, label %14
 
-104:                                              ; preds = %96
+106:                                              ; preds = %96
   store i8 0, ptr %9, align 8, !tbaa !28
   br label %.outer
 

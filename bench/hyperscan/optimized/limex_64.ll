@@ -32,8 +32,8 @@ define hidden noundef signext i8 @nfaExecLimEx64_queueCompressState(ptr noundef 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr i8, ptr %19, i64 %15
-  %21 = getelementptr i8, ptr %20, i64 -1
+  %20 = add nsw i64 %15, -1
+  %21 = getelementptr i8, ptr %19, i64 %20
   %22 = getelementptr i8, ptr %21, i64 %2
   %23 = load i8, ptr %22, align 1
   br label %queue_prev_byte.exit
@@ -41,8 +41,8 @@ define hidden noundef signext i8 @nfaExecLimEx64_queueCompressState(ptr noundef 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr i8, ptr %26, i64 %2
-  %28 = getelementptr i8, ptr %27, i64 -1
+  %27 = add nsw i64 %2, -1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
   %29 = load i8, ptr %28, align 1
   br label %queue_prev_byte.exit
 
@@ -6495,7 +6495,7 @@ define internal fastcc void @nfaExecLimEx64_Rev_Stream(ptr noundef %0, ptr nound
 
 37:                                               ; preds = %5, %processExceptional64.exit.thread
   %.069199 = phi i64 [ %13, %5 ], [ %166, %processExceptional64.exit.thread ]
-  %.072198 = phi i64 [ %2, %5 ], [ %167, %processExceptional64.exit.thread ]
+  %.072198 = phi i64 [ %2, %5 ], [ %157, %processExceptional64.exit.thread ]
   %38 = icmp eq i64 %.069199, 0
   br i1 %38, label %.thread179, label %39
 
@@ -6740,8 +6740,8 @@ limexRunReports.exit.i84:                         ; preds = %135, %129
 
 processExceptional64.exit.thread:                 ; preds = %108, %154, %104, %156, %100, %95
   %.7.ph = phi i64 [ %.6, %95 ], [ %102, %100 ], [ %155, %154 ], [ %155, %156 ], [ %102, %104 ], [ %102, %108 ]
-  %157 = getelementptr i8, ptr %1, i64 %.072198
-  %158 = getelementptr i8, ptr %157, i64 -1
+  %157 = add i64 %.072198, -1
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 %157
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i64
   %161 = getelementptr inbounds nuw [256 x i8], ptr %0, i64 0, i64 %160
@@ -6750,33 +6750,32 @@ processExceptional64.exit.thread:                 ; preds = %108, %154, %104, %1
   %164 = getelementptr inbounds nuw i64, ptr %6, i64 %163
   %165 = load i64, ptr %164, align 8
   %166 = and i64 %165, %.7.ph
-  %167 = add i64 %.072198, -1
-  %.not = icmp eq i64 %167, 0
+  %.not = icmp eq i64 %157, 0
   br i1 %.not, label %.thread174, label %37
 
 .thread174:                                       ; preds = %processExceptional64.exit.thread
   store i64 %166, ptr %3, align 64
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %169 = load i64, ptr %168, align 32
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %171 = load i32, ptr %170, align 4
-  %.not77 = icmp eq i32 %171, 0
-  %172 = and i64 %169, %166
-  %.not78 = icmp eq i64 %172, 0
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %168 = load i64, ptr %167, align 32
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %170 = load i32, ptr %169, align 4
+  %.not77 = icmp eq i32 %170, 0
+  %171 = and i64 %168, %166
+  %.not78 = icmp eq i64 %171, 0
   %or.cond = select i1 %.not77, i1 true, i1 %.not78
-  br i1 %or.cond, label %processExceptional64.exit.thread149, label %173, !prof !8
+  br i1 %or.cond, label %processExceptional64.exit.thread149, label %172, !prof !8
 
-173:                                              ; preds = %.thread174
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %175 = load i32, ptr %174, align 8
-  %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 %176
-  %178 = load ptr, ptr %32, align 64
-  %179 = load ptr, ptr %33, align 8
-  %180 = tail call fastcc signext i8 @moProcessAcceptsNoSquash64(ptr noundef nonnull %0, i64 %166, i64 %169, ptr noundef nonnull %177, i64 noundef %4, ptr noundef %178, ptr noundef %179)
+172:                                              ; preds = %.thread174
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %174 = load i32, ptr %173, align 8
+  %175 = zext i32 %174 to i64
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 %175
+  %177 = load ptr, ptr %32, align 64
+  %178 = load ptr, ptr %33, align 8
+  %179 = tail call fastcc signext i8 @moProcessAcceptsNoSquash64(ptr noundef nonnull %0, i64 %166, i64 %168, ptr noundef nonnull %176, i64 noundef %4, ptr noundef %177, ptr noundef %178)
   br label %processExceptional64.exit.thread149
 
-processExceptional64.exit.thread149:              ; preds = %.lr.ph197, %.lr.ph, %173, %.thread174, %.thread179
+processExceptional64.exit.thread149:              ; preds = %.lr.ph197, %.lr.ph, %172, %.thread174, %.thread179
   ret void
 }
 

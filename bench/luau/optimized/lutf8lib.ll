@@ -272,15 +272,18 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   call void @_Z15luaL_checkstackP9lua_StateiPKc(ptr noundef %0, i32 noundef %34, ptr noundef nonnull @.str.11)
   %35 = zext nneg i32 %.0.i35 to i64
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %35
-  %37 = zext nneg i32 %.0.i to i64
-  %38 = getelementptr i8, ptr %3, i64 %37
-  %39 = getelementptr i8, ptr %38, i64 -1
-  %40 = icmp ult ptr %39, %36
-  br i1 %40, label %.lr.ph, label %.loopexit40
+  %37 = add nsw i32 %.0.i, -1
+  %38 = icmp samesign ult i32 %37, %.0.i35
+  br i1 %38, label %.lr.ph.preheader, label %.loopexit40
 
-.lr.ph:                                           ; preds = %33, %69
-  %.02948 = phi i32 [ %71, %69 ], [ 0, %33 ]
-  %.03047 = phi ptr [ %70, %69 ], [ %39, %33 ]
+.lr.ph.preheader:                                 ; preds = %33
+  %39 = zext nneg i32 %37 to i64
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 %39
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %69
+  %.02948 = phi i32 [ %71, %69 ], [ 0, %.lr.ph.preheader ]
+  %.03047 = phi ptr [ %70, %69 ], [ %40, %.lr.ph.preheader ]
   %41 = load i8, ptr %.03047, align 1, !tbaa !8
   %42 = zext i8 %41 to i32
   %43 = icmp sgt i8 %41, -1

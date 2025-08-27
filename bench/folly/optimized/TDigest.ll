@@ -3512,7 +3512,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %97, label %7
+  br i1 %6, label %99, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3528,7 +3528,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load double, ptr %15, align 8, !tbaa !21
-  br label %97
+  br label %99
 
 .preheader:                                       ; preds = %12, %17
   %.sroa.051.0 = phi ptr [ %18, %17 ], [ %5, %12 ]
@@ -3562,7 +3562,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load double, ptr %32, align 8, !tbaa !22
-  br label %97
+  br label %99
 
 .lr.ph.preheader:                                 ; preds = %29
   %34 = ptrtoint ptr %5 to i64
@@ -3601,7 +3601,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load double, ptr %51, align 8, !tbaa !21
   %53 = icmp ugt i64 %.pre-phi82, 1
-  br i1 %53, label %62, label %86
+  br i1 %53, label %62, label %88
 
 .thread:                                          ; preds = %.preheader
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3612,7 +3612,7 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %59 = ptrtoint ptr %3 to i64
   %60 = sub i64 %58, %59
   %61 = icmp ugt i64 %60, 16
-  br i1 %61, label %.thread59, label %86
+  br i1 %61, label %.thread59, label %88
 
 62:                                               ; preds = %.loopexit
   %63 = icmp eq i64 %.136, 0
@@ -3625,53 +3625,55 @@ define noundef double @_ZNK5folly7TDigest16estimateQuantileEd(ptr noundef nonnul
   %66 = load double, ptr %65, align 8, !tbaa !42
   %67 = load double, ptr %3, align 8, !tbaa !42
   %68 = fsub double %66, %67
-  br label %86
+  br label %88
 
 69:                                               ; preds = %62
   %70 = add nsw i64 %.pre-phi82, -1
   %71 = icmp eq i64 %.136, %70
-  br i1 %71, label %72, label %78
+  br i1 %71, label %72, label %79
 
 72:                                               ; preds = %69
-  %73 = getelementptr %"class.folly::TDigest::Centroid", ptr %3, i64 %70
+  %73 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %70
   %74 = load double, ptr %73, align 8, !tbaa !42
-  %75 = getelementptr i8, ptr %73, i64 -16
-  %76 = load double, ptr %75, align 8, !tbaa !42
-  %77 = fsub double %74, %76
-  br label %86
+  %75 = add nsw i64 %.pre-phi82, -2
+  %76 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %75
+  %77 = load double, ptr %76, align 8, !tbaa !42
+  %78 = fsub double %74, %77
+  br label %88
 
-78:                                               ; preds = %69
-  %79 = getelementptr %"class.folly::TDigest::Centroid", ptr %3, i64 %.136
-  %80 = getelementptr i8, ptr %79, i64 16
-  %81 = load double, ptr %80, align 8, !tbaa !42
-  %82 = getelementptr i8, ptr %79, i64 -16
-  %83 = load double, ptr %82, align 8, !tbaa !42
-  %84 = fsub double %81, %83
-  %85 = fmul double %84, 5.000000e-01
-  br label %86
+79:                                               ; preds = %69
+  %80 = getelementptr %"class.folly::TDigest::Centroid", ptr %3, i64 %.136
+  %81 = getelementptr i8, ptr %80, i64 16
+  %82 = load double, ptr %81, align 8, !tbaa !42
+  %83 = add nsw i64 %.136, -1
+  %84 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %83
+  %85 = load double, ptr %84, align 8, !tbaa !42
+  %86 = fsub double %82, %85
+  %87 = fmul double %86, 5.000000e-01
+  br label %88
 
-86:                                               ; preds = %.thread, %.thread59, %78, %72, %.loopexit
-  %.13658 = phi i64 [ 0, %.thread59 ], [ %70, %72 ], [ %.136, %78 ], [ %.136, %.loopexit ], [ 0, %.thread ]
-  %.23955 = phi double [ %.2395663, %.thread59 ], [ %.239, %72 ], [ %.239, %78 ], [ %.239, %.loopexit ], [ %.037, %.thread ]
-  %.034 = phi double [ %68, %.thread59 ], [ %77, %72 ], [ %85, %78 ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.thread ]
-  %.033 = phi double [ %64, %.thread59 ], [ %76, %72 ], [ %83, %78 ], [ %50, %.loopexit ], [ %55, %.thread ]
-  %.032 = phi double [ %66, %.thread59 ], [ %52, %72 ], [ %81, %78 ], [ %52, %.loopexit ], [ %57, %.thread ]
-  %87 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %.13658
-  %88 = load double, ptr %87, align 8, !tbaa !42
-  %89 = fsub double %10, %.23955
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %91 = load double, ptr %90, align 8, !tbaa !40
-  %92 = fdiv double %89, %91
-  %93 = fadd double %92, -5.000000e-01
-  %94 = tail call double @llvm.fmuladd.f64(double %93, double %.034, double %88)
-  %95 = fcmp ogt double %94, %.032
-  %96 = fcmp olt double %94, %.033
-  %..i = select i1 %96, double %.033, double %94
-  %.0.i = select i1 %95, double %.032, double %..i
-  br label %97
+88:                                               ; preds = %.thread, %.thread59, %79, %72, %.loopexit
+  %.13658 = phi i64 [ 0, %.thread59 ], [ %70, %72 ], [ %.136, %79 ], [ %.136, %.loopexit ], [ 0, %.thread ]
+  %.23955 = phi double [ %.2395663, %.thread59 ], [ %.239, %72 ], [ %.239, %79 ], [ %.239, %.loopexit ], [ %.037, %.thread ]
+  %.034 = phi double [ %68, %.thread59 ], [ %78, %72 ], [ %87, %79 ], [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.thread ]
+  %.033 = phi double [ %64, %.thread59 ], [ %77, %72 ], [ %85, %79 ], [ %50, %.loopexit ], [ %55, %.thread ]
+  %.032 = phi double [ %66, %.thread59 ], [ %52, %72 ], [ %82, %79 ], [ %52, %.loopexit ], [ %57, %.thread ]
+  %89 = getelementptr inbounds nuw %"class.folly::TDigest::Centroid", ptr %3, i64 %.13658
+  %90 = load double, ptr %89, align 8, !tbaa !42
+  %91 = fsub double %10, %.23955
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %93 = load double, ptr %92, align 8, !tbaa !40
+  %94 = fdiv double %91, %93
+  %95 = fadd double %94, -5.000000e-01
+  %96 = tail call double @llvm.fmuladd.f64(double %95, double %.034, double %90)
+  %97 = fcmp ogt double %96, %.032
+  %98 = fcmp olt double %96, %.033
+  %..i = select i1 %98, double %.033, double %96
+  %.0.i = select i1 %97, double %.032, double %..i
+  br label %99
 
-97:                                               ; preds = %14, %31, %86, %2
-  %.0 = phi double [ 0.000000e+00, %2 ], [ %16, %14 ], [ %.0.i, %86 ], [ %33, %31 ]
+99:                                               ; preds = %14, %31, %88, %2
+  %.0 = phi double [ 0.000000e+00, %2 ], [ %16, %14 ], [ %.0.i, %88 ], [ %33, %31 ]
   ret double %.0
 }
 

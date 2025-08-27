@@ -6576,11 +6576,11 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyER
   %6 = zext i1 %4 to i8
   br label %.outer
 
-.outer:                                           ; preds = %129, %5
-  %.074.ph = phi ptr [ %122, %129 ], [ %1, %5 ]
-  %.073.ph = phi ptr [ %.073, %129 ], [ %0, %5 ]
-  %.043.ph = phi i8 [ %.043.ph78, %129 ], [ %6, %5 ]
-  %.0.ph = phi i64 [ %74, %129 ], [ %3, %5 ]
+.outer:                                           ; preds = %130, %5
+  %.074.ph = phi ptr [ %123, %130 ], [ %1, %5 ]
+  %.073.ph = phi ptr [ %.073, %130 ], [ %0, %5 ]
+  %.043.ph = phi i8 [ %.043.ph78, %130 ], [ %6, %5 ]
+  %.0.ph = phi i64 [ %74, %130 ], [ %3, %5 ]
   %7 = ptrtoint ptr %.074.ph to i64
   %8 = getelementptr inbounds i8, ptr %.074.ph, i64 -24
   %9 = getelementptr inbounds i8, ptr %.074.ph, i64 -48
@@ -6594,9 +6594,9 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyER
   %11 = trunc nuw i8 %.043.ph78 to i1
   br label %12
 
-12:                                               ; preds = %.outer76, %130
-  %.073 = phi ptr [ %127, %130 ], [ %.073.ph77, %.outer76 ]
-  %.0 = phi i64 [ %74, %130 ], [ %.0.ph79, %.outer76 ]
+12:                                               ; preds = %.outer76, %131
+  %.073 = phi ptr [ %128, %131 ], [ %.073.ph77, %.outer76 ]
+  %.0 = phi i64 [ %74, %131 ], [ %.0.ph79, %.outer76 ]
   %13 = ptrtoint ptr %.073 to i64
   %14 = sub i64 %7, %13
   %15 = sdiv exact i64 %14, 24
@@ -6721,99 +6721,100 @@ define linkonce_odr hidden void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyER
   %74 = add nsw i64 %.0, -1
   %75 = lshr i64 %15, 1
   %76 = icmp samesign ugt i64 %14, 3072
-  %77 = getelementptr %"class.std::__1::basic_string", ptr %.073, i64 %75
-  br i1 %76, label %78, label %87
+  %77 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %.073, i64 %75
+  br i1 %76, label %78, label %88
 
 78:                                               ; preds = %73
   %79 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef %.073, ptr noundef %77, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %80 = getelementptr inbounds nuw i8, ptr %.073, i64 24
-  %81 = getelementptr i8, ptr %77, i64 -24
-  %82 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef nonnull %80, ptr noundef %81, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %83 = getelementptr inbounds nuw i8, ptr %.073, i64 48
-  %84 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %85 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %10, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %86 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef %81, ptr noundef %77, ptr noundef nonnull %84, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %81 = add nsw i64 %75, -1
+  %82 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %.073, i64 %81
+  %83 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef nonnull %80, ptr noundef %82, ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %84 = getelementptr inbounds nuw i8, ptr %.073, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %86 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %10, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %87 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef %82, ptr noundef %77, ptr noundef nonnull %85, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i.i.i45)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i.i.i45, ptr noundef nonnull align 8 dereferenceable(24) %.073, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.073, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i.i.i45, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i.i.i.i45)
-  br label %89
+  br label %90
 
-87:                                               ; preds = %73
-  %88 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef %77, ptr noundef %.073, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br label %89
+88:                                               ; preds = %73
+  %89 = tail call noundef i32 @_ZNSt3__17__sort3B8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEjT1_SC_SC_T0_(ptr noundef %77, ptr noundef %.073, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  br label %90
 
-89:                                               ; preds = %87, %78
-  br i1 %11, label %120, label %90
+90:                                               ; preds = %88, %78
+  br i1 %11, label %121, label %91
 
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds i8, ptr %.073, i64 -24
-  %92 = load i8, ptr %.073, align 8
-  %93 = and i8 %92, 1
-  %.not.i.i.i.i.i.i46 = icmp eq i8 %93, 0
-  %94 = getelementptr inbounds nuw i8, ptr %.073, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %.073, i64 1
-  %97 = select i1 %.not.i.i.i.i.i.i46, ptr %96, ptr %95
-  %98 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %99 = load i64, ptr %98, align 8
-  %100 = lshr i8 %92, 1
-  %101 = zext nneg i8 %100 to i64
-  %102 = select i1 %.not.i.i.i.i.i.i46, i64 %101, i64 %99
-  %103 = load i8, ptr %91, align 8
-  %104 = and i8 %103, 1
-  %.not.i.i.i.i.i47 = icmp eq i8 %104, 0
-  %105 = getelementptr inbounds i8, ptr %.073, i64 -16
-  %106 = load i64, ptr %105, align 8
-  %107 = lshr i8 %103, 1
-  %108 = zext nneg i8 %107 to i64
-  %109 = select i1 %.not.i.i.i.i.i47, i64 %108, i64 %106
-  %110 = getelementptr inbounds i8, ptr %.073, i64 -8
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %.073, i64 -23
-  %113 = select i1 %.not.i.i.i.i.i47, ptr %112, ptr %111
-  %.sroa.speculated.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %102, i64 %109)
-  %114 = tail call noundef i32 @memcmp(ptr noundef %113, ptr noundef %97, i64 noundef %.sroa.speculated.i.i.i.i48) #27
-  %.not.i.i.i.i49 = icmp eq i32 %114, 0
-  %115 = icmp ult i64 %109, %102
-  %116 = icmp slt i32 %114, 0
-  %117 = select i1 %.not.i.i.i.i49, i1 %115, i1 %116
-  br i1 %117, label %120, label %118
+91:                                               ; preds = %90
+  %92 = getelementptr inbounds i8, ptr %.073, i64 -24
+  %93 = load i8, ptr %.073, align 8
+  %94 = and i8 %93, 1
+  %.not.i.i.i.i.i.i46 = icmp eq i8 %94, 0
+  %95 = getelementptr inbounds nuw i8, ptr %.073, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.073, i64 1
+  %98 = select i1 %.not.i.i.i.i.i.i46, ptr %97, ptr %96
+  %99 = getelementptr inbounds nuw i8, ptr %.073, i64 8
+  %100 = load i64, ptr %99, align 8
+  %101 = lshr i8 %93, 1
+  %102 = zext nneg i8 %101 to i64
+  %103 = select i1 %.not.i.i.i.i.i.i46, i64 %102, i64 %100
+  %104 = load i8, ptr %92, align 8
+  %105 = and i8 %104, 1
+  %.not.i.i.i.i.i47 = icmp eq i8 %105, 0
+  %106 = getelementptr inbounds i8, ptr %.073, i64 -16
+  %107 = load i64, ptr %106, align 8
+  %108 = lshr i8 %104, 1
+  %109 = zext nneg i8 %108 to i64
+  %110 = select i1 %.not.i.i.i.i.i47, i64 %109, i64 %107
+  %111 = getelementptr inbounds i8, ptr %.073, i64 -8
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds i8, ptr %.073, i64 -23
+  %114 = select i1 %.not.i.i.i.i.i47, ptr %113, ptr %112
+  %.sroa.speculated.i.i.i.i48 = tail call i64 @llvm.umin.i64(i64 %103, i64 %110)
+  %115 = tail call noundef i32 @memcmp(ptr noundef %114, ptr noundef %98, i64 noundef %.sroa.speculated.i.i.i.i48) #27
+  %.not.i.i.i.i49 = icmp eq i32 %115, 0
+  %116 = icmp ult i64 %110, %103
+  %117 = icmp slt i32 %115, 0
+  %118 = select i1 %.not.i.i.i.i49, i1 %116, i1 %117
+  br i1 %118, label %121, label %119
 
-118:                                              ; preds = %90
-  %119 = tail call noundef ptr @_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_6__lessIvvEEEET0_SC_SC_T1_(ptr noundef nonnull %.073, ptr noundef nonnull %.074.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
+119:                                              ; preds = %91
+  %120 = tail call noundef ptr @_ZNSt3__131__partition_with_equals_on_leftB8ne190000INS_17_ClassicAlgPolicyEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_6__lessIvvEEEET0_SC_SC_T1_(ptr noundef nonnull %.073, ptr noundef nonnull %.074.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
   br label %.outer76.backedge
 
-120:                                              ; preds = %89, %90
-  %121 = tail call { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_6__lessIvvEEEENS_4pairIT0_bEESD_SD_T1_(ptr noundef %.073, ptr noundef nonnull %.074.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %122 = extractvalue { ptr, i8 } %121, 0
-  %123 = extractvalue { ptr, i8 } %121, 1
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %125, label %131
+121:                                              ; preds = %90, %91
+  %122 = tail call { ptr, i8 } @_ZNSt3__132__partition_with_equals_on_rightB8ne190000INS_17_ClassicAlgPolicyEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_6__lessIvvEEEENS_4pairIT0_bEESD_SD_T1_(ptr noundef %.073, ptr noundef nonnull %.074.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %123 = extractvalue { ptr, i8 } %122, 0
+  %124 = extractvalue { ptr, i8 } %122, 1
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %126, label %132
 
-125:                                              ; preds = %120
-  %126 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEbT1_SC_T0_(ptr noundef %.073, ptr noundef %122, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %127 = getelementptr inbounds nuw i8, ptr %122, i64 24
-  %128 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEbT1_SC_T0_(ptr noundef nonnull %127, ptr noundef nonnull %.074.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br i1 %128, label %129, label %130
+126:                                              ; preds = %121
+  %127 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEbT1_SC_T0_(ptr noundef %.073, ptr noundef %123, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %129 = tail call noundef zeroext i1 @_ZNSt3__127__insertion_sort_incompleteB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEbT1_SC_T0_(ptr noundef nonnull %128, ptr noundef nonnull %.074.ph, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  br i1 %129, label %130, label %131
 
-129:                                              ; preds = %125
-  br i1 %126, label %_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_EET1_SC_SC_T2_RT0_.exit, label %.outer, !llvm.loop !44
+130:                                              ; preds = %126
+  br i1 %127, label %_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_EET1_SC_SC_T2_RT0_.exit, label %.outer, !llvm.loop !44
 
-130:                                              ; preds = %125
-  br i1 %126, label %12, label %131, !llvm.loop !44
+131:                                              ; preds = %126
+  br i1 %127, label %12, label %132, !llvm.loop !44
 
-131:                                              ; preds = %130, %120
-  tail call void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELb0EEEvT1_SC_T0_NS_15iterator_traitsISC_E15difference_typeEb(ptr noundef %.073, ptr noundef %122, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %74, i1 noundef zeroext %11)
-  %132 = getelementptr inbounds nuw i8, ptr %122, i64 24
+132:                                              ; preds = %131, %121
+  tail call void @_ZNSt3__111__introsortINS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEELb0EEEvT1_SC_T0_NS_15iterator_traitsISC_E15difference_typeEb(ptr noundef %.073, ptr noundef %123, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 noundef %74, i1 noundef zeroext %11)
+  %133 = getelementptr inbounds nuw i8, ptr %123, i64 24
   br label %.outer76.backedge
 
-.outer76.backedge:                                ; preds = %131, %118
-  %.073.ph77.be = phi ptr [ %119, %118 ], [ %132, %131 ]
+.outer76.backedge:                                ; preds = %132, %119
+  %.073.ph77.be = phi ptr [ %120, %119 ], [ %133, %132 ]
   br label %.outer76, !llvm.loop !44
 
-_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_EET1_SC_SC_T2_RT0_.exit: ; preds = %129, %12, %12, %.lr.ph.i.i, %61, %57, %58, %16, %43, %50, %47, %44
+_ZNSt3__114__partial_sortB8ne190000INS_17_ClassicAlgPolicyERNS_6__lessIvvEEPNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESB_EET1_SC_SC_T2_RT0_.exit: ; preds = %130, %12, %12, %.lr.ph.i.i, %61, %57, %58, %16, %43, %50, %47, %44
   ret void
 }
 

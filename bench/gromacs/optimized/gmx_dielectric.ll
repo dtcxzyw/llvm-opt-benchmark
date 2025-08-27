@@ -1871,9 +1871,9 @@ define internal fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %0, ptr nou
   %13 = fpext float %2 to double
   %14 = load float, ptr %1, align 4, !tbaa !39
   %15 = fpext float %14 to double
-  %16 = sext i32 %0 to i64
-  %17 = getelementptr float, ptr %1, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 -4
+  %16 = add nsw i32 %0, -1
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds float, ptr %1, i64 %17
   %19 = load float, ptr %18, align 4, !tbaa !39
   %20 = fpext float %19 to double
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 82, ptr noundef nonnull @.str.80, double noundef %13, double noundef %15, double noundef %20) #19
@@ -1895,19 +1895,20 @@ define internal fastcc noundef i32 @_ZL11calc_nbeginiPff(i32 noundef %0, ptr nou
   %27 = load float, ptr %26, align 4, !tbaa !39
   %28 = fsub float %27, %2
   %29 = tail call noundef float @llvm.fabs.f32(float %28)
-  %30 = getelementptr i8, ptr %26, i64 -4
-  %31 = load float, ptr %30, align 4, !tbaa !39
-  %32 = fsub float %31, %2
-  %33 = tail call noundef float @llvm.fabs.f32(float %32)
-  %34 = fcmp ogt float %29, %33
-  %35 = sext i1 %34 to i32
-  %.1 = add nsw i32 %10, %35
-  %36 = sext i32 %.1 to i64
-  %37 = getelementptr inbounds float, ptr %1, i64 %36
-  %38 = load float, ptr %37, align 4, !tbaa !39
-  %39 = fpext float %38 to double
-  %40 = fpext float %2 to double
-  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.81, i32 noundef %.1, double noundef %39, double noundef %40)
+  %30 = add nsw i32 %10, -1
+  %31 = sext i32 %30 to i64
+  %32 = getelementptr inbounds float, ptr %1, i64 %31
+  %33 = load float, ptr %32, align 4, !tbaa !39
+  %34 = fsub float %33, %2
+  %35 = tail call noundef float @llvm.fabs.f32(float %34)
+  %36 = fcmp ogt float %29, %35
+  %.1 = select i1 %36, i32 %30, i32 %10
+  %37 = sext i32 %.1 to i64
+  %38 = getelementptr inbounds float, ptr %1, i64 %37
+  %39 = load float, ptr %38, align 4, !tbaa !39
+  %40 = fpext float %39 to double
+  %41 = fpext float %2 to double
+  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.81, i32 noundef %.1, double noundef %40, double noundef %41)
   ret i32 %.1
 }
 

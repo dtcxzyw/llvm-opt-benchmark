@@ -3802,20 +3802,20 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses12pop_off_p
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr { { i16, [15 x i16] }, i64, i64 }, ptr %8, i64 %5
-  %10 = getelementptr i8, ptr %9, i64 -48
+  %9 = add i64 %5, -1
+  %10 = getelementptr inbounds nuw { { i16, [15 x i16] }, i64, i64 }, ptr %8, i64 %9
   %.sroa.0.0.copyload = load i16, ptr %10, align 8
-  %.sroa.6.0..sroa_idx = getelementptr i8, ptr %9, i64 -46
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.6, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.6.0..sroa_idx, i64 18, i1 false)
-  %.sroa.9.0..sroa_idx = getelementptr i8, ptr %9, i64 -28
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 20
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 4
-  %.sroa.10.0..sroa_idx = getelementptr i8, ptr %9, i64 -24
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr i8, ptr %9, i64 -20
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 28
   %.sroa.11.0.copyload = load i16, ptr %.sroa.11.0..sroa_idx, align 4
-  %.sroa.12.0..sroa_idx = getelementptr i8, ptr %9, i64 -18
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 30
   %.sroa.12.sroa.0.0.copyload = load i16, ptr %.sroa.12.0..sroa_idx, align 2
-  %.sroa.1213.0..sroa_idx = getelementptr i8, ptr %9, i64 -8
+  %.sroa.1213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sroa.1213.0.copyload = load i64, ptr %.sroa.1213.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
@@ -3865,16 +3865,15 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses12pop_off_p
 35:                                               ; preds = %3, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit", %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 2, ptr %36, align 8
-  br label %41
+  br label %40
 
 "_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %15, %28, %6, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
-  %37 = add nsw i64 %5, -1
-  store i64 %37, ptr %4, align 8
-  %38 = load i64, ptr %1, align 8, !range !75, !noundef !3
-  %39 = icmp samesign ult i64 %37, %38
+  store i64 %9, ptr %4, align 8
+  %37 = load i64, ptr %1, align 8, !range !75, !noundef !3
+  %38 = icmp samesign ult i64 %9, %37
+  tail call void @llvm.assume(i1 %38)
+  %39 = icmp ult i64 %5, 192153584101141164
   tail call void @llvm.assume(i1 %39)
-  %40 = icmp ult i64 %5, 192153584101141164
-  tail call void @llvm.assume(i1 %40)
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.6.0..sroa_idx, i64 18, i1 false)
   store i64 %.sroa.1213.0.copyload, ptr %0, align 8
@@ -3888,9 +3887,9 @@ define hidden void @_ZN11quinn_proto10connection5paths13PathResponses12pop_off_p
   store i16 %.sroa.11.0.copyload, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 38
   store i16 %.sroa.12.sroa.0.0.copyload, ptr %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx, align 2
-  br label %41
+  br label %40
 
-41:                                               ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %35
+40:                                               ; preds = %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread", %35
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 }
@@ -3907,18 +3906,18 @@ define hidden { i64, i64 } @_ZN11quinn_proto10connection5paths13PathResponses11p
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %8 = getelementptr { { i16, [15 x i16] }, i64, i64 }, ptr %7, i64 %4
-  %9 = getelementptr i8, ptr %8, i64 -48
+  %8 = add i64 %4, -1
+  %9 = getelementptr inbounds nuw { { i16, [15 x i16] }, i64, i64 }, ptr %7, i64 %8
   %.sroa.0.0.copyload = load i16, ptr %9, align 8
-  %.sroa.5.0..sroa_idx = getelementptr i8, ptr %8, i64 -46
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %.sroa.5, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.5.0..sroa_idx, i64 18, i1 false)
-  %.sroa.8.0..sroa_idx = getelementptr i8, ptr %8, i64 -28
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 20
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
-  %.sroa.9.0..sroa_idx = getelementptr i8, ptr %8, i64 -24
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   %.sroa.9.0.copyload = load i32, ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr i8, ptr %8, i64 -20
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 28
   %.sroa.10.0.copyload = load i16, ptr %.sroa.10.0..sroa_idx, align 4
-  %.sroa.114.0..sroa_idx = getelementptr i8, ptr %8, i64 -8
+  %.sroa.114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   %.sroa.114.0.copyload = load i64, ptr %.sroa.114.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
@@ -3966,22 +3965,21 @@ define hidden { i64, i64 } @_ZN11quinn_proto10connection5paths13PathResponses11p
   br i1 %33, label %34, label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
 
 34:                                               ; preds = %14, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit"
-  %35 = add nsw i64 %4, -1
-  store i64 %35, ptr %3, align 8
-  %36 = load i64, ptr %0, align 8, !range !75, !noundef !3
-  %37 = icmp samesign ult i64 %35, %36
+  store i64 %8, ptr %3, align 8
+  %35 = load i64, ptr %0, align 8, !range !75, !noundef !3
+  %36 = icmp samesign ult i64 %8, %35
+  tail call void @llvm.assume(i1 %36)
+  %37 = icmp ult i64 %4, 192153584101141164
   tail call void @llvm.assume(i1 %37)
-  %38 = icmp ult i64 %4, 192153584101141164
-  tail call void @llvm.assume(i1 %38)
   br label %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread"
 
 "_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit.thread": ; preds = %2, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit", %5, %27, %14, %34
   %.sroa.4.1 = phi i64 [ %.sroa.114.0.copyload, %34 ], [ undef, %14 ], [ undef, %27 ], [ undef, %5 ], [ undef, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ undef, %2 ]
   %.sroa.0.1 = phi i64 [ 1, %34 ], [ 0, %14 ], [ 0, %27 ], [ 0, %5 ], [ 0, %"_ZN75_$LT$core..net..socket_addr..SocketAddr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h29fa1e278fb6064fE.exit" ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %40 = insertvalue { i64, i64 } %39, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %40
+  %38 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %39 = insertvalue { i64, i64 } %38, i64 %.sroa.4.1, 1
+  ret { i64, i64 } %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable

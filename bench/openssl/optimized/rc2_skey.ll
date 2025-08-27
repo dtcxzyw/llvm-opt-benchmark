@@ -34,9 +34,9 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   br i1 %11, label %.lr.ph59.preheader, label %._crit_edge60
 
 .lr.ph59.preheader:                               ; preds = %4, %._crit_edge
-  %12 = sext i32 %spec.store.select to i64
-  %13 = getelementptr i8, ptr %0, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -1
+  %12 = add nsw i32 %spec.store.select, -1
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !3
   %16 = sext i32 %1 to i64
   %17 = sub i32 128, %spec.store.select
@@ -107,18 +107,23 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
 
 48:                                               ; preds = %._crit_edge66, %48
   %indvars.iv78 = phi i64 [ 127, %._crit_edge66 ], [ %indvars.iv.next79, %48 ]
-  %.05068 = phi ptr [ %47, %._crit_edge66 ], [ %53, %48 ]
+  %.05068 = phi ptr [ %47, %._crit_edge66 ], [ %58, %48 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv78
-  %50 = getelementptr i8, ptr %49, i64 -1
-  %51 = load i16, ptr %50, align 1
-  %52 = zext i16 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %.05068, i64 -4
-  store i32 %52, ptr %.05068, align 4, !tbaa !10
+  %50 = load i8, ptr %49, align 1, !tbaa !3
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = add nsw i64 %indvars.iv78, -1
+  %54 = getelementptr inbounds i8, ptr %0, i64 %53
+  %55 = load i8, ptr %54, align 1, !tbaa !3
+  %56 = zext i8 %55 to i32
+  %57 = or disjoint i32 %52, %56
+  %58 = getelementptr inbounds i8, ptr %.05068, i64 -4
+  store i32 %57, ptr %.05068, align 4, !tbaa !10
   %indvars.iv.next79 = add nsw i64 %indvars.iv78, -2
-  %54 = icmp samesign ugt i64 %indvars.iv78, 1
-  br i1 %54, label %48, label %55, !llvm.loop !12
+  %59 = icmp samesign ugt i64 %indvars.iv78, 1
+  br i1 %59, label %48, label %60, !llvm.loop !12
 
-55:                                               ; preds = %48
+60:                                               ; preds = %48
   ret void
 }
 

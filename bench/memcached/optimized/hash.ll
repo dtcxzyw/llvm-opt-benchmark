@@ -109,8 +109,8 @@ define internal i32 @XXH3_hash(ptr noundef readonly captures(none) %0, i64 nound
   %50 = lshr i64 %1, 1
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !17
-  %53 = getelementptr i8, ptr %0, i64 %1
-  %54 = getelementptr i8, ptr %53, i64 -1
+  %53 = add nsw i64 %1, -1
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !17
   %56 = zext i8 %49 to i64
   %57 = shl nuw nsw i64 %56, 16
@@ -545,52 +545,53 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv7 = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next8, %.lr.ph ]
-  %.1263 = phi i64 [ %26, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.1263 = phi i64 [ %26, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %27 = shl nsw i64 %indvars.iv7, 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
-  %29 = getelementptr i8, ptr @XXH3_kSecret, i64 %27
-  %30 = getelementptr i8, ptr %29, i64 -125
+  %29 = add nsw i64 %27, -128
+  %30 = getelementptr inbounds i8, ptr @XXH3_kSecret, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
   %.val33 = load i64, ptr %28, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.val32 = load i64, ptr %31, align 1
-  %.val31 = load i64, ptr %30, align 1
-  %32 = xor i64 %.val31, %.val33
-  %33 = getelementptr i8, ptr %29, i64 -117
-  %.val30 = load i64, ptr %33, align 1
-  %34 = xor i64 %.val30, %.val32
-  %35 = zext i64 %32 to i128
-  %36 = zext i64 %34 to i128
-  %37 = mul nuw i128 %36, %35
-  %38 = lshr i128 %37, 64
-  %39 = xor i128 %38, %37
-  %40 = trunc i128 %39 to i64
-  %41 = add i64 %.1263, %40
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.val32 = load i64, ptr %32, align 1
+  %.val31 = load i64, ptr %31, align 1
+  %33 = xor i64 %.val31, %.val33
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 11
+  %.val30 = load i64, ptr %34, align 1
+  %35 = xor i64 %.val30, %.val32
+  %36 = zext i64 %33 to i128
+  %37 = zext i64 %35 to i128
+  %38 = mul nuw i128 %37, %36
+  %39 = lshr i128 %38, 64
+  %40 = xor i128 %39, %38
+  %41 = trunc i128 %40 to i64
+  %42 = add i64 %.1263, %41
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %exitcond10.not = icmp eq i64 %indvars.iv.next8, %wide.trip.count
   br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  %.126.lcssa = phi i64 [ %26, %19 ], [ %41, %.lr.ph ]
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %1
-  %43 = getelementptr inbounds i8, ptr %42, i64 -16
-  %.val29 = load i64, ptr %43, align 1
-  %44 = getelementptr inbounds i8, ptr %42, i64 -8
-  %.val28 = load i64, ptr %44, align 1
-  %45 = xor i64 %.val29, 8320639771003045937
-  %46 = xor i64 %.val28, -1453760514566526364
-  %47 = zext i64 %45 to i128
+  %.126.lcssa = phi i64 [ %26, %19 ], [ %42, %.lr.ph ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %1
+  %44 = getelementptr inbounds i8, ptr %43, i64 -16
+  %.val29 = load i64, ptr %44, align 1
+  %45 = getelementptr inbounds i8, ptr %43, i64 -8
+  %.val28 = load i64, ptr %45, align 1
+  %46 = xor i64 %.val29, 8320639771003045937
+  %47 = xor i64 %.val28, -1453760514566526364
   %48 = zext i64 %46 to i128
-  %49 = mul nuw i128 %48, %47
-  %50 = lshr i128 %49, 64
-  %51 = xor i128 %50, %49
-  %52 = trunc i128 %51 to i64
-  %53 = add i64 %.126.lcssa, %52
-  %54 = lshr i64 %53, 37
-  %55 = xor i64 %54, %53
-  %56 = mul i64 %55, 1609587791953885689
-  %57 = lshr i64 %56, 32
-  %58 = xor i64 %57, %56
-  ret i64 %58
+  %49 = zext i64 %47 to i128
+  %50 = mul nuw i128 %49, %48
+  %51 = lshr i128 %50, 64
+  %52 = xor i128 %51, %50
+  %53 = trunc i128 %52 to i64
+  %54 = add i64 %.126.lcssa, %53
+  %55 = lshr i64 %54, 37
+  %56 = xor i64 %55, %54
+  %57 = mul i64 %56, 1609587791953885689
+  %58 = lshr i64 %57, 32
+  %59 = xor i64 %58, %57
+  ret i64 %59
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

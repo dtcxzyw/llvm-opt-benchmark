@@ -5930,36 +5930,39 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i:        ; preds = %0
 _ZNSt6vectorImSaImEED2Ev.exit.i.i:                ; preds = %6, %3
   resume { ptr, i32 } %4
 
-11:                                               ; preds = %14, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i
-  %indvars.iv8.i.i = phi i64 [ 1, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next9.i.i, %14 ]
-  %indvars.iv6.i.i = phi i64 [ 2, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next7.i.i, %14 ]
-  %.idx.i = mul nuw nsw i64 %indvars.iv8.i.i, 800
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
-  store i64 1, ptr %12, align 8, !tbaa !44
-  %13 = getelementptr i8, ptr %12, i64 -808
-  br label %15
+11:                                               ; preds = %17, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i
+  %indvars.iv8.i.i = phi i64 [ 1, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next9.i.i, %17 ]
+  %indvars.iv6.i.i = phi i64 [ 2, %_ZNSt6vectorImSaImEE6resizeEmRKm.exit.i.i ], [ %indvars.iv.next7.i.i, %17 ]
+  %12 = mul nuw nsw i64 %indvars.iv8.i.i, 100
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %12
+  store i64 1, ptr %13, align 8, !tbaa !44
+  %14 = add nsw i64 %12, -100
+  %15 = add nsw i64 %12, -101
+  %invariant.gep.i.i = getelementptr i64, ptr %2, i64 %14
+  %16 = getelementptr i64, ptr %2, i64 %15
+  br label %18
 
-14:                                               ; preds = %15
+17:                                               ; preds = %18
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 1
   %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
   %exitcond13.not.i.i = icmp eq i64 %indvars.iv.next9.i.i, 100
   br i1 %exitcond13.not.i.i, label %__cxx_global_var_init.exit, label %11, !llvm.loop !167
 
-15:                                               ; preds = %15, %11
-  %indvars.iv.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i, %15 ]
-  %gep.i.i = getelementptr i64, ptr %12, i64 %indvars.iv.i.i
-  %16 = getelementptr i8, ptr %gep.i.i, i64 -800
-  %17 = load i64, ptr %16, align 8, !tbaa !44
-  %18 = getelementptr i64, ptr %13, i64 %indvars.iv.i.i
-  %19 = load i64, ptr %18, align 8, !tbaa !44
-  %20 = add i64 %19, %17
-  store i64 %20, ptr %gep.i.i, align 8, !tbaa !44
+18:                                               ; preds = %18, %11
+  %indvars.iv.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i, %18 ]
+  %gep.i.i = getelementptr i64, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %19 = load i64, ptr %gep.i.i, align 8, !tbaa !44
+  %20 = getelementptr i64, ptr %16, i64 %indvars.iv.i.i
+  %21 = load i64, ptr %20, align 8, !tbaa !44
+  %22 = add i64 %21, %19
+  %gep15.i.i = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i.i
+  store i64 %22, ptr %gep15.i.i, align 8, !tbaa !44
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv6.i.i
-  br i1 %exitcond.not.i.i, label %14, label %15, !llvm.loop !168
+  br i1 %exitcond.not.i.i, label %17, label %18, !llvm.loop !168
 
-__cxx_global_var_init.exit:                       ; preds = %14
-  %21 = call i32 @__cxa_atexit(ptr nonnull @_ZN5faiss12_GLOBAL__N_14CombD2Ev, ptr nonnull @_ZN5faiss12_GLOBAL__N_14combE, ptr nonnull @__dso_handle) #14
+__cxx_global_var_init.exit:                       ; preds = %17
+  %23 = call i32 @__cxa_atexit(ptr nonnull @_ZN5faiss12_GLOBAL__N_14CombD2Ev, ptr nonnull @_ZN5faiss12_GLOBAL__N_14combE, ptr nonnull @__dso_handle) #14
   ret void
 }
 

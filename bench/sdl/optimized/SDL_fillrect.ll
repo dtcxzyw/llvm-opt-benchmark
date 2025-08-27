@@ -445,9 +445,9 @@ define internal void @SDL_FillSurfaceRect2(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not23.us, label %25, label %21
 
 21:                                               ; preds = %16
-  %22 = sext i32 %.117.us to i64
-  %23 = getelementptr i16, ptr %.1.us, i64 %22
-  %24 = getelementptr i8, ptr %23, i64 -2
+  %22 = add nsw i32 %.117.us, -1
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i16, ptr %.1.us, i64 %23
   store i16 %8, ptr %24, align 2
   br label %25
 
@@ -460,17 +460,16 @@ define internal void @SDL_FillSurfaceRect2(ptr noundef %0, i32 noundef %1, i32 n
 .lr.ph.split:                                     ; preds = %.lr.ph
   %28 = and i32 %3, 1
   %.not23 = icmp eq i32 %28, 0
-  %29 = sext i32 %3 to i64
+  %29 = sext i32 %9 to i64
   br i1 %.not23, label %._crit_edge, label %.lr.ph.split.split
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
-  %30 = phi i32 [ %34, %.lr.ph.split.split ], [ %6, %.lr.ph.split ]
-  %.01925 = phi ptr [ %33, %.lr.ph.split.split ], [ %0, %.lr.ph.split ]
-  %31 = getelementptr i16, ptr %.01925, i64 %29
-  %32 = getelementptr i8, ptr %31, i64 -2
-  store i16 %8, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %.01925, i64 %10
-  %34 = add nsw i32 %30, -1
+  %30 = phi i32 [ %33, %.lr.ph.split.split ], [ %6, %.lr.ph.split ]
+  %.01925 = phi ptr [ %32, %.lr.ph.split.split ], [ %0, %.lr.ph.split ]
+  %31 = getelementptr inbounds i16, ptr %.01925, i64 %29
+  store i16 %8, ptr %31, align 2
+  %32 = getelementptr inbounds i8, ptr %.01925, i64 %10
+  %33 = add nsw i32 %30, -1
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !7
 

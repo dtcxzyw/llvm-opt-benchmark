@@ -77385,7 +77385,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb
 
 11:                                               ; preds = %10
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN6duckdb17InternalExceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #29
-          to label %27 unwind label %13
+          to label %28 unwind label %13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %8
   %12 = landingpad { ptr, i32 }
@@ -77431,11 +77431,12 @@ _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %1
   %22 = ptrtoint ptr %6 to i64
   %23 = ptrtoint ptr %4 to i64
   %24 = sub i64 %22, %23
-  %25 = getelementptr i8, ptr %4, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 -104
-  ret ptr %26
+  %25 = sdiv exact i64 %24, 104
+  %26 = add nsw i64 %25, -1
+  %27 = getelementptr inbounds nuw %"class.duckdb::Vector", ptr %4, i64 %26
+  ret ptr %27
 
-27:                                               ; preds = %11
+28:                                               ; preds = %11
   unreachable
 }
 

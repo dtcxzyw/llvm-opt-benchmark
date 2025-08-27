@@ -190,22 +190,23 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %64 = load i16, ptr %57, align 2
   %65 = zext i16 %64 to i32
   %66 = add nuw nsw i32 %65, 1
-  %67 = getelementptr i8, ptr %59, i64 -2
-  %68 = load i16, ptr %67, align 2
-  %69 = zext i16 %68 to i32
-  %70 = add nuw nsw i32 %69, 1
-  %71 = add nuw nsw i32 %63, 1
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %66, i32 noundef %70, i32 noundef %71)
+  %67 = add nsw i64 %indvars.iv62, -1
+  %68 = getelementptr inbounds i16, ptr %57, i64 %67
+  %69 = load i16, ptr %68, align 2
+  %70 = zext i16 %69 to i32
+  %71 = add nuw nsw i32 %70, 1
+  %72 = add nuw nsw i32 %63, 1
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %66, i32 noundef %71, i32 noundef %72)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge55.us, label %58, !llvm.loop !6
 
 ._crit_edge55.us:                                 ; preds = %58, %62
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %72 = load i32, ptr %47, align 4
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next66, %73
-  br i1 %74, label %.lr.ph54.us, label %.loopexit, !llvm.loop !7
+  %73 = load i32, ptr %47, align 4
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next66, %74
+  br i1 %75, label %.lr.ph54.us, label %.loopexit, !llvm.loop !7
 
 .loopexit.sink.split:                             ; preds = %3, %2
   %str.1.sink = phi ptr [ @str, %2 ], [ @str.1, %3 ]
