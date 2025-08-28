@@ -58628,31 +58628,31 @@ define linkonce_odr hidden void @_ZN10polynomial7manager3imp19sparse_interpolato
 _ZNK10polynomial7manager3imp8skeleton11num_entriesEv.exit: ; preds = %5
   %9 = getelementptr inbounds i8, ptr %7, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !14
-  %.not27 = icmp eq i32 %10, 0
-  br i1 %.not27, label %.loopexit, label %.lr.ph26.preheader
+  %.not26 = icmp eq i32 %10, 0
+  br i1 %.not26, label %.loopexit, label %.lr.ph25.preheader
 
-.lr.ph26.preheader:                               ; preds = %_ZNK10polynomial7manager3imp8skeleton11num_entriesEv.exit
+.lr.ph25.preheader:                               ; preds = %_ZNK10polynomial7manager3imp8skeleton11num_entriesEv.exit
   %wide.trip.count = zext i32 %10 to i64
-  br label %.lr.ph26
+  br label %.lr.ph25
 
-.lr.ph26:                                         ; preds = %.lr.ph26.preheader, %._crit_edge
+.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %._crit_edge
   %11 = phi ptr [ null, %.lr.ph26.preheader ], [ %15, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph26.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %12 = load ptr, ptr %6, align 8, !tbaa !368
   %13 = getelementptr inbounds nuw %"struct.polynomial::manager::imp::skeleton::entry", ptr %12, i64 %indvars.iv, i32 2
   %14 = load i32, ptr %13, align 4, !tbaa !513
-  %.not28 = icmp eq i32 %14, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i32 %14, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %25, %.lr.ph26
+._crit_edge:                                      ; preds = %25, %.lr.ph25
   %15 = phi ptr [ %11, %.lr.ph26 ], [ %34, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond30.not, label %.loopexit, label %.lr.ph26, !llvm.loop !514
+  %exitcond28.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond28.not, label %.loopexit, label %.lr.ph25, !llvm.loop !514
 
-.lr.ph:                                           ; preds = %.lr.ph26, %25
+.lr.ph:                                           ; preds = %.lr.ph25, %25
   %16 = phi ptr [ %34, %25 ], [ %11, %.lr.ph26 ]
-  %.023 = phi i32 [ %38, %25 ], [ 0, %.lr.ph26 ]
+  %.022 = phi i32 [ %38, %25 ], [ 0, %.lr.ph26 ]
   %17 = icmp eq ptr %16, null
   br i1 %17, label %24, label %18
 
@@ -58691,7 +58691,7 @@ _ZNK10polynomial7manager3imp8skeleton11num_entriesEv.exit: ; preds = %5
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 4, !tbaa !14
-  %38 = add nuw i32 %.023, 1
+  %38 = add nuw i32 %.022, 1
   %exitcond.not = icmp eq i32 %38, %14
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !515
 
@@ -62848,16 +62848,16 @@ define linkonce_odr hidden void @_ZN16linear_eq_solverI13mpzzp_managerE6resizeEj
 6:                                                ; preds = %2
   tail call void @_ZN16linear_eq_solverI13mpzzp_managerE5flushEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   store i32 %1, ptr %4, align 8, !tbaa !520
-  %.not33 = icmp eq i32 %1, 0
-  br i1 %.not33, label %.loopexit, label %.lr.ph32
+  %.not32 = icmp eq i32 %1, 0
+  br i1 %.not32, label %.loopexit, label %.lr.ph31
 
-.lr.ph32:                                         ; preds = %6
+.lr.ph31:                                         ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
 
-9:                                                ; preds = %.lr.ph32, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit
-  %.0930 = phi i32 [ 0, %.lr.ph32 ], [ %48, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit ]
+9:                                                ; preds = %.lr.ph31, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit
+  %.0929 = phi i32 [ 0, %.lr.ph32 ], [ %48, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !108
   %10 = load ptr, ptr %7, align 8, !tbaa !527
@@ -62894,8 +62894,8 @@ _ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit:     ; preds = %12, %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = getelementptr inbounds nuw %class.svector.1, ptr %20, i64 %22
   %26 = load i32, ptr %4, align 8, !tbaa !520
-  %.not34 = icmp eq i32 %26, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph.preheader
+  %.not33 = icmp eq i32 %26, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit
   %.pre = load ptr, ptr %25, align 8, !tbaa !108
@@ -62938,7 +62938,7 @@ _ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit:        ; preds = %29, %35
   %46 = load i32, ptr %45, align 4, !tbaa !14
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !14
-  %48 = add nuw i32 %.0930, 1
+  %48 = add nuw i32 %.0929, 1
   %49 = load i32, ptr %4, align 8, !tbaa !520
   %50 = icmp ult i32 %48, %49
   br i1 %50, label %9, label %.loopexit, !llvm.loop !542
@@ -62952,7 +62952,7 @@ _ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit:        ; preds = %29, %35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit17
   %53 = phi ptr [ %70, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit17 ], [ %.pre, %.lr.ph.preheader ]
-  %.028 = phi i32 [ %74, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit17 ], [ 0, %.lr.ph.preheader ]
+  %.027 = phi i32 [ %74, %_ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit17 ], [ 0, %.lr.ph.preheader ]
   %54 = icmp eq ptr %53, null
   br i1 %54, label %61, label %55
 
@@ -62988,7 +62988,7 @@ _ZN6vectorI3mpzLb0EjE9push_backEOS0_.exit17:      ; preds = %55, %61
   %72 = load i32, ptr %71, align 4, !tbaa !14
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !14
-  %74 = add nuw i32 %.028, 1
+  %74 = add nuw i32 %.027, 1
   %75 = load i32, ptr %4, align 8, !tbaa !520
   %76 = icmp ult i32 %74, %75
   br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !543
