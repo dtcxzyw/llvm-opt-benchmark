@@ -2448,10 +2448,10 @@ default.unreachable:                              ; preds = %14
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 1
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 16
-  %21 = load i8, ptr %20, align 1, !alias.scope !527, !noalias !531, !noundef !34
+  %21 = load i8, ptr %20, align 8, !alias.scope !527, !noalias !531, !noundef !34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.14.i, ptr noundef nonnull readonly align 1 dereferenceable(7) %19, i64 7, i1 false), !alias.scope !533, !noalias !534
   %.sroa.15.1..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.013.032, i64 8
-  %.sroa.15.1.copyload.i = load ptr, ptr %.sroa.15.1..sroa_idx.i, align 1, !alias.scope !535, !noalias !534
+  %.sroa.15.1.copyload.i = load ptr, ptr %.sroa.15.1..sroa_idx.i, align 8, !alias.scope !535, !noalias !534
   %.sroa.16.16.insert.ext.i = zext i8 %21 to i64
   br label %28
 

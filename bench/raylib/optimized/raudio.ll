@@ -77025,7 +77025,7 @@ drmp3_bs_get_bits.exit239.i:                      ; preds = %._crit_edge.i228.i,
 drmp3_bs_get_bits.exit251.i:                      ; preds = %._crit_edge.i240.i, %drmp3_bs_get_bits.exit239.i
   %.019.i244.i = phi i8 [ %682, %._crit_edge.i240.i ], [ 0, %drmp3_bs_get_bits.exit239.i ]
   %683 = getelementptr inbounds nuw i8, ptr %.099.i, i64 26
-  store i8 %.019.i244.i, ptr %683, align 1
+  store i8 %.019.i244.i, ptr %683, align 2
   %684 = add nsw i32 %531, 23
   %685 = icmp sgt i32 %684, %387
   br i1 %685, label %drmp3_bs_get_bits.exit263.i, label %686
@@ -77189,7 +77189,7 @@ drmp3_bs_get_bits.exit299.i:                      ; preds = %._crit_edge.i288.i,
   %772 = getelementptr inbounds nuw i8, ptr %.099.i, i64 23
   store i8 %.019.i292.i, ptr %772, align 1
   %773 = getelementptr inbounds nuw i8, ptr %.099.i, i64 24
-  store i8 -1, ptr %773, align 2
+  store i8 -1, ptr %773, align 8
   br label %774
 
 774:                                              ; preds = %drmp3_bs_get_bits.exit299.i, %drmp3_bs_get_bits.exit263.i
@@ -77204,7 +77204,7 @@ drmp3_bs_get_bits.exit299.i:                      ; preds = %._crit_edge.i288.i,
   %779 = trunc i32 %778 to i8
   %780 = and i8 %779, 31
   %781 = getelementptr inbounds nuw i8, ptr %.099.i, i64 20
-  store i8 %780, ptr %781, align 1
+  store i8 %780, ptr %781, align 4
   %782 = trunc i32 %.097.i to i8
   %783 = and i8 %782, 31
   %784 = getelementptr inbounds nuw i8, ptr %.099.i, i64 21
@@ -80340,7 +80340,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %265 = getelementptr i8, ptr %240, i64 -244
   store float %264, ptr %265, align 4
   %266 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 4
-  %267 = load float, ptr %.0228229.i, align 4
+  %267 = load float, ptr %.0228229.i, align 16
   %268 = insertelement <4 x float> poison, float %267, i64 0
   %269 = shufflevector <4 x float> %268, <4 x float> poison, <4 x i32> zeroinitializer
   %270 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 8
@@ -80357,7 +80357,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %281 = fmul <4 x float> %276, %273
   %282 = fsub <4 x float> %280, %281
   %283 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 12
-  %284 = load float, ptr %270, align 4
+  %284 = load float, ptr %270, align 8
   %285 = insertelement <4 x float> poison, float %284, i64 0
   %286 = shufflevector <4 x float> %285, <4 x float> poison, <4 x i32> zeroinitializer
   %287 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 16
@@ -80377,7 +80377,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %301 = fsub <4 x float> %299, %300
   %302 = fadd <4 x float> %282, %301
   %303 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 20
-  %304 = load float, ptr %287, align 4
+  %304 = load float, ptr %287, align 16
   %305 = insertelement <4 x float> poison, float %304, i64 0
   %306 = shufflevector <4 x float> %305, <4 x float> poison, <4 x i32> zeroinitializer
   %307 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 24
@@ -80397,7 +80397,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %321 = fsub <4 x float> %319, %320
   %322 = fadd <4 x float> %302, %321
   %323 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 28
-  %324 = load float, ptr %307, align 4
+  %324 = load float, ptr %307, align 8
   %325 = insertelement <4 x float> poison, float %324, i64 0
   %326 = shufflevector <4 x float> %325, <4 x float> poison, <4 x i32> zeroinitializer
   %327 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 32
@@ -80417,7 +80417,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %341 = fsub <4 x float> %339, %340
   %342 = fadd <4 x float> %322, %341
   %343 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 36
-  %344 = load float, ptr %327, align 4
+  %344 = load float, ptr %327, align 16
   %345 = insertelement <4 x float> poison, float %344, i64 0
   %346 = shufflevector <4 x float> %345, <4 x float> poison, <4 x i32> zeroinitializer
   %347 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 40
@@ -80437,7 +80437,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %361 = fsub <4 x float> %359, %360
   %362 = fadd <4 x float> %342, %361
   %363 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 44
-  %364 = load float, ptr %347, align 4
+  %364 = load float, ptr %347, align 8
   %365 = insertelement <4 x float> poison, float %364, i64 0
   %366 = shufflevector <4 x float> %365, <4 x float> poison, <4 x i32> zeroinitializer
   %367 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 48
@@ -80457,7 +80457,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %381 = fsub <4 x float> %379, %380
   %382 = fadd <4 x float> %362, %381
   %383 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 52
-  %384 = load float, ptr %367, align 4
+  %384 = load float, ptr %367, align 16
   %385 = insertelement <4 x float> poison, float %384, i64 0
   %386 = shufflevector <4 x float> %385, <4 x float> poison, <4 x i32> zeroinitializer
   %387 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 56
@@ -80477,7 +80477,7 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %401 = fsub <4 x float> %399, %400
   %402 = fadd <4 x float> %382, %401
   %403 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 60
-  %404 = load float, ptr %387, align 4
+  %404 = load float, ptr %387, align 8
   %405 = insertelement <4 x float> poison, float %404, i64 0
   %406 = shufflevector <4 x float> %405, <4 x float> poison, <4 x i32> zeroinitializer
   %407 = getelementptr inbounds nuw i8, ptr %.0228229.i, i64 64
@@ -93377,7 +93377,7 @@ ReadAudioBufferFramesInMixingFormat.exit:         ; preds = %58, %ReadAudioBuffe
   %.050.i = phi ptr [ %192, %208 ], [ %229, %220 ]
   %.03949.i = phi ptr [ %10, %208 ], [ %230, %220 ]
   %.04248.i = phi i32 [ 0, %208 ], [ %231, %220 ]
-  %221 = load float, ptr %.03949.i, align 4
+  %221 = load float, ptr %.03949.i, align 8
   %222 = load float, ptr %.050.i, align 4
   %223 = call float @llvm.fmuladd.f32(float %221, float %215, float %222)
   store float %223, ptr %.050.i, align 4

@@ -114860,7 +114860,7 @@ _ZN7testing15AssertionResultD2Ev.exit229:         ; preds = %432, %_ZNKSt14defau
 .preheader:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit229, %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit232
   %445 = phi ptr [ %446, %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit232 ], [ %84, %_ZN7testing15AssertionResultD2Ev.exit229 ]
   %446 = getelementptr inbounds i8, ptr %445, i64 -48
-  %447 = load ptr, ptr %446, align 8, !tbaa !20
+  %447 = load ptr, ptr %446, align 16, !tbaa !20
   %448 = getelementptr inbounds i8, ptr %445, i64 -32
   %449 = icmp eq ptr %447, %448
   br i1 %449, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i231, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i230
@@ -114873,7 +114873,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit232
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i230: ; preds = %.preheader
-  %453 = load i64, ptr %448, align 8, !tbaa !25
+  %453 = load i64, ptr %448, align 16, !tbaa !25
   %454 = add i64 %453, 1
   call void @_ZdlPvm(ptr noundef %447, i64 noundef %454) #35
   br label %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit232
@@ -114889,7 +114889,7 @@ _ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit
 457:                                              ; preds = %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit235, %444
   %458 = phi ptr [ %84, %444 ], [ %459, %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit235 ]
   %459 = getelementptr inbounds i8, ptr %458, i64 -48
-  %460 = load ptr, ptr %459, align 8, !tbaa !20
+  %460 = load ptr, ptr %459, align 16, !tbaa !20
   %461 = getelementptr inbounds i8, ptr %458, i64 -32
   %462 = icmp eq ptr %460, %461
   br i1 %462, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i234, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i233
@@ -114902,7 +114902,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit235
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i233: ; preds = %457
-  %466 = load i64, ptr %461, align 8, !tbaa !25
+  %466 = load i64, ptr %461, align 16, !tbaa !25
   %467 = add i64 %466, 1
   call void @_ZdlPvm(ptr noundef %460, i64 noundef %467) #35
   br label %_ZZN12_GLOBAL__N_123StrToInt64_Partial_Test8TestBodyEvEN13Int64TestLineD2Ev.exit235
@@ -115082,7 +115082,7 @@ define internal void @_ZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEv(ptr
 76:                                               ; preds = %75, %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit
   %77 = phi ptr [ %78, %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit ], [ %46, %75 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 -48
-  %79 = load ptr, ptr %78, align 8, !tbaa !20
+  %79 = load ptr, ptr %78, align 16, !tbaa !20
   %80 = getelementptr inbounds i8, ptr %77, i64 -32
   %81 = icmp eq ptr %79, %80
   br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -115095,7 +115095,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %76
-  %85 = load i64, ptr %80, align 8, !tbaa !25
+  %85 = load i64, ptr %80, align 16, !tbaa !25
   %86 = add i64 %85, 1
   call void @_ZdlPvm(ptr noundef %79, i64 noundef %86) #35
   br label %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit
@@ -116080,7 +116080,7 @@ _ZN7testing15AssertionResultD2Ev.exit219:         ; preds = %406, %_ZNKSt14defau
 .preheader:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit219, %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit222
   %419 = phi ptr [ %420, %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit222 ], [ %64, %_ZN7testing15AssertionResultD2Ev.exit219 ]
   %420 = getelementptr inbounds i8, ptr %419, i64 -48
-  %421 = load ptr, ptr %420, align 8, !tbaa !20
+  %421 = load ptr, ptr %420, align 16, !tbaa !20
   %422 = getelementptr inbounds i8, ptr %419, i64 -32
   %423 = icmp eq ptr %421, %422
   br i1 %423, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i221, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i220
@@ -116093,7 +116093,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit222
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i220: ; preds = %.preheader
-  %427 = load i64, ptr %422, align 8, !tbaa !25
+  %427 = load i64, ptr %422, align 16, !tbaa !25
   %428 = add i64 %427, 1
   call void @_ZdlPvm(ptr noundef %421, i64 noundef %428) #35
   br label %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit222
@@ -116109,7 +116109,7 @@ _ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.ex
 431:                                              ; preds = %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit225, %418
   %432 = phi ptr [ %64, %418 ], [ %433, %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit225 ]
   %433 = getelementptr inbounds i8, ptr %432, i64 -48
-  %434 = load ptr, ptr %433, align 8, !tbaa !20
+  %434 = load ptr, ptr %433, align 16, !tbaa !20
   %435 = getelementptr inbounds i8, ptr %432, i64 -32
   %436 = icmp eq ptr %434, %435
   br i1 %436, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i224, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i223
@@ -116122,7 +116122,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit225
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i223: ; preds = %431
-  %440 = load i64, ptr %435, align 8, !tbaa !25
+  %440 = load i64, ptr %435, align 16, !tbaa !25
   %441 = add i64 %440, 1
   call void @_ZdlPvm(ptr noundef %434, i64 noundef %441) #35
   br label %_ZZN12_GLOBAL__N_124StrToUint64_Partial_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit225
@@ -121625,7 +121625,7 @@ _ZN7testing15AssertionResultD2Ev.exit251:         ; preds = %624, %_ZNKSt14defau
 .preheader:                                       ; preds = %102, %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit254
   %636 = phi ptr [ %637, %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit254 ], [ %68, %102 ]
   %637 = getelementptr inbounds i8, ptr %636, i64 -48
-  %638 = load ptr, ptr %637, align 8, !tbaa !20
+  %638 = load ptr, ptr %637, align 16, !tbaa !20
   %639 = getelementptr inbounds i8, ptr %636, i64 -32
   %640 = icmp eq ptr %638, %639
   br i1 %640, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i253, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i252
@@ -121638,7 +121638,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit254
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i252: ; preds = %.preheader
-  %644 = load i64, ptr %639, align 8, !tbaa !25
+  %644 = load i64, ptr %639, align 16, !tbaa !25
   %645 = add i64 %644, 1
   call void @_ZdlPvm(ptr noundef %638, i64 noundef %645) #35
   br label %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit254
@@ -121654,7 +121654,7 @@ _ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2
 648:                                              ; preds = %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit257, %635
   %649 = phi ptr [ %68, %635 ], [ %650, %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit257 ]
   %650 = getelementptr inbounds i8, ptr %649, i64 -48
-  %651 = load ptr, ptr %650, align 8, !tbaa !20
+  %651 = load ptr, ptr %650, align 16, !tbaa !20
   %652 = getelementptr inbounds i8, ptr %649, i64 -32
   %653 = icmp eq ptr %651, %652
   br i1 %653, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i256, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i255
@@ -121667,7 +121667,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit257
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i255: ; preds = %648
-  %657 = load i64, ptr %652, align 8, !tbaa !25
+  %657 = load i64, ptr %652, align 16, !tbaa !25
   %658 = add i64 %657, 1
   call void @_ZdlPvm(ptr noundef %651, i64 noundef %658) #35
   br label %_ZZN12_GLOBAL__N_130StrToInt64Base_PrefixOnly_Test8TestBodyEvEN13Int64TestLineD2Ev.exit257
@@ -123449,7 +123449,7 @@ _ZN7testing15AssertionResultD2Ev.exit230:         ; preds = %606, %_ZNKSt14defau
 .preheader:                                       ; preds = %84, %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit233
   %618 = phi ptr [ %619, %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit233 ], [ %50, %84 ]
   %619 = getelementptr inbounds i8, ptr %618, i64 -48
-  %620 = load ptr, ptr %619, align 8, !tbaa !20
+  %620 = load ptr, ptr %619, align 16, !tbaa !20
   %621 = getelementptr inbounds i8, ptr %618, i64 -32
   %622 = icmp eq ptr %620, %621
   br i1 %622, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i232, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i231
@@ -123462,7 +123462,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit233
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i231: ; preds = %.preheader
-  %626 = load i64, ptr %621, align 8, !tbaa !25
+  %626 = load i64, ptr %621, align 16, !tbaa !25
   %627 = add i64 %626, 1
   call void @_ZdlPvm(ptr noundef %620, i64 noundef %627) #35
   br label %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit233
@@ -123478,7 +123478,7 @@ _ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLine
 630:                                              ; preds = %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit236, %617
   %631 = phi ptr [ %50, %617 ], [ %632, %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit236 ]
   %632 = getelementptr inbounds i8, ptr %631, i64 -48
-  %633 = load ptr, ptr %632, align 8, !tbaa !20
+  %633 = load ptr, ptr %632, align 16, !tbaa !20
   %634 = getelementptr inbounds i8, ptr %631, i64 -32
   %635 = icmp eq ptr %633, %634
   br i1 %635, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i235, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i234
@@ -123491,7 +123491,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit236
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i234: ; preds = %630
-  %639 = load i64, ptr %634, align 8, !tbaa !25
+  %639 = load i64, ptr %634, align 16, !tbaa !25
   %640 = add i64 %639, 1
   call void @_ZdlPvm(ptr noundef %633, i64 noundef %640) #35
   br label %_ZZN12_GLOBAL__N_131StrToUint64Base_PrefixOnly_Test8TestBodyEvEN14Uint64TestLineD2Ev.exit236

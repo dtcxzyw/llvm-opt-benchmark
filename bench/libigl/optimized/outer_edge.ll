@@ -1074,7 +1074,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %167, %171, %174, %1
 185:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %_ZN4CGAL6HandleD2Ev.exit53
   %186 = phi ptr [ %184, %_ZN4CGAL6HandleD2Ev.exit53 ], [ %187, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ]
   %187 = getelementptr inbounds i8, ptr %186, i64 -16
-  %188 = load ptr, ptr %187, align 8, !tbaa !49
+  %188 = load ptr, ptr %187, align 16, !tbaa !49
   %.not.i.i.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %189
 
@@ -1111,7 +1111,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %167, %171, %174, %1
 
 205:                                              ; preds = %202, %201
   fence acquire
-  %206 = load ptr, ptr %187, align 8, !tbaa !49
+  %206 = load ptr, ptr %187, align 16, !tbaa !49
   %207 = icmp eq ptr %206, null
   br i1 %207, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, label %208
 
@@ -1123,7 +1123,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %167, %171, %174, %1
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i:          ; preds = %208, %205, %202, %199, %195
-  store ptr null, ptr %187, align 8, !tbaa !49
+  store ptr null, ptr %187, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i:                   ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, %185
@@ -2356,7 +2356,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %485, %489, %492, %4
 503:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %_ZN4CGAL6HandleD2Ev.exit111
   %504 = phi ptr [ %502, %_ZN4CGAL6HandleD2Ev.exit111 ], [ %505, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ]
   %505 = getelementptr inbounds i8, ptr %504, i64 -16
-  %506 = load ptr, ptr %505, align 8, !tbaa !49
+  %506 = load ptr, ptr %505, align 16, !tbaa !49
   %.not.i.i.i.i.i = icmp eq ptr %506, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %507
 
@@ -2393,7 +2393,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %485, %489, %492, %4
 
 523:                                              ; preds = %520, %519
   fence acquire
-  %524 = load ptr, ptr %505, align 8, !tbaa !49
+  %524 = load ptr, ptr %505, align 16, !tbaa !49
   %525 = icmp eq ptr %524, null
   br i1 %525, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, label %526
 
@@ -2405,7 +2405,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %485, %489, %492, %4
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i:          ; preds = %526, %523, %520, %517, %513
-  store ptr null, ptr %505, align 8, !tbaa !49
+  store ptr null, ptr %505, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i:                   ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, %503
@@ -2543,7 +2543,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
 564:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i118, %.thread
   %565 = phi ptr [ %563, %.thread ], [ %566, %_ZN4CGAL6HandleD2Ev.exit.i.i.i118 ]
   %566 = getelementptr inbounds i8, ptr %565, i64 -16
-  %567 = load ptr, ptr %566, align 8, !tbaa !49
+  %567 = load ptr, ptr %566, align 16, !tbaa !49
   %.not.i.i.i.i.i115 = icmp eq ptr %567, null
   br i1 %.not.i.i.i.i.i115, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i118, label %568
 
@@ -2580,7 +2580,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
 
 584:                                              ; preds = %581, %580
   fence acquire
-  %585 = load ptr, ptr %566, align 8, !tbaa !49
+  %585 = load ptr, ptr %566, align 16, !tbaa !49
   %586 = icmp eq ptr %585, null
   br i1 %586, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117, label %587
 
@@ -2592,7 +2592,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117:       ; preds = %587, %584, %581, %578, %574
-  store ptr null, ptr %566, align 8, !tbaa !49
+  store ptr null, ptr %566, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i118
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i118:                ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117, %564
@@ -2679,7 +2679,7 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL
 3:                                                ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i, %1
   %4 = phi ptr [ %2, %1 ], [ %5, %_ZN4CGAL6HandleD2Ev.exit.i.i ]
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 16, !tbaa !49
   %.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i, label %7
 
@@ -2716,7 +2716,7 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL
 
 23:                                               ; preds = %20, %19
   fence acquire
-  %24 = load ptr, ptr %5, align 8, !tbaa !49
+  %24 = load ptr, ptr %5, align 16, !tbaa !49
   %25 = icmp eq ptr %24, null
   br i1 %25, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i, label %26
 
@@ -2728,7 +2728,7 @@ define linkonce_odr dso_local void @_ZN5Eigen15PlainObjectBaseINS_6MatrixIN4CGAL
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i:            ; preds = %26, %23, %20, %17, %13
-  store ptr null, ptr %5, align 8, !tbaa !49
+  store ptr null, ptr %5, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i:                     ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i, %3
@@ -3149,7 +3149,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %166, %170, %173, %1
 184:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %_ZN4CGAL6HandleD2Ev.exit53
   %185 = phi ptr [ %183, %_ZN4CGAL6HandleD2Ev.exit53 ], [ %186, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -16
-  %187 = load ptr, ptr %186, align 8, !tbaa !49
+  %187 = load ptr, ptr %186, align 16, !tbaa !49
   %.not.i.i.i.i.i = icmp eq ptr %187, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %188
 
@@ -3186,7 +3186,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %166, %170, %173, %1
 
 204:                                              ; preds = %201, %200
   fence acquire
-  %205 = load ptr, ptr %186, align 8, !tbaa !49
+  %205 = load ptr, ptr %186, align 16, !tbaa !49
   %206 = icmp eq ptr %205, null
   br i1 %206, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, label %207
 
@@ -3198,7 +3198,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %166, %170, %173, %1
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i:          ; preds = %207, %204, %201, %198, %194
-  store ptr null, ptr %186, align 8, !tbaa !49
+  store ptr null, ptr %186, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i:                   ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, %184
@@ -4430,7 +4430,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %484, %488, %491, %4
 502:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %_ZN4CGAL6HandleD2Ev.exit111
   %503 = phi ptr [ %501, %_ZN4CGAL6HandleD2Ev.exit111 ], [ %504, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ]
   %504 = getelementptr inbounds i8, ptr %503, i64 -16
-  %505 = load ptr, ptr %504, align 8, !tbaa !49
+  %505 = load ptr, ptr %504, align 16, !tbaa !49
   %.not.i.i.i.i.i = icmp eq ptr %505, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %506
 
@@ -4467,7 +4467,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %484, %488, %491, %4
 
 522:                                              ; preds = %519, %518
   fence acquire
-  %523 = load ptr, ptr %504, align 8, !tbaa !49
+  %523 = load ptr, ptr %504, align 16, !tbaa !49
   %524 = icmp eq ptr %523, null
   br i1 %524, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, label %525
 
@@ -4479,7 +4479,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %484, %488, %491, %4
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i:          ; preds = %525, %522, %519, %516, %512
-  store ptr null, ptr %504, align 8, !tbaa !49
+  store ptr null, ptr %504, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i:                   ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, %502
@@ -4617,7 +4617,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
 563:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i118, %.thread
   %564 = phi ptr [ %562, %.thread ], [ %565, %_ZN4CGAL6HandleD2Ev.exit.i.i.i118 ]
   %565 = getelementptr inbounds i8, ptr %564, i64 -16
-  %566 = load ptr, ptr %565, align 8, !tbaa !49
+  %566 = load ptr, ptr %565, align 16, !tbaa !49
   %.not.i.i.i.i.i115 = icmp eq ptr %566, null
   br i1 %.not.i.i.i.i.i115, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i118, label %567
 
@@ -4654,7 +4654,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
 
 583:                                              ; preds = %580, %579
   fence acquire
-  %584 = load ptr, ptr %565, align 8, !tbaa !49
+  %584 = load ptr, ptr %565, align 16, !tbaa !49
   %585 = icmp eq ptr %584, null
   br i1 %585, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117, label %586
 
@@ -4666,7 +4666,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117:       ; preds = %586, %583, %580, %577, %573
-  store ptr null, ptr %565, align 8, !tbaa !49
+  store ptr null, ptr %565, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i118
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i118:                ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117, %563
@@ -5097,7 +5097,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %166, %170, %173, %1
 184:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %_ZN4CGAL6HandleD2Ev.exit53
   %185 = phi ptr [ %183, %_ZN4CGAL6HandleD2Ev.exit53 ], [ %186, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -16
-  %187 = load ptr, ptr %186, align 8, !tbaa !49
+  %187 = load ptr, ptr %186, align 16, !tbaa !49
   %.not.i.i.i.i.i = icmp eq ptr %187, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %188
 
@@ -5134,7 +5134,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %166, %170, %173, %1
 
 204:                                              ; preds = %201, %200
   fence acquire
-  %205 = load ptr, ptr %186, align 8, !tbaa !49
+  %205 = load ptr, ptr %186, align 16, !tbaa !49
   %206 = icmp eq ptr %205, null
   br i1 %206, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, label %207
 
@@ -5146,7 +5146,7 @@ _ZN4CGAL6HandleD2Ev.exit53:                       ; preds = %166, %170, %173, %1
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i:          ; preds = %207, %204, %201, %198, %194
-  store ptr null, ptr %186, align 8, !tbaa !49
+  store ptr null, ptr %186, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i:                   ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, %184
@@ -6378,7 +6378,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %484, %488, %491, %4
 502:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i, %_ZN4CGAL6HandleD2Ev.exit111
   %503 = phi ptr [ %501, %_ZN4CGAL6HandleD2Ev.exit111 ], [ %504, %_ZN4CGAL6HandleD2Ev.exit.i.i.i ]
   %504 = getelementptr inbounds i8, ptr %503, i64 -16
-  %505 = load ptr, ptr %504, align 8, !tbaa !49
+  %505 = load ptr, ptr %504, align 16, !tbaa !49
   %.not.i.i.i.i.i = icmp eq ptr %505, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i, label %506
 
@@ -6415,7 +6415,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %484, %488, %491, %4
 
 522:                                              ; preds = %519, %518
   fence acquire
-  %523 = load ptr, ptr %504, align 8, !tbaa !49
+  %523 = load ptr, ptr %504, align 16, !tbaa !49
   %524 = icmp eq ptr %523, null
   br i1 %524, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, label %525
 
@@ -6427,7 +6427,7 @@ _ZN4CGAL6HandleD2Ev.exit111:                      ; preds = %484, %488, %491, %4
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i:          ; preds = %525, %522, %519, %516, %512
-  store ptr null, ptr %504, align 8, !tbaa !49
+  store ptr null, ptr %504, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i:                   ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i, %502
@@ -6565,7 +6565,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
 563:                                              ; preds = %_ZN4CGAL6HandleD2Ev.exit.i.i.i118, %.thread
   %564 = phi ptr [ %562, %.thread ], [ %565, %_ZN4CGAL6HandleD2Ev.exit.i.i.i118 ]
   %565 = getelementptr inbounds i8, ptr %564, i64 -16
-  %566 = load ptr, ptr %565, align 8, !tbaa !49
+  %566 = load ptr, ptr %565, align 16, !tbaa !49
   %.not.i.i.i.i.i115 = icmp eq ptr %566, null
   br i1 %.not.i.i.i.i.i115, label %_ZN4CGAL6HandleD2Ev.exit.i.i.i118, label %567
 
@@ -6602,7 +6602,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
 
 583:                                              ; preds = %580, %579
   fence acquire
-  %584 = load ptr, ptr %565, align 8, !tbaa !49
+  %584 = load ptr, ptr %565, align 16, !tbaa !49
   %585 = icmp eq ptr %584, null
   br i1 %585, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117, label %586
 
@@ -6614,7 +6614,7 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit114: ; preds = %_ZNSt12_Vecto
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117:       ; preds = %586, %583, %580, %577, %573
-  store ptr null, ptr %565, align 8, !tbaa !49
+  store ptr null, ptr %565, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i.i.i118
 
 _ZN4CGAL6HandleD2Ev.exit.i.i.i118:                ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i117, %563
@@ -23344,7 +23344,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_n
 3:                                                ; preds = %_ZN4CGAL6HandleD2Ev.exit.i, %1
   %4 = phi ptr [ %2, %1 ], [ %5, %_ZN4CGAL6HandleD2Ev.exit.i ]
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 16, !tbaa !49
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %_ZN4CGAL6HandleD2Ev.exit.i, label %7
 
@@ -23381,7 +23381,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_n
 
 23:                                               ; preds = %20, %19
   fence acquire
-  %24 = load ptr, ptr %5, align 8, !tbaa !49
+  %24 = load ptr, ptr %5, align 16, !tbaa !49
   %25 = icmp eq ptr %24, null
   br i1 %25, label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i, label %26
 
@@ -23393,7 +23393,7 @@ define linkonce_odr dso_local void @_ZN5Eigen12DenseStorageIN4CGAL13Lazy_exact_n
   br label %_ZN4CGAL6Handle6decrefEv.exit.i.i.i
 
 _ZN4CGAL6Handle6decrefEv.exit.i.i.i:              ; preds = %26, %23, %20, %17, %13
-  store ptr null, ptr %5, align 8, !tbaa !49
+  store ptr null, ptr %5, align 16, !tbaa !49
   br label %_ZN4CGAL6HandleD2Ev.exit.i
 
 _ZN4CGAL6HandleD2Ev.exit.i:                       ; preds = %_ZN4CGAL6Handle6decrefEv.exit.i.i.i, %3

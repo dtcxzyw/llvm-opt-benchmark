@@ -3966,7 +3966,7 @@ define void @Mf_ObjMergeOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.032.val.i = load i32, ptr %.032.i, align 4, !tbaa !12
   %55 = getelementptr inbounds nuw i8, ptr %.03444.i, i64 16
   %56 = tail call i32 @llvm.fshl.i32(i32 %.032.val.i, i32 %.032.val.i, i32 27)
-  store i32 %56, ptr %55, align 8
+  store i32 %56, ptr %55, align 16
   %57 = getelementptr inbounds nuw i8, ptr %.pn46.i, i64 8
   %58 = and i32 %.032.val.i, 31
   %.not.i.i = icmp eq i32 %58, 0
@@ -3992,7 +3992,7 @@ define void @Mf_ObjMergeOrder(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 Mf_CutGetSign.exit.i:                             ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.pre-phi1097 = phi i64 [ 0, %.lr.ph.i ], [ %wide.trip.count.i.i, %.lr.ph.i.i ]
   %.06.lcssa.i.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %.lr.ph.i.i ]
-  store i64 %.06.lcssa.i.i, ptr %.03444.i, align 8, !tbaa !140
+  store i64 %.06.lcssa.i.i, ptr %.03444.i, align 16, !tbaa !140
   %65 = getelementptr inbounds nuw i8, ptr %.03444.i, i64 20
   %66 = shl nuw nsw i32 %58, 2
   %67 = zext nneg i32 %66 to i64
@@ -4082,7 +4082,7 @@ Mf_ManPrepareCuts.exit:                           ; preds = %42, %._crit_edge.i,
   %.032.val.i184 = load i32, ptr %.032.i183, align 4, !tbaa !12
   %109 = getelementptr inbounds nuw i8, ptr %.03444.i182, i64 16
   %110 = tail call i32 @llvm.fshl.i32(i32 %.032.val.i184, i32 %.032.val.i184, i32 27)
-  store i32 %110, ptr %109, align 8
+  store i32 %110, ptr %109, align 16
   %111 = getelementptr inbounds nuw i8, ptr %.pn46.i180, i64 8
   %112 = and i32 %.032.val.i184, 31
   %.not.i.i187 = icmp eq i32 %112, 0
@@ -4108,7 +4108,7 @@ Mf_ManPrepareCuts.exit:                           ; preds = %42, %._crit_edge.i,
 Mf_CutGetSign.exit.i195:                          ; preds = %.lr.ph.i.i190, %.lr.ph.i179
   %.pre-phi1095 = phi i64 [ 0, %.lr.ph.i179 ], [ %wide.trip.count.i.i189, %.lr.ph.i.i190 ]
   %.06.lcssa.i.i196 = phi i64 [ 0, %.lr.ph.i179 ], [ %118, %.lr.ph.i.i190 ]
-  store i64 %.06.lcssa.i.i196, ptr %.03444.i182, align 8, !tbaa !140
+  store i64 %.06.lcssa.i.i196, ptr %.03444.i182, align 16, !tbaa !140
   %119 = getelementptr inbounds nuw i8, ptr %.03444.i182, i64 20
   %120 = shl nuw nsw i32 %112, 2
   %121 = zext nneg i32 %120 to i64
@@ -4254,7 +4254,7 @@ Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
   %.032.val.i214 = load i32, ptr %.032.i213, align 4, !tbaa !12
   %188 = getelementptr inbounds nuw i8, ptr %.03444.i212, i64 16
   %189 = call i32 @llvm.fshl.i32(i32 %.032.val.i214, i32 %.032.val.i214, i32 27)
-  store i32 %189, ptr %188, align 8
+  store i32 %189, ptr %188, align 16
   %190 = getelementptr inbounds nuw i8, ptr %.pn46.i210, i64 8
   %191 = and i32 %.032.val.i214, 31
   %.not.i.i217 = icmp eq i32 %191, 0
@@ -4280,7 +4280,7 @@ Gia_ObjSiblObj.exit:                              ; preds = %._crit_edge
 Mf_CutGetSign.exit.i225:                          ; preds = %.lr.ph.i.i220, %.lr.ph.i209
   %.pre-phi1093 = phi i64 [ 0, %.lr.ph.i209 ], [ %wide.trip.count.i.i219, %.lr.ph.i.i220 ]
   %.06.lcssa.i.i226 = phi i64 [ 0, %.lr.ph.i209 ], [ %197, %.lr.ph.i.i220 ]
-  store i64 %.06.lcssa.i.i226, ptr %.03444.i212, align 8, !tbaa !140
+  store i64 %.06.lcssa.i.i226, ptr %.03444.i212, align 16, !tbaa !140
   %198 = getelementptr inbounds nuw i8, ptr %.03444.i212, i64 20
   %199 = shl nuw nsw i32 %191, 2
   %200 = zext nneg i32 %199 to i64
@@ -4324,7 +4324,7 @@ Mf_ManPrepareCuts.exit228:                        ; preds = %Mf_CutGetSign.exit.
   %216 = sext i32 %.1146900 to i64
   %217 = getelementptr inbounds [16 x ptr], ptr %21, i64 0, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !143
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %218, ptr noundef nonnull align 8 dereferenceable(64) %.0147899, i64 64, i1 false), !tbaa.struct !146
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %218, ptr noundef nonnull align 16 dereferenceable(64) %.0147899, i64 64, i1 false), !tbaa.struct !146
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = load i32, ptr %219, align 8
   %.masked = and i32 %220, 134217727
@@ -4482,7 +4482,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
   %.032.val.i248 = load i32, ptr %.032.i247, align 4, !tbaa !12
   %296 = getelementptr inbounds nuw i8, ptr %.03444.i246, i64 16
   %297 = call i32 @llvm.fshl.i32(i32 %.032.val.i248, i32 %.032.val.i248, i32 27)
-  store i32 %297, ptr %296, align 8
+  store i32 %297, ptr %296, align 16
   %298 = getelementptr inbounds nuw i8, ptr %.pn46.i244, i64 8
   %299 = and i32 %.032.val.i248, 31
   %.not.i.i251 = icmp eq i32 %299, 0
@@ -4508,7 +4508,7 @@ Gia_ObjFaninId2.exit:                             ; preds = %Gia_ObjIsMuxId.exit
 Mf_CutGetSign.exit.i259:                          ; preds = %.lr.ph.i.i254, %.lr.ph.i243
   %.pre-phi = phi i64 [ 0, %.lr.ph.i243 ], [ %wide.trip.count.i.i253, %.lr.ph.i.i254 ]
   %.06.lcssa.i.i260 = phi i64 [ 0, %.lr.ph.i243 ], [ %305, %.lr.ph.i.i254 ]
-  store i64 %.06.lcssa.i.i260, ptr %.03444.i246, align 8, !tbaa !140
+  store i64 %.06.lcssa.i.i260, ptr %.03444.i246, align 16, !tbaa !140
   %306 = getelementptr inbounds nuw i8, ptr %.03444.i246, i64 20
   %307 = shl nuw nsw i32 %299, 2
   %308 = zext nneg i32 %307 to i64
@@ -4639,10 +4639,10 @@ Gia_ObjFaninC2.exit:                              ; preds = %Mf_ManPrepareCuts.e
 376:                                              ; preds = %Mf_SetAddCut.exit.us.us.us, %.preheader851.us.us.us
   %.0143904.us.us.us = phi ptr [ %23, %.preheader851.us.us.us ], [ %1473, %Mf_SetAddCut.exit.us.us.us ]
   %.4903.us.us.us = phi i32 [ %.3908.us.us.us, %.preheader851.us.us.us ], [ %.5.us.us.us, %Mf_SetAddCut.exit.us.us.us ]
-  %377 = load i64, ptr %.0913.us.us, align 8, !tbaa !140
-  %378 = load i64, ptr %.0141909.us.us.us, align 8, !tbaa !140
+  %377 = load i64, ptr %.0913.us.us, align 16, !tbaa !140
+  %378 = load i64, ptr %.0141909.us.us.us, align 16, !tbaa !140
   %379 = or i64 %378, %377
-  %380 = load i64, ptr %.0143904.us.us.us, align 8, !tbaa !140
+  %380 = load i64, ptr %.0143904.us.us.us, align 16, !tbaa !140
   %381 = or i64 %379, %380
   %382 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %381)
   %383 = trunc nuw nsw i64 %382 to i32
@@ -4656,12 +4656,12 @@ Gia_ObjFaninC2.exit:                              ; preds = %Mf_ManPrepareCuts.e
   %388 = sext i32 %.4903.us.us.us to i64
   %389 = getelementptr inbounds [16 x ptr], ptr %21, i64 0, i64 %388
   %390 = load ptr, ptr %389, align 8, !tbaa !143
-  %391 = load i32, ptr %372, align 8
+  %391 = load i32, ptr %372, align 16
   %392 = lshr i32 %391, 27
-  %393 = load i32, ptr %374, align 8
+  %393 = load i32, ptr %374, align 16
   %394 = lshr i32 %393, 27
   %395 = getelementptr inbounds nuw i8, ptr %.0143904.us.us.us, i64 16
-  %396 = load i32, ptr %395, align 8
+  %396 = load i32, ptr %395, align 16
   %397 = lshr i32 %396, 27
   %398 = getelementptr inbounds nuw i8, ptr %.0143904.us.us.us, i64 20
   %399 = getelementptr inbounds nuw i8, ptr %390, i64 20
@@ -6881,18 +6881,18 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %1516 = shl i64 %indvar1051, 6
   %1517 = getelementptr i8, ptr %19, i64 %1516
   %scevgep1053 = getelementptr i8, ptr %1517, i64 20
-  %1518 = load i32, ptr %1513, align 8
+  %1518 = load i32, ptr %1513, align 16
   %1519 = lshr i32 %1518, 27
   %1520 = getelementptr inbounds nuw i8, ptr %.1142926.us, i64 16
-  %1521 = load i32, ptr %1520, align 8
+  %1521 = load i32, ptr %1520, align 16
   %1522 = lshr i32 %1521, 27
   %1523 = add nuw nsw i32 %1522, %1519
   %1524 = icmp sgt i32 %1523, %33
   br i1 %1524, label %1525, label %1532
 
 1525:                                             ; preds = %1515
-  %1526 = load i64, ptr %.1931.us, align 8, !tbaa !140
-  %1527 = load i64, ptr %.1142926.us, align 8, !tbaa !140
+  %1526 = load i64, ptr %.1931.us, align 16, !tbaa !140
+  %1527 = load i64, ptr %.1142926.us, align 16, !tbaa !140
   %1528 = or i64 %1527, %1526
   %1529 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1528)
   %1530 = trunc nuw nsw i64 %1529 to i32
@@ -7062,8 +7062,8 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %1598 = shl i32 %.5.lcssa.sink.i.us.fr, 27
   %1599 = or disjoint i32 %1598, 134217727
   store i32 %1599, ptr %1597, align 8
-  %1600 = load i64, ptr %.1931.us, align 8, !tbaa !140
-  %1601 = load i64, ptr %.1142926.us, align 8, !tbaa !140
+  %1600 = load i64, ptr %.1931.us, align 16, !tbaa !140
+  %1601 = load i64, ptr %.1142926.us, align 16, !tbaa !140
   %1602 = or i64 %1601, %1600
   store i64 %1602, ptr %1537, align 8, !tbaa !140
   %1603 = icmp sgt i32 %.8922.us, 0

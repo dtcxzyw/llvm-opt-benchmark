@@ -502,10 +502,10 @@ recognized_connection_string.exit.thread.i:       ; preds = %recognized_connecti
 .preheader30.i.i:                                 ; preds = %.critedge.i, %.preheader30.i.i
   %.02732.i.i = phi ptr [ %31, %.preheader30.i.i ], [ %29, %.critedge.i ]
   %.02831.i.i = phi ptr [ %32, %.preheader30.i.i ], [ @PQconninfoOptions, %.critedge.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.02831.i.i, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i.i, ptr noundef nonnull align 16 dereferenceable(56) %.02831.i.i, i64 56, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %.02732.i.i, i64 56
   %32 = getelementptr inbounds nuw i8, ptr %.02831.i.i, i64 64
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 16
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %conninfo_init.exit.i, label %.preheader30.i.i, !llvm.loop !5
 
@@ -868,7 +868,7 @@ conninfo_getval.exit.i:                           ; preds = %.lr.ph.i.i.i
 
 .critedge24.i:                                    ; preds = %145, %150, %conninfo_getval.exit.i, %140, %conninfo_array_parse.exit
   %154 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 64
-  %155 = load ptr, ptr %154, align 8
+  %155 = load ptr, ptr %154, align 16
   %.not.i20 = icmp eq ptr %155, null
   br i1 %.not.i20, label %.preheader.i24, label %conninfo_array_parse.exit, !llvm.loop !12
 
@@ -3262,7 +3262,7 @@ conninfo_getval.exit.i:                           ; preds = %.lr.ph.i.i.i
 
 .critedge24.i:                                    ; preds = %17, %22, %conninfo_getval.exit.i, %12, %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 64
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 16
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %.preheader.i12, label %.preheader, !llvm.loop !12
 
@@ -3353,7 +3353,7 @@ define noundef zeroext i1 @pqCopyPGconn(ptr noundef readonly captures(none) %0, 
 
 .critedge26:                                      ; preds = %7, %14, %3
   %18 = getelementptr inbounds nuw i8, ptr %.01929, i64 64
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 16
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.loopexit, label %3, !llvm.loop !29
 
@@ -3570,10 +3570,10 @@ define noundef ptr @PQconndefaults() local_unnamed_addr #0 {
 .preheader30.i:                                   ; preds = %5, %.preheader30.i
   %.02732.i = phi ptr [ %8, %.preheader30.i ], [ %6, %5 ]
   %.02831.i = phi ptr [ %9, %.preheader30.i ], [ @PQconninfoOptions, %5 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i, ptr noundef nonnull align 8 dereferenceable(56) %.02831.i, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i, ptr noundef nonnull align 16 dereferenceable(56) %.02831.i, i64 56, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %.02732.i, i64 56
   %9 = getelementptr inbounds nuw i8, ptr %.02831.i, i64 64
-  %10 = load ptr, ptr %9, align 8
+  %10 = load ptr, ptr %9, align 16
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %.preheader30.i, !llvm.loop !5
 
@@ -7313,10 +7313,10 @@ select.unfold:                                    ; preds = %8, %3
 .preheader30.i.i:                                 ; preds = %select.unfold, %.preheader30.i.i
   %.02732.i.i = phi ptr [ %13, %.preheader30.i.i ], [ %11, %select.unfold ]
   %.02831.i.i = phi ptr [ %14, %.preheader30.i.i ], [ @PQconninfoOptions, %select.unfold ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.02831.i.i, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i.i, ptr noundef nonnull align 16 dereferenceable(56) %.02831.i.i, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %.02732.i.i, i64 56
   %14 = getelementptr inbounds nuw i8, ptr %.02831.i.i, i64 64
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 16
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %16, label %.preheader30.i.i, !llvm.loop !5
 
@@ -7782,10 +7782,10 @@ uri_prefix_length.exit:                           ; preds = %8
 .preheader30.i.i8:                                ; preds = %uri_prefix_length.exit, %.preheader30.i.i8
   %.02732.i.i9 = phi ptr [ %160, %.preheader30.i.i8 ], [ %158, %uri_prefix_length.exit ]
   %.02831.i.i10 = phi ptr [ %161, %.preheader30.i.i8 ], [ @PQconninfoOptions, %uri_prefix_length.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i.i9, ptr noundef nonnull align 8 dereferenceable(56) %.02831.i.i10, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i.i9, ptr noundef nonnull align 16 dereferenceable(56) %.02831.i.i10, i64 56, i1 false)
   %160 = getelementptr inbounds nuw i8, ptr %.02732.i.i9, i64 56
   %161 = getelementptr inbounds nuw i8, ptr %.02831.i.i10, i64 64
-  %162 = load ptr, ptr %161, align 8
+  %162 = load ptr, ptr %161, align 16
   %.not.i.i11 = icmp eq ptr %162, null
   br i1 %.not.i.i11, label %163, label %.preheader30.i.i8, !llvm.loop !5
 
@@ -8114,10 +8114,10 @@ conninfo_init.exit.thread:                        ; preds = %8
 .preheader30.i:                                   ; preds = %8, %.preheader30.i
   %.02732.i = phi ptr [ %11, %.preheader30.i ], [ %9, %8 ]
   %.02831.i = phi ptr [ %12, %.preheader30.i ], [ @PQconninfoOptions, %8 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i, ptr noundef nonnull align 8 dereferenceable(56) %.02831.i, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02732.i, ptr noundef nonnull align 16 dereferenceable(56) %.02831.i, i64 56, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %.02732.i, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %.02831.i, i64 64
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 16
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %conninfo_init.exit, label %.preheader30.i, !llvm.loop !5
 
@@ -8188,7 +8188,7 @@ conninfo_find.exit.i:                             ; preds = %.lr.ph.i.i
 
 conninfo_storeval.exit:                           ; preds = %33, %39, %38, %28, %19, %14
   %42 = getelementptr inbounds nuw i8, ptr %.01322, i64 64
-  %43 = load ptr, ptr %42, align 8
+  %43 = load ptr, ptr %42, align 16
   %.not19 = icmp eq ptr %43, null
   br i1 %.not19, label %.loopexit, label %14, !llvm.loop !52
 

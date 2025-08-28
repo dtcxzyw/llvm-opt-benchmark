@@ -362,7 +362,7 @@ define hidden noundef zeroext i1 @SDL_WAYLAND_LoadSymbols() local_unnamed_addr #
 
 .lr.ph.i:                                         ; preds = %10, %15
   %.020.i = phi ptr [ %16, %15 ], [ @waylandlibs, %10 ]
-  %12 = load ptr, ptr %.020.i, align 8
+  %12 = load ptr, ptr %.020.i, align 16
   %.not14.i = icmp eq ptr %12, null
   br i1 %.not14.i, label %15, label %13
 
@@ -391,7 +391,7 @@ WAYLAND_GetSym.exit:                              ; preds = %13, %._crit_edge.i
 
 .lr.ph.i103:                                      ; preds = %WAYLAND_GetSym.exit, %23
   %.020.i104 = phi ptr [ %24, %23 ], [ @waylandlibs, %WAYLAND_GetSym.exit ]
-  %20 = load ptr, ptr %.020.i104, align 8
+  %20 = load ptr, ptr %.020.i104, align 16
   %.not14.i105 = icmp eq ptr %20, null
   br i1 %.not14.i105, label %23, label %21
 
@@ -420,7 +420,7 @@ WAYLAND_GetSym.exit110:                           ; preds = %21, %._crit_edge.i1
 
 .lr.ph.i112:                                      ; preds = %WAYLAND_GetSym.exit110, %31
   %.020.i113 = phi ptr [ %32, %31 ], [ @waylandlibs, %WAYLAND_GetSym.exit110 ]
-  %28 = load ptr, ptr %.020.i113, align 8
+  %28 = load ptr, ptr %.020.i113, align 16
   %.not14.i114 = icmp eq ptr %28, null
   br i1 %.not14.i114, label %31, label %29
 
@@ -449,7 +449,7 @@ WAYLAND_GetSym.exit119:                           ; preds = %29, %._crit_edge.i1
 
 .lr.ph.i121:                                      ; preds = %WAYLAND_GetSym.exit119, %39
   %.020.i122 = phi ptr [ %40, %39 ], [ @waylandlibs, %WAYLAND_GetSym.exit119 ]
-  %36 = load ptr, ptr %.020.i122, align 8
+  %36 = load ptr, ptr %.020.i122, align 16
   %.not14.i123 = icmp eq ptr %36, null
   br i1 %.not14.i123, label %39, label %37
 
@@ -478,7 +478,7 @@ WAYLAND_GetSym.exit128:                           ; preds = %37, %._crit_edge.i1
 
 .lr.ph.i130:                                      ; preds = %WAYLAND_GetSym.exit128, %47
   %.020.i131 = phi ptr [ %48, %47 ], [ @waylandlibs, %WAYLAND_GetSym.exit128 ]
-  %44 = load ptr, ptr %.020.i131, align 8
+  %44 = load ptr, ptr %.020.i131, align 16
   %.not14.i132 = icmp eq ptr %44, null
   br i1 %.not14.i132, label %47, label %45
 
@@ -507,7 +507,7 @@ WAYLAND_GetSym.exit137:                           ; preds = %45, %._crit_edge.i1
 
 .lr.ph.i139:                                      ; preds = %WAYLAND_GetSym.exit137, %55
   %.020.i140 = phi ptr [ %56, %55 ], [ @waylandlibs, %WAYLAND_GetSym.exit137 ]
-  %52 = load ptr, ptr %.020.i140, align 8
+  %52 = load ptr, ptr %.020.i140, align 16
   %.not14.i141 = icmp eq ptr %52, null
   br i1 %.not14.i141, label %55, label %53
 
@@ -536,7 +536,7 @@ WAYLAND_GetSym.exit146:                           ; preds = %53, %._crit_edge.i1
 
 .lr.ph.i148:                                      ; preds = %WAYLAND_GetSym.exit146, %63
   %.020.i149 = phi ptr [ %64, %63 ], [ @waylandlibs, %WAYLAND_GetSym.exit146 ]
-  %60 = load ptr, ptr %.020.i149, align 8
+  %60 = load ptr, ptr %.020.i149, align 16
   %.not14.i150 = icmp eq ptr %60, null
   br i1 %.not14.i150, label %63, label %61
 
@@ -565,7 +565,7 @@ WAYLAND_GetSym.exit155:                           ; preds = %61, %._crit_edge.i1
 
 .lr.ph.i157:                                      ; preds = %WAYLAND_GetSym.exit155, %71
   %.020.i158 = phi ptr [ %72, %71 ], [ @waylandlibs, %WAYLAND_GetSym.exit155 ]
-  %68 = load ptr, ptr %.020.i158, align 8
+  %68 = load ptr, ptr %.020.i158, align 16
   %.not14.i159 = icmp eq ptr %68, null
   br i1 %.not14.i159, label %71, label %69
 
@@ -594,7 +594,7 @@ WAYLAND_GetSym.exit164:                           ; preds = %69, %._crit_edge.i1
 
 .lr.ph.i166:                                      ; preds = %WAYLAND_GetSym.exit164, %79
   %.020.i167 = phi ptr [ %80, %79 ], [ @waylandlibs, %WAYLAND_GetSym.exit164 ]
-  %76 = load ptr, ptr %.020.i167, align 8
+  %76 = load ptr, ptr %.020.i167, align 16
   %.not14.i168 = icmp eq ptr %76, null
   br i1 %.not14.i168, label %79, label %77
 
@@ -623,7 +623,7 @@ WAYLAND_GetSym.exit173:                           ; preds = %77, %._crit_edge.i1
 
 .lr.ph.i175:                                      ; preds = %WAYLAND_GetSym.exit173, %87
   %.020.i176 = phi ptr [ %88, %87 ], [ @waylandlibs, %WAYLAND_GetSym.exit173 ]
-  %84 = load ptr, ptr %.020.i176, align 8
+  %84 = load ptr, ptr %.020.i176, align 16
   %.not14.i177 = icmp eq ptr %84, null
   br i1 %.not14.i177, label %87, label %85
 
@@ -652,7 +652,7 @@ WAYLAND_GetSym.exit182:                           ; preds = %85, %._crit_edge.i1
 
 .lr.ph.i184:                                      ; preds = %WAYLAND_GetSym.exit182, %95
   %.020.i185 = phi ptr [ %96, %95 ], [ @waylandlibs, %WAYLAND_GetSym.exit182 ]
-  %92 = load ptr, ptr %.020.i185, align 8
+  %92 = load ptr, ptr %.020.i185, align 16
   %.not14.i186 = icmp eq ptr %92, null
   br i1 %.not14.i186, label %95, label %93
 
@@ -681,7 +681,7 @@ WAYLAND_GetSym.exit191:                           ; preds = %93, %._crit_edge.i1
 
 .lr.ph.i193:                                      ; preds = %WAYLAND_GetSym.exit191, %103
   %.020.i194 = phi ptr [ %104, %103 ], [ @waylandlibs, %WAYLAND_GetSym.exit191 ]
-  %100 = load ptr, ptr %.020.i194, align 8
+  %100 = load ptr, ptr %.020.i194, align 16
   %.not14.i195 = icmp eq ptr %100, null
   br i1 %.not14.i195, label %103, label %101
 
@@ -710,7 +710,7 @@ WAYLAND_GetSym.exit200:                           ; preds = %101, %._crit_edge.i
 
 .lr.ph.i202:                                      ; preds = %WAYLAND_GetSym.exit200, %111
   %.020.i203 = phi ptr [ %112, %111 ], [ @waylandlibs, %WAYLAND_GetSym.exit200 ]
-  %108 = load ptr, ptr %.020.i203, align 8
+  %108 = load ptr, ptr %.020.i203, align 16
   %.not14.i204 = icmp eq ptr %108, null
   br i1 %.not14.i204, label %111, label %109
 
@@ -739,7 +739,7 @@ WAYLAND_GetSym.exit209:                           ; preds = %109, %._crit_edge.i
 
 .lr.ph.i211:                                      ; preds = %WAYLAND_GetSym.exit209, %119
   %.020.i212 = phi ptr [ %120, %119 ], [ @waylandlibs, %WAYLAND_GetSym.exit209 ]
-  %116 = load ptr, ptr %.020.i212, align 8
+  %116 = load ptr, ptr %.020.i212, align 16
   %.not14.i213 = icmp eq ptr %116, null
   br i1 %.not14.i213, label %119, label %117
 
@@ -768,7 +768,7 @@ WAYLAND_GetSym.exit218:                           ; preds = %117, %._crit_edge.i
 
 .lr.ph.i220:                                      ; preds = %WAYLAND_GetSym.exit218, %127
   %.020.i221 = phi ptr [ %128, %127 ], [ @waylandlibs, %WAYLAND_GetSym.exit218 ]
-  %124 = load ptr, ptr %.020.i221, align 8
+  %124 = load ptr, ptr %.020.i221, align 16
   %.not14.i222 = icmp eq ptr %124, null
   br i1 %.not14.i222, label %127, label %125
 
@@ -797,7 +797,7 @@ WAYLAND_GetSym.exit227:                           ; preds = %125, %._crit_edge.i
 
 .lr.ph.i229:                                      ; preds = %WAYLAND_GetSym.exit227, %135
   %.020.i230 = phi ptr [ %136, %135 ], [ @waylandlibs, %WAYLAND_GetSym.exit227 ]
-  %132 = load ptr, ptr %.020.i230, align 8
+  %132 = load ptr, ptr %.020.i230, align 16
   %.not14.i231 = icmp eq ptr %132, null
   br i1 %.not14.i231, label %135, label %133
 
@@ -826,7 +826,7 @@ WAYLAND_GetSym.exit236:                           ; preds = %133, %._crit_edge.i
 
 .lr.ph.i238:                                      ; preds = %WAYLAND_GetSym.exit236, %143
   %.020.i239 = phi ptr [ %144, %143 ], [ @waylandlibs, %WAYLAND_GetSym.exit236 ]
-  %140 = load ptr, ptr %.020.i239, align 8
+  %140 = load ptr, ptr %.020.i239, align 16
   %.not14.i240 = icmp eq ptr %140, null
   br i1 %.not14.i240, label %143, label %141
 
@@ -855,7 +855,7 @@ WAYLAND_GetSym.exit245:                           ; preds = %141, %._crit_edge.i
 
 .lr.ph.i247:                                      ; preds = %WAYLAND_GetSym.exit245, %151
   %.020.i248 = phi ptr [ %152, %151 ], [ @waylandlibs, %WAYLAND_GetSym.exit245 ]
-  %148 = load ptr, ptr %.020.i248, align 8
+  %148 = load ptr, ptr %.020.i248, align 16
   %.not14.i249 = icmp eq ptr %148, null
   br i1 %.not14.i249, label %151, label %149
 
@@ -884,7 +884,7 @@ WAYLAND_GetSym.exit254:                           ; preds = %149, %._crit_edge.i
 
 .lr.ph.i256:                                      ; preds = %WAYLAND_GetSym.exit254, %159
   %.020.i257 = phi ptr [ %160, %159 ], [ @waylandlibs, %WAYLAND_GetSym.exit254 ]
-  %156 = load ptr, ptr %.020.i257, align 8
+  %156 = load ptr, ptr %.020.i257, align 16
   %.not14.i258 = icmp eq ptr %156, null
   br i1 %.not14.i258, label %159, label %157
 
@@ -913,7 +913,7 @@ WAYLAND_GetSym.exit263:                           ; preds = %157, %._crit_edge.i
 
 .lr.ph.i265:                                      ; preds = %WAYLAND_GetSym.exit263, %167
   %.020.i266 = phi ptr [ %168, %167 ], [ @waylandlibs, %WAYLAND_GetSym.exit263 ]
-  %164 = load ptr, ptr %.020.i266, align 8
+  %164 = load ptr, ptr %.020.i266, align 16
   %.not14.i267 = icmp eq ptr %164, null
   br i1 %.not14.i267, label %167, label %165
 
@@ -942,7 +942,7 @@ WAYLAND_GetSym.exit272:                           ; preds = %165, %._crit_edge.i
 
 .lr.ph.i274:                                      ; preds = %WAYLAND_GetSym.exit272, %175
   %.020.i275 = phi ptr [ %176, %175 ], [ @waylandlibs, %WAYLAND_GetSym.exit272 ]
-  %172 = load ptr, ptr %.020.i275, align 8
+  %172 = load ptr, ptr %.020.i275, align 16
   %.not14.i276 = icmp eq ptr %172, null
   br i1 %.not14.i276, label %175, label %173
 
@@ -971,7 +971,7 @@ WAYLAND_GetSym.exit281:                           ; preds = %173, %._crit_edge.i
 
 .lr.ph.i283:                                      ; preds = %WAYLAND_GetSym.exit281, %183
   %.020.i284 = phi ptr [ %184, %183 ], [ @waylandlibs, %WAYLAND_GetSym.exit281 ]
-  %180 = load ptr, ptr %.020.i284, align 8
+  %180 = load ptr, ptr %.020.i284, align 16
   %.not14.i285 = icmp eq ptr %180, null
   br i1 %.not14.i285, label %183, label %181
 
@@ -1000,7 +1000,7 @@ WAYLAND_GetSym.exit290:                           ; preds = %181, %._crit_edge.i
 
 .lr.ph.i292:                                      ; preds = %WAYLAND_GetSym.exit290, %191
   %.020.i293 = phi ptr [ %192, %191 ], [ @waylandlibs, %WAYLAND_GetSym.exit290 ]
-  %188 = load ptr, ptr %.020.i293, align 8
+  %188 = load ptr, ptr %.020.i293, align 16
   %.not14.i294 = icmp eq ptr %188, null
   br i1 %.not14.i294, label %191, label %189
 
@@ -1029,7 +1029,7 @@ WAYLAND_GetSym.exit299:                           ; preds = %189, %._crit_edge.i
 
 .lr.ph.i301:                                      ; preds = %WAYLAND_GetSym.exit299, %199
   %.020.i302 = phi ptr [ %200, %199 ], [ @waylandlibs, %WAYLAND_GetSym.exit299 ]
-  %196 = load ptr, ptr %.020.i302, align 8
+  %196 = load ptr, ptr %.020.i302, align 16
   %.not14.i303 = icmp eq ptr %196, null
   br i1 %.not14.i303, label %199, label %197
 
@@ -1058,7 +1058,7 @@ WAYLAND_GetSym.exit308:                           ; preds = %197, %._crit_edge.i
 
 .lr.ph.i310:                                      ; preds = %WAYLAND_GetSym.exit308, %207
   %.020.i311 = phi ptr [ %208, %207 ], [ @waylandlibs, %WAYLAND_GetSym.exit308 ]
-  %204 = load ptr, ptr %.020.i311, align 8
+  %204 = load ptr, ptr %.020.i311, align 16
   %.not14.i312 = icmp eq ptr %204, null
   br i1 %.not14.i312, label %207, label %205
 
@@ -1087,7 +1087,7 @@ WAYLAND_GetSym.exit317:                           ; preds = %205, %._crit_edge.i
 
 .lr.ph.i319:                                      ; preds = %WAYLAND_GetSym.exit317, %215
   %.020.i320 = phi ptr [ %216, %215 ], [ @waylandlibs, %WAYLAND_GetSym.exit317 ]
-  %212 = load ptr, ptr %.020.i320, align 8
+  %212 = load ptr, ptr %.020.i320, align 16
   %.not14.i321 = icmp eq ptr %212, null
   br i1 %.not14.i321, label %215, label %213
 
@@ -1116,7 +1116,7 @@ WAYLAND_GetSym.exit326:                           ; preds = %213, %._crit_edge.i
 
 .lr.ph.i328:                                      ; preds = %WAYLAND_GetSym.exit326, %223
   %.020.i329 = phi ptr [ %224, %223 ], [ @waylandlibs, %WAYLAND_GetSym.exit326 ]
-  %220 = load ptr, ptr %.020.i329, align 8
+  %220 = load ptr, ptr %.020.i329, align 16
   %.not14.i330 = icmp eq ptr %220, null
   br i1 %.not14.i330, label %223, label %221
 
@@ -1145,7 +1145,7 @@ WAYLAND_GetSym.exit335:                           ; preds = %221, %._crit_edge.i
 
 .lr.ph.i337:                                      ; preds = %WAYLAND_GetSym.exit335, %231
   %.020.i338 = phi ptr [ %232, %231 ], [ @waylandlibs, %WAYLAND_GetSym.exit335 ]
-  %228 = load ptr, ptr %.020.i338, align 8
+  %228 = load ptr, ptr %.020.i338, align 16
   %.not14.i339 = icmp eq ptr %228, null
   br i1 %.not14.i339, label %231, label %229
 
@@ -1174,7 +1174,7 @@ WAYLAND_GetSym.exit344:                           ; preds = %229, %._crit_edge.i
 
 .lr.ph.i346:                                      ; preds = %WAYLAND_GetSym.exit344, %239
   %.020.i347 = phi ptr [ %240, %239 ], [ @waylandlibs, %WAYLAND_GetSym.exit344 ]
-  %236 = load ptr, ptr %.020.i347, align 8
+  %236 = load ptr, ptr %.020.i347, align 16
   %.not14.i348 = icmp eq ptr %236, null
   br i1 %.not14.i348, label %239, label %237
 
@@ -1203,7 +1203,7 @@ WAYLAND_GetSym.exit353:                           ; preds = %237, %._crit_edge.i
 
 .lr.ph.i355:                                      ; preds = %WAYLAND_GetSym.exit353, %247
   %.020.i356 = phi ptr [ %248, %247 ], [ @waylandlibs, %WAYLAND_GetSym.exit353 ]
-  %244 = load ptr, ptr %.020.i356, align 8
+  %244 = load ptr, ptr %.020.i356, align 16
   %.not14.i357 = icmp eq ptr %244, null
   br i1 %.not14.i357, label %247, label %245
 
@@ -1232,7 +1232,7 @@ WAYLAND_GetSym.exit362:                           ; preds = %245, %._crit_edge.i
 
 .lr.ph.i364:                                      ; preds = %WAYLAND_GetSym.exit362, %255
   %.020.i365 = phi ptr [ %256, %255 ], [ @waylandlibs, %WAYLAND_GetSym.exit362 ]
-  %252 = load ptr, ptr %.020.i365, align 8
+  %252 = load ptr, ptr %.020.i365, align 16
   %.not14.i366 = icmp eq ptr %252, null
   br i1 %.not14.i366, label %255, label %253
 
@@ -1261,7 +1261,7 @@ WAYLAND_GetSym.exit371:                           ; preds = %253, %._crit_edge.i
 
 .lr.ph.i373:                                      ; preds = %WAYLAND_GetSym.exit371, %263
   %.020.i374 = phi ptr [ %264, %263 ], [ @waylandlibs, %WAYLAND_GetSym.exit371 ]
-  %260 = load ptr, ptr %.020.i374, align 8
+  %260 = load ptr, ptr %.020.i374, align 16
   %.not14.i375 = icmp eq ptr %260, null
   br i1 %.not14.i375, label %263, label %261
 
@@ -1290,7 +1290,7 @@ WAYLAND_GetSym.exit380:                           ; preds = %261, %._crit_edge.i
 
 .lr.ph.i382:                                      ; preds = %WAYLAND_GetSym.exit380, %271
   %.020.i383 = phi ptr [ %272, %271 ], [ @waylandlibs, %WAYLAND_GetSym.exit380 ]
-  %268 = load ptr, ptr %.020.i383, align 8
+  %268 = load ptr, ptr %.020.i383, align 16
   %.not14.i384 = icmp eq ptr %268, null
   br i1 %.not14.i384, label %271, label %269
 
@@ -1319,7 +1319,7 @@ WAYLAND_GetSym.exit389:                           ; preds = %269, %._crit_edge.i
 
 .lr.ph.i391:                                      ; preds = %WAYLAND_GetSym.exit389, %279
   %.020.i392 = phi ptr [ %280, %279 ], [ @waylandlibs, %WAYLAND_GetSym.exit389 ]
-  %276 = load ptr, ptr %.020.i392, align 8
+  %276 = load ptr, ptr %.020.i392, align 16
   %.not14.i393 = icmp eq ptr %276, null
   br i1 %.not14.i393, label %279, label %277
 
@@ -1348,7 +1348,7 @@ WAYLAND_GetSym.exit398:                           ; preds = %277, %._crit_edge.i
 
 .lr.ph.i400:                                      ; preds = %WAYLAND_GetSym.exit398, %287
   %.020.i401 = phi ptr [ %288, %287 ], [ @waylandlibs, %WAYLAND_GetSym.exit398 ]
-  %284 = load ptr, ptr %.020.i401, align 8
+  %284 = load ptr, ptr %.020.i401, align 16
   %.not14.i402 = icmp eq ptr %284, null
   br i1 %.not14.i402, label %287, label %285
 
@@ -1377,7 +1377,7 @@ WAYLAND_GetSym.exit407:                           ; preds = %285, %._crit_edge.i
 
 .lr.ph.i409:                                      ; preds = %WAYLAND_GetSym.exit407, %295
   %.020.i410 = phi ptr [ %296, %295 ], [ @waylandlibs, %WAYLAND_GetSym.exit407 ]
-  %292 = load ptr, ptr %.020.i410, align 8
+  %292 = load ptr, ptr %.020.i410, align 16
   %.not14.i411 = icmp eq ptr %292, null
   br i1 %.not14.i411, label %295, label %293
 
@@ -1406,7 +1406,7 @@ WAYLAND_GetSym.exit416:                           ; preds = %293, %._crit_edge.i
 
 .lr.ph.i418:                                      ; preds = %WAYLAND_GetSym.exit416, %303
   %.020.i419 = phi ptr [ %304, %303 ], [ @waylandlibs, %WAYLAND_GetSym.exit416 ]
-  %300 = load ptr, ptr %.020.i419, align 8
+  %300 = load ptr, ptr %.020.i419, align 16
   %.not14.i420 = icmp eq ptr %300, null
   br i1 %.not14.i420, label %303, label %301
 
@@ -1435,7 +1435,7 @@ WAYLAND_GetSym.exit425:                           ; preds = %301, %._crit_edge.i
 
 .lr.ph.i427:                                      ; preds = %WAYLAND_GetSym.exit425, %311
   %.020.i428 = phi ptr [ %312, %311 ], [ @waylandlibs, %WAYLAND_GetSym.exit425 ]
-  %308 = load ptr, ptr %.020.i428, align 8
+  %308 = load ptr, ptr %.020.i428, align 16
   %.not14.i429 = icmp eq ptr %308, null
   br i1 %.not14.i429, label %311, label %309
 
@@ -1464,7 +1464,7 @@ WAYLAND_GetSym.exit434:                           ; preds = %309, %._crit_edge.i
 
 .lr.ph.i436:                                      ; preds = %WAYLAND_GetSym.exit434, %319
   %.020.i437 = phi ptr [ %320, %319 ], [ @waylandlibs, %WAYLAND_GetSym.exit434 ]
-  %316 = load ptr, ptr %.020.i437, align 8
+  %316 = load ptr, ptr %.020.i437, align 16
   %.not14.i438 = icmp eq ptr %316, null
   br i1 %.not14.i438, label %319, label %317
 
@@ -1493,7 +1493,7 @@ WAYLAND_GetSym.exit443:                           ; preds = %317, %._crit_edge.i
 
 .lr.ph.i445:                                      ; preds = %WAYLAND_GetSym.exit443, %327
   %.020.i446 = phi ptr [ %328, %327 ], [ @waylandlibs, %WAYLAND_GetSym.exit443 ]
-  %324 = load ptr, ptr %.020.i446, align 8
+  %324 = load ptr, ptr %.020.i446, align 16
   %.not14.i447 = icmp eq ptr %324, null
   br i1 %.not14.i447, label %327, label %325
 
@@ -1522,7 +1522,7 @@ WAYLAND_GetSym.exit452:                           ; preds = %325, %._crit_edge.i
 
 .lr.ph.i454:                                      ; preds = %WAYLAND_GetSym.exit452, %335
   %.020.i455 = phi ptr [ %336, %335 ], [ @waylandlibs, %WAYLAND_GetSym.exit452 ]
-  %332 = load ptr, ptr %.020.i455, align 8
+  %332 = load ptr, ptr %.020.i455, align 16
   %.not14.i456 = icmp eq ptr %332, null
   br i1 %.not14.i456, label %335, label %333
 
@@ -1551,7 +1551,7 @@ WAYLAND_GetSym.exit461:                           ; preds = %333, %._crit_edge.i
 
 .lr.ph.i463:                                      ; preds = %WAYLAND_GetSym.exit461, %343
   %.020.i464 = phi ptr [ %344, %343 ], [ @waylandlibs, %WAYLAND_GetSym.exit461 ]
-  %340 = load ptr, ptr %.020.i464, align 8
+  %340 = load ptr, ptr %.020.i464, align 16
   %.not14.i465 = icmp eq ptr %340, null
   br i1 %.not14.i465, label %343, label %341
 
@@ -1580,7 +1580,7 @@ WAYLAND_GetSym.exit470:                           ; preds = %341, %._crit_edge.i
 
 .lr.ph.i472:                                      ; preds = %WAYLAND_GetSym.exit470, %351
   %.020.i473 = phi ptr [ %352, %351 ], [ @waylandlibs, %WAYLAND_GetSym.exit470 ]
-  %348 = load ptr, ptr %.020.i473, align 8
+  %348 = load ptr, ptr %.020.i473, align 16
   %.not14.i474 = icmp eq ptr %348, null
   br i1 %.not14.i474, label %351, label %349
 
@@ -1609,7 +1609,7 @@ WAYLAND_GetSym.exit479:                           ; preds = %349, %._crit_edge.i
 
 .lr.ph.i481:                                      ; preds = %WAYLAND_GetSym.exit479, %359
   %.020.i482 = phi ptr [ %360, %359 ], [ @waylandlibs, %WAYLAND_GetSym.exit479 ]
-  %356 = load ptr, ptr %.020.i482, align 8
+  %356 = load ptr, ptr %.020.i482, align 16
   %.not14.i483 = icmp eq ptr %356, null
   br i1 %.not14.i483, label %359, label %357
 
@@ -1638,7 +1638,7 @@ WAYLAND_GetSym.exit488:                           ; preds = %357, %._crit_edge.i
 
 .lr.ph.i490:                                      ; preds = %WAYLAND_GetSym.exit488, %367
   %.020.i491 = phi ptr [ %368, %367 ], [ @waylandlibs, %WAYLAND_GetSym.exit488 ]
-  %364 = load ptr, ptr %.020.i491, align 8
+  %364 = load ptr, ptr %.020.i491, align 16
   %.not14.i492 = icmp eq ptr %364, null
   br i1 %.not14.i492, label %367, label %365
 
@@ -1667,7 +1667,7 @@ WAYLAND_GetSym.exit497:                           ; preds = %365, %._crit_edge.i
 
 .lr.ph.i499:                                      ; preds = %WAYLAND_GetSym.exit497, %375
   %.020.i500 = phi ptr [ %376, %375 ], [ @waylandlibs, %WAYLAND_GetSym.exit497 ]
-  %372 = load ptr, ptr %.020.i500, align 8
+  %372 = load ptr, ptr %.020.i500, align 16
   %.not14.i501 = icmp eq ptr %372, null
   br i1 %.not14.i501, label %375, label %373
 
@@ -1696,7 +1696,7 @@ WAYLAND_GetSym.exit506:                           ; preds = %373, %._crit_edge.i
 
 .lr.ph.i508:                                      ; preds = %WAYLAND_GetSym.exit506, %383
   %.020.i509 = phi ptr [ %384, %383 ], [ @waylandlibs, %WAYLAND_GetSym.exit506 ]
-  %380 = load ptr, ptr %.020.i509, align 8
+  %380 = load ptr, ptr %.020.i509, align 16
   %.not14.i510 = icmp eq ptr %380, null
   br i1 %.not14.i510, label %383, label %381
 
@@ -1725,7 +1725,7 @@ WAYLAND_GetSym.exit515:                           ; preds = %381, %._crit_edge.i
 
 .lr.ph.i517:                                      ; preds = %WAYLAND_GetSym.exit515, %391
   %.020.i518 = phi ptr [ %392, %391 ], [ @waylandlibs, %WAYLAND_GetSym.exit515 ]
-  %388 = load ptr, ptr %.020.i518, align 8
+  %388 = load ptr, ptr %.020.i518, align 16
   %.not14.i519 = icmp eq ptr %388, null
   br i1 %.not14.i519, label %391, label %389
 
@@ -1754,7 +1754,7 @@ WAYLAND_GetSym.exit524:                           ; preds = %389, %._crit_edge.i
 
 .lr.ph.i526:                                      ; preds = %WAYLAND_GetSym.exit524, %399
   %.020.i527 = phi ptr [ %400, %399 ], [ @waylandlibs, %WAYLAND_GetSym.exit524 ]
-  %396 = load ptr, ptr %.020.i527, align 8
+  %396 = load ptr, ptr %.020.i527, align 16
   %.not14.i528 = icmp eq ptr %396, null
   br i1 %.not14.i528, label %399, label %397
 
@@ -1783,7 +1783,7 @@ WAYLAND_GetSym.exit533:                           ; preds = %397, %._crit_edge.i
 
 .lr.ph.i535:                                      ; preds = %WAYLAND_GetSym.exit533, %407
   %.020.i536 = phi ptr [ %408, %407 ], [ @waylandlibs, %WAYLAND_GetSym.exit533 ]
-  %404 = load ptr, ptr %.020.i536, align 8
+  %404 = load ptr, ptr %.020.i536, align 16
   %.not14.i537 = icmp eq ptr %404, null
   br i1 %.not14.i537, label %407, label %405
 
@@ -1812,7 +1812,7 @@ WAYLAND_GetSym.exit542:                           ; preds = %405, %._crit_edge.i
 
 .lr.ph.i544:                                      ; preds = %WAYLAND_GetSym.exit542, %415
   %.020.i545 = phi ptr [ %416, %415 ], [ @waylandlibs, %WAYLAND_GetSym.exit542 ]
-  %412 = load ptr, ptr %.020.i545, align 8
+  %412 = load ptr, ptr %.020.i545, align 16
   %.not14.i546 = icmp eq ptr %412, null
   br i1 %.not14.i546, label %415, label %413
 
@@ -1841,7 +1841,7 @@ WAYLAND_GetSym.exit551:                           ; preds = %413, %._crit_edge.i
 
 .lr.ph.i553:                                      ; preds = %WAYLAND_GetSym.exit551, %423
   %.020.i554 = phi ptr [ %424, %423 ], [ @waylandlibs, %WAYLAND_GetSym.exit551 ]
-  %420 = load ptr, ptr %.020.i554, align 8
+  %420 = load ptr, ptr %.020.i554, align 16
   %.not14.i555 = icmp eq ptr %420, null
   br i1 %.not14.i555, label %423, label %421
 
@@ -1870,7 +1870,7 @@ WAYLAND_GetSym.exit560:                           ; preds = %421, %._crit_edge.i
 
 .lr.ph.i562:                                      ; preds = %WAYLAND_GetSym.exit560, %431
   %.020.i563 = phi ptr [ %432, %431 ], [ @waylandlibs, %WAYLAND_GetSym.exit560 ]
-  %428 = load ptr, ptr %.020.i563, align 8
+  %428 = load ptr, ptr %.020.i563, align 16
   %.not14.i564 = icmp eq ptr %428, null
   br i1 %.not14.i564, label %431, label %429
 
@@ -1899,7 +1899,7 @@ WAYLAND_GetSym.exit569:                           ; preds = %429, %._crit_edge.i
 
 .lr.ph.i571:                                      ; preds = %WAYLAND_GetSym.exit569, %439
   %.020.i572 = phi ptr [ %440, %439 ], [ @waylandlibs, %WAYLAND_GetSym.exit569 ]
-  %436 = load ptr, ptr %.020.i572, align 8
+  %436 = load ptr, ptr %.020.i572, align 16
   %.not14.i573 = icmp eq ptr %436, null
   br i1 %.not14.i573, label %439, label %437
 
@@ -1928,7 +1928,7 @@ WAYLAND_GetSym.exit578:                           ; preds = %437, %._crit_edge.i
 
 .lr.ph.i580:                                      ; preds = %WAYLAND_GetSym.exit578, %447
   %.020.i581 = phi ptr [ %448, %447 ], [ @waylandlibs, %WAYLAND_GetSym.exit578 ]
-  %444 = load ptr, ptr %.020.i581, align 8
+  %444 = load ptr, ptr %.020.i581, align 16
   %.not14.i582 = icmp eq ptr %444, null
   br i1 %.not14.i582, label %447, label %445
 
@@ -1957,7 +1957,7 @@ WAYLAND_GetSym.exit587:                           ; preds = %445, %._crit_edge.i
 
 .lr.ph.i589:                                      ; preds = %WAYLAND_GetSym.exit587, %455
   %.020.i590 = phi ptr [ %456, %455 ], [ @waylandlibs, %WAYLAND_GetSym.exit587 ]
-  %452 = load ptr, ptr %.020.i590, align 8
+  %452 = load ptr, ptr %.020.i590, align 16
   %.not14.i591 = icmp eq ptr %452, null
   br i1 %.not14.i591, label %455, label %453
 
@@ -1986,7 +1986,7 @@ WAYLAND_GetSym.exit596:                           ; preds = %453, %._crit_edge.i
 
 .lr.ph.i598:                                      ; preds = %WAYLAND_GetSym.exit596, %463
   %.020.i599 = phi ptr [ %464, %463 ], [ @waylandlibs, %WAYLAND_GetSym.exit596 ]
-  %460 = load ptr, ptr %.020.i599, align 8
+  %460 = load ptr, ptr %.020.i599, align 16
   %.not14.i600 = icmp eq ptr %460, null
   br i1 %.not14.i600, label %463, label %461
 
@@ -2015,7 +2015,7 @@ WAYLAND_GetSym.exit605:                           ; preds = %461, %._crit_edge.i
 
 .lr.ph.i607:                                      ; preds = %WAYLAND_GetSym.exit605, %471
   %.020.i608 = phi ptr [ %472, %471 ], [ @waylandlibs, %WAYLAND_GetSym.exit605 ]
-  %468 = load ptr, ptr %.020.i608, align 8
+  %468 = load ptr, ptr %.020.i608, align 16
   %.not14.i609 = icmp eq ptr %468, null
   br i1 %.not14.i609, label %471, label %469
 
@@ -2044,7 +2044,7 @@ WAYLAND_GetSym.exit614:                           ; preds = %469, %._crit_edge.i
 
 .lr.ph.i616:                                      ; preds = %WAYLAND_GetSym.exit614, %479
   %.020.i617 = phi ptr [ %480, %479 ], [ @waylandlibs, %WAYLAND_GetSym.exit614 ]
-  %476 = load ptr, ptr %.020.i617, align 8
+  %476 = load ptr, ptr %.020.i617, align 16
   %.not14.i618 = icmp eq ptr %476, null
   br i1 %.not14.i618, label %479, label %477
 
@@ -2073,7 +2073,7 @@ WAYLAND_GetSym.exit623:                           ; preds = %477, %._crit_edge.i
 
 .lr.ph.i625:                                      ; preds = %WAYLAND_GetSym.exit623, %487
   %.020.i626 = phi ptr [ %488, %487 ], [ @waylandlibs, %WAYLAND_GetSym.exit623 ]
-  %484 = load ptr, ptr %.020.i626, align 8
+  %484 = load ptr, ptr %.020.i626, align 16
   %.not14.i627 = icmp eq ptr %484, null
   br i1 %.not14.i627, label %487, label %485
 
@@ -2102,7 +2102,7 @@ WAYLAND_GetSym.exit632:                           ; preds = %485, %._crit_edge.i
 
 .lr.ph.i634:                                      ; preds = %WAYLAND_GetSym.exit632, %495
   %.020.i635 = phi ptr [ %496, %495 ], [ @waylandlibs, %WAYLAND_GetSym.exit632 ]
-  %492 = load ptr, ptr %.020.i635, align 8
+  %492 = load ptr, ptr %.020.i635, align 16
   %.not14.i636 = icmp eq ptr %492, null
   br i1 %.not14.i636, label %495, label %493
 
@@ -2131,7 +2131,7 @@ WAYLAND_GetSym.exit641:                           ; preds = %493, %._crit_edge.i
 
 .lr.ph.i643:                                      ; preds = %WAYLAND_GetSym.exit641, %503
   %.020.i644 = phi ptr [ %504, %503 ], [ @waylandlibs, %WAYLAND_GetSym.exit641 ]
-  %500 = load ptr, ptr %.020.i644, align 8
+  %500 = load ptr, ptr %.020.i644, align 16
   %.not14.i645 = icmp eq ptr %500, null
   br i1 %.not14.i645, label %503, label %501
 
@@ -2160,7 +2160,7 @@ WAYLAND_GetSym.exit650:                           ; preds = %501, %._crit_edge.i
 
 .lr.ph.i652:                                      ; preds = %WAYLAND_GetSym.exit650, %511
   %.020.i653 = phi ptr [ %512, %511 ], [ @waylandlibs, %WAYLAND_GetSym.exit650 ]
-  %508 = load ptr, ptr %.020.i653, align 8
+  %508 = load ptr, ptr %.020.i653, align 16
   %.not14.i654 = icmp eq ptr %508, null
   br i1 %.not14.i654, label %511, label %509
 
@@ -2189,7 +2189,7 @@ WAYLAND_GetSym.exit659:                           ; preds = %509, %._crit_edge.i
 
 .lr.ph.i661:                                      ; preds = %WAYLAND_GetSym.exit659, %519
   %.020.i662 = phi ptr [ %520, %519 ], [ @waylandlibs, %WAYLAND_GetSym.exit659 ]
-  %516 = load ptr, ptr %.020.i662, align 8
+  %516 = load ptr, ptr %.020.i662, align 16
   %.not14.i663 = icmp eq ptr %516, null
   br i1 %.not14.i663, label %519, label %517
 
@@ -2218,7 +2218,7 @@ WAYLAND_GetSym.exit668:                           ; preds = %517, %._crit_edge.i
 
 .lr.ph.i670:                                      ; preds = %WAYLAND_GetSym.exit668, %527
   %.020.i671 = phi ptr [ %528, %527 ], [ @waylandlibs, %WAYLAND_GetSym.exit668 ]
-  %524 = load ptr, ptr %.020.i671, align 8
+  %524 = load ptr, ptr %.020.i671, align 16
   %.not14.i672 = icmp eq ptr %524, null
   br i1 %.not14.i672, label %527, label %525
 
@@ -2247,7 +2247,7 @@ WAYLAND_GetSym.exit677:                           ; preds = %525, %._crit_edge.i
 
 .lr.ph.i679:                                      ; preds = %WAYLAND_GetSym.exit677, %535
   %.020.i680 = phi ptr [ %536, %535 ], [ @waylandlibs, %WAYLAND_GetSym.exit677 ]
-  %532 = load ptr, ptr %.020.i680, align 8
+  %532 = load ptr, ptr %.020.i680, align 16
   %.not14.i681 = icmp eq ptr %532, null
   br i1 %.not14.i681, label %535, label %533
 
@@ -2276,7 +2276,7 @@ WAYLAND_GetSym.exit686:                           ; preds = %533, %._crit_edge.i
 
 .lr.ph.i688:                                      ; preds = %WAYLAND_GetSym.exit686, %543
   %.020.i689 = phi ptr [ %544, %543 ], [ @waylandlibs, %WAYLAND_GetSym.exit686 ]
-  %540 = load ptr, ptr %.020.i689, align 8
+  %540 = load ptr, ptr %.020.i689, align 16
   %.not14.i690 = icmp eq ptr %540, null
   br i1 %.not14.i690, label %543, label %541
 
@@ -2305,7 +2305,7 @@ WAYLAND_GetSym.exit695:                           ; preds = %541, %._crit_edge.i
 
 .lr.ph.i697:                                      ; preds = %WAYLAND_GetSym.exit695, %551
   %.020.i698 = phi ptr [ %552, %551 ], [ @waylandlibs, %WAYLAND_GetSym.exit695 ]
-  %548 = load ptr, ptr %.020.i698, align 8
+  %548 = load ptr, ptr %.020.i698, align 16
   %.not14.i699 = icmp eq ptr %548, null
   br i1 %.not14.i699, label %551, label %549
 
@@ -2334,7 +2334,7 @@ WAYLAND_GetSym.exit704:                           ; preds = %549, %._crit_edge.i
 
 .lr.ph.i706:                                      ; preds = %WAYLAND_GetSym.exit704, %559
   %.020.i707 = phi ptr [ %560, %559 ], [ @waylandlibs, %WAYLAND_GetSym.exit704 ]
-  %556 = load ptr, ptr %.020.i707, align 8
+  %556 = load ptr, ptr %.020.i707, align 16
   %.not14.i708 = icmp eq ptr %556, null
   br i1 %.not14.i708, label %559, label %557
 
@@ -2363,7 +2363,7 @@ WAYLAND_GetSym.exit713:                           ; preds = %557, %._crit_edge.i
 
 .lr.ph.i715:                                      ; preds = %WAYLAND_GetSym.exit713, %567
   %.020.i716 = phi ptr [ %568, %567 ], [ @waylandlibs, %WAYLAND_GetSym.exit713 ]
-  %564 = load ptr, ptr %.020.i716, align 8
+  %564 = load ptr, ptr %.020.i716, align 16
   %.not14.i717 = icmp eq ptr %564, null
   br i1 %.not14.i717, label %567, label %565
 
@@ -2392,7 +2392,7 @@ WAYLAND_GetSym.exit722:                           ; preds = %565, %._crit_edge.i
 
 .lr.ph.i724:                                      ; preds = %WAYLAND_GetSym.exit722, %575
   %.020.i725 = phi ptr [ %576, %575 ], [ @waylandlibs, %WAYLAND_GetSym.exit722 ]
-  %572 = load ptr, ptr %.020.i725, align 8
+  %572 = load ptr, ptr %.020.i725, align 16
   %.not14.i726 = icmp eq ptr %572, null
   br i1 %.not14.i726, label %575, label %573
 
@@ -2421,7 +2421,7 @@ WAYLAND_GetSym.exit731:                           ; preds = %573, %._crit_edge.i
 
 .lr.ph.i733:                                      ; preds = %WAYLAND_GetSym.exit731, %583
   %.020.i734 = phi ptr [ %584, %583 ], [ @waylandlibs, %WAYLAND_GetSym.exit731 ]
-  %580 = load ptr, ptr %.020.i734, align 8
+  %580 = load ptr, ptr %.020.i734, align 16
   %.not14.i735 = icmp eq ptr %580, null
   br i1 %.not14.i735, label %583, label %581
 
@@ -2450,7 +2450,7 @@ WAYLAND_GetSym.exit740:                           ; preds = %581, %._crit_edge.i
 
 .lr.ph.i742:                                      ; preds = %WAYLAND_GetSym.exit740, %591
   %.020.i743 = phi ptr [ %592, %591 ], [ @waylandlibs, %WAYLAND_GetSym.exit740 ]
-  %588 = load ptr, ptr %.020.i743, align 8
+  %588 = load ptr, ptr %.020.i743, align 16
   %.not14.i744 = icmp eq ptr %588, null
   br i1 %.not14.i744, label %591, label %589
 
@@ -2479,7 +2479,7 @@ WAYLAND_GetSym.exit749:                           ; preds = %589, %._crit_edge.i
 
 .lr.ph.i751:                                      ; preds = %WAYLAND_GetSym.exit749, %599
   %.020.i752 = phi ptr [ %600, %599 ], [ @waylandlibs, %WAYLAND_GetSym.exit749 ]
-  %596 = load ptr, ptr %.020.i752, align 8
+  %596 = load ptr, ptr %.020.i752, align 16
   %.not14.i753 = icmp eq ptr %596, null
   br i1 %.not14.i753, label %599, label %597
 
@@ -2508,7 +2508,7 @@ WAYLAND_GetSym.exit758:                           ; preds = %597, %._crit_edge.i
 
 .lr.ph.i760:                                      ; preds = %WAYLAND_GetSym.exit758, %607
   %.020.i761 = phi ptr [ %608, %607 ], [ @waylandlibs, %WAYLAND_GetSym.exit758 ]
-  %604 = load ptr, ptr %.020.i761, align 8
+  %604 = load ptr, ptr %.020.i761, align 16
   %.not14.i762 = icmp eq ptr %604, null
   br i1 %.not14.i762, label %607, label %605
 
@@ -2537,7 +2537,7 @@ WAYLAND_GetSym.exit767:                           ; preds = %605, %._crit_edge.i
 
 .lr.ph.i769:                                      ; preds = %WAYLAND_GetSym.exit767, %615
   %.020.i770 = phi ptr [ %616, %615 ], [ @waylandlibs, %WAYLAND_GetSym.exit767 ]
-  %612 = load ptr, ptr %.020.i770, align 8
+  %612 = load ptr, ptr %.020.i770, align 16
   %.not14.i771 = icmp eq ptr %612, null
   br i1 %.not14.i771, label %615, label %613
 
@@ -2566,7 +2566,7 @@ WAYLAND_GetSym.exit776:                           ; preds = %613, %._crit_edge.i
 
 .lr.ph.i778:                                      ; preds = %WAYLAND_GetSym.exit776, %623
   %.020.i779 = phi ptr [ %624, %623 ], [ @waylandlibs, %WAYLAND_GetSym.exit776 ]
-  %620 = load ptr, ptr %.020.i779, align 8
+  %620 = load ptr, ptr %.020.i779, align 16
   %.not14.i780 = icmp eq ptr %620, null
   br i1 %.not14.i780, label %623, label %621
 
@@ -2595,7 +2595,7 @@ WAYLAND_GetSym.exit785:                           ; preds = %621, %._crit_edge.i
 
 .lr.ph.i787:                                      ; preds = %WAYLAND_GetSym.exit785, %631
   %.020.i788 = phi ptr [ %632, %631 ], [ @waylandlibs, %WAYLAND_GetSym.exit785 ]
-  %628 = load ptr, ptr %.020.i788, align 8
+  %628 = load ptr, ptr %.020.i788, align 16
   %.not14.i789 = icmp eq ptr %628, null
   br i1 %.not14.i789, label %631, label %629
 
@@ -2624,7 +2624,7 @@ WAYLAND_GetSym.exit794:                           ; preds = %629, %._crit_edge.i
 
 .lr.ph.i796:                                      ; preds = %WAYLAND_GetSym.exit794, %639
   %.020.i797 = phi ptr [ %640, %639 ], [ @waylandlibs, %WAYLAND_GetSym.exit794 ]
-  %636 = load ptr, ptr %.020.i797, align 8
+  %636 = load ptr, ptr %.020.i797, align 16
   %.not14.i798 = icmp eq ptr %636, null
   br i1 %.not14.i798, label %639, label %637
 
@@ -2653,7 +2653,7 @@ WAYLAND_GetSym.exit803:                           ; preds = %637, %._crit_edge.i
 
 .lr.ph.i805:                                      ; preds = %WAYLAND_GetSym.exit803, %647
   %.020.i806 = phi ptr [ %648, %647 ], [ @waylandlibs, %WAYLAND_GetSym.exit803 ]
-  %644 = load ptr, ptr %.020.i806, align 8
+  %644 = load ptr, ptr %.020.i806, align 16
   %.not14.i807 = icmp eq ptr %644, null
   br i1 %.not14.i807, label %647, label %645
 
@@ -2682,7 +2682,7 @@ WAYLAND_GetSym.exit812:                           ; preds = %645, %._crit_edge.i
 
 .lr.ph.i814:                                      ; preds = %WAYLAND_GetSym.exit812, %655
   %.020.i815 = phi ptr [ %656, %655 ], [ @waylandlibs, %WAYLAND_GetSym.exit812 ]
-  %652 = load ptr, ptr %.020.i815, align 8
+  %652 = load ptr, ptr %.020.i815, align 16
   %.not14.i816 = icmp eq ptr %652, null
   br i1 %.not14.i816, label %655, label %653
 
@@ -2711,7 +2711,7 @@ WAYLAND_GetSym.exit821:                           ; preds = %653, %._crit_edge.i
 
 .lr.ph.i823:                                      ; preds = %WAYLAND_GetSym.exit821, %663
   %.020.i824 = phi ptr [ %664, %663 ], [ @waylandlibs, %WAYLAND_GetSym.exit821 ]
-  %660 = load ptr, ptr %.020.i824, align 8
+  %660 = load ptr, ptr %.020.i824, align 16
   %.not14.i825 = icmp eq ptr %660, null
   br i1 %.not14.i825, label %663, label %661
 
@@ -2740,7 +2740,7 @@ WAYLAND_GetSym.exit830:                           ; preds = %661, %._crit_edge.i
 
 .lr.ph.i832:                                      ; preds = %WAYLAND_GetSym.exit830, %671
   %.020.i833 = phi ptr [ %672, %671 ], [ @waylandlibs, %WAYLAND_GetSym.exit830 ]
-  %668 = load ptr, ptr %.020.i833, align 8
+  %668 = load ptr, ptr %.020.i833, align 16
   %.not14.i834 = icmp eq ptr %668, null
   br i1 %.not14.i834, label %671, label %669
 
@@ -2769,7 +2769,7 @@ WAYLAND_GetSym.exit839:                           ; preds = %669, %._crit_edge.i
 
 .lr.ph.i841:                                      ; preds = %WAYLAND_GetSym.exit839, %679
   %.020.i842 = phi ptr [ %680, %679 ], [ @waylandlibs, %WAYLAND_GetSym.exit839 ]
-  %676 = load ptr, ptr %.020.i842, align 8
+  %676 = load ptr, ptr %.020.i842, align 16
   %.not14.i843 = icmp eq ptr %676, null
   br i1 %.not14.i843, label %679, label %677
 
@@ -2798,7 +2798,7 @@ WAYLAND_GetSym.exit848:                           ; preds = %677, %._crit_edge.i
 
 .lr.ph.i850:                                      ; preds = %WAYLAND_GetSym.exit848, %687
   %.020.i851 = phi ptr [ %688, %687 ], [ @waylandlibs, %WAYLAND_GetSym.exit848 ]
-  %684 = load ptr, ptr %.020.i851, align 8
+  %684 = load ptr, ptr %.020.i851, align 16
   %.not14.i852 = icmp eq ptr %684, null
   br i1 %.not14.i852, label %687, label %685
 
@@ -2827,7 +2827,7 @@ WAYLAND_GetSym.exit857:                           ; preds = %685, %._crit_edge.i
 
 .lr.ph.i859:                                      ; preds = %WAYLAND_GetSym.exit857, %695
   %.020.i860 = phi ptr [ %696, %695 ], [ @waylandlibs, %WAYLAND_GetSym.exit857 ]
-  %692 = load ptr, ptr %.020.i860, align 8
+  %692 = load ptr, ptr %.020.i860, align 16
   %.not14.i861 = icmp eq ptr %692, null
   br i1 %.not14.i861, label %695, label %693
 
@@ -2856,7 +2856,7 @@ WAYLAND_GetSym.exit866:                           ; preds = %693, %._crit_edge.i
 
 .lr.ph.i868:                                      ; preds = %WAYLAND_GetSym.exit866, %703
   %.020.i869 = phi ptr [ %704, %703 ], [ @waylandlibs, %WAYLAND_GetSym.exit866 ]
-  %700 = load ptr, ptr %.020.i869, align 8
+  %700 = load ptr, ptr %.020.i869, align 16
   %.not14.i870 = icmp eq ptr %700, null
   br i1 %.not14.i870, label %703, label %701
 
@@ -2885,7 +2885,7 @@ WAYLAND_GetSym.exit875:                           ; preds = %701, %._crit_edge.i
 
 .lr.ph.i877:                                      ; preds = %WAYLAND_GetSym.exit875, %711
   %.020.i878 = phi ptr [ %712, %711 ], [ @waylandlibs, %WAYLAND_GetSym.exit875 ]
-  %708 = load ptr, ptr %.020.i878, align 8
+  %708 = load ptr, ptr %.020.i878, align 16
   %.not14.i879 = icmp eq ptr %708, null
   br i1 %.not14.i879, label %711, label %709
 
@@ -2914,7 +2914,7 @@ WAYLAND_GetSym.exit884:                           ; preds = %709, %._crit_edge.i
 
 .lr.ph.i886:                                      ; preds = %WAYLAND_GetSym.exit884, %719
   %.020.i887 = phi ptr [ %720, %719 ], [ @waylandlibs, %WAYLAND_GetSym.exit884 ]
-  %716 = load ptr, ptr %.020.i887, align 8
+  %716 = load ptr, ptr %.020.i887, align 16
   %.not14.i888 = icmp eq ptr %716, null
   br i1 %.not14.i888, label %719, label %717
 

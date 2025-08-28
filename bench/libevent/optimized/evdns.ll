@@ -4620,7 +4620,7 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
   %13 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %.03341, i64 1
-  store i8 %14, ptr %.03341, align 1
+  store i8 %14, ptr %.03341, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.03341, i64 2
   store i8 46, ptr %15, align 1
   %17 = lshr i32 %10, 4
@@ -4628,7 +4628,7 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
   %19 = getelementptr inbounds nuw [17 x i8], ptr @.str.5, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.03341, i64 3
-  store i8 %20, ptr %16, align 1
+  store i8 %20, ptr %16, align 2
   %22 = getelementptr inbounds nuw i8, ptr %.03341, i64 4
   store i8 46, ptr %21, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -4636,7 +4636,7 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
   br i1 %.not50, label %23, label %7, !llvm.loop !25
 
 23:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
   %24 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef 160) #21
   %25 = icmp eq ptr %24, null
   br i1 %25, label %101, label %26

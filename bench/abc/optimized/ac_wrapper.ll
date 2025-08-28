@@ -1913,7 +1913,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
   %135 = phi ptr [ %133, %132 ], [ %136, %_ZNSt14_Function_baseD2Ev.exit ]
   %136 = getelementptr inbounds i8, ptr %135, i64 -32
   %137 = getelementptr inbounds i8, ptr %135, i64 -16
-  %138 = load ptr, ptr %137, align 8, !tbaa !111
+  %138 = load ptr, ptr %137, align 16, !tbaa !111
   %.not.i = icmp eq ptr %138, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %139
 

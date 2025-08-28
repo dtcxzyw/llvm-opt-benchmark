@@ -111,10 +111,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
-  tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_rand_reseed) #14
-  tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_rand_fork_safety, i32 noundef 16, i32 noundef 1) #14
-  tail call void @add_test(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_rand_prediction_resistance) #14
-  tail call void @add_test(ptr noundef nonnull @.str.3, ptr noundef nonnull @test_multi_thread) #14
+  tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @test_rand_reseed) #13
+  tail call void @add_all_tests(ptr noundef nonnull @.str.1, ptr noundef nonnull @test_rand_fork_safety, i32 noundef 16, i32 noundef 1) #13
+  tail call void @add_test(ptr noundef nonnull @.str.2, ptr noundef nonnull @test_rand_prediction_resistance) #13
+  tail call void @add_test(ptr noundef nonnull @.str.3, ptr noundef nonnull @test_multi_thread) #13
   ret i32 1
 }
 
@@ -129,46 +129,46 @@ define internal i32 @test_rand_reseed() #0 {
   br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.4, i32 noundef 556, ptr noundef nonnull @.str.5) #14
+  %4 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.4, i32 noundef 556, ptr noundef nonnull @.str.5) #13
   br label %59
 
 5:                                                ; preds = %0
-  %6 = tail call ptr @RAND_get_rand_method() #14
-  %7 = tail call ptr @RAND_OpenSSL() #14
-  %8 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 560, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef %6, ptr noundef %7) #14
+  %6 = tail call ptr @RAND_get_rand_method() #13
+  %7 = tail call ptr @RAND_OpenSSL() #13
+  %8 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 560, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef %6, ptr noundef %7) #13
   %.not40 = icmp eq i32 %8, 0
   br i1 %.not40, label %59, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @RAND_get0_primary(ptr noundef null) #14
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 565, ptr noundef nonnull @.str.8, ptr noundef %10) #14
+  %10 = tail call ptr @RAND_get0_primary(ptr noundef null) #13
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 565, ptr noundef nonnull @.str.8, ptr noundef %10) #13
   %.not41 = icmp eq i32 %11, 0
   br i1 %.not41, label %59, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @RAND_get0_public(ptr noundef null) #14
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 566, ptr noundef nonnull @.str.9, ptr noundef %13) #14
+  %13 = tail call ptr @RAND_get0_public(ptr noundef null) #13
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 566, ptr noundef nonnull @.str.9, ptr noundef %13) #13
   %.not42 = icmp eq i32 %14, 0
   br i1 %.not42, label %59, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @RAND_get0_private(ptr noundef null) #14
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 567, ptr noundef nonnull @.str.10, ptr noundef %16) #14
+  %16 = tail call ptr @RAND_get0_private(ptr noundef null) #13
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 567, ptr noundef nonnull @.str.10, ptr noundef %16) #13
   %.not43 = icmp eq i32 %17, 0
   br i1 %.not43, label %59, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 571, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %13, ptr noundef %16) #14
+  %19 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 571, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %13, ptr noundef %16) #13
   %.not44 = icmp eq i32 %19, 0
   br i1 %.not44, label %59, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 572, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef %10) #14
+  %21 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 572, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13, ptr noundef %13, ptr noundef %10) #13
   %.not45 = icmp eq i32 %21, 0
   br i1 %.not45, label %59, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 573, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef %10) #14
+  %23 = tail call i32 @test_ptr_ne(ptr noundef nonnull @.str.4, i32 noundef 573, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef %10) #13
   %.not46 = icmp eq i32 %23, 0
   br i1 %.not46, label %59, label %24
 
@@ -179,7 +179,7 @@ define internal i32 @test_rand_reseed() #0 {
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = getelementptr i8, ptr %10, i64 8
   %.val56 = load ptr, ptr %28, align 8, !tbaa !4
-  %29 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 574, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef %27, ptr noundef %.val56) #14
+  %29 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 574, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef %27, ptr noundef %.val56) #13
   %.not47 = icmp eq i32 %29, 0
   br i1 %.not47, label %59, label %30
 
@@ -189,34 +189,34 @@ define internal i32 @test_rand_reseed() #0 {
   %32 = getelementptr inbounds nuw i8, ptr %.val57, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %.val58 = load ptr, ptr %28, align 8, !tbaa !4
-  %34 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 575, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, ptr noundef %33, ptr noundef %.val58) #14
+  %34 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.4, i32 noundef 575, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, ptr noundef %33, ptr noundef %.val58) #13
   %.not48 = icmp eq i32 %34, 0
   br i1 %.not48, label %59, label %35
 
 35:                                               ; preds = %30
-  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 579, ptr noundef nonnull @.str.17, i32 noundef 1) #14
+  %36 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 579, ptr noundef nonnull @.str.17, i32 noundef 1) #13
   %.not49 = icmp eq i32 %36, 0
   br i1 %.not49, label %59, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %10) #14
-  %39 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %16) #14
-  %40 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %13) #14
+  %38 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %10) #13
+  %39 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %16) #13
+  %40 = tail call i32 @EVP_RAND_uninstantiate(ptr noundef nonnull %13) #13
   %41 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 1, i64 noundef 0)
-  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 593, ptr noundef nonnull @.str.18, i32 noundef %41) #14
+  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 593, ptr noundef nonnull @.str.18, i32 noundef %41) #13
   %.not50 = icmp eq i32 %42, 0
   br i1 %.not50, label %59, label %43
 
 43:                                               ; preds = %37
   %44 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
-  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 602, ptr noundef nonnull @.str.19, i32 noundef %44) #14
+  %45 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 602, ptr noundef nonnull @.str.19, i32 noundef %44) #13
   %.not51 = icmp eq i32 %45, 0
   br i1 %.not51, label %59, label %46
 
 46:                                               ; preds = %43
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %10)
   %47 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
-  %48 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 613, ptr noundef nonnull @.str.20, i32 noundef %47) #14
+  %48 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 613, ptr noundef nonnull @.str.20, i32 noundef %47) #13
   %.not52 = icmp eq i32 %48, 0
   br i1 %.not52, label %59, label %49
 
@@ -224,7 +224,7 @@ define internal i32 @test_rand_reseed() #0 {
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %10)
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %16)
   %50 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
-  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 625, ptr noundef nonnull @.str.21, i32 noundef %50) #14
+  %51 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 625, ptr noundef nonnull @.str.21, i32 noundef %50) #13
   %.not53 = icmp eq i32 %51, 0
   br i1 %.not53, label %59, label %52
 
@@ -232,16 +232,16 @@ define internal i32 @test_rand_reseed() #0 {
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %10)
   tail call fastcc void @inc_reseed_counter(ptr noundef nonnull %13)
   %53 = tail call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 0, i64 noundef 0)
-  %54 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 637, ptr noundef nonnull @.str.22, i32 noundef %53) #14
+  %54 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 637, ptr noundef nonnull @.str.22, i32 noundef %53) #13
   %.not54 = icmp eq i32 %54, 0
   br i1 %.not54, label %59, label %55
 
 55:                                               ; preds = %52
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %1, i8 114, i64 256, i1 false)
-  %56 = tail call i64 @time(ptr noundef null) #14
-  call void @RAND_add(ptr noundef nonnull %1, i32 noundef 256, double noundef 2.560000e+02) #14
+  %56 = tail call i64 @time(ptr noundef null) #13
+  call void @RAND_add(ptr noundef nonnull %1, i32 noundef 256, double noundef 2.560000e+02) #13
   %57 = call fastcc i32 @test_drbg_reseed(ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef null, ptr noundef null, i32 noundef 1, i64 noundef %56)
-  %58 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 657, ptr noundef nonnull @.str.23, i32 noundef %57) #14
+  %58 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 657, ptr noundef nonnull @.str.23, i32 noundef %57) #13
   %.not55 = icmp ne i32 %58, 0
   %spec.select = zext i1 %.not55 to i32
   br label %59
@@ -265,26 +265,26 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   %8 = alloca [20 x %struct.drbg_fork_result_st], align 16
   %9 = alloca [1 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = tail call ptr @RAND_get0_primary(ptr noundef null) #14
-  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 526, ptr noundef nonnull @.str.8, ptr noundef %10) #14
+  %10 = tail call ptr @RAND_get0_primary(ptr noundef null) #13
+  %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 526, ptr noundef nonnull @.str.8, ptr noundef %10) #13
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %146, label %12
+  br i1 %.not, label %145, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call ptr @RAND_get0_public(ptr noundef null) #14
-  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 527, ptr noundef nonnull @.str.9, ptr noundef %13) #14
+  %13 = tail call ptr @RAND_get0_public(ptr noundef null) #13
+  %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 527, ptr noundef nonnull @.str.9, ptr noundef %13) #13
   %.not5 = icmp eq i32 %14, 0
-  br i1 %.not5, label %146, label %15
+  br i1 %.not5, label %145, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @RAND_get0_private(ptr noundef null) #14
-  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 528, ptr noundef nonnull @.str.10, ptr noundef %16) #14
+  %16 = tail call ptr @RAND_get0_private(ptr noundef null) #13
+  %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 528, ptr noundef nonnull @.str.10, ptr noundef %16) #13
   %.not6 = icmp eq i32 %17, 0
-  br i1 %.not6, label %146, label %18
+  br i1 %.not6, label %145, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @getpid() #14
-  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.53) #14
+  %19 = tail call i32 @getpid() #13
+  %20 = tail call ptr @getenv(ptr noundef nonnull @.str.53) #13
   %.not56.i = icmp eq ptr %20, null
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
@@ -297,39 +297,39 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
   br label %25
 
 23:                                               ; preds = %test_drbg_reseed_in_child.exit.i
-  %24 = add nuw nsw i32 %.05062.i, 1
+  %24 = add nuw nsw i32 %.05063.i, 1
   %exitcond.not.i = icmp eq i32 %24, 10
   br i1 %exitcond.not.i, label %82, label %25, !llvm.loop !18
 
 25:                                               ; preds = %23, %18
-  %.pn5963.i = phi ptr [ %8, %18 ], [ %.04664.i, %23 ]
-  %.05062.i = phi i32 [ 1, %18 ], [ %24, %23 ]
-  %.04664.i = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 80
-  %26 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 136
-  store i32 %.05062.i, ptr %26, align 4, !tbaa !20
-  %27 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 96
-  store i32 %.05062.i, ptr %27, align 4, !tbaa !20
-  %28 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 108
-  %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %28, i64 noundef 10, ptr noundef nonnull @.str.54, i32 noundef %.05062.i) #14
-  %30 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 148
-  %31 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %28) #14
+  %.pn5964.i = phi ptr [ %8, %18 ], [ %.04665.i, %23 ]
+  %.05063.i = phi i32 [ 1, %18 ], [ %24, %23 ]
+  %.04665.i = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 136
+  store i32 %.05063.i, ptr %26, align 8, !tbaa !20
+  %27 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 96
+  store i32 %.05063.i, ptr %27, align 16, !tbaa !20
+  %28 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 108
+  %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %28, i64 noundef 10, ptr noundef nonnull @.str.54, i32 noundef %.05063.i) #13
+  %30 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 148
+  %31 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %28) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %32 = call i32 @pipe(ptr noundef nonnull %3) #14
-  %33 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 340, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.27, i32 noundef %32, i32 noundef 0) #14
+  %32 = call i32 @pipe(ptr noundef nonnull %3) #13
+  %33 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 340, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.27, i32 noundef %32, i32 noundef 0) #13
   %.not.i.i = icmp eq i32 %33, 0
   br i1 %.not.i.i, label %test_drbg_reseed_in_child.exit.i, label %34
 
 34:                                               ; preds = %25
-  %35 = call i32 @fork() #14
-  %36 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 343, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.27, i32 noundef %35, i32 noundef 0) #14
+  %35 = call i32 @fork() #13
+  %36 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 343, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.27, i32 noundef %35, i32 noundef 0) #13
   %.not18.i.i = icmp eq i32 %36, 0
   br i1 %.not18.i.i, label %37, label %41
 
 37:                                               ; preds = %34
   %38 = load i32, ptr %3, align 4, !tbaa !22
-  %39 = call i32 @close(i32 noundef %38) #14
+  %39 = call i32 @close(i32 noundef %38) #13
   %40 = load i32, ptr %21, align 4, !tbaa !22
   br label %.sink.split.i.i
 
@@ -339,39 +339,39 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
 
 43:                                               ; preds = %41
   %44 = load i32, ptr %21, align 4, !tbaa !22
-  %45 = call i32 @close(i32 noundef %44) #14
-  %46 = call i32 @waitpid(i32 noundef %35, ptr noundef nonnull %2, i32 noundef 0) #14
-  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 353, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef %46, i32 noundef %35) #14
+  %45 = call i32 @close(i32 noundef %44) #13
+  %46 = call i32 @waitpid(i32 noundef %35, ptr noundef nonnull %2, i32 noundef 0) #13
+  %47 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 353, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, i32 noundef %46, i32 noundef %35) #13
   %.not21.i.i = icmp eq i32 %47, 0
   br i1 %.not21.i.i, label %63, label %48
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %2, align 4, !tbaa !22
-  %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 354, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.27, i32 noundef %49, i32 noundef 0) #14
+  %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 354, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.27, i32 noundef %49, i32 noundef 0) #13
   %.not22.i.i = icmp eq i32 %50, 0
   br i1 %.not22.i.i, label %63, label %51
 
 51:                                               ; preds = %48
   %52 = load i32, ptr %3, align 4, !tbaa !22
-  %53 = call i64 @read(i32 noundef %52, ptr noundef nonnull %4, i64 noundef 32) #14
+  %53 = call i64 @read(i32 noundef %52, ptr noundef nonnull %4, i64 noundef 32) #13
   %54 = icmp eq i64 %53, 32
   %55 = zext i1 %54 to i32
-  %56 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 356, ptr noundef nonnull @.str.67, i32 noundef %55) #14
+  %56 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 356, ptr noundef nonnull @.str.67, i32 noundef %55) #13
   %.not23.i.i = icmp eq i32 %56, 0
   br i1 %.not23.i.i, label %63, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 100
+  %58 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 100
   store i32 %35, ptr %58, align 4, !tbaa !23
-  %59 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 104
-  store i32 0, ptr %59, align 4, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.04664.i, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
-  %60 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 120
-  %61 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 140
+  %59 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 104
+  store i32 0, ptr %59, align 8, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.04665.i, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
+  %60 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 120
+  %61 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 140
   store i32 %35, ptr %61, align 4, !tbaa !23
-  %62 = getelementptr inbounds nuw i8, ptr %.pn5963.i, i64 144
-  store i32 1, ptr %62, align 4, !tbaa !24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull align 16 dereferenceable(16) %22, i64 16, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %.pn5964.i, i64 144
+  store i32 1, ptr %62, align 16, !tbaa !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 16 dereferenceable(16) %22, i64 16, i1 false)
   br label %63
 
 63:                                               ; preds = %57, %51, %48, %43
@@ -381,18 +381,18 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
 
 65:                                               ; preds = %41
   %66 = load i32, ptr %3, align 4, !tbaa !22
-  %67 = call i32 @close(i32 noundef %66) #14
+  %67 = call i32 @close(i32 noundef %66) #13
   %68 = call fastcc i32 @test_drbg_reseed(ptr noundef %10, ptr noundef %13, ptr noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %22, i32 noundef 1, i64 noundef 0)
-  %69 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 384, ptr noundef nonnull @.str.68, i32 noundef %68) #14
+  %69 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 384, ptr noundef nonnull @.str.68, i32 noundef %68) #13
   %.not19.i.i = icmp eq i32 %69, 0
   br i1 %.not19.i.i, label %76, label %70
 
 70:                                               ; preds = %65
   %71 = load i32, ptr %21, align 4, !tbaa !22
-  %72 = call i64 @write(i32 noundef %71, ptr noundef nonnull %4, i64 noundef 32) #14
+  %72 = call i64 @write(i32 noundef %71, ptr noundef nonnull %4, i64 noundef 32) #13
   %73 = icmp eq i64 %72, 32
   %74 = zext i1 %73 to i32
-  %75 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 386, ptr noundef nonnull @.str.69, i32 noundef %74) #14
+  %75 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 386, ptr noundef nonnull @.str.69, i32 noundef %74) #13
   %.not20.i.i = icmp eq i32 %75, 0
   %spec.select.i.i = zext i1 %.not20.i.i to i32
   br label %76
@@ -400,14 +400,14 @@ define internal range(i32 0, 2) i32 @test_rand_fork_safety(i32 %0) #0 {
 76:                                               ; preds = %70, %65
   %77 = phi i32 [ 1, %65 ], [ %spec.select.i.i, %70 ]
   %78 = load i32, ptr %21, align 4, !tbaa !22
-  %79 = call i32 @close(i32 noundef %78) #14
-  call void @exit(i32 noundef %77) #15
+  %79 = call i32 @close(i32 noundef %78) #13
+  call void @exit(i32 noundef %77) #14
   unreachable
 
 .sink.split.i.i:                                  ; preds = %63, %37
   %.sink.i.i = phi i32 [ %64, %63 ], [ %40, %37 ]
   %.0.ph.i.i = phi i32 [ %.016.i.i, %63 ], [ 0, %37 ]
-  %80 = call i32 @close(i32 noundef %.sink.i.i) #14
+  %80 = call i32 @close(i32 noundef %.sink.i.i) #13
   br label %test_drbg_reseed_in_child.exit.i
 
 test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %25
@@ -415,23 +415,23 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %81 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.55, i32 noundef %.0.i.i) #14
+  %81 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 427, ptr noundef nonnull @.str.55, i32 noundef %.0.i.i) #13
   %.not58.i = icmp eq i32 %81, 0
   br i1 %.not58.i, label %test_rand_reseed_on_fork.exit, label %23
 
 82:                                               ; preds = %23
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %84 = call fastcc i32 @test_drbg_reseed(ptr noundef %10, ptr noundef %13, ptr noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %83, i32 noundef 0, i64 noundef 0)
-  %85 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @.str.56, i32 noundef %84) #14
+  %85 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 437, ptr noundef nonnull @.str.56, i32 noundef %84) #13
   %.not.i = icmp eq i32 %85, 0
   br i1 %.not.i, label %test_rand_reseed_on_fork.exit, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %87, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %87, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #13
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %89, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(7) %89, ptr noundef nonnull align 1 dereferenceable(7) @.str.57, i64 7, i1 false) #13
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %19, ptr %90, align 4, !tbaa !23
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -446,23 +446,23 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
 
 94:                                               ; preds = %94, %86
   %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %94 ]
-  %.04766.i = phi ptr [ %7, %86 ], [ %96, %94 ]
+  %.04767.i = phi ptr [ %7, %86 ], [ %96, %94 ]
   %95 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.04766.i, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
-  %96 = getelementptr inbounds nuw i8, ptr %.04766.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.04767.i, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
+  %96 = getelementptr inbounds nuw i8, ptr %.04767.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond75.not.i, label %97, label %94, !llvm.loop !25
+  %exitcond76.not.i = icmp eq i64 %indvars.iv.next.i, 20
+  br i1 %exitcond76.not.i, label %97, label %94, !llvm.loop !25
 
 97:                                               ; preds = %94
-  call void @qsort(ptr noundef nonnull %8, i64 noundef 20, i64 noundef 40, ptr noundef nonnull @compare_drbg_fork_result) #14
+  call void @qsort(ptr noundef nonnull %8, i64 noundef 20, i64 noundef 40, ptr noundef nonnull @compare_drbg_fork_result) #13
   %.pre.i = load i8, ptr %8, align 16, !tbaa !26
   br label %98
 
 98:                                               ; preds = %110, %97
   %99 = phi i8 [ %.pre.i, %97 ], [ %101, %110 ]
-  %indvars.iv76.i = phi i64 [ 1, %97 ], [ %indvars.iv.next77.i, %110 ]
-  %100 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv76.i
+  %indvars.iv77.i = phi i64 [ 1, %97 ], [ %indvars.iv.next78.i, %110 ]
+  %100 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv77.i
   %101 = load i8, ptr %100, align 8, !tbaa !26
   %102 = icmp eq i8 %101, %99
   br i1 %102, label %103, label %110
@@ -478,9 +478,9 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   br label %110
 
 110:                                              ; preds = %103, %98
-  %indvars.iv.next77.i = add nuw nsw i64 %indvars.iv76.i, 1
-  %exitcond79.not.i = icmp eq i64 %indvars.iv.next77.i, 20
-  br i1 %exitcond79.not.i, label %111, label %98, !llvm.loop !27
+  %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
+  %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 20
+  br i1 %exitcond80.not.i, label %111, label %98, !llvm.loop !27
 
 111:                                              ; preds = %110
   %112 = load i32, ptr %5, align 8, !tbaa !22
@@ -488,7 +488,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   br i1 %113, label %114, label %115
 
 114:                                              ; preds = %111
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.58, i32 noundef %112) #14
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.58, i32 noundef %112) #13
   br label %115
 
 115:                                              ; preds = %114, %111
@@ -499,86 +499,88 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   br i1 %118, label %119, label %120
 
 119:                                              ; preds = %115
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.59, i32 noundef %117) #14
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.59, i32 noundef %117) #13
   br label %120
 
 120:                                              ; preds = %119, %115
   %.149.i = phi i32 [ 0, %119 ], [ %.048.i, %115 ]
-  call void @qsort(ptr noundef nonnull %7, i64 noundef 160, i64 noundef 2, ptr noundef nonnull @compare_rand_chunk) #14
+  call void @qsort(ptr noundef nonnull %7, i64 noundef 160, i64 noundef 2, ptr noundef nonnull @compare_rand_chunk) #13
+  %lhsv.pre.i = load i16, ptr %7, align 16
   br label %121
 
 121:                                              ; preds = %121, %120
-  %.pn70.i = phi ptr [ %7, %120 ], [ %.171.i, %121 ]
-  %.369.i = phi i32 [ 2, %120 ], [ %125, %121 ]
+  %lhsv.i = phi i16 [ %lhsv.pre.i, %120 ], [ %rhsv.i, %121 ]
+  %.pn71.i = phi ptr [ %7, %120 ], [ %.172.i, %121 ]
+  %.370.i = phi i32 [ 2, %120 ], [ %124, %121 ]
   %122 = phi i32 [ 0, %120 ], [ %spec.select.i, %121 ]
-  %.171.i = getelementptr inbounds nuw i8, ptr %.pn70.i, i64 2
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.pn70.i, ptr noundef nonnull dereferenceable(2) %.171.i, i64 2)
-  %123 = icmp eq i32 %bcmp.i, 0
-  %124 = zext i1 %123 to i32
-  %spec.select.i = add nuw nsw i32 %122, %124
-  %125 = add nuw nsw i32 %.369.i, 2
-  %126 = icmp samesign ult i32 %.369.i, 318
-  br i1 %126, label %121, label %127, !llvm.loop !28
+  %.172.i = getelementptr inbounds nuw i8, ptr %.pn71.i, i64 2
+  %rhsv.i = load i16, ptr %.172.i, align 2
+  %.not60.i = icmp eq i16 %lhsv.i, %rhsv.i
+  %123 = zext i1 %.not60.i to i32
+  %spec.select.i = add nuw nsw i32 %122, %123
+  %124 = add nuw nsw i32 %.370.i, 2
+  %125 = icmp samesign ult i32 %.370.i, 318
+  br i1 %125, label %121, label %126, !llvm.loop !28
 
-127:                                              ; preds = %121
-  %128 = icmp samesign ugt i32 %spec.select.i, 7
-  br i1 %128, label %.thread.i, label %129
+126:                                              ; preds = %121
+  %127 = icmp samesign ugt i32 %spec.select.i, 7
+  br i1 %127, label %.thread.i, label %128
 
-.thread.i:                                        ; preds = %127
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.60, i32 noundef %spec.select.i) #14
+.thread.i:                                        ; preds = %126
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.60, i32 noundef %spec.select.i) #13
   br label %.preheader.preheader.i
 
-129:                                              ; preds = %127
-  %130 = icmp ne i32 %.149.i, 0
-  %or.cond.i = and i1 %.not56.i, %130
+128:                                              ; preds = %126
+  %129 = icmp ne i32 %.149.i, 0
+  %or.cond.i = and i1 %.not56.i, %129
   br i1 %or.cond.i, label %test_rand_reseed_on_fork.exit, label %.preheader.preheader.i
 
-.preheader.preheader.i:                           ; preds = %129, %.thread.i
-  %.290.i = phi i32 [ 0, %.thread.i ], [ %.149.i, %129 ]
+.preheader.preheader.i:                           ; preds = %128, %.thread.i
+  %.292.i = phi i32 [ 0, %.thread.i ], [ %.149.i, %128 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
-  %indvars.iv80.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next81.i, %.preheader.i ]
-  %131 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv80.i
-  %132 = call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %131, i64 noundef 16) #14
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !23
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 28
-  %136 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %137 = load i32, ptr %136, align 8, !tbaa !24
-  %.not57.i = icmp eq i32 %137, 0
-  %138 = select i1 %.not57.i, ptr @.str.11, ptr @.str.12
-  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.61, ptr noundef %132, i32 noundef %134, ptr noundef nonnull %135, ptr noundef nonnull %138) #14
-  call void @CRYPTO_free(ptr noundef %132, ptr noundef nonnull @.str.4, i32 noundef 512) #14
-  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 20
-  br i1 %exitcond83.not.i, label %test_rand_reseed_on_fork.exit, label %.preheader.i, !llvm.loop !29
+  %indvars.iv81.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next82.i, %.preheader.i ]
+  %130 = getelementptr inbounds nuw [20 x %struct.drbg_fork_result_st], ptr %8, i64 0, i64 %indvars.iv81.i
+  %131 = call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %130, i64 noundef 16) #13
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 20
+  %133 = load i32, ptr %132, align 4, !tbaa !23
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 28
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 24
+  %136 = load i32, ptr %135, align 8, !tbaa !24
+  %.not57.i = icmp eq i32 %136, 0
+  %137 = select i1 %.not57.i, ptr @.str.11, ptr @.str.12
+  call void (ptr, ...) @test_note(ptr noundef nonnull @.str.61, ptr noundef %131, i32 noundef %133, ptr noundef nonnull %134, ptr noundef nonnull %137) #13
+  call void @CRYPTO_free(ptr noundef %131, ptr noundef nonnull @.str.4, i32 noundef 512) #13
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
+  %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 20
+  br i1 %exitcond84.not.i, label %test_rand_reseed_on_fork.exit, label %.preheader.i, !llvm.loop !29
 
-test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in_child.exit.i, %.preheader.i, %82, %129
-  %.0.i = phi i32 [ 0, %82 ], [ 1, %129 ], [ %.290.i, %.preheader.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
+test_rand_reseed_on_fork.exit:                    ; preds = %test_drbg_reseed_in_child.exit.i, %.preheader.i, %82, %128
+  %.0.i = phi i32 [ 0, %82 ], [ 1, %128 ], [ %.292.i, %.preheader.i ], [ 0, %test_drbg_reseed_in_child.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %139 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 532, ptr noundef nonnull @.str.50, i32 noundef %.0.i) #14
-  %140 = call i32 @RAND_bytes(ptr noundef nonnull %9, i32 noundef 1) #14
-  %141 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 536, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.27, i32 noundef %140, i32 noundef 0) #14
-  %.not8 = icmp eq i32 %141, 0
-  br i1 %.not8, label %145, label %142
+  %138 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 532, ptr noundef nonnull @.str.50, i32 noundef %.0.i) #13
+  %139 = call i32 @RAND_bytes(ptr noundef nonnull %9, i32 noundef 1) #13
+  %140 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 536, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.27, i32 noundef %139, i32 noundef 0) #13
+  %.not8 = icmp eq i32 %140, 0
+  br i1 %.not8, label %144, label %141
 
-142:                                              ; preds = %test_rand_reseed_on_fork.exit
-  %.not7 = icmp ne i32 %139, 0
+141:                                              ; preds = %test_rand_reseed_on_fork.exit
+  %.not7 = icmp ne i32 %138, 0
   %spec.select = zext i1 %.not7 to i32
-  %143 = call i32 @RAND_priv_bytes(ptr noundef nonnull %9, i32 noundef 1) #14
-  %144 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 536, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.27, i32 noundef %143, i32 noundef 0) #14
-  %.not9 = icmp eq i32 %144, 0
-  br i1 %.not9, label %145, label %146
+  %142 = call i32 @RAND_priv_bytes(ptr noundef nonnull %9, i32 noundef 1) #13
+  %143 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 536, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.27, i32 noundef %142, i32 noundef 0) #13
+  %.not9 = icmp eq i32 %143, 0
+  br i1 %.not9, label %144, label %145
 
-145:                                              ; preds = %142, %test_rand_reseed_on_fork.exit
-  br label %146
+144:                                              ; preds = %141, %test_rand_reseed_on_fork.exit
+  br label %145
 
-146:                                              ; preds = %142, %145, %1, %12, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %142 ], [ 0, %145 ]
+145:                                              ; preds = %141, %144, %1, %12, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %12 ], [ 0, %1 ], [ %spec.select, %141 ], [ 0, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -594,53 +596,53 @@ define internal i32 @test_rand_prediction_resistance() #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.4, i32 noundef 809, ptr noundef nonnull @.str.5) #14
+  %5 = tail call i32 (ptr, i32, ptr, ...) @test_skip(ptr noundef nonnull @.str.4, i32 noundef 809, ptr noundef nonnull @.str.5) #13
   br label %116
 
 6:                                                ; preds = %0
   %7 = tail call fastcc ptr @new_drbg(ptr noundef null)
-  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 812, ptr noundef nonnull @.str.70, ptr noundef %7) #14
+  %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 812, ptr noundef nonnull @.str.70, ptr noundef %7) #13
   %.not62 = icmp eq i32 %8, 0
   br i1 %.not62, label %115, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 813, ptr noundef nonnull @.str.71, i32 noundef 1) #14
+  %10 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 813, ptr noundef nonnull @.str.71, i32 noundef 1) #13
   %.not63 = icmp eq i32 %10, 0
   br i1 %.not63, label %115, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @EVP_RAND_instantiate(ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #14
+  %12 = tail call i32 @EVP_RAND_instantiate(ptr noundef %7, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #13
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32
-  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 814, ptr noundef nonnull @.str.72, i32 noundef %14) #14
+  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 814, ptr noundef nonnull @.str.72, i32 noundef %14) #13
   %.not64 = icmp eq i32 %15, 0
   br i1 %.not64, label %115, label %16
 
 16:                                               ; preds = %11
   %17 = tail call fastcc ptr @new_drbg(ptr noundef %7)
-  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 815, ptr noundef nonnull @.str.73, ptr noundef %17) #14
+  %18 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 815, ptr noundef nonnull @.str.73, ptr noundef %17) #13
   %.not65 = icmp eq i32 %18, 0
   br i1 %.not65, label %115, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @EVP_RAND_instantiate(ptr noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #14
+  %20 = tail call i32 @EVP_RAND_instantiate(ptr noundef %17, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #13
   %21 = icmp ne i32 %20, 0
   %22 = zext i1 %21 to i32
-  %23 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 816, ptr noundef nonnull @.str.74, i32 noundef %22) #14
+  %23 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 816, ptr noundef nonnull @.str.74, i32 noundef %22) #13
   %.not66 = icmp eq i32 %23, 0
   br i1 %.not66, label %115, label %24
 
 24:                                               ; preds = %19
   %25 = tail call fastcc ptr @new_drbg(ptr noundef %17)
-  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 817, ptr noundef nonnull @.str.75, ptr noundef %25) #14
+  %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 817, ptr noundef nonnull @.str.75, ptr noundef %25) #13
   %.not67 = icmp eq i32 %26, 0
   br i1 %.not67, label %115, label %27
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @EVP_RAND_instantiate(ptr noundef %25, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #14
+  %28 = tail call i32 @EVP_RAND_instantiate(ptr noundef %25, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null) #13
   %29 = icmp ne i32 %28, 0
   %30 = zext i1 %29 to i32
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 818, ptr noundef nonnull @.str.76, i32 noundef %30) #14
+  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 818, ptr noundef nonnull @.str.76, i32 noundef %30) #13
   %.not68 = icmp eq i32 %31, 0
   br i1 %.not68, label %115, label %32
 
@@ -649,55 +651,55 @@ define internal i32 @test_rand_prediction_resistance() #0 {
   %33 = tail call fastcc i32 @reseed_counter(ptr noundef %7)
   %34 = tail call fastcc i32 @reseed_counter(ptr noundef %17)
   %35 = tail call fastcc i32 @reseed_counter(ptr noundef %25)
-  %36 = tail call i32 @EVP_RAND_reseed(ptr noundef %25, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %36 = tail call i32 @EVP_RAND_reseed(ptr noundef %25, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
   %37 = icmp ne i32 %36, 0
   %38 = zext i1 %37 to i32
-  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 829, ptr noundef nonnull @.str.77, i32 noundef %38) #14
+  %39 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 829, ptr noundef nonnull @.str.77, i32 noundef %38) #13
   %.not69 = icmp eq i32 %39, 0
   br i1 %.not69, label %115, label %40
 
 40:                                               ; preds = %32
   %41 = tail call fastcc i32 @reseed_counter(ptr noundef %7)
-  %42 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 830, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %41, i32 noundef %33) #14
+  %42 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 830, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %41, i32 noundef %33) #13
   %.not70 = icmp eq i32 %42, 0
   br i1 %.not70, label %115, label %43
 
 43:                                               ; preds = %40
   %44 = tail call fastcc i32 @reseed_counter(ptr noundef %17)
-  %45 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 831, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %44, i32 noundef %34) #14
+  %45 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 831, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %44, i32 noundef %34) #13
   %.not71 = icmp eq i32 %45, 0
   br i1 %.not71, label %115, label %46
 
 46:                                               ; preds = %43
   %47 = tail call fastcc i32 @reseed_counter(ptr noundef %25)
-  %48 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 832, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %47, i32 noundef %35) #14
+  %48 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 832, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %47, i32 noundef %35) #13
   %.not72 = icmp eq i32 %48, 0
   br i1 %.not72, label %115, label %49
 
 49:                                               ; preds = %46
   %50 = tail call fastcc i32 @reseed_counter(ptr noundef %25)
-  %51 = tail call i32 @EVP_RAND_reseed(ptr noundef %25, i32 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %51 = tail call i32 @EVP_RAND_reseed(ptr noundef %25, i32 noundef 1, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
   %52 = icmp ne i32 %51, 0
   %53 = zext i1 %52 to i32
-  %54 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 840, ptr noundef nonnull @.str.84, i32 noundef %53) #14
+  %54 = tail call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 840, ptr noundef nonnull @.str.84, i32 noundef %53) #13
   %.not73 = icmp eq i32 %54, 0
   br i1 %.not73, label %115, label %55
 
 55:                                               ; preds = %49
   %56 = tail call fastcc i32 @reseed_counter(ptr noundef %7)
-  %57 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 841, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %56, i32 noundef %33) #14
+  %57 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 841, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %56, i32 noundef %33) #13
   %.not74 = icmp eq i32 %57, 0
   br i1 %.not74, label %115, label %58
 
 58:                                               ; preds = %55
   %59 = tail call fastcc i32 @reseed_counter(ptr noundef %17)
-  %60 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 842, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %59, i32 noundef %34) #14
+  %60 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 842, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %59, i32 noundef %34) #13
   %.not75 = icmp eq i32 %60, 0
   br i1 %.not75, label %115, label %61
 
 61:                                               ; preds = %58
   %62 = tail call fastcc i32 @reseed_counter(ptr noundef %25)
-  %63 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 843, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %62, i32 noundef %50) #14
+  %63 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 843, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %62, i32 noundef %50) #13
   %.not76 = icmp eq i32 %63, 0
   br i1 %.not76, label %115, label %64
 
@@ -706,60 +708,60 @@ define internal i32 @test_rand_prediction_resistance() #0 {
   %65 = tail call fastcc i32 @reseed_counter(ptr noundef %7)
   %66 = tail call fastcc i32 @reseed_counter(ptr noundef %17)
   %67 = tail call fastcc i32 @reseed_counter(ptr noundef %25)
-  %68 = call i32 @EVP_RAND_generate(ptr noundef %25, ptr noundef nonnull %1, i64 noundef 51, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %68 = call i32 @EVP_RAND_generate(ptr noundef %25, ptr noundef nonnull %1, i64 noundef 51, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #13
   %69 = icmp ne i32 %68, 0
   %70 = zext i1 %69 to i32
-  %71 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 852, ptr noundef nonnull @.str.85, i32 noundef %70) #14
+  %71 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 852, ptr noundef nonnull @.str.85, i32 noundef %70) #13
   %.not77 = icmp eq i32 %71, 0
   br i1 %.not77, label %115, label %72
 
 72:                                               ; preds = %64
   %73 = call fastcc i32 @reseed_counter(ptr noundef %7)
-  %74 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 853, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %73, i32 noundef %65) #14
+  %74 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 853, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %73, i32 noundef %65) #13
   %.not78 = icmp eq i32 %74, 0
   br i1 %.not78, label %115, label %75
 
 75:                                               ; preds = %72
   %76 = call fastcc i32 @reseed_counter(ptr noundef %17)
-  %77 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 854, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %76, i32 noundef %66) #14
+  %77 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 854, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %76, i32 noundef %66) #13
   %.not79 = icmp eq i32 %77, 0
   br i1 %.not79, label %115, label %78
 
 78:                                               ; preds = %75
   %79 = call fastcc i32 @reseed_counter(ptr noundef %25)
-  %80 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 855, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %79, i32 noundef %67) #14
+  %80 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 855, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %79, i32 noundef %67) #13
   %.not80 = icmp eq i32 %80, 0
   br i1 %.not80, label %115, label %81
 
 81:                                               ; preds = %78
   %82 = call fastcc i32 @reseed_counter(ptr noundef %25)
-  %83 = call i32 @EVP_RAND_generate(ptr noundef %25, ptr noundef nonnull %2, i64 noundef 51, i32 noundef 0, i32 noundef 1, ptr noundef null, i64 noundef 0) #14
+  %83 = call i32 @EVP_RAND_generate(ptr noundef %25, ptr noundef nonnull %2, i64 noundef 51, i32 noundef 0, i32 noundef 1, ptr noundef null, i64 noundef 0) #13
   %84 = icmp ne i32 %83, 0
   %85 = zext i1 %84 to i32
-  %86 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 863, ptr noundef nonnull @.str.86, i32 noundef %85) #14
+  %86 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 863, ptr noundef nonnull @.str.86, i32 noundef %85) #13
   %.not81 = icmp eq i32 %86, 0
   br i1 %.not81, label %115, label %87
 
 87:                                               ; preds = %81
   %88 = call fastcc i32 @reseed_counter(ptr noundef %7)
-  %89 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 864, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %88, i32 noundef %65) #14
+  %89 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 864, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %88, i32 noundef %65) #13
   %.not82 = icmp eq i32 %89, 0
   br i1 %.not82, label %115, label %90
 
 90:                                               ; preds = %87
   %91 = call fastcc i32 @reseed_counter(ptr noundef %17)
-  %92 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 865, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %91, i32 noundef %66) #14
+  %92 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 865, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %91, i32 noundef %66) #13
   %.not83 = icmp eq i32 %92, 0
   br i1 %.not83, label %115, label %93
 
 93:                                               ; preds = %90
   %94 = call fastcc i32 @reseed_counter(ptr noundef %25)
-  %95 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 866, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %94, i32 noundef %82) #14
+  %95 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 866, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %94, i32 noundef %82) #13
   %.not84 = icmp eq i32 %95, 0
   br i1 %.not84, label %115, label %96
 
 96:                                               ; preds = %93
-  %97 = call i32 @test_mem_ne(ptr noundef nonnull @.str.4, i32 noundef 867, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull %1, i64 noundef 51, ptr noundef nonnull %2, i64 noundef 51) #14
+  %97 = call i32 @test_mem_ne(ptr noundef nonnull @.str.4, i32 noundef 867, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.88, ptr noundef nonnull %1, i64 noundef 51, ptr noundef nonnull %2, i64 noundef 51) #13
   %.not85 = icmp eq i32 %97, 0
   br i1 %.not85, label %115, label %98
 
@@ -768,28 +770,28 @@ define internal i32 @test_rand_prediction_resistance() #0 {
   %99 = call fastcc i32 @reseed_counter(ptr noundef %7)
   %100 = call fastcc i32 @reseed_counter(ptr noundef %17)
   %101 = call fastcc i32 @reseed_counter(ptr noundef %25)
-  %102 = call i32 @EVP_RAND_reseed(ptr noundef %25, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %102 = call i32 @EVP_RAND_reseed(ptr noundef %25, i32 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0) #13
   %103 = icmp ne i32 %102, 0
   %104 = zext i1 %103 to i32
-  %105 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 875, ptr noundef nonnull @.str.77, i32 noundef %104) #14
+  %105 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 875, ptr noundef nonnull @.str.77, i32 noundef %104) #13
   %.not86 = icmp eq i32 %105, 0
   br i1 %.not86, label %115, label %106
 
 106:                                              ; preds = %98
   %107 = call fastcc i32 @reseed_counter(ptr noundef %7)
-  %108 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 876, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %107, i32 noundef %99) #14
+  %108 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 876, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %107, i32 noundef %99) #13
   %.not87 = icmp eq i32 %108, 0
   br i1 %.not87, label %115, label %109
 
 109:                                              ; preds = %106
   %110 = call fastcc i32 @reseed_counter(ptr noundef %17)
-  %111 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 877, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %110, i32 noundef %100) #14
+  %111 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 877, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef %110, i32 noundef %100) #13
   %.not88 = icmp eq i32 %111, 0
   br i1 %.not88, label %115, label %112
 
 112:                                              ; preds = %109
   %113 = call fastcc i32 @reseed_counter(ptr noundef %25)
-  %114 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 878, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %113, i32 noundef %101) #14
+  %114 = call i32 @test_int_gt(ptr noundef nonnull @.str.4, i32 noundef 878, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef %113, i32 noundef %101) #13
   %.not89 = icmp ne i32 %114, 0
   %spec.select = zext i1 %.not89 to i32
   br label %115
@@ -798,9 +800,9 @@ define internal i32 @test_rand_prediction_resistance() #0 {
   %.060 = phi ptr [ %17, %109 ], [ %17, %106 ], [ %17, %98 ], [ %17, %96 ], [ %17, %93 ], [ %17, %90 ], [ %17, %87 ], [ %17, %81 ], [ %17, %78 ], [ %17, %75 ], [ %17, %72 ], [ %17, %64 ], [ %17, %61 ], [ %17, %58 ], [ %17, %55 ], [ %17, %49 ], [ %17, %46 ], [ %17, %43 ], [ %17, %40 ], [ %17, %32 ], [ %17, %27 ], [ %17, %24 ], [ %17, %19 ], [ %17, %16 ], [ null, %11 ], [ null, %9 ], [ null, %6 ], [ %17, %112 ]
   %.059 = phi ptr [ %25, %109 ], [ %25, %106 ], [ %25, %98 ], [ %25, %96 ], [ %25, %93 ], [ %25, %90 ], [ %25, %87 ], [ %25, %81 ], [ %25, %78 ], [ %25, %75 ], [ %25, %72 ], [ %25, %64 ], [ %25, %61 ], [ %25, %58 ], [ %25, %55 ], [ %25, %49 ], [ %25, %46 ], [ %25, %43 ], [ %25, %40 ], [ %25, %32 ], [ %25, %27 ], [ %25, %24 ], [ null, %19 ], [ null, %16 ], [ null, %11 ], [ null, %9 ], [ null, %6 ], [ %25, %112 ]
   %.0 = phi i32 [ 0, %109 ], [ 0, %106 ], [ 0, %98 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %87 ], [ 0, %81 ], [ 0, %78 ], [ 0, %75 ], [ 0, %72 ], [ 0, %64 ], [ 0, %61 ], [ 0, %58 ], [ 0, %55 ], [ 0, %49 ], [ 0, %46 ], [ 0, %43 ], [ 0, %40 ], [ 0, %32 ], [ 0, %27 ], [ 0, %24 ], [ 0, %19 ], [ 0, %16 ], [ 0, %11 ], [ 0, %9 ], [ 0, %6 ], [ %spec.select, %112 ]
-  call void @EVP_RAND_CTX_free(ptr noundef %.059) #14
-  call void @EVP_RAND_CTX_free(ptr noundef %.060) #14
-  call void @EVP_RAND_CTX_free(ptr noundef %7) #14
+  call void @EVP_RAND_CTX_free(ptr noundef %.059) #13
+  call void @EVP_RAND_CTX_free(ptr noundef %.060) #13
+  call void @EVP_RAND_CTX_free(ptr noundef %7) #13
   br label %116
 
 116:                                              ; preds = %115, %4
@@ -819,7 +821,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %indvars.iv
-  %4 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef null) #14
+  %4 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef null) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %5, label %2, !llvm.loop !30
@@ -832,7 +834,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
   %indvars.iv13 = phi i64 [ 0, %5 ], [ %indvars.iv.next14, %6 ]
   %7 = getelementptr inbounds nuw [3 x i64], ptr %1, i64 0, i64 %indvars.iv13
   %8 = load i64, ptr %7, align 8, !tbaa !31
-  %9 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #14
+  %9 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #13
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 3
   br i1 %exitcond16.not, label %10, label %6, !llvm.loop !32
@@ -841,7 +843,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
   %.b = load i1, ptr @multi_thread_rand_bytes_succeeded, align 4
   %not..b = xor i1 %.b, true
   %11 = zext i1 %not..b to i32
-  %12 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 773, ptr noundef nonnull @.str.95, i32 noundef %11) #14
+  %12 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 773, ptr noundef nonnull @.str.95, i32 noundef %11) #13
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %16, label %13
 
@@ -849,7 +851,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
   %.b8 = load i1, ptr @multi_thread_rand_priv_bytes_succeeded, align 4
   %not..b8 = xor i1 %.b8, true
   %14 = zext i1 %not..b8 to i32
-  %15 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 775, ptr noundef nonnull @.str.96, i32 noundef %14) #14
+  %15 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 775, ptr noundef nonnull @.str.96, i32 noundef %14) #13
   %.not9 = icmp ne i32 %15, 0
   %. = zext i1 %.not9 to i32
   br label %16
@@ -862,21 +864,21 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @using_fips_rng() unnamed_addr #0 {
-  %1 = tail call ptr @RAND_get0_primary(ptr noundef null) #14
-  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 138, ptr noundef nonnull @.str.13, ptr noundef %1) #14
+  %1 = tail call ptr @RAND_get0_primary(ptr noundef null) #13
+  %2 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 138, ptr noundef nonnull @.str.13, ptr noundef %1) #13
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %12, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call ptr @EVP_RAND_CTX_get0_rand(ptr noundef %1) #14
-  %5 = tail call ptr @EVP_RAND_get0_provider(ptr noundef %4) #14
-  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 142, ptr noundef nonnull @.str.24, ptr noundef %5) #14
+  %4 = tail call ptr @EVP_RAND_CTX_get0_rand(ptr noundef %1) #13
+  %5 = tail call ptr @EVP_RAND_get0_provider(ptr noundef %4) #13
+  %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 142, ptr noundef nonnull @.str.24, ptr noundef %5) #13
   %.not5 = icmp eq i32 %6, 0
   br i1 %.not5, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %5) #14
-  %9 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.25) #16
+  %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %5) #13
+  %9 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.25) #15
   %10 = icmp ne ptr %9, null
   %11 = zext i1 %10 to i32
   br label %12
@@ -926,48 +928,48 @@ define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %0, ptr
   %.042 = select i1 %18, ptr %16, ptr %4
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.48, ptr noundef nonnull %15) #14
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.48, ptr noundef nonnull %15) #13
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 40, i1 false)
-  %20 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %14) #14
+  %20 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %14) #13
   %.not.i.i = icmp eq i32 %20, 0
   %21 = load i32, ptr %15, align 4
   %.0.i.i = select i1 %.not.i.i, i32 0, i32 %21
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %22 = call i32 @test_int_ne(ptr noundef nonnull @.str.4, i32 noundef 202, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef %.0.i.i, i32 noundef 0) #14
+  %22 = call i32 @test_int_ne(ptr noundef nonnull @.str.4, i32 noundef 202, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i32 noundef %.0.i.i, i32 noundef 0) #13
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %109, label %23
 
 23:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #14
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #13
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
-  %25 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %1, ptr noundef nonnull %12) #14
+  %25 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %1, ptr noundef nonnull %12) #13
   %.not.i.i65 = icmp eq i32 %25, 0
   %26 = load i32, ptr %13, align 4
   %.0.i.i66 = select i1 %.not.i.i65, i32 0, i32 %26
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %27 = call i32 @test_int_ne(ptr noundef nonnull @.str.4, i32 noundef 203, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, i32 noundef %.0.i.i66, i32 noundef 0) #14
+  %27 = call i32 @test_int_ne(ptr noundef nonnull @.str.4, i32 noundef 203, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.27, i32 noundef %.0.i.i66, i32 noundef 0) #13
   %.not47 = icmp eq i32 %27, 0
   br i1 %.not47, label %109, label %28
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.48, ptr noundef nonnull %11) #14
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.48, ptr noundef nonnull %11) #13
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false)
-  %30 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %2, ptr noundef nonnull %10) #14
+  %30 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %2, ptr noundef nonnull %10) #13
   %.not.i.i67 = icmp eq i32 %30, 0
   %31 = load i32, ptr %11, align 4
   %.0.i.i68 = select i1 %.not.i.i67, i32 0, i32 %31
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %32 = call i32 @test_int_ne(ptr noundef nonnull @.str.4, i32 noundef 204, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.27, i32 noundef %.0.i.i68, i32 noundef 0) #14
+  %32 = call i32 @test_int_ne(ptr noundef nonnull @.str.4, i32 noundef 204, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.27, i32 noundef %.0.i.i68, i32 noundef 0) #13
   %.not48 = icmp eq i32 %32, 0
   br i1 %.not48, label %109, label %33
 
@@ -976,20 +978,20 @@ define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %0, ptr
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = call i64 @time(ptr noundef null) #14
+  %36 = call i64 @time(ptr noundef null) #13
   br label %37
 
 37:                                               ; preds = %35, %33
   %.043 = phi i64 [ %36, %35 ], [ %6, %33 ]
   %.not49 = icmp eq i32 %5, 0
   %38 = select i1 %.not49, i64 0, i64 %.043
-  %39 = call ptr @RAND_get0_public(ptr noundef null) #14
-  %40 = call ptr @RAND_get_rand_method() #14
+  %39 = call ptr @RAND_get0_public(ptr noundef null) #13
+  %40 = call ptr @RAND_get_rand_method() #13
   %.not.i.i69 = icmp eq ptr %40, null
   br i1 %.not.i.i69, label %48, label %41
 
 41:                                               ; preds = %37
-  %42 = call ptr @RAND_OpenSSL() #14
+  %42 = call ptr @RAND_OpenSSL() #13
   %.not13.i.i = icmp eq ptr %40, %42
   br i1 %.not13.i.i, label %48, label %43
 
@@ -1000,7 +1002,7 @@ define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %0, ptr
   br i1 %.not15.i.i, label %rand_bytes.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = call i32 %45(ptr noundef nonnull %spec.select, i32 noundef range(i32 16, 257) 16) #14
+  %47 = call i32 %45(ptr noundef nonnull %spec.select, i32 noundef range(i32 16, 257) 16) #13
   br label %rand_bytes.exit
 
 48:                                               ; preds = %41, %37
@@ -1008,23 +1010,23 @@ define internal fastcc range(i32 0, 2) i32 @test_drbg_reseed(ptr noundef %0, ptr
   br i1 %.not14.i.i, label %rand_bytes.exit, label %49
 
 49:                                               ; preds = %48
-  %50 = call i32 @EVP_RAND_generate(ptr noundef nonnull %39, ptr noundef nonnull %spec.select, i64 noundef 16, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %50 = call i32 @EVP_RAND_generate(ptr noundef nonnull %39, ptr noundef nonnull %spec.select, i64 noundef 16, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #13
   br label %rand_bytes.exit
 
 rand_bytes.exit:                                  ; preds = %43, %46, %48, %49
   %.0.i.i70 = phi i32 [ %47, %46 ], [ %50, %49 ], [ -1, %43 ], [ 0, %48 ]
-  %51 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 217, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %.0.i.i70, i32 noundef 1) #14
+  %51 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 217, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i32 noundef %.0.i.i70, i32 noundef 1) #13
   %.not50 = icmp eq i32 %51, 0
   br i1 %.not50, label %109, label %52
 
 52:                                               ; preds = %rand_bytes.exit
-  %53 = call ptr @RAND_get0_private(ptr noundef null) #14
-  %54 = call ptr @RAND_get_rand_method() #14
+  %53 = call ptr @RAND_get0_private(ptr noundef null) #13
+  %54 = call ptr @RAND_get_rand_method() #13
   %.not.i.i71 = icmp eq ptr %54, null
   br i1 %.not.i.i71, label %62, label %55
 
 55:                                               ; preds = %52
-  %56 = call ptr @RAND_OpenSSL() #14
+  %56 = call ptr @RAND_OpenSSL() #13
   %.not13.i.i72 = icmp eq ptr %54, %56
   br i1 %.not13.i.i72, label %62, label %57
 
@@ -1035,7 +1037,7 @@ rand_bytes.exit:                                  ; preds = %43, %46, %48, %49
   br i1 %.not15.i.i73, label %rand_priv_bytes.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = call i32 %59(ptr noundef nonnull %.042, i32 noundef range(i32 16, 257) 16) #14
+  %61 = call i32 %59(ptr noundef nonnull %.042, i32 noundef range(i32 16, 257) 16) #13
   br label %rand_priv_bytes.exit
 
 62:                                               ; preds = %55, %52
@@ -1043,99 +1045,99 @@ rand_bytes.exit:                                  ; preds = %43, %46, %48, %49
   br i1 %.not14.i.i75, label %rand_priv_bytes.exit, label %63
 
 63:                                               ; preds = %62
-  %64 = call i32 @EVP_RAND_generate(ptr noundef nonnull %53, ptr noundef nonnull %.042, i64 noundef 16, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %64 = call i32 @EVP_RAND_generate(ptr noundef nonnull %53, ptr noundef nonnull %.042, i64 noundef 16, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #13
   br label %rand_priv_bytes.exit
 
 rand_priv_bytes.exit:                             ; preds = %57, %60, %62, %63
   %.0.i.i74 = phi i32 [ %61, %60 ], [ %64, %63 ], [ -1, %57 ], [ 0, %62 ]
-  %65 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 219, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i32 noundef %.0.i.i74, i32 noundef 1) #14
+  %65 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 219, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.31, i32 noundef %.0.i.i74, i32 noundef 1) #13
   %.not51 = icmp eq i32 %65, 0
   br i1 %.not51, label %109, label %66
 
 66:                                               ; preds = %rand_priv_bytes.exit
-  %67 = call i64 @time(ptr noundef null) #14
-  %68 = call i32 @EVP_RAND_get_state(ptr noundef %0) #14
-  %69 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 229, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef %68, i32 noundef 1) #14
+  %67 = call i64 @time(ptr noundef null) #13
+  %68 = call i32 @EVP_RAND_get_state(ptr noundef %0) #13
+  %69 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 229, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef %68, i32 noundef 1) #13
   %.not52 = icmp eq i32 %69, 0
   br i1 %.not52, label %109, label %70
 
 70:                                               ; preds = %66
-  %71 = call i32 @EVP_RAND_get_state(ptr noundef %1) #14
-  %72 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 230, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.34, i32 noundef %71, i32 noundef 1) #14
+  %71 = call i32 @EVP_RAND_get_state(ptr noundef %1) #13
+  %72 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 230, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.34, i32 noundef %71, i32 noundef 1) #13
   %.not53 = icmp eq i32 %72, 0
   br i1 %.not53, label %109, label %73
 
 73:                                               ; preds = %70
-  %74 = call i32 @EVP_RAND_get_state(ptr noundef %2) #14
-  %75 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 231, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.34, i32 noundef %74, i32 noundef 1) #14
+  %74 = call i32 @EVP_RAND_get_state(ptr noundef %2) #13
+  %75 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 231, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.34, i32 noundef %74, i32 noundef 1) #13
   %.not54 = icmp eq i32 %75, 0
   br i1 %.not54, label %109, label %76
 
 76:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.48, ptr noundef nonnull %9) #14
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.48, ptr noundef nonnull %9) #13
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, i8 0, i64 40, i1 false)
-  %78 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %8) #14
+  %78 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %8) #13
   %.not.i.i76 = icmp eq i32 %78, 0
   %79 = load i32, ptr %9, align 4
   %.0.i.i77 = select i1 %.not.i.i76, i32 0, i32 %79
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %80 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 236, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef %.0.i.i77, i32 noundef %.0.i.i) #14
+  %80 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 236, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef %.0.i.i77, i32 noundef %.0.i.i) #13
   %.not55 = icmp eq i32 %80, 0
   br i1 %.not55, label %109, label %81
 
 81:                                               ; preds = %76
   %82 = call fastcc i32 @reseed_counter(ptr noundef %1)
-  %83 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 242, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %82, i32 noundef %.0.i.i66) #14
+  %83 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 242, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %82, i32 noundef %.0.i.i66) #13
   %.not56 = icmp eq i32 %83, 0
   br i1 %.not56, label %109, label %84
 
 84:                                               ; preds = %81
   %85 = call fastcc i32 @reseed_counter(ptr noundef %1)
   %86 = call fastcc i32 @reseed_counter(ptr noundef %0)
-  %87 = call i32 @test_uint_ge(ptr noundef nonnull @.str.4, i32 noundef 244, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.37, i32 noundef %85, i32 noundef %86) #14
+  %87 = call i32 @test_uint_ge(ptr noundef nonnull @.str.4, i32 noundef 244, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.37, i32 noundef %85, i32 noundef %86) #13
   %.not57 = icmp eq i32 %87, 0
   br i1 %.not57, label %109, label %88
 
 88:                                               ; preds = %84
   %89 = call fastcc i32 @reseed_counter(ptr noundef %2)
-  %90 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 250, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef %89, i32 noundef %.0.i.i68) #14
+  %90 = call i32 @test_int_ge(ptr noundef nonnull @.str.4, i32 noundef 250, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i32 noundef %89, i32 noundef %.0.i.i68) #13
   %.not58 = icmp eq i32 %90, 0
   br i1 %.not58, label %109, label %91
 
 91:                                               ; preds = %88
   %92 = call fastcc i32 @reseed_counter(ptr noundef %2)
   %93 = call fastcc i32 @reseed_counter(ptr noundef %0)
-  %94 = call i32 @test_uint_ge(ptr noundef nonnull @.str.4, i32 noundef 252, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.37, i32 noundef %92, i32 noundef %93) #14
+  %94 = call i32 @test_uint_ge(ptr noundef nonnull @.str.4, i32 noundef 252, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.37, i32 noundef %92, i32 noundef %93) #13
   %.not59 = icmp eq i32 %94, 0
   br i1 %.not59, label %109, label %95
 
 95:                                               ; preds = %91
   %96 = call fastcc i64 @reseed_time(ptr noundef %0)
-  %97 = call i32 @test_time_t_le(ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i64 noundef %38, i64 noundef %96) #14
+  %97 = call i32 @test_time_t_le(ptr noundef nonnull @.str.4, i32 noundef 258, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i64 noundef %38, i64 noundef %96) #13
   %.not60 = icmp eq i32 %97, 0
   br i1 %.not60, label %109, label %98
 
 98:                                               ; preds = %95
   %99 = call fastcc i64 @reseed_time(ptr noundef %0)
-  %100 = call i32 @test_time_t_le(ptr noundef nonnull @.str.4, i32 noundef 259, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %99, i64 noundef %67) #14
+  %100 = call i32 @test_time_t_le(ptr noundef nonnull @.str.4, i32 noundef 259, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i64 noundef %99, i64 noundef %67) #13
   %.not61 = icmp eq i32 %100, 0
   br i1 %.not61, label %109, label %101
 
 101:                                              ; preds = %98
   %102 = call fastcc i64 @reseed_time(ptr noundef %1)
   %103 = call fastcc i64 @reseed_time(ptr noundef %0)
-  %104 = call i32 @test_time_t_ge(ptr noundef nonnull @.str.4, i32 noundef 263, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.44, i64 noundef %102, i64 noundef %103) #14
+  %104 = call i32 @test_time_t_ge(ptr noundef nonnull @.str.4, i32 noundef 263, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.44, i64 noundef %102, i64 noundef %103) #13
   %.not62 = icmp eq i32 %104, 0
   br i1 %.not62, label %109, label %105
 
 105:                                              ; preds = %101
   %106 = call fastcc i64 @reseed_time(ptr noundef %2)
   %107 = call fastcc i64 @reseed_time(ptr noundef %0)
-  %108 = call i32 @test_time_t_ge(ptr noundef nonnull @.str.4, i32 noundef 264, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, i64 noundef %106, i64 noundef %107) #14
+  %108 = call i32 @test_time_t_ge(ptr noundef nonnull @.str.4, i32 noundef 264, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, i64 noundef %106, i64 noundef %107) #13
   %.not63 = icmp ne i32 %108, 0
   %spec.select64 = zext i1 %.not63 to i32
   br label %109
@@ -1152,10 +1154,10 @@ define internal fastcc void @inc_reseed_counter(ptr noundef %0) unnamed_addr #0 
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #14
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %5 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %2) #14
+  %5 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %2) #13
   %.not.i.i = icmp eq i32 %5, 0
   %6 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1194,10 +1196,10 @@ define internal fastcc i32 @reseed_counter(ptr noundef %0) unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #14
+  call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.48, ptr noundef nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %5 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %2) #14
+  %5 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %2) #13
   %.not.i = icmp eq i32 %5, 0
   %6 = load i32, ptr %3, align 4
   %.0.i = select i1 %.not.i, i32 0, i32 %6
@@ -1220,10 +1222,10 @@ define internal fastcc i64 @reseed_time(ptr noundef %0) unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @OSSL_PARAM_construct_time_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.49, ptr noundef nonnull %3) #14
+  call void @OSSL_PARAM_construct_time_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.49, ptr noundef nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
-  %5 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %2) #14
+  %5 = call i32 @EVP_RAND_CTX_get_params(ptr noundef %0, ptr noundef nonnull %2) #13
   %.not = icmp eq i32 %5, 0
   %6 = load i64, ptr %3, align 8
   %.0 = select i1 %.not, i64 0, i64 %6
@@ -1278,7 +1280,7 @@ define internal i32 @compare_drbg_fork_result(ptr noundef readonly captures(none
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 noundef 16) #16
+  %10 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 noundef 16) #15
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.thread
 
@@ -1299,7 +1301,7 @@ declare void @test_note(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @compare_rand_chunk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) %1, i64 noundef 2) #16
+  %3 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) %1, i64 noundef 2) #15
   ret i32 %3
 }
 
@@ -1334,39 +1336,39 @@ define internal fastcc noundef ptr @new_drbg(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [2 x %struct.ossl_param_st], align 16
   %3 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i64 noundef 0) #14
+  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.90, i64 noundef 0) #13
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #14
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %5 = call ptr @EVP_RAND_fetch(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef null) #14
-  %6 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 792, ptr noundef nonnull @.str.91, ptr noundef %5) #14
+  %5 = call ptr @EVP_RAND_fetch(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef null) #13
+  %6 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 792, ptr noundef nonnull @.str.91, ptr noundef %5) #13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %1
-  %8 = call ptr @EVP_RAND_CTX_new(ptr noundef %5, ptr noundef %0) #14
-  %9 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 793, ptr noundef nonnull @.str.93, ptr noundef %8) #14
+  %8 = call ptr @EVP_RAND_CTX_new(ptr noundef %5, ptr noundef %0) #13
+  %9 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 793, ptr noundef nonnull @.str.93, ptr noundef %8) #13
   %.not6 = icmp eq i32 %9, 0
   br i1 %.not6, label %15, label %10
 
 10:                                               ; preds = %7
-  %11 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %8, ptr noundef nonnull %2) #14
+  %11 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %8, ptr noundef nonnull %2) #13
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i32
-  %14 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 794, ptr noundef nonnull @.str.94, i32 noundef %13) #14
+  %14 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 794, ptr noundef nonnull @.str.94, i32 noundef %13) #13
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %15, label %16
 
 15:                                               ; preds = %10, %7, %1
   %.0 = phi ptr [ %8, %10 ], [ %8, %7 ], [ null, %1 ]
-  call void @EVP_RAND_CTX_free(ptr noundef %.0) #14
+  call void @EVP_RAND_CTX_free(ptr noundef %.0) #13
   br label %16
 
 16:                                               ; preds = %15, %10
   %.1 = phi ptr [ %8, %10 ], [ null, %15 ]
-  call void @EVP_RAND_free(ptr noundef %5) #14
+  call void @EVP_RAND_free(ptr noundef %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.1
 }
@@ -1401,15 +1403,15 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
   %6 = alloca %struct.ossl_param_st, align 8
   %7 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call i64 @time(ptr noundef null) #14
-  %9 = tail call ptr @RAND_get0_public(ptr noundef null) #14
-  %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 686, ptr noundef nonnull @.str.9, ptr noundef %9) #14
+  %8 = tail call i64 @time(ptr noundef null) #13
+  %9 = tail call ptr @RAND_get0_public(ptr noundef null) #13
+  %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 686, ptr noundef nonnull @.str.9, ptr noundef %9) #13
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %26, label %11
 
 11:                                               ; preds = %0
-  %12 = tail call ptr @RAND_get0_private(ptr noundef null) #14
-  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 687, ptr noundef nonnull @.str.10, ptr noundef %12) #14
+  %12 = tail call ptr @RAND_get0_private(ptr noundef null) #13
+  %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 687, ptr noundef nonnull @.str.10, ptr noundef %12) #13
   %.not2 = icmp eq i32 %13, 0
   br i1 %.not2, label %26, label %14
 
@@ -1417,18 +1419,18 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.99, ptr noundef nonnull %4) #14
+  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.99, ptr noundef nonnull %4) #13
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #14
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %16 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %12, ptr noundef nonnull %5) #14
+  %16 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %12, ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
-  %19 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 688, ptr noundef nonnull @.str.97, i32 noundef %18) #14
+  %19 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 688, ptr noundef nonnull @.str.97, i32 noundef %18) #13
   %.not3 = icmp eq i32 %19, 0
   br i1 %.not3, label %26, label %20
 
@@ -1436,18 +1438,18 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 1, ptr %1, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.99, ptr noundef nonnull %1) #14
+  call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.99, ptr noundef nonnull %1) #13
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #14
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %22 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %9, ptr noundef nonnull %2) #14
+  %22 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %9, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %23 = icmp ne i32 %22, 0
   %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 689, ptr noundef nonnull @.str.98, i32 noundef %24) #14
+  %25 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 689, ptr noundef nonnull @.str.98, i32 noundef %24) #13
   %.not4 = icmp eq i32 %25, 0
   br i1 %.not4, label %26, label %.preheader
 
@@ -1456,13 +1458,13 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
   br label %.loopexit
 
 .preheader:                                       ; preds = %20, %54
-  %27 = call ptr @RAND_get0_public(ptr noundef null) #14
-  %28 = call ptr @RAND_get_rand_method() #14
+  %27 = call ptr @RAND_get0_public(ptr noundef null) #13
+  %28 = call ptr @RAND_get_rand_method() #13
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %36, label %29
 
 29:                                               ; preds = %.preheader
-  %30 = call ptr @RAND_OpenSSL() #14
+  %30 = call ptr @RAND_OpenSSL() #13
   %.not13.i.i = icmp eq ptr %28, %30
   br i1 %.not13.i.i, label %36, label %31
 
@@ -1473,7 +1475,7 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
   br i1 %.not15.i.i, label %rand_bytes.exit.thread, label %34
 
 34:                                               ; preds = %31
-  %35 = call i32 %33(ptr noundef nonnull %7, i32 noundef range(i32 16, 257) 256) #14
+  %35 = call i32 %33(ptr noundef nonnull %7, i32 noundef range(i32 16, 257) 256) #13
   br label %rand_bytes.exit
 
 36:                                               ; preds = %29, %.preheader
@@ -1481,7 +1483,7 @@ define internal fastcc void @run_multi_thread_test() unnamed_addr #0 {
   br i1 %.not14.i.i, label %rand_bytes.exit.thread, label %37
 
 37:                                               ; preds = %36
-  %38 = call i32 @EVP_RAND_generate(ptr noundef nonnull %27, ptr noundef nonnull %7, i64 noundef 256, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %38 = call i32 @EVP_RAND_generate(ptr noundef nonnull %27, ptr noundef nonnull %7, i64 noundef 256, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #13
   br label %rand_bytes.exit
 
 rand_bytes.exit:                                  ; preds = %34, %37
@@ -1494,13 +1496,13 @@ rand_bytes.exit.thread:                           ; preds = %36, %31, %rand_byte
   br label %40
 
 40:                                               ; preds = %rand_bytes.exit.thread, %rand_bytes.exit
-  %41 = call ptr @RAND_get0_private(ptr noundef null) #14
-  %42 = call ptr @RAND_get_rand_method() #14
+  %41 = call ptr @RAND_get0_private(ptr noundef null) #13
+  %42 = call ptr @RAND_get_rand_method() #13
   %.not.i.i5 = icmp eq ptr %42, null
   br i1 %.not.i.i5, label %50, label %43
 
 43:                                               ; preds = %40
-  %44 = call ptr @RAND_OpenSSL() #14
+  %44 = call ptr @RAND_OpenSSL() #13
   %.not13.i.i6 = icmp eq ptr %42, %44
   br i1 %.not13.i.i6, label %50, label %45
 
@@ -1511,7 +1513,7 @@ rand_bytes.exit.thread:                           ; preds = %36, %31, %rand_byte
   br i1 %.not15.i.i7, label %rand_priv_bytes.exit.thread, label %48
 
 48:                                               ; preds = %45
-  %49 = call i32 %47(ptr noundef nonnull %7, i32 noundef range(i32 16, 257) 256) #14
+  %49 = call i32 %47(ptr noundef nonnull %7, i32 noundef range(i32 16, 257) 256) #13
   br label %rand_priv_bytes.exit
 
 50:                                               ; preds = %43, %40
@@ -1519,7 +1521,7 @@ rand_bytes.exit.thread:                           ; preds = %36, %31, %rand_byte
   br i1 %.not14.i.i9, label %rand_priv_bytes.exit.thread, label %51
 
 51:                                               ; preds = %50
-  %52 = call i32 @EVP_RAND_generate(ptr noundef nonnull %41, ptr noundef nonnull %7, i64 noundef 256, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #14
+  %52 = call i32 @EVP_RAND_generate(ptr noundef nonnull %41, ptr noundef nonnull %7, i64 noundef 256, i32 noundef 0, i32 noundef 0, ptr noundef null, i64 noundef 0) #13
   br label %rand_priv_bytes.exit
 
 rand_priv_bytes.exit:                             ; preds = %48, %51
@@ -1532,7 +1534,7 @@ rand_priv_bytes.exit.thread:                      ; preds = %50, %45, %rand_priv
   br label %54
 
 54:                                               ; preds = %rand_priv_bytes.exit, %rand_priv_bytes.exit.thread
-  %55 = call i64 @time(ptr noundef null) #14
+  %55 = call i64 @time(ptr noundef null) #13
   %56 = sub nsw i64 %55, %8
   %57 = icmp slt i64 %56, 5
   br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !40
@@ -1548,7 +1550,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @thread_run(ptr readnone captures(none) %0) #0 {
   tail call fastcc void @run_multi_thread_test()
-  tail call void @OPENSSL_thread_stop() #14
+  tail call void @OPENSSL_thread_stop() #13
   ret ptr null
 }
 
@@ -1564,9 +1566,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1580,10 +1579,9 @@ attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argme
 attributes #10 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

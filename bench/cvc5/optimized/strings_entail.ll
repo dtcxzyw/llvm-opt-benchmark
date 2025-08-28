@@ -11468,7 +11468,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit377: ; preds =
   %611 = phi ptr [ %302, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit377 ], [ %612, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit ]
   %612 = getelementptr inbounds i8, ptr %611, i64 -48
   %613 = getelementptr inbounds i8, ptr %611, i64 -32
-  %614 = load ptr, ptr %613, align 8, !tbaa !143
+  %614 = load ptr, ptr %613, align 16, !tbaa !143
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %612, ptr noundef %614)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit unwind label %615
 
@@ -11552,7 +11552,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit388: ; preds =
   %643 = phi ptr [ %302, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit388 ], [ %644, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit389 ]
   %644 = getelementptr inbounds i8, ptr %643, i64 -48
   %645 = getelementptr inbounds i8, ptr %643, i64 -32
-  %646 = load ptr, ptr %645, align 8, !tbaa !143
+  %646 = load ptr, ptr %645, align 16, !tbaa !143
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %644, ptr noundef %646)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit389 unwind label %647
 
@@ -11582,7 +11582,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2
   %654 = phi ptr [ %119, %652 ], [ %655, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit390 ]
   %655 = getelementptr inbounds i8, ptr %654, i64 -48
   %656 = getelementptr inbounds i8, ptr %654, i64 -32
-  %657 = load ptr, ptr %656, align 8, !tbaa !143
+  %657 = load ptr, ptr %656, align 16, !tbaa !143
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %655, ptr noundef %657)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit390 unwind label %658
 
@@ -11609,7 +11609,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2
   %664 = phi ptr [ %119, %.body ], [ %665, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit391 ]
   %665 = getelementptr inbounds i8, ptr %664, i64 -48
   %666 = getelementptr inbounds i8, ptr %664, i64 -32
-  %667 = load ptr, ptr %666, align 8, !tbaa !143
+  %667 = load ptr, ptr %666, align 16, !tbaa !143
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %665, ptr noundef %667)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit391 unwind label %668
 
@@ -11632,7 +11632,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2
   %674 = phi ptr [ %118, %662 ], [ %675, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit392 ]
   %675 = getelementptr inbounds i8, ptr %674, i64 -48
   %676 = getelementptr inbounds i8, ptr %674, i64 -32
-  %677 = load ptr, ptr %676, align 8, !tbaa !143
+  %677 = load ptr, ptr %676, align 16, !tbaa !143
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %675, ptr noundef %677)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit392 unwind label %678
 
@@ -11771,7 +11771,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit414: ; preds =
   %730 = phi ptr [ %118, %672 ], [ %731, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit415 ]
   %731 = getelementptr inbounds i8, ptr %730, i64 -48
   %732 = getelementptr inbounds i8, ptr %730, i64 -32
-  %733 = load ptr, ptr %732, align 8, !tbaa !143
+  %733 = load ptr, ptr %732, align 16, !tbaa !143
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %731, ptr noundef %733)
           to label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev.exit415 unwind label %734
 

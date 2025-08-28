@@ -1457,7 +1457,7 @@ define internal void @filter_freq_expr_8(ptr noundef %0, ptr noundef readonly ca
   %53 = fmul nsz float %52, 0x3FD6A09E60000000
   %54 = fadd nsz float %39, %38
   %55 = fmul nsz float %54, 0x3FD6A09E60000000
-  store float %55, ptr %.0.i1019, align 4, !tbaa !74
+  store float %55, ptr %.0.i1019, align 16, !tbaa !74
   %56 = fadd nsz float %45, %43
   %57 = fmul nsz float %56, 0x3FD6A09E60000000
   %58 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 4
@@ -1465,7 +1465,7 @@ define internal void @filter_freq_expr_8(ptr noundef %0, ptr noundef readonly ca
   %59 = fmul nsz float %41, 0x3FC87DE2A0000000
   %60 = tail call nsz float @llvm.fmuladd.f32(float %40, float 0x3FDD906BC0000000, float %59)
   %61 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 8
-  store float %60, ptr %61, align 4, !tbaa !74
+  store float %60, ptr %61, align 8, !tbaa !74
   %62 = fsub nsz float %51, %53
   %63 = fmul nsz float %62, 0x3FE6A09E60000000
   %64 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 12
@@ -1473,7 +1473,7 @@ define internal void @filter_freq_expr_8(ptr noundef %0, ptr noundef readonly ca
   %65 = fsub nsz float %38, %39
   %66 = fmul nsz float %65, 0x3FD6A09E60000000
   %67 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 16
-  store float %66, ptr %67, align 4, !tbaa !74
+  store float %66, ptr %67, align 16, !tbaa !74
   %68 = fadd nsz float %51, %53
   %69 = fmul nsz float %68, 0x3FE6A09E60000000
   %70 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 20
@@ -1481,7 +1481,7 @@ define internal void @filter_freq_expr_8(ptr noundef %0, ptr noundef readonly ca
   %71 = fmul nsz float %41, 0xBFDD906BC0000000
   %72 = tail call nsz float @llvm.fmuladd.f32(float %40, float 0x3FC87DE2A0000000, float %71)
   %73 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 24
-  store float %72, ptr %73, align 4, !tbaa !74
+  store float %72, ptr %73, align 8, !tbaa !74
   %74 = fadd nsz float %47, %49
   %75 = fmul nsz float %74, 0x3FD6A09E60000000
   %76 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 28
@@ -1617,7 +1617,7 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %.0.i1526 = phi ptr [ %239, %filter_freq_8.exit ], [ %7, %filter_freq_8.exit.preheader ]
   %.0116.i1425 = phi ptr [ %240, %filter_freq_8.exit ], [ %8, %filter_freq_8.exit.preheader ]
   %.0117.i1324 = phi i32 [ %241, %filter_freq_8.exit ], [ 0, %filter_freq_8.exit.preheader ]
-  %168 = load float, ptr %.0116.i1425, align 4, !tbaa !74
+  %168 = load float, ptr %.0116.i1425, align 16, !tbaa !74
   %169 = fmul nsz float %168, 0x3FF6A09E60000000
   %170 = getelementptr inbounds nuw i8, ptr %.0116.i1425, i64 4
   %171 = load float, ptr %170, align 4, !tbaa !74
@@ -1626,9 +1626,9 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %174 = fmul nsz float %173, 0x3FD1A855E0000000
   %175 = tail call nsz float @llvm.fmuladd.f32(float %171, float 0x3FF63150C0000000, float %174)
   %176 = getelementptr inbounds nuw i8, ptr %.0116.i1425, i64 8
-  %177 = load float, ptr %176, align 4, !tbaa !74
+  %177 = load float, ptr %176, align 8, !tbaa !74
   %178 = getelementptr inbounds nuw i8, ptr %.0116.i1425, i64 24
-  %179 = load float, ptr %178, align 4, !tbaa !74
+  %179 = load float, ptr %178, align 8, !tbaa !74
   %180 = fmul nsz float %179, 0x3FE1517A80000000
   %181 = tail call nsz float @llvm.fmuladd.f32(float %177, float 0x3FF4E7AEA0000000, float %180)
   %182 = getelementptr inbounds nuw i8, ptr %.0116.i1425, i64 12
@@ -1638,7 +1638,7 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %186 = fmul nsz float %185, 0x3FE92469C0000000
   %187 = tail call nsz float @llvm.fmuladd.f32(float %183, float 0x3FF2D062E0000000, float %186)
   %188 = getelementptr inbounds nuw i8, ptr %.0116.i1425, i64 16
-  %189 = load float, ptr %188, align 4, !tbaa !74
+  %189 = load float, ptr %188, align 16, !tbaa !74
   %190 = fmul nsz float %189, 0x3FF6A09E60000000
   %191 = fmul nsz float %185, 0x3FF2D062E0000000
   %192 = tail call nsz float @llvm.fmuladd.f32(float %183, float 0xBFE92469C0000000, float %191)
@@ -1668,7 +1668,7 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %216 = fadd nsz float %199, %197
   %217 = fmul nsz float %216, 2.500000e-01
   %218 = tail call nsz float @llvm.fmuladd.f32(float %198, float 0x3FD6A09E60000000, float %217)
-  store float %218, ptr %.0.i1526, align 4, !tbaa !74
+  store float %218, ptr %.0.i1526, align 16, !tbaa !74
   %219 = fadd nsz float %205, %214
   %220 = fmul nsz float %219, 0x3FE6A09E60000000
   %221 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 4
@@ -1676,7 +1676,7 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %222 = fsub nsz float %205, %214
   %223 = fmul nsz float %222, 0x3FE6A09E60000000
   %224 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 8
-  store float %223, ptr %224, align 4, !tbaa !74
+  store float %223, ptr %224, align 8, !tbaa !74
   %225 = fadd nsz float %215, %203
   %226 = fmul nsz float %225, 0x3FE6A09E60000000
   %227 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 12
@@ -1684,7 +1684,7 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %228 = fsub nsz float %203, %215
   %229 = fmul nsz float %228, 0x3FE6A09E60000000
   %230 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 16
-  store float %229, ptr %230, align 4, !tbaa !74
+  store float %229, ptr %230, align 16, !tbaa !74
   %231 = fsub nsz float %207, %212
   %232 = fmul nsz float %231, 0x3FE6A09E60000000
   %233 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 20
@@ -1692,7 +1692,7 @@ filter_freq_8.exit:                               ; preds = %filter_freq_8.exit.
   %234 = fadd nsz float %207, %212
   %235 = fmul nsz float %234, 0x3FE6A09E60000000
   %236 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 24
-  store float %235, ptr %236, align 4, !tbaa !74
+  store float %235, ptr %236, align 8, !tbaa !74
   %237 = tail call nsz float @llvm.fmuladd.f32(float %198, float 0xBFD6A09E60000000, float %217)
   %238 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 28
   store float %237, ptr %238, align 4, !tbaa !74
@@ -1932,7 +1932,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %121 = tail call nsz float @llvm.fmuladd.f32(float %114, float 0x3FC1517A80000000, float %120)
   %122 = fadd nsz float %71, %70
   %123 = fmul nsz float %122, 2.500000e-01
-  store float %123, ptr %.0.i1019, align 4, !tbaa !74
+  store float %123, ptr %.0.i1019, align 16, !tbaa !74
   %124 = fadd nsz float %103, %102
   %125 = fmul nsz float %124, 2.500000e-01
   %126 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 4
@@ -1940,7 +1940,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %127 = fadd nsz float %77, %75
   %128 = fmul nsz float %127, 2.500000e-01
   %129 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 8
-  store float %128, ptr %129, align 4, !tbaa !74
+  store float %128, ptr %129, align 8, !tbaa !74
   %130 = fsub nsz float %109, %121
   %131 = fmul nsz float %130, 0x3FE6A09E60000000
   %132 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 12
@@ -1948,7 +1948,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %133 = fmul nsz float %73, 0x3FC1517A80000000
   %134 = tail call nsz float @llvm.fmuladd.f32(float %72, float 0x3FD4E7AEA0000000, float %133)
   %135 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 16
-  store float %134, ptr %135, align 4, !tbaa !74
+  store float %134, ptr %135, align 16, !tbaa !74
   %136 = fadd nsz float %109, %121
   %137 = fmul nsz float %136, 0x3FE6A09E60000000
   %138 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 20
@@ -1956,7 +1956,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %139 = fsub nsz float %83, %85
   %140 = fmul nsz float %139, 0x3FE6A09E60000000
   %141 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 24
-  store float %140, ptr %141, align 4, !tbaa !74
+  store float %140, ptr %141, align 8, !tbaa !74
   %142 = fadd nsz float %107, %117
   %143 = fmul nsz float %142, 0x3FE6A09E60000000
   %144 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 28
@@ -1964,7 +1964,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %145 = fsub nsz float %70, %71
   %146 = fmul nsz float %145, 2.500000e-01
   %147 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 32
-  store float %146, ptr %147, align 4, !tbaa !74
+  store float %146, ptr %147, align 16, !tbaa !74
   %148 = fsub nsz float %107, %117
   %149 = fmul nsz float %148, 0x3FE6A09E60000000
   %150 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 36
@@ -1972,7 +1972,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %151 = fadd nsz float %83, %85
   %152 = fmul nsz float %151, 0x3FE6A09E60000000
   %153 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 40
-  store float %152, ptr %153, align 4, !tbaa !74
+  store float %152, ptr %153, align 8, !tbaa !74
   %154 = fsub nsz float %111, %119
   %155 = fmul nsz float %154, 0x3FE6A09E60000000
   %156 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 44
@@ -1980,7 +1980,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %157 = fmul nsz float %73, 0xBFD4E7AEA0000000
   %158 = tail call nsz float @llvm.fmuladd.f32(float %72, float 0x3FC1517A80000000, float %157)
   %159 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 48
-  store float %158, ptr %159, align 4, !tbaa !74
+  store float %158, ptr %159, align 16, !tbaa !74
   %160 = fadd nsz float %111, %119
   %161 = fmul nsz float %160, 0x3FE6A09E60000000
   %162 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 52
@@ -1988,7 +1988,7 @@ define internal void @filter_freq_expr_16(ptr noundef %0, ptr noundef readonly c
   %163 = fadd nsz float %79, %81
   %164 = fmul nsz float %163, 2.500000e-01
   %165 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 56
-  store float %164, ptr %165, align 4, !tbaa !74
+  store float %164, ptr %165, align 8, !tbaa !74
   %166 = fadd nsz float %113, %112
   %167 = fmul nsz float %166, 2.500000e-01
   %168 = getelementptr inbounds nuw i8, ptr %.0.i1019, i64 60
@@ -2240,7 +2240,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %.0.i1526 = phi ptr [ %547, %filter_freq_16.exit ], [ %7, %filter_freq_16.exit.preheader ]
   %.0272.i1425 = phi ptr [ %548, %filter_freq_16.exit ], [ %8, %filter_freq_16.exit.preheader ]
   %.0273.i1324 = phi i32 [ %549, %filter_freq_16.exit ], [ 0, %filter_freq_16.exit.preheader ]
-  %368 = load float, ptr %.0272.i1425, align 4, !tbaa !74
+  %368 = load float, ptr %.0272.i1425, align 16, !tbaa !74
   %369 = fmul nsz float %368, 0x3FF6A09E60000000
   %370 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 4
   %371 = load float, ptr %370, align 4, !tbaa !74
@@ -2249,9 +2249,9 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %374 = fmul nsz float %373, 0x3FC1BE3520000000
   %375 = tail call nsz float @llvm.fmuladd.f32(float %371, float 0x3FF684B9C0000000, float %374)
   %376 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 8
-  %377 = load float, ptr %376, align 4, !tbaa !74
+  %377 = load float, ptr %376, align 8, !tbaa !74
   %378 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 56
-  %379 = load float, ptr %378, align 4, !tbaa !74
+  %379 = load float, ptr %378, align 8, !tbaa !74
   %380 = fmul nsz float %379, 0x3FD1A855E0000000
   %381 = tail call nsz float @llvm.fmuladd.f32(float %377, float 0x3FF63150C0000000, float %380)
   %382 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 12
@@ -2261,9 +2261,9 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %386 = fmul nsz float %385, 0x3FDA4608A0000000
   %387 = tail call nsz float @llvm.fmuladd.f32(float %383, float 0x3FF5A730C0000000, float %386)
   %388 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 16
-  %389 = load float, ptr %388, align 4, !tbaa !74
+  %389 = load float, ptr %388, align 16, !tbaa !74
   %390 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 48
-  %391 = load float, ptr %390, align 4, !tbaa !74
+  %391 = load float, ptr %390, align 16, !tbaa !74
   %392 = fmul nsz float %391, 0x3FE1517A80000000
   %393 = tail call nsz float @llvm.fmuladd.f32(float %389, float 0x3FF4E7AEA0000000, float %392)
   %394 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 20
@@ -2273,9 +2273,9 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %398 = fmul nsz float %397, 0x3FE5553E40000000
   %399 = tail call nsz float @llvm.fmuladd.f32(float %395, float 0x3FF3F4A240000000, float %398)
   %400 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 24
-  %401 = load float, ptr %400, align 4, !tbaa !74
+  %401 = load float, ptr %400, align 8, !tbaa !74
   %402 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 40
-  %403 = load float, ptr %402, align 4, !tbaa !74
+  %403 = load float, ptr %402, align 8, !tbaa !74
   %404 = fmul nsz float %403, 0x3FE92469C0000000
   %405 = tail call nsz float @llvm.fmuladd.f32(float %401, float 0x3FF2D062E0000000, float %404)
   %406 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 28
@@ -2285,7 +2285,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %410 = fmul nsz float %409, 0x3FECB598C0000000
   %411 = tail call nsz float @llvm.fmuladd.f32(float %407, float 0x3FF17DC140000000, float %410)
   %412 = getelementptr inbounds nuw i8, ptr %.0272.i1425, i64 32
-  %413 = load float, ptr %412, align 4, !tbaa !74
+  %413 = load float, ptr %412, align 16, !tbaa !74
   %414 = fmul nsz float %413, 0x3FF6A09E60000000
   %415 = fmul nsz float %409, 0x3FF17DC140000000
   %416 = tail call nsz float @llvm.fmuladd.f32(float %407, float 0xBFECB598C0000000, float %415)
@@ -2375,7 +2375,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %500 = fadd nsz float %440, %438
   %501 = fmul nsz float %500, 0x3FC6A09E60000000
   %502 = tail call nsz float @llvm.fmuladd.f32(float %439, float 2.500000e-01, float %501)
-  store float %502, ptr %.0.i1526, align 4, !tbaa !74
+  store float %502, ptr %.0.i1526, align 16, !tbaa !74
   %503 = fadd nsz float %457, %486
   %504 = fmul nsz float %503, 0x3FE6A09E60000000
   %505 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 4
@@ -2383,7 +2383,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %506 = fsub nsz float %457, %486
   %507 = fmul nsz float %506, 0x3FE6A09E60000000
   %508 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 8
-  store float %507, ptr %508, align 4, !tbaa !74
+  store float %507, ptr %508, align 8, !tbaa !74
   %509 = fsub nsz float %446, %498
   %510 = fmul nsz float %509, 0x3FE6A09E60000000
   %511 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 12
@@ -2391,7 +2391,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %512 = fadd nsz float %446, %498
   %513 = fmul nsz float %512, 0x3FE6A09E60000000
   %514 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 16
-  store float %513, ptr %514, align 4, !tbaa !74
+  store float %513, ptr %514, align 16, !tbaa !74
   %515 = fsub nsz float %464, %491
   %516 = fmul nsz float %515, 0x3FE6A09E60000000
   %517 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 20
@@ -2399,7 +2399,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %518 = fadd nsz float %464, %491
   %519 = fmul nsz float %518, 0x3FE6A09E60000000
   %520 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 24
-  store float %519, ptr %520, align 4, !tbaa !74
+  store float %519, ptr %520, align 8, !tbaa !74
   %521 = fadd nsz float %499, %444
   %522 = fmul nsz float %521, 0x3FE6A09E60000000
   %523 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 28
@@ -2407,7 +2407,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %524 = fsub nsz float %444, %499
   %525 = fmul nsz float %524, 0x3FE6A09E60000000
   %526 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 32
-  store float %525, ptr %526, align 4, !tbaa !74
+  store float %525, ptr %526, align 16, !tbaa !74
   %527 = fadd nsz float %466, %489
   %528 = fmul nsz float %527, 0x3FE6A09E60000000
   %529 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 36
@@ -2415,7 +2415,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %530 = fsub nsz float %466, %489
   %531 = fmul nsz float %530, 0x3FE6A09E60000000
   %532 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 40
-  store float %531, ptr %532, align 4, !tbaa !74
+  store float %531, ptr %532, align 8, !tbaa !74
   %533 = fadd nsz float %448, %496
   %534 = fmul nsz float %533, 0x3FE6A09E60000000
   %535 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 44
@@ -2423,7 +2423,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %536 = fsub nsz float %448, %496
   %537 = fmul nsz float %536, 0x3FE6A09E60000000
   %538 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 48
-  store float %537, ptr %538, align 4, !tbaa !74
+  store float %537, ptr %538, align 16, !tbaa !74
   %539 = fsub nsz float %461, %482
   %540 = fmul nsz float %539, 0x3FE6A09E60000000
   %541 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 52
@@ -2431,7 +2431,7 @@ filter_freq_16.exit:                              ; preds = %filter_freq_16.exit
   %542 = fadd nsz float %461, %482
   %543 = fmul nsz float %542, 0x3FE6A09E60000000
   %544 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 56
-  store float %543, ptr %544, align 4, !tbaa !74
+  store float %543, ptr %544, align 8, !tbaa !74
   %545 = tail call nsz float @llvm.fmuladd.f32(float %439, float -2.500000e-01, float %501)
   %546 = getelementptr inbounds nuw i8, ptr %.0.i1526, i64 60
   store float %545, ptr %546, align 4, !tbaa !74
@@ -2725,7 +2725,7 @@ define internal void @filter_freq_sigma_8(ptr noundef readonly captures(none) %0
   %51 = fmul nsz float %50, 0x3FD6A09E60000000
   %52 = fadd nsz float %37, %36
   %53 = fmul nsz float %52, 0x3FD6A09E60000000
-  store float %53, ptr %.0.i716, align 4, !tbaa !74
+  store float %53, ptr %.0.i716, align 16, !tbaa !74
   %54 = fadd nsz float %43, %41
   %55 = fmul nsz float %54, 0x3FD6A09E60000000
   %56 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 4
@@ -2733,7 +2733,7 @@ define internal void @filter_freq_sigma_8(ptr noundef readonly captures(none) %0
   %57 = fmul nsz float %39, 0x3FC87DE2A0000000
   %58 = tail call nsz float @llvm.fmuladd.f32(float %38, float 0x3FDD906BC0000000, float %57)
   %59 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 8
-  store float %58, ptr %59, align 4, !tbaa !74
+  store float %58, ptr %59, align 8, !tbaa !74
   %60 = fsub nsz float %49, %51
   %61 = fmul nsz float %60, 0x3FE6A09E60000000
   %62 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 12
@@ -2741,7 +2741,7 @@ define internal void @filter_freq_sigma_8(ptr noundef readonly captures(none) %0
   %63 = fsub nsz float %36, %37
   %64 = fmul nsz float %63, 0x3FD6A09E60000000
   %65 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 16
-  store float %64, ptr %65, align 4, !tbaa !74
+  store float %64, ptr %65, align 16, !tbaa !74
   %66 = fadd nsz float %49, %51
   %67 = fmul nsz float %66, 0x3FE6A09E60000000
   %68 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 20
@@ -2749,7 +2749,7 @@ define internal void @filter_freq_sigma_8(ptr noundef readonly captures(none) %0
   %69 = fmul nsz float %39, 0xBFDD906BC0000000
   %70 = tail call nsz float @llvm.fmuladd.f32(float %38, float 0x3FC87DE2A0000000, float %69)
   %71 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 24
-  store float %70, ptr %71, align 4, !tbaa !74
+  store float %70, ptr %71, align 8, !tbaa !74
   %72 = fadd nsz float %45, %47
   %73 = fmul nsz float %72, 0x3FD6A09E60000000
   %74 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 28
@@ -2882,7 +2882,7 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %.0.i1223 = phi ptr [ %235, %filter_freq_8.exit ], [ %7, %fdct8_1d.exit ]
   %.0116.i1122 = phi ptr [ %236, %filter_freq_8.exit ], [ %8, %fdct8_1d.exit ]
   %.0117.i1021 = phi i32 [ %237, %filter_freq_8.exit ], [ 0, %fdct8_1d.exit ]
-  %164 = load float, ptr %.0116.i1122, align 4, !tbaa !74
+  %164 = load float, ptr %.0116.i1122, align 16, !tbaa !74
   %165 = fmul nsz float %164, 0x3FF6A09E60000000
   %166 = getelementptr inbounds nuw i8, ptr %.0116.i1122, i64 4
   %167 = load float, ptr %166, align 4, !tbaa !74
@@ -2891,9 +2891,9 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %170 = fmul nsz float %169, 0x3FD1A855E0000000
   %171 = tail call nsz float @llvm.fmuladd.f32(float %167, float 0x3FF63150C0000000, float %170)
   %172 = getelementptr inbounds nuw i8, ptr %.0116.i1122, i64 8
-  %173 = load float, ptr %172, align 4, !tbaa !74
+  %173 = load float, ptr %172, align 8, !tbaa !74
   %174 = getelementptr inbounds nuw i8, ptr %.0116.i1122, i64 24
-  %175 = load float, ptr %174, align 4, !tbaa !74
+  %175 = load float, ptr %174, align 8, !tbaa !74
   %176 = fmul nsz float %175, 0x3FE1517A80000000
   %177 = tail call nsz float @llvm.fmuladd.f32(float %173, float 0x3FF4E7AEA0000000, float %176)
   %178 = getelementptr inbounds nuw i8, ptr %.0116.i1122, i64 12
@@ -2903,7 +2903,7 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %182 = fmul nsz float %181, 0x3FE92469C0000000
   %183 = tail call nsz float @llvm.fmuladd.f32(float %179, float 0x3FF2D062E0000000, float %182)
   %184 = getelementptr inbounds nuw i8, ptr %.0116.i1122, i64 16
-  %185 = load float, ptr %184, align 4, !tbaa !74
+  %185 = load float, ptr %184, align 16, !tbaa !74
   %186 = fmul nsz float %185, 0x3FF6A09E60000000
   %187 = fmul nsz float %181, 0x3FF2D062E0000000
   %188 = tail call nsz float @llvm.fmuladd.f32(float %179, float 0xBFE92469C0000000, float %187)
@@ -2933,7 +2933,7 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %212 = fadd nsz float %195, %193
   %213 = fmul nsz float %212, 2.500000e-01
   %214 = tail call nsz float @llvm.fmuladd.f32(float %194, float 0x3FD6A09E60000000, float %213)
-  store float %214, ptr %.0.i1223, align 4, !tbaa !74
+  store float %214, ptr %.0.i1223, align 16, !tbaa !74
   %215 = fadd nsz float %201, %210
   %216 = fmul nsz float %215, 0x3FE6A09E60000000
   %217 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 4
@@ -2941,7 +2941,7 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %218 = fsub nsz float %201, %210
   %219 = fmul nsz float %218, 0x3FE6A09E60000000
   %220 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 8
-  store float %219, ptr %220, align 4, !tbaa !74
+  store float %219, ptr %220, align 8, !tbaa !74
   %221 = fadd nsz float %211, %199
   %222 = fmul nsz float %221, 0x3FE6A09E60000000
   %223 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 12
@@ -2949,7 +2949,7 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %224 = fsub nsz float %199, %211
   %225 = fmul nsz float %224, 0x3FE6A09E60000000
   %226 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 16
-  store float %225, ptr %226, align 4, !tbaa !74
+  store float %225, ptr %226, align 16, !tbaa !74
   %227 = fsub nsz float %203, %208
   %228 = fmul nsz float %227, 0x3FE6A09E60000000
   %229 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 20
@@ -2957,7 +2957,7 @@ filter_freq_8.exit:                               ; preds = %fdct8_1d.exit, %fil
   %230 = fadd nsz float %203, %208
   %231 = fmul nsz float %230, 0x3FE6A09E60000000
   %232 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 24
-  store float %231, ptr %232, align 4, !tbaa !74
+  store float %231, ptr %232, align 8, !tbaa !74
   %233 = tail call nsz float @llvm.fmuladd.f32(float %194, float 0xBFD6A09E60000000, float %213)
   %234 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 28
   store float %233, ptr %234, align 4, !tbaa !74
@@ -3195,7 +3195,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %119 = tail call nsz float @llvm.fmuladd.f32(float %112, float 0x3FC1517A80000000, float %118)
   %120 = fadd nsz float %69, %68
   %121 = fmul nsz float %120, 2.500000e-01
-  store float %121, ptr %.0.i716, align 4, !tbaa !74
+  store float %121, ptr %.0.i716, align 16, !tbaa !74
   %122 = fadd nsz float %101, %100
   %123 = fmul nsz float %122, 2.500000e-01
   %124 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 4
@@ -3203,7 +3203,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %125 = fadd nsz float %75, %73
   %126 = fmul nsz float %125, 2.500000e-01
   %127 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 8
-  store float %126, ptr %127, align 4, !tbaa !74
+  store float %126, ptr %127, align 8, !tbaa !74
   %128 = fsub nsz float %107, %119
   %129 = fmul nsz float %128, 0x3FE6A09E60000000
   %130 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 12
@@ -3211,7 +3211,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %131 = fmul nsz float %71, 0x3FC1517A80000000
   %132 = tail call nsz float @llvm.fmuladd.f32(float %70, float 0x3FD4E7AEA0000000, float %131)
   %133 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 16
-  store float %132, ptr %133, align 4, !tbaa !74
+  store float %132, ptr %133, align 16, !tbaa !74
   %134 = fadd nsz float %107, %119
   %135 = fmul nsz float %134, 0x3FE6A09E60000000
   %136 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 20
@@ -3219,7 +3219,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %137 = fsub nsz float %81, %83
   %138 = fmul nsz float %137, 0x3FE6A09E60000000
   %139 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 24
-  store float %138, ptr %139, align 4, !tbaa !74
+  store float %138, ptr %139, align 8, !tbaa !74
   %140 = fadd nsz float %105, %115
   %141 = fmul nsz float %140, 0x3FE6A09E60000000
   %142 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 28
@@ -3227,7 +3227,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %143 = fsub nsz float %68, %69
   %144 = fmul nsz float %143, 2.500000e-01
   %145 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 32
-  store float %144, ptr %145, align 4, !tbaa !74
+  store float %144, ptr %145, align 16, !tbaa !74
   %146 = fsub nsz float %105, %115
   %147 = fmul nsz float %146, 0x3FE6A09E60000000
   %148 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 36
@@ -3235,7 +3235,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %149 = fadd nsz float %81, %83
   %150 = fmul nsz float %149, 0x3FE6A09E60000000
   %151 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 40
-  store float %150, ptr %151, align 4, !tbaa !74
+  store float %150, ptr %151, align 8, !tbaa !74
   %152 = fsub nsz float %109, %117
   %153 = fmul nsz float %152, 0x3FE6A09E60000000
   %154 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 44
@@ -3243,7 +3243,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %155 = fmul nsz float %71, 0xBFD4E7AEA0000000
   %156 = tail call nsz float @llvm.fmuladd.f32(float %70, float 0x3FC1517A80000000, float %155)
   %157 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 48
-  store float %156, ptr %157, align 4, !tbaa !74
+  store float %156, ptr %157, align 16, !tbaa !74
   %158 = fadd nsz float %109, %117
   %159 = fmul nsz float %158, 0x3FE6A09E60000000
   %160 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 52
@@ -3251,7 +3251,7 @@ define internal void @filter_freq_sigma_16(ptr noundef readonly captures(none) %
   %161 = fadd nsz float %77, %79
   %162 = fmul nsz float %161, 2.500000e-01
   %163 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 56
-  store float %162, ptr %163, align 4, !tbaa !74
+  store float %162, ptr %163, align 8, !tbaa !74
   %164 = fadd nsz float %111, %110
   %165 = fmul nsz float %164, 2.500000e-01
   %166 = getelementptr inbounds nuw i8, ptr %.0.i716, i64 60
@@ -3500,7 +3500,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %.0.i1223 = phi ptr [ %543, %filter_freq_16.exit ], [ %7, %fdct16_1d.exit ]
   %.0272.i1122 = phi ptr [ %544, %filter_freq_16.exit ], [ %8, %fdct16_1d.exit ]
   %.0273.i1021 = phi i32 [ %545, %filter_freq_16.exit ], [ 0, %fdct16_1d.exit ]
-  %364 = load float, ptr %.0272.i1122, align 4, !tbaa !74
+  %364 = load float, ptr %.0272.i1122, align 16, !tbaa !74
   %365 = fmul nsz float %364, 0x3FF6A09E60000000
   %366 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 4
   %367 = load float, ptr %366, align 4, !tbaa !74
@@ -3509,9 +3509,9 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %370 = fmul nsz float %369, 0x3FC1BE3520000000
   %371 = tail call nsz float @llvm.fmuladd.f32(float %367, float 0x3FF684B9C0000000, float %370)
   %372 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 8
-  %373 = load float, ptr %372, align 4, !tbaa !74
+  %373 = load float, ptr %372, align 8, !tbaa !74
   %374 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 56
-  %375 = load float, ptr %374, align 4, !tbaa !74
+  %375 = load float, ptr %374, align 8, !tbaa !74
   %376 = fmul nsz float %375, 0x3FD1A855E0000000
   %377 = tail call nsz float @llvm.fmuladd.f32(float %373, float 0x3FF63150C0000000, float %376)
   %378 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 12
@@ -3521,9 +3521,9 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %382 = fmul nsz float %381, 0x3FDA4608A0000000
   %383 = tail call nsz float @llvm.fmuladd.f32(float %379, float 0x3FF5A730C0000000, float %382)
   %384 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 16
-  %385 = load float, ptr %384, align 4, !tbaa !74
+  %385 = load float, ptr %384, align 16, !tbaa !74
   %386 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 48
-  %387 = load float, ptr %386, align 4, !tbaa !74
+  %387 = load float, ptr %386, align 16, !tbaa !74
   %388 = fmul nsz float %387, 0x3FE1517A80000000
   %389 = tail call nsz float @llvm.fmuladd.f32(float %385, float 0x3FF4E7AEA0000000, float %388)
   %390 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 20
@@ -3533,9 +3533,9 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %394 = fmul nsz float %393, 0x3FE5553E40000000
   %395 = tail call nsz float @llvm.fmuladd.f32(float %391, float 0x3FF3F4A240000000, float %394)
   %396 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 24
-  %397 = load float, ptr %396, align 4, !tbaa !74
+  %397 = load float, ptr %396, align 8, !tbaa !74
   %398 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 40
-  %399 = load float, ptr %398, align 4, !tbaa !74
+  %399 = load float, ptr %398, align 8, !tbaa !74
   %400 = fmul nsz float %399, 0x3FE92469C0000000
   %401 = tail call nsz float @llvm.fmuladd.f32(float %397, float 0x3FF2D062E0000000, float %400)
   %402 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 28
@@ -3545,7 +3545,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %406 = fmul nsz float %405, 0x3FECB598C0000000
   %407 = tail call nsz float @llvm.fmuladd.f32(float %403, float 0x3FF17DC140000000, float %406)
   %408 = getelementptr inbounds nuw i8, ptr %.0272.i1122, i64 32
-  %409 = load float, ptr %408, align 4, !tbaa !74
+  %409 = load float, ptr %408, align 16, !tbaa !74
   %410 = fmul nsz float %409, 0x3FF6A09E60000000
   %411 = fmul nsz float %405, 0x3FF17DC140000000
   %412 = tail call nsz float @llvm.fmuladd.f32(float %403, float 0xBFECB598C0000000, float %411)
@@ -3635,7 +3635,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %496 = fadd nsz float %436, %434
   %497 = fmul nsz float %496, 0x3FC6A09E60000000
   %498 = tail call nsz float @llvm.fmuladd.f32(float %435, float 2.500000e-01, float %497)
-  store float %498, ptr %.0.i1223, align 4, !tbaa !74
+  store float %498, ptr %.0.i1223, align 16, !tbaa !74
   %499 = fadd nsz float %453, %482
   %500 = fmul nsz float %499, 0x3FE6A09E60000000
   %501 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 4
@@ -3643,7 +3643,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %502 = fsub nsz float %453, %482
   %503 = fmul nsz float %502, 0x3FE6A09E60000000
   %504 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 8
-  store float %503, ptr %504, align 4, !tbaa !74
+  store float %503, ptr %504, align 8, !tbaa !74
   %505 = fsub nsz float %442, %494
   %506 = fmul nsz float %505, 0x3FE6A09E60000000
   %507 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 12
@@ -3651,7 +3651,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %508 = fadd nsz float %442, %494
   %509 = fmul nsz float %508, 0x3FE6A09E60000000
   %510 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 16
-  store float %509, ptr %510, align 4, !tbaa !74
+  store float %509, ptr %510, align 16, !tbaa !74
   %511 = fsub nsz float %460, %487
   %512 = fmul nsz float %511, 0x3FE6A09E60000000
   %513 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 20
@@ -3659,7 +3659,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %514 = fadd nsz float %460, %487
   %515 = fmul nsz float %514, 0x3FE6A09E60000000
   %516 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 24
-  store float %515, ptr %516, align 4, !tbaa !74
+  store float %515, ptr %516, align 8, !tbaa !74
   %517 = fadd nsz float %495, %440
   %518 = fmul nsz float %517, 0x3FE6A09E60000000
   %519 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 28
@@ -3667,7 +3667,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %520 = fsub nsz float %440, %495
   %521 = fmul nsz float %520, 0x3FE6A09E60000000
   %522 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 32
-  store float %521, ptr %522, align 4, !tbaa !74
+  store float %521, ptr %522, align 16, !tbaa !74
   %523 = fadd nsz float %462, %485
   %524 = fmul nsz float %523, 0x3FE6A09E60000000
   %525 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 36
@@ -3675,7 +3675,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %526 = fsub nsz float %462, %485
   %527 = fmul nsz float %526, 0x3FE6A09E60000000
   %528 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 40
-  store float %527, ptr %528, align 4, !tbaa !74
+  store float %527, ptr %528, align 8, !tbaa !74
   %529 = fadd nsz float %444, %492
   %530 = fmul nsz float %529, 0x3FE6A09E60000000
   %531 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 44
@@ -3683,7 +3683,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %532 = fsub nsz float %444, %492
   %533 = fmul nsz float %532, 0x3FE6A09E60000000
   %534 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 48
-  store float %533, ptr %534, align 4, !tbaa !74
+  store float %533, ptr %534, align 16, !tbaa !74
   %535 = fsub nsz float %457, %478
   %536 = fmul nsz float %535, 0x3FE6A09E60000000
   %537 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 52
@@ -3691,7 +3691,7 @@ filter_freq_16.exit:                              ; preds = %fdct16_1d.exit, %fi
   %538 = fadd nsz float %457, %478
   %539 = fmul nsz float %538, 0x3FE6A09E60000000
   %540 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 56
-  store float %539, ptr %540, align 4, !tbaa !74
+  store float %539, ptr %540, align 8, !tbaa !74
   %541 = tail call nsz float @llvm.fmuladd.f32(float %435, float -2.500000e-01, float %497)
   %542 = getelementptr inbounds nuw i8, ptr %.0.i1223, i64 60
   store float %541, ptr %542, align 4, !tbaa !74

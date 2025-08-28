@@ -747,7 +747,7 @@ ssl_print_hex.exit:                               ; preds = %.lr.ph.i, %33
 56:                                               ; preds = %62, %45
   %.011.i90 = phi i64 [ 0, %45 ], [ %63, %62 ]
   %.0810.i = phi ptr [ @ssl_version_tbl, %45 ], [ %64, %62 ]
-  %57 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %57 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %58 = icmp eq i32 %57, %53
   br i1 %58, label %59, label %62
 
@@ -818,7 +818,7 @@ do_ssl_trace_str.exit:                            ; preds = %62, %59
 109:                                              ; preds = %115, %106
   %.011.i92 = phi i64 [ 0, %106 ], [ %116, %115 ]
   %.0810.i93 = phi ptr [ @ssl_content_tbl, %106 ], [ %117, %115 ]
-  %110 = load i32, ptr %.0810.i93, align 8, !tbaa !78
+  %110 = load i32, ptr %.0810.i93, align 16, !tbaa !78
   %111 = icmp eq i32 %110, %108
   br i1 %111, label %112, label %115
 
@@ -855,7 +855,7 @@ do_ssl_trace_str.exit96:                          ; preds = %115, %112
 131:                                              ; preds = %137, %128
   %.011.i97 = phi i64 [ 0, %128 ], [ %138, %137 ]
   %.0810.i98 = phi ptr [ @ssl_content_tbl, %128 ], [ %139, %137 ]
-  %132 = load i32, ptr %.0810.i98, align 8, !tbaa !78
+  %132 = load i32, ptr %.0810.i98, align 16, !tbaa !78
   %133 = icmp eq i32 %132, %130
   br i1 %133, label %134, label %137
 
@@ -910,7 +910,7 @@ do_ssl_trace_str.exit101:                         ; preds = %137, %134
 165:                                              ; preds = %171, %147
   %.011.i.i = phi i64 [ 0, %147 ], [ %172, %171 ]
   %.0810.i.i = phi ptr [ @ssl_handshake_tbl, %147 ], [ %173, %171 ]
-  %166 = load i32, ptr %.0810.i.i, align 8, !tbaa !78
+  %166 = load i32, ptr %.0810.i.i, align 16, !tbaa !78
   %167 = icmp eq i32 %166, %164
   br i1 %167, label %168, label %171
 
@@ -1244,7 +1244,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_client_hello(ptr noundef %
 17:                                               ; preds = %23, %8
   %.011.i.i = phi i64 [ 0, %8 ], [ %24, %23 ]
   %.0810.i.i = phi ptr [ @ssl_version_tbl, %8 ], [ %25, %23 ]
-  %18 = load i32, ptr %.0810.i.i, align 8, !tbaa !78
+  %18 = load i32, ptr %.0810.i.i, align 16, !tbaa !78
   %19 = icmp eq i32 %18, %15
   br i1 %19, label %20, label %23
 
@@ -1403,7 +1403,7 @@ ssl_print_hexbuf.exit56:                          ; preds = %.lr.ph.i.i51, %64
 110:                                              ; preds = %116, %.lr.ph
   %.011.i = phi i64 [ 0, %.lr.ph ], [ %117, %116 ]
   %.0810.i = phi ptr [ @ssl_ciphers_tbl, %.lr.ph ], [ %118, %116 ]
-  %111 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %111 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %112 = icmp eq i32 %111, %104
   br i1 %112, label %113, label %116
 
@@ -1463,7 +1463,7 @@ do_ssl_trace_str.exit:                            ; preds = %116, %113
 139:                                              ; preds = %145, %.lr.ph86
   %exitcond.not.i59 = phi i1 [ false, %.lr.ph86 ], [ true, %145 ]
   %.0810.i58 = phi ptr [ @ssl_comp_tbl, %.lr.ph86 ], [ %146, %145 ]
-  %140 = load i32, ptr %.0810.i58, align 8, !tbaa !78
+  %140 = load i32, ptr %.0810.i58, align 16, !tbaa !78
   %141 = icmp eq i32 %140, %138
   br i1 %141, label %142, label %145
 
@@ -1520,7 +1520,7 @@ define internal fastcc range(i32 0, 2) i32 @dtls_print_hello_vfyrequest(ptr noun
 14:                                               ; preds = %20, %5
   %.011.i.i = phi i64 [ 0, %5 ], [ %21, %20 ]
   %.0810.i.i = phi ptr [ @ssl_version_tbl, %5 ], [ %22, %20 ]
-  %15 = load i32, ptr %.0810.i.i, align 8, !tbaa !78
+  %15 = load i32, ptr %.0810.i.i, align 16, !tbaa !78
   %16 = icmp eq i32 %15, %12
   br i1 %16, label %17, label %20
 
@@ -1597,7 +1597,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_server_hello(ptr noundef %
 16:                                               ; preds = %22, %7
   %.011.i.i = phi i64 [ 0, %7 ], [ %23, %22 ]
   %.0810.i.i = phi ptr [ @ssl_version_tbl, %7 ], [ %24, %22 ]
-  %17 = load i32, ptr %.0810.i.i, align 8, !tbaa !78
+  %17 = load i32, ptr %.0810.i.i, align 16, !tbaa !78
   %18 = icmp eq i32 %17, %14
   br i1 %18, label %19, label %22
 
@@ -1694,7 +1694,7 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %38
 68:                                               ; preds = %74, %53
   %.011.i = phi i64 [ 0, %53 ], [ %75, %74 ]
   %.0810.i = phi ptr [ @ssl_ciphers_tbl, %53 ], [ %76, %74 ]
-  %69 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %69 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %70 = icmp eq i32 %69, %62
   br i1 %70, label %71, label %74
 
@@ -1731,7 +1731,7 @@ do_ssl_trace_str.exit:                            ; preds = %74, %71
 86:                                               ; preds = %92, %82
   %exitcond.not.i26 = phi i1 [ false, %82 ], [ true, %92 ]
   %.0810.i25 = phi ptr [ @ssl_comp_tbl, %82 ], [ %93, %92 ]
-  %87 = load i32, ptr %.0810.i25, align 8, !tbaa !78
+  %87 = load i32, ptr %.0810.i25, align 16, !tbaa !78
   %88 = icmp eq i32 %87, %85
   br i1 %88, label %89, label %92
 
@@ -2120,7 +2120,7 @@ ssl_print_hexbuf.exit83:                          ; preds = %.lr.ph.i.i78, %169
 202:                                              ; preds = %208, %193
   %.011.i = phi i64 [ 0, %193 ], [ %209, %208 ]
   %.0810.i = phi ptr [ @ssl_groups_tbl, %193 ], [ %210, %208 ]
-  %203 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %203 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %204 = icmp eq i32 %203, %201
   br i1 %204, label %205, label %208
 
@@ -2810,7 +2810,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_compressed_certificates(pt
 43:                                               ; preds = %49, %33
   %.011.i = phi i64 [ 0, %33 ], [ %50, %49 ]
   %.0810.i = phi ptr [ @ssl_comp_cert_tbl, %33 ], [ %51, %49 ]
-  %44 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %44 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %45 = icmp eq i32 %44, %40
   br i1 %45, label %46, label %49
 
@@ -2887,7 +2887,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_signature(ptr noundef %0, 
 24:                                               ; preds = %30, %15
   %.011.i = phi i64 [ 0, %15 ], [ %31, %30 ]
   %.0810.i = phi ptr [ @ssl_sigalg_tbl, %15 ], [ %32, %30 ]
-  %25 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %25 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %26 = icmp eq i32 %25, %22
   br i1 %26, label %27, label %30
 
@@ -3051,7 +3051,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_cert_request(ptr noundef %
 51:                                               ; preds = %57, %.lr.ph.split.i
   %.011.i.i91 = phi i64 [ 0, %.lr.ph.split.i ], [ %58, %57 ]
   %.0810.i.i = phi ptr [ @ssl_ctype_tbl, %.lr.ph.split.i ], [ %59, %57 ]
-  %52 = load i32, ptr %.0810.i.i, align 8, !tbaa !78
+  %52 = load i32, ptr %.0810.i.i, align 16, !tbaa !78
   %53 = icmp eq i32 %52, %49
   br i1 %53, label %54, label %57
 
@@ -3133,7 +3133,7 @@ do_ssl_trace_list.exit:                           ; preds = %do_ssl_trace_str.ex
 99:                                               ; preds = %105, %.lr.ph
   %.011.i = phi i64 [ 0, %.lr.ph ], [ %106, %105 ]
   %.0810.i = phi ptr [ @ssl_sigalg_tbl, %.lr.ph ], [ %107, %105 ]
-  %100 = load i32, ptr %.0810.i, align 8, !tbaa !78
+  %100 = load i32, ptr %.0810.i, align 16, !tbaa !78
   %101 = icmp eq i32 %100, %98
   br i1 %101, label %102, label %105
 
@@ -3564,7 +3564,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_print_extensions(ptr noundef %0,
 63:                                               ; preds = %69, %60
   %.011.i.i = phi i64 [ 0, %60 ], [ %70, %69 ]
   %.0810.i.i = phi ptr [ @ssl_exts_tbl, %60 ], [ %71, %69 ]
-  %64 = load i32, ptr %.0810.i.i, align 8, !tbaa !78
+  %64 = load i32, ptr %.0810.i.i, align 16, !tbaa !78
   %65 = icmp eq i32 %64, %44
   br i1 %65, label %66, label %69
 
@@ -3638,7 +3638,7 @@ do_ssl_trace_str.exit.i:                          ; preds = %69, %66
 89:                                               ; preds = %92, %.lr.ph.split.us.i.i
   %.011.i.us.i.i = phi i64 [ 0, %.lr.ph.split.us.i.i ], [ %93, %92 ]
   %.0810.i.us.i.i = phi ptr [ @ssl_comp_cert_tbl, %.lr.ph.split.us.i.i ], [ %94, %92 ]
-  %90 = load i32, ptr %.0810.i.us.i.i, align 8, !tbaa !78
+  %90 = load i32, ptr %.0810.i.us.i.i, align 16, !tbaa !78
   %91 = icmp eq i32 %90, %87
   br i1 %91, label %95, label %92
 
@@ -3676,7 +3676,7 @@ do_ssl_trace_str.exit.us.i.i:                     ; preds = %92, %95
 106:                                              ; preds = %112, %.lr.ph.split.i.i
   %.011.i.i.i = phi i64 [ 0, %.lr.ph.split.i.i ], [ %113, %112 ]
   %.0810.i.i.i = phi ptr [ @ssl_mfl_tbl, %.lr.ph.split.i.i ], [ %114, %112 ]
-  %107 = load i32, ptr %.0810.i.i.i, align 8, !tbaa !78
+  %107 = load i32, ptr %.0810.i.i.i, align 16, !tbaa !78
   %108 = icmp eq i32 %107, %104
   br i1 %108, label %109, label %112
 
@@ -3726,7 +3726,7 @@ do_ssl_trace_str.exit.i.i:                        ; preds = %112, %109
 128:                                              ; preds = %134, %.lr.ph.split.i274.i
   %.011.i.i277.i = phi i64 [ 0, %.lr.ph.split.i274.i ], [ %135, %134 ]
   %.0810.i.i278.i = phi ptr [ @ssl_point_tbl, %.lr.ph.split.i274.i ], [ %136, %134 ]
-  %129 = load i32, ptr %.0810.i.i278.i, align 8, !tbaa !78
+  %129 = load i32, ptr %.0810.i.i278.i, align 16, !tbaa !78
   %130 = icmp eq i32 %129, %126
   br i1 %130, label %131, label %134
 
@@ -3853,7 +3853,7 @@ do_ssl_trace_str.exit.i280.i:                     ; preds = %134, %131
 197:                                              ; preds = %203, %.lr.ph370.i
   %.011.i284.i = phi i64 [ 0, %.lr.ph370.i ], [ %204, %203 ]
   %.0810.i285.i = phi ptr [ @ssl_sigalg_tbl, %.lr.ph370.i ], [ %205, %203 ]
-  %198 = load i32, ptr %.0810.i285.i, align 8, !tbaa !78
+  %198 = load i32, ptr %.0810.i285.i, align 16, !tbaa !78
   %199 = icmp eq i32 %198, %196
   br i1 %199, label %200, label %203
 
@@ -3953,7 +3953,7 @@ ssl_print_hex.exit.i:                             ; preds = %.lr.ph.i290.i
 246:                                              ; preds = %252, %237
   %.011.i293.i = phi i64 [ 0, %237 ], [ %253, %252 ]
   %.0810.i294.i = phi ptr [ @ssl_groups_tbl, %237 ], [ %254, %252 ]
-  %247 = load i32, ptr %.0810.i294.i, align 8, !tbaa !78
+  %247 = load i32, ptr %.0810.i294.i, align 16, !tbaa !78
   %248 = icmp eq i32 %247, %244
   br i1 %248, label %249, label %252
 
@@ -4036,7 +4036,7 @@ do_ssl_trace_str.exit297.i:                       ; preds = %252, %249
 292:                                              ; preds = %298, %283
   %.011.i298.i = phi i64 [ 0, %283 ], [ %299, %298 ]
   %.0810.i299.i = phi ptr [ @ssl_groups_tbl, %283 ], [ %300, %298 ]
-  %293 = load i32, ptr %.0810.i299.i, align 8, !tbaa !78
+  %293 = load i32, ptr %.0810.i299.i, align 16, !tbaa !78
   %294 = icmp eq i32 %293, %290
   br i1 %294, label %295, label %298
 
@@ -4098,7 +4098,7 @@ ssl_print_hex.exit307.i:                          ; preds = %.lr.ph.i304.i, %do_
 324:                                              ; preds = %330, %315
   %.011.i308.i = phi i64 [ 0, %315 ], [ %331, %330 ]
   %.0810.i309.i = phi ptr [ @ssl_version_tbl, %315 ], [ %332, %330 ]
-  %325 = load i32, ptr %.0810.i309.i, align 8, !tbaa !78
+  %325 = load i32, ptr %.0810.i309.i, align 16, !tbaa !78
   %326 = icmp eq i32 %325, %322
   br i1 %326, label %327, label %330
 
@@ -4161,7 +4161,7 @@ do_ssl_trace_str.exit312.i:                       ; preds = %330, %327
 353:                                              ; preds = %359, %.lr.ph.split.i319.i
   %exitcond.not.i.i324.i = phi i1 [ false, %.lr.ph.split.i319.i ], [ true, %359 ]
   %.0810.i.i323.i = phi ptr [ @ssl_psk_kex_modes_tbl, %.lr.ph.split.i319.i ], [ %360, %359 ]
-  %354 = load i32, ptr %.0810.i.i323.i, align 8, !tbaa !78
+  %354 = load i32, ptr %.0810.i.i323.i, align 16, !tbaa !78
   %355 = icmp eq i32 %354, %351
   br i1 %355, label %356, label %359
 
@@ -4226,7 +4226,7 @@ do_ssl_trace_str.exit.i325.i:                     ; preds = %359, %356
 390:                                              ; preds = %396, %.lr.ph.split.i331.i
   %.011.i.i334.i = phi i64 [ 0, %.lr.ph.split.i331.i ], [ %397, %396 ]
   %.0810.i.i335.i = phi ptr [ @ssl_cert_type_tbl, %.lr.ph.split.i331.i ], [ %398, %396 ]
-  %391 = load i32, ptr %.0810.i.i335.i, align 8, !tbaa !78
+  %391 = load i32, ptr %.0810.i.i335.i, align 16, !tbaa !78
   %392 = icmp eq i32 %391, %388
   br i1 %392, label %393, label %396
 
