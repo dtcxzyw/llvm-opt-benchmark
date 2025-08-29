@@ -372,7 +372,7 @@ _ZL7newImplILb1EEPvm.exit:                        ; preds = %5, %.noexc5, %.noex
 
 ; Function Attrs: mustprogress nobuiltin allocsize(0) uwtable
 define dso_local noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #15
+  %3 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #16
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %_ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit, !prof !4
 
@@ -387,7 +387,7 @@ _ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit: ; preds = %2, %4
 
 ; Function Attrs: mustprogress nobuiltin allocsize(0) uwtable
 define dso_local noalias noundef nonnull ptr @_ZnamSt11align_val_t(i64 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #15
+  %3 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #16
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %4, label %_ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit, !prof !4
 
@@ -402,7 +402,7 @@ _ZL14alignedNewImplILb0EEPvmSt11align_val_t.exit: ; preds = %2, %4
 
 ; Function Attrs: mustprogress nobuiltin nounwind allocsize(0) uwtable
 define dso_local noalias noundef ptr @_ZnwmSt11align_val_tRKSt9nothrow_t(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #15
+  %4 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #16
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %_ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit, !prof !4
 
@@ -414,7 +414,7 @@ define dso_local noalias noundef ptr @_ZnwmSt11align_val_tRKSt9nothrow_t(i64 nou
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 
 _ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit: ; preds = %3, %5
@@ -424,7 +424,7 @@ _ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit: ; preds = %3, %5
 
 ; Function Attrs: mustprogress nobuiltin nounwind allocsize(0) uwtable
 define dso_local noalias noundef ptr @_ZnamSt11align_val_tRKSt9nothrow_t(i64 noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #15
+  %4 = tail call noalias ptr @aligned_alloc(i64 noundef %1, i64 noundef %0) #16
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %_ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit, !prof !4
 
@@ -436,7 +436,7 @@ define dso_local noalias noundef ptr @_ZnamSt11align_val_tRKSt9nothrow_t(i64 nou
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 
 _ZL14alignedNewImplILb1EEPvmSt11align_val_t.exit: ; preds = %3, %5
@@ -505,7 +505,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #16
+  tail call void @__clang_call_terminate(ptr %36) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -573,7 +573,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  tail call void @__clang_call_terminate(ptr %36) #16
+  tail call void @__clang_call_terminate(ptr %36) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -641,7 +641,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #16
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -709,7 +709,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #16
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -769,7 +769,7 @@ _ZL13free_fastpathPvmb.exit.i:                    ; preds = %19
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #16
+  tail call void @__clang_call_terminate(ptr %33) #17
   unreachable
 
 _ZL15sizedDeleteImplPvm.exit:                     ; preds = %30, %_ZL13free_fastpathPvmb.exit.i, %2
@@ -829,7 +829,7 @@ _ZL13free_fastpathPvmb.exit.i:                    ; preds = %19
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  tail call void @__clang_call_terminate(ptr %33) #16
+  tail call void @__clang_call_terminate(ptr %33) #17
   unreachable
 
 _ZL15sizedDeleteImplPvm.exit:                     ; preds = %30, %_ZL13free_fastpathPvmb.exit.i, %2
@@ -897,7 +897,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #16
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -965,7 +965,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #16
+  tail call void @__clang_call_terminate(ptr %37) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -1033,7 +1033,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #16
+  tail call void @__clang_call_terminate(ptr %38) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -1101,7 +1101,7 @@ _ZL13free_fastpathPvmb.exit:                      ; preds = %.noexc3
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #16
+  tail call void @__clang_call_terminate(ptr %38) #17
   unreachable
 
 _ZL12je_free_implPv.exit:                         ; preds = %_ZL13free_fastpathPvmb.exit, %.noexc.thread
@@ -1185,7 +1185,7 @@ _ZL13free_fastpathPvmb.exit.i:                    ; preds = %30
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #16
+  tail call void @__clang_call_terminate(ptr %44) #17
   unreachable
 
 _ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit: ; preds = %.thread, %_ZL13free_fastpathPvmb.exit.i, %3
@@ -1269,7 +1269,7 @@ _ZL13free_fastpathPvmb.exit.i:                    ; preds = %30
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  tail call void @__clang_call_terminate(ptr %44) #16
+  tail call void @__clang_call_terminate(ptr %44) #17
   unreachable
 
 _ZL22alignedSizedDeleteImplPvmSt11align_val_t.exit: ; preds = %.thread, %_ZL13free_fastpathPvmb.exit.i, %3
@@ -1280,8 +1280,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #17
   unreachable
 }
 
@@ -1327,18 +1327,18 @@ define internal fastcc noalias noundef ptr @_ZL9handleOOMmb(i64 noundef %0, i1 n
   br label %.thread23
 
 .preheader:                                       ; preds = %2, %23
-  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #17
+  %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
   %.not.i.i = icmp eq i32 %8, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %9
 
 9:                                                ; preds = %.preheader
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #18
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %8) #19
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
-  %10 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef null) #17
-  %11 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef %10) #17
-  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #17
+  %10 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef null) #18
+  %11 = tail call noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef %10) #18
+  %12 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
   %13 = icmp eq ptr %10, null
   br i1 %13, label %.loopexit, label %14
 
@@ -1351,18 +1351,18 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
           cleanup
           catch ptr @_ZTISt9bad_alloc
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #18
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %15
   %21 = extractvalue { ptr, i32 } %16, 0
-  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #17
+  %22 = tail call ptr @__cxa_begin_catch(ptr %21) #18
   tail call void @__cxa_end_catch()
   br label %.loopexit
 
 23:                                               ; preds = %14
-  %24 = tail call noalias ptr @malloc(i64 noundef %0) #19
+  %24 = tail call noalias ptr @malloc(i64 noundef %0) #20
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.preheader, label %.thread23
 
@@ -1373,7 +1373,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
   br i1 %1, label %.thread23, label %27
 
 27:                                               ; preds = %.loopexit
-  tail call void @_ZSt17__throw_bad_allocv() #18
+  tail call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
 .thread23:                                        ; preds = %23, %.loopexit, %5
@@ -1384,27 +1384,27 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
 declare void @je_safety_check_fail(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef) local_unnamed_addr #8
+declare noundef ptr @_ZSt15set_new_handlerPFvvE(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #9
+declare i32 @llvm.eh.typeid.for.p0(ptr) #10
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
 define internal fastcc noundef ptr @_ZL15fallbackNewImplILb1EEPvm(i64 noundef %0) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
@@ -1427,15 +1427,15 @@ define internal fastcc noundef ptr @_ZL15fallbackNewImplILb1EEPvm(i64 noundef %0
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #16
+  tail call void @__clang_call_terminate(ptr %9) #17
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized,aligned") allocsize(1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @aligned_alloc(i64 allocalign noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #14
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
 
 attributes #0 = { mustprogress nobuiltin allocsize(0) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nobuiltin nounwind allocsize(0) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
