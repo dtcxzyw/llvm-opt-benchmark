@@ -12853,7 +12853,6 @@ call.i.i.i.i.i.noexc:                             ; preds = %sw.bb.i.i
           to label %call5.i.i.i3.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i3.i.i.i.i.i.i.i.noexc:                 ; preds = %call.i.i.i.i.i.noexc
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i.i.i.i710, i64 32) ]
   %_M_use_count.i.i.i.i.i.i.i.i.i700 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i.i710, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i700, align 8, !noalias !208
   %_M_weak_count.i.i.i.i.i.i.i.i.i701 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i.i.i710, i64 12
@@ -12896,7 +12895,6 @@ call.i.i.i.i.noexc711:                            ; preds = %sw.bb3.i.i
           to label %call5.i.i.i3.i.i.i.i.i5.i.i.noexc unwind label %lpad
 
 call5.i.i.i3.i.i.i.i.i5.i.i.noexc:                ; preds = %call.i.i.i.i.noexc711
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i.i5.i.i713, i64 32) ]
   %_M_use_count.i.i.i.i.i.i.i6.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i5.i.i713, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i6.i.i, align 8, !noalias !215
   %_M_weak_count.i.i.i.i.i.i.i7.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i5.i.i713, i64 12
@@ -12939,7 +12937,6 @@ call.i.i14.i.i.noexc:                             ; preds = %sw.bb4.i.i
           to label %call5.i.i.i3.i.i.i.i.i15.i.i.noexc unwind label %lpad
 
 call5.i.i.i3.i.i.i.i.i15.i.i.noexc:               ; preds = %call.i.i14.i.i.noexc
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i.i15.i.i715, i64 32) ]
   %_M_use_count.i.i.i.i.i.i.i16.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i15.i.i715, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i16.i.i, align 8, !noalias !222
   %_M_weak_count.i.i.i.i.i.i.i17.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i15.i.i715, i64 12
@@ -12982,7 +12979,6 @@ call.i.i24.i.i.noexc:                             ; preds = %sw.bb5.i.i
           to label %call5.i.i.i3.i.i.i.i.i25.i.i.noexc unwind label %lpad
 
 call5.i.i.i3.i.i.i.i.i25.i.i.noexc:               ; preds = %call.i.i24.i.i.noexc
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i.i25.i.i717, i64 32) ]
   %_M_use_count.i.i.i.i.i.i.i26.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i25.i.i717, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i26.i.i, align 8, !noalias !229
   %_M_weak_count.i.i.i.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i25.i.i717, i64 12
@@ -13025,7 +13021,6 @@ call.i.i34.i.i.noexc:                             ; preds = %sw.bb6.i.i
           to label %call5.i.i.i3.i.i.i.i.i35.i.i.noexc unwind label %lpad
 
 call5.i.i.i3.i.i.i.i.i35.i.i.noexc:               ; preds = %call.i.i34.i.i.noexc
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i.i35.i.i719, i64 32) ]
   %_M_use_count.i.i.i.i.i.i.i36.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i35.i.i719, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i36.i.i, align 8, !noalias !236
   %_M_weak_count.i.i.i.i.i.i.i37.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i.i35.i.i719, i64 12
@@ -206750,7 +206745,6 @@ entry:
 if.then:                                          ; preds = %entry
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #36, !noalias !2052
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i, i64 32) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2052
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -206778,7 +206772,6 @@ if.else:                                          ; preds = %entry
   %3 = load i64, ptr %value_, align 16
   store i64 %3, ptr %ref.tmp5, align 8
   %call5.i.i.i3.i.i.i.i3 = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #36, !noalias !2055
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i3, i64 32) ]
   %_M_use_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i4, align 8, !noalias !2055
   %_M_weak_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
@@ -213111,7 +213104,6 @@ entry:
 if.then:                                          ; preds = %entry
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #36, !noalias !2097
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i, i64 32) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2097
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -213140,7 +213132,6 @@ if.else:                                          ; preds = %entry
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %ref.tmp5, align 1
   %call5.i.i.i3.i.i.i.i3 = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #36, !noalias !2100
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i3, i64 32) ]
   %_M_use_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i4, align 8, !noalias !2100
   %_M_weak_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
@@ -215648,7 +215639,6 @@ entry:
 if.then:                                          ; preds = %entry
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #36, !noalias !2115
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i, i64 32) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2115
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -215676,7 +215666,6 @@ if.else:                                          ; preds = %entry
   %3 = load i32, ptr %value_, align 32
   store i32 %3, ptr %ref.tmp5, align 4
   %call5.i.i.i3.i.i.i.i3 = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #36, !noalias !2118
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i3, i64 32) ]
   %_M_use_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i4, align 8, !noalias !2118
   %_M_weak_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
@@ -218205,7 +218194,6 @@ entry:
 if.then:                                          ; preds = %entry
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #36, !noalias !2142
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i, i64 32) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2142
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -218233,7 +218221,6 @@ if.else:                                          ; preds = %entry
   %3 = load i8, ptr %value_, align 16
   store i8 %3, ptr %ref.tmp5, align 1
   %call5.i.i.i3.i.i.i.i3 = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #36, !noalias !2145
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i3, i64 32) ]
   %_M_use_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i4, align 8, !noalias !2145
   %_M_weak_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
@@ -220762,7 +220749,6 @@ entry:
 if.then:                                          ; preds = %entry
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #36, !noalias !2169
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i, i64 32) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2169
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -220790,7 +220776,6 @@ if.else:                                          ; preds = %entry
   %3 = load i16, ptr %value_, align 8
   store i16 %3, ptr %ref.tmp5, align 2
   %call5.i.i.i3.i.i.i.i3 = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #36, !noalias !2172
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i3, i64 32) ]
   %_M_use_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i4, align 8, !noalias !2172
   %_M_weak_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
@@ -223319,7 +223304,6 @@ entry:
 if.then:                                          ; preds = %entry
   %index_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #36, !noalias !2196
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i, i64 32) ]
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !2196
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
@@ -223347,7 +223331,6 @@ if.else:                                          ; preds = %entry
   %3 = load i64, ptr %value_, align 16
   store i64 %3, ptr %ref.tmp5, align 8
   %call5.i.i.i3.i.i.i.i3 = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #36, !noalias !2199
-  call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i3, i64 32) ]
   %_M_use_count.i.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i4, align 8, !noalias !2199
   %_M_weak_count.i.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12

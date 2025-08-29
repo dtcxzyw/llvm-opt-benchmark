@@ -188,10 +188,8 @@ mi_thread_data_alloc.exit.thread.i:               ; preds = %mi_thread_data_allo
   %.1.i33.i = phi ptr [ %31, %mi_thread_data_alloc.exit.i ], [ %26, %25 ], [ %29, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.1.i33.i, i64 3056
   call void @llvm.assume(i1 true) [ "align"(ptr %32, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @tld_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %32, ptr noundef nonnull readonly align 64 dereferenceable(1536) @tld_empty, i64 range(i64 1536, 3057) 1536, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %.1.i33.i, i64 8) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3056) %.1.i33.i, ptr noundef nonnull readonly align 64 dereferenceable(3056) @_mi_heap_empty, i64 range(i64 1536, 3057) 3056, i1 false)
   %33 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #11, !srcloc !14
   %34 = ptrtoint ptr %33 to i64

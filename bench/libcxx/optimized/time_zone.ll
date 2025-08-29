@@ -26081,7 +26081,7 @@ define internal fastcc { i64, ptr } @_ZNSt3__16chronoL11__next_ruleB8ne210000ENS
   %47 = load ptr, ptr %46, align 8, !tbaa !150
   call void @llvm.assume(i1 true) [ "align"(ptr %47, i64 8) ]
   %48 = icmp eq ptr %45, %47
-  br i1 %48, label %.loopexit, label %.lr.ph113, !prof !779
+  br i1 %48, label %.critedge23, label %.lr.ph113, !prof !779
 
 .lr.ph113:                                        ; preds = %5
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -26093,7 +26093,7 @@ define internal fastcc { i64, ptr } @_ZNSt3__16chronoL11__next_ruleB8ne210000ENS
 ._crit_edge:                                      ; preds = %.loopexit78
   %.pre133 = load i64, ptr %52, align 8, !tbaa !233
   %53 = icmp eq i64 %.pre133, 0
-  br i1 %53, label %.loopexit, label %245, !prof !780
+  br i1 %53, label %.critedge23, label %245, !prof !780
 
 54:                                               ; preds = %.lr.ph113, %.loopexit78
   %.sroa.051.0111 = phi ptr [ %45, %.lr.ph113 ], [ %242, %.loopexit78 ]
@@ -26576,7 +26576,7 @@ _ZNSt3__127__tree_balance_after_insertB8ne210000IPNS_16__tree_node_baseIPvEEEEvT
 
 .preheader:                                       ; preds = %245
   %.not68115 = icmp eq ptr %246, %44
-  br i1 %.not68115, label %.loopexit, label %.lr.ph117
+  br i1 %.not68115, label %.critedge23, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.preheader
   %248 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -26663,16 +26663,11 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
 _ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPNS_11__tree_nodeISH_PvEElEEEppB8ne210000Ev.exit: ; preds = %.preheader8.i.i.i, %.preheader.i.i.i32
   %.06.i.i.i = phi ptr [ %296, %.preheader.i.i.i32 ], [ %.0.i.i.i.i, %.preheader8.i.i.i ]
   %.not68 = icmp eq ptr %.06.i.i.i, %44
-  br i1 %.not68, label %.loopexit, label %260
+  br i1 %.not68, label %.critedge23, label %260
 
-.loopexit:                                        ; preds = %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPNS_11__tree_nodeISH_PvEElEEEppB8ne210000Ev.exit, %5, %.preheader, %._crit_edge
-  %.lcssa98164 = phi ptr [ %243, %.preheader ], [ %243, %._crit_edge ], [ %47, %5 ], [ %243, %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPNS_11__tree_nodeISH_PvEElEEEppB8ne210000Ev.exit ]
-  call void @llvm.assume(i1 true) [ "align"(ptr %.lcssa98164, i64 8) ]
-  br label %.critedge23
-
-.critedge23:                                      ; preds = %254, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread, %.loopexit
-  %.sroa.066.0 = phi i64 [ 9223372036854775807, %.loopexit ], [ %256, %254 ], [ %290, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread ]
-  %.sroa.4.0 = phi ptr [ %.lcssa98164, %.loopexit ], [ %259, %254 ], [ %262, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread ]
+.critedge23:                                      ; preds = %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPNS_11__tree_nodeISH_PvEElEEEppB8ne210000Ev.exit, %5, %._crit_edge, %.preheader, %254, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread
+  %.sroa.066.0 = phi i64 [ %256, %254 ], [ %290, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread ], [ 9223372036854775807, %.preheader ], [ 9223372036854775807, %._crit_edge ], [ 9223372036854775807, %5 ], [ 9223372036854775807, %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPNS_11__tree_nodeISH_PvEElEEEppB8ne210000Ev.exit ]
+  %.sroa.4.0 = phi ptr [ %259, %254 ], [ %262, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EESB_.exit.thread ], [ %243, %.preheader ], [ %243, %._crit_edge ], [ %47, %5 ], [ %243, %_ZNSt3__114__map_iteratorINS_15__tree_iteratorINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPNS_11__tree_nodeISH_PvEElEEEppB8ne210000Ev.exit ]
   %299 = load ptr, ptr %44, align 8, !tbaa !781
   call void @_ZNSt3__16__treeINS_12__value_typeINS_6chrono10time_pointINS2_12system_clockENS2_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS2_4__tz6__ruleEEEEENS_19__map_value_compareIS9_NS_4pairIKS9_SF_EENS_4lessIS9_EELb1EEENS_9allocatorISK_EEE7destroyB8ne210000EPNS_11__tree_nodeISG_PvEE(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef %299) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
