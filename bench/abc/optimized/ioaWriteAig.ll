@@ -476,10 +476,10 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, 
   %21 = icmp sgt i32 %.val, 1
   br i1 %21, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %Ioa_WriteAigerEncode.exit, %46
+.lr.ph:                                           ; preds = %Ioa_WriteAigerEncode.exit, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 1, %Ioa_WriteAigerEncode.exit ]
-  %22 = phi i32 [ %47, %46 ], [ %spec.store.select.i, %Ioa_WriteAigerEncode.exit ]
-  %23 = phi ptr [ %48, %46 ], [ %.promoted, %Ioa_WriteAigerEncode.exit ]
+  %22 = phi i32 [ %48, %46 ], [ %spec.store.select.i, %Ioa_WriteAigerEncode.exit ]
+  %23 = phi ptr [ %49, %46 ], [ %.promoted, %Ioa_WriteAigerEncode.exit ]
   %.02955 = phi i32 [ %.029, %46 ], [ %.02951, %Ioa_WriteAigerEncode.exit ]
   %.03053 = phi i32 [ %25, %46 ], [ %12, %Ioa_WriteAigerEncode.exit ]
   %.val34 = load ptr, ptr %11, align 8, !tbaa !21
@@ -495,55 +495,55 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, 
   br i1 %.not11.i38, label %Ioa_WriteAigerEncode.exit48, label %.lr.ph.preheader.i39
 
 .lr.ph.preheader.i39:                             ; preds = %.lr.ph
-  %32 = sext i32 %.02955 to i64
+  %33 = sext i32 %.02955 to i64
   br label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i40, %.lr.ph.preheader.i39
-  %indvars.iv.i41 = phi i64 [ %32, %.lr.ph.preheader.i39 ], [ %indvars.iv.next.i43, %.lr.ph.i40 ]
-  %.013.i42 = phi i32 [ %31, %.lr.ph.preheader.i39 ], [ %36, %.lr.ph.i40 ]
-  %33 = trunc i32 %.013.i42 to i8
-  %34 = or i8 %33, -128
+  %indvars.iv.i41 = phi i64 [ %33, %.lr.ph.preheader.i39 ], [ %indvars.iv.next.i43, %.lr.ph.i40 ]
+  %.013.i42 = phi i32 [ %31, %.lr.ph.preheader.i39 ], [ %37, %.lr.ph.i40 ]
+  %34 = trunc i32 %.013.i42 to i8
+  %35 = or i8 %34, -128
   %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i41, 1
-  %35 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i41
-  store i8 %34, ptr %35, align 1, !tbaa !3
-  %36 = lshr i32 %.013.i42, 7
+  %36 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv.i41
+  store i8 %35, ptr %36, align 1, !tbaa !3
+  %37 = lshr i32 %.013.i42, 7
   %.not.i44 = icmp ult i32 %.013.i42, 16384
   br i1 %.not.i44, label %._crit_edge.loopexit.i45, label %.lr.ph.i40, !llvm.loop !6
 
 ._crit_edge.loopexit.i45:                         ; preds = %.lr.ph.i40
-  %37 = trunc nsw i64 %indvars.iv.next.i43 to i32
+  %38 = trunc nsw i64 %indvars.iv.next.i43 to i32
   br label %Ioa_WriteAigerEncode.exit48
 
 Ioa_WriteAigerEncode.exit48:                      ; preds = %.lr.ph, %._crit_edge.loopexit.i45
-  %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
-  %.0.lcssa.i47 = phi i32 [ %31, %.lr.ph ], [ %36, %._crit_edge.loopexit.i45 ]
-  %38 = trunc nuw nsw i32 %.0.lcssa.i47 to i8
-  %39 = sext i32 %.010.lcssa.i46 to i64
-  %40 = getelementptr inbounds i8, ptr %23, i64 %39
-  store i8 %38, ptr %40, align 1, !tbaa !3
-  %41 = add nsw i32 %.010.lcssa.i46, 11
-  %42 = icmp sgt i32 %41, %22
-  br i1 %42, label %Vec_StrGrow.exit, label %46
+  %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %38, %._crit_edge.loopexit.i45 ]
+  %.0.lcssa.i47 = phi i32 [ %31, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
+  %39 = trunc nuw nsw i32 %.0.lcssa.i47 to i8
+  %40 = sext i32 %.010.lcssa.i46 to i64
+  %41 = getelementptr inbounds i8, ptr %23, i64 %40
+  store i8 %39, ptr %41, align 1, !tbaa !3
+  %42 = add nsw i32 %.010.lcssa.i46, 11
+  %43 = icmp sgt i32 %42, %22
+  br i1 %43, label %Vec_StrGrow.exit, label %47
 
 Vec_StrGrow.exit:                                 ; preds = %Ioa_WriteAigerEncode.exit48
-  %43 = add nsw i32 %22, 1
-  %44 = sext i32 %43 to i64
-  %45 = tail call ptr @realloc(ptr noundef nonnull %23, i64 noundef %44) #12
-  br label %46
+  %44 = add nsw i32 %22, 1
+  %45 = sext i32 %44 to i64
+  %46 = tail call ptr @realloc(ptr noundef nonnull %23, i64 noundef %45) #12
+  br label %47
 
-46:                                               ; preds = %Ioa_WriteAigerEncode.exit48, %Vec_StrGrow.exit
-  %47 = phi i32 [ %22, %Ioa_WriteAigerEncode.exit48 ], [ %43, %Vec_StrGrow.exit ]
-  %48 = phi ptr [ %23, %Ioa_WriteAigerEncode.exit48 ], [ %45, %Vec_StrGrow.exit ]
+47:                                               ; preds = %Ioa_WriteAigerEncode.exit48, %Vec_StrGrow.exit
+  %48 = phi i32 [ %22, %Ioa_WriteAigerEncode.exit48 ], [ %44, %Vec_StrGrow.exit ]
+  %49 = phi ptr [ %23, %Ioa_WriteAigerEncode.exit48 ], [ %46, %Vec_StrGrow.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.029 = add nsw i32 %.010.lcssa.i46, 1
   %.val32 = load i32, ptr %2, align 4, !tbaa !17
-  %49 = sext i32 %.val32 to i64
-  %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !42
+  %50 = sext i32 %.val32 to i64
+  %51 = icmp slt i64 %indvars.iv.next, %50
+  br i1 %51, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !42
 
-..critedge_crit_edge:                             ; preds = %46
-  store ptr %48, ptr %10, align 8
-  store i32 %47, ptr %4, align 8
+..critedge_crit_edge:                             ; preds = %47
+  store ptr %49, ptr %10, align 8
+  store i32 %48, ptr %4, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %Ioa_WriteAigerEncode.exit
@@ -2394,22 +2394,22 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
