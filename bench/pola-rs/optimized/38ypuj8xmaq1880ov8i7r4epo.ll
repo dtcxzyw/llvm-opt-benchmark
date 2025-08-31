@@ -66873,7 +66873,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h89d3b1ceb9f7154
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h93e5282e53720cedE.exit": ; preds = %.lr.ph.i
   store i64 2, ptr %0, align 8
-  br label %55
+  br label %54
 
 .loopexit:                                        ; preds = %15, %3
   %19 = phi ptr [ %8, %3 ], [ %14, %15 ]
@@ -66955,18 +66955,17 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h89d3b1ceb9f7154
   %52 = load i64, ptr %5, align 8, !noundef !3
   call void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h165b251e39255100E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %51, i64 noundef %52)
   %53 = load i64, ptr %0, align 8, !range !316, !noundef !3
-  %.not2 = icmp eq i64 %53, 2
-  %54 = trunc nuw i64 %53 to i1
-  %or.cond = select i1 %.not2, i1 true, i1 %54
-  br i1 %or.cond, label %55, label %56
+  %.off = add nsw i64 %53, -1
+  %switch = icmp ult i64 %.off, 2
+  br i1 %switch, label %54, label %55
 
-55:                                               ; preds = %56, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit", %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h93e5282e53720cedE.exit"
+54:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit", %55, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h93e5282e53720cedE.exit"
   ret void
 
-56:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit"
-  %57 = add i64 %52, 1
-  store i64 %57, ptr %5, align 8
-  br label %55
+55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit"
+  %56 = add i64 %52, 1
+  store i64 %56, ptr %5, align 8
+  br label %54
 }
 
 ; Function Attrs: nonlazybind uwtable

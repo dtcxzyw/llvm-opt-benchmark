@@ -2278,102 +2278,101 @@ define hidden void @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuild
   %19 = tail call noundef nonnull align 8 ptr %18(ptr noundef nonnull align 1 %14), !noalias !327
   %20 = tail call i24 @_ZN21ruff_python_formatter7context15PyFormatContext14f_string_state17hcaf129e52b9320f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19), !noalias !327
   %21 = tail call noundef i8 @_ZN21ruff_python_formatter7context12FStringState23can_contain_line_breaks17h4694e0cb0b61e524E(i24 %20), !noalias !327
-  %.not.i = icmp eq i8 %21, 2
-  %22 = trunc nuw i8 %21 to i1
-  %.sroa.0.0.not.i = select i1 %.not.i, i1 true, i1 %22
-  br i1 %.sroa.0.0.not.i, label %23, label %27
+  %.off.i = add nsw i8 %21, -1
+  %switch.i = icmp ult i8 %.off.i, 2
+  br i1 %switch.i, label %22, label %26
 
-23:                                               ; preds = %13
-  %24 = load i32, ptr %1, align 8, !range !329, !noalias !327, !noundef !3
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %26 = load i32, ptr %25, align 4, !noalias !327
-  %switch.i.not.i = icmp eq i32 %24, 0
-  br i1 %switch.i.not.i, label %56, label %28
+22:                                               ; preds = %13
+  %23 = load i32, ptr %1, align 8, !range !329, !noalias !327, !noundef !3
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %25 = load i32, ptr %24, align 4, !noalias !327
+  %switch.i.not.i = icmp eq i32 %23, 0
+  br i1 %switch.i.not.i, label %55, label %27
 
-27:                                               ; preds = %13
+26:                                               ; preds = %13
   store i32 4, ptr %0, align 8, !alias.scope !324, !noalias !330
   br label %"_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish28_$u7b$$u7b$closure$u7d$$u7d$17hd5cc796837c48dd2E.exit"
 
-28:                                               ; preds = %23
-  %29 = load i32, ptr %10, align 8, !noalias !327, !noundef !3
-  %.not9.i = icmp ugt i32 %26, %29
-  br i1 %.not9.i, label %30, label %31, !prof !331
+27:                                               ; preds = %22
+  %28 = load i32, ptr %10, align 8, !noalias !327, !noundef !3
+  %.not9.i = icmp ugt i32 %25, %28
+  br i1 %.not9.i, label %29, label %30, !prof !331
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.ed451865e034dc40a72258bf1311dc2e.26, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ed451865e034dc40a72258bf1311dc2e.28) #19, !noalias !327
   unreachable
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %9, align 8, !noalias !327, !nonnull !3, !align !4, !noundef !3
-  %33 = load ptr, ptr %15, align 8, !noalias !327, !nonnull !3, !align !5, !noundef !3
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load ptr, ptr %34, align 8, !invariant.load !3, !noalias !327, !nonnull !3
-  %36 = tail call noundef nonnull align 8 ptr %35(ptr noundef nonnull align 1 %32), !noalias !327
-  %37 = tail call noundef align 2 dereferenceable(16) ptr @"_ZN97_$LT$ruff_python_formatter..context..PyFormatContext$u20$as$u20$ruff_formatter..FormatContext$GT$7options17h0a38033fd8b6ccd7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %36), !noalias !327
-  %38 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter7options15PyFormatOptions20magic_trailing_comma17h6b4085e2730e2a31E(ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %37), !noalias !327
-  br i1 %38, label %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, label %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %9, align 8, !noalias !327, !nonnull !3, !align !4, !noundef !3
+  %32 = load ptr, ptr %15, align 8, !noalias !327, !nonnull !3, !align !5, !noundef !3
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %34 = load ptr, ptr %33, align 8, !invariant.load !3, !noalias !327, !nonnull !3
+  %35 = tail call noundef nonnull align 8 ptr %34(ptr noundef nonnull align 1 %31), !noalias !327
+  %36 = tail call noundef align 2 dereferenceable(16) ptr @"_ZN97_$LT$ruff_python_formatter..context..PyFormatContext$u20$as$u20$ruff_formatter..FormatContext$GT$7options17h0a38033fd8b6ccd7E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %35), !noalias !327
+  %37 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter7options15PyFormatOptions20magic_trailing_comma17h6b4085e2730e2a31E(ptr noalias noundef nonnull readonly align 2 dereferenceable(16) %36), !noalias !327
+  br i1 %37, label %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, label %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i
 
-_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i: ; preds = %31
-  %39 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter5other6commas18has_trailing_comma17he0505ebec769a3cfE(i32 noundef %26, i32 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %36), !noalias !327
-  br i1 %39, label %43, label %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i
+_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i: ; preds = %30
+  %38 = tail call noundef zeroext i1 @_ZN21ruff_python_formatter5other6commas18has_trailing_comma17he0505ebec769a3cfE(i32 noundef %25, i32 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %35), !noalias !327
+  br i1 %38, label %42, label %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i
 
-_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i: ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i, %31
-  %40 = load i8, ptr %11, align 4, !range !23, !noalias !327, !noundef !3
-  %41 = trunc nuw i8 %40 to i1
-  %42 = icmp eq i32 %24, 2
-  %or.cond = or i1 %42, %41
-  br i1 %or.cond, label %43, label %56
+_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i: ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i, %30
+  %39 = load i8, ptr %11, align 4, !range !23, !noalias !327, !noundef !3
+  %40 = trunc nuw i8 %39 to i1
+  %41 = icmp eq i32 %23, 2
+  %or.cond = or i1 %41, %40
+  br i1 %or.cond, label %42, label %55
 
-43:                                               ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i
+42:                                               ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i
   %.sroa.0.0.i13.i = phi i1 [ false, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i ], [ true, %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !327
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !327
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !327
   store ptr @anon.ed451865e034dc40a72258bf1311dc2e.30, ptr %4, align 8, !noalias !327
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %44, align 8, !noalias !327
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %43, align 8, !noalias !327
   store ptr %4, ptr %5, align 8, !noalias !327
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.31, ptr %45, align 8, !noalias !327
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %46, align 8, !noalias !327
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 1, ptr %47, align 4, !noalias !327
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @anon.ed451865e034dc40a72258bf1311dc2e.31, ptr %44, align 8, !noalias !327
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 0, ptr %45, align 8, !noalias !327
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 1, ptr %46, align 4, !noalias !327
   call void @"_ZN112_$LT$ruff_formatter..builders..IfGroupBreaks$LT$Context$GT$$u20$as$u20$ruff_formatter..Format$LT$Context$GT$$GT$3fmt17hcfab2ce9e280b783E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !327
-  %48 = load i32, ptr %6, align 8, !range !15, !noalias !327, !noundef !3
-  %.not10.i = icmp eq i32 %48, 4
-  br i1 %.not10.i, label %50, label %49
+  %47 = load i32, ptr %6, align 8, !range !15, !noalias !327, !noundef !3
+  %.not10.i = icmp eq i32 %47, 4
+  br i1 %.not10.i, label %49, label %48
 
-49:                                               ; preds = %43
+48:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !330
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !327
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !327
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !327
   br label %"_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish28_$u7b$$u7b$closure$u7d$$u7d$17hd5cc796837c48dd2E.exit"
 
-50:                                               ; preds = %43
+49:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !327
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !327
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !327
-  br i1 %.sroa.0.0.i13.i, label %51, label %56
+  br i1 %.sroa.0.0.i13.i, label %50, label %55
 
-51:                                               ; preds = %50
+50:                                               ; preds = %49
   call void @_ZN14ruff_formatter8builders13expand_parent17hdeaa044e3ed54820E(), !noalias !327
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !327
   store i8 2, ptr %3, align 8, !noalias !327
-  %52 = load ptr, ptr %9, align 8, !noalias !327, !nonnull !3, !align !4, !noundef !3
-  %53 = load ptr, ptr %15, align 8, !noalias !327, !nonnull !3, !align !5, !noundef !3
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %55 = load ptr, ptr %54, align 8, !invariant.load !3, !noalias !327, !nonnull !3
-  call void %55(ptr noundef nonnull align 1 %52, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !327
+  %51 = load ptr, ptr %9, align 8, !noalias !327, !nonnull !3, !align !4, !noundef !3
+  %52 = load ptr, ptr %15, align 8, !noalias !327, !nonnull !3, !align !5, !noundef !3
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8, !invariant.load !3, !noalias !327, !nonnull !3
+  call void %54(ptr noundef nonnull align 1 %51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !327
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !327
-  br label %56
+  br label %55
 
-56:                                               ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, %51, %50, %23
+55:                                               ; preds = %_ZN21ruff_python_formatter5other6commas24has_magic_trailing_comma17ha2fe56ece1ede039E.exit.thread.i, %50, %49, %22
   store i32 4, ptr %0, align 8, !alias.scope !324, !noalias !330
   br label %"_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish28_$u7b$$u7b$closure$u7d$$u7d$17hd5cc796837c48dd2E.exit"
 
-"_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish28_$u7b$$u7b$closure$u7d$$u7d$17hd5cc796837c48dd2E.exit": ; preds = %56, %49, %27, %12
+"_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish28_$u7b$$u7b$closure$u7d$$u7d$17hd5cc796837c48dd2E.exit": ; preds = %55, %48, %26, %12
   ret void
 }
 
